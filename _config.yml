@@ -20,10 +20,10 @@ title                    : "Mohitto55 Note"
 title_separator          : "|"
 subtitle                 : "small positive action"
 name                     : "Mohitto55"
-description              : "Mohitto's Note'"
+description              : "Î™®ÌûàÎòêÏùò ÎÖ∏Ìä∏"
 url                      : "https://mohitto55.github.io"
-baseurl                  : # the subpath of your site, e.g. "/blog"
-repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
+baseurl                  : # "/blog"
+repository               : "https://github.com/mohitto55/mohitto55.github.io"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 logo                     : "/assets/images/mohitto.jpg"
 masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
@@ -106,13 +106,13 @@ analytics:
 author:
   name             : "Mohitto55"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "∏»˜∂«¿« ≥Î∆Æ"
+  bio              : "Mohitto's Note'"
   location         : "South Korea"
   email            : "mohitto55@gmail.com"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
-      # url: "mailto:your.name@email.com"
+      url: mailto:mohitto55@gmail.com
     - label: "Website"
       icon: "fas fa-fw fa-link"
       # url: "https://your-website.com"
@@ -124,7 +124,7 @@ author:
       # url: "https://facebook.com/"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      # url: "https://github.com/"
+      url: "https://github.com/mohitto55"
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
       # url: "https://instagram.com/"
@@ -140,7 +140,7 @@ footer:
       # url:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      # url:
+      url: "https://github.com/mohitto55"
     - label: "GitLab"
       icon: "fab fa-fw fa-gitlab"
       # url:
