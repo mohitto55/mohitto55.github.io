@@ -2,9 +2,11 @@
   "ExpandedNodes": [
     "",
     "\\_data",
+    "\\_pages",
     "\\_posts",
     "\\_sass",
     "\\_sass\\minimal-mistakes"
   ],
+  "SelectedNode": "\\_pages\\tag-archive.md",
   "PreviewInSolutionExplorer": false
 }
