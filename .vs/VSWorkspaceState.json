@@ -1,7 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\_data",
+    "\\_posts",
+    "\\_sass",
+    "\\_sass\\minimal-mistakes"
   ],
-  "SelectedNode": "\\_config.yml",
+  "SelectedNode": "\\_sass\\minimal-mistakes\\_base.scss",
   "PreviewInSolutionExplorer": false
 }
