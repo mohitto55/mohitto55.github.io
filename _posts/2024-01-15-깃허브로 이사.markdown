@@ -3,6 +3,7 @@ title : "깃허브로 이사"
 categories: Git_Blog
 tags:
 - Blog
+toc: true
 ---
 
 # 첫 깃허브 블로그 개설
