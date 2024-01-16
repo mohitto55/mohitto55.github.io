@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
-<loc>http://localhost:4000/git/blog/%EA%B9%83%ED%97%88%EB%B8%8C%EB%A1%9C-%EC%9D%B4%EC%82%AC/</loc>
+<loc>http://localhost:4000/git_blog/%EA%B9%83%ED%97%88%EB%B8%8C%EB%A1%9C-%EC%9D%B4%EC%82%AC/</loc>
 <lastmod>2024-01-15T00:00:00+09:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/git_blog/%EC%82%AC%EC%9D%B4%EB%93%9C%EB%B0%94-%EC%B6%94%EA%B0%80/</loc>
+<lastmod>2024-01-16T00:00:00+09:00</lastmod>
 </url>
 <url>
 <loc>http://localhost:4000/archive-layout-with-content/</loc>
@@ -67,5 +71,9 @@
 </url>
 <url>
 <loc>http://localhost:4000/year-archive/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/google401b5071157adc81.html</loc>
+<lastmod>2024-01-16T04:30:56+09:00</lastmod>
 </url>
 </urlset>

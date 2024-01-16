@@ -1,0 +1,69 @@
+---
+title : "Minimal Mistakes 사이드바 추가하기"
+categories: Git_Blog
+tags: [Blog, Jekyll, MinimalMistake]
+toc: true
+author_profile: false
+sidebar:
+  nav: "docs"
+---
+
+# 사이드바
+
+Minimal-Mistakes 테마를 이용해 사이드바를 만들어 볼 것이다.
+
+### 1. 사이드바 옵션 설정
+
+사이드바를 만들기 전에 사이드바 내용을 정해줘야 한다.
+
+`_data/navigation.yml` 파일을 들어가자. `_data` 폴더는 블로그에서 사용할 데이터들을 모아 놓는 폴더이고 `navigation.yml`은 navigation에 필요한 데이터를 저장하는 파일이다. 
+
+파일에 들어가면 **main** 이라고 쓰인 오브젝트가 있을 것이다. 네비게이션에 쓰일 기본 데이터다.
+
+```
+main:
+  - title: "Category"
+    url: /categories/
+  - title: "Tag"
+    url: /tags/
+```
+적혀 있는 걸 확인 했으면 다른 오브젝트를 하나더 만든다.
+
+```
+오브젝트이름:
+    - title: "대목차 이름"
+      children:
+        - title: "이름"
+          url: main 오브젝트 주소
+        - title: "Tag"
+          url: /tags/
+```
+이 오브젝트는 사이드바에 표시 될 목록 오브젝트다.
+
+여기에 쓰여진 대로 사이드바가 생성 될 것이다.
+
+
+
+---
+
+
+
+### 2. 프론트매터 입력
+
+이제 포스트 마크다운 파일로 가서 프론트매터를 작성한다. 
+```
+---
+...
+
+author_profile: false
+sidebar:
+	nav: "navigation.yml에 쓴 오브젝트 이름"
+---
+```
+Profile이 사라지게 하기 위해 `author_profile`을 false로 설정해주고 `sidebar`을 추가해 아까 작성한 오브젝트의 이름을 넣어준다. 이제 로컬서버를 실행시켜서 확인을 해보면
+
+
+
+![SideBar Category](https://github.com/mohitto55/mohitto55.github.io/assets/154340583/525e23a5-d127-4e75-aed2-f288870a0cda)
+
+잘 적용 된 것을 볼 수 있다.
