@@ -1,0 +1,36 @@
+---
+title : "[Git Blog] invalid byte sequence in UTF-8 해결법"
+categories: Git_Blog
+tags: [Blog, Jekyll, MinimalMistake, UTF-8]
+toc: true
+author_profile: false
+sidebar:
+  nav: "docs"
+
+
+---
+
+
+
+---
+
+
+
+## UTF-8 Error
+
+열심히 유튜브를 보며 깃블로그 작성법을 공부하던 도중 `bundle exec jeakll serve`를 이용해 로컬서버를 돌리려는데 시작도 못하고 에러가 발생해 중지되었다.
+
+에러 코드를 봤더니 `invalid byte sequence in UTF-8` 라고 나왔다. 검색을 통해 알아보니 파일 인코딩이 UTF-8이 아니라 다른 인코딩으로 되어있어서 발생하는 오류였다.
+
+나는 **Visual studio 2022** 로 글을 작성 중이였는데 **ANSI**로 인코딩이 되고있던 것이였다.
+
+
+
+---
+
+
+
+## Solutions
+
+해결법은 **Visual studio** 인코딩을 UTF-8로 바꿔주거나 **VSCode**를 사용하면 된다.
+

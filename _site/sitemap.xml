@@ -5,6 +5,10 @@
 <lastmod>2024-01-15T00:00:00+09:00</lastmod>
 </url>
 <url>
+<loc>http://localhost:4000/git_blog/UTF-8-ERROR/</loc>
+<lastmod>2024-01-16T00:00:00+09:00</lastmod>
+</url>
+<url>
 <loc>http://localhost:4000/git_blog/%EC%82%AC%EC%9D%B4%EB%93%9C%EB%B0%94-%EC%B6%94%EA%B0%80/</loc>
 <lastmod>2024-01-16T00:00:00+09:00</lastmod>
 </url>
@@ -55,6 +59,9 @@
 </url>
 <url>
 <loc>http://localhost:4000/sample-page/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/search/</loc>
 </url>
 <url>
 <loc>http://localhost:4000/sitemap/</loc>

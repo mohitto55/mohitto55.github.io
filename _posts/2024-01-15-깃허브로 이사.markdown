@@ -1,5 +1,5 @@
 ---
-title : "깃허브로 이사"
+title : "[Git Blog]깃허브로 이사"
 categories: Git_Blog
 tags: [Blog]
 toc: true

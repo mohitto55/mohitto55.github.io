@@ -1,5 +1,5 @@
 ---
-title : "Minimal Mistakes 사이드바 추가하기"
+title : "[Git Blog] Minimal Mistakes 사이드바 추가하기"
 categories: Git_Blog
 tags: [Blog, Jekyll, MinimalMistake]
 toc: true
