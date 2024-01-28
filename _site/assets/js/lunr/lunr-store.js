@@ -28,4 +28,10 @@ var store = [{
         "tags": ["Blog","Jekyll","MinimalMistake","CSS"],
         "url": "/git_blog/Git-blog-css%EC%A0%81%EC%9A%A9%EB%B2%95/",
         "teaser": null
+      },{
+        "title": "[Git] non-fast-forward Error",
+        "excerpt":"! [rejected] main -&gt; main (non-fast-forward) error: failed to push some refs to 'https://github.com/mohitto55/Until2023.git' hint: Updates were rejected because the tip of your current branch is behind hint: its remote counterpart. Integrate the remote changes (e.g. hint: 'git pull ...') before pushing again. hint: See the 'Note about fast-forwards' in...","categories": ["Git"],
+        "tags": ["Git","Error"],
+        "url": "/git/Git-non-fast-forward-Error/",
+        "teaser": null
       }]

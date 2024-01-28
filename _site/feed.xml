@@ -1,4 +1,28 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-01-28T20:47:34+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mohitto55 Note</title><subtitle>모히또의 노트</subtitle><author><name>Mohitto55</name><email>mohitto55@gmail.com</email></author><entry><title type="html">[Git Blog] Blog CSS 적용하는 법</title><link href="http://localhost:4000/git_blog/Git-blog-css%EC%A0%81%EC%9A%A9%EB%B2%95/" rel="alternate" type="text/html" title="[Git Blog] Blog CSS 적용하는 법" /><published>2024-01-28T00:00:00+09:00</published><updated>2024-01-28T00:00:00+09:00</updated><id>http://localhost:4000/git_blog/Git%20blog%20css%EC%A0%81%EC%9A%A9%EB%B2%95</id><content type="html" xml:base="http://localhost:4000/git_blog/Git-blog-css%EC%A0%81%EC%9A%A9%EB%B2%95/"><![CDATA[<p>Git blog의 장점중 하나는 유저가 원하는 대로 커스터마이징 가능하다는 점이다. 내가 Git blog로 넘어온 이유도 다른 블로그들에 비해 독창적인 디자인의 블로그 비중이 Git으로 만든 블로그들이 많기 때문이다. 자유롭게 블로그를 꾸밀 수 있게 해주는 GIt blog의 기능 중 하나는 커스텀 CSS 덕분이다. 이 포스트에서는 <strong>MinimalMistake</strong> 테마에서 어떻게 CSS를 적용, 수정하는지 알아볼 것이다.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-01-28T21:07:51+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mohitto55 Note</title><subtitle>모히또의 노트</subtitle><author><name>Mohitto55</name><email>mohitto55@gmail.com</email></author><entry><title type="html">[Git] non-fast-forward Error</title><link href="http://localhost:4000/git/Git-non-fast-forward-Error/" rel="alternate" type="text/html" title="[Git] non-fast-forward Error" /><published>2024-01-28T00:00:00+09:00</published><updated>2024-01-28T00:00:00+09:00</updated><id>http://localhost:4000/git/Git%20non-fast-forward%20Error</id><content type="html" xml:base="http://localhost:4000/git/Git-non-fast-forward-Error/"><![CDATA[<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> ! [rejected]        main -&gt; main (non-fast-forward)
+error: failed to push some refs to 'https://github.com/mohitto55/Until2023.git'
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. Integrate the remote changes (e.g.
+hint: 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+</code></pre></div></div>
+
+<h2 id="발생원인">발생원인</h2>
+<ul>
+  <li>git push -u origin main   로 로컬 저장소와 연결 시도</li>
+</ul>
+
+<h2 id="solutions">Solutions</h2>
+<ul>
+  <li>깃허브 저장소를 만들 때 READ.me 파일을 만들어서 생기는 오류.</li>
+  <li>데이터 유실등의 이유로 git에서 통합을 막아서 발생하는 것이다.</li>
+  <li>임시방편으로 +를 붙이면 된다.</li>
+  <li>git push -u origin +main</li>
+</ul>
+
+<h2 id="references">References</h2>
+<ul>
+  <li><a href="https://doozi316.github.io/errorlog/2019/09/30/error1/">Git push 오류 해결</a></li>
+</ul>]]></content><author><name>Mohitto55</name><email>mohitto55@gmail.com</email></author><category term="Git" /><category term="Git" /><category term="Error" /><summary type="html"><![CDATA[! [rejected] main -&gt; main (non-fast-forward) error: failed to push some refs to 'https://github.com/mohitto55/Until2023.git' hint: Updates were rejected because the tip of your current branch is behind hint: its remote counterpart. Integrate the remote changes (e.g. hint: 'git pull ...') before pushing again. hint: See the 'Note about fast-forwards' in 'git push --help' for details.]]></summary></entry><entry><title type="html">[Git Blog] Blog CSS 적용하는 법</title><link href="http://localhost:4000/git_blog/Git-blog-css%EC%A0%81%EC%9A%A9%EB%B2%95/" rel="alternate" type="text/html" title="[Git Blog] Blog CSS 적용하는 법" /><published>2024-01-28T00:00:00+09:00</published><updated>2024-01-28T00:00:00+09:00</updated><id>http://localhost:4000/git_blog/Git%20blog%20css%EC%A0%81%EC%9A%A9%EB%B2%95</id><content type="html" xml:base="http://localhost:4000/git_blog/Git-blog-css%EC%A0%81%EC%9A%A9%EB%B2%95/"><![CDATA[<p>Git blog의 장점중 하나는 유저가 원하는 대로 커스터마이징 가능하다는 점이다. 내가 Git blog로 넘어온 이유도 다른 블로그들에 비해 독창적인 디자인의 블로그 비중이 Git으로 만든 블로그들이 많기 때문이다. 자유롭게 블로그를 꾸밀 수 있게 해주는 GIt blog의 기능 중 하나는 커스텀 CSS 덕분이다. 이 포스트에서는 <strong>MinimalMistake</strong> 테마에서 어떻게 CSS를 적용, 수정하는지 알아볼 것이다.</p>
 
 <h2 id="css-파일-위치">CSS 파일 위치</h2>
 <p><strong>MinimalMistake</strong>의 CSS 파일들은 루트폴더에서 <strong>_sass/minimal-mistakes</strong>폴더 안에 있다. 안에 있는 <strong>.scss</strong> 확장자 파일들이 있는데 이것이 CSS 파일이다. 각 파일들은 블로그를 구성하는 여러 구조들의 외관을 어떻게 표현할지 적혀져있다.</p>
@@ -22,54 +46,7 @@
   </li>
   <li>CSS코드는 <strong>_sass/minimal-mistakes</strong> 폴더 안에 있다.</li>
   <li>변수는 <strong>_sass/_variables.scss</strong> 파일에 정의되어 있다.</li>
-</ul>]]></content><author><name>Mohitto55</name><email>mohitto55@gmail.com</email></author><category term="Git_Blog" /><category term="Blog" /><category term="Jekyll" /><category term="MinimalMistake" /><category term="CSS" /><summary type="html"><![CDATA[Git blog의 장점중 하나는 유저가 원하는 대로 커스터마이징 가능하다는 점이다. 내가 Git blog로 넘어온 이유도 다른 블로그들에 비해 독창적인 디자인의 블로그 비중이 Git으로 만든 블로그들이 많기 때문이다. 자유롭게 블로그를 꾸밀 수 있게 해주는 GIt blog의 기능 중 하나는 커스텀 CSS 덕분이다. 이 포스트에서는 MinimalMistake 테마에서 어떻게 CSS를 적용, 수정하는지 알아볼 것이다.]]></summary></entry><entry><title type="html">[Git Blog] Minimal Mistakes 사이드바 추가하기</title><link href="http://localhost:4000/git_blog/%EC%82%AC%EC%9D%B4%EB%93%9C%EB%B0%94-%EC%B6%94%EA%B0%80/" rel="alternate" type="text/html" title="[Git Blog] Minimal Mistakes 사이드바 추가하기" /><published>2024-01-16T00:00:00+09:00</published><updated>2024-01-16T00:00:00+09:00</updated><id>http://localhost:4000/git_blog/%EC%82%AC%EC%9D%B4%EB%93%9C%EB%B0%94%20%EC%B6%94%EA%B0%80</id><content type="html" xml:base="http://localhost:4000/git_blog/%EC%82%AC%EC%9D%B4%EB%93%9C%EB%B0%94-%EC%B6%94%EA%B0%80/"><![CDATA[<p>Minimal-Mistakes 테마를 이용해 사이드바를 만들어 볼 것이다.</p>
-
-<h3 id="1-사이드바-옵션-설정">1. 사이드바 옵션 설정</h3>
-
-<p>사이드바를 만들기 전에 사이드바 내용을 정해줘야 한다.</p>
-
-<p><code class="language-plaintext highlighter-rouge">_data/navigation.yml</code> 파일을 들어가자. <code class="language-plaintext highlighter-rouge">_data</code> 폴더는 블로그에서 사용할 데이터들을 모아 놓는 폴더이고 <code class="language-plaintext highlighter-rouge">navigation.yml</code>은 navigation에 필요한 데이터를 저장하는 파일이다.</p>
-
-<p>파일에 들어가면 <strong>main</strong> 이라고 쓰인 오브젝트가 있을 것이다. 네비게이션에 쓰일 기본 데이터다.</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>main:
-  - title: "Category"
-    url: /categories/
-  - title: "Tag"
-    url: /tags/
-</code></pre></div></div>
-<p>적혀 있는 걸 확인 했으면 다른 오브젝트를 하나더 만든다.</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>오브젝트이름:
-    - title: "대목차 이름"
-      children:
-        - title: "이름"
-          url: main 오브젝트 주소
-        - title: "Tag"
-          url: /tags/
-</code></pre></div></div>
-<p>이 오브젝트는 사이드바에 표시 될 목록 오브젝트다.</p>
-
-<p>여기에 쓰여진 대로 사이드바가 생성 될 것이다.</p>
-
-<hr />
-
-<h3 id="2-프론트매터-입력">2. 프론트매터 입력</h3>
-
-<p>이제 포스트 마크다운 파일로 가서 프론트매터를 작성한다.</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>---
-...
-
-author_profile: false
-sidebar:
-	nav: "navigation.yml에 쓴 오브젝트 이름"
----
-</code></pre></div></div>
-<p>Profile이 사라지게 하기 위해 <code class="language-plaintext highlighter-rouge">author_profile</code>을 false로 설정해주고 <code class="language-plaintext highlighter-rouge">sidebar</code>을 추가해 아까 작성한 오브젝트의 이름을 넣어준다. 이제 로컬서버를 실행시켜서 확인을 해보면</p>
-
-<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/525e23a5-d127-4e75-aed2-f288870a0cda" alt="SideBar Category" /></p>
-
-<p>잘 적용 된 것을 볼 수 있다.</p>]]></content><author><name>Mohitto55</name><email>mohitto55@gmail.com</email></author><category term="Git_Blog" /><category term="Blog" /><category term="Jekyll" /><category term="MinimalMistake" /><summary type="html"><![CDATA[Minimal-Mistakes 테마를 이용해 사이드바를 만들어 볼 것이다.]]></summary></entry><entry><title type="html">[Network] IPv4 Header</title><link href="http://localhost:4000/network/IPv4-%ED%97%A4%EB%8D%94/" rel="alternate" type="text/html" title="[Network] IPv4 Header" /><published>2024-01-16T00:00:00+09:00</published><updated>2024-01-16T00:00:00+09:00</updated><id>http://localhost:4000/network/IPv4%20%ED%97%A4%EB%8D%94</id><content type="html" xml:base="http://localhost:4000/network/IPv4-%ED%97%A4%EB%8D%94/"><![CDATA[<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/4027f76b-4054-486a-99d5-2f8a7b3dc86f" alt="ipheader" /></p>
+</ul>]]></content><author><name>Mohitto55</name><email>mohitto55@gmail.com</email></author><category term="Git_Blog" /><category term="Blog" /><category term="Jekyll" /><category term="MinimalMistake" /><category term="CSS" /><summary type="html"><![CDATA[Git blog의 장점중 하나는 유저가 원하는 대로 커스터마이징 가능하다는 점이다. 내가 Git blog로 넘어온 이유도 다른 블로그들에 비해 독창적인 디자인의 블로그 비중이 Git으로 만든 블로그들이 많기 때문이다. 자유롭게 블로그를 꾸밀 수 있게 해주는 GIt blog의 기능 중 하나는 커스텀 CSS 덕분이다. 이 포스트에서는 MinimalMistake 테마에서 어떻게 CSS를 적용, 수정하는지 알아볼 것이다.]]></summary></entry><entry><title type="html">[Network] IPv4 Header</title><link href="http://localhost:4000/network/IPv4-%ED%97%A4%EB%8D%94/" rel="alternate" type="text/html" title="[Network] IPv4 Header" /><published>2024-01-16T00:00:00+09:00</published><updated>2024-01-16T00:00:00+09:00</updated><id>http://localhost:4000/network/IPv4%20%ED%97%A4%EB%8D%94</id><content type="html" xml:base="http://localhost:4000/network/IPv4-%ED%97%A4%EB%8D%94/"><![CDATA[<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/4027f76b-4054-486a-99d5-2f8a7b3dc86f" alt="ipheader" /></p>
 
 <p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/609926e4-fbf6-4897-a026-24804f6f9244" alt="excalidraw" /></p>
 
@@ -222,7 +199,54 @@ IP주소는 OS에 할당된 논리적 주소 - 어디에 패킷 전달하지?
 
 <h2 id="solutions">Solutions</h2>
 
-<p>해결법은 <strong>Visual studio</strong> 인코딩을 UTF-8로 바꿔주거나 <strong>VSCode</strong>를 사용하면 된다.</p>]]></content><author><name>Mohitto55</name><email>mohitto55@gmail.com</email></author><category term="Git_Blog" /><category term="Blog" /><category term="Jekyll" /><category term="MinimalMistake" /><category term="UTF-8" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">[Git Blog] 깃허브로 이사</title><link href="http://localhost:4000/git_blog/%EA%B9%83%ED%97%88%EB%B8%8C%EB%A1%9C-%EC%9D%B4%EC%82%AC/" rel="alternate" type="text/html" title="[Git Blog] 깃허브로 이사" /><published>2024-01-15T00:00:00+09:00</published><updated>2024-01-15T00:00:00+09:00</updated><id>http://localhost:4000/git_blog/%EA%B9%83%ED%97%88%EB%B8%8C%EB%A1%9C%20%EC%9D%B4%EC%82%AC</id><content type="html" xml:base="http://localhost:4000/git_blog/%EA%B9%83%ED%97%88%EB%B8%8C%EB%A1%9C-%EC%9D%B4%EC%82%AC/"><![CDATA[<h1 id="첫-깃허브-블로그-개설">첫 깃허브 블로그 개설</h1>
+<p>해결법은 <strong>Visual studio</strong> 인코딩을 UTF-8로 바꿔주거나 <strong>VSCode</strong>를 사용하면 된다.</p>]]></content><author><name>Mohitto55</name><email>mohitto55@gmail.com</email></author><category term="Git_Blog" /><category term="Blog" /><category term="Jekyll" /><category term="MinimalMistake" /><category term="UTF-8" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">[Git Blog] Minimal Mistakes 사이드바 추가하기</title><link href="http://localhost:4000/git_blog/%EC%82%AC%EC%9D%B4%EB%93%9C%EB%B0%94-%EC%B6%94%EA%B0%80/" rel="alternate" type="text/html" title="[Git Blog] Minimal Mistakes 사이드바 추가하기" /><published>2024-01-16T00:00:00+09:00</published><updated>2024-01-16T00:00:00+09:00</updated><id>http://localhost:4000/git_blog/%EC%82%AC%EC%9D%B4%EB%93%9C%EB%B0%94%20%EC%B6%94%EA%B0%80</id><content type="html" xml:base="http://localhost:4000/git_blog/%EC%82%AC%EC%9D%B4%EB%93%9C%EB%B0%94-%EC%B6%94%EA%B0%80/"><![CDATA[<p>Minimal-Mistakes 테마를 이용해 사이드바를 만들어 볼 것이다.</p>
+
+<h3 id="1-사이드바-옵션-설정">1. 사이드바 옵션 설정</h3>
+
+<p>사이드바를 만들기 전에 사이드바 내용을 정해줘야 한다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">_data/navigation.yml</code> 파일을 들어가자. <code class="language-plaintext highlighter-rouge">_data</code> 폴더는 블로그에서 사용할 데이터들을 모아 놓는 폴더이고 <code class="language-plaintext highlighter-rouge">navigation.yml</code>은 navigation에 필요한 데이터를 저장하는 파일이다.</p>
+
+<p>파일에 들어가면 <strong>main</strong> 이라고 쓰인 오브젝트가 있을 것이다. 네비게이션에 쓰일 기본 데이터다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>main:
+  - title: "Category"
+    url: /categories/
+  - title: "Tag"
+    url: /tags/
+</code></pre></div></div>
+<p>적혀 있는 걸 확인 했으면 다른 오브젝트를 하나더 만든다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>오브젝트이름:
+    - title: "대목차 이름"
+      children:
+        - title: "이름"
+          url: main 오브젝트 주소
+        - title: "Tag"
+          url: /tags/
+</code></pre></div></div>
+<p>이 오브젝트는 사이드바에 표시 될 목록 오브젝트다.</p>
+
+<p>여기에 쓰여진 대로 사이드바가 생성 될 것이다.</p>
+
+<hr />
+
+<h3 id="2-프론트매터-입력">2. 프론트매터 입력</h3>
+
+<p>이제 포스트 마크다운 파일로 가서 프론트매터를 작성한다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>---
+...
+
+author_profile: false
+sidebar:
+	nav: "navigation.yml에 쓴 오브젝트 이름"
+---
+</code></pre></div></div>
+<p>Profile이 사라지게 하기 위해 <code class="language-plaintext highlighter-rouge">author_profile</code>을 false로 설정해주고 <code class="language-plaintext highlighter-rouge">sidebar</code>을 추가해 아까 작성한 오브젝트의 이름을 넣어준다. 이제 로컬서버를 실행시켜서 확인을 해보면</p>
+
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/525e23a5-d127-4e75-aed2-f288870a0cda" alt="SideBar Category" /></p>
+
+<p>잘 적용 된 것을 볼 수 있다.</p>]]></content><author><name>Mohitto55</name><email>mohitto55@gmail.com</email></author><category term="Git_Blog" /><category term="Blog" /><category term="Jekyll" /><category term="MinimalMistake" /><summary type="html"><![CDATA[Minimal-Mistakes 테마를 이용해 사이드바를 만들어 볼 것이다.]]></summary></entry><entry><title type="html">[Git Blog] 깃허브로 이사</title><link href="http://localhost:4000/git_blog/%EA%B9%83%ED%97%88%EB%B8%8C%EB%A1%9C-%EC%9D%B4%EC%82%AC/" rel="alternate" type="text/html" title="[Git Blog] 깃허브로 이사" /><published>2024-01-15T00:00:00+09:00</published><updated>2024-01-15T00:00:00+09:00</updated><id>http://localhost:4000/git_blog/%EA%B9%83%ED%97%88%EB%B8%8C%EB%A1%9C%20%EC%9D%B4%EC%82%AC</id><content type="html" xml:base="http://localhost:4000/git_blog/%EA%B9%83%ED%97%88%EB%B8%8C%EB%A1%9C-%EC%9D%B4%EC%82%AC/"><![CDATA[<h1 id="첫-깃허브-블로그-개설">첫 깃허브 블로그 개설</h1>
 <p>원래는 티스토리에서 글을 작성하였다.
 처음 입문하기에 더할나위 없는 블로그였고 잘 사용하고 있었으나 옵시디언을 내 입맛대로 꾸미다가 문득 블로그도 커스터마이징을 해서 꾸며보고 싶었졌다. 
 옵시디언을 하면서 마크다운 문법에 꽤나 익숙해져서 보다 자유도 높은 깃허브로 이사를 오게됐다.</p>]]></content><author><name>Mohitto55</name><email>mohitto55@gmail.com</email></author><category term="Git_Blog" /><category term="Blog" /><summary type="html"><![CDATA[첫 깃허브 블로그 개설 원래는 티스토리에서 글을 작성하였다. 처음 입문하기에 더할나위 없는 블로그였고 잘 사용하고 있었으나 옵시디언을 내 입맛대로 꾸미다가 문득 블로그도 커스터마이징을 해서 꾸며보고 싶었졌다. 옵시디언을 하면서 마크다운 문법에 꽤나 익숙해져서 보다 자유도 높은 깃허브로 이사를 오게됐다.]]></summary></entry></feed>
