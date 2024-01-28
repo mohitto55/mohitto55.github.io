@@ -273,6 +273,10 @@ defaults:
       share: true
       related: true
       show_date: true
+      author_profile: false
+      toc: true
+      toc_sticky: trueq       
+      toc_label: "목차"
  # _pages                      : 해당 하단 영역이 새로 추가되었습니다.
   - scope:
       path: "_pages"

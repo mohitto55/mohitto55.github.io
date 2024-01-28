@@ -1,0 +1,162 @@
+{
+  "main": {
+    "id": "7707e1089c479eb7",
+    "type": "split",
+    "children": [
+      {
+        "id": "7d0e7d3051749bc4",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "f9f7d89ba1436e1a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "2024-01-16-IPv4 헤더.md",
+                "mode": "source",
+                "source": true
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "59ec66af03a34b28",
+    "type": "split",
+    "children": [
+      {
+        "id": "7a81514994539b35",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "963924670a757d59",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "3207afa3098ab82b",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "36285d2999fe01bb",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "5b0b2242367f7cef",
+    "type": "split",
+    "children": [
+      {
+        "id": "4b87ddbc5700df26",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "a719bc4fa0692442",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "2024-01-16-IPv4 헤더.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "fb261d528d2b3f4c",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "2024-01-16-IPv4 헤더.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "db47f4e55813ed22",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "e21dfa3f6f7e7146",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "2024-01-16-IPv4 헤더.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "f9f7d89ba1436e1a",
+  "lastOpenFiles": [
+    "Pasted image 20240128110004.png",
+    "2024-01-18-UE5 라이브 코딩 저장 에러.md",
+    "2024-01-16-언리얼 UPROPERTY.md",
+    "2024-01-16-사이드바 추가.md",
+    "2024-01-16-UTF-8 ERROR.md",
+    "2024-01-28-옵시디언 테스트.md",
+    "2024-01-16-IPv4 헤더.md",
+    "2024-01-15-깃허브로 이사.md",
+    "2024-01-28옵시디언 테스트.md",
+    "옵시디언 테스트.md"
+  ]
+}
