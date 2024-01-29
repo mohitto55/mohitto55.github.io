@@ -20,10 +20,10 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 
 ## 발생원인
 - git push -u origin main   로 로컬 저장소와 연결 시도
-
-## Solutions
 - 깃허브 저장소를 만들 때 READ.me 파일을 만들어서 생기는 오류.
 - 데이터 유실등의 이유로 git에서 통합을 막아서 발생하는 것이다.
+
+## Solutions
 - 임시방편으로 +를 붙이면 된다.
 - git push -u origin +main
 
