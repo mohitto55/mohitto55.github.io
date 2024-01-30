@@ -1,4 +1,89 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-01-28T21:07:51+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mohitto55 Note</title><subtitle>모히또의 노트</subtitle><author><name>Mohitto55</name><email>mohitto55@gmail.com</email></author><entry><title type="html">[Git] non-fast-forward Error</title><link href="http://localhost:4000/git/Git-non-fast-forward-Error/" rel="alternate" type="text/html" title="[Git] non-fast-forward Error" /><published>2024-01-28T00:00:00+09:00</published><updated>2024-01-28T00:00:00+09:00</updated><id>http://localhost:4000/git/Git%20non-fast-forward%20Error</id><content type="html" xml:base="http://localhost:4000/git/Git-non-fast-forward-Error/"><![CDATA[<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> ! [rejected]        main -&gt; main (non-fast-forward)
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-01-30T12:54:55+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mohitto55 Note</title><subtitle>모히또의 노트</subtitle><author><name>Mohitto55</name><email>mohitto55@gmail.com</email></author><entry><title type="html">[C++] 자원관리 기법 RAII</title><link href="http://localhost:4000/c++/RAII/" rel="alternate" type="text/html" title="[C++] 자원관리 기법 RAII" /><published>2024-01-30T00:00:00+09:00</published><updated>2024-01-30T00:00:00+09:00</updated><id>http://localhost:4000/c++/RAII</id><content type="html" xml:base="http://localhost:4000/c++/RAII/"><![CDATA[<h2 id="raii">RAII</h2>
+<p>C++진영에서 자주 쓰이는 Idiom으로 객체가 쓰이는 Scope를 벗어나면 자원을 해제해주는 기법</p>
+
+<p>Resource Acquisition Is Initialization 자원의 획득은 초기화라는 뜻으로 다르게 말해서 객체와 자원의 라이프 사이클을 일치 시키라는 것이다.</p>
+
+<p>무슨 말이냐면 자원을 얻을 때 초기화(Constructor)가 되어야 하며 객체가 사라질 때는 자원을 전부 반환(Destructor)해야 하며 객체가 유효하지 않은 상태 이게 만들어. 자원 생성, 파괴, 관리를 프로그래머가 아닌 객체에 위임하는 것을 의미한다.</p>
+
+<h3 id="raii-쓰이는-이유">RAII 쓰이는 이유</h3>
+<p>C++ 같은 Unmanaged 언어들을 다룰 때엔 메모리를 사용하는 각 변수들의 유효한 스코프를 파악 해야한다.그러나 다수의 프로그래머들이 참여하면 각 객체가 어디까지 메모리를 관리하는 지  불분명하기 때문에 메모리 누수가 일어날 수 있다. 이를 방지하고자 나온게 RAII이다.</p>
+
+<p>RAII를 사용하면 다음과 같은 효과를 얻을 수 있다.</p>
+<ul>
+  <li>쓰는 객체만 이용함으로 써 효과적인 메모리 관리</li>
+  <li>메모리 관리를 객체 위임함으로 써 시간 효율 상승</li>
+</ul>
+
+<p>string 및 vector는 RAII따르는 표준 라이브러리 클래스로서 동적 메모리는 초기화시 획득하고, 파괴 시 자동으로 정리된다.</p>
+
+<h3 id="raii-주의사항">RAII 주의사항</h3>
+<ul>
+  <li>new를 이용한 생성은 자제하자.
+    <ul>
+      <li>사용자에게 권한이 주어지기 때문에 RAII와 맞지않다.</li>
+    </ul>
+  </li>
+  <li>생성 후 뒷 처리하지 말기
+    <ul>
+      <li>RAII는 생성 후 망각이라는 원칙이 있다. 소유권이 넘어간 객체가 처리하게 한다.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="사용-예시">사용 예시</h3>
+<ul>
+  <li>로깅</li>
+  <li>코드블럭이 실행되는 시간 재기</li>
+  <li>synchorized 영역 만들기</li>
+</ul>]]></content><author><name>Mohitto55</name><email>mohitto55@gmail.com</email></author><category term="C++" /><category term="C++" /><category term="RAII" /><summary type="html"><![CDATA[RAII C++진영에서 자주 쓰이는 Idiom으로 객체가 쓰이는 Scope를 벗어나면 자원을 해제해주는 기법]]></summary></entry><entry><title type="html">[Obsidian] 코드수정을 한번에 CustomJS</title><link href="http://localhost:4000/obsidian/Dataview-CustomJS-%EC%82%AC%EC%9A%A9%EB%B2%95/" rel="alternate" type="text/html" title="[Obsidian] 코드수정을 한번에 CustomJS" /><published>2024-01-29T00:00:00+09:00</published><updated>2024-01-29T00:00:00+09:00</updated><id>http://localhost:4000/obsidian/Dataview%20CustomJS%20%EC%82%AC%EC%9A%A9%EB%B2%95</id><content type="html" xml:base="http://localhost:4000/obsidian/Dataview-CustomJS-%EC%82%AC%EC%9A%A9%EB%B2%95/"><![CDATA[<h3 id="what-is-customjs">What is CustomJS</h3>
+<p>CustomJS란 dataview에 Javascript로 작성한 함수를 적용할 수 있게 해주는 플러그인이다.</p>
+
+<h2 id="why-use-customjs">Why use CustomJS</h2>
+<p>옵시디언에서 Dataview가 적힌 템플릿 노드들을 여러개 생성하다 보면 어느순간 Dataview 코드를 수정하고 싶을때가 있다. 하지만 수정하기엔 이미 너무나도 많이 생겨버려 수정할 엄두도 나지 않는다. 이를 방지할 수 있도록 코드를 함수로 작성해 <strong>간결</strong>하고,<strong>유지보수</strong> 효율을 높여줄 수 있게 해준다.</p>
+
+<h2 id="how-to-use">How to use</h2>
+<p>1.community plugin에 들어가 <strong>CustomJS</strong>를 다운한다.</p>
+
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/1313b76b-c6de-493c-aa75-3b7fdb766b6e" alt="image" />
+2.CustomJS 플러그인 설정에 가서 js 파일들 위치 폴더를 지정해준다.
+<br /></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class ShowTasks {
+ShowNotComplitedTasksInFile(dv, pg) {
+	let tasks = pg.file.tasks.where(p =&gt; !p.Completed);
+	if (tasks.length == 0) {
+		return;
+	}
+
+	dv.header(2, pg.file.link);
+	for (let group of tasks.groupBy(t =&gt; t.section)) {
+		dv.taskList(group.rows, false);
+	}
+}
+
+	ShowNotComplitedTasksInPath(dv, path) {
+		const { ShowTasks } = customJS;
+	for (let page of dv.pages(`"${path}"`)) {
+		ShowTasks.ShowNotComplitedTasksInFile(dv, page);
+	}
+}
+}
+</code></pre></div></div>
+<p>3.*.js확장자 파일을 만들고 class와 함수를 작성해준다.
+위 코드는 특정 위치에 있는 노드들의 완료되지 않은 Task를 보여주는 코드 함수다.
+<br /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dataviewjs
+const {ShowTasks} = customJS;
+const {ShowNotComplitedTasksInFile} = customJS;
+const current = dv.current();
+ShowTasks.ShowNotComplitedTasksInPath(dv,current.file.folder);
+</code></pre></div></div>
+
+<p>4.옵시디언에서 위와같이 js파일안에 클래스와 함수를 불러와주면 된다.</p>
+
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/24e1274b-75e9-4679-aa3b-f82d09eb1d6c" alt="image" /></p>
+
+<p>이제 단 한번의 수정으로 코드를 관리할 수 있게되었다.</p>]]></content><author><name>Mohitto55</name><email>mohitto55@gmail.com</email></author><category term="Obsidian" /><category term="Obsidian" /><category term="DataviewJS" /><category term="CustomJS" /><summary type="html"><![CDATA[What is CustomJS CustomJS란 dataview에 Javascript로 작성한 함수를 적용할 수 있게 해주는 플러그인이다.]]></summary></entry><entry><title type="html">[Git] non-fast-forward Error</title><link href="http://localhost:4000/git/Git-non-fast-forward-Error/" rel="alternate" type="text/html" title="[Git] non-fast-forward Error" /><published>2024-01-28T00:00:00+09:00</published><updated>2024-01-28T00:00:00+09:00</updated><id>http://localhost:4000/git/Git%20non-fast-forward%20Error</id><content type="html" xml:base="http://localhost:4000/git/Git-non-fast-forward-Error/"><![CDATA[<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> ! [rejected]        main -&gt; main (non-fast-forward)
 error: failed to push some refs to 'https://github.com/mohitto55/Until2023.git'
 hint: Updates were rejected because the tip of your current branch is behind
 hint: its remote counterpart. Integrate the remote changes (e.g.
@@ -9,12 +94,12 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 <h2 id="발생원인">발생원인</h2>
 <ul>
   <li>git push -u origin main   로 로컬 저장소와 연결 시도</li>
+  <li>깃허브 저장소를 만들 때 READ.me 파일을 만들어서 생기는 오류.</li>
+  <li>데이터 유실등의 이유로 git에서 통합을 막아서 발생하는 것이다.</li>
 </ul>
 
 <h2 id="solutions">Solutions</h2>
 <ul>
-  <li>깃허브 저장소를 만들 때 READ.me 파일을 만들어서 생기는 오류.</li>
-  <li>데이터 유실등의 이유로 git에서 통합을 막아서 발생하는 것이다.</li>
   <li>임시방편으로 +를 붙이면 된다.</li>
   <li>git push -u origin +main</li>
 </ul>
@@ -187,19 +272,7 @@ IP주소는 OS에 할당된 논리적 주소 - 어디에 패킷 전달하지?
   <p>데이터 링크 계층- 이더넷
 네트워크 계층 - IP 이기 때문에 양쪽 주소가 필요함
 데이터링크 계층에서 PPP사용하면 MAC은 필요없음</p>
-</blockquote>]]></content><author><name>Mohitto55</name><email>mohitto55@gmail.com</email></author><category term="Network" /><category term="Blog" /><category term="Jekyll" /><category term="MinimalMistake" /><category term="UTF-8" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">[Git Blog] invalid byte sequence in UTF-8 해결법</title><link href="http://localhost:4000/git_blog/UTF-8-ERROR/" rel="alternate" type="text/html" title="[Git Blog] invalid byte sequence in UTF-8 해결법" /><published>2024-01-16T00:00:00+09:00</published><updated>2024-01-16T00:00:00+09:00</updated><id>http://localhost:4000/git_blog/UTF-8%20ERROR</id><content type="html" xml:base="http://localhost:4000/git_blog/UTF-8-ERROR/"><![CDATA[<hr />
-
-<h2 id="utf-8-error">UTF-8 Error</h2>
-
-<p>열심히 유튜브를 보며 깃블로그 작성법을 공부하던 도중 <code class="language-plaintext highlighter-rouge">bundle exec jeakll serve</code>를 이용해 로컬서버를 돌리려는데 시작도 못하고 에러가 발생해 중지되었다.</p>
-
-<p>에러 코드를 봤더니 <code class="language-plaintext highlighter-rouge">invalid byte sequence in UTF-8</code> 라고 나왔다. 검색을 통해 알아보니 파일 인코딩이 UTF-8이 아니라 다른 인코딩으로 되어있어서 발생하는 오류였다.</p>
-
-<p>나는 <strong>Visual studio 2022</strong> 로 글을 작성 중이였는데 <strong>ANSI</strong>로 인코딩이 되고있던 것이였다.</p>
-
-<h2 id="solutions">Solutions</h2>
-
-<p>해결법은 <strong>Visual studio</strong> 인코딩을 UTF-8로 바꿔주거나 <strong>VSCode</strong>를 사용하면 된다.</p>]]></content><author><name>Mohitto55</name><email>mohitto55@gmail.com</email></author><category term="Git_Blog" /><category term="Blog" /><category term="Jekyll" /><category term="MinimalMistake" /><category term="UTF-8" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">[Git Blog] Minimal Mistakes 사이드바 추가하기</title><link href="http://localhost:4000/git_blog/%EC%82%AC%EC%9D%B4%EB%93%9C%EB%B0%94-%EC%B6%94%EA%B0%80/" rel="alternate" type="text/html" title="[Git Blog] Minimal Mistakes 사이드바 추가하기" /><published>2024-01-16T00:00:00+09:00</published><updated>2024-01-16T00:00:00+09:00</updated><id>http://localhost:4000/git_blog/%EC%82%AC%EC%9D%B4%EB%93%9C%EB%B0%94%20%EC%B6%94%EA%B0%80</id><content type="html" xml:base="http://localhost:4000/git_blog/%EC%82%AC%EC%9D%B4%EB%93%9C%EB%B0%94-%EC%B6%94%EA%B0%80/"><![CDATA[<p>Minimal-Mistakes 테마를 이용해 사이드바를 만들어 볼 것이다.</p>
+</blockquote>]]></content><author><name>Mohitto55</name><email>mohitto55@gmail.com</email></author><category term="Network" /><category term="Blog" /><category term="Jekyll" /><category term="MinimalMistake" /><category term="UTF-8" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">[Git Blog] Minimal Mistakes 사이드바 추가하기</title><link href="http://localhost:4000/git_blog/%EC%82%AC%EC%9D%B4%EB%93%9C%EB%B0%94-%EC%B6%94%EA%B0%80/" rel="alternate" type="text/html" title="[Git Blog] Minimal Mistakes 사이드바 추가하기" /><published>2024-01-16T00:00:00+09:00</published><updated>2024-01-16T00:00:00+09:00</updated><id>http://localhost:4000/git_blog/%EC%82%AC%EC%9D%B4%EB%93%9C%EB%B0%94%20%EC%B6%94%EA%B0%80</id><content type="html" xml:base="http://localhost:4000/git_blog/%EC%82%AC%EC%9D%B4%EB%93%9C%EB%B0%94-%EC%B6%94%EA%B0%80/"><![CDATA[<p>Minimal-Mistakes 테마를 이용해 사이드바를 만들어 볼 것이다.</p>
 
 <h3 id="1-사이드바-옵션-설정">1. 사이드바 옵션 설정</h3>
 
@@ -246,7 +319,19 @@ sidebar:
 
 <p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/525e23a5-d127-4e75-aed2-f288870a0cda" alt="SideBar Category" /></p>
 
-<p>잘 적용 된 것을 볼 수 있다.</p>]]></content><author><name>Mohitto55</name><email>mohitto55@gmail.com</email></author><category term="Git_Blog" /><category term="Blog" /><category term="Jekyll" /><category term="MinimalMistake" /><summary type="html"><![CDATA[Minimal-Mistakes 테마를 이용해 사이드바를 만들어 볼 것이다.]]></summary></entry><entry><title type="html">[Git Blog] 깃허브로 이사</title><link href="http://localhost:4000/git_blog/%EA%B9%83%ED%97%88%EB%B8%8C%EB%A1%9C-%EC%9D%B4%EC%82%AC/" rel="alternate" type="text/html" title="[Git Blog] 깃허브로 이사" /><published>2024-01-15T00:00:00+09:00</published><updated>2024-01-15T00:00:00+09:00</updated><id>http://localhost:4000/git_blog/%EA%B9%83%ED%97%88%EB%B8%8C%EB%A1%9C%20%EC%9D%B4%EC%82%AC</id><content type="html" xml:base="http://localhost:4000/git_blog/%EA%B9%83%ED%97%88%EB%B8%8C%EB%A1%9C-%EC%9D%B4%EC%82%AC/"><![CDATA[<h1 id="첫-깃허브-블로그-개설">첫 깃허브 블로그 개설</h1>
+<p>잘 적용 된 것을 볼 수 있다.</p>]]></content><author><name>Mohitto55</name><email>mohitto55@gmail.com</email></author><category term="Git_Blog" /><category term="Blog" /><category term="Jekyll" /><category term="MinimalMistake" /><summary type="html"><![CDATA[Minimal-Mistakes 테마를 이용해 사이드바를 만들어 볼 것이다.]]></summary></entry><entry><title type="html">[Git Blog] invalid byte sequence in UTF-8 해결법</title><link href="http://localhost:4000/git_blog/UTF-8-ERROR/" rel="alternate" type="text/html" title="[Git Blog] invalid byte sequence in UTF-8 해결법" /><published>2024-01-16T00:00:00+09:00</published><updated>2024-01-16T00:00:00+09:00</updated><id>http://localhost:4000/git_blog/UTF-8%20ERROR</id><content type="html" xml:base="http://localhost:4000/git_blog/UTF-8-ERROR/"><![CDATA[<hr />
+
+<h2 id="utf-8-error">UTF-8 Error</h2>
+
+<p>열심히 유튜브를 보며 깃블로그 작성법을 공부하던 도중 <code class="language-plaintext highlighter-rouge">bundle exec jeakll serve</code>를 이용해 로컬서버를 돌리려는데 시작도 못하고 에러가 발생해 중지되었다.</p>
+
+<p>에러 코드를 봤더니 <code class="language-plaintext highlighter-rouge">invalid byte sequence in UTF-8</code> 라고 나왔다. 검색을 통해 알아보니 파일 인코딩이 UTF-8이 아니라 다른 인코딩으로 되어있어서 발생하는 오류였다.</p>
+
+<p>나는 <strong>Visual studio 2022</strong> 로 글을 작성 중이였는데 <strong>ANSI</strong>로 인코딩이 되고있던 것이였다.</p>
+
+<h2 id="solutions">Solutions</h2>
+
+<p>해결법은 <strong>Visual studio</strong> 인코딩을 UTF-8로 바꿔주거나 <strong>VSCode</strong>를 사용하면 된다.</p>]]></content><author><name>Mohitto55</name><email>mohitto55@gmail.com</email></author><category term="Git_Blog" /><category term="Blog" /><category term="Jekyll" /><category term="MinimalMistake" /><category term="UTF-8" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">[Git Blog] 깃허브로 이사</title><link href="http://localhost:4000/git_blog/%EA%B9%83%ED%97%88%EB%B8%8C%EB%A1%9C-%EC%9D%B4%EC%82%AC/" rel="alternate" type="text/html" title="[Git Blog] 깃허브로 이사" /><published>2024-01-15T00:00:00+09:00</published><updated>2024-01-15T00:00:00+09:00</updated><id>http://localhost:4000/git_blog/%EA%B9%83%ED%97%88%EB%B8%8C%EB%A1%9C%20%EC%9D%B4%EC%82%AC</id><content type="html" xml:base="http://localhost:4000/git_blog/%EA%B9%83%ED%97%88%EB%B8%8C%EB%A1%9C-%EC%9D%B4%EC%82%AC/"><![CDATA[<h1 id="첫-깃허브-블로그-개설">첫 깃허브 블로그 개설</h1>
 <p>원래는 티스토리에서 글을 작성하였다.
 처음 입문하기에 더할나위 없는 블로그였고 잘 사용하고 있었으나 옵시디언을 내 입맛대로 꾸미다가 문득 블로그도 커스터마이징을 해서 꾸며보고 싶었졌다. 
 옵시디언을 하면서 마크다운 문법에 꽤나 익숙해져서 보다 자유도 높은 깃허브로 이사를 오게됐다.</p>]]></content><author><name>Mohitto55</name><email>mohitto55@gmail.com</email></author><category term="Git_Blog" /><category term="Blog" /><summary type="html"><![CDATA[첫 깃허브 블로그 개설 원래는 티스토리에서 글을 작성하였다. 처음 입문하기에 더할나위 없는 블로그였고 잘 사용하고 있었으나 옵시디언을 내 입맛대로 꾸미다가 문득 블로그도 커스터마이징을 해서 꾸며보고 싶었졌다. 옵시디언을 하면서 마크다운 문법에 꽤나 익숙해져서 보다 자유도 높은 깃허브로 이사를 오게됐다.]]></summary></entry></feed>

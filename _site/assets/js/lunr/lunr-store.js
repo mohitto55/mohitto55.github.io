@@ -34,4 +34,16 @@ var store = [{
         "tags": ["Git","Error"],
         "url": "/git/Git-non-fast-forward-Error/",
         "teaser": null
+      },{
+        "title": "[Obsidian] 코드수정을 한번에 CustomJS",
+        "excerpt":"What is CustomJS CustomJS란 dataview에 Javascript로 작성한 함수를 적용할 수 있게 해주는 플러그인이다. Why use CustomJS 옵시디언에서 Dataview가 적힌 템플릿 노드들을 여러개 생성하다 보면 어느순간 Dataview 코드를 수정하고 싶을때가 있다. 하지만 수정하기엔 이미 너무나도 많이 생겨버려 수정할 엄두도 나지 않는다. 이를 방지할 수 있도록 코드를 함수로 작성해 간결하고,유지보수 효율을 높여줄...","categories": ["Obsidian"],
+        "tags": ["Obsidian","DataviewJS","CustomJS"],
+        "url": "/obsidian/Dataview-CustomJS-%EC%82%AC%EC%9A%A9%EB%B2%95/",
+        "teaser": null
+      },{
+        "title": "[C++] 자원관리 기법 RAII",
+        "excerpt":"RAII C++진영에서 자주 쓰이는 Idiom으로 객체가 쓰이는 Scope를 벗어나면 자원을 해제해주는 기법 Resource Acquisition Is Initialization 자원의 획득은 초기화라는 뜻으로 다르게 말해서 객체와 자원의 라이프 사이클을 일치 시키라는 것이다. 무슨 말이냐면 자원을 얻을 때 초기화(Constructor)가 되어야 하며 객체가 사라질 때는 자원을 전부 반환(Destructor)해야 하며 객체가 유효하지 않은 상태 이게 만들어....","categories": ["C++"],
+        "tags": ["C++","RAII"],
+        "url": "/c++/RAII/",
+        "teaser": null
       }]
