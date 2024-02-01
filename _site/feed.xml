@@ -1,4 +1,134 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-01-31T15:45:13+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mohitto55 Note</title><subtitle>모히또의 노트</subtitle><author><name>Mohitto55</name><email>mohitto55@gmail.com</email></author><entry><title type="html">[C++] 자원관리 기법 RAII</title><link href="http://localhost:4000/c++/RAII/" rel="alternate" type="text/html" title="[C++] 자원관리 기법 RAII" /><published>2024-01-30T00:00:00+09:00</published><updated>2024-01-30T00:00:00+09:00</updated><id>http://localhost:4000/c++/RAII</id><content type="html" xml:base="http://localhost:4000/c++/RAII/"><![CDATA[<h2 id="raii">RAII</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-02-02T06:27:21+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mohitto55 Note</title><subtitle>모히또의 노트</subtitle><author><name>Mohitto55</name><email>mohitto55@gmail.com</email></author><entry><title type="html">[Git Blog] 사이드 카테고리 추가하기</title><link href="http://localhost:4000/gitblog/Blog-side-category-%EC%B6%94%EA%B0%80/" rel="alternate" type="text/html" title="[Git Blog] 사이드 카테고리 추가하기" /><published>2024-02-02T00:00:00+09:00</published><updated>2024-02-02T00:00:00+09:00</updated><id>http://localhost:4000/gitblog/Blog%20side%20category%20%EC%B6%94%EA%B0%80</id><content type="html" xml:base="http://localhost:4000/gitblog/Blog-side-category-%EC%B6%94%EA%B0%80/"><![CDATA[<p>좌측 사이드바에 카테고리를 넣어볼 것이다.</p>
+
+<h2 id="1-카테고리-목록-정하기">1. 카테고리 목록 정하기</h2>
+<p><code class="language-plaintext highlighter-rouge">_data/navigation.yml</code>에서 하단의 내용을 넣고 한글로 된 부분을 수정한다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sidebar-category:
+  - title: "타이틀"
+    children:
+      - title: "표시될제목"
+        url: "/주소"
+</code></pre></div></div>
+
+<h2 id="2-카테고리-포스트-목록-페이지-생성">2. 카테고리 포스트 목록 페이지 생성</h2>
+<p><code class="language-plaintext highlighter-rouge">_page</code>로가서 <code class="language-plaintext highlighter-rouge">catagories</code>라는 폴더를 만들고 안에 카테고리 요소당 하나씩 <code class="language-plaintext highlighter-rouge">*.md</code>파일을 생성해 준다. 그리고 아래 요소들을 수정한다.</p>
+<ul>
+  <li>title: 페이지 제목</li>
+  <li>layout:페이지에서 사용할 layout</li>
+  <li>permalink: navigation.yml에서 설정한 url</li>
+  <li>탐색할카테고리: navigation.yml 설정한 category</li>
+</ul>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>---
+title: "페이지 이름"
+layout: archive
+permalink: 링크
+---
+ {% assign posts = site.categories.탐색할카테고리 %}
+{% for post in posts %}
+  {% include custom-archive-single.html type=entries_layout %}
+{% endfor %} 
+</code></pre></div></div>
+
+<h2 id="3포스트-수-표시">3.포스트 수 표시</h2>
+<p><code class="language-plaintext highlighter-rouge">_includes/nav_list</code>에 아래 내용을 모두 덮어쓴다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% assign navigation = site.data.navigation[include.nav] %}
+
+&lt;nav class="nav__list"&gt;
+  {% if page.sidebar.title %}&lt;h3 class="nav__title" style="padding-left: 0;"&gt;{{ page.sidebar.title }}&lt;/h3&gt;{% endif %}
+  &lt;input id="ac-toc" name="accordion-toc" type="checkbox" /&gt;
+  &lt;label for="ac-toc"&gt;{{ site.data.ui-text[site.locale].menu_label | default: "Toggle Menu" }}&lt;/label&gt;
+  &lt;ul class="nav__items"&gt;
+    {% for nav in navigation %}
+      &lt;li&gt;
+        {% if nav.url %}
+          &lt;a href="{{ nav.url | relative_url }}"&gt;&lt;span class="nav__sub-title"&gt;{{ nav.title }}&lt;/span&gt;&lt;/a&gt;
+        {% else %}
+          &lt;span class="nav__sub-title"&gt;{{ nav.title }}&lt;/span&gt;
+        {% endif %}
+
+        {% if nav.children != null %}
+        &lt;ul&gt;
+          {% for child in nav.children %}
+          {% assign post_cnt = 0 %}
+          {% for category in site.categories %}
+            {% if category[0] == child.category  %}
+                {% assign post_cnt = category[1].size %}
+            {% endif %}
+          {% endfor %}
+
+            &lt;li&gt;&lt;a href="{{ child.url | relative_url }}"{% if child.url == page.url %} class="active"{% endif %}&gt;{{ child.title }}({{ post_cnt }})&lt;/a&gt;&lt;/li&gt;
+          {% endfor %}
+        &lt;/ul&gt;
+        {% endif %}
+      &lt;/li&gt;
+    {% endfor %}
+  &lt;/ul&gt;
+&lt;/nav&gt; 
+</code></pre></div></div>
+<p>_includes/nav_list 수정</p>
+
+<h2 id="4모든페이지-사이드바-적용">4.모든페이지 사이드바 적용</h2>
+<p>루트폴더에 있는 <code class="language-plaintext highlighter-rouge">config.yml</code>에서 sidebar 부분을 추가해준다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>defaults:
+  # _posts
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: single
+      author_profile: true
+      read_time: true
+      comments: true
+      share: true
+      related: true
+      show_date: true
+      sidebar: # 추가
+        nav: "sidebar-category"
+</code></pre></div></div>
+
+<h2 id="5결과">5.결과</h2>
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/12ef844b-9baa-4af1-8096-dd9c8ab1571c" alt="image" /></p>]]></content><author><name>Mohitto55</name><email>mohitto55@gmail.com</email></author><category term="gitblog" /><category term="minimal-mistake" /><category term="Jekyll" /><category term="Blog" /><summary type="html"><![CDATA[좌측 사이드바에 카테고리를 넣어볼 것이다.]]></summary></entry><entry><title type="html">[Hardware] GPU 인식 안되는 현상 해결</title><link href="http://localhost:4000/hardware/GPU-%EC%9D%B8%EC%8B%9D%EC%95%88%EB%90%8C-%ED%95%B4%EA%B2%B0/" rel="alternate" type="text/html" title="[Hardware] GPU 인식 안되는 현상 해결" /><published>2024-02-01T00:00:00+09:00</published><updated>2024-02-01T00:00:00+09:00</updated><id>http://localhost:4000/hardware/GPU%20%EC%9D%B8%EC%8B%9D%EC%95%88%EB%90%8C%20%ED%95%B4%EA%B2%B0</id><content type="html" xml:base="http://localhost:4000/hardware/GPU-%EC%9D%B8%EC%8B%9D%EC%95%88%EB%90%8C-%ED%95%B4%EA%B2%B0/"><![CDATA[<p>큰돈을 주고 컴퓨터를 새로 장만하고 기쁜 마음으로 언리얼엔진5를 시작했다. 그런데 이상하게도 에디터의 인식이 굉장히 느렸었다. 단순한 버그라기엔 뭔가 이상해서 CPU-Z를 이용해 그래픽카드를 확인해 봤더니…</p>
+
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/8b71498c-988e-45d2-bd83-6a7b3f7d7448" alt="스크린샷 2024-02-01 192002" /></p>
+
+<p>분명 내 GPU는 <strong>RTX 4070 SUPER</strong>인데 구매한적도 없는 GPU가 들어가 있었다. 조립업체에 맡겨서 조립후 배달로 온건데 사기를 당한건가 싶기도 했다. 확인해 보니 인식되고 있던 GPU는 <strong>CPU내장 그래픽카드</strong>로 외장 그래픽이 없을 경우 적용되는 GPU였다. 그래서 GPU가 다시 인식될 수 있도록 조치를 해야한다.</p>
+
+<h2 id="pc-정보">PC 정보</h2>
+<p><strong>CPU</strong>: AMD 라이젠9-5세대 7900X3D
+<strong>메인보드</strong>: ASRock B650M PG Riptide
+<strong>GPU</strong>: ZOTAC GAMING 지포스 RTX 4070 SUPER TWIN Edge OC D6X 12GB</p>
+
+<h2 id="1-gpu-인식-확인">1. GPU 인식 확인</h2>
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/52c02b95-3fbd-4556-bdc6-761469d426f7" alt="스크린샷" />
+먼저 GPU가 인식이 되고 있는지 확인해봐야 한다. 
+장치 관리자로 들어가서 디스플레이 어댑터를 들어가면 인식되는 GPU를 확인할 수 있다.
+<img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/f4b93f52-e03c-464c-8470-6b55bfc295dc" alt="스크린샷" />
+인식이 안된다면 보기/숨겨진 장치 표시를 눌러 인식되고 있지 않은 GPU를 확인해본다.</p>
+
+<h2 id="2-그래픽-드라이버-업데이트">2. 그래픽 드라이버 업데이트</h2>
+<p>그래픽카드 드라이버가 제대로 설치되지 않아 발생할 수 있다. <a href="https://www.nvidia.co.kr/Download/index.aspx?lang=kr">엔비디아 드라이버</a>설치 사이트로 가서 자신의 버전에 맞는 드라이버를 설치한다.</p>
+
+<p>혹은 윈도우 업데이트 문제일 수 있으니 Win + I키를 누르고 Windows Update에 들어가 업데이트 해준다.</p>
+
+<h2 id="3-gpu-장착-확인하기">3. GPU 장착 확인하기</h2>
+<p>필자의 경우 이것이 문제였다. 메인보드 슬롯 부분에 GPU가 완전히 들어가지 않고 살짝 빠져와 있던 상태였다. 해체후 다시 장착하니 다행히 잘 작동되었다. 아마 조립업체에서 택배로 오던 도중 GPU가 살짝 빠져나온 것이 원인인 듯 싶다.</p>
+
+<h2 id="4-bios-설정문제">4. BIOS 설정문제</h2>
+<p>GPU팬도 잘돌아가 장착문제가 아닌것 같은면 바이오스 문제일 수도 있다. 참고로 BIOS는 <strong>메인보드의 종류에따라 화면 구성이 다르다</strong></p>
+
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/a348bf39-b279-47fe-9826-e2b712f89311" alt="image" /></p>
+
+<p>GPU가 내장GPU로 설정되어 생긴 문제일 수도 있다. 컴퓨터 재부팅 후 F2를 눌러 바이오스로 들어가고 Advanced/AMD CBS/NBIO Options/GFX configuration로 들어가서 iGPU Configuration을 iGPU Disabled로 바꿔 내장GPU를 끌 수 있다.</p>
+
+<p>iGPU Disabled로 했는데 계속 초기화 될 수 있다. 그럴 경우 여러가지 이유가 있다.</p>
+<ol>
+  <li><strong>외장GPU</strong> 고정 불량 - 필자의 경우에 이걸 간과해 자꾸 삽질했다. LED와 팬이 돌아가도 제대로 다시 확인해보자</li>
+  <li><strong>메인보드 전지 수명</strong> - 메인보드 메모리는 <strong>휘발성 메모리</strong>다. 오래 된 메인보드일 경우 수은전지를 구매해 다시 장착하자.</li>
+  <li><strong>조립불량</strong> - <strong>메인보드 조립</strong>이 불량하여 쇼트가 일어나는 것일 수 있다.</li>
+</ol>
+
+<h2 id="5-bios-업데이트">5. BIOS 업데이트</h2>
+<p>구형 BIOS일경우 메인보드 제조사 홈페이지로 들어가 최신BIOS로 업데이트 해준다.</p>]]></content><author><name>Mohitto55</name><email>mohitto55@gmail.com</email></author><category term="hardware" /><category term="GPU" /><category term="CPU" /><category term="Grapic Driver" /><category term="Bios" /><category term="Hardware" /><category term="Mainboard" /><summary type="html"><![CDATA[큰돈을 주고 컴퓨터를 새로 장만하고 기쁜 마음으로 언리얼엔진5를 시작했다. 그런데 이상하게도 에디터의 인식이 굉장히 느렸었다. 단순한 버그라기엔 뭔가 이상해서 CPU-Z를 이용해 그래픽카드를 확인해 봤더니…]]></summary></entry><entry><title type="html">[C++] 자원관리 기법 RAII</title><link href="http://localhost:4000/c++/RAII/" rel="alternate" type="text/html" title="[C++] 자원관리 기법 RAII" /><published>2024-01-30T00:00:00+09:00</published><updated>2024-01-30T00:00:00+09:00</updated><id>http://localhost:4000/c++/RAII</id><content type="html" xml:base="http://localhost:4000/c++/RAII/"><![CDATA[<h2 id="raii">RAII</h2>
 <p>C++진영에서 자주 쓰이는 Idiom으로 객체가 쓰이는 Scope를 벗어나면 자원을 해제해주는 기법</p>
 
 <p>Resource Acquisition Is Initialization 자원의 획득은 초기화라는 뜻으로 다르게 말해서 객체와 자원의 라이프 사이클을 일치 시키라는 것이다.</p>
@@ -35,18 +165,22 @@
   <li>로깅</li>
   <li>코드블럭이 실행되는 시간 재기</li>
   <li>synchorized 영역 만들기</li>
-</ul>]]></content><author><name>Mohitto55</name><email>mohitto55@gmail.com</email></author><category term="C++" /><category term="C++" /><category term="RAII" /><summary type="html"><![CDATA[RAII C++진영에서 자주 쓰이는 Idiom으로 객체가 쓰이는 Scope를 벗어나면 자원을 해제해주는 기법]]></summary></entry><entry><title type="html">[Obsidian] 코드수정을 한번에 CustomJS</title><link href="http://localhost:4000/obsidian/Dataview-CustomJS-%EC%82%AC%EC%9A%A9%EB%B2%95/" rel="alternate" type="text/html" title="[Obsidian] 코드수정을 한번에 CustomJS" /><published>2024-01-29T00:00:00+09:00</published><updated>2024-01-29T00:00:00+09:00</updated><id>http://localhost:4000/obsidian/Dataview%20CustomJS%20%EC%82%AC%EC%9A%A9%EB%B2%95</id><content type="html" xml:base="http://localhost:4000/obsidian/Dataview-CustomJS-%EC%82%AC%EC%9A%A9%EB%B2%95/"><![CDATA[<h3 id="what-is-customjs">What is CustomJS</h3>
+</ul>]]></content><author><name>Mohitto55</name><email>mohitto55@gmail.com</email></author><category term="c++" /><category term="C++" /><category term="RAII" /><summary type="html"><![CDATA[RAII C++진영에서 자주 쓰이는 Idiom으로 객체가 쓰이는 Scope를 벗어나면 자원을 해제해주는 기법]]></summary></entry><entry><title type="html">[Obsidian] 코드수정을 한번에 CustomJS</title><link href="http://localhost:4000/obsidian/Dataview-CustomJS-%EC%82%AC%EC%9A%A9%EB%B2%95/" rel="alternate" type="text/html" title="[Obsidian] 코드수정을 한번에 CustomJS" /><published>2024-01-29T00:00:00+09:00</published><updated>2024-01-29T00:00:00+09:00</updated><id>http://localhost:4000/obsidian/Dataview%20CustomJS%20%EC%82%AC%EC%9A%A9%EB%B2%95</id><content type="html" xml:base="http://localhost:4000/obsidian/Dataview-CustomJS-%EC%82%AC%EC%9A%A9%EB%B2%95/"><![CDATA[<h2 id="what-is-customjs">What is CustomJS</h2>
 <p>CustomJS란 dataview에 Javascript로 작성한 함수를 적용할 수 있게 해주는 플러그인이다.</p>
 
 <h2 id="why-use-customjs">Why use CustomJS</h2>
 <p>옵시디언에서 Dataview가 적힌 템플릿 노드들을 여러개 생성하다 보면 어느순간 Dataview 코드를 수정하고 싶을때가 있다. 하지만 수정하기엔 이미 너무나도 많이 생겨버려 수정할 엄두도 나지 않는다. 이를 방지할 수 있도록 코드를 함수로 작성해 <strong>간결</strong>하고,<strong>유지보수</strong> 효율을 높여줄 수 있게 해준다.</p>
 
 <h2 id="how-to-use">How to use</h2>
-<p>1.community plugin에 들어가 <strong>CustomJS</strong>를 다운한다.</p>
+<h5 id="1-customjs-다운">1. CustomJs 다운</h5>
+<p>community plugin에 들어가 <strong>CustomJS</strong>를 다운한다.</p>
 
+<h5 id="2-폴더-지정">2. 폴더 지정</h5>
 <p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/1313b76b-c6de-493c-aa75-3b7fdb766b6e" alt="image" />
-2.CustomJS 플러그인 설정에 가서 js 파일들 위치 폴더를 지정해준다.
+CustomJS 플러그인 설정에 가서 js 파일들 위치 폴더를 지정해준다.
 <br /></p>
+
+<h5 id="3-함수작성">3. 함수작성</h5>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class ShowTasks {
 ShowNotComplitedTasksInFile(dv, pg) {
 	let tasks = pg.file.tasks.where(p =&gt; !p.Completed);
@@ -68,46 +202,22 @@ ShowNotComplitedTasksInFile(dv, pg) {
 }
 }
 </code></pre></div></div>
-<p>3.*.js확장자 파일을 만들고 class와 함수를 작성해준다.
+<p>*.js확장자 파일을 만들고 class와 함수를 작성해준다.
 위 코드는 특정 위치에 있는 노드들의 완료되지 않은 Task를 보여주는 코드 함수다.
 <br /></p>
 
+<h5 id="4-사용법">4. 사용법</h5>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dataviewjs
 const {ShowTasks} = customJS;
 const {ShowNotComplitedTasksInFile} = customJS;
 const current = dv.current();
 ShowTasks.ShowNotComplitedTasksInPath(dv,current.file.folder);
 </code></pre></div></div>
-
-<p>4.옵시디언에서 위와같이 js파일안에 클래스와 함수를 불러와주면 된다.</p>
+<p>옵시디언에서 위와같이 js파일안에 클래스와 함수를 불러와주면 된다.</p>
 
 <p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/24e1274b-75e9-4679-aa3b-f82d09eb1d6c" alt="image" /></p>
 
-<p>이제 단 한번의 수정으로 코드를 관리할 수 있게되었다.</p>]]></content><author><name>Mohitto55</name><email>mohitto55@gmail.com</email></author><category term="Obsidian" /><category term="Obsidian" /><category term="DataviewJS" /><category term="CustomJS" /><summary type="html"><![CDATA[What is CustomJS CustomJS란 dataview에 Javascript로 작성한 함수를 적용할 수 있게 해주는 플러그인이다.]]></summary></entry><entry><title type="html">[Git] non-fast-forward Error</title><link href="http://localhost:4000/git/Git-non-fast-forward-Error/" rel="alternate" type="text/html" title="[Git] non-fast-forward Error" /><published>2024-01-28T00:00:00+09:00</published><updated>2024-01-28T00:00:00+09:00</updated><id>http://localhost:4000/git/Git%20non-fast-forward%20Error</id><content type="html" xml:base="http://localhost:4000/git/Git-non-fast-forward-Error/"><![CDATA[<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> ! [rejected]        main -&gt; main (non-fast-forward)
-error: failed to push some refs to 'https://github.com/mohitto55/Until2023.git'
-hint: Updates were rejected because the tip of your current branch is behind
-hint: its remote counterpart. Integrate the remote changes (e.g.
-hint: 'git pull ...') before pushing again.
-hint: See the 'Note about fast-forwards' in 'git push --help' for details.
-</code></pre></div></div>
-
-<h2 id="발생원인">발생원인</h2>
-<ul>
-  <li>git push -u origin main   로 로컬 저장소와 연결 시도</li>
-  <li>깃허브 저장소를 만들 때 READ.me 파일을 만들어서 생기는 오류.</li>
-  <li>데이터 유실등의 이유로 git에서 통합을 막아서 발생하는 것이다.</li>
-</ul>
-
-<h2 id="solutions">Solutions</h2>
-<ul>
-  <li>임시방편으로 +를 붙이면 된다.</li>
-  <li>git push -u origin +main</li>
-</ul>
-
-<h2 id="references">References</h2>
-<ul>
-  <li><a href="https://doozi316.github.io/errorlog/2019/09/30/error1/">Git push 오류 해결</a></li>
-</ul>]]></content><author><name>Mohitto55</name><email>mohitto55@gmail.com</email></author><category term="Git" /><category term="Git" /><category term="Error" /><summary type="html"><![CDATA[! [rejected] main -&gt; main (non-fast-forward) error: failed to push some refs to 'https://github.com/mohitto55/Until2023.git' hint: Updates were rejected because the tip of your current branch is behind hint: its remote counterpart. Integrate the remote changes (e.g. hint: 'git pull ...') before pushing again. hint: See the 'Note about fast-forwards' in 'git push --help' for details.]]></summary></entry><entry><title type="html">[Git Blog] Blog CSS 적용하는 법</title><link href="http://localhost:4000/git_blog/Git-blog-css%EC%A0%81%EC%9A%A9%EB%B2%95/" rel="alternate" type="text/html" title="[Git Blog] Blog CSS 적용하는 법" /><published>2024-01-28T00:00:00+09:00</published><updated>2024-01-28T00:00:00+09:00</updated><id>http://localhost:4000/git_blog/Git%20blog%20css%EC%A0%81%EC%9A%A9%EB%B2%95</id><content type="html" xml:base="http://localhost:4000/git_blog/Git-blog-css%EC%A0%81%EC%9A%A9%EB%B2%95/"><![CDATA[<p>Git blog의 장점중 하나는 유저가 원하는 대로 커스터마이징 가능하다는 점이다. 내가 Git blog로 넘어온 이유도 다른 블로그들에 비해 독창적인 디자인의 블로그 비중이 Git으로 만든 블로그들이 많기 때문이다. 자유롭게 블로그를 꾸밀 수 있게 해주는 GIt blog의 기능 중 하나는 커스텀 CSS 덕분이다. 이 포스트에서는 <strong>MinimalMistake</strong> 테마에서 어떻게 CSS를 적용, 수정하는지 알아볼 것이다.</p>
+<p>이제 단 한번의 수정으로 코드를 관리할 수 있게되었다.</p>]]></content><author><name>Mohitto55</name><email>mohitto55@gmail.com</email></author><category term="obsidian" /><category term="Obsidian" /><category term="DataviewJS" /><category term="CustomJS" /><summary type="html"><![CDATA[What is CustomJS CustomJS란 dataview에 Javascript로 작성한 함수를 적용할 수 있게 해주는 플러그인이다.]]></summary></entry><entry><title type="html">[Git Blog] Blog CSS 적용하는 법</title><link href="http://localhost:4000/gitblog/Git-blog-css%EC%A0%81%EC%9A%A9%EB%B2%95/" rel="alternate" type="text/html" title="[Git Blog] Blog CSS 적용하는 법" /><published>2024-01-28T00:00:00+09:00</published><updated>2024-01-28T00:00:00+09:00</updated><id>http://localhost:4000/gitblog/Git%20blog%20css%EC%A0%81%EC%9A%A9%EB%B2%95</id><content type="html" xml:base="http://localhost:4000/gitblog/Git-blog-css%EC%A0%81%EC%9A%A9%EB%B2%95/"><![CDATA[<p>Git blog의 장점중 하나는 유저가 원하는 대로 커스터마이징 가능하다는 점이다. 내가 Git blog로 넘어온 이유도 다른 블로그들에 비해 독창적인 디자인의 블로그 비중이 Git으로 만든 블로그들이 많기 때문이다. 자유롭게 블로그를 꾸밀 수 있게 해주는 GIt blog의 기능 중 하나는 커스텀 CSS 덕분이다. 이 포스트에서는 <strong>MinimalMistake</strong> 테마에서 어떻게 CSS를 적용, 수정하는지 알아볼 것이다.</p>
 
 <h2 id="css-파일-위치">CSS 파일 위치</h2>
 <p><strong>MinimalMistake</strong>의 CSS 파일들은 루트폴더에서 <strong>_sass/minimal-mistakes</strong>폴더 안에 있다. 안에 있는 <strong>.scss</strong> 확장자 파일들이 있는데 이것이 CSS 파일이다. 각 파일들은 블로그를 구성하는 여러 구조들의 외관을 어떻게 표현할지 적혀져있다.</p>
@@ -131,140 +241,161 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.
   </li>
   <li>CSS코드는 <strong>_sass/minimal-mistakes</strong> 폴더 안에 있다.</li>
   <li>변수는 <strong>_sass/_variables.scss</strong> 파일에 정의되어 있다.</li>
-</ul>]]></content><author><name>Mohitto55</name><email>mohitto55@gmail.com</email></author><category term="Git_Blog" /><category term="Blog" /><category term="Jekyll" /><category term="MinimalMistake" /><category term="CSS" /><summary type="html"><![CDATA[Git blog의 장점중 하나는 유저가 원하는 대로 커스터마이징 가능하다는 점이다. 내가 Git blog로 넘어온 이유도 다른 블로그들에 비해 독창적인 디자인의 블로그 비중이 Git으로 만든 블로그들이 많기 때문이다. 자유롭게 블로그를 꾸밀 수 있게 해주는 GIt blog의 기능 중 하나는 커스텀 CSS 덕분이다. 이 포스트에서는 MinimalMistake 테마에서 어떻게 CSS를 적용, 수정하는지 알아볼 것이다.]]></summary></entry><entry><title type="html">[Network] IPv4 Header</title><link href="http://localhost:4000/network/IPv4-%ED%97%A4%EB%8D%94/" rel="alternate" type="text/html" title="[Network] IPv4 Header" /><published>2024-01-16T00:00:00+09:00</published><updated>2024-01-16T00:00:00+09:00</updated><id>http://localhost:4000/network/IPv4%20%ED%97%A4%EB%8D%94</id><content type="html" xml:base="http://localhost:4000/network/IPv4-%ED%97%A4%EB%8D%94/"><![CDATA[<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/4027f76b-4054-486a-99d5-2f8a7b3dc86f" alt="ipheader" /></p>
+</ul>]]></content><author><name>Mohitto55</name><email>mohitto55@gmail.com</email></author><category term="gitblog" /><category term="Blog" /><category term="Jekyll" /><category term="MinimalMistake" /><category term="CSS" /><summary type="html"><![CDATA[Git blog의 장점중 하나는 유저가 원하는 대로 커스터마이징 가능하다는 점이다. 내가 Git blog로 넘어온 이유도 다른 블로그들에 비해 독창적인 디자인의 블로그 비중이 Git으로 만든 블로그들이 많기 때문이다. 자유롭게 블로그를 꾸밀 수 있게 해주는 GIt blog의 기능 중 하나는 커스텀 CSS 덕분이다. 이 포스트에서는 MinimalMistake 테마에서 어떻게 CSS를 적용, 수정하는지 알아볼 것이다.]]></summary></entry><entry><title type="html">[Git] non-fast-forward Error</title><link href="http://localhost:4000/git/Git-non-fast-forward-Error/" rel="alternate" type="text/html" title="[Git] non-fast-forward Error" /><published>2024-01-28T00:00:00+09:00</published><updated>2024-01-28T00:00:00+09:00</updated><id>http://localhost:4000/git/Git%20non-fast-forward%20Error</id><content type="html" xml:base="http://localhost:4000/git/Git-non-fast-forward-Error/"><![CDATA[<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> ! [rejected]        main -&gt; main (non-fast-forward)
+error: failed to push some refs to 'https://github.com/mohitto55/Until2023.git'
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. Integrate the remote changes (e.g.
+hint: 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+</code></pre></div></div>
+
+<h2 id="발생원인">발생원인</h2>
+<ul>
+  <li>git push -u origin main   로 로컬 저장소와 연결 시도</li>
+  <li>깃허브 저장소를 만들 때 READ.me 파일을 만들어서 생기는 오류.</li>
+  <li>데이터 유실등의 이유로 git에서 통합을 막아서 발생하는 것이다.</li>
+</ul>
+
+<h2 id="solutions">Solutions</h2>
+<ul>
+  <li>임시방편으로 +를 붙이면 된다.</li>
+  <li>git push -u origin +main</li>
+</ul>
+
+<h2 id="references">References</h2>
+<ul>
+  <li><a href="https://doozi316.github.io/errorlog/2019/09/30/error1/">Git push 오류 해결</a></li>
+</ul>]]></content><author><name>Mohitto55</name><email>mohitto55@gmail.com</email></author><category term="git" /><category term="Git" /><category term="Error" /><summary type="html"><![CDATA[! [rejected] main -&gt; main (non-fast-forward) error: failed to push some refs to 'https://github.com/mohitto55/Until2023.git' hint: Updates were rejected because the tip of your current branch is behind hint: its remote counterpart. Integrate the remote changes (e.g. hint: 'git pull ...') before pushing again. hint: See the 'Note about fast-forwards' in 'git push --help' for details.]]></summary></entry><entry><title type="html">[Network] IPv4 Header</title><link href="http://localhost:4000/network/IPv4-%ED%97%A4%EB%8D%94/" rel="alternate" type="text/html" title="[Network] IPv4 Header" /><published>2024-01-16T00:00:00+09:00</published><updated>2024-01-16T00:00:00+09:00</updated><id>http://localhost:4000/network/IPv4%20%ED%97%A4%EB%8D%94</id><content type="html" xml:base="http://localhost:4000/network/IPv4-%ED%97%A4%EB%8D%94/"><![CDATA[<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/4027f76b-4054-486a-99d5-2f8a7b3dc86f" alt="ipheader" /></p>
 
 <p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/609926e4-fbf6-4897-a026-24804f6f9244" alt="excalidraw" /></p>
 
-<h3 id="ip-헤더">IP 헤더</h3>
+<h2 id="ip-헤더">IP 헤더</h2>
+<h5 id="버전">버전</h5>
 <ul>
-  <li><strong>버전</strong>
+  <li>IP 버전 나타내는 4비트 필드.</li>
+  <li>IPv4에선 4가 들어간다.</li>
+</ul>
+
+<h5 id="헤더길이">헤더길이</h5>
+<ul>
+  <li>헤더길이 나타내는 4비트 필드</li>
+  <li>Internet Header Length(IHL)라고 부르기도 함</li>
+  <li>단말은 이를 보고 어디까지가 헤더인지 알 수 있음</li>
+  <li>헤더길이는 IPv4 헤더의 길이를 4바이트 단위로 환산한 값이 들어감</li>
+  <li>IPv4 헤더 길이는 기본적으로 20바이트 이므로 5가 들어감</li>
+</ul>
+
+<h5 id="tos">ToS</h5>
+<ul>
+  <li>Type of Service는 <strong>IPv4 패킷 우선도</strong>(priority) 나타내는 1바이트 필드</li>
+  <li>제어나 대역제어 등 <strong>QoS(Quality of Service)</strong> 에 사용됨</li>
+  <li>앞 6비트 DSCP 필드
     <ul>
-      <li>IP 버전 나타내는 4비트 필드.</li>
-      <li>IPv4에선 4가 들어간다.</li>
+      <li>우선 제어, 대역 제어에 사용</li>
     </ul>
   </li>
-  <li><strong>헤더길이</strong>
+  <li>남은 2비트 ECN 필드로 구성
     <ul>
-      <li>헤더길이 나타내는 4비트 필드</li>
-      <li>Internet Header Length(IHL)라고 부르기도 함</li>
-      <li>단말은 이를 보고 어디까지가 헤더인지 알 수 있음</li>
-      <li>헤더길이는 IPv4 헤더의 길이를 4바이트 단위로 환산한 값이 들어감</li>
-      <li>IPv4 헤더 길이는 기본적으로 20바이트 이므로 5가 들어감</li>
-    </ul>
-  </li>
-  <li><strong>ToS</strong>
-    <ul>
-      <li>Type of Service는 <strong>IPv4 패킷 우선도</strong>(priority) 나타내는 1바이트 필드</li>
-      <li>제어나 대역제어 등 <strong>QoS(Quality of Service)</strong> 에 사용됨</li>
-      <li>앞 6비트 DSCP 필드
-        <ul>
-          <li>우선 제어, 대역 제어에 사용</li>
-        </ul>
-      </li>
-      <li>남은 2비트 ECN 필드로 구성
-        <ul>
-          <li>혼잡 알릴 때 사용</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-  <li><strong>패킷 길이</strong>
-    <ul>
-      <li>IPv4 헤더와 페이로드 합친 패킷 전체의 길이 2바이트이다.</li>
-    </ul>
-  </li>
-  <li><strong>식별자(Identification)</strong>
-    <ul>
-      <li>패킷마다 부여되는 고유 번호, 2바이트로 구성</li>
-      <li>패킷교환  통신은 송수신하기 쉽도록 <strong>작게 나누어 송신</strong></li>
-      <li>IP 프래그멘테이션(IPfragmentation)
-        <ul>
-          <li>IP를 작게 나누는 처리</li>
-        </ul>
-      </li>
-      <li>3계층의 MTU(Maximum Transmission Unit)에 따라 해당 크기만큼 프래그멘테이션로 나눔</li>
-      <li>나중에 식별자를 이용해 재조립한다.</li>
-    </ul>
-  </li>
-  <li><strong>플래그</strong>
-    <ul>
-      <li>3비트로 구성</li>
-      <li>1번째 비트 사용X, 2번째 비트 DF(Don’t Frangment)비트라 부름
-        <ul>
-          <li>프래그멘테이션 0 == true  1 == false</li>
-          <li>최근에는 성능 문제로 DF를 1로 설정해 상위 계층서 크기 조절함</li>
-        </ul>
-      </li>
-      <li>3번째 비트 MF(More Fragment)
-        <ul>
-          <li>프래그멘테이션된 패킷이 뒤에 더 있는가</li>
-          <li>0 == false  1 == true</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-  <li><strong>프래그먼트 오프셋</strong>
-    <ul>
-      <li>프래그멘테이션 한 뒤 해당 패킷이 기존 패킷 앞쪽부터 <strong>어느 위치</strong>에 있는지 나타내는 13비트 필드</li>
-      <li>이것을 보고 원래 위치로 재조립 됨</li>
-    </ul>
-  </li>
-  <li><strong>TTL(Time To Live)</strong>
-    <ul>
-      <li>패킷 수명 나타내는 1바이트 필드</li>
-      <li><strong>경유하는 라우터의 수(hop)</strong> 나타냄</li>
-      <li>라우터 지날 때 마다 1씩 줄어 0되면 삭제</li>
-      <li>패킷파기하면 라우터는 Time-tolive exceed 반환하고 패킷 파기한걸 송신지 단말에 전달</li>
-    </ul>
-  </li>
-  <li><strong>프로토콜 번호</strong>
-    <ul>
-      <li>IPv4 페이로드가 어떤 프로토콜로 구성되있는지 나타내는 1바이트 필드</li>
-    </ul>
-  </li>
-  <li><strong>헤더 체크섬(header checksum)</strong>
-    <ul>
-      <li>헤더의 오류 체크에 쓰는 2바이트 필드</li>
-      <li>RFC1071 에 정의되있으며 <strong>1의 보수 연산</strong> 이라는 계산 방법 채용</li>
-    </ul>
-  </li>
-  <li><strong>송신지/수신지 IPv4 주소</strong>
-    <ul>
-      <li>4바이트 식별 아이디</li>
-      <li>기기종류에 따라 여러 IP 가질 수 있음</li>
-      <li>네트워크 필드 및 호스트 주소에 따라 <strong>a,b,c, 클래스</strong>로 나뉨
-        <ul>
-          <li><strong>사설ip, 공인ip</strong>
-            <ul>
-              <li>로컬이 외부 공용 네트워크와 통신하려면 공인ip 주소 사용해야함</li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-      <li> D 및 클래스 E 주소가 있지만, 이는 각각 <strong>멀티캐스트 주소</strong>와 예약된 주소
-        <ul>
-          <li>네트워킹 장치나 호스트에 할당 못함</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-  <li><strong>옵션</strong>
-    <ul>
-      <li>IPv4 송신에 대한 확장 기능 저장한 <strong>가변 길이</strong> 필드</li>
-      <li>실무에서 쓰인걸 보지 못했다함</li>
-    </ul>
-  </li>
-  <li><strong>패딩(padding)</strong>
-    <ul>
-      <li>IPv4 헤더의 <strong>비트 수 정렬</strong> 위해 사용되는 필드</li>
-      <li>IPv4는 4바이트 단위여야 함</li>
-      <li>아니면 0을 추가해 4바이트 정수배가 되도록 함</li>
+      <li>혼잡 알릴 때 사용</li>
     </ul>
   </li>
 </ul>
 
+<h5 id="패킷-길이">패킷 길이</h5>
+<ul>
+  <li>IPv4 헤더와 페이로드 합친 패킷 전체의 길이 2바이트이다.</li>
+</ul>
+
+<h5 id="식별자identification">식별자(Identification)</h5>
+<ul>
+  <li>패킷마다 부여되는 고유 번호, 2바이트로 구성</li>
+  <li>패킷교환  통신은 송수신하기 쉽도록 <strong>작게 나누어 송신</strong></li>
+  <li>IP 프래그멘테이션(IPfragmentation)
+    <ul>
+      <li>IP를 작게 나누는 처리</li>
+    </ul>
+  </li>
+  <li>3계층의 MTU(Maximum Transmission Unit)에 따라 해당 크기만큼 프래그멘테이션로 나눔</li>
+  <li>나중에 식별자를 이용해 재조립한다.</li>
+</ul>
+
+<h5 id="플래그">플래그</h5>
+<ul>
+  <li>3비트로 구성</li>
+  <li>1번째 비트 사용X, 2번째 비트 DF(Don’t Frangment)비트라 부름
+    <ul>
+      <li>프래그멘테이션 0 == true  1 == false</li>
+      <li>최근에는 성능 문제로 DF를 1로 설정해 상위 계층서 크기 조절함</li>
+    </ul>
+  </li>
+  <li>3번째 비트 MF(More Fragment)
+    <ul>
+      <li>프래그멘테이션된 패킷이 뒤에 더 있는가</li>
+      <li>0 == false  1 == true</li>
+    </ul>
+  </li>
+</ul>
+
+<h5 id="프래그먼트-오프셋">프래그먼트 오프셋</h5>
+<ul>
+  <li>프래그멘테이션 한 뒤 해당 패킷이 기존 패킷 앞쪽부터 <strong>어느 위치</strong>에 있는지 나타내는 13비트 필드</li>
+  <li>이것을 보고 원래 위치로 재조립 됨</li>
+</ul>
+
+<h5 id="ttltime-to-live">TTL(Time To Live)</h5>
+<ul>
+  <li>패킷 수명 나타내는 1바이트 필드</li>
+  <li><strong>경유하는 라우터의 수(hop)</strong> 나타냄</li>
+  <li>라우터 지날 때 마다 1씩 줄어 0되면 삭제</li>
+  <li>패킷파기하면 라우터는 Time-tolive exceed 반환하고 패킷 파기한걸 송신지 단말에 전달</li>
+</ul>
+
+<h5 id="프로토콜-번호">프로토콜 번호</h5>
+<ul>
+  <li>IPv4 페이로드가 어떤 프로토콜로 구성되있는지 나타내는 1바이트 필드</li>
+</ul>
+
+<h5 id="헤더-체크섬header-checksum">헤더 체크섬(header checksum)</h5>
+<ul>
+  <li>헤더의 오류 체크에 쓰는 2바이트 필드</li>
+  <li>RFC1071 에 정의되있으며 <strong>1의 보수 연산</strong> 이라는 계산 방법 채용</li>
+</ul>
+
+<h5 id="송신지수신지-ipv4-주소">송신지/수신지 IPv4 주소</h5>
+<ul>
+  <li>4바이트 식별 아이디</li>
+  <li>기기종류에 따라 여러 IP 가질 수 있음</li>
+  <li>네트워크 필드 및 호스트 주소에 따라 <strong>a,b,c, 클래스</strong>로 나뉨
+    <ul>
+      <li><strong>사설ip, 공인ip</strong>
+        <ul>
+          <li>로컬이 외부 공용 네트워크와 통신하려면 공인ip 주소 사용해야함</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li> D 및 클래스 E 주소가 있지만, 이는 각각 <strong>멀티캐스트 주소</strong>와 예약된 주소
+    <ul>
+      <li>네트워킹 장치나 호스트에 할당 못함</li>
+    </ul>
+  </li>
+</ul>
+
+<h5 id="옵션">옵션</h5>
+<ul>
+  <li>IPv4 송신에 대한 확장 기능 저장한 <strong>가변 길이</strong> 필드</li>
+  <li>실무에서 쓰인걸 보지 못했다함</li>
+</ul>
+
+<h5 id="패딩padding">패딩(padding)</h5>
+<ul>
+  <li>IPv4 헤더의 <strong>비트 수 정렬</strong> 위해 사용되는 필드</li>
+  <li>IPv4는 4바이트 단위여야 함</li>
+  <li>아니면 0을 추가해 4바이트 정수배가 되도록 함</li>
+</ul>
+
 <blockquote>
-  <p><strong>Mac주소와 IP 주소 모두 필요한 이유</strong>
+  <p><strong>Mac주소와 IP 주소 모두 필요한 이유</strong> <br />
 MAC Address는 NIC에 할당 된 물리적 주소 - 어떤 기기에 프레임 전달하지?
 IP주소는 OS에 할당된 논리적 주소 - 어디에 패킷 전달하지?
 이 두 주소를 연결하는 다리가 ARP</p>
@@ -272,7 +403,7 @@ IP주소는 OS에 할당된 논리적 주소 - 어디에 패킷 전달하지?
   <p>데이터 링크 계층- 이더넷
 네트워크 계층 - IP 이기 때문에 양쪽 주소가 필요함
 데이터링크 계층에서 PPP사용하면 MAC은 필요없음</p>
-</blockquote>]]></content><author><name>Mohitto55</name><email>mohitto55@gmail.com</email></author><category term="Network" /><category term="Blog" /><category term="Jekyll" /><category term="MinimalMistake" /><category term="UTF-8" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">[Git Blog] Minimal Mistakes 사이드바 추가하기</title><link href="http://localhost:4000/git_blog/%EC%82%AC%EC%9D%B4%EB%93%9C%EB%B0%94-%EC%B6%94%EA%B0%80/" rel="alternate" type="text/html" title="[Git Blog] Minimal Mistakes 사이드바 추가하기" /><published>2024-01-16T00:00:00+09:00</published><updated>2024-01-16T00:00:00+09:00</updated><id>http://localhost:4000/git_blog/%EC%82%AC%EC%9D%B4%EB%93%9C%EB%B0%94%20%EC%B6%94%EA%B0%80</id><content type="html" xml:base="http://localhost:4000/git_blog/%EC%82%AC%EC%9D%B4%EB%93%9C%EB%B0%94-%EC%B6%94%EA%B0%80/"><![CDATA[<p>Minimal-Mistakes 테마를 이용해 사이드바를 만들어 볼 것이다.</p>
+</blockquote>]]></content><author><name>Mohitto55</name><email>mohitto55@gmail.com</email></author><category term="network" /><category term="Blog" /><category term="Jekyll" /><category term="MinimalMistake" /><category term="UTF-8" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">[Git Blog] Minimal Mistakes 사이드바 추가하기</title><link href="http://localhost:4000/gitblog/%EC%82%AC%EC%9D%B4%EB%93%9C%EB%B0%94-%EC%B6%94%EA%B0%80/" rel="alternate" type="text/html" title="[Git Blog] Minimal Mistakes 사이드바 추가하기" /><published>2024-01-16T00:00:00+09:00</published><updated>2024-01-16T00:00:00+09:00</updated><id>http://localhost:4000/gitblog/%EC%82%AC%EC%9D%B4%EB%93%9C%EB%B0%94%20%EC%B6%94%EA%B0%80</id><content type="html" xml:base="http://localhost:4000/gitblog/%EC%82%AC%EC%9D%B4%EB%93%9C%EB%B0%94-%EC%B6%94%EA%B0%80/"><![CDATA[<p>Minimal-Mistakes 테마를 이용해 사이드바를 만들어 볼 것이다.</p>
 
 <h3 id="1-사이드바-옵션-설정">1. 사이드바 옵션 설정</h3>
 
@@ -319,7 +450,7 @@ sidebar:
 
 <p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/525e23a5-d127-4e75-aed2-f288870a0cda" alt="SideBar Category" /></p>
 
-<p>잘 적용 된 것을 볼 수 있다.</p>]]></content><author><name>Mohitto55</name><email>mohitto55@gmail.com</email></author><category term="Git_Blog" /><category term="Blog" /><category term="Jekyll" /><category term="MinimalMistake" /><summary type="html"><![CDATA[Minimal-Mistakes 테마를 이용해 사이드바를 만들어 볼 것이다.]]></summary></entry><entry><title type="html">[Git Blog] invalid byte sequence in UTF-8 해결법</title><link href="http://localhost:4000/git_blog/UTF-8-ERROR/" rel="alternate" type="text/html" title="[Git Blog] invalid byte sequence in UTF-8 해결법" /><published>2024-01-16T00:00:00+09:00</published><updated>2024-01-16T00:00:00+09:00</updated><id>http://localhost:4000/git_blog/UTF-8%20ERROR</id><content type="html" xml:base="http://localhost:4000/git_blog/UTF-8-ERROR/"><![CDATA[<hr />
+<p>잘 적용 된 것을 볼 수 있다.</p>]]></content><author><name>Mohitto55</name><email>mohitto55@gmail.com</email></author><category term="gitblog" /><category term="Blog" /><category term="Jekyll" /><category term="MinimalMistake" /><summary type="html"><![CDATA[Minimal-Mistakes 테마를 이용해 사이드바를 만들어 볼 것이다.]]></summary></entry><entry><title type="html">[Git Blog] invalid byte sequence in UTF-8 해결법</title><link href="http://localhost:4000/gitblog/UTF-8-ERROR/" rel="alternate" type="text/html" title="[Git Blog] invalid byte sequence in UTF-8 해결법" /><published>2024-01-16T00:00:00+09:00</published><updated>2024-01-16T00:00:00+09:00</updated><id>http://localhost:4000/gitblog/UTF-8%20ERROR</id><content type="html" xml:base="http://localhost:4000/gitblog/UTF-8-ERROR/"><![CDATA[<hr />
 
 <h2 id="utf-8-error">UTF-8 Error</h2>
 
@@ -331,7 +462,7 @@ sidebar:
 
 <h2 id="solutions">Solutions</h2>
 
-<p>해결법은 <strong>Visual studio</strong> 인코딩을 UTF-8로 바꿔주거나 <strong>VSCode</strong>를 사용하면 된다.</p>]]></content><author><name>Mohitto55</name><email>mohitto55@gmail.com</email></author><category term="Git_Blog" /><category term="Blog" /><category term="Jekyll" /><category term="MinimalMistake" /><category term="UTF-8" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">[Git Blog] 깃허브로 이사</title><link href="http://localhost:4000/git_blog/%EA%B9%83%ED%97%88%EB%B8%8C%EB%A1%9C-%EC%9D%B4%EC%82%AC/" rel="alternate" type="text/html" title="[Git Blog] 깃허브로 이사" /><published>2024-01-15T00:00:00+09:00</published><updated>2024-01-15T00:00:00+09:00</updated><id>http://localhost:4000/git_blog/%EA%B9%83%ED%97%88%EB%B8%8C%EB%A1%9C%20%EC%9D%B4%EC%82%AC</id><content type="html" xml:base="http://localhost:4000/git_blog/%EA%B9%83%ED%97%88%EB%B8%8C%EB%A1%9C-%EC%9D%B4%EC%82%AC/"><![CDATA[<h1 id="첫-깃허브-블로그-개설">첫 깃허브 블로그 개설</h1>
+<p>해결법은 <strong>Visual studio</strong> 인코딩을 UTF-8로 바꿔주거나 <strong>VSCode</strong>를 사용하면 된다.</p>]]></content><author><name>Mohitto55</name><email>mohitto55@gmail.com</email></author><category term="gitblog" /><category term="Blog" /><category term="Jekyll" /><category term="MinimalMistake" /><category term="UTF-8" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">[Git Blog] 깃허브로 이사</title><link href="http://localhost:4000/gitblog/%EA%B9%83%ED%97%88%EB%B8%8C%EB%A1%9C-%EC%9D%B4%EC%82%AC/" rel="alternate" type="text/html" title="[Git Blog] 깃허브로 이사" /><published>2024-01-15T00:00:00+09:00</published><updated>2024-01-15T00:00:00+09:00</updated><id>http://localhost:4000/gitblog/%EA%B9%83%ED%97%88%EB%B8%8C%EB%A1%9C%20%EC%9D%B4%EC%82%AC</id><content type="html" xml:base="http://localhost:4000/gitblog/%EA%B9%83%ED%97%88%EB%B8%8C%EB%A1%9C-%EC%9D%B4%EC%82%AC/"><![CDATA[<h1 id="첫-깃허브-블로그-개설">첫 깃허브 블로그 개설</h1>
 <p>원래는 티스토리에서 글을 작성하였다.
 처음 입문하기에 더할나위 없는 블로그였고 잘 사용하고 있었으나 옵시디언을 내 입맛대로 꾸미다가 문득 블로그도 커스터마이징을 해서 꾸며보고 싶었졌다. 
-옵시디언을 하면서 마크다운 문법에 꽤나 익숙해져서 보다 자유도 높은 깃허브로 이사를 오게됐다.</p>]]></content><author><name>Mohitto55</name><email>mohitto55@gmail.com</email></author><category term="Git_Blog" /><category term="Blog" /><summary type="html"><![CDATA[첫 깃허브 블로그 개설 원래는 티스토리에서 글을 작성하였다. 처음 입문하기에 더할나위 없는 블로그였고 잘 사용하고 있었으나 옵시디언을 내 입맛대로 꾸미다가 문득 블로그도 커스터마이징을 해서 꾸며보고 싶었졌다. 옵시디언을 하면서 마크다운 문법에 꽤나 익숙해져서 보다 자유도 높은 깃허브로 이사를 오게됐다.]]></summary></entry></feed>
+옵시디언을 하면서 마크다운 문법에 꽤나 익숙해져서 보다 자유도 높은 깃허브로 이사를 오게됐다.</p>]]></content><author><name>Mohitto55</name><email>mohitto55@gmail.com</email></author><category term="gitblog" /><category term="Blog" /><summary type="html"><![CDATA[첫 깃허브 블로그 개설 원래는 티스토리에서 글을 작성하였다. 처음 입문하기에 더할나위 없는 블로그였고 잘 사용하고 있었으나 옵시디언을 내 입맛대로 꾸미다가 문득 블로그도 커스터마이징을 해서 꾸며보고 싶었졌다. 옵시디언을 하면서 마크다운 문법에 꽤나 익숙해져서 보다 자유도 높은 깃허브로 이사를 오게됐다.]]></summary></entry></feed>

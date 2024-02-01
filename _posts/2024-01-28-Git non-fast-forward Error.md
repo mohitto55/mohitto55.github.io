@@ -2,10 +2,6 @@
 title : "[Git] non-fast-forward Error"
 categories: git
 tags: [Git, Error]
-toc: true
-author_profile: false
-sidebar:
-  nav: "docs"
 ---
 
 

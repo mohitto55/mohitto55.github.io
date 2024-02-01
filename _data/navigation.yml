@@ -15,52 +15,46 @@ docs:
         - title: "Tag"
           url: /tags/
 
-  docs:
-  - title: Language
+sidebar-category:
+  - title: "Language"
     children:
-      - title: "C/C++"
-        url: c++/
-        category: "c/c++"
+      - title: "C++"
+        url: "/c++"
+        category: "c++"
       - title: "C#"
-        url: c#/
+        url:  "/c#"
         category: "c#"
       - title: "JavaScript"
-        url: javascript/
+        url:  "/javascript"
         category: "javascript"
-  - title: Server
-    children:
-      - title: "Ubuntu"
-        url: ubuntu/
-        category: "ubuntu"
-      - title: "Network"
-        url: network/
-        category: "network"
-  - title: Engine
+      - title: "Obsidian"
+        url:  "/obsidian"
+        category: "obsidian"
+  - title: "Engine"
     children:
       - title: "Unity"
-        url: unity/
+        url: "/unity"
         category: "unity"
       - title: "UE5"
-        url: ue5/
+        url:  "/ue5"
         category: "ue5"
-  - title: Etc
+  - title: "ETC"
     children:
-      - title: "git blog"
-        url: gitblog/
-        category: "git blog"
-      - title: "Git"
-        url: git/
-        category: "git"
-      - title: "Obsidian"
-        url: obsidian/
-        category: "obsidian"
       - title: "Math"
-        url: math/
+        url: "/math"
         category: "math"
+      - title: "Network"
+        url: "/network"
+        category: "networkt"
+      - title: "Git"
+        url:  "/git"
+        category: "git"
+      - title: "Git Blog"
+        url:  "/gitblog"
+        category: "gitblog"
       - title: "Hardware"
-        url: hardware/
+        url:  "/hardware"
         category: "hardware"
-
 
   # - title: "About"
   #   url: https://mmistakes.github.io/minimal-mistakes/about/

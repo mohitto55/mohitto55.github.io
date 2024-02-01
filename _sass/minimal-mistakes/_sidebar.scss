@@ -6,6 +6,18 @@
    Default
    ========================================================================== */
 
+
+   .toc__menu li ul li ul > li a {
+    padding-left: 2.5rem;
+  }
+  
+  .toc__menu li ul li ul li ul > li a {
+    padding-left: 3rem;
+  }
+  
+  .toc__menu li ul li ul li ul li ul > li a {
+    padding-left: 3.5rem;
+  }
 .sidebar {
   @include clearfix();
   // @include breakpoint(max-width $large) {
@@ -120,6 +132,7 @@
 /*
    Author profile and links
    ========================================================================== */
+
 
 .author__avatar {
   display: table-cell;
@@ -350,4 +363,3 @@
     margin-right: initial;
   }
 }
-

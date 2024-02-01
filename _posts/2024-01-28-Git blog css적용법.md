@@ -1,9 +1,7 @@
 ---
 title : "[Git Blog] Blog CSS 적용하는 법"
-categories: git blog
+categories: gitblog
 tags: [Blog, Jekyll, MinimalMistake, CSS]
-sidebar:
-  nav: "docs"
 ---
 
 Git blog의 장점중 하나는 유저가 원하는 대로 커스터마이징 가능하다는 점이다. 내가 Git blog로 넘어온 이유도 다른 블로그들에 비해 독창적인 디자인의 블로그 비중이 Git으로 만든 블로그들이 많기 때문이다. 자유롭게 블로그를 꾸밀 수 있게 해주는 GIt blog의 기능 중 하나는 커스텀 CSS 덕분이다. 이 포스트에서는 **MinimalMistake** 테마에서 어떻게 CSS를 적용, 수정하는지 알아볼 것이다.

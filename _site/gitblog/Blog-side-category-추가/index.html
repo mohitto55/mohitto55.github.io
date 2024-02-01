@@ -1,0 +1,918 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>[Git Blog] 사이드 카테고리 추가하기 | Mohitto55 Note</title>
+<meta name="description" content="좌측 사이드바에 카테고리를 넣어볼 것이다.">
+
+
+  <meta name="author" content="Mohitto55">
+  
+  <meta property="article:author" content="Mohitto55">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="Mohitto55 Note">
+<meta property="og:title" content="[Git Blog] 사이드 카테고리 추가하기">
+<meta property="og:url" content="http://localhost:4000/gitblog/Blog-side-category-%EC%B6%94%EA%B0%80/">
+
+
+  <meta property="og:description" content="좌측 사이드바에 카테고리를 넣어볼 것이다.">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2024-02-02T00:00:00+09:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/gitblog/Blog-side-category-%EC%B6%94%EA%B0%80/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "전진성(Jeon Jin Sung)",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+  <meta name="naver-site-verification" content="a4ad39eaff04b6c72cdd72276b5e8a94d931b215">
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Mohitto55 Note Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/mohitto.jpg" alt="Mohitto55 Note"></a>
+        
+        <a class="site-title" href="/">
+          Mohitto55 Note
+          <span class="site-subtitle">small positive action</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/categories/">Category</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">Tag</a>
+            </li><li class="masthead__menu-item">
+              <a href="/search/">Search</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">토글 메뉴</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+  
+    
+
+
+
+<nav class="breadcrumbs">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    
+    
+    
+      
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/" itemprop="item"><span itemprop="name">Home</span></a>
+
+          <meta itemprop="position" content="1" />
+        </li>
+        <span class="sep">/</span>
+      
+      
+        
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/categories/#gitblog" itemprop="item"><span itemprop="name">Gitblog</span></a>
+          <meta itemprop="position" content="2" />
+        </li>
+        <span class="sep">/</span>
+      
+    
+      
+      
+        <li class="current">[Git Blog] 사이드 카테고리 추가하기</li>
+      
+    
+  </ol>
+</nav>
+
+  
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:4000/">
+        <img src="/assets/images/mohitto.jpg" alt="Mohitto55" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Mohitto55</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>Mohitto’s Note’</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">팔로우</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">South Korea</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="mailto:mohitto55@gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/mohitto55" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:mohitto55@gmail.com" rel="me" class="u-email">
+            <meta itemprop="email" content="mohitto55@gmail.com" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">이메일</span>
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+    
+      
+      
+      
+      
+    
+    
+      
+
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">토글 메뉴</label>
+  <li> 전체 글 수 (10)개 </li>
+  <ul class="nav__items">
+    
+      
+      <li>
+        
+          <span class="nav__sub-title">Language</span>
+        
+
+        
+        <ul>
+          
+          
+          
+
+            <li><a href="/c++">C++(1)</a></li>
+          
+          
+          
+
+            <li><a href="/c">C#(0)</a></li>
+          
+          
+          
+
+            <li><a href="/javascript">JavaScript(0)</a></li>
+          
+          
+          
+
+            <li><a href="/obsidian">Obsidian(1)</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      
+      <li>
+        
+          <span class="nav__sub-title">Engine</span>
+        
+
+        
+        <ul>
+          
+          
+          
+
+            <li><a href="/unity">Unity(0)</a></li>
+          
+          
+          
+
+            <li><a href="/ue5">UE5(0)</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      
+      <li>
+        
+          <span class="nav__sub-title">ETC</span>
+        
+
+        
+        <ul>
+          
+          
+          
+
+            <li><a href="/math">Math(0)</a></li>
+          
+          
+          
+
+            <li><a href="/network">Network(0)</a></li>
+          
+          
+          
+
+            <li><a href="/git">Git(1)</a></li>
+          
+          
+          
+
+            <li><a href="/gitblog">Git Blog(5)</a></li>
+          
+          
+          
+
+            <li><a href="/hardware">Hardware(1)</a></li>
+          
+        </ul>
+        
+      </li>
+    
+  </ul>
+</nav>
+    
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="[Git Blog] 사이드 카테고리 추가하기">
+    <meta itemprop="description" content="좌측 사이드바에 카테고리를 넣어볼 것이다.">
+    <meta itemprop="datePublished" content="2024-02-02T00:00:00+09:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://localhost:4000/gitblog/Blog-side-category-%EC%B6%94%EA%B0%80/" class="u-url" itemprop="url">[Git Blog] 사이드 카테고리 추가하기
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2024-02-02T00:00:00+09:00">February 2, 2024</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> 목차</h4></header>
+              <ul class="toc__menu"><li><a href="#1-카테고리-목록-정하기">1. 카테고리 목록 정하기</a></li><li><a href="#2-카테고리-포스트-목록-페이지-생성">2. 카테고리 포스트 목록 페이지 생성</a></li><li><a href="#3포스트-수-표시">3.포스트 수 표시</a></li><li><a href="#4모든페이지-사이드바-적용">4.모든페이지 사이드바 적용</a></li><li><a href="#5결과">5.결과</a></li></ul>
+
+            </nav>
+          </aside>
+        
+        <p>좌측 사이드바에 카테고리를 넣어볼 것이다.</p>
+
+<h2 id="1-카테고리-목록-정하기">1. 카테고리 목록 정하기</h2>
+<p><code class="language-plaintext highlighter-rouge">_data/navigation.yml</code>에서 하단의 내용을 넣고 한글로 된 부분을 수정한다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sidebar-category:
+  - title: "타이틀"
+    children:
+      - title: "표시될제목"
+        url: "/주소"
+</code></pre></div></div>
+
+<h2 id="2-카테고리-포스트-목록-페이지-생성">2. 카테고리 포스트 목록 페이지 생성</h2>
+<p><code class="language-plaintext highlighter-rouge">_page</code>로가서 <code class="language-plaintext highlighter-rouge">catagories</code>라는 폴더를 만들고 안에 카테고리 요소당 하나씩 <code class="language-plaintext highlighter-rouge">*.md</code>파일을 생성해 준다. 그리고 아래 요소들을 수정한다.</p>
+<ul>
+  <li>title: 페이지 제목</li>
+  <li>layout:페이지에서 사용할 layout</li>
+  <li>permalink: navigation.yml에서 설정한 url</li>
+  <li>탐색할카테고리: navigation.yml 설정한 category</li>
+</ul>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>---
+title: "페이지 이름"
+layout: archive
+permalink: 링크
+---
+ {% assign posts = site.categories.탐색할카테고리 %}
+{% for post in posts %}
+  {% include custom-archive-single.html type=entries_layout %}
+{% endfor %} 
+</code></pre></div></div>
+
+<h2 id="3포스트-수-표시">3.포스트 수 표시</h2>
+<p><code class="language-plaintext highlighter-rouge">_includes/nav_list</code>에 아래 내용을 모두 덮어쓴다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% assign navigation = site.data.navigation[include.nav] %}
+
+&lt;nav class="nav__list"&gt;
+  {% if page.sidebar.title %}&lt;h3 class="nav__title" style="padding-left: 0;"&gt;{{ page.sidebar.title }}&lt;/h3&gt;{% endif %}
+  &lt;input id="ac-toc" name="accordion-toc" type="checkbox" /&gt;
+  &lt;label for="ac-toc"&gt;{{ site.data.ui-text[site.locale].menu_label | default: "Toggle Menu" }}&lt;/label&gt;
+  &lt;ul class="nav__items"&gt;
+    {% for nav in navigation %}
+      &lt;li&gt;
+        {% if nav.url %}
+          &lt;a href="{{ nav.url | relative_url }}"&gt;&lt;span class="nav__sub-title"&gt;{{ nav.title }}&lt;/span&gt;&lt;/a&gt;
+        {% else %}
+          &lt;span class="nav__sub-title"&gt;{{ nav.title }}&lt;/span&gt;
+        {% endif %}
+
+        {% if nav.children != null %}
+        &lt;ul&gt;
+          {% for child in nav.children %}
+          {% assign post_cnt = 0 %}
+          {% for category in site.categories %}
+            {% if category[0] == child.category  %}
+                {% assign post_cnt = category[1].size %}
+            {% endif %}
+          {% endfor %}
+
+            &lt;li&gt;&lt;a href="{{ child.url | relative_url }}"{% if child.url == page.url %} class="active"{% endif %}&gt;{{ child.title }}({{ post_cnt }})&lt;/a&gt;&lt;/li&gt;
+          {% endfor %}
+        &lt;/ul&gt;
+        {% endif %}
+      &lt;/li&gt;
+    {% endfor %}
+  &lt;/ul&gt;
+&lt;/nav&gt; 
+</code></pre></div></div>
+<p>_includes/nav_list 수정</p>
+
+<h2 id="4모든페이지-사이드바-적용">4.모든페이지 사이드바 적용</h2>
+<p>루트폴더에 있는 <code class="language-plaintext highlighter-rouge">config.yml</code>에서 sidebar 부분을 추가해준다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>defaults:
+  # _posts
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: single
+      author_profile: true
+      read_time: true
+      comments: true
+      share: true
+      related: true
+      show_date: true
+      sidebar: # 추가
+        nav: "sidebar-category"
+</code></pre></div></div>
+
+<h2 id="5결과">5.결과</h2>
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/12ef844b-9baa-4af1-8096-dd9c8ab1571c" alt="image" /></p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#blog" class="page__taxonomy-item p-category" rel="tag">Blog</a><span class="sep">, </span>
+    
+      <a href="/tags/#jekyll" class="page__taxonomy-item p-category" rel="tag">Jekyll</a><span class="sep">, </span>
+    
+      <a href="/tags/#minimal-mistake" class="page__taxonomy-item p-category" rel="tag">minimal-mistake</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#gitblog" class="page__taxonomy-item p-category" rel="tag">gitblog</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2024-02-02T00:00:00+09:00">February 2, 2024</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=%5BGit+Blog%5D+%EC%82%AC%EC%9D%B4%EB%93%9C+%EC%B9%B4%ED%85%8C%EA%B3%A0%EB%A6%AC+%EC%B6%94%EA%B0%80%ED%95%98%EA%B8%B0%20http%3A%2F%2Flocalhost%3A4000%2Fgitblog%2FBlog-side-category-%25EC%25B6%2594%25EA%25B0%2580%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fgitblog%2FBlog-side-category-%25EC%25B6%2594%25EA%25B0%2580%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fgitblog%2FBlog-side-category-%25EC%25B6%2594%25EA%25B0%2580%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/hardware/GPU-%EC%9D%B8%EC%8B%9D%EC%95%88%EB%90%8C-%ED%95%B4%EA%B2%B0/" class="pagination--pager" title="[Hardware] GPU 인식 안되는 현상 해결
+">이전</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">다음</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h2 class="page__related-title">참고</h2>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/hardware/GPU-%EC%9D%B8%EC%8B%9D%EC%95%88%EB%90%8C-%ED%95%B4%EA%B2%B0/" rel="permalink">[Hardware] GPU 인식 안되는 현상 해결
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2024-02-01T00:00:00+09:00">February 1, 2024</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">큰돈을 주고 컴퓨터를 새로 장만하고 기쁜 마음으로 언리얼엔진5를 시작했다. 그런데 이상하게도 에디터의 인식이 굉장히 느렸었다. 단순한 버그라기엔 뭔가 이상해서 CPU-Z를 이용해 그래픽카드를 확인해 봤더니…
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/c++/RAII/" rel="permalink">[C++] 자원관리 기법 RAII
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2024-01-30T00:00:00+09:00">January 30, 2024</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          최대 1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">RAII
+C++진영에서 자주 쓰이는 Idiom으로 객체가 쓰이는 Scope를 벗어나면 자원을 해제해주는 기법
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/obsidian/Dataview-CustomJS-%EC%82%AC%EC%9A%A9%EB%B2%95/" rel="permalink">[Obsidian] 코드수정을 한번에 CustomJS
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2024-01-29T00:00:00+09:00">January 29, 2024</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          최대 1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">What is CustomJS
+CustomJS란 dataview에 Javascript로 작성한 함수를 적용할 수 있게 해주는 플러그인이다.
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/git/Git-non-fast-forward-Error/" rel="permalink">[Git] non-fast-forward Error
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2024-01-28T00:00:00+09:00">January 28, 2024</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          최대 1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description"> ! [rejected]        main -&gt; main (non-fast-forward)
+error: failed to push some refs to 'https://github.com/mohitto55/Until2023.git'
+hint: Updates were re...</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="https://github.com/mohitto55" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2024 전진성(Jeon Jin Sung). Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "http://localhost:4000/gitblog/Blog-side-category-%EC%B6%94%EA%B0%80/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/gitblog/Blog side category 추가"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+    };
+    (function() { /* DON'T EDIT BELOW THIS LINE */
+      var d = document, s = d.createElement('script');
+      s.src = 'https://MohittoBlog.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+
+  </body>
+</html>
