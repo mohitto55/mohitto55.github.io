@@ -1,6 +1,6 @@
 ---
 title : "[Obsidian] 코드수정을 한번에 CustomJS"
-categories: Obsidian
+categories: obsidian
 tags: [Obsidian, DataviewJS, CustomJS]
 toc: true
 author_profile: false

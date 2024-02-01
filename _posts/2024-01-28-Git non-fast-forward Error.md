@@ -1,6 +1,6 @@
 ---
 title : "[Git] non-fast-forward Error"
-categories: Git
+categories: git
 tags: [Git, Error]
 toc: true
 author_profile: false

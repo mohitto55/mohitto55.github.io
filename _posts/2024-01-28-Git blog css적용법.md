@@ -1,6 +1,6 @@
 ---
 title : "[Git Blog] Blog CSS 적용하는 법"
-categories: Git_Blog
+categories: git blog
 tags: [Blog, Jekyll, MinimalMistake, CSS]
 sidebar:
   nav: "docs"
