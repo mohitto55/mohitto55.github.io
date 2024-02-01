@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-02-02T06:27:21+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mohitto55 Note</title><subtitle>모히또의 노트</subtitle><author><name>Mohitto55</name><email>mohitto55@gmail.com</email></author><entry><title type="html">[Git Blog] 사이드 카테고리 추가하기</title><link href="http://localhost:4000/gitblog/Blog-side-category-%EC%B6%94%EA%B0%80/" rel="alternate" type="text/html" title="[Git Blog] 사이드 카테고리 추가하기" /><published>2024-02-02T00:00:00+09:00</published><updated>2024-02-02T00:00:00+09:00</updated><id>http://localhost:4000/gitblog/Blog%20side%20category%20%EC%B6%94%EA%B0%80</id><content type="html" xml:base="http://localhost:4000/gitblog/Blog-side-category-%EC%B6%94%EA%B0%80/"><![CDATA[<p>좌측 사이드바에 카테고리를 넣어볼 것이다.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-02-02T07:25:59+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mohitto55 Note</title><subtitle>모히또의 노트</subtitle><author><name>Mohitto55</name><email>mohitto55@gmail.com</email></author><entry><title type="html">[Git Blog] 사이드 카테고리 추가하기</title><link href="http://localhost:4000/gitblog/Blog-side-category-%EC%B6%94%EA%B0%80/" rel="alternate" type="text/html" title="[Git Blog] 사이드 카테고리 추가하기" /><published>2024-02-02T00:00:00+09:00</published><updated>2024-02-02T00:00:00+09:00</updated><id>http://localhost:4000/gitblog/Blog%20side%20category%20%EC%B6%94%EA%B0%80</id><content type="html" xml:base="http://localhost:4000/gitblog/Blog-side-category-%EC%B6%94%EA%B0%80/"><![CDATA[<p>좌측 사이드바에 카테고리를 넣어볼 것이다.</p>
 
 <h2 id="1-카테고리-목록-정하기">1. 카테고리 목록 정하기</h2>
 <p><code class="language-plaintext highlighter-rouge">_data/navigation.yml</code>에서 하단의 내용을 넣고 한글로 된 부분을 수정한다.</p>
@@ -87,7 +87,16 @@ permalink: 링크
 </code></pre></div></div>
 
 <h2 id="5결과">5.결과</h2>
-<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/12ef844b-9baa-4af1-8096-dd9c8ab1571c" alt="image" /></p>]]></content><author><name>Mohitto55</name><email>mohitto55@gmail.com</email></author><category term="gitblog" /><category term="minimal-mistake" /><category term="Jekyll" /><category term="Blog" /><summary type="html"><![CDATA[좌측 사이드바에 카테고리를 넣어볼 것이다.]]></summary></entry><entry><title type="html">[Hardware] GPU 인식 안되는 현상 해결</title><link href="http://localhost:4000/hardware/GPU-%EC%9D%B8%EC%8B%9D%EC%95%88%EB%90%8C-%ED%95%B4%EA%B2%B0/" rel="alternate" type="text/html" title="[Hardware] GPU 인식 안되는 현상 해결" /><published>2024-02-01T00:00:00+09:00</published><updated>2024-02-01T00:00:00+09:00</updated><id>http://localhost:4000/hardware/GPU%20%EC%9D%B8%EC%8B%9D%EC%95%88%EB%90%8C%20%ED%95%B4%EA%B2%B0</id><content type="html" xml:base="http://localhost:4000/hardware/GPU-%EC%9D%B8%EC%8B%9D%EC%95%88%EB%90%8C-%ED%95%B4%EA%B2%B0/"><![CDATA[<p>큰돈을 주고 컴퓨터를 새로 장만하고 기쁜 마음으로 언리얼엔진5를 시작했다. 그런데 이상하게도 에디터의 인식이 굉장히 느렸었다. 단순한 버그라기엔 뭔가 이상해서 CPU-Z를 이용해 그래픽카드를 확인해 봤더니…</p>
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/12ef844b-9baa-4af1-8096-dd9c8ab1571c" alt="image" /></p>]]></content><author><name>Mohitto55</name><email>mohitto55@gmail.com</email></author><category term="gitblog" /><category term="minimal-mistake" /><category term="Jekyll" /><category term="Blog" /><summary type="html"><![CDATA[좌측 사이드바에 카테고리를 넣어볼 것이다.]]></summary></entry><entry><title type="html">[Git Blog] Liquid 문법{% %}표시하기</title><link href="http://localhost:4000/gitblog/Liquid-%EB%AC%B8%EB%B2%95-%ED%91%9C%EC%8B%9C%ED%95%98%EA%B8%B0/" rel="alternate" type="text/html" title="[Git Blog] Liquid 문법{% %}표시하기" /><published>2024-02-02T00:00:00+09:00</published><updated>2024-02-02T00:00:00+09:00</updated><id>http://localhost:4000/gitblog/Liquid%20%EB%AC%B8%EB%B2%95%20%ED%91%9C%EC%8B%9C%ED%95%98%EA%B8%B0</id><content type="html" xml:base="http://localhost:4000/gitblog/Liquid-%EB%AC%B8%EB%B2%95-%ED%91%9C%EC%8B%9C%ED%95%98%EA%B8%B0/"><![CDATA[<h2 id="liquid">Liquid?</h2>
+<p>블로그를 작성하다 보면 가끔 {% %}라고 쓰여진 텍스트를 쓸 때가 있다. 하지만 그냥 작성하면 포스트에는 보이지 않고 사라지는 경우가 있다. 이는 {% %}는 Liquid라는 템플릿 언어의 문법 중 하나로 Jekyll같은 정적 사이트에서 주로 사용된다.</p>
+
+<p>{% %} 사이에 Liquid 문법을 넣어 템플릿을 생성하거나 조건문을 넣는데 아무 조치없이 사용하면 Jekyll 사이트는 글이 아닌 문법으로 보고 실행 되어 사라져 보였던 것이다.</p>
+<h2 id="해결법">해결법</h2>
+<p>raw 태그를 이용해 다음과 같이 작성하면 표시된다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% raw %}
+Liquid 문법
+{% endraw %}
+</code></pre></div></div>]]></content><author><name>Mohitto55</name><email>mohitto55@gmail.com</email></author><category term="gitblog" /><category term="minimal-mistake" /><category term="Jekyll" /><category term="Blog" /><category term="Liquid" /><category term="template" /><category term="markdown" /><summary type="html"><![CDATA[Liquid? 블로그를 작성하다 보면 가끔 {% %}라고 쓰여진 텍스트를 쓸 때가 있다. 하지만 그냥 작성하면 포스트에는 보이지 않고 사라지는 경우가 있다. 이는 {% %}는 Liquid라는 템플릿 언어의 문법 중 하나로 Jekyll같은 정적 사이트에서 주로 사용된다.]]></summary></entry><entry><title type="html">[Hardware] GPU 인식 안되는 현상 해결</title><link href="http://localhost:4000/hardware/GPU-%EC%9D%B8%EC%8B%9D%EC%95%88%EB%90%8C-%ED%95%B4%EA%B2%B0/" rel="alternate" type="text/html" title="[Hardware] GPU 인식 안되는 현상 해결" /><published>2024-02-01T00:00:00+09:00</published><updated>2024-02-01T00:00:00+09:00</updated><id>http://localhost:4000/hardware/GPU%20%EC%9D%B8%EC%8B%9D%EC%95%88%EB%90%8C%20%ED%95%B4%EA%B2%B0</id><content type="html" xml:base="http://localhost:4000/hardware/GPU-%EC%9D%B8%EC%8B%9D%EC%95%88%EB%90%8C-%ED%95%B4%EA%B2%B0/"><![CDATA[<p>큰돈을 주고 컴퓨터를 새로 장만하고 기쁜 마음으로 언리얼엔진5를 시작했다. 그런데 이상하게도 에디터의 인식이 굉장히 느렸었다. 단순한 버그라기엔 뭔가 이상해서 CPU-Z를 이용해 그래픽카드를 확인해 봤더니…</p>
 
 <p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/8b71498c-988e-45d2-bd83-6a7b3f7d7448" alt="스크린샷 2024-02-01 192002" /></p>
 
@@ -217,31 +226,7 @@ ShowTasks.ShowNotComplitedTasksInPath(dv,current.file.folder);
 
 <p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/24e1274b-75e9-4679-aa3b-f82d09eb1d6c" alt="image" /></p>
 
-<p>이제 단 한번의 수정으로 코드를 관리할 수 있게되었다.</p>]]></content><author><name>Mohitto55</name><email>mohitto55@gmail.com</email></author><category term="obsidian" /><category term="Obsidian" /><category term="DataviewJS" /><category term="CustomJS" /><summary type="html"><![CDATA[What is CustomJS CustomJS란 dataview에 Javascript로 작성한 함수를 적용할 수 있게 해주는 플러그인이다.]]></summary></entry><entry><title type="html">[Git Blog] Blog CSS 적용하는 법</title><link href="http://localhost:4000/gitblog/Git-blog-css%EC%A0%81%EC%9A%A9%EB%B2%95/" rel="alternate" type="text/html" title="[Git Blog] Blog CSS 적용하는 법" /><published>2024-01-28T00:00:00+09:00</published><updated>2024-01-28T00:00:00+09:00</updated><id>http://localhost:4000/gitblog/Git%20blog%20css%EC%A0%81%EC%9A%A9%EB%B2%95</id><content type="html" xml:base="http://localhost:4000/gitblog/Git-blog-css%EC%A0%81%EC%9A%A9%EB%B2%95/"><![CDATA[<p>Git blog의 장점중 하나는 유저가 원하는 대로 커스터마이징 가능하다는 점이다. 내가 Git blog로 넘어온 이유도 다른 블로그들에 비해 독창적인 디자인의 블로그 비중이 Git으로 만든 블로그들이 많기 때문이다. 자유롭게 블로그를 꾸밀 수 있게 해주는 GIt blog의 기능 중 하나는 커스텀 CSS 덕분이다. 이 포스트에서는 <strong>MinimalMistake</strong> 테마에서 어떻게 CSS를 적용, 수정하는지 알아볼 것이다.</p>
-
-<h2 id="css-파일-위치">CSS 파일 위치</h2>
-<p><strong>MinimalMistake</strong>의 CSS 파일들은 루트폴더에서 <strong>_sass/minimal-mistakes</strong>폴더 안에 있다. 안에 있는 <strong>.scss</strong> 확장자 파일들이 있는데 이것이 CSS 파일이다. 각 파일들은 블로그를 구성하는 여러 구조들의 외관을 어떻게 표현할지 적혀져있다.</p>
-
-<h2 id="수정할-영역-찾기">수정할 영역 찾기</h2>
-<p>적혀진 내용이 매우 많은데 어느것이 내가 수정하기 원하는 부분인지 알기 어렵다. 이를 알고싶으면 페이지에서 직접 확인해야한다. 페이지에 들어가서 우클릭/검색 혹은 F12 눌러서 개발자 모드 창을 열면 html이 적힌 화면이 보일 것이다.</p>
-
-<p>이는 현재 페이지가 html로 어떻게 구성되어 있는지 볼 수 있는 창으로 html 코드에 마우스를 가져다대면 화면에 해당 html이 적용중인 영역이 표시된다. 원하는 영역이 표시되는 html을 찾았으면 해당 코드를 클릭하고 아래쪽 스타일 부분을 보면 CSS 코드가 보일 것이다.</p>
-
-<p>그리고 오른쪽 상당에 <strong>_*.scss:숫자</strong> 형식으로 쓰여져 있을텐데 이는 해당 CSS 코드의 파일 위치를 나타낸다.</p>
-
-<h2 id="변수">변수</h2>
-<p>CSS 코드를 보면 일반적인 숫자 변수말고 <strong>$</strong>* 형식으로 되어있는 것이 있다. 이는 변수로 <strong>_variables.scss</strong> 파일안에 정의되어 있다.</p>
-
-<h2 id="summary">SUMMARY</h2>
-<ul>
-  <li>F12 or 우클릭/검색 개발자 모드로 페이지를 구성하는 html을 볼 수 있다.
-    <ul>
-      <li>스타일 영역에서 수정하고 싶은 CSS 코드 위치를 확인 할 수있다.</li>
-    </ul>
-  </li>
-  <li>CSS코드는 <strong>_sass/minimal-mistakes</strong> 폴더 안에 있다.</li>
-  <li>변수는 <strong>_sass/_variables.scss</strong> 파일에 정의되어 있다.</li>
-</ul>]]></content><author><name>Mohitto55</name><email>mohitto55@gmail.com</email></author><category term="gitblog" /><category term="Blog" /><category term="Jekyll" /><category term="MinimalMistake" /><category term="CSS" /><summary type="html"><![CDATA[Git blog의 장점중 하나는 유저가 원하는 대로 커스터마이징 가능하다는 점이다. 내가 Git blog로 넘어온 이유도 다른 블로그들에 비해 독창적인 디자인의 블로그 비중이 Git으로 만든 블로그들이 많기 때문이다. 자유롭게 블로그를 꾸밀 수 있게 해주는 GIt blog의 기능 중 하나는 커스텀 CSS 덕분이다. 이 포스트에서는 MinimalMistake 테마에서 어떻게 CSS를 적용, 수정하는지 알아볼 것이다.]]></summary></entry><entry><title type="html">[Git] non-fast-forward Error</title><link href="http://localhost:4000/git/Git-non-fast-forward-Error/" rel="alternate" type="text/html" title="[Git] non-fast-forward Error" /><published>2024-01-28T00:00:00+09:00</published><updated>2024-01-28T00:00:00+09:00</updated><id>http://localhost:4000/git/Git%20non-fast-forward%20Error</id><content type="html" xml:base="http://localhost:4000/git/Git-non-fast-forward-Error/"><![CDATA[<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> ! [rejected]        main -&gt; main (non-fast-forward)
+<p>이제 단 한번의 수정으로 코드를 관리할 수 있게되었다.</p>]]></content><author><name>Mohitto55</name><email>mohitto55@gmail.com</email></author><category term="obsidian" /><category term="Obsidian" /><category term="DataviewJS" /><category term="CustomJS" /><summary type="html"><![CDATA[What is CustomJS CustomJS란 dataview에 Javascript로 작성한 함수를 적용할 수 있게 해주는 플러그인이다.]]></summary></entry><entry><title type="html">[Git] non-fast-forward Error</title><link href="http://localhost:4000/git/Git-non-fast-forward-Error/" rel="alternate" type="text/html" title="[Git] non-fast-forward Error" /><published>2024-01-28T00:00:00+09:00</published><updated>2024-01-28T00:00:00+09:00</updated><id>http://localhost:4000/git/Git%20non-fast-forward%20Error</id><content type="html" xml:base="http://localhost:4000/git/Git-non-fast-forward-Error/"><![CDATA[<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> ! [rejected]        main -&gt; main (non-fast-forward)
 error: failed to push some refs to 'https://github.com/mohitto55/Until2023.git'
 hint: Updates were rejected because the tip of your current branch is behind
 hint: its remote counterpart. Integrate the remote changes (e.g.
@@ -265,7 +250,31 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 <h2 id="references">References</h2>
 <ul>
   <li><a href="https://doozi316.github.io/errorlog/2019/09/30/error1/">Git push 오류 해결</a></li>
-</ul>]]></content><author><name>Mohitto55</name><email>mohitto55@gmail.com</email></author><category term="git" /><category term="Git" /><category term="Error" /><summary type="html"><![CDATA[! [rejected] main -&gt; main (non-fast-forward) error: failed to push some refs to 'https://github.com/mohitto55/Until2023.git' hint: Updates were rejected because the tip of your current branch is behind hint: its remote counterpart. Integrate the remote changes (e.g. hint: 'git pull ...') before pushing again. hint: See the 'Note about fast-forwards' in 'git push --help' for details.]]></summary></entry><entry><title type="html">[Network] IPv4 Header</title><link href="http://localhost:4000/network/IPv4-%ED%97%A4%EB%8D%94/" rel="alternate" type="text/html" title="[Network] IPv4 Header" /><published>2024-01-16T00:00:00+09:00</published><updated>2024-01-16T00:00:00+09:00</updated><id>http://localhost:4000/network/IPv4%20%ED%97%A4%EB%8D%94</id><content type="html" xml:base="http://localhost:4000/network/IPv4-%ED%97%A4%EB%8D%94/"><![CDATA[<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/4027f76b-4054-486a-99d5-2f8a7b3dc86f" alt="ipheader" /></p>
+</ul>]]></content><author><name>Mohitto55</name><email>mohitto55@gmail.com</email></author><category term="git" /><category term="Git" /><category term="Error" /><summary type="html"><![CDATA[! [rejected] main -&gt; main (non-fast-forward) error: failed to push some refs to 'https://github.com/mohitto55/Until2023.git' hint: Updates were rejected because the tip of your current branch is behind hint: its remote counterpart. Integrate the remote changes (e.g. hint: 'git pull ...') before pushing again. hint: See the 'Note about fast-forwards' in 'git push --help' for details.]]></summary></entry><entry><title type="html">[Git Blog] Blog CSS 적용하는 법</title><link href="http://localhost:4000/gitblog/Git-blog-css%EC%A0%81%EC%9A%A9%EB%B2%95/" rel="alternate" type="text/html" title="[Git Blog] Blog CSS 적용하는 법" /><published>2024-01-28T00:00:00+09:00</published><updated>2024-01-28T00:00:00+09:00</updated><id>http://localhost:4000/gitblog/Git%20blog%20css%EC%A0%81%EC%9A%A9%EB%B2%95</id><content type="html" xml:base="http://localhost:4000/gitblog/Git-blog-css%EC%A0%81%EC%9A%A9%EB%B2%95/"><![CDATA[<p>Git blog의 장점중 하나는 유저가 원하는 대로 커스터마이징 가능하다는 점이다. 내가 Git blog로 넘어온 이유도 다른 블로그들에 비해 독창적인 디자인의 블로그 비중이 Git으로 만든 블로그들이 많기 때문이다. 자유롭게 블로그를 꾸밀 수 있게 해주는 GIt blog의 기능 중 하나는 커스텀 CSS 덕분이다. 이 포스트에서는 <strong>MinimalMistake</strong> 테마에서 어떻게 CSS를 적용, 수정하는지 알아볼 것이다.</p>
+
+<h2 id="css-파일-위치">CSS 파일 위치</h2>
+<p><strong>MinimalMistake</strong>의 CSS 파일들은 루트폴더에서 <strong>_sass/minimal-mistakes</strong>폴더 안에 있다. 안에 있는 <strong>.scss</strong> 확장자 파일들이 있는데 이것이 CSS 파일이다. 각 파일들은 블로그를 구성하는 여러 구조들의 외관을 어떻게 표현할지 적혀져있다.</p>
+
+<h2 id="수정할-영역-찾기">수정할 영역 찾기</h2>
+<p>적혀진 내용이 매우 많은데 어느것이 내가 수정하기 원하는 부분인지 알기 어렵다. 이를 알고싶으면 페이지에서 직접 확인해야한다. 페이지에 들어가서 우클릭/검색 혹은 F12 눌러서 개발자 모드 창을 열면 html이 적힌 화면이 보일 것이다.</p>
+
+<p>이는 현재 페이지가 html로 어떻게 구성되어 있는지 볼 수 있는 창으로 html 코드에 마우스를 가져다대면 화면에 해당 html이 적용중인 영역이 표시된다. 원하는 영역이 표시되는 html을 찾았으면 해당 코드를 클릭하고 아래쪽 스타일 부분을 보면 CSS 코드가 보일 것이다.</p>
+
+<p>그리고 오른쪽 상당에 <strong>_*.scss:숫자</strong> 형식으로 쓰여져 있을텐데 이는 해당 CSS 코드의 파일 위치를 나타낸다.</p>
+
+<h2 id="변수">변수</h2>
+<p>CSS 코드를 보면 일반적인 숫자 변수말고 <strong>$</strong>* 형식으로 되어있는 것이 있다. 이는 변수로 <strong>_variables.scss</strong> 파일안에 정의되어 있다.</p>
+
+<h2 id="summary">SUMMARY</h2>
+<ul>
+  <li>F12 or 우클릭/검색 개발자 모드로 페이지를 구성하는 html을 볼 수 있다.
+    <ul>
+      <li>스타일 영역에서 수정하고 싶은 CSS 코드 위치를 확인 할 수있다.</li>
+    </ul>
+  </li>
+  <li>CSS코드는 <strong>_sass/minimal-mistakes</strong> 폴더 안에 있다.</li>
+  <li>변수는 <strong>_sass/_variables.scss</strong> 파일에 정의되어 있다.</li>
+</ul>]]></content><author><name>Mohitto55</name><email>mohitto55@gmail.com</email></author><category term="gitblog" /><category term="Blog" /><category term="Jekyll" /><category term="MinimalMistake" /><category term="CSS" /><summary type="html"><![CDATA[Git blog의 장점중 하나는 유저가 원하는 대로 커스터마이징 가능하다는 점이다. 내가 Git blog로 넘어온 이유도 다른 블로그들에 비해 독창적인 디자인의 블로그 비중이 Git으로 만든 블로그들이 많기 때문이다. 자유롭게 블로그를 꾸밀 수 있게 해주는 GIt blog의 기능 중 하나는 커스텀 CSS 덕분이다. 이 포스트에서는 MinimalMistake 테마에서 어떻게 CSS를 적용, 수정하는지 알아볼 것이다.]]></summary></entry><entry><title type="html">[Network] IPv4 Header</title><link href="http://localhost:4000/network/IPv4-%ED%97%A4%EB%8D%94/" rel="alternate" type="text/html" title="[Network] IPv4 Header" /><published>2024-01-16T00:00:00+09:00</published><updated>2024-01-16T00:00:00+09:00</updated><id>http://localhost:4000/network/IPv4%20%ED%97%A4%EB%8D%94</id><content type="html" xml:base="http://localhost:4000/network/IPv4-%ED%97%A4%EB%8D%94/"><![CDATA[<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/4027f76b-4054-486a-99d5-2f8a7b3dc86f" alt="ipheader" /></p>
 
 <p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/609926e4-fbf6-4897-a026-24804f6f9244" alt="excalidraw" /></p>
 
@@ -462,7 +471,4 @@ sidebar:
 
 <h2 id="solutions">Solutions</h2>
 
-<p>해결법은 <strong>Visual studio</strong> 인코딩을 UTF-8로 바꿔주거나 <strong>VSCode</strong>를 사용하면 된다.</p>]]></content><author><name>Mohitto55</name><email>mohitto55@gmail.com</email></author><category term="gitblog" /><category term="Blog" /><category term="Jekyll" /><category term="MinimalMistake" /><category term="UTF-8" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">[Git Blog] 깃허브로 이사</title><link href="http://localhost:4000/gitblog/%EA%B9%83%ED%97%88%EB%B8%8C%EB%A1%9C-%EC%9D%B4%EC%82%AC/" rel="alternate" type="text/html" title="[Git Blog] 깃허브로 이사" /><published>2024-01-15T00:00:00+09:00</published><updated>2024-01-15T00:00:00+09:00</updated><id>http://localhost:4000/gitblog/%EA%B9%83%ED%97%88%EB%B8%8C%EB%A1%9C%20%EC%9D%B4%EC%82%AC</id><content type="html" xml:base="http://localhost:4000/gitblog/%EA%B9%83%ED%97%88%EB%B8%8C%EB%A1%9C-%EC%9D%B4%EC%82%AC/"><![CDATA[<h1 id="첫-깃허브-블로그-개설">첫 깃허브 블로그 개설</h1>
-<p>원래는 티스토리에서 글을 작성하였다.
-처음 입문하기에 더할나위 없는 블로그였고 잘 사용하고 있었으나 옵시디언을 내 입맛대로 꾸미다가 문득 블로그도 커스터마이징을 해서 꾸며보고 싶었졌다. 
-옵시디언을 하면서 마크다운 문법에 꽤나 익숙해져서 보다 자유도 높은 깃허브로 이사를 오게됐다.</p>]]></content><author><name>Mohitto55</name><email>mohitto55@gmail.com</email></author><category term="gitblog" /><category term="Blog" /><summary type="html"><![CDATA[첫 깃허브 블로그 개설 원래는 티스토리에서 글을 작성하였다. 처음 입문하기에 더할나위 없는 블로그였고 잘 사용하고 있었으나 옵시디언을 내 입맛대로 꾸미다가 문득 블로그도 커스터마이징을 해서 꾸며보고 싶었졌다. 옵시디언을 하면서 마크다운 문법에 꽤나 익숙해져서 보다 자유도 높은 깃허브로 이사를 오게됐다.]]></summary></entry></feed>
+<p>해결법은 <strong>Visual studio</strong> 인코딩을 UTF-8로 바꿔주거나 <strong>VSCode</strong>를 사용하면 된다.</p>]]></content><author><name>Mohitto55</name><email>mohitto55@gmail.com</email></author><category term="gitblog" /><category term="Blog" /><category term="Jekyll" /><category term="MinimalMistake" /><category term="UTF-8" /><summary type="html"><![CDATA[]]></summary></entry></feed>

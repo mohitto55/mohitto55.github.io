@@ -58,4 +58,10 @@ var store = [{
         "tags": ["minimal-mistake","Jekyll","Blog"],
         "url": "/gitblog/Blog-side-category-%EC%B6%94%EA%B0%80/",
         "teaser": null
+      },{
+        "title": "[Git Blog] Liquid 문법{% %}표시하기",
+        "excerpt":"Liquid? 블로그를 작성하다 보면 가끔 {% %}라고 쓰여진 텍스트를 쓸 때가 있다. 하지만 그냥 작성하면 포스트에는 보이지 않고 사라지는 경우가 있다. 이는 {% %}는 Liquid라는 템플릿 언어의 문법 중 하나로 Jekyll같은 정적 사이트에서 주로 사용된다. {% %} 사이에 Liquid 문법을 넣어 템플릿을 생성하거나 조건문을 넣는데 아무 조치없이 사용하면 Jekyll 사이트는...","categories": ["gitblog"],
+        "tags": ["minimal-mistake","Jekyll","Blog","Liquid","template","markdown"],
+        "url": "/gitblog/Liquid-%EB%AC%B8%EB%B2%95-%ED%91%9C%EC%8B%9C%ED%95%98%EA%B8%B0/",
+        "teaser": null
       }]
