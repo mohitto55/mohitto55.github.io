@@ -72,7 +72,6 @@ permalink: 링크
   </ul>
 </nav> {% endraw %}
 ```
-_includes/nav_list 수정
 
 ## 4.모든페이지 사이드바 적용
 루트폴더에 있는 `config.yml`에서 sidebar 부분을 추가해준다.
