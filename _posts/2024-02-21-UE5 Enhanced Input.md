@@ -68,7 +68,8 @@ AController* UGrabber::GetOwnerController() const {
 다만 게임설계상 컴포넌트에서 직접 하는 것 보단 컴포넌트를 관리하는 Actor에서 Input을 관리하는 것이 더 좋다.
 
 ![스크린샷 2024-02-21 170725](https://github.com/mohitto55/mohitto55.github.io/assets/154340583/80ee01ac-c280-40ee-9989-3b32e152886b)
-위 과정을 BP로 할 경우 이렇다.
+
+위 과정을 BP로 할 경우 이렇게 된다.
 
 ---
 
