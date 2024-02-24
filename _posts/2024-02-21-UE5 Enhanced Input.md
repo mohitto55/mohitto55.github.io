@@ -11,7 +11,6 @@ EnhancedInput 시스템은 Unreal Engine5에 등장한 새로운 Input 시스템
 ## EnhancedInput 모듈준비
 EnhancedInput은 코드로 작성할 수 있다. EnhancedInput 시스템을 사용하기 전에 먼저 모듈을 추가시켜줘야 한다.
 
----
 ### 1.모듈이란
 UEnhancedInputLocalPlayerSubSystem는 EnhancedInputSubsystems.h 헤더 안에 있다 이 헤더를 쓰기 위해선 모듈을 추가해줘야 한다.
 
@@ -33,8 +32,6 @@ UEnhancedInputLocalPlayerSubSystem는 EnhancedInputSubsystems.h 헤더 안에 �
 ![스크린샷 2024-02-21 130747](https://github.com/mohitto55/mohitto55.github.io/assets/154340583/b3854688-4d87-46c1-8ef0-8fb827ebf289)
 
 그리고 프로젝트파일 우클릭 후 Generate Visual Studio project files를 눌러 삭제한 폴더들을 다시 만든다.
-
----
 
 ## 코드로 EnhancedInput 작성
 ### 1-1. MappingContext
@@ -107,5 +104,4 @@ PlayerController에 의해 호출되는  [APawn::SetupPlayerInputComponent](http
 
 ## :page_with_curl: Reference
 > [UE5 C++ Enhanced Input-2 Bind C++ Functions to Input Actions](https://www.youtube.com/watch?v=fW1pXOAIviw)
-> 
 > [UE5 - EnhancedInput 공식문서](https://docs.unrealengine.com/5.0/ko/enhanced-input-in-unreal-engine/)
