@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-02-24T18:28:04+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mohitto55 Note</title><subtitle>모히또의 노트</subtitle><author><name>Mohitto55</name><email>mohitto55@gmail.com</email></author><entry><title type="html">[Git Blog] jekyll에서 emoji사용하기</title><link href="http://localhost:4000/gitblog/Jekyll-%EC%9D%B4%EB%AA%A8%EC%A7%80-%EC%A0%81%EC%9A%A9%EB%B2%95/" rel="alternate" type="text/html" title="[Git Blog] jekyll에서 emoji사용하기" /><published>2024-02-22T00:00:00+09:00</published><updated>2024-02-22T00:00:00+09:00</updated><id>http://localhost:4000/gitblog/Jekyll%20%EC%9D%B4%EB%AA%A8%EC%A7%80%20%EC%A0%81%EC%9A%A9%EB%B2%95</id><content type="html" xml:base="http://localhost:4000/gitblog/Jekyll-%EC%9D%B4%EB%AA%A8%EC%A7%80-%EC%A0%81%EC%9A%A9%EB%B2%95/"><![CDATA[<h2 id="emoji">Emoji?</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-02-24T19:35:47+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mohitto55 Note</title><subtitle>모히또의 노트</subtitle><author><name>Mohitto55</name><email>mohitto55@gmail.com</email></author><entry><title type="html">[Git Blog] jekyll에서 emoji사용하기</title><link href="http://localhost:4000/gitblog/Jekyll-%EC%9D%B4%EB%AA%A8%EC%A7%80-%EC%A0%81%EC%9A%A9%EB%B2%95/" rel="alternate" type="text/html" title="[Git Blog] jekyll에서 emoji사용하기" /><published>2024-02-22T00:00:00+09:00</published><updated>2024-02-22T00:00:00+09:00</updated><id>http://localhost:4000/gitblog/Jekyll%20%EC%9D%B4%EB%AA%A8%EC%A7%80%20%EC%A0%81%EC%9A%A9%EB%B2%95</id><content type="html" xml:base="http://localhost:4000/gitblog/Jekyll-%EC%9D%B4%EB%AA%A8%EC%A7%80-%EC%A0%81%EC%9A%A9%EB%B2%95/"><![CDATA[<h2 id="emoji">Emoji?</h2>
 <p>Jekyll 테마는 github의 <code class="language-plaintext highlighter-rouge">gemoji</code> 같이 <font color="red">::</font> 사이에 이름를 넣어 Emoji를 사용 할 수 있는 기능인 <code class="language-plaintext highlighter-rouge">jemoji</code>를 제공한다. 다만 기본적으로 제공하는 건 아니고 플러그인을 추가해줘야 한다.</p>
 
 <h3 id="jemoji-적용">jemoji 적용</h3>
@@ -141,15 +141,18 @@ EnhancedInput 시스템은 Unreal Engine5에 등장한 새로운 Input 시스템
 <h2 id="enhancedinput-모듈준비">EnhancedInput 모듈준비</h2>
 <p>EnhancedInput은 코드로 작성할 수 있다. EnhancedInput 시스템을 사용하기 전에 먼저 모듈을 추가시켜줘야 한다.</p>
 
+<hr />
 <h3 id="1모듈이란">1.모듈이란</h3>
 <p>UEnhancedInputLocalPlayerSubSystem는 EnhancedInputSubsystems.h 헤더 안에 있다 이 헤더를 쓰기 위해선 모듈을 추가해줘야 한다.</p>
 
+<hr />
 <h3 id="2모듈추가">2.모듈추가</h3>
 <p>모듈은 플러그인을 빌드에 포함시키게 해주는 것으로 언리얼이 모든 플러그인이 아닌 필요한 플러그인만 빌드 시키게 함으로써 성능 향상 시켜준다.
 <img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/4f373422-5831-4b69-8cd3-cef821f8f859" alt="스크린샷 2024-02-21 125554" /></p>
 
 <p>플러그인은 <code class="language-plaintext highlighter-rouge">Engine/UE5/Plugins</code> 안에 있는 파일들에 볼 수 있으며 <code class="language-plaintext highlighter-rouge">프로젝트이름.Build.cs</code>파일에서 모듈을 관리할 수 있다.</p>
 
+<hr />
 <h3 id="3빌드-및-임시파일-초기화">3.빌드 및 임시파일 초기화</h3>
 <p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/009474f9-35d1-42c5-b3df-e0fdcc9f2e49" alt="스크린샷 2024-02-21 130600" /></p>
 

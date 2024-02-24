@@ -198,4 +198,17 @@
         
     </url>
     
+    <url>
+        <loc>http://localhost:4000/cs/C-%ED%99%95%EC%9E%A5%EB%A9%94%EC%84%9C%EB%93%9C/</loc>
+        
+        <lastmod>2021-09-28T00:00:00+09:00</lastmod>
+        
+        
+        <changefreq>weekly</changefreq>
+        
+        
+        <priority>0.5</priority>
+        
+    </url>
+    
 </urlset>

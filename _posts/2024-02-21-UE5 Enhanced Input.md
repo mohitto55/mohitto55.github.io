@@ -11,15 +11,18 @@ EnhancedInput 시스템은 Unreal Engine5에 등장한 새로운 Input 시스템
 ## EnhancedInput 모듈준비
 EnhancedInput은 코드로 작성할 수 있다. EnhancedInput 시스템을 사용하기 전에 먼저 모듈을 추가시켜줘야 한다.
 
+---
 ### 1.모듈이란
 UEnhancedInputLocalPlayerSubSystem는 EnhancedInputSubsystems.h 헤더 안에 있다 이 헤더를 쓰기 위해선 모듈을 추가해줘야 한다.
 
+---
 ### 2.모듈추가
 모듈은 플러그인을 빌드에 포함시키게 해주는 것으로 언리얼이 모든 플러그인이 아닌 필요한 플러그인만 빌드 시키게 함으로써 성능 향상 시켜준다.
 ![스크린샷 2024-02-21 125554](https://github.com/mohitto55/mohitto55.github.io/assets/154340583/4f373422-5831-4b69-8cd3-cef821f8f859)
 
 플러그인은 `Engine/UE5/Plugins` 안에 있는 파일들에 볼 수 있으며 `프로젝트이름.Build.cs`파일에서 모듈을 관리할 수 있다.
 
+---
 ### 3.빌드 및 임시파일 초기화
 ![스크린샷 2024-02-21 130600](https://github.com/mohitto55/mohitto55.github.io/assets/154340583/009474f9-35d1-42c5-b3df-e0fdcc9f2e49)
 
