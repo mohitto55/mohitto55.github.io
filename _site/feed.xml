@@ -1,4 +1,299 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-02-02T09:46:52+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mohitto55 Note</title><subtitle>모히또의 노트</subtitle><author><name>Mohitto55</name><email>mohitto55@gmail.com</email></author><entry><title type="html">[Git Blog] 사이드 카테고리 추가하기</title><link href="http://localhost:4000/gitblog/Blog-side-category-%EC%B6%94%EA%B0%80/" rel="alternate" type="text/html" title="[Git Blog] 사이드 카테고리 추가하기" /><published>2024-02-02T00:00:00+09:00</published><updated>2024-02-02T00:00:00+09:00</updated><id>http://localhost:4000/gitblog/Blog%20side%20category%20%EC%B6%94%EA%B0%80</id><content type="html" xml:base="http://localhost:4000/gitblog/Blog-side-category-%EC%B6%94%EA%B0%80/"><![CDATA[<p>좌측 사이드바에 카테고리를 넣어볼 것이다.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-02-24T16:04:39+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mohitto55 Note</title><subtitle>모히또의 노트</subtitle><author><name>Mohitto55</name><email>mohitto55@gmail.com</email></author><entry><title type="html">[Git Blog] jekyll에서 emoji사용하기</title><link href="http://localhost:4000/gitblog/Jekyll-%EC%9D%B4%EB%AA%A8%EC%A7%80-%EC%A0%81%EC%9A%A9%EB%B2%95/" rel="alternate" type="text/html" title="[Git Blog] jekyll에서 emoji사용하기" /><published>2024-02-22T00:00:00+09:00</published><updated>2024-02-22T00:00:00+09:00</updated><id>http://localhost:4000/gitblog/Jekyll%20%EC%9D%B4%EB%AA%A8%EC%A7%80%20%EC%A0%81%EC%9A%A9%EB%B2%95</id><content type="html" xml:base="http://localhost:4000/gitblog/Jekyll-%EC%9D%B4%EB%AA%A8%EC%A7%80-%EC%A0%81%EC%9A%A9%EB%B2%95/"><![CDATA[<h2 id="emoji">Emoji?</h2>
+<p>Jekyll 테마는 github의 <code class="language-plaintext highlighter-rouge">gemoji</code> 같이 <font color="red">::</font> 사이에 이름를 넣어 Emoji를 사용 할 수 있는 기능인 <code class="language-plaintext highlighter-rouge">jemoji</code>를 제공한다. 다만 기본적으로 제공하는 건 아니고 플러그인을 추가해줘야 한다.</p>
+
+<h3 id="jemoji-적용">jemoji 적용</h3>
+<p><code class="language-plaintext highlighter-rouge">Gemfile</code>에 jemoji를 추가한다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gem "jemoji"
+</code></pre></div></div>
+<p>그리고 <code class="language-plaintext highlighter-rouge">_config.yml</code>에도 jemoji 플러그인을 추가한다.</p>
+<blockquote>
+  <p>gem은 Ruby에서 지원하는 패키지 시스템이다.</p>
+</blockquote>
+
+<hr />
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>plugins:
+	...
+	- jemoji
+</code></pre></div></div>
+
+<p>그럼 <font color="red">::</font> 사이에 사용할 Emoji 이름을 넣어주면 된다. 예를 들어 white_check_mark를 넣으면 다음과 같이 나온다.
+<img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/032a9bbf-5bac-480e-9582-ef77e53c0aef" alt="image" /></p>
+
+<h2 id="커스텀-emoji-사용하기">커스텀 Emoji 사용하기</h2>
+<p>Jekyll에서 제공하는 Emoji는 GitHub.com CDN에서 가져오는 것들이다. 그래서 마음에 들지 않는 Emoji가 있을 수 있는데 자신이 원하는 Emoji를 로컬저장소에서 불러오는 방식으로 커스터마이징 할 수 있다. <code class="language-plaintext highlighter-rouge">_config.yml</code>파일에 아래 소스를 추가한다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>emoji:
+  src: "/assets/images"
+</code></pre></div></div>
+<p>그리고 <code class="language-plaintext highlighter-rouge">/assets/images/emoji/unicode</code>위치로가서 <code class="language-plaintext highlighter-rouge">유니코드.png</code>의 이미지 파일을 놓아주면 된다. 그러면 방금처럼 <code class="language-plaintext highlighter-rouge">:white_check_mark:</code>를 써보면 <img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/032a9bbf-5bac-480e-9582-ef77e53c0aef" alt="image" />였던 것이 :white_check_mark: 로 바뀐 것을 볼 수 있다.</p>
+
+<hr />
+<h3 id="유니코드-확인법">유니코드 확인법</h3>
+<p>유니코드는 이모지 유니코드 사이트에서 직접 찾거나</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bundle install
+bundle exec jekyll serve
+</code></pre></div></div>
+<p>로컬서버를 돌린 뒤 에러메시지로 사용할려는 Emoji의 유니코드.png가 없다고 나오는 걸 보고 적용해주면 된다.</p>
+
+<hr />
+<h2 id="page_with_curl-reference">:page_with_curl: Reference</h2>
+<blockquote>
+  <p><a href="https://github.com/jekyll/jemoji?tab=readme-ov-file">jemoji</a></p>
+
+  <p><a href="https://github.com/wooorm/gemoji">gemoji</a></p>
+</blockquote>]]></content><author><name>Mohitto55</name><email>mohitto55@gmail.com</email></author><category term="gitblog" /><category term="jekyll" /><category term="minimal-mistake" /><category term="emoji" /><category term="이모지" /><category term="jemoji" /><category term="gemoji" /><summary type="html"><![CDATA[Emoji? Jekyll 테마는 github의 gemoji 같이 :: 사이에 이름를 넣어 Emoji를 사용 할 수 있는 기능인 jemoji를 제공한다. 다만 기본적으로 제공하는 건 아니고 플러그인을 추가해줘야 한다.]]></summary></entry><entry><title type="html">[Git Blog] 화면 본문 길이 조정하기</title><link href="http://localhost:4000/gitblog/minimal-%ED%99%94%EB%A9%B4-%EB%B9%84%EC%9C%A8-%EC%9E%A1%EB%8A%94%EB%B2%95/" rel="alternate" type="text/html" title="[Git Blog] 화면 본문 길이 조정하기" /><published>2024-02-22T00:00:00+09:00</published><updated>2024-02-22T00:00:00+09:00</updated><id>http://localhost:4000/gitblog/minimal%20%ED%99%94%EB%A9%B4%20%EB%B9%84%EC%9C%A8%20%EC%9E%A1%EB%8A%94%EB%B2%95</id><content type="html" xml:base="http://localhost:4000/gitblog/minimal-%ED%99%94%EB%A9%B4-%EB%B9%84%EC%9C%A8-%EC%9E%A1%EB%8A%94%EB%B2%95/"><![CDATA[<h2 id="화면-넓히기">화면 넓히기</h2>
+<p>minimal-mistake테마를 쓰다보면 본문과 사이드 카테가 딱 달라 붙어서 답답함을 느낄 때가 있다. 그래서 사이드 카테고리를 왼쪽에 놓고 본문의 길이를 늘려 볼 것이다.</p>
+
+<h2 id="반응형-픽셀-설정">반응형 픽셀 설정</h2>
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/1dff3a59-0d4c-4b13-a366-1f69339efd50" alt="image" />
+설정하기 전에 반응형 웹이라는 걸 알아야 한다. 사용자들은 모두 다른 해상도의 디바이스로 사이트를 접속한다. 만약 픽셀단위로 UI들의 위치를 설정하면 비율이 붕괴 되어 의도치 않은 형태의 사이트가 될 수 있다.</p>
+
+<p>그렇기에 화면의 크기를 구하는 단위인 <strong>vw</strong>와 <strong>vh</strong>를 사용해야한다.
+각각 <strong>vw</strong>가 가로길이 <strong>vh</strong>가 세로길이를 뜻하는데 <strong>100vw</strong>, <strong>100vh</strong>가 전체화면의 가로 세로길이다.</p>
+
+<hr />
+
+<h3 id="1-본문-가로-길이-늘리기">1. 본문 가로 길이 늘리기</h3>
+<p>전체 화면의 폭은 <code class="language-plaintext highlighter-rouge">_sass/_variables.scss</code> 에서 <code class="language-plaintext highlighter-rouge">$x-large</code>가 담당한다. 이 값을 100vw로 바꾼다.
+<img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/14168953-97a6-4bee-a3cd-248a018fe00a" alt="image" /></p>
+
+<p>그러면 이렇게 사이드바가 맨 왼쪽으로 가게 하고 본문영역이 매우 넓어 진것을 볼 수 있다.</p>
+
+<hr />
+
+<h3 id="2-archive-post-반응형-조정">2. archive, post 반응형 조정</h3>
+<p><code class="language-plaintext highlighter-rouge">_sass/_archive.scss</code> 에서 15번째 줄에 있는 소스를 다음과 같이 바꾼다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  @include breakpoint($x-large) {
+    width: calc(100% - #{$right-sidebar-width});
+    padding-right: calc(50% - #{$main-board-half-width});
+    padding-left: calc(calc(50% - #{$main-board-half-width}) - #{$right-sidebar-width});
+  }
+</code></pre></div></div>
+<p>본문의 가로길이를 main-oard-half-width의 두배 만큼 설정한다.
+<code class="language-plaintext highlighter-rouge">_page.scss</code>에도 45번쨰 줄에 똑같이 적용해 포스팅 페이지도 적용되게 한다.</p>
+
+<blockquote>
+  <p>main-oard-half-width은 _variables.scss에 직접 추가한 변수다.</p>
+</blockquote>
+
+<hr />
+
+<h3 id="3-navigation-조정">3. navigation 조정</h3>
+<p>네비게이션도 중앙에 오도록 <code class="language-plaintext highlighter-rouge">_sass/_navigation.scss</code> 21번 줄을 아래 소스로 바꾼다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  @include breakpoint($x-large) {
+    max-width: $x-large;
+    float: left;
+    width: calc(100% - #{$right-sidebar-width});
+    padding-right: calc(50% - #{$main-board-half-width});
+    padding-left: calc(calc(50% - #{$main-board-half-width}) - #{$right-sidebar-width});
+  }
+</code></pre></div></div>
+
+<hr />
+
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/5a6a955a-4d15-4600-b21b-a8ad8b2bdd74" alt="image" /></p>
+
+<p>적용하면 화면 비율이 잘 잡힌것을 볼 수 있다.</p>
+
+<h2 id="page_with_curl-reference">:page_with_curl: Reference</h2>
+<blockquote>
+  <p>https://m.blog.naver.com/zzaoday/221908180058</p>
+</blockquote>]]></content><author><name>Mohitto55</name><email>mohitto55@gmail.com</email></author><category term="gitblog" /><category term="Git" /><category term="Blog" /><category term="Jekyll" /><category term="minimal-mistakes" /><category term="CSS" /><summary type="html"><![CDATA[화면 넓히기 minimal-mistake테마를 쓰다보면 본문과 사이드 카테가 딱 달라 붙어서 답답함을 느낄 때가 있다. 그래서 사이드 카테고리를 왼쪽에 놓고 본문의 길이를 늘려 볼 것이다.]]></summary></entry><entry><title type="html">SOLID 객체지향 5대원칙</title><link href="http://localhost:4000/c++/SOLID-%EC%9B%90%EC%B9%99/" rel="alternate" type="text/html" title="SOLID 객체지향 5대원칙" /><published>2024-02-22T00:00:00+09:00</published><updated>2024-02-22T00:00:00+09:00</updated><id>http://localhost:4000/c++/SOLID%20%EC%9B%90%EC%B9%99</id><content type="html" xml:base="http://localhost:4000/c++/SOLID-%EC%9B%90%EC%B9%99/"><![CDATA[<h2 id="설명">설명</h2>
+<p>OOP(객체지향언어)를 개발 하면서 지켜야 할 5가지 원칙을 말한다. 많은 Design Pattern이 SOLID 원칙을 토대로 만들어졌기에 이 원칙을 숙지하면 Design Pattern 및 구조 설계를 하기 수월해진다.</p>
+
+<p>모든 코드에 반드시 적용할 필요는 없지만 좋은 설계를 위해선 해당 사항들을 의식하면서 작성하면 좋다.</p>
+
+<hr />
+
+<h3 id="장점">장점</h3>
+<ul>
+  <li>수정과 유지보수가 수월하다</li>
+</ul>
+
+<h3 id="단일-책임-원칙srp">단일 책임 원칙(<font color="dodgerred">S</font>RP)</h3>
+<ul>
+  <li>객체는 하나의 목적만 가지기</li>
+  <li><strong>모듈이 변경되는 이유는 한가지여야함</strong></li>
+  <li>모듈 다른 모듈에 대한 책임지면 안됨</li>
+</ul>
+
+<h3 id="개방-폐쇄-원칙ocp">개방 폐쇄 원칙(<font color="dodgerred">O</font>CP)</h3>
+<ul>
+  <li>모듈은 확장에 열려있고 수정엔 닫혀야함</li>
+  <li>추상화에 의존해야함</li>
+  <li><strong>인터페이스를 통해 과정이 어떻든 결과만 받기</strong></li>
+  <li>Inject 같은 느낌</li>
+  <li>과정이 어떻게 바뀌든 결과만 받으면 되니 확장이 용이하다</li>
+</ul>
+
+<h3 id="리스코프-치환-원칙lsp">리스코프 치환 원칙(<font color="dodgerred">L</font>SP)</h3>
+<ul>
+  <li>상위 클래스는 하위 클래스로 대체 될 수 있어야함</li>
+  <li>직사각형을 부모로 둔 정사각형이 resize로 가로 세로를 다르게 설정 못함</li>
+  <li>이럴 경우 resize못하게 막거나 [[C++ Overriding]]</li>
+  <li><strong>항상 사용하는 클라이언트 기준으로 생각하기</strong></li>
+</ul>
+
+<h3 id="인터페이스-분리-원칙isp">인터페이스 분리 원칙(<font color="dodgerred">I</font>SP)</h3>
+<ul>
+  <li>클라이언트 용도에 맞는 인터페이스만 제공</li>
+  <li><strong>하나의 Interface보단 구체적인 여러 Interface가 좋다</strong></li>
+  <li>그러면 불필요한 간섭이 줄어든다</li>
+  <li>다른 인터페이스에선 필요없는 정보를 안 알아도 되게 된다</li>
+</ul>
+
+<h3 id="의존-역전-원칙dip">의존 역전 원칙(<font color="dodgerred">D</font>IP)</h3>
+<ul>
+  <li>상위 모듈이 하위 모듈에 의존하면 안됨</li>
+  <li>상위가 갑 하위가 을 까라면 까기</li>
+  <li>상위-입출력과 먼 내부</li>
+  <li>하위-입풀력과 가까운 겉부분</li>
+  <li><strong>Interface, Virtual</strong>를 통해 모듈이 어떻든 값만 받기</li>
+  <li>OCP와 연관깊다</li>
+  <li>인터페이스는 적당히 만들기</li>
+</ul>
+
+<hr />
+
+<h2 id="page_with_curl-reference">:page_with_curl: Reference</h2>
+<blockquote>
+  <p><a href="https://inpa.tistory.com/entry/OOP-%F0%9F%92%A0-%EA%B0%9D%EC%B2%B4-%EC%A7%80%ED%96%A5-%EC%84%A4%EA%B3%84%EC%9D%98-5%EA%B0%80%EC%A7%80-%EC%9B%90%EC%B9%99-SOLID">Inpa Dev - 객체 지향 설계의 5가지 원칙 - S.O.L.I.D</a></p>
+
+  <p><a href="https://dev-cool.tistory.com/18">혼잣말하는 개발자 - 객체지향의 5대 원칙 SOLID</a></p>
+</blockquote>]]></content><author><name>Mohitto55</name><email>mohitto55@gmail.com</email></author><category term="c++" /><category term="SOLID" /><category term="OOP" /><category term="객체지향" /><category term="객체지향5대원칙" /><category term="디자인패턴" /><category term="Design Pattern" /><summary type="html"><![CDATA[설명 OOP(객체지향언어)를 개발 하면서 지켜야 할 5가지 원칙을 말한다. 많은 Design Pattern이 SOLID 원칙을 토대로 만들어졌기에 이 원칙을 숙지하면 Design Pattern 및 구조 설계를 하기 수월해진다.]]></summary></entry><entry><title type="html">[Git Blog] Jekyll 코드블럭 테마 설정하기</title><link href="http://localhost:4000/gitblog/Jekyll-%EC%BD%94%EB%93%9C%EB%B8%94%EB%9F%AD-%ED%85%8C%EB%A7%88-%EB%B0%94%EA%BE%B8%EA%B8%B0/" rel="alternate" type="text/html" title="[Git Blog] Jekyll 코드블럭 테마 설정하기" /><published>2024-02-22T00:00:00+09:00</published><updated>2024-02-22T00:00:00+09:00</updated><id>http://localhost:4000/gitblog/Jekyll%20%EC%BD%94%EB%93%9C%EB%B8%94%EB%9F%AD%20%ED%85%8C%EB%A7%88%20%EB%B0%94%EA%BE%B8%EA%B8%B0</id><content type="html" xml:base="http://localhost:4000/gitblog/Jekyll-%EC%BD%94%EB%93%9C%EB%B8%94%EB%9F%AD-%ED%85%8C%EB%A7%88-%EB%B0%94%EA%BE%B8%EA%B8%B0/"><![CDATA[<h3 id="1-테마-설치하기">1. 테마 설치하기</h3>
+<p>먼저 아래 코드블럭 테마 사이트에 가서 원하는 테마의 이름을 복사한다.
+:point_right: <a href="https://spsarolkar.github.io/rouge-theme-preview/">테마 사이트</a></p>
+
+<h3 id="2-rouge설치">2. rouge설치</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gem install rouge
+</code></pre></div></div>
+<p>CMD에서 root폴더에 위와 같이 입력해서 테마를 설치한다.</p>
+
+<h3 id="3-_configyml-수정">3. <code class="language-plaintext highlighter-rouge">_config.yml</code> 수정.</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Conversion
+markdown: kramdown
+highlighter: rouge
+
+# Markdown Processing
+kramdown:
+  input: GFM
+</code></pre></div></div>
+
+<h3 id="4-css파일-다운받기">4. css파일 다운받기</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rougify style 테마이름 &gt; assets/css/syntax.css
+</code></pre></div></div>
+<p>원하는 테마의 syntax.css파일이 assets/css 경로에 생성된다.</p>
+
+<h3 id="5-테마-적용하기">5. 테마 적용하기</h3>
+<p>syntax.css 파일을 _scss 폴더에 놓거나 혹은 _syntax.scss 파일이 있을 경우 해당 파일에 덮어씌우기</p>
+
+<h2 id="page_with_curl-reference">:page_with_curl: Reference</h2>
+<blockquote>
+  <p>https://onda2me.github.io/blog/codeblock/</p>
+</blockquote>]]></content><author><name>Mohitto55</name><email>mohitto55@gmail.com</email></author><category term="gitblog" /><category term="Git" /><category term="Blog" /><category term="Jekyll" /><category term="minimal-mistakes" /><category term="코드블럭" /><summary type="html"><![CDATA[1. 테마 설치하기 먼저 아래 코드블럭 테마 사이트에 가서 원하는 테마의 이름을 복사한다. :point_right: 테마 사이트]]></summary></entry><entry><title type="html">[Git Blog] Custom CSS 작성법</title><link href="http://localhost:4000/gitblog/Jekyll-%EC%BB%A4%EC%8A%A4%ED%85%80CSS-%EC%A0%81%EC%9A%A9%EB%B2%95/" rel="alternate" type="text/html" title="[Git Blog] Custom CSS 작성법" /><published>2024-02-22T00:00:00+09:00</published><updated>2024-02-22T00:00:00+09:00</updated><id>http://localhost:4000/gitblog/Jekyll%20%EC%BB%A4%EC%8A%A4%ED%85%80CSS%20%EC%A0%81%EC%9A%A9%EB%B2%95</id><content type="html" xml:base="http://localhost:4000/gitblog/Jekyll-%EC%BB%A4%EC%8A%A4%ED%85%80CSS-%EC%A0%81%EC%9A%A9%EB%B2%95/"><![CDATA[<p>###</p>
+
+<h2 id="page_with_curl-reference">:page_with_curl: Reference</h2>
+<blockquote>
+  <p>https://jekyllrb-ko.github.io/docs/step-by-step/07-assets/</p>
+</blockquote>]]></content><author><name>Mohitto55</name><email>mohitto55@gmail.com</email></author><category term="gitblog" /><category term="SOLID" /><category term="OOP" /><category term="객체지향" /><category term="객체지향5대원칙" /><category term="디자인패턴" /><category term="Design Pattern" /><summary type="html"><![CDATA[###]]></summary></entry><entry><title type="html">[UE5] Enhanced Input</title><link href="http://localhost:4000/ue5/UE5-Enhanced-Input/" rel="alternate" type="text/html" title="[UE5] Enhanced Input" /><published>2024-02-21T00:00:00+09:00</published><updated>2024-02-21T00:00:00+09:00</updated><id>http://localhost:4000/ue5/UE5%20Enhanced%20Input</id><content type="html" xml:base="http://localhost:4000/ue5/UE5-Enhanced-Input/"><![CDATA[<h2 id="enhancedinput">EnhancedInput?</h2>
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/a97835eb-26a9-4120-8bd5-e04c51590fd8" alt="image" />
+EnhancedInput 시스템은 Unreal Engine5에 등장한 새로운 Input 시스템으로 기존 InputSystem 보다 더 나은 기능 및 확장성을 가졌다. 이 포스팅에서는 코드로 EngancedInput를 사용하는 법을 작성할 것이다.</p>
+
+<h2 id="enhancedinput-모듈준비">EnhancedInput 모듈준비</h2>
+<p>EnhancedInput은 코드로 작성할 수 있다. EnhancedInput 시스템을 사용하기 전에 먼저 모듈을 추가시켜줘야 한다.</p>
+
+<h3 id="1모듈이란">1.모듈이란</h3>
+<p>UEnhancedInputLocalPlayerSubSystem는 EnhancedInputSubsystems.h 헤더 안에 있다 이 헤더를 쓰기 위해선 모듈을 추가해줘야 한다.</p>
+
+<h3 id="2모듈추가">2.모듈추가</h3>
+<p>모듈은 플러그인을 빌드에 포함시키게 해주는 것으로 언리얼이 모든 플러그인이 아닌 필요한 플러그인만 빌드 시키게 함으로써 성능 향상 시켜준다.
+<img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/4f373422-5831-4b69-8cd3-cef821f8f859" alt="스크린샷 2024-02-21 125554" /></p>
+
+<p>플러그인은 <code class="language-plaintext highlighter-rouge">Engine/UE5/Plugins</code> 안에 있는 파일들에 볼 수 있으며 <code class="language-plaintext highlighter-rouge">프로젝트이름.Build.cs</code>파일에서 모듈을 관리할 수 있다.</p>
+
+<h3 id="3빌드-및-임시파일-초기화">3.빌드 및 임시파일 초기화</h3>
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/009474f9-35d1-42c5-b3df-e0fdcc9f2e49" alt="스크린샷 2024-02-21 130600" /></p>
+
+<p>추가 후 CTRL+SHIFT+B로 빌드 해주면 헤더를 사용할 수 있다.
+안되는 경우 컴파일시 생성되는 임시파일을 삭제해줘야 한다. 프로젝트 폴더에 가서 Binaries, Intermediate, Saved 폴더를 삭제한다.</p>
+
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/b3854688-4d87-46c1-8ef0-8fb827ebf289" alt="스크린샷 2024-02-21 130747" /></p>
+
+<p>그리고 프로젝트파일 우클릭 후 Generate Visual Studio project files를 눌러 삭제한 폴더들을 다시 만든다.</p>
+
+<hr />
+
+<h2 id="코드로-enhancedinput-작성">코드로 EnhancedInput 작성</h2>
+<h3 id="1-1-mappingcontext">1-1. MappingContext</h3>
+<p>코드로 사용하기 위해선 로컬플레이어 Input Subsystem인 <a href="https://docs.unrealengine.com/4.27/en-US/API/Plugins/EnhancedInput/UEnhancedInputLocalPlayerSubsyst-/">UEnhancedInputLocalPlayerSubSystem</a>이 필요하다.</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="n">UMyPlayer</span><span class="o">::</span><span class="n">BeginPlay</span><span class="p">()</span>
+<span class="p">{</span>
+	<span class="n">Super</span><span class="o">::</span><span class="n">BeginPlay</span><span class="p">();</span>
+	<span class="k">if</span> <span class="p">(</span><span class="n">APlayerController</span><span class="o">*</span> <span class="n">PlayerController</span> <span class="o">=</span> <span class="n">Cast</span><span class="o">&lt;</span><span class="n">APlayerController</span><span class="o">&gt;</span><span class="p">(</span><span class="n">GetController</span><span class="p">()))</span> <span class="p">{</span>
+		<span class="k">if</span> <span class="p">(</span><span class="n">UEnhancedInputLocalPlayerSubsystem</span><span class="o">*</span> <span class="n">Subsystem</span> <span class="o">=</span> <span class="n">ULocalPlayer</span><span class="o">::</span><span class="n">GetSubsystem</span><span class="o">&lt;</span> <span class="n">UEnhancedInputLocalPlayerSubsystem</span><span class="o">&gt;</span><span class="p">(</span><span class="n">PlayerController</span><span class="o">-&gt;</span><span class="n">GetLocalPlayer</span><span class="p">()))</span> <span class="p">{</span>
+			<span class="n">Subsystem</span><span class="o">-&gt;</span><span class="n">AddMappingContext</span><span class="p">(</span><span class="s">"MAPPING CONTEXT VARIABLE"</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<hr />
+<h3 id="1-2-component에서-사용할-시">1-2. Component에서 사용할 시</h3>
+<p><code class="language-plaintext highlighter-rouge">GetControll</code>메타함수는 <code class="language-plaintext highlighter-rouge">Pawn</code> 이하 클래스에서만 사용 할 수 있다. Component는 컨트롤러를 가지고 있지 않기 때문에 Pawn의 컨트롤러를 가져와야한다.</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">AController</span><span class="o">*</span> <span class="n">UGrabber</span><span class="o">::</span><span class="n">GetOwnerController</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span>
+	<span class="n">AActor</span><span class="o">*</span> <span class="n">Owner</span> <span class="o">=</span> <span class="n">GetOwner</span><span class="p">();</span>
+	<span class="k">if</span> <span class="p">(</span><span class="n">Owner</span><span class="p">)</span> <span class="p">{</span>
+		<span class="n">APawn</span><span class="o">*</span> <span class="n">PawnOwner</span> <span class="o">=</span> <span class="n">Cast</span><span class="o">&lt;</span><span class="n">APawn</span><span class="o">&gt;</span><span class="p">(</span><span class="n">Owner</span><span class="p">);</span>
+		<span class="k">if</span> <span class="p">(</span><span class="n">PawnOwner</span><span class="p">)</span> <span class="p">{</span>
+			<span class="k">return</span> <span class="n">PawnOwner</span><span class="o">-&gt;</span><span class="n">GetController</span><span class="p">();</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+	<span class="k">return</span> <span class="nb">nullptr</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>다만 게임설계상 컴포넌트에서 직접 하는 것 보단 컴포넌트를 관리하는 Actor에서 Input을 관리하는 것이 더 좋다.</p>
+
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/80ee01ac-c280-40ee-9989-3b32e152886b" alt="스크린샷 2024-02-21 170725" />
+위 과정을 BP로 할 경우 이렇다.</p>
+
+<hr />
+
+<h3 id="2-inputaction-사용">2. InputAction 사용</h3>
+<p>이제 <code class="language-plaintext highlighter-rouge">MappingContext</code>를 시스템에 적용했으니 키를 누르면 InputAction 입력 값이 나올 것이다.
+InputAction의 값을 쓰고 싶으면 <a href="https://docs.unrealengine.com/4.26/en-US/API/Plugins/EnhancedInput/FInputActionValue/">FInputActionValue</a>타입 변수를 써야한다.</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">"InputActionValue.h"</span><span class="cp">
+</span><span class="kt">void</span> <span class="nf">Grab</span><span class="p">(</span><span class="k">const</span> <span class="n">FInputActionValue</span><span class="o">&amp;</span> <span class="n">Value</span><span class="p">);</span>
+</code></pre></div></div>
+
+<hr />
+
+<h3 id="3-바인딩-추가">3. 바인딩 추가</h3>
+<p>키가 입력 됬을 때 특정 함수를 실행 시키고 싶다면 <a href="https://docs.unrealengine.com/4.27/en-US/API/Plugins/EnhancedInput/UEnhancedInputComponent/">EnhancedInputComponent</a>를 사용하면 된다.</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">"EnhancedInputComponent.h"</span><span class="cp">
+#include</span> <span class="cpf">"Components/InputComponent.h"</span><span class="cp">
+</span>
+<span class="kt">void</span> <span class="n">UMyPlayer</span><span class="o">::</span><span class="n">SetupPlayerInputComponent</span><span class="p">(</span><span class="k">class</span> <span class="nc">UInputComponent</span><span class="o">*</span> <span class="n">PlayerInputComponent</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">if</span> <span class="p">(</span><span class="n">UEnhancedInputComponent</span><span class="o">*</span> <span class="n">EnhancedInputComponent</span> <span class="o">=</span> <span class="n">CastChecked</span><span class="o">&lt;</span><span class="n">UEnhancedInputComponent</span><span class="o">&gt;</span><span class="p">(</span><span class="n">PlayerInputComponent</span><span class="p">))</span> <span class="p">{</span>
+		<span class="n">EnhancedInputComponent</span><span class="o">-&gt;</span><span class="n">BindAction</span><span class="p">(</span><span class="n">GrabAction</span><span class="p">,</span><span class="n">ETriggerEvent</span><span class="o">::</span><span class="n">Started</span><span class="p">,</span> <span class="k">this</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">UGrabber</span><span class="o">::</span><span class="n">Grab</span><span class="p">);</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>PlayerController에 의해 호출되는  <a href="https://docs.unrealengine.com/4.27/en-US/API/Runtime/Engine/GameFramework/APawn/SetupPlayerInputComponent/">APawn::SetupPlayerInputComponent</a>함수에서 InputComponent를 EnhancedInputComponent로 캐스팅 후 키 입력시 발생할 함수를 바인딩 해준다.</p>
+
+<p>만약 CastChecked가 실패할 경우 게임이 크래시되어 종료한다.</p>
+
+<h2 id="page_with_curl-reference">:page_with_curl: Reference</h2>
+<blockquote>
+  <p><a href="https://www.youtube.com/watch?v=fW1pXOAIviw">UE5 C++ Enhanced Input-2 Bind C++ Functions to Input Actions</a></p>
+
+  <p><a href="https://docs.unrealengine.com/5.0/ko/enhanced-input-in-unreal-engine/">UE5 - EnhancedInput 공식문서</a></p>
+</blockquote>]]></content><author><name>Mohitto55</name><email>mohitto55@gmail.com</email></author><category term="ue5" /><category term="UnrealEngine5" /><category term="Actor" /><category term="Component" /><category term="C++" /><summary type="html"><![CDATA[EnhancedInput? EnhancedInput 시스템은 Unreal Engine5에 등장한 새로운 Input 시스템으로 기존 InputSystem 보다 더 나은 기능 및 확장성을 가졌다. 이 포스팅에서는 코드로 EngancedInput를 사용하는 법을 작성할 것이다.]]></summary></entry><entry><title type="html">[Git Blog] 사이드 카테고리 추가하기</title><link href="http://localhost:4000/gitblog/Blog-side-category-%EC%B6%94%EA%B0%80/" rel="alternate" type="text/html" title="[Git Blog] 사이드 카테고리 추가하기" /><published>2024-02-02T00:00:00+09:00</published><updated>2024-02-02T00:00:00+09:00</updated><id>http://localhost:4000/gitblog/Blog%20side%20category%20%EC%B6%94%EA%B0%80</id><content type="html" xml:base="http://localhost:4000/gitblog/Blog-side-category-%EC%B6%94%EA%B0%80/"><![CDATA[<p>좌측 사이드바에 카테고리를 넣어볼 것이다.</p>
 
 <h2 id="1-카테고리-목록-정하기">1. 카테고리 목록 정하기</h2>
 <p><code class="language-plaintext highlighter-rouge">_data/navigation.yml</code>에서 하단의 내용을 넣고 한글로 된 부분을 수정한다.</p>
@@ -65,7 +360,6 @@ permalink: 링크
   &lt;/ul&gt;
 &lt;/nav&gt; 
 </code></pre></div></div>
-<p>_includes/nav_list 수정</p>
 
 <h2 id="4모든페이지-사이드바-적용">4.모든페이지 사이드바 적용</h2>
 <p>루트폴더에 있는 <code class="language-plaintext highlighter-rouge">config.yml</code>에서 sidebar 부분을 추가해준다.</p>
@@ -174,301 +468,4 @@ Liquid 문법
   <li>로깅</li>
   <li>코드블럭이 실행되는 시간 재기</li>
   <li>synchorized 영역 만들기</li>
-</ul>]]></content><author><name>Mohitto55</name><email>mohitto55@gmail.com</email></author><category term="c++" /><category term="C++" /><category term="RAII" /><summary type="html"><![CDATA[RAII C++진영에서 자주 쓰이는 Idiom으로 객체가 쓰이는 Scope를 벗어나면 자원을 해제해주는 기법]]></summary></entry><entry><title type="html">[Obsidian] 코드수정을 한번에 CustomJS</title><link href="http://localhost:4000/obsidian/Dataview-CustomJS-%EC%82%AC%EC%9A%A9%EB%B2%95/" rel="alternate" type="text/html" title="[Obsidian] 코드수정을 한번에 CustomJS" /><published>2024-01-29T00:00:00+09:00</published><updated>2024-01-29T00:00:00+09:00</updated><id>http://localhost:4000/obsidian/Dataview%20CustomJS%20%EC%82%AC%EC%9A%A9%EB%B2%95</id><content type="html" xml:base="http://localhost:4000/obsidian/Dataview-CustomJS-%EC%82%AC%EC%9A%A9%EB%B2%95/"><![CDATA[<h2 id="what-is-customjs">What is CustomJS</h2>
-<p>CustomJS란 dataview에 Javascript로 작성한 함수를 적용할 수 있게 해주는 플러그인이다.</p>
-
-<h2 id="why-use-customjs">Why use CustomJS</h2>
-<p>옵시디언에서 Dataview가 적힌 템플릿 노드들을 여러개 생성하다 보면 어느순간 Dataview 코드를 수정하고 싶을때가 있다. 하지만 수정하기엔 이미 너무나도 많이 생겨버려 수정할 엄두도 나지 않는다. 이를 방지할 수 있도록 코드를 함수로 작성해 <strong>간결</strong>하고,<strong>유지보수</strong> 효율을 높여줄 수 있게 해준다.</p>
-
-<h2 id="how-to-use">How to use</h2>
-<h5 id="1-customjs-다운">1. CustomJs 다운</h5>
-<p>community plugin에 들어가 <strong>CustomJS</strong>를 다운한다.</p>
-
-<h5 id="2-폴더-지정">2. 폴더 지정</h5>
-<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/1313b76b-c6de-493c-aa75-3b7fdb766b6e" alt="image" />
-CustomJS 플러그인 설정에 가서 js 파일들 위치 폴더를 지정해준다.
-<br /></p>
-
-<h5 id="3-함수작성">3. 함수작성</h5>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class ShowTasks {
-ShowNotComplitedTasksInFile(dv, pg) {
-	let tasks = pg.file.tasks.where(p =&gt; !p.Completed);
-	if (tasks.length == 0) {
-		return;
-	}
-
-	dv.header(2, pg.file.link);
-	for (let group of tasks.groupBy(t =&gt; t.section)) {
-		dv.taskList(group.rows, false);
-	}
-}
-
-	ShowNotComplitedTasksInPath(dv, path) {
-		const { ShowTasks } = customJS;
-	for (let page of dv.pages(`"${path}"`)) {
-		ShowTasks.ShowNotComplitedTasksInFile(dv, page);
-	}
-}
-}
-</code></pre></div></div>
-<p>*.js확장자 파일을 만들고 class와 함수를 작성해준다.
-위 코드는 특정 위치에 있는 노드들의 완료되지 않은 Task를 보여주는 코드 함수다.
-<br /></p>
-
-<h5 id="4-사용법">4. 사용법</h5>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dataviewjs
-const {ShowTasks} = customJS;
-const {ShowNotComplitedTasksInFile} = customJS;
-const current = dv.current();
-ShowTasks.ShowNotComplitedTasksInPath(dv,current.file.folder);
-</code></pre></div></div>
-<p>옵시디언에서 위와같이 js파일안에 클래스와 함수를 불러와주면 된다.</p>
-
-<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/24e1274b-75e9-4679-aa3b-f82d09eb1d6c" alt="image" /></p>
-
-<p>이제 단 한번의 수정으로 코드를 관리할 수 있게되었다.</p>]]></content><author><name>Mohitto55</name><email>mohitto55@gmail.com</email></author><category term="obsidian" /><category term="Obsidian" /><category term="DataviewJS" /><category term="CustomJS" /><summary type="html"><![CDATA[What is CustomJS CustomJS란 dataview에 Javascript로 작성한 함수를 적용할 수 있게 해주는 플러그인이다.]]></summary></entry><entry><title type="html">[Git] non-fast-forward Error</title><link href="http://localhost:4000/git/Git-non-fast-forward-Error/" rel="alternate" type="text/html" title="[Git] non-fast-forward Error" /><published>2024-01-28T00:00:00+09:00</published><updated>2024-01-28T00:00:00+09:00</updated><id>http://localhost:4000/git/Git%20non-fast-forward%20Error</id><content type="html" xml:base="http://localhost:4000/git/Git-non-fast-forward-Error/"><![CDATA[<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> ! [rejected]        main -&gt; main (non-fast-forward)
-error: failed to push some refs to 'https://github.com/mohitto55/Until2023.git'
-hint: Updates were rejected because the tip of your current branch is behind
-hint: its remote counterpart. Integrate the remote changes (e.g.
-hint: 'git pull ...') before pushing again.
-hint: See the 'Note about fast-forwards' in 'git push --help' for details.
-</code></pre></div></div>
-
-<h2 id="발생원인">발생원인</h2>
-<ul>
-  <li>git push -u origin main   로 로컬 저장소와 연결 시도</li>
-  <li>깃허브 저장소를 만들 때 READ.me 파일을 만들어서 생기는 오류.</li>
-  <li>데이터 유실등의 이유로 git에서 통합을 막아서 발생하는 것이다.</li>
-</ul>
-
-<h2 id="solutions">Solutions</h2>
-<ul>
-  <li>임시방편으로 +를 붙이면 된다.</li>
-  <li>git push -u origin +main</li>
-</ul>
-
-<h2 id="references">References</h2>
-<ul>
-  <li><a href="https://doozi316.github.io/errorlog/2019/09/30/error1/">Git push 오류 해결</a></li>
-</ul>]]></content><author><name>Mohitto55</name><email>mohitto55@gmail.com</email></author><category term="git" /><category term="Git" /><category term="Error" /><summary type="html"><![CDATA[! [rejected] main -&gt; main (non-fast-forward) error: failed to push some refs to 'https://github.com/mohitto55/Until2023.git' hint: Updates were rejected because the tip of your current branch is behind hint: its remote counterpart. Integrate the remote changes (e.g. hint: 'git pull ...') before pushing again. hint: See the 'Note about fast-forwards' in 'git push --help' for details.]]></summary></entry><entry><title type="html">[Git Blog] Blog CSS 적용하는 법</title><link href="http://localhost:4000/gitblog/Git-blog-css%EC%A0%81%EC%9A%A9%EB%B2%95/" rel="alternate" type="text/html" title="[Git Blog] Blog CSS 적용하는 법" /><published>2024-01-28T00:00:00+09:00</published><updated>2024-01-28T00:00:00+09:00</updated><id>http://localhost:4000/gitblog/Git%20blog%20css%EC%A0%81%EC%9A%A9%EB%B2%95</id><content type="html" xml:base="http://localhost:4000/gitblog/Git-blog-css%EC%A0%81%EC%9A%A9%EB%B2%95/"><![CDATA[<p>Git blog의 장점중 하나는 유저가 원하는 대로 커스터마이징 가능하다는 점이다. 내가 Git blog로 넘어온 이유도 다른 블로그들에 비해 독창적인 디자인의 블로그 비중이 Git으로 만든 블로그들이 많기 때문이다. 자유롭게 블로그를 꾸밀 수 있게 해주는 GIt blog의 기능 중 하나는 커스텀 CSS 덕분이다. 이 포스트에서는 <strong>MinimalMistake</strong> 테마에서 어떻게 CSS를 적용, 수정하는지 알아볼 것이다.</p>
-
-<h2 id="css-파일-위치">CSS 파일 위치</h2>
-<p><strong>MinimalMistake</strong>의 CSS 파일들은 루트폴더에서 <strong>_sass/minimal-mistakes</strong>폴더 안에 있다. 안에 있는 <strong>.scss</strong> 확장자 파일들이 있는데 이것이 CSS 파일이다. 각 파일들은 블로그를 구성하는 여러 구조들의 외관을 어떻게 표현할지 적혀져있다.</p>
-
-<h2 id="수정할-영역-찾기">수정할 영역 찾기</h2>
-<p>적혀진 내용이 매우 많은데 어느것이 내가 수정하기 원하는 부분인지 알기 어렵다. 이를 알고싶으면 페이지에서 직접 확인해야한다. 페이지에 들어가서 우클릭/검색 혹은 F12 눌러서 개발자 모드 창을 열면 html이 적힌 화면이 보일 것이다.</p>
-
-<p>이는 현재 페이지가 html로 어떻게 구성되어 있는지 볼 수 있는 창으로 html 코드에 마우스를 가져다대면 화면에 해당 html이 적용중인 영역이 표시된다. 원하는 영역이 표시되는 html을 찾았으면 해당 코드를 클릭하고 아래쪽 스타일 부분을 보면 CSS 코드가 보일 것이다.</p>
-
-<p>그리고 오른쪽 상당에 <strong>_*.scss:숫자</strong> 형식으로 쓰여져 있을텐데 이는 해당 CSS 코드의 파일 위치를 나타낸다.</p>
-
-<h2 id="변수">변수</h2>
-<p>CSS 코드를 보면 일반적인 숫자 변수말고 <strong>$</strong>* 형식으로 되어있는 것이 있다. 이는 변수로 <strong>_variables.scss</strong> 파일안에 정의되어 있다.</p>
-
-<h2 id="summary">SUMMARY</h2>
-<ul>
-  <li>F12 or 우클릭/검색 개발자 모드로 페이지를 구성하는 html을 볼 수 있다.
-    <ul>
-      <li>스타일 영역에서 수정하고 싶은 CSS 코드 위치를 확인 할 수있다.</li>
-    </ul>
-  </li>
-  <li>CSS코드는 <strong>_sass/minimal-mistakes</strong> 폴더 안에 있다.</li>
-  <li>변수는 <strong>_sass/_variables.scss</strong> 파일에 정의되어 있다.</li>
-</ul>]]></content><author><name>Mohitto55</name><email>mohitto55@gmail.com</email></author><category term="gitblog" /><category term="Blog" /><category term="Jekyll" /><category term="MinimalMistake" /><category term="CSS" /><summary type="html"><![CDATA[Git blog의 장점중 하나는 유저가 원하는 대로 커스터마이징 가능하다는 점이다. 내가 Git blog로 넘어온 이유도 다른 블로그들에 비해 독창적인 디자인의 블로그 비중이 Git으로 만든 블로그들이 많기 때문이다. 자유롭게 블로그를 꾸밀 수 있게 해주는 GIt blog의 기능 중 하나는 커스텀 CSS 덕분이다. 이 포스트에서는 MinimalMistake 테마에서 어떻게 CSS를 적용, 수정하는지 알아볼 것이다.]]></summary></entry><entry><title type="html">[Network] IPv4 Header</title><link href="http://localhost:4000/network/IPv4-%ED%97%A4%EB%8D%94/" rel="alternate" type="text/html" title="[Network] IPv4 Header" /><published>2024-01-16T00:00:00+09:00</published><updated>2024-01-16T00:00:00+09:00</updated><id>http://localhost:4000/network/IPv4%20%ED%97%A4%EB%8D%94</id><content type="html" xml:base="http://localhost:4000/network/IPv4-%ED%97%A4%EB%8D%94/"><![CDATA[<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/4027f76b-4054-486a-99d5-2f8a7b3dc86f" alt="ipheader" /></p>
-
-<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/609926e4-fbf6-4897-a026-24804f6f9244" alt="excalidraw" /></p>
-
-<h2 id="ip-헤더">IP 헤더</h2>
-<h5 id="버전">버전</h5>
-<ul>
-  <li>IP 버전 나타내는 4비트 필드.</li>
-  <li>IPv4에선 4가 들어간다.</li>
-</ul>
-
-<h5 id="헤더길이">헤더길이</h5>
-<ul>
-  <li>헤더길이 나타내는 4비트 필드</li>
-  <li>Internet Header Length(IHL)라고 부르기도 함</li>
-  <li>단말은 이를 보고 어디까지가 헤더인지 알 수 있음</li>
-  <li>헤더길이는 IPv4 헤더의 길이를 4바이트 단위로 환산한 값이 들어감</li>
-  <li>IPv4 헤더 길이는 기본적으로 20바이트 이므로 5가 들어감</li>
-</ul>
-
-<h5 id="tos">ToS</h5>
-<ul>
-  <li>Type of Service는 <strong>IPv4 패킷 우선도</strong>(priority) 나타내는 1바이트 필드</li>
-  <li>제어나 대역제어 등 <strong>QoS(Quality of Service)</strong> 에 사용됨</li>
-  <li>앞 6비트 DSCP 필드
-    <ul>
-      <li>우선 제어, 대역 제어에 사용</li>
-    </ul>
-  </li>
-  <li>남은 2비트 ECN 필드로 구성
-    <ul>
-      <li>혼잡 알릴 때 사용</li>
-    </ul>
-  </li>
-</ul>
-
-<h5 id="패킷-길이">패킷 길이</h5>
-<ul>
-  <li>IPv4 헤더와 페이로드 합친 패킷 전체의 길이 2바이트이다.</li>
-</ul>
-
-<h5 id="식별자identification">식별자(Identification)</h5>
-<ul>
-  <li>패킷마다 부여되는 고유 번호, 2바이트로 구성</li>
-  <li>패킷교환  통신은 송수신하기 쉽도록 <strong>작게 나누어 송신</strong></li>
-  <li>IP 프래그멘테이션(IPfragmentation)
-    <ul>
-      <li>IP를 작게 나누는 처리</li>
-    </ul>
-  </li>
-  <li>3계층의 MTU(Maximum Transmission Unit)에 따라 해당 크기만큼 프래그멘테이션로 나눔</li>
-  <li>나중에 식별자를 이용해 재조립한다.</li>
-</ul>
-
-<h5 id="플래그">플래그</h5>
-<ul>
-  <li>3비트로 구성</li>
-  <li>1번째 비트 사용X, 2번째 비트 DF(Don’t Frangment)비트라 부름
-    <ul>
-      <li>프래그멘테이션 0 == true  1 == false</li>
-      <li>최근에는 성능 문제로 DF를 1로 설정해 상위 계층서 크기 조절함</li>
-    </ul>
-  </li>
-  <li>3번째 비트 MF(More Fragment)
-    <ul>
-      <li>프래그멘테이션된 패킷이 뒤에 더 있는가</li>
-      <li>0 == false  1 == true</li>
-    </ul>
-  </li>
-</ul>
-
-<h5 id="프래그먼트-오프셋">프래그먼트 오프셋</h5>
-<ul>
-  <li>프래그멘테이션 한 뒤 해당 패킷이 기존 패킷 앞쪽부터 <strong>어느 위치</strong>에 있는지 나타내는 13비트 필드</li>
-  <li>이것을 보고 원래 위치로 재조립 됨</li>
-</ul>
-
-<h5 id="ttltime-to-live">TTL(Time To Live)</h5>
-<ul>
-  <li>패킷 수명 나타내는 1바이트 필드</li>
-  <li><strong>경유하는 라우터의 수(hop)</strong> 나타냄</li>
-  <li>라우터 지날 때 마다 1씩 줄어 0되면 삭제</li>
-  <li>패킷파기하면 라우터는 Time-tolive exceed 반환하고 패킷 파기한걸 송신지 단말에 전달</li>
-</ul>
-
-<h5 id="프로토콜-번호">프로토콜 번호</h5>
-<ul>
-  <li>IPv4 페이로드가 어떤 프로토콜로 구성되있는지 나타내는 1바이트 필드</li>
-</ul>
-
-<h5 id="헤더-체크섬header-checksum">헤더 체크섬(header checksum)</h5>
-<ul>
-  <li>헤더의 오류 체크에 쓰는 2바이트 필드</li>
-  <li>RFC1071 에 정의되있으며 <strong>1의 보수 연산</strong> 이라는 계산 방법 채용</li>
-</ul>
-
-<h5 id="송신지수신지-ipv4-주소">송신지/수신지 IPv4 주소</h5>
-<ul>
-  <li>4바이트 식별 아이디</li>
-  <li>기기종류에 따라 여러 IP 가질 수 있음</li>
-  <li>네트워크 필드 및 호스트 주소에 따라 <strong>a,b,c, 클래스</strong>로 나뉨
-    <ul>
-      <li><strong>사설ip, 공인ip</strong>
-        <ul>
-          <li>로컬이 외부 공용 네트워크와 통신하려면 공인ip 주소 사용해야함</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-  <li> D 및 클래스 E 주소가 있지만, 이는 각각 <strong>멀티캐스트 주소</strong>와 예약된 주소
-    <ul>
-      <li>네트워킹 장치나 호스트에 할당 못함</li>
-    </ul>
-  </li>
-</ul>
-
-<h5 id="옵션">옵션</h5>
-<ul>
-  <li>IPv4 송신에 대한 확장 기능 저장한 <strong>가변 길이</strong> 필드</li>
-  <li>실무에서 쓰인걸 보지 못했다함</li>
-</ul>
-
-<h5 id="패딩padding">패딩(padding)</h5>
-<ul>
-  <li>IPv4 헤더의 <strong>비트 수 정렬</strong> 위해 사용되는 필드</li>
-  <li>IPv4는 4바이트 단위여야 함</li>
-  <li>아니면 0을 추가해 4바이트 정수배가 되도록 함</li>
-</ul>
-
-<blockquote>
-  <p><strong>Mac주소와 IP 주소 모두 필요한 이유</strong> <br />
-MAC Address는 NIC에 할당 된 물리적 주소 - 어떤 기기에 프레임 전달하지?
-IP주소는 OS에 할당된 논리적 주소 - 어디에 패킷 전달하지?
-이 두 주소를 연결하는 다리가 ARP</p>
-
-  <p>데이터 링크 계층- 이더넷
-네트워크 계층 - IP 이기 때문에 양쪽 주소가 필요함
-데이터링크 계층에서 PPP사용하면 MAC은 필요없음</p>
-</blockquote>]]></content><author><name>Mohitto55</name><email>mohitto55@gmail.com</email></author><category term="network" /><category term="Blog" /><category term="Jekyll" /><category term="MinimalMistake" /><category term="UTF-8" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">[Git Blog] Minimal Mistakes 사이드바 추가하기</title><link href="http://localhost:4000/gitblog/%EC%82%AC%EC%9D%B4%EB%93%9C%EB%B0%94-%EC%B6%94%EA%B0%80/" rel="alternate" type="text/html" title="[Git Blog] Minimal Mistakes 사이드바 추가하기" /><published>2024-01-16T00:00:00+09:00</published><updated>2024-01-16T00:00:00+09:00</updated><id>http://localhost:4000/gitblog/%EC%82%AC%EC%9D%B4%EB%93%9C%EB%B0%94%20%EC%B6%94%EA%B0%80</id><content type="html" xml:base="http://localhost:4000/gitblog/%EC%82%AC%EC%9D%B4%EB%93%9C%EB%B0%94-%EC%B6%94%EA%B0%80/"><![CDATA[<p>Minimal-Mistakes 테마를 이용해 사이드바를 만들어 볼 것이다.</p>
-
-<h3 id="1-사이드바-옵션-설정">1. 사이드바 옵션 설정</h3>
-
-<p>사이드바를 만들기 전에 사이드바 내용을 정해줘야 한다.</p>
-
-<p><code class="language-plaintext highlighter-rouge">_data/navigation.yml</code> 파일을 들어가자. <code class="language-plaintext highlighter-rouge">_data</code> 폴더는 블로그에서 사용할 데이터들을 모아 놓는 폴더이고 <code class="language-plaintext highlighter-rouge">navigation.yml</code>은 navigation에 필요한 데이터를 저장하는 파일이다.</p>
-
-<p>파일에 들어가면 <strong>main</strong> 이라고 쓰인 오브젝트가 있을 것이다. 네비게이션에 쓰일 기본 데이터다.</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>main:
-  - title: "Category"
-    url: /categories/
-  - title: "Tag"
-    url: /tags/
-</code></pre></div></div>
-<p>적혀 있는 걸 확인 했으면 다른 오브젝트를 하나더 만든다.</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>오브젝트이름:
-    - title: "대목차 이름"
-      children:
-        - title: "이름"
-          url: main 오브젝트 주소
-        - title: "Tag"
-          url: /tags/
-</code></pre></div></div>
-<p>이 오브젝트는 사이드바에 표시 될 목록 오브젝트다.</p>
-
-<p>여기에 쓰여진 대로 사이드바가 생성 될 것이다.</p>
-
-<hr />
-
-<h3 id="2-프론트매터-입력">2. 프론트매터 입력</h3>
-
-<p>이제 포스트 마크다운 파일로 가서 프론트매터를 작성한다.</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>---
-...
-
-author_profile: false
-sidebar:
-	nav: "navigation.yml에 쓴 오브젝트 이름"
----
-</code></pre></div></div>
-<p>Profile이 사라지게 하기 위해 <code class="language-plaintext highlighter-rouge">author_profile</code>을 false로 설정해주고 <code class="language-plaintext highlighter-rouge">sidebar</code>을 추가해 아까 작성한 오브젝트의 이름을 넣어준다. 이제 로컬서버를 실행시켜서 확인을 해보면</p>
-
-<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/525e23a5-d127-4e75-aed2-f288870a0cda" alt="SideBar Category" /></p>
-
-<p>잘 적용 된 것을 볼 수 있다.</p>]]></content><author><name>Mohitto55</name><email>mohitto55@gmail.com</email></author><category term="gitblog" /><category term="Blog" /><category term="Jekyll" /><category term="MinimalMistake" /><summary type="html"><![CDATA[Minimal-Mistakes 테마를 이용해 사이드바를 만들어 볼 것이다.]]></summary></entry><entry><title type="html">[Git Blog] invalid byte sequence in UTF-8 해결법</title><link href="http://localhost:4000/gitblog/UTF-8-ERROR/" rel="alternate" type="text/html" title="[Git Blog] invalid byte sequence in UTF-8 해결법" /><published>2024-01-16T00:00:00+09:00</published><updated>2024-01-16T00:00:00+09:00</updated><id>http://localhost:4000/gitblog/UTF-8%20ERROR</id><content type="html" xml:base="http://localhost:4000/gitblog/UTF-8-ERROR/"><![CDATA[<hr />
-
-<h2 id="utf-8-error">UTF-8 Error</h2>
-
-<p>열심히 유튜브를 보며 깃블로그 작성법을 공부하던 도중 <code class="language-plaintext highlighter-rouge">bundle exec jeakll serve</code>를 이용해 로컬서버를 돌리려는데 시작도 못하고 에러가 발생해 중지되었다.</p>
-
-<p>에러 코드를 봤더니 <code class="language-plaintext highlighter-rouge">invalid byte sequence in UTF-8</code> 라고 나왔다. 검색을 통해 알아보니 파일 인코딩이 UTF-8이 아니라 다른 인코딩으로 되어있어서 발생하는 오류였다.</p>
-
-<p>나는 <strong>Visual studio 2022</strong> 로 글을 작성 중이였는데 <strong>ANSI</strong>로 인코딩이 되고있던 것이였다.</p>
-
-<h2 id="solutions">Solutions</h2>
-
-<p>해결법은 <strong>Visual studio</strong> 인코딩을 UTF-8로 바꿔주거나 <strong>VSCode</strong>를 사용하면 된다.</p>]]></content><author><name>Mohitto55</name><email>mohitto55@gmail.com</email></author><category term="gitblog" /><category term="Blog" /><category term="Jekyll" /><category term="MinimalMistake" /><category term="UTF-8" /><summary type="html"><![CDATA[]]></summary></entry></feed>
+</ul>]]></content><author><name>Mohitto55</name><email>mohitto55@gmail.com</email></author><category term="c++" /><category term="C++" /><category term="RAII" /><summary type="html"><![CDATA[RAII C++진영에서 자주 쓰이는 Idiom으로 객체가 쓰이는 Scope를 벗어나면 자원을 해제해주는 기법]]></summary></entry></feed>

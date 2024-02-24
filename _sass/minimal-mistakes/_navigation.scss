@@ -498,7 +498,20 @@
   text-transform: uppercase;
   border-bottom: 1px solid $border-color;
 }
-
+.nav__sub-title-url{
+  padding-right: 4px;
+}
+.nav__sub-title-count{
+  color: #b82d2d9a;
+  border-radius: 10px;
+  font-size: 0.8em;
+  border: 0.2em solid #b82d2d9a;
+  padding-top: 2px;
+  padding-bottom: 0px;
+  padding-left: 5px;
+  padding-right: 5px;
+  text-align: center;
+}
 /*
      Table of contents navigation
      ========================================================================== */
