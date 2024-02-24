@@ -37,22 +37,22 @@ UEnhancedInputLocalPlayerSubSystem는 EnhancedInputSubsystems.h 헤더 안에 �
 ### 1-1. MappingContext
 코드로 사용하기 위해선 로컬플레이어 Input Subsystem인 [UEnhancedInputLocalPlayerSubSystem](https://docs.unrealengine.com/4.27/en-US/API/Plugins/EnhancedInput/UEnhancedInputLocalPlayerSubsyst-/)이 필요하다.
 
-```C++
+```cpp
 void UMyPlayer::BeginPlay()
 {
 	Super::BeginPlay();
 	if (APlayerController* PlayerController = Cast<APlayerController>(GetController())) {
 		if (UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem< UEnhancedInputLocalPlayerSubsystem>(PlayerController->GetLocalPlayer())) {
-			Subsystem->AddMappingContext(맵핑 컨택스트 변수, 0);
+			Subsystem->AddMappingContext("MAPPING CONTEXT VARIABLE", 0);
 		}
 	}
 }
 ```
-
+---
 ### 1-2. Component에서 사용할 시
 `GetControll`메타함수는 `Pawn` 이하 클래스에서만 사용 할 수 있다. Component는 컨트롤러를 가지고 있지 않기 때문에 Pawn의 컨트롤러를 가져와야한다.
 
-``` C++
+```cpp
 AController* UGrabber::GetOwnerController() const {
 	AActor* Owner = GetOwner();
 	if (Owner) {
@@ -70,11 +70,13 @@ AController* UGrabber::GetOwnerController() const {
 ![스크린샷 2024-02-21 170725](https://github.com/mohitto55/mohitto55.github.io/assets/154340583/80ee01ac-c280-40ee-9989-3b32e152886b)
 위 과정을 BP로 할 경우 이렇다.
 
+---
+
 ### 2. InputAction 사용
 이제 `MappingContext`를 시스템에 적용했으니 키를 누르면 InputAction 입력 값이 나올 것이다.
 InputAction의 값을 쓰고 싶으면 [FInputActionValue](https://docs.unrealengine.com/4.26/en-US/API/Plugins/EnhancedInput/FInputActionValue/)타입 변수를 써야한다.
 
-```C++
+```cpp
 #include "InputActionValue.h"
 void Grab(const FInputActionValue& Value);
 ```
@@ -84,7 +86,7 @@ void Grab(const FInputActionValue& Value);
 ### 3. 바인딩 추가
 키가 입력 됬을 때 특정 함수를 실행 시키고 싶다면 [EnhancedInputComponent](https://docs.unrealengine.com/4.27/en-US/API/Plugins/EnhancedInput/UEnhancedInputComponent/)를 사용하면 된다.
 
-```
+```cpp
 #include "EnhancedInputComponent.h"
 #include "Components/InputComponent.h"
 
@@ -98,8 +100,8 @@ PlayerController에 의해 호출되는  [APawn::SetupPlayerInputComponent](http
 
 만약 CastChecked가 실패할 경우 게임이 크래시되어 종료한다.
 
----
+
 ## :page_with_curl: Reference
-> [UE5 C++ Enhanced Input - 2 - Bind C++ Functions to Input Actions](https://www.youtube.com/watch?v=fW1pXOAIviw)
+> [UE5 C++ Enhanced Input-2 Bind C++ Functions to Input Actions](https://www.youtube.com/watch?v=fW1pXOAIviw)
 > 
 > [UE5 - EnhancedInput 공식문서](https://docs.unrealengine.com/5.0/ko/enhanced-input-in-unreal-engine/)
