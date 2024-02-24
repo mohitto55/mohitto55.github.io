@@ -42,9 +42,9 @@ var store = [{
         "teaser": null
       },{
         "title": "[C++] 자원관리 기법 RAII",
-        "excerpt":"RAII C++진영에서 자주 쓰이는 Idiom으로 객체가 쓰이는 Scope를 벗어나면 자원을 해제해주는 기법 Resource Acquisition Is Initialization 자원의 획득은 초기화라는 뜻으로 다르게 말해서 객체와 자원의 라이프 사이클을 일치 시키라는 것이다. 무슨 말이냐면 자원을 얻을 때 초기화(Constructor)가 되어야 하며 객체가 사라질 때는 자원을 전부 반환(Destructor)해야 하며 객체가 유효하지 않은 상태 이게 만들어....","categories": ["c++"],
+        "excerpt":"RAII C++진영에서 자주 쓰이는 Idiom으로 객체가 쓰이는 Scope를 벗어나면 자원을 해제해주는 기법 Resource Acquisition Is Initialization 자원의 획득은 초기화라는 뜻으로 다르게 말해서 객체와 자원의 라이프 사이클을 일치 시키라는 것이다. 무슨 말이냐면 자원을 얻을 때 초기화(Constructor)가 되어야 하며 객체가 사라질 때는 자원을 전부 반환(Destructor)해야 하며 객체가 유효하지 않은 상태 이게 만들어....","categories": ["cpp"],
         "tags": ["C++","RAII"],
-        "url": "/c++/RAII/",
+        "url": "/cpp/RAII/",
         "teaser": null
       },{
         "title": "[Hardware] GPU 인식 안되는 현상 해결",
@@ -54,7 +54,7 @@ var store = [{
         "teaser": null
       },{
         "title": "[Git Blog] 사이드 카테고리 추가하기",
-        "excerpt":"좌측 사이드바에 카테고리를 넣어볼 것이다. 1. 카테고리 목록 정하기 _data/navigation.yml에서 하단의 내용을 넣고 한글로 된 부분을 수정한다. sidebar-category: - title: \"타이틀\" children: - title: \"표시될제목\" url: \"/주소\" 2. 카테고리 포스트 목록 페이지 생성 _page로가서 catagories라는 폴더를 만들고 안에 카테고리 요소당 하나씩 *.md파일을 생성해 준다. 그리고 아래 요소들을 수정한다. title: 페이지...","categories": ["gitblog"],
+        "excerpt":"좌측 사이드바에 카테고리를 넣어볼 것이다. 1. 카테고리 목록 정하기 _data/navigation.yml에서 하단의 내용을 넣고 한글로 된 부분을 수정한다. sidebar-category: - title: \"타이틀\" children: - title: \"표시될제목\" url: \"/주소\" category: \"카테고리\" 2. 카테고리 포스트 목록 페이지 생성 _page로가서 catagories라는 폴더를 만들고 안에 카테고리 요소당 하나씩 *.md파일을 생성해 준다. 그리고 아래 요소들을 수정한다....","categories": ["gitblog"],
         "tags": ["minimal-mistake","Jekyll","Blog"],
         "url": "/gitblog/Blog-side-category-%EC%B6%94%EA%B0%80/",
         "teaser": null
@@ -77,12 +77,6 @@ var store = [{
         "url": "/gitblog/Jekyll-%EC%9D%B4%EB%AA%A8%EC%A7%80-%EC%A0%81%EC%9A%A9%EB%B2%95/",
         "teaser": null
       },{
-        "title": "[Git Blog] Custom CSS 작성법",
-        "excerpt":"###   :page_with_curl: Reference     https://jekyllrb-ko.github.io/docs/step-by-step/07-assets/   ","categories": ["gitblog"],
-        "tags": ["SOLID","OOP","객체지향","객체지향5대원칙","디자인패턴","Design Pattern"],
-        "url": "/gitblog/Jekyll-%EC%BB%A4%EC%8A%A4%ED%85%80CSS-%EC%A0%81%EC%9A%A9%EB%B2%95/",
-        "teaser": null
-      },{
         "title": "[Git Blog] Jekyll 코드블럭 테마 설정하기",
         "excerpt":"1. 테마 설치하기 먼저 아래 코드블럭 테마 사이트에 가서 원하는 테마의 이름을 복사한다. :point_right: 테마 사이트 2. rouge설치 gem install rouge CMD에서 root폴더에 위와 같이 입력해서 테마를 설치한다. 3. _config.yml 수정. # Conversion markdown: kramdown highlighter: rouge # Markdown Processing kramdown: input: GFM 4. css파일 다운받기 rougify style 테마이름 &gt;...","categories": ["gitblog"],
         "tags": ["Git","Blog","Jekyll","minimal-mistakes","코드블럭"],
@@ -90,8 +84,8 @@ var store = [{
         "teaser": null
       },{
         "title": "SOLID 객체지향 5대원칙",
-        "excerpt":"설명 OOP(객체지향언어)를 개발 하면서 지켜야 할 5가지 원칙을 말한다. 많은 Design Pattern이 SOLID 원칙을 토대로 만들어졌기에 이 원칙을 숙지하면 Design Pattern 및 구조 설계를 하기 수월해진다. 모든 코드에 반드시 적용할 필요는 없지만 좋은 설계를 위해선 해당 사항들을 의식하면서 작성하면 좋다. 장점 수정과 유지보수가 수월하다 단일 책임 원칙(SRP) 객체는 하나의 목적만...","categories": ["c++"],
+        "excerpt":"설명 OOP(객체지향언어)를 개발 하면서 지켜야 할 5가지 원칙을 말한다. 많은 Design Pattern이 SOLID 원칙을 토대로 만들어졌기에 이 원칙을 숙지하면 Design Pattern 및 구조 설계를 하기 수월해진다. 모든 코드에 반드시 적용할 필요는 없지만 좋은 설계를 위해선 해당 사항들을 의식하면서 작성하면 좋다. 장점 수정과 유지보수가 수월하다 단일 책임 원칙(SRP) 객체는 하나의 목적만...","categories": ["cpp"],
         "tags": ["SOLID","OOP","객체지향","객체지향5대원칙","디자인패턴","Design Pattern"],
-        "url": "/c++/SOLID-%EC%9B%90%EC%B9%99/",
+        "url": "/cpp/SOLID-%EC%9B%90%EC%B9%99/",
         "teaser": null
       }]

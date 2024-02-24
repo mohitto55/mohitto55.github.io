@@ -1,9 +1,9 @@
 ---
-title: "C++"
+title: "BOJ"
 layout: archive
-permalink: /cpp
+permalink: /boj
 ---
 
 
-{% assign posts = site.categories.cpp %}
+{% assign posts = site.categories.boj %}
 {% for post in posts %} {% include archive-single.html type=page.entries_layout %} {% endfor %}

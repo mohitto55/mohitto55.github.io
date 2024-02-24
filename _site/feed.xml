@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-02-24T16:20:56+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mohitto55 Note</title><subtitle>모히또의 노트</subtitle><author><name>Mohitto55</name><email>mohitto55@gmail.com</email></author><entry><title type="html">[Git Blog] jekyll에서 emoji사용하기</title><link href="http://localhost:4000/gitblog/Jekyll-%EC%9D%B4%EB%AA%A8%EC%A7%80-%EC%A0%81%EC%9A%A9%EB%B2%95/" rel="alternate" type="text/html" title="[Git Blog] jekyll에서 emoji사용하기" /><published>2024-02-22T00:00:00+09:00</published><updated>2024-02-22T00:00:00+09:00</updated><id>http://localhost:4000/gitblog/Jekyll%20%EC%9D%B4%EB%AA%A8%EC%A7%80%20%EC%A0%81%EC%9A%A9%EB%B2%95</id><content type="html" xml:base="http://localhost:4000/gitblog/Jekyll-%EC%9D%B4%EB%AA%A8%EC%A7%80-%EC%A0%81%EC%9A%A9%EB%B2%95/"><![CDATA[<h2 id="emoji">Emoji?</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-02-24T18:22:06+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mohitto55 Note</title><subtitle>모히또의 노트</subtitle><author><name>Mohitto55</name><email>mohitto55@gmail.com</email></author><entry><title type="html">[Git Blog] jekyll에서 emoji사용하기</title><link href="http://localhost:4000/gitblog/Jekyll-%EC%9D%B4%EB%AA%A8%EC%A7%80-%EC%A0%81%EC%9A%A9%EB%B2%95/" rel="alternate" type="text/html" title="[Git Blog] jekyll에서 emoji사용하기" /><published>2024-02-22T00:00:00+09:00</published><updated>2024-02-22T00:00:00+09:00</updated><id>http://localhost:4000/gitblog/Jekyll%20%EC%9D%B4%EB%AA%A8%EC%A7%80%20%EC%A0%81%EC%9A%A9%EB%B2%95</id><content type="html" xml:base="http://localhost:4000/gitblog/Jekyll-%EC%9D%B4%EB%AA%A8%EC%A7%80-%EC%A0%81%EC%9A%A9%EB%B2%95/"><![CDATA[<h2 id="emoji">Emoji?</h2>
 <p>Jekyll 테마는 github의 <code class="language-plaintext highlighter-rouge">gemoji</code> 같이 <font color="red">::</font> 사이에 이름를 넣어 Emoji를 사용 할 수 있는 기능인 <code class="language-plaintext highlighter-rouge">jemoji</code>를 제공한다. 다만 기본적으로 제공하는 건 아니고 플러그인을 추가해줘야 한다.</p>
 
 <h3 id="jemoji-적용">jemoji 적용</h3>
@@ -41,7 +41,7 @@ bundle exec jekyll serve
   <p><a href="https://github.com/jekyll/jemoji?tab=readme-ov-file">jemoji</a></p>
 
   <p><a href="https://github.com/wooorm/gemoji">gemoji</a></p>
-</blockquote>]]></content><author><name>Mohitto55</name><email>mohitto55@gmail.com</email></author><category term="gitblog" /><category term="jekyll" /><category term="minimal-mistake" /><category term="emoji" /><category term="이모지" /><category term="jemoji" /><category term="gemoji" /><summary type="html"><![CDATA[Emoji? Jekyll 테마는 github의 gemoji 같이 :: 사이에 이름를 넣어 Emoji를 사용 할 수 있는 기능인 jemoji를 제공한다. 다만 기본적으로 제공하는 건 아니고 플러그인을 추가해줘야 한다.]]></summary></entry><entry><title type="html">SOLID 객체지향 5대원칙</title><link href="http://localhost:4000/c++/SOLID-%EC%9B%90%EC%B9%99/" rel="alternate" type="text/html" title="SOLID 객체지향 5대원칙" /><published>2024-02-22T00:00:00+09:00</published><updated>2024-02-22T00:00:00+09:00</updated><id>http://localhost:4000/c++/SOLID%20%EC%9B%90%EC%B9%99</id><content type="html" xml:base="http://localhost:4000/c++/SOLID-%EC%9B%90%EC%B9%99/"><![CDATA[<h2 id="설명">설명</h2>
+</blockquote>]]></content><author><name>Mohitto55</name><email>mohitto55@gmail.com</email></author><category term="gitblog" /><category term="jekyll" /><category term="minimal-mistake" /><category term="emoji" /><category term="이모지" /><category term="jemoji" /><category term="gemoji" /><summary type="html"><![CDATA[Emoji? Jekyll 테마는 github의 gemoji 같이 :: 사이에 이름를 넣어 Emoji를 사용 할 수 있는 기능인 jemoji를 제공한다. 다만 기본적으로 제공하는 건 아니고 플러그인을 추가해줘야 한다.]]></summary></entry><entry><title type="html">SOLID 객체지향 5대원칙</title><link href="http://localhost:4000/cpp/SOLID-%EC%9B%90%EC%B9%99/" rel="alternate" type="text/html" title="SOLID 객체지향 5대원칙" /><published>2024-02-22T00:00:00+09:00</published><updated>2024-02-22T00:00:00+09:00</updated><id>http://localhost:4000/cpp/SOLID%20%EC%9B%90%EC%B9%99</id><content type="html" xml:base="http://localhost:4000/cpp/SOLID-%EC%9B%90%EC%B9%99/"><![CDATA[<h2 id="설명">설명</h2>
 <p>OOP(객체지향언어)를 개발 하면서 지켜야 할 5가지 원칙을 말한다. 많은 Design Pattern이 SOLID 원칙을 토대로 만들어졌기에 이 원칙을 숙지하면 Design Pattern 및 구조 설계를 하기 수월해진다.</p>
 
 <p>모든 코드에 반드시 적용할 필요는 없지만 좋은 설계를 위해선 해당 사항들을 의식하면서 작성하면 좋다.</p>
@@ -103,7 +103,7 @@ bundle exec jekyll serve
   <p><a href="https://inpa.tistory.com/entry/OOP-%F0%9F%92%A0-%EA%B0%9D%EC%B2%B4-%EC%A7%80%ED%96%A5-%EC%84%A4%EA%B3%84%EC%9D%98-5%EA%B0%80%EC%A7%80-%EC%9B%90%EC%B9%99-SOLID">Inpa Dev - 객체 지향 설계의 5가지 원칙 - S.O.L.I.D</a></p>
 
   <p><a href="https://dev-cool.tistory.com/18">혼잣말하는 개발자 - 객체지향의 5대 원칙 SOLID</a></p>
-</blockquote>]]></content><author><name>Mohitto55</name><email>mohitto55@gmail.com</email></author><category term="c++" /><category term="SOLID" /><category term="OOP" /><category term="객체지향" /><category term="객체지향5대원칙" /><category term="디자인패턴" /><category term="Design Pattern" /><summary type="html"><![CDATA[설명 OOP(객체지향언어)를 개발 하면서 지켜야 할 5가지 원칙을 말한다. 많은 Design Pattern이 SOLID 원칙을 토대로 만들어졌기에 이 원칙을 숙지하면 Design Pattern 및 구조 설계를 하기 수월해진다.]]></summary></entry><entry><title type="html">[Git Blog] Jekyll 코드블럭 테마 설정하기</title><link href="http://localhost:4000/gitblog/Jekyll-%EC%BD%94%EB%93%9C%EB%B8%94%EB%9F%AD-%ED%85%8C%EB%A7%88-%EB%B0%94%EA%BE%B8%EA%B8%B0/" rel="alternate" type="text/html" title="[Git Blog] Jekyll 코드블럭 테마 설정하기" /><published>2024-02-22T00:00:00+09:00</published><updated>2024-02-22T00:00:00+09:00</updated><id>http://localhost:4000/gitblog/Jekyll%20%EC%BD%94%EB%93%9C%EB%B8%94%EB%9F%AD%20%ED%85%8C%EB%A7%88%20%EB%B0%94%EA%BE%B8%EA%B8%B0</id><content type="html" xml:base="http://localhost:4000/gitblog/Jekyll-%EC%BD%94%EB%93%9C%EB%B8%94%EB%9F%AD-%ED%85%8C%EB%A7%88-%EB%B0%94%EA%BE%B8%EA%B8%B0/"><![CDATA[<h3 id="1-테마-설치하기">1. 테마 설치하기</h3>
+</blockquote>]]></content><author><name>Mohitto55</name><email>mohitto55@gmail.com</email></author><category term="cpp" /><category term="SOLID" /><category term="OOP" /><category term="객체지향" /><category term="객체지향5대원칙" /><category term="디자인패턴" /><category term="Design Pattern" /><summary type="html"><![CDATA[설명 OOP(객체지향언어)를 개발 하면서 지켜야 할 5가지 원칙을 말한다. 많은 Design Pattern이 SOLID 원칙을 토대로 만들어졌기에 이 원칙을 숙지하면 Design Pattern 및 구조 설계를 하기 수월해진다.]]></summary></entry><entry><title type="html">[Git Blog] Jekyll 코드블럭 테마 설정하기</title><link href="http://localhost:4000/gitblog/Jekyll-%EC%BD%94%EB%93%9C%EB%B8%94%EB%9F%AD-%ED%85%8C%EB%A7%88-%EB%B0%94%EA%BE%B8%EA%B8%B0/" rel="alternate" type="text/html" title="[Git Blog] Jekyll 코드블럭 테마 설정하기" /><published>2024-02-22T00:00:00+09:00</published><updated>2024-02-22T00:00:00+09:00</updated><id>http://localhost:4000/gitblog/Jekyll%20%EC%BD%94%EB%93%9C%EB%B8%94%EB%9F%AD%20%ED%85%8C%EB%A7%88%20%EB%B0%94%EA%BE%B8%EA%B8%B0</id><content type="html" xml:base="http://localhost:4000/gitblog/Jekyll-%EC%BD%94%EB%93%9C%EB%B8%94%EB%9F%AD-%ED%85%8C%EB%A7%88-%EB%B0%94%EA%BE%B8%EA%B8%B0/"><![CDATA[<h3 id="1-테마-설치하기">1. 테마 설치하기</h3>
 <p>먼저 아래 코드블럭 테마 사이트에 가서 원하는 테마의 이름을 복사한다.
 :point_right: <a href="https://spsarolkar.github.io/rouge-theme-preview/">테마 사이트</a></p>
 
@@ -134,12 +134,7 @@ kramdown:
 <h2 id="page_with_curl-reference">:page_with_curl: Reference</h2>
 <blockquote>
   <p>https://onda2me.github.io/blog/codeblock/</p>
-</blockquote>]]></content><author><name>Mohitto55</name><email>mohitto55@gmail.com</email></author><category term="gitblog" /><category term="Git" /><category term="Blog" /><category term="Jekyll" /><category term="minimal-mistakes" /><category term="코드블럭" /><summary type="html"><![CDATA[1. 테마 설치하기 먼저 아래 코드블럭 테마 사이트에 가서 원하는 테마의 이름을 복사한다. :point_right: 테마 사이트]]></summary></entry><entry><title type="html">[Git Blog] Custom CSS 작성법</title><link href="http://localhost:4000/gitblog/Jekyll-%EC%BB%A4%EC%8A%A4%ED%85%80CSS-%EC%A0%81%EC%9A%A9%EB%B2%95/" rel="alternate" type="text/html" title="[Git Blog] Custom CSS 작성법" /><published>2024-02-22T00:00:00+09:00</published><updated>2024-02-22T00:00:00+09:00</updated><id>http://localhost:4000/gitblog/Jekyll%20%EC%BB%A4%EC%8A%A4%ED%85%80CSS%20%EC%A0%81%EC%9A%A9%EB%B2%95</id><content type="html" xml:base="http://localhost:4000/gitblog/Jekyll-%EC%BB%A4%EC%8A%A4%ED%85%80CSS-%EC%A0%81%EC%9A%A9%EB%B2%95/"><![CDATA[<p>###</p>
-
-<h2 id="page_with_curl-reference">:page_with_curl: Reference</h2>
-<blockquote>
-  <p>https://jekyllrb-ko.github.io/docs/step-by-step/07-assets/</p>
-</blockquote>]]></content><author><name>Mohitto55</name><email>mohitto55@gmail.com</email></author><category term="gitblog" /><category term="SOLID" /><category term="OOP" /><category term="객체지향" /><category term="객체지향5대원칙" /><category term="디자인패턴" /><category term="Design Pattern" /><summary type="html"><![CDATA[###]]></summary></entry><entry><title type="html">[UE5] Enhanced Input</title><link href="http://localhost:4000/ue5/UE5-Enhanced-Input/" rel="alternate" type="text/html" title="[UE5] Enhanced Input" /><published>2024-02-21T00:00:00+09:00</published><updated>2024-02-21T00:00:00+09:00</updated><id>http://localhost:4000/ue5/UE5%20Enhanced%20Input</id><content type="html" xml:base="http://localhost:4000/ue5/UE5-Enhanced-Input/"><![CDATA[<h2 id="enhancedinput">EnhancedInput?</h2>
+</blockquote>]]></content><author><name>Mohitto55</name><email>mohitto55@gmail.com</email></author><category term="gitblog" /><category term="Git" /><category term="Blog" /><category term="Jekyll" /><category term="minimal-mistakes" /><category term="코드블럭" /><summary type="html"><![CDATA[1. 테마 설치하기 먼저 아래 코드블럭 테마 사이트에 가서 원하는 테마의 이름을 복사한다. :point_right: 테마 사이트]]></summary></entry><entry><title type="html">[UE5] Enhanced Input</title><link href="http://localhost:4000/ue5/UE5-Enhanced-Input/" rel="alternate" type="text/html" title="[UE5] Enhanced Input" /><published>2024-02-21T00:00:00+09:00</published><updated>2024-02-21T00:00:00+09:00</updated><id>http://localhost:4000/ue5/UE5%20Enhanced%20Input</id><content type="html" xml:base="http://localhost:4000/ue5/UE5-Enhanced-Input/"><![CDATA[<h2 id="enhancedinput">EnhancedInput?</h2>
 <p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/a97835eb-26a9-4120-8bd5-e04c51590fd8" alt="image" />
 EnhancedInput 시스템은 Unreal Engine5에 등장한 새로운 Input 시스템으로 기존 InputSystem 보다 더 나은 기능 및 확장성을 가졌다. 이 포스팅에서는 코드로 EngancedInput를 사용하는 법을 작성할 것이다.</p>
 
@@ -244,6 +239,7 @@ InputAction의 값을 쓰고 싶으면 <a href="https://docs.unrealengine.com/4.
     children:
       - title: "표시될제목"
         url: "/주소"
+        category: "카테고리"
 </code></pre></div></div>
 
 <h2 id="2-카테고리-포스트-목록-페이지-생성">2. 카테고리 포스트 목록 페이지 생성</h2>
@@ -373,7 +369,7 @@ Liquid 문법
 </ol>
 
 <h2 id="5-bios-업데이트">5. BIOS 업데이트</h2>
-<p>구형 BIOS일경우 메인보드 제조사 홈페이지로 들어가 최신BIOS로 업데이트 해준다.</p>]]></content><author><name>Mohitto55</name><email>mohitto55@gmail.com</email></author><category term="hardware" /><category term="GPU" /><category term="CPU" /><category term="Grapic Driver" /><category term="Bios" /><category term="Hardware" /><category term="Mainboard" /><summary type="html"><![CDATA[큰돈을 주고 컴퓨터를 새로 장만하고 기쁜 마음으로 언리얼엔진5를 시작했다. 그런데 이상하게도 에디터의 인식이 굉장히 느렸었다. 단순한 버그라기엔 뭔가 이상해서 CPU-Z를 이용해 그래픽카드를 확인해 봤더니…]]></summary></entry><entry><title type="html">[C++] 자원관리 기법 RAII</title><link href="http://localhost:4000/c++/RAII/" rel="alternate" type="text/html" title="[C++] 자원관리 기법 RAII" /><published>2024-01-30T00:00:00+09:00</published><updated>2024-01-30T00:00:00+09:00</updated><id>http://localhost:4000/c++/RAII</id><content type="html" xml:base="http://localhost:4000/c++/RAII/"><![CDATA[<h2 id="raii">RAII</h2>
+<p>구형 BIOS일경우 메인보드 제조사 홈페이지로 들어가 최신BIOS로 업데이트 해준다.</p>]]></content><author><name>Mohitto55</name><email>mohitto55@gmail.com</email></author><category term="hardware" /><category term="GPU" /><category term="CPU" /><category term="Grapic Driver" /><category term="Bios" /><category term="Hardware" /><category term="Mainboard" /><summary type="html"><![CDATA[큰돈을 주고 컴퓨터를 새로 장만하고 기쁜 마음으로 언리얼엔진5를 시작했다. 그런데 이상하게도 에디터의 인식이 굉장히 느렸었다. 단순한 버그라기엔 뭔가 이상해서 CPU-Z를 이용해 그래픽카드를 확인해 봤더니…]]></summary></entry><entry><title type="html">[C++] 자원관리 기법 RAII</title><link href="http://localhost:4000/cpp/RAII/" rel="alternate" type="text/html" title="[C++] 자원관리 기법 RAII" /><published>2024-01-30T00:00:00+09:00</published><updated>2024-01-30T00:00:00+09:00</updated><id>http://localhost:4000/cpp/RAII</id><content type="html" xml:base="http://localhost:4000/cpp/RAII/"><![CDATA[<h2 id="raii">RAII</h2>
 <p>C++진영에서 자주 쓰이는 Idiom으로 객체가 쓰이는 Scope를 벗어나면 자원을 해제해주는 기법</p>
 
 <p>Resource Acquisition Is Initialization 자원의 획득은 초기화라는 뜻으로 다르게 말해서 객체와 자원의 라이프 사이클을 일치 시키라는 것이다.</p>
@@ -410,7 +406,7 @@ Liquid 문법
   <li>로깅</li>
   <li>코드블럭이 실행되는 시간 재기</li>
   <li>synchorized 영역 만들기</li>
-</ul>]]></content><author><name>Mohitto55</name><email>mohitto55@gmail.com</email></author><category term="c++" /><category term="C++" /><category term="RAII" /><summary type="html"><![CDATA[RAII C++진영에서 자주 쓰이는 Idiom으로 객체가 쓰이는 Scope를 벗어나면 자원을 해제해주는 기법]]></summary></entry><entry><title type="html">[Obsidian] 코드수정을 한번에 CustomJS</title><link href="http://localhost:4000/obsidian/Dataview-CustomJS-%EC%82%AC%EC%9A%A9%EB%B2%95/" rel="alternate" type="text/html" title="[Obsidian] 코드수정을 한번에 CustomJS" /><published>2024-01-29T00:00:00+09:00</published><updated>2024-01-29T00:00:00+09:00</updated><id>http://localhost:4000/obsidian/Dataview%20CustomJS%20%EC%82%AC%EC%9A%A9%EB%B2%95</id><content type="html" xml:base="http://localhost:4000/obsidian/Dataview-CustomJS-%EC%82%AC%EC%9A%A9%EB%B2%95/"><![CDATA[<h2 id="what-is-customjs">What is CustomJS</h2>
+</ul>]]></content><author><name>Mohitto55</name><email>mohitto55@gmail.com</email></author><category term="cpp" /><category term="C++" /><category term="RAII" /><summary type="html"><![CDATA[RAII C++진영에서 자주 쓰이는 Idiom으로 객체가 쓰이는 Scope를 벗어나면 자원을 해제해주는 기법]]></summary></entry><entry><title type="html">[Obsidian] 코드수정을 한번에 CustomJS</title><link href="http://localhost:4000/obsidian/Dataview-CustomJS-%EC%82%AC%EC%9A%A9%EB%B2%95/" rel="alternate" type="text/html" title="[Obsidian] 코드수정을 한번에 CustomJS" /><published>2024-01-29T00:00:00+09:00</published><updated>2024-01-29T00:00:00+09:00</updated><id>http://localhost:4000/obsidian/Dataview%20CustomJS%20%EC%82%AC%EC%9A%A9%EB%B2%95</id><content type="html" xml:base="http://localhost:4000/obsidian/Dataview-CustomJS-%EC%82%AC%EC%9A%A9%EB%B2%95/"><![CDATA[<h2 id="what-is-customjs">What is CustomJS</h2>
 <p>CustomJS란 dataview에 Javascript로 작성한 함수를 적용할 수 있게 해주는 플러그인이다.</p>
 
 <h2 id="why-use-customjs">Why use CustomJS</h2>
@@ -462,4 +458,28 @@ ShowTasks.ShowNotComplitedTasksInPath(dv,current.file.folder);
 
 <p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/24e1274b-75e9-4679-aa3b-f82d09eb1d6c" alt="image" /></p>
 
-<p>이제 단 한번의 수정으로 코드를 관리할 수 있게되었다.</p>]]></content><author><name>Mohitto55</name><email>mohitto55@gmail.com</email></author><category term="obsidian" /><category term="Obsidian" /><category term="DataviewJS" /><category term="CustomJS" /><summary type="html"><![CDATA[What is CustomJS CustomJS란 dataview에 Javascript로 작성한 함수를 적용할 수 있게 해주는 플러그인이다.]]></summary></entry></feed>
+<p>이제 단 한번의 수정으로 코드를 관리할 수 있게되었다.</p>]]></content><author><name>Mohitto55</name><email>mohitto55@gmail.com</email></author><category term="obsidian" /><category term="Obsidian" /><category term="DataviewJS" /><category term="CustomJS" /><summary type="html"><![CDATA[What is CustomJS CustomJS란 dataview에 Javascript로 작성한 함수를 적용할 수 있게 해주는 플러그인이다.]]></summary></entry><entry><title type="html">[Git Blog] Blog CSS 적용하는 법</title><link href="http://localhost:4000/gitblog/Git-blog-css%EC%A0%81%EC%9A%A9%EB%B2%95/" rel="alternate" type="text/html" title="[Git Blog] Blog CSS 적용하는 법" /><published>2024-01-28T00:00:00+09:00</published><updated>2024-01-28T00:00:00+09:00</updated><id>http://localhost:4000/gitblog/Git%20blog%20css%EC%A0%81%EC%9A%A9%EB%B2%95</id><content type="html" xml:base="http://localhost:4000/gitblog/Git-blog-css%EC%A0%81%EC%9A%A9%EB%B2%95/"><![CDATA[<p>Git blog의 장점중 하나는 유저가 원하는 대로 커스터마이징 가능하다는 점이다. 내가 Git blog로 넘어온 이유도 다른 블로그들에 비해 독창적인 디자인의 블로그 비중이 Git으로 만든 블로그들이 많기 때문이다. 자유롭게 블로그를 꾸밀 수 있게 해주는 GIt blog의 기능 중 하나는 커스텀 CSS 덕분이다. 이 포스트에서는 <strong>MinimalMistake</strong> 테마에서 어떻게 CSS를 적용, 수정하는지 알아볼 것이다.</p>
+
+<h2 id="css-파일-위치">CSS 파일 위치</h2>
+<p><strong>MinimalMistake</strong>의 CSS 파일들은 루트폴더에서 <strong>_sass/minimal-mistakes</strong>폴더 안에 있다. 안에 있는 <strong>.scss</strong> 확장자 파일들이 있는데 이것이 CSS 파일이다. 각 파일들은 블로그를 구성하는 여러 구조들의 외관을 어떻게 표현할지 적혀져있다.</p>
+
+<h2 id="수정할-영역-찾기">수정할 영역 찾기</h2>
+<p>적혀진 내용이 매우 많은데 어느것이 내가 수정하기 원하는 부분인지 알기 어렵다. 이를 알고싶으면 페이지에서 직접 확인해야한다. 페이지에 들어가서 우클릭/검색 혹은 F12 눌러서 개발자 모드 창을 열면 html이 적힌 화면이 보일 것이다.</p>
+
+<p>이는 현재 페이지가 html로 어떻게 구성되어 있는지 볼 수 있는 창으로 html 코드에 마우스를 가져다대면 화면에 해당 html이 적용중인 영역이 표시된다. 원하는 영역이 표시되는 html을 찾았으면 해당 코드를 클릭하고 아래쪽 스타일 부분을 보면 CSS 코드가 보일 것이다.</p>
+
+<p>그리고 오른쪽 상당에 <strong>_*.scss:숫자</strong> 형식으로 쓰여져 있을텐데 이는 해당 CSS 코드의 파일 위치를 나타낸다.</p>
+
+<h2 id="변수">변수</h2>
+<p>CSS 코드를 보면 일반적인 숫자 변수말고 <strong>$</strong>* 형식으로 되어있는 것이 있다. 이는 변수로 <strong>_variables.scss</strong> 파일안에 정의되어 있다.</p>
+
+<h2 id="summary">SUMMARY</h2>
+<ul>
+  <li>F12 or 우클릭/검색 개발자 모드로 페이지를 구성하는 html을 볼 수 있다.
+    <ul>
+      <li>스타일 영역에서 수정하고 싶은 CSS 코드 위치를 확인 할 수있다.</li>
+    </ul>
+  </li>
+  <li>CSS코드는 <strong>_sass/minimal-mistakes</strong> 폴더 안에 있다.</li>
+  <li>변수는 <strong>_sass/_variables.scss</strong> 파일에 정의되어 있다.</li>
+</ul>]]></content><author><name>Mohitto55</name><email>mohitto55@gmail.com</email></author><category term="gitblog" /><category term="Blog" /><category term="Jekyll" /><category term="MinimalMistake" /><category term="CSS" /><summary type="html"><![CDATA[Git blog의 장점중 하나는 유저가 원하는 대로 커스터마이징 가능하다는 점이다. 내가 Git blog로 넘어온 이유도 다른 블로그들에 비해 독창적인 디자인의 블로그 비중이 Git으로 만든 블로그들이 많기 때문이다. 자유롭게 블로그를 꾸밀 수 있게 해주는 GIt blog의 기능 중 하나는 커스텀 CSS 덕분이다. 이 포스트에서는 MinimalMistake 테마에서 어떻게 CSS를 적용, 수정하는지 알아볼 것이다.]]></summary></entry></feed>

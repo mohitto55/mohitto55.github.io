@@ -4,7 +4,7 @@
         xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     
     <url>
-        <loc>http://localhost:4000/c++/SOLID-%EC%9B%90%EC%B9%99/</loc>
+        <loc>http://localhost:4000/cpp/SOLID-%EC%9B%90%EC%B9%99/</loc>
         
         <lastmod>2024-02-22T00:00:00+09:00</lastmod>
         
@@ -18,19 +18,6 @@
     
     <url>
         <loc>http://localhost:4000/gitblog/Jekyll-%EC%BD%94%EB%93%9C%EB%B8%94%EB%9F%AD-%ED%85%8C%EB%A7%88-%EB%B0%94%EA%BE%B8%EA%B8%B0/</loc>
-        
-        <lastmod>2024-02-22T00:00:00+09:00</lastmod>
-        
-        
-        <changefreq>weekly</changefreq>
-        
-        
-        <priority>0.5</priority>
-        
-    </url>
-    
-    <url>
-        <loc>http://localhost:4000/gitblog/Jekyll-%EC%BB%A4%EC%8A%A4%ED%85%80CSS-%EC%A0%81%EC%9A%A9%EB%B2%95/</loc>
         
         <lastmod>2024-02-22T00:00:00+09:00</lastmod>
         
@@ -108,7 +95,7 @@
     </url>
     
     <url>
-        <loc>http://localhost:4000/c++/RAII/</loc>
+        <loc>http://localhost:4000/cpp/RAII/</loc>
         
         <lastmod>2024-01-30T00:00:00+09:00</lastmod>
         

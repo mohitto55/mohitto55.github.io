@@ -1,9 +1,9 @@
 ---
-title: "C++"
+title: "Algorithm"
 layout: archive
-permalink: /cpp
+permalink: /algorithm
 ---
 
 
-{% assign posts = site.categories.cpp %}
+{% assign posts = site.categories.algorithm %}
 {% for post in posts %} {% include archive-single.html type=page.entries_layout %} {% endfor %}

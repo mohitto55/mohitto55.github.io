@@ -13,6 +13,7 @@ sidebar-category:
     children:
       - title: "표시될제목"
         url: "/주소"
+        category: "카테고리"
 ```
 
 ## 2. 카테고리 포스트 목록 페이지 생성
