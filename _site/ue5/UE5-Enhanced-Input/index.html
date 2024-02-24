@@ -120,13 +120,17 @@
           Mohitto55 Note
           <span class="site-subtitle">small positive action</span>
         </a>
-        <ul class="visible-links"><li class="masthead__menu-item">
+        <ul class="visible-links">
+<li class="masthead__menu-item">
               <a href="/categories/">Category</a>
-            </li><li class="masthead__menu-item">
+            </li>
+<li class="masthead__menu-item">
               <a href="/tags/">Tag</a>
-            </li><li class="masthead__menu-item">
+            </li>
+<li class="masthead__menu-item">
               <a href="/search/">Search</a>
-            </li></ul>
+            </li>
+</ul>
         
         <button class="greedy-nav__toggle hidden" type="button">
           <span class="visually-hidden">토글 메뉴</span>
@@ -159,7 +163,7 @@
         <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
           <a href="/" itemprop="item"><span itemprop="name">Home</span></a>
 
-          <meta itemprop="position" content="1" />
+          <meta itemprop="position" content="1">
         </li>
         <span class="sep">/</span>
       
@@ -167,7 +171,7 @@
         
         <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
           <a href="/categories/#ue5" itemprop="item"><span itemprop="name">Ue5</span></a>
-          <meta itemprop="position" content="2" />
+          <meta itemprop="position" content="2">
         </li>
         <span class="sep">/</span>
       
@@ -241,7 +245,7 @@
       
         <li>
           <a href="mailto:mohitto55@gmail.com" rel="me" class="u-email">
-            <meta itemprop="email" content="mohitto55@gmail.com" />
+            <meta itemprop="email" content="mohitto55@gmail.com">
             <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">이메일</span>
           </a>
         </li>
@@ -315,7 +319,7 @@
 
 <nav class="nav__list">
   
-  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <input id="ac-toc" name="accordion-toc" type="checkbox">
   <label for="ac-toc">토글 메뉴</label>
   <li> 전체 글 수 (16)개 </li>
   <ul class="nav__items">
@@ -470,14 +474,33 @@
         
           <aside class="sidebar__right sticky">
             <nav class="toc">
-              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> 목차</h4></header>
-              <ul class="toc__menu"><li><a href="#enhancedinput">EnhancedInput?</a></li><li><a href="#enhancedinput-모듈준비">EnhancedInput 모듈준비</a><ul><li><a href="#1모듈이란">1.모듈이란</a></li><li><a href="#2모듈추가">2.모듈추가</a></li><li><a href="#3빌드-및-임시파일-초기화">3.빌드 및 임시파일 초기화</a></li></ul></li><li><a href="#코드로-enhancedinput-작성">코드로 EnhancedInput 작성</a><ul><li><a href="#1-1-mappingcontext">1-1. MappingContext</a></li><li><a href="#1-2-component에서-사용할-시">1-2. Component에서 사용할 시</a></li><li><a href="#2-inputaction-사용">2. InputAction 사용</a></li><li><a href="#3-바인딩-추가">3. 바인딩 추가</a></li></ul></li><li><a href="#page_with_curl-reference">:page_with_curl: Reference</a></li></ul>
+              <header><h4 class="nav__title">
+<i class="fas fa-file-alt"></i> 목차</h4></header>
+              <ul class="toc__menu">
+<li><a href="#enhancedinput">EnhancedInput?</a></li>
+<li>
+<a href="#enhancedinput-%EB%AA%A8%EB%93%88%EC%A4%80%EB%B9%84">EnhancedInput 모듈준비</a><ul>
+<li><a href="#1%EB%AA%A8%EB%93%88%EC%9D%B4%EB%9E%80">1.모듈이란</a></li>
+<li><a href="#2%EB%AA%A8%EB%93%88%EC%B6%94%EA%B0%80">2.모듈추가</a></li>
+<li><a href="#3%EB%B9%8C%EB%93%9C-%EB%B0%8F-%EC%9E%84%EC%8B%9C%ED%8C%8C%EC%9D%BC-%EC%B4%88%EA%B8%B0%ED%99%94">3.빌드 및 임시파일 초기화</a></li>
+</ul>
+</li>
+<li>
+<a href="#%EC%BD%94%EB%93%9C%EB%A1%9C-enhancedinput-%EC%9E%91%EC%84%B1">코드로 EnhancedInput 작성</a><ul>
+<li><a href="#1-1-mappingcontext">1-1. MappingContext</a></li>
+<li><a href="#1-2-component%EC%97%90%EC%84%9C-%EC%82%AC%EC%9A%A9%ED%95%A0-%EC%8B%9C">1-2. Component에서 사용할 시</a></li>
+<li><a href="#2-inputaction-%EC%82%AC%EC%9A%A9">2. InputAction 사용</a></li>
+<li><a href="#3-%EB%B0%94%EC%9D%B8%EB%94%A9-%EC%B6%94%EA%B0%80">3. 바인딩 추가</a></li>
+</ul>
+</li>
+<li><a href="#page_with_curl-reference"><img class="emoji" title=":page_with_curl:" alt=":page_with_curl:" src="/assets/images/emoji/unicode/1f4c3.png" height="20" width="20"> Reference</a></li>
+</ul>
 
             </nav>
           </aside>
         
         <h2 id="enhancedinput">EnhancedInput?</h2>
-<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/a97835eb-26a9-4120-8bd5-e04c51590fd8" alt="image" />
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/a97835eb-26a9-4120-8bd5-e04c51590fd8" alt="image">
 EnhancedInput 시스템은 Unreal Engine5에 등장한 새로운 Input 시스템으로 기존 InputSystem 보다 더 나은 기능 및 확장성을 가졌다. 이 포스팅에서는 코드로 EngancedInput를 사용하는 법을 작성할 것이다.</p>
 
 <h2 id="enhancedinput-모듈준비">EnhancedInput 모듈준비</h2>
@@ -488,21 +511,21 @@ EnhancedInput 시스템은 Unreal Engine5에 등장한 새로운 Input 시스템
 
 <h3 id="2모듈추가">2.모듈추가</h3>
 <p>모듈은 플러그인을 빌드에 포함시키게 해주는 것으로 언리얼이 모든 플러그인이 아닌 필요한 플러그인만 빌드 시키게 함으로써 성능 향상 시켜준다.
-<img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/4f373422-5831-4b69-8cd3-cef821f8f859" alt="스크린샷 2024-02-21 125554" /></p>
+<img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/4f373422-5831-4b69-8cd3-cef821f8f859" alt="스크린샷 2024-02-21 125554"></p>
 
 <p>플러그인은 <code class="language-plaintext highlighter-rouge">Engine/UE5/Plugins</code> 안에 있는 파일들에 볼 수 있으며 <code class="language-plaintext highlighter-rouge">프로젝트이름.Build.cs</code>파일에서 모듈을 관리할 수 있다.</p>
 
 <h3 id="3빌드-및-임시파일-초기화">3.빌드 및 임시파일 초기화</h3>
-<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/009474f9-35d1-42c5-b3df-e0fdcc9f2e49" alt="스크린샷 2024-02-21 130600" /></p>
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/009474f9-35d1-42c5-b3df-e0fdcc9f2e49" alt="스크린샷 2024-02-21 130600"></p>
 
 <p>추가 후 CTRL+SHIFT+B로 빌드 해주면 헤더를 사용할 수 있다.
 안되는 경우 컴파일시 생성되는 임시파일을 삭제해줘야 한다. 프로젝트 폴더에 가서 Binaries, Intermediate, Saved 폴더를 삭제한다.</p>
 
-<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/b3854688-4d87-46c1-8ef0-8fb827ebf289" alt="스크린샷 2024-02-21 130747" /></p>
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/b3854688-4d87-46c1-8ef0-8fb827ebf289" alt="스크린샷 2024-02-21 130747"></p>
 
 <p>그리고 프로젝트파일 우클릭 후 Generate Visual Studio project files를 눌러 삭제한 폴더들을 다시 만든다.</p>
 
-<hr />
+<hr>
 
 <h2 id="코드로-enhancedinput-작성">코드로 EnhancedInput 작성</h2>
 <h3 id="1-1-mappingcontext">1-1. MappingContext</h3>
@@ -518,7 +541,7 @@ EnhancedInput 시스템은 Unreal Engine5에 등장한 새로운 Input 시스템
 	<span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></div>
-<hr />
+<hr>
 <h3 id="1-2-component에서-사용할-시">1-2. Component에서 사용할 시</h3>
 <p><code class="language-plaintext highlighter-rouge">GetControll</code>메타함수는 <code class="language-plaintext highlighter-rouge">Pawn</code> 이하 클래스에서만 사용 할 수 있다. Component는 컨트롤러를 가지고 있지 않기 때문에 Pawn의 컨트롤러를 가져와야한다.</p>
 
@@ -536,10 +559,10 @@ EnhancedInput 시스템은 Unreal Engine5에 등장한 새로운 Input 시스템
 
 <p>다만 게임설계상 컴포넌트에서 직접 하는 것 보단 컴포넌트를 관리하는 Actor에서 Input을 관리하는 것이 더 좋다.</p>
 
-<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/80ee01ac-c280-40ee-9989-3b32e152886b" alt="스크린샷 2024-02-21 170725" />
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/80ee01ac-c280-40ee-9989-3b32e152886b" alt="스크린샷 2024-02-21 170725">
 위 과정을 BP로 할 경우 이렇다.</p>
 
-<hr />
+<hr>
 
 <h3 id="2-inputaction-사용">2. InputAction 사용</h3>
 <p>이제 <code class="language-plaintext highlighter-rouge">MappingContext</code>를 시스템에 적용했으니 키를 누르면 InputAction 입력 값이 나올 것이다.
@@ -549,7 +572,7 @@ InputAction의 값을 쓰고 싶으면 <a href="https://docs.unrealengine.com/4.
 </span><span class="kt">void</span> <span class="nf">Grab</span><span class="p">(</span><span class="k">const</span> <span class="n">FInputActionValue</span><span class="o">&amp;</span> <span class="n">Value</span><span class="p">);</span>
 </code></pre></div></div>
 
-<hr />
+<hr>
 
 <h3 id="3-바인딩-추가">3. 바인딩 추가</h3>
 <p>키가 입력 됬을 때 특정 함수를 실행 시키고 싶다면 <a href="https://docs.unrealengine.com/4.27/en-US/API/Plugins/EnhancedInput/UEnhancedInputComponent/">EnhancedInputComponent</a>를 사용하면 된다.</p>
@@ -567,7 +590,8 @@ InputAction의 값을 쓰고 싶으면 <a href="https://docs.unrealengine.com/4.
 
 <p>만약 CastChecked가 실패할 경우 게임이 크래시되어 종료한다.</p>
 
-<h2 id="page_with_curl-reference">:page_with_curl: Reference</h2>
+<h2 id="page_with_curl-reference">
+<img class="emoji" title=":page_with_curl:" alt=":page_with_curl:" src="/assets/images/emoji/unicode/1f4c3.png" height="20" width="20"> Reference</h2>
 <blockquote>
   <p><a href="https://www.youtube.com/watch?v=fW1pXOAIviw">UE5 C++ Enhanced Input-2 Bind C++ Functions to Input Actions</a></p>
 
@@ -633,7 +657,7 @@ InputAction의 값을 쓰고 싶으면 <a href="https://docs.unrealengine.com/4.
 
   <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fue5%2FUE5-Enhanced-Input%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fue5%2FUE5-Enhanced-Input%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3A%2F%2Flocalhost%3A4000%2Fue5%2FUE5-Enhanced-Input%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
@@ -751,7 +775,7 @@ OOP(객체지향언어)를 개발 하면서 지켜야 할 5가지 원칙을 말�
 
     <p class="archive__item-excerpt" itemprop="description">1. 테마 설치하기
 먼저 아래 코드블럭 테마 사이트에 가서 원하는 테마의 이름을 복사한다.
-:point_right: 테마 사이트
+<img class="emoji" title=":point_right:" alt=":point_right:" src="/assets/images/emoji/unicode/1f449.png" height="20" width="20"> 테마 사이트
 </p>
   </article>
 </div>
@@ -889,7 +913,7 @@ Jekyll 테마는 github의 gemoji 같이 :: 사이에 이름를 넣어 Emoji를 
   </ul>
 </div>
 
-<div class="page__footer-copyright">&copy; 2024 전진성(Jeon Jin Sung). Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">© 2024 전진성(Jeon Jin Sung). Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
 
       </footer>
     </div>
@@ -916,7 +940,8 @@ Jekyll 테마는 github의 gemoji 같이 :: 사이에 이름를 넣어 Emoji를 
       (d.head || d.body).appendChild(s);
     })();
   </script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
 
 
   

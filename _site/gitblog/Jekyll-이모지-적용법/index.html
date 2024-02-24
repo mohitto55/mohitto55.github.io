@@ -120,13 +120,17 @@
           Mohitto55 Note
           <span class="site-subtitle">small positive action</span>
         </a>
-        <ul class="visible-links"><li class="masthead__menu-item">
+        <ul class="visible-links">
+<li class="masthead__menu-item">
               <a href="/categories/">Category</a>
-            </li><li class="masthead__menu-item">
+            </li>
+<li class="masthead__menu-item">
               <a href="/tags/">Tag</a>
-            </li><li class="masthead__menu-item">
+            </li>
+<li class="masthead__menu-item">
               <a href="/search/">Search</a>
-            </li></ul>
+            </li>
+</ul>
         
         <button class="greedy-nav__toggle hidden" type="button">
           <span class="visually-hidden">토글 메뉴</span>
@@ -159,7 +163,7 @@
         <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
           <a href="/" itemprop="item"><span itemprop="name">Home</span></a>
 
-          <meta itemprop="position" content="1" />
+          <meta itemprop="position" content="1">
         </li>
         <span class="sep">/</span>
       
@@ -167,7 +171,7 @@
         
         <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
           <a href="/categories/#gitblog" itemprop="item"><span itemprop="name">Gitblog</span></a>
-          <meta itemprop="position" content="2" />
+          <meta itemprop="position" content="2">
         </li>
         <span class="sep">/</span>
       
@@ -241,7 +245,7 @@
       
         <li>
           <a href="mailto:mohitto55@gmail.com" rel="me" class="u-email">
-            <meta itemprop="email" content="mohitto55@gmail.com" />
+            <meta itemprop="email" content="mohitto55@gmail.com">
             <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">이메일</span>
           </a>
         </li>
@@ -315,7 +319,7 @@
 
 <nav class="nav__list">
   
-  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <input id="ac-toc" name="accordion-toc" type="checkbox">
   <label for="ac-toc">토글 메뉴</label>
   <li> 전체 글 수 (16)개 </li>
   <ul class="nav__items">
@@ -470,8 +474,17 @@
         
           <aside class="sidebar__right sticky">
             <nav class="toc">
-              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> 목차</h4></header>
-              <ul class="toc__menu"><li><a href="#emoji">Emoji?</a><ul><li><a href="#jemoji-적용">jemoji 적용</a></li></ul></li><li><a href="#커스텀-emoji-사용하기">커스텀 Emoji 사용하기</a><ul><li><a href="#유니코드-확인법">유니코드 확인법</a></li></ul></li><li><a href="#page_with_curl-reference">:page_with_curl: Reference</a></li></ul>
+              <header><h4 class="nav__title">
+<i class="fas fa-file-alt"></i> 목차</h4></header>
+              <ul class="toc__menu">
+<li>
+<a href="#emoji">Emoji?</a><ul><li><a href="#jemoji-%EC%A0%81%EC%9A%A9">jemoji 적용</a></li></ul>
+</li>
+<li>
+<a href="#%EC%BB%A4%EC%8A%A4%ED%85%80-emoji-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0">커스텀 Emoji 사용하기</a><ul><li><a href="#%EC%9C%A0%EB%8B%88%EC%BD%94%EB%93%9C-%ED%99%95%EC%9D%B8%EB%B2%95">유니코드 확인법</a></li></ul>
+</li>
+<li><a href="#page_with_curl-reference"><img class="emoji" title=":page_with_curl:" alt=":page_with_curl:" src="/assets/images/emoji/unicode/1f4c3.png" height="20" width="20"> Reference</a></li>
+</ul>
 
             </nav>
           </aside>
@@ -488,7 +501,7 @@
   <p>gem은 Ruby에서 지원하는 패키지 시스템이다.</p>
 </blockquote>
 
-<hr />
+<hr>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>plugins:
 	...
@@ -496,16 +509,16 @@
 </code></pre></div></div>
 
 <p>그럼 <font color="red">::</font> 사이에 사용할 Emoji 이름을 넣어주면 된다. 예를 들어 white_check_mark를 넣으면 다음과 같이 나온다.
-<img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/032a9bbf-5bac-480e-9582-ef77e53c0aef" alt="image" /></p>
+<img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/032a9bbf-5bac-480e-9582-ef77e53c0aef" alt="image"></p>
 
 <h2 id="커스텀-emoji-사용하기">커스텀 Emoji 사용하기</h2>
 <p>Jekyll에서 제공하는 Emoji는 GitHub.com CDN에서 가져오는 것들이다. 그래서 마음에 들지 않는 Emoji가 있을 수 있는데 자신이 원하는 Emoji를 로컬저장소에서 불러오는 방식으로 커스터마이징 할 수 있다. <code class="language-plaintext highlighter-rouge">_config.yml</code>파일에 아래 소스를 추가한다.</p>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>emoji:
   src: "/assets/images"
 </code></pre></div></div>
-<p>그리고 <code class="language-plaintext highlighter-rouge">/assets/images/emoji/unicode</code>위치로가서 <code class="language-plaintext highlighter-rouge">유니코드.png</code>의 이미지 파일을 놓아주면 된다. 그러면 방금처럼 <code class="language-plaintext highlighter-rouge">:white_check_mark:</code>를 써보면 <img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/032a9bbf-5bac-480e-9582-ef77e53c0aef" alt="image" />였던 것이 :white_check_mark: 로 바뀐 것을 볼 수 있다.</p>
+<p>그리고 <code class="language-plaintext highlighter-rouge">/assets/images/emoji/unicode</code>위치로가서 <code class="language-plaintext highlighter-rouge">유니코드.png</code>의 이미지 파일을 놓아주면 된다. 그러면 방금처럼 <code class="language-plaintext highlighter-rouge">:white_check_mark:</code>를 써보면 <img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/032a9bbf-5bac-480e-9582-ef77e53c0aef" alt="image">였던 것이 <img class="emoji" title=":white_check_mark:" alt=":white_check_mark:" src="/assets/images/emoji/unicode/2705.png" height="20" width="20"> 로 바뀐 것을 볼 수 있다.</p>
 
-<hr />
+<hr>
 <h3 id="유니코드-확인법">유니코드 확인법</h3>
 <p>유니코드는 이모지 유니코드 사이트에서 직접 찾거나</p>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bundle install
@@ -513,8 +526,9 @@ bundle exec jekyll serve
 </code></pre></div></div>
 <p>로컬서버를 돌린 뒤 에러메시지로 사용할려는 Emoji의 유니코드.png가 없다고 나오는 걸 보고 적용해주면 된다.</p>
 
-<hr />
-<h2 id="page_with_curl-reference">:page_with_curl: Reference</h2>
+<hr>
+<h2 id="page_with_curl-reference">
+<img class="emoji" title=":page_with_curl:" alt=":page_with_curl:" src="/assets/images/emoji/unicode/1f4c3.png" height="20" width="20"> Reference</h2>
 <blockquote>
   <p><a href="https://github.com/jekyll/jemoji?tab=readme-ov-file">jemoji</a></p>
 
@@ -584,7 +598,7 @@ bundle exec jekyll serve
 
   <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fgitblog%2FJekyll-%25EC%259D%25B4%25EB%25AA%25A8%25EC%25A7%2580-%25EC%25A0%2581%25EC%259A%25A9%25EB%25B2%2595%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fgitblog%2FJekyll-%25EC%259D%25B4%25EB%25AA%25A8%25EC%25A7%2580-%25EC%25A0%2581%25EC%259A%25A9%25EB%25B2%2595%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3A%2F%2Flocalhost%3A4000%2Fgitblog%2FJekyll-%25EC%259D%25B4%25EB%25AA%25A8%25EC%25A7%2580-%25EC%25A0%2581%25EC%259A%25A9%25EB%25B2%2595%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
@@ -702,7 +716,7 @@ OOP(객체지향언어)를 개발 하면서 지켜야 할 5가지 원칙을 말�
 
     <p class="archive__item-excerpt" itemprop="description">1. 테마 설치하기
 먼저 아래 코드블럭 테마 사이트에 가서 원하는 테마의 이름을 복사한다.
-:point_right: 테마 사이트
+<img class="emoji" title=":point_right:" alt=":point_right:" src="/assets/images/emoji/unicode/1f449.png" height="20" width="20"> 테마 사이트
 </p>
   </article>
 </div>
@@ -841,7 +855,7 @@ EnhancedInput 시스템은 Unreal Engine5에 등장한 새로운 Input 시스템
   </ul>
 </div>
 
-<div class="page__footer-copyright">&copy; 2024 전진성(Jeon Jin Sung). Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">© 2024 전진성(Jeon Jin Sung). Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
 
       </footer>
     </div>
@@ -868,7 +882,8 @@ EnhancedInput 시스템은 Unreal Engine5에 등장한 새로운 Input 시스템
       (d.head || d.body).appendChild(s);
     })();
   </script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
 
 
   

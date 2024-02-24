@@ -122,6 +122,11 @@ img {
   -ms-interpolation-mode: bicubic;
 }
 
+img.emoji{
+  border-radius: 0px;
+  width: 1em;
+}
+
 /* Prevent max-width from affecting Google Maps */
 
 #map_canvas img,
