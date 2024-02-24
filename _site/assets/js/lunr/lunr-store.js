@@ -94,10 +94,4 @@ var store = [{
         "tags": ["SOLID","OOP","객체지향","객체지향5대원칙","디자인패턴","Design Pattern"],
         "url": "/c++/SOLID-%EC%9B%90%EC%B9%99/",
         "teaser": null
-      },{
-        "title": "[Git Blog] 화면 본문 길이 조정하기",
-        "excerpt":"화면 넓히기 minimal-mistake테마를 쓰다보면 본문과 사이드 카테가 딱 달라 붙어서 답답함을 느낄 때가 있다. 그래서 사이드 카테고리를 왼쪽에 놓고 본문의 길이를 늘려 볼 것이다. 반응형 픽셀 설정 설정하기 전에 반응형 웹이라는 걸 알아야 한다. 사용자들은 모두 다른 해상도의 디바이스로 사이트를 접속한다. 만약 픽셀단위로 UI들의 위치를 설정하면 비율이 붕괴 되어 의도치...","categories": ["gitblog"],
-        "tags": ["Git","Blog","Jekyll","minimal-mistakes","CSS"],
-        "url": "/gitblog/minimal-%ED%99%94%EB%A9%B4-%EB%B9%84%EC%9C%A8-%EC%9E%A1%EB%8A%94%EB%B2%95/",
-        "teaser": null
       }]
