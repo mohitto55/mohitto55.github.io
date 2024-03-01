@@ -77,7 +77,7 @@ var store = [{
         "url": "/ue5/UE5-Enhanced-Input/",
         "teaser": null
       },{
-        "title": "[Git Blog] jekyll에서 emoji사용하기",
+        "title": "[Git Blog] Jekyll에서 emoji사용하기",
         "excerpt":"Emoji? Jekyll 테마는 github의 gemoji 같이 :: 사이에 이름를 넣어 Emoji를 사용 할 수 있는 기능인 jemoji를 제공한다. 다만 기본적으로 제공하는 건 아니고 플러그인을 추가해줘야 한다. jemoji 적용 Gemfile에 jemoji를 추가한다. gem \"jemoji\" 그리고 _config.yml에도 jemoji 플러그인을 추가한다. gem은 Ruby에서 지원하는 패키지 시스템이다. plugins: ... - jemoji 그럼 :: 사이에...","categories": ["gitblog"],
         "tags": ["jekyll","minimal-mistake","emoji","이모지","jemoji","gemoji"],
         "url": "/gitblog/Jekyll-%EC%9D%B4%EB%AA%A8%EC%A7%80-%EC%A0%81%EC%9A%A9%EB%B2%95/",
@@ -95,9 +95,15 @@ var store = [{
         "url": "/cpp/SOLID-%EC%9B%90%EC%B9%99/",
         "teaser": null
       },{
+        "title": "[C++] 백준 2665번-미로만들기",
+        "excerpt":"BOJ 2665-미로만들기 문제 예제 입력 8 11100110 11010010 10011010 11101100 01000111 00110001 11011000 11000111 에제 출력 2 풀이 BFS를 사용하여 풀었다. board의 맵을 저장하고 flag는 방문 시 가장 적은 횟수로 벽을 부셨던 경우다. queue에 좌표(x,y)와 부순 횟수(c)를 담는다. queue를 탐색하고 현재 탐색 노드의 flag값보다 c가 크면 다음으로 넘어간다. 도착지점이면 답을...","categories": ["boj"],
+        "tags": ["boj","백준","solved","문제풀이 2665번"],
+        "url": "/boj/BOJ-2665%EB%B2%88/",
+        "teaser": null
+      },{
         "title": "[C++] 전방선언(Forward Declaration)",
-        "excerpt":"전방선언 식별자를 정의하기 전 미리 식별자를 컴파일러에 알리는 것을 뜻한다. 원래는 식별자를 사용하기 위해선 정의된 헤더를 불러와야 하지만 전방선언(forward declaratioin)을 이용해 헤더를 선언하지 않아도 사용할 수 있다. 사용법 클래스 타입 전방선언 class MyObject; // 타입 전방선언 MyObject* ob1; 타입이 클래스임을 알리는 전방선언(forward declaratioin)이다. 이렇게 헤더를 선언하지 않고 사용하는 것이여서 포인터...","categories": ["cpp"],
-        "tags": ["C++"],
+        "excerpt":"전방선언 식별자를 정의하기 전 미리 식별자를 컴파일러에 알리는 것을 뜻한다. 원래는 식별자를 사용하기 위해선 정의된 헤더를 불러와야 하지만 전방선언(forward declaratioin)을 이용해 헤더를 선언하지 않아도 사용할 수 있다. 사용법 클래스 타입 전방선언 class MyObject; // 타입 전방선언 MyObject* ob1; 타입이 클래스임을 알리는 전방선언(forward declaratioin)이다. 이렇게 헤더를 선언하지 않고 사용하는 것 이여서...","categories": ["cpp"],
+        "tags": ["C++","Forward Declaration","전방선언"],
         "url": "/cpp/CPP-%EC%A0%84%EB%B0%A9%EC%84%A0%EC%96%B8/",
         "teaser": null
       },{

@@ -9,8 +9,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>[C++] 전방선언(Forward Declaration) | Mohitto55 Note</title>
-<meta name="description" content="전방선언 식별자를 정의하기 전 미리 식별자를 컴파일러에 알리는 것을 뜻한다. 원래는 식별자를 사용하기 위해선 정의된 헤더를 불러와야 하지만 전방선언(forward declaratioin)을 이용해 헤더를 선언하지 않아도 사용할 수 있다.">
+<!-- begin _includes/seo.html --><title>[C++] 백준 2665번-미로만들기 | Mohitto55 Note</title>
+<meta name="description" content="BOJ 2665-미로만들기">
 
 
   <meta name="author" content="Mohitto55">
@@ -22,11 +22,11 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:site_name" content="Mohitto55 Note">
-<meta property="og:title" content="[C++] 전방선언(Forward Declaration)">
-<meta property="og:url" content="http://localhost:4000/cpp/CPP-%EC%A0%84%EB%B0%A9%EC%84%A0%EC%96%B8/">
+<meta property="og:title" content="[C++] 백준 2665번-미로만들기">
+<meta property="og:url" content="http://localhost:4000/boj/BOJ-2665%EB%B2%88/">
 
 
-  <meta property="og:description" content="전방선언 식별자를 정의하기 전 미리 식별자를 컴파일러에 알리는 것을 뜻한다. 원래는 식별자를 사용하기 위해선 정의된 헤더를 불러와야 하지만 전방선언(forward declaratioin)을 이용해 헤더를 선언하지 않아도 사용할 수 있다.">
+  <meta property="og:description" content="BOJ 2665-미로만들기">
 
 
 
@@ -45,7 +45,7 @@
   
 
 
-<link rel="canonical" href="http://localhost:4000/cpp/CPP-%EC%A0%84%EB%B0%A9%EC%84%A0%EC%96%B8/">
+<link rel="canonical" href="http://localhost:4000/boj/BOJ-2665%EB%B2%88/">
 
 
 
@@ -170,7 +170,7 @@
       
         
         <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-          <a href="/categories/#cpp" itemprop="item"><span itemprop="name">Cpp</span></a>
+          <a href="/categories/#boj" itemprop="item"><span itemprop="name">Boj</span></a>
           <meta itemprop="position" content="2">
         </li>
         <span class="sep">/</span>
@@ -178,7 +178,7 @@
     
       
       
-        <li class="current">[C++] 전방선언(Forward Declaration)</li>
+        <li class="current">[C++] 백준 2665번-미로만들기</li>
       
     
   </ol>
@@ -455,8 +455,8 @@
 
 
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="[C++] 전방선언(Forward Declaration)">
-    <meta itemprop="description" content="전방선언식별자를 정의하기 전 미리 식별자를 컴파일러에 알리는 것을 뜻한다.원래는 식별자를 사용하기 위해선 정의된 헤더를 불러와야 하지만 전방선언(forward declaratioin)을 이용해 헤더를 선언하지 않아도 사용할 수 있다.">
+    <meta itemprop="headline" content="[C++] 백준 2665번-미로만들기">
+    <meta itemprop="description" content="BOJ 2665-미로만들기">
     <meta itemprop="datePublished" content="2024-03-01T00:00:00+09:00">
     
 
@@ -464,7 +464,7 @@
       
         <header>
           <h1 id="page-title" class="page__title p-name" itemprop="headline">
-            <a href="http://localhost:4000/cpp/CPP-%EC%A0%84%EB%B0%A9%EC%84%A0%EC%96%B8/" class="u-url" itemprop="url">[C++] 전방선언(Forward Declaration)
+            <a href="http://localhost:4000/boj/BOJ-2665%EB%B2%88/" class="u-url" itemprop="url">[C++] 백준 2665번-미로만들기
 </a>
           </h1>
           
@@ -488,7 +488,7 @@
       <span class="page__meta-readtime">
         <i class="far fa-clock" aria-hidden="true"></i>
         
-          최대 1 분 소요
+          1 분 소요
         
       </span>
     
@@ -505,77 +505,132 @@
               <header><h4 class="nav__title">
 <i class="fas fa-file-alt"></i> 목차</h4></header>
               <ul class="toc__menu">
-<li><a href="#%EC%A0%84%EB%B0%A9%EC%84%A0%EC%96%B8">전방선언</a></li>
-<li>
-<a href="#%EC%82%AC%EC%9A%A9%EB%B2%95">사용법</a><ul>
-<li><a href="#%ED%81%B4%EB%9E%98%EC%8A%A4-%ED%83%80%EC%9E%85-%EC%A0%84%EB%B0%A9%EC%84%A0%EC%96%B8">클래스 타입 전방선언</a></li>
-<li><a href="#%ED%95%A8%EC%88%98-%EC%A0%84%EB%B0%A9%EC%84%A0%EC%96%B8">함수 전방선언</a></li>
-</ul>
-</li>
-<li><a href="#summary">Summary</a></li>
+<li><a href="#%EB%AC%B8%EC%A0%9C">문제</a></li>
+<li><a href="#%ED%92%80%EC%9D%B4">풀이</a></li>
+<li><a href="#%EC%86%8C%EC%8A%A4%EC%BD%94%EB%93%9C">소스코드</a></li>
 </ul>
 
             </nav>
           </aside>
         
-        <h2 id="전방선언">전방선언</h2>
-<p>식별자를 정의하기 전 미리 식별자를 <strong>컴파일러</strong>에 알리는 것을 뜻한다.
-원래는 식별자를 사용하기 위해선 정의된 헤더를 불러와야 하지만 전방선언(forward declaratioin)을 이용해 헤더를 선언하지 않아도 사용할 수 있다.</p>
+        <p><a href="https://www.acmicpc.net/problem/2665">BOJ 2665-미로만들기</a></p>
 
-<h2 id="사용법">사용법</h2>
-<h3 id="클래스-타입-전방선언">클래스 타입 전방선언</h3>
-<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">MyObject</span><span class="p">;</span> <span class="c1">// 타입 전방선언</span>
+<h2 id="문제">문제</h2>
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/9ade69c5-a7c6-407b-9652-6d181e5f0bd3" alt="image"></p>
 
-<span class="n">MyObject</span><span class="o">*</span> <span class="n">ob1</span><span class="p">;</span>
-</code></pre></div></div>
-<p>타입이 클래스임을 알리는 전방선언(forward declaratioin)이다. 이렇게 헤더를 선언하지 않고 사용하는 것 이여서 <strong>포인터 객체</strong>만 이용 가능하다. 직접적인 함수를 이용하려 할 시 오류가 발생한다.</p>
-
-<ul>
-  <li>헤더를 불러오는 시간이 줄어든다.
-    <ul>
-      <li>컴파일 단계에선 헤더 선언시 주석을 포함한 모드 코드를 불러옴</li>
-    </ul>
-  </li>
-  <li>의존성이 줄어든다</li>
-</ul>
-
-<hr>
-<h3 id="함수-전방선언">함수 전방선언</h3>
-<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">add</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">);</span> <span class="c1">// 함수 전방선언</span>
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
-	<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">add</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="kt">int</span> <span class="nf">add</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">){</span>
-	<span class="k">return</span> <span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></div>
-<p>만약 함수 전방선언을 하지 않고 코드를 실행할 시 main에서 add 함수를 실행하려 할 때 add 함수가 declaration 되어 있지 않다고 오류가 나올 것이다. 이는 C++가 위에서 부터 아래로 한줄 씩 코드를 읽는 <strong>컴파일 언어</strong>이기 때문에 발생하는 것인데 add함수는 아래에 정의(difinition)되어 있지만 main에서 사용할 때 까지 add 함수를 발견하지 못해서 발생하는 문제다.</p>
-
-<p>그렇기에 위와 같이 전방선언을 통해서 컴파일러에 미리 알려주면 컴파일이 완료된다.</p>
-
-<h2 id="summary">Summary</h2>
-<ul>
-  <li>타입 전방선언
-    <ul>
-      <li>헤더를 생략해 컴파일 속도 향상</li>
-      <li>헤더 의존성 감소</li>
-      <li>타입을 직접 사용하지 않는 경우에만 사용</li>
-    </ul>
-  </li>
-  <li>함수 전방선언
-    <ul>
-      <li>함수를 미리 선언해 선언 위치에 따른 컴파일 오류 해결</li>
-    </ul>
-  </li>
-</ul>
-
-<div class="Reference">
-<div class="callout-header"> </div>
-<p>
-<a href="https://boycoding.tistory.com/143">https://boycoding.tistory.com/143</a>
-</p>
+<div class="code-block1">
+예제 입력
+<div class="language-cpp highlighter-rouge">
+<div class="highlight">
+<pre class="highlight"><code>8
+11100110
+11010010
+10011010
+11101100
+01000111
+00110001
+11011000
+11000111</code></pre>
 </div>
+</div>
+</div>
+
+<div class="code-block2">
+에제 출력
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight">
+<code>2</code></pre></div></div>
+</div>
+
+<h2 id="풀이">풀이</h2>
+<p>BFS를 사용하여 풀었다.</p>
+<ol>
+  <li>board의 맵을 저장하고 flag는 방문 시 가장 적은 횟수로 벽을 부셨던 경우다.</li>
+  <li>queue에 좌표(x,y)와 부순 횟수(c)를 담는다.</li>
+  <li>queue를 탐색하고 현재 탐색 노드의 flag값보다 c가 크면 다음으로 넘어간다.</li>
+  <li>도착지점이면 답을 갱신한다.</li>
+  <li>주변 4개의 타일을 큐에 삽입한다.</li>
+</ol>
+
+<h2 id="소스코드">소스코드</h2>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">"bits/stdc++.h"</span><span class="cp">
+</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<span class="cp">#define MAX 10000000
+</span>
+<span class="kt">int</span> <span class="n">dx</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span> <span class="p">};</span>
+<span class="kt">int</span> <span class="n">dy</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span> <span class="p">};</span>
+
+<span class="kt">int</span> <span class="n">board</span><span class="p">[</span><span class="mi">51</span><span class="p">][</span><span class="mi">51</span><span class="p">];</span>
+<span class="kt">int</span> <span class="n">flag</span><span class="p">[</span><span class="mi">51</span><span class="p">][</span><span class="mi">51</span><span class="p">];</span>
+
+<span class="kt">int</span> <span class="n">answer</span> <span class="o">=</span> <span class="n">MAX</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
+<span class="kt">bool</span> <span class="nf">InMap</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">if</span> <span class="p">(</span><span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">x</span> <span class="o">&amp;&amp;</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="o">&amp;&amp;</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">y</span> <span class="o">&amp;&amp;</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">)</span>
+		<span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+	<span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">BFS</span><span class="p">()</span> <span class="p">{</span>
+	<span class="n">queue</span><span class="o">&lt;</span><span class="n">tuple</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;&gt;</span> <span class="n">q</span><span class="p">;</span>
+	<span class="n">q</span><span class="p">.</span><span class="n">push</span><span class="p">({</span> <span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span> <span class="p">});</span>
+
+	<span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">q</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span> <span class="p">{</span>
+		<span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="n">get</span><span class="o">&lt;</span><span class="mi">0</span><span class="o">&gt;</span><span class="p">(</span><span class="n">q</span><span class="p">.</span><span class="n">front</span><span class="p">());</span>
+		<span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="n">get</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">q</span><span class="p">.</span><span class="n">front</span><span class="p">());</span>
+		<span class="kt">int</span> <span class="n">c</span> <span class="o">=</span> <span class="n">get</span><span class="o">&lt;</span><span class="mi">2</span><span class="o">&gt;</span><span class="p">(</span><span class="n">q</span><span class="p">.</span><span class="n">front</span><span class="p">());</span>
+
+		<span class="n">q</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+
+		<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">InMap</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span> <span class="p">{</span>
+			<span class="k">continue</span><span class="p">;</span>
+		<span class="p">}</span>
+
+		<span class="k">if</span> <span class="p">(</span><span class="n">c</span> <span class="o">&gt;=</span> <span class="n">answer</span><span class="p">)</span>
+			<span class="k">continue</span><span class="p">;</span>
+
+		<span class="k">if</span> <span class="p">(</span><span class="n">board</span><span class="p">[</span><span class="n">y</span><span class="p">][</span><span class="n">x</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">c</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+		<span class="p">}</span>
+
+		<span class="k">if</span> <span class="p">(</span><span class="n">flag</span><span class="p">[</span><span class="n">y</span><span class="p">][</span><span class="n">x</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">c</span><span class="p">)</span> <span class="p">{</span>
+			<span class="k">continue</span><span class="p">;</span>
+		<span class="p">}</span>
+		
+		<span class="n">flag</span><span class="p">[</span><span class="n">y</span><span class="p">][</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="n">c</span><span class="p">;</span>
+
+		<span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="n">y</span> <span class="o">==</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">answer</span> <span class="o">=</span> <span class="n">min</span><span class="p">(</span><span class="n">answer</span><span class="p">,</span> <span class="n">c</span><span class="p">);</span>
+		<span class="p">}</span>
+
+		<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+			<span class="kt">int</span> <span class="n">nx</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">dx</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+			<span class="kt">int</span> <span class="n">ny</span> <span class="o">=</span> <span class="n">y</span> <span class="o">+</span> <span class="n">dy</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+			<span class="n">q</span><span class="p">.</span><span class="n">push</span><span class="p">({</span> <span class="n">nx</span><span class="p">,</span><span class="n">ny</span><span class="p">,</span><span class="n">c</span> <span class="p">});</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+
+	<span class="k">if</span> <span class="p">(</span><span class="n">answer</span> <span class="o">==</span> <span class="n">MAX</span><span class="p">)</span>
+		<span class="n">answer</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+	<span class="n">ios_base</span><span class="o">::</span><span class="n">sync_with_stdio</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
+	<span class="n">cin</span><span class="p">.</span><span class="n">tie</span><span class="p">(</span><span class="nb">NULL</span><span class="p">);</span>
+	<span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">n</span><span class="p">;</span>
+	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">y</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+		<span class="n">string</span> <span class="n">s</span><span class="p">;</span>
+		<span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">s</span><span class="p">;</span>
+		<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">s</span><span class="p">.</span><span class="n">length</span><span class="p">();</span> <span class="n">x</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">board</span><span class="p">[</span><span class="n">y</span><span class="p">][</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="kt">int</span><span class="p">)</span><span class="n">s</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">-</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="sc">'0'</span><span class="p">);</span>
+			<span class="n">flag</span><span class="p">[</span><span class="n">y</span><span class="p">][</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="n">MAX</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+
+	<span class="n">BFS</span><span class="p">();</span>
+	<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">answer</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
         
       </section>
@@ -592,11 +647,13 @@
     <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
     <span itemprop="keywords">
     
-      <a href="/tags/#c" class="page__taxonomy-item p-category" rel="tag">C++</a><span class="sep">, </span>
+      <a href="/tags/#boj" class="page__taxonomy-item p-category" rel="tag">boj</a><span class="sep">, </span>
     
-      <a href="/tags/#forward-declaration" class="page__taxonomy-item p-category" rel="tag">Forward Declaration</a><span class="sep">, </span>
+      <a href="/tags/#solved" class="page__taxonomy-item p-category" rel="tag">solved</a><span class="sep">, </span>
     
-      <a href="/tags/#%EC%A0%84%EB%B0%A9%EC%84%A0%EC%96%B8" class="page__taxonomy-item p-category" rel="tag">전방선언</a>
+      <a href="/tags/#%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2665%EB%B2%88" class="page__taxonomy-item p-category" rel="tag">문제풀이 2665번</a><span class="sep">, </span>
+    
+      <a href="/tags/#%EB%B0%B1%EC%A4%80" class="page__taxonomy-item p-category" rel="tag">백준</a>
     
     </span>
   </p>
@@ -613,7 +670,7 @@
     <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
     <span itemprop="keywords">
     
-      <a href="/categories/#cpp" class="page__taxonomy-item p-category" rel="tag">cpp</a>
+      <a href="/categories/#boj" class="page__taxonomy-item p-category" rel="tag">boj</a>
     
     </span>
   </p>
@@ -630,22 +687,22 @@
     <h4 class="page__share-title">공유하기</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=%5BC%2B%2B%5D+%EC%A0%84%EB%B0%A9%EC%84%A0%EC%96%B8%28Forward+Declaration%29%20http%3A%2F%2Flocalhost%3A4000%2Fcpp%2FCPP-%25EC%25A0%2584%25EB%25B0%25A9%25EC%2584%25A0%25EC%2596%25B8%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=%5BC%2B%2B%5D+%EB%B0%B1%EC%A4%80+2665%EB%B2%88-%EB%AF%B8%EB%A1%9C%EB%A7%8C%EB%93%A4%EA%B8%B0%20http%3A%2F%2Flocalhost%3A4000%2Fboj%2FBOJ-2665%25EB%25B2%2588%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fcpp%2FCPP-%25EC%25A0%2584%25EB%25B0%25A9%25EC%2584%25A0%25EC%2596%25B8%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fboj%2FBOJ-2665%25EB%25B2%2588%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3A%2F%2Flocalhost%3A4000%2Fcpp%2FCPP-%25EC%25A0%2584%25EB%25B0%25A9%25EC%2584%25A0%25EC%2596%25B8%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3A%2F%2Flocalhost%3A4000%2Fboj%2FBOJ-2665%25EB%25B2%2588%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="/boj/BOJ-2665%EB%B2%88/" class="pagination--pager" title="[C++] 백준 2665번-미로만들기
+      <a href="/cpp/SOLID-%EC%9B%90%EC%B9%99/" class="pagination--pager" title="SOLID 객체지향 5대원칙
 ">이전</a>
     
     
-      <a href="/git/Git-LFS%EC%82%AC%EC%9A%A9%EB%B2%95/" class="pagination--pager" title="[Git] 100MB이상 커밋하기 Git-LFS
+      <a href="/cpp/CPP-%EC%A0%84%EB%B0%A9%EC%84%A0%EC%96%B8/" class="pagination--pager" title="[C++] 전방선언(Forward Declaration)
 ">다음</a>
     
   </nav>
@@ -719,7 +776,7 @@ Github로 수정 내용을 저장소에 올리는 과정에서 특정 파일의 
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/boj/BOJ-2665%EB%B2%88/" rel="permalink">[C++] 백준 2665번-미로만들기
+        <a href="/cpp/CPP-%EC%A0%84%EB%B0%A9%EC%84%A0%EC%96%B8/" rel="permalink">[C++] 전방선언(Forward Declaration)
 </a>
       
     </h2>
@@ -744,14 +801,16 @@ Github로 수정 내용을 저장소에 올리는 과정에서 특정 파일의 
       <span class="page__meta-readtime">
         <i class="far fa-fw fa-clock" aria-hidden="true"></i>
         
-          1 분 소요
+          최대 1 분 소요
         
       </span>
     
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">BOJ 2665-미로만들기
+    <p class="archive__item-excerpt" itemprop="description">전방선언
+식별자를 정의하기 전 미리 식별자를 컴파일러에 알리는 것을 뜻한다.
+원래는 식별자를 사용하기 위해선 정의된 헤더를 불러와야 하지만 전방선언(forward declaratioin)을 이용해 헤더를 선언하지 않아도 사용할 수 있다.
 </p>
   </article>
 </div>
@@ -908,8 +967,8 @@ OOP(객체지향언어)를 개발 하면서 지켜야 할 5가지 원칙을 말�
     
   <script>
     var disqus_config = function () {
-      this.page.url = "http://localhost:4000/cpp/CPP-%EC%A0%84%EB%B0%A9%EC%84%A0%EC%96%B8/";  /* Replace PAGE_URL with your page's canonical URL variable */
-      this.page.identifier = "/cpp/CPP 전방선언"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+      this.page.url = "http://localhost:4000/boj/BOJ-2665%EB%B2%88/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/boj/BOJ 2665번"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
     };
     (function() { /* DON'T EDIT BELOW THIS LINE */
       var d = document, s = d.createElement('script');

@@ -120,17 +120,13 @@
           Mohitto55 Note
           <span class="site-subtitle">small positive action</span>
         </a>
-        <ul class="visible-links">
-<li class="masthead__menu-item">
+        <ul class="visible-links"><li class="masthead__menu-item">
               <a href="/categories/">Category</a>
-            </li>
-<li class="masthead__menu-item">
+            </li><li class="masthead__menu-item">
               <a href="/tags/">Tag</a>
-            </li>
-<li class="masthead__menu-item">
+            </li><li class="masthead__menu-item">
               <a href="/search/">Search</a>
-            </li>
-</ul>
+            </li></ul>
         
         <button class="greedy-nav__toggle hidden" type="button">
           <span class="visually-hidden">토글 메뉴</span>
@@ -163,7 +159,7 @@
         <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
           <a href="/" itemprop="item"><span itemprop="name">Home</span></a>
 
-          <meta itemprop="position" content="1">
+          <meta itemprop="position" content="1" />
         </li>
         <span class="sep">/</span>
       
@@ -171,7 +167,7 @@
         
         <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
           <a href="/categories/#obsidian" itemprop="item"><span itemprop="name">Obsidian</span></a>
-          <meta itemprop="position" content="2">
+          <meta itemprop="position" content="2" />
         </li>
         <span class="sep">/</span>
       
@@ -245,7 +241,7 @@
       
         <li>
           <a href="mailto:mohitto55@gmail.com" rel="me" class="u-email">
-            <meta itemprop="email" content="mohitto55@gmail.com">
+            <meta itemprop="email" content="mohitto55@gmail.com" />
             <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">이메일</span>
           </a>
         </li>
@@ -319,9 +315,9 @@
 
 <nav class="nav__list">
   
-  <input id="ac-toc" name="accordion-toc" type="checkbox">
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
   <label for="ac-toc">토글 메뉴</label>
-  <li> 전체 글 수 (18)개 </li>
+  <li> 전체 글 수 (19)개 </li>
   <ul class="nav__items">
     
       
@@ -397,7 +393,7 @@
           
           
 
-            <li><a href="/boj"><span class="nav__sub-title-url">BOJ  </span><span class="nav__sub-title-count">0</span></a></li>
+            <li><a href="/boj"><span class="nav__sub-title-url">BOJ  </span><span class="nav__sub-title-count">1</span></a></li>
           
           
           
@@ -502,20 +498,8 @@
         
           <aside class="sidebar__right sticky">
             <nav class="toc">
-              <header><h4 class="nav__title">
-<i class="fas fa-file-alt"></i> 목차</h4></header>
-              <ul class="toc__menu">
-<li><a href="#what-is-customjs">What is CustomJS</a></li>
-<li><a href="#why-use-customjs">Why use CustomJS</a></li>
-<li>
-<a href="#how-to-use">How to use</a><ul>
-<li><a href="#1-customjs-%EB%8B%A4%EC%9A%B4">1. CustomJs 다운</a></li>
-<li><a href="#2-%ED%8F%B4%EB%8D%94-%EC%A7%80%EC%A0%95">2. 폴더 지정</a></li>
-<li><a href="#3-%ED%95%A8%EC%88%98%EC%9E%91%EC%84%B1">3. 함수작성</a></li>
-<li><a href="#4-%EC%82%AC%EC%9A%A9%EB%B2%95">4. 사용법</a></li>
-</ul>
-</li>
-</ul>
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> 목차</h4></header>
+              <ul class="toc__menu"><li><a href="#what-is-customjs">What is CustomJS</a></li><li><a href="#why-use-customjs">Why use CustomJS</a></li><li><a href="#how-to-use">How to use</a><ul><li><a href="#1-customjs-다운">1. CustomJs 다운</a></li><li><a href="#2-폴더-지정">2. 폴더 지정</a></li><li><a href="#3-함수작성">3. 함수작성</a></li><li><a href="#4-사용법">4. 사용법</a></li></ul></li></ul></li></ul></li></ul>
 
             </nav>
           </aside>
@@ -531,9 +515,9 @@
 <p>community plugin에 들어가 <strong>CustomJS</strong>를 다운한다.</p>
 
 <h5 id="2-폴더-지정">2. 폴더 지정</h5>
-<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/1313b76b-c6de-493c-aa75-3b7fdb766b6e" alt="image">
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/1313b76b-c6de-493c-aa75-3b7fdb766b6e" alt="image" />
 CustomJS 플러그인 설정에 가서 js 파일들 위치 폴더를 지정해준다.
-<br></p>
+<br /></p>
 
 <h5 id="3-함수작성">3. 함수작성</h5>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class ShowTasks {
@@ -559,7 +543,7 @@ ShowNotComplitedTasksInFile(dv, pg) {
 </code></pre></div></div>
 <p>*.js확장자 파일을 만들고 class와 함수를 작성해준다.
 위 코드는 특정 위치에 있는 노드들의 완료되지 않은 Task를 보여주는 코드 함수다.
-<br></p>
+<br /></p>
 
 <h5 id="4-사용법">4. 사용법</h5>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dataviewjs
@@ -570,7 +554,7 @@ ShowTasks.ShowNotComplitedTasksInPath(dv,current.file.folder);
 </code></pre></div></div>
 <p>옵시디언에서 위와같이 js파일안에 클래스와 함수를 불러와주면 된다.</p>
 
-<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/24e1274b-75e9-4679-aa3b-f82d09eb1d6c" alt="image"></p>
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/24e1274b-75e9-4679-aa3b-f82d09eb1d6c" alt="image" /></p>
 
 <p>이제 단 한번의 수정으로 코드를 관리할 수 있게되었다.</p>
 
@@ -631,7 +615,7 @@ ShowTasks.ShowNotComplitedTasksInPath(dv,current.file.folder);
 
   <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fobsidian%2FDataview-CustomJS-%25EC%2582%25AC%25EC%259A%25A9%25EB%25B2%2595%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3A%2F%2Flocalhost%3A4000%2Fobsidian%2FDataview-CustomJS-%25EC%2582%25AC%25EC%259A%25A9%25EB%25B2%2595%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fobsidian%2FDataview-CustomJS-%25EC%2582%25AC%25EC%259A%25A9%25EB%25B2%2595%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
@@ -765,6 +749,53 @@ Github로 수정 내용을 저장소에 올리는 과정에서 특정 파일의 
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
+        <a href="/boj/BOJ-2665%EB%B2%88/" rel="permalink">[C++] 백준 2665번-미로만들기
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2024-03-01T00:00:00+09:00">March 1, 2024</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          최대 1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">BOJ 2665-미로만들기
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
         <a href="/cpp/SOLID-%EC%9B%90%EC%B9%99/" rel="permalink">SOLID 객체지향 5대원칙
 </a>
       
@@ -799,55 +830,6 @@ Github로 수정 내용을 저장소에 올리는 과정에서 특정 파일의 
 
     <p class="archive__item-excerpt" itemprop="description">설명
 OOP(객체지향언어)를 개발 하면서 지켜야 할 5가지 원칙을 말한다. 많은 Design Pattern이 SOLID 원칙을 토대로 만들어졌기에 이 원칙을 숙지하면 Design Pattern 및 구조 설계를 하기 수월해진다.
-</p>
-  </article>
-</div>
-
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/gitblog/Jekyll-%EC%BD%94%EB%93%9C%EB%B8%94%EB%9F%AD-%ED%85%8C%EB%A7%88-%EB%B0%94%EA%BE%B8%EA%B8%B0/" rel="permalink">[Git Blog] Jekyll 코드블럭 테마 설정하기
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2024-02-22T00:00:00+09:00">February 22, 2024</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
-        
-          최대 1 분 소요
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">1. 테마 설치하기
-먼저 아래 코드블럭 테마 사이트에 가서 원하는 테마의 이름을 복사한다.
-<img class="emoji" title=":point_right:" alt=":point_right:" src="/assets/images/emoji/unicode/1f449.png" height="20" width="20"> 테마 사이트
 </p>
   </article>
 </div>
@@ -890,7 +872,7 @@ OOP(객체지향언어)를 개발 하면서 지켜야 할 5가지 원칙을 말�
   </ul>
 </div>
 
-<div class="page__footer-copyright">© 2024 전진성(Jeon Jin Sung). Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2024 전진성(Jeon Jin Sung). Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
 
       </footer>
     </div>
@@ -917,8 +899,7 @@ OOP(객체지향언어)를 개발 하면서 지켜야 할 5가지 원칙을 말�
       (d.head || d.body).appendChild(s);
     })();
   </script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-</noscript>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
 
   

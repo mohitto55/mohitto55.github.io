@@ -197,7 +197,7 @@ blockquote {
 
 .Reference{
   @extend .callout-expanded;
-  background-color: rgba(255, 245, 245, 0.829);
+  background-color: rgba(248, 248, 248, 0.829);
   border-color: #5e6969;
   .callout-header{
     background-color: #5e6969;
@@ -254,6 +254,17 @@ blockquote {
   color: lightgrey;
 }
 
+.code-block1{
+  padding-left: 5%;
+  display: inline-block;
+  width: 45%;
+}
+.code-block2{
+  display: inline-block;
+  float: right;
+  width: 45%;
+  padding-right: 5%;
+}
 /* links */
 
 a {
