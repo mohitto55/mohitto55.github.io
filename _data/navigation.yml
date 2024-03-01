@@ -30,6 +30,9 @@ sidebar-category:
       - title: "Obsidian"
         url:  "/obsidian"
         category: "obsidian"
+      - title: "HTML/CSS"
+        url:  "/css"
+        category: "css" 
   - title: "Engine"
     children:
       - title: "Unity"

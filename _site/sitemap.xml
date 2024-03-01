@@ -17,6 +17,19 @@
     </url>
     
     <url>
+        <loc>http://localhost:4000/cpp/CPP-%EC%A0%84%EB%B0%A9%EC%84%A0%EC%96%B8/</loc>
+        
+        <lastmod>2024-03-01T00:00:00+09:00</lastmod>
+        
+        
+        <changefreq>weekly</changefreq>
+        
+        
+        <priority>0.5</priority>
+        
+    </url>
+    
+    <url>
         <loc>http://localhost:4000/cpp/SOLID-%EC%9B%90%EC%B9%99/</loc>
         
         <lastmod>2024-02-22T00:00:00+09:00</lastmod>

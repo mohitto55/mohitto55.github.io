@@ -95,6 +95,12 @@ var store = [{
         "url": "/cpp/SOLID-%EC%9B%90%EC%B9%99/",
         "teaser": null
       },{
+        "title": "[C++] 전방선언(Forward Declaration)",
+        "excerpt":"전방선언 식별자를 정의하기 전 미리 식별자를 컴파일러에 알리는 것을 뜻한다. 원래는 식별자를 사용하기 위해선 정의된 헤더를 불러와야 하지만 전방선언(forward declaratioin)을 이용해 헤더를 선언하지 않아도 사용할 수 있다. 사용법 클래스 타입 전방선언 class MyObject; // 타입 전방선언 MyObject* ob1; 타입이 클래스임을 알리는 전방선언(forward declaratioin)이다. 이렇게 헤더를 선언하지 않고 사용하는 것이여서 포인터...","categories": ["cpp"],
+        "tags": ["C++"],
+        "url": "/cpp/CPP-%EC%A0%84%EB%B0%A9%EC%84%A0%EC%96%B8/",
+        "teaser": null
+      },{
         "title": "[Git] 100MB이상 커밋하기 Git-LFS",
         "excerpt":"문제 발생 Github로 수정 내용을 저장소에 올리는 과정에서 특정 파일의 크기가 100MB가 넘어가면 Git에서 commit을 reject한다. 이를 해결 하기 위해선 100MB가 넘어가는 파일을 커밋하는 과정에서 제외하거나 Git LFS를 사용해야 한다. Git LFS LFS로 관리 받는 파일은 실제 리포지토리가 아닌 다른 저장소로 옮겨지고 실제 리포지토리는 메타데이터를 통해 다른 저장소에 있는 파일을...","categories": ["git"],
         "tags": ["Git","LFS","Github"],

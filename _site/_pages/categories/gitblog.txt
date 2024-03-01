@@ -107,3 +107,31 @@ https://www.youtube.com/watch?v=h5Y7l2FK6ak&t=4s
 3-2 마무리는 앞머리 뒤로 넘기면서 말리기
 
 
+css 상속하는 법 @extend
+
+이미지 넣기
+https://velog.io/@mikio/HTMLCSS%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%98%EC%97%AC-%EC%82%AC%EC%9D%B4%ED%8A%B8%EC%97%90-%EC%9D%B4%EB%AF%B8%EC%A7%80%EB%A5%BC-%EB%84%A3%EB%8A%94-%EB%91%90%EA%B0%80%EC%A7%80-%EB%B0%A9%EB%B2%95
+
+content에서는 사이즈 조절 불가능
+background-image 사용
+https://dasima.xyz/css-content/
+
+
+<div class="callout-red-expanded">
+<div class="callout-header">
+Warning
+</div>
+<p>
+asdasdasdasd
+asdasdasd
+</p>
+</div>
+.
+.
+.
+<div class="callout-blue">
+<p>Callout Header
+asd<br/>
+asdasd
+</p>
+</div>
