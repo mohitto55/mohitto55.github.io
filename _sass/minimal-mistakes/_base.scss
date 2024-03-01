@@ -126,10 +126,6 @@ blockquote {
 .CCC{
   border-radius: 20%;
 }
-.Reference{
-  border-radius: 20%;
-  border-color: #b4b4b4;
-}
 
 .callout-text{
   padding-left: 5px;
@@ -171,6 +167,7 @@ blockquote {
 .callout-header{
   position: relative;
   padding-top: 0.2em;
+  padding-bottom: 0.2em;
   display: flex;
   align-items: center;
   text-align: center;
@@ -198,6 +195,43 @@ blockquote {
   }
 }
 
+.Reference{
+  @extend .callout-expanded;
+  background-color: rgba(255, 245, 245, 0.829);
+  border-color: #5e6969;
+  .callout-header{
+    background-color: #5e6969;
+    color: rgb(238, 238, 238);
+  }
+  .callout-header::before{
+    background-image: url('images/1f4c3.png');
+  }
+  .callout-header::after{
+    content: "Reference";
+  }
+  p{
+    font-size: 0.8em !important;
+  }
+  a {
+    display: block;
+    line-height: 1.8em;
+    text-decoration: underline; 
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow:hidden;
+  }
+  a::before{
+    position: relative;
+    background-repeat: no-repeat;
+    display:inline-block;
+    content: " ";;
+    background-size: 0.8em 0.8em;
+    width: 0.8em;
+    height: 0.8em;
+    margin-right: 0.325rem;
+    background-image: url('images/link.png');
+  }
+}
 /* Callout header */
 
 /* Callout container/body */

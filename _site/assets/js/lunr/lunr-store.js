@@ -94,4 +94,10 @@ var store = [{
         "tags": ["SOLID","OOP","객체지향","객체지향5대원칙","디자인패턴","Design Pattern"],
         "url": "/cpp/SOLID-%EC%9B%90%EC%B9%99/",
         "teaser": null
+      },{
+        "title": "[Git] 100MB이상 커밋하기 Git-LFS",
+        "excerpt":"문제 발생 Github로 수정 내용을 저장소에 올리는 과정에서 특정 파일의 크기가 100MB가 넘어가면 Git에서 commit을 reject한다. 이를 해결 하기 위해선 100MB가 넘어가는 파일을 커밋하는 과정에서 제외하거나 Git LFS를 사용해야 한다. Git LFS LFS로 관리 받는 파일은 실제 리포지토리가 아닌 다른 저장소로 옮겨지고 실제 리포지토리는 메타데이터를 통해 다른 저장소에 있는 파일을...","categories": ["git"],
+        "tags": ["Git","LFS","Github"],
+        "url": "/git/Git-LFS%EC%82%AC%EC%9A%A9%EB%B2%95/",
+        "teaser": null
       }]
