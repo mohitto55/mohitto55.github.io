@@ -108,7 +108,7 @@ author:
   avatar           : "/assets/images/mohitto.jpg"
   bio              : "Mohitto's Note'"
   location         : "South Korea"
-  email            : "mohitto55@gmail.com"
+  # email            : "mohitto55@gmail.com"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
@@ -119,9 +119,9 @@ author:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/mohitto55"
-    - label: "Instagram"
-      icon: "fab fa-fw fa-instagram"
-      # url: "https://instagram.com/"
+    - label: "Twitter"
+      icon: "fab fa-fw fa-twitter"
+      url: "https://twitter.com/jeonjinseong5"
 
 # Site Footer
 footer:
