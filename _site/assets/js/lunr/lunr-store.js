@@ -112,4 +112,10 @@ var store = [{
         "tags": ["Git","LFS","Github"],
         "url": "/git/Git-LFS%EC%82%AC%EC%9A%A9%EB%B2%95/",
         "teaser": null
+      },{
+        "title": "[UE5] Modifires로 여러 값 반환하기",
+        "excerpt":"EnhancedInput 언리얼엔진5은 기존 InputSystem을 대체하는 Enhanced Input을 이용해 더 확장성 높고 사용하기 편한 입력 시스템을 만들었다. 이 시스템 중 Input Mapping Context는 하나 이상의 Input Action을 트리거 할 수 있게 해준다. Mapping Context 설정 Mapping Context가 하는 일을 나열해 보자면 키 등록 - 어떤 키를 입력해야 InputAction이 실행되는지 설정 Trigger...","categories": ["ue5"],
+        "tags": ["Unrealengine5","UE5","EnhancedInput","언리얼엔진5"],
+        "url": "/ue5/UE5-Unhanced-Input-IMC-%EC%84%B8%EB%B6%80%EC%84%A4%EC%A0%95/",
+        "teaser": null
       }]

@@ -120,17 +120,13 @@
           Mohitto55 Note
           <span class="site-subtitle">small positive action</span>
         </a>
-        <ul class="visible-links">
-<li class="masthead__menu-item">
+        <ul class="visible-links"><li class="masthead__menu-item">
               <a href="/categories/">Category</a>
-            </li>
-<li class="masthead__menu-item">
+            </li><li class="masthead__menu-item">
               <a href="/tags/">Tag</a>
-            </li>
-<li class="masthead__menu-item">
+            </li><li class="masthead__menu-item">
               <a href="/search/">Search</a>
-            </li>
-</ul>
+            </li></ul>
         
         <button class="greedy-nav__toggle hidden" type="button">
           <span class="visually-hidden">토글 메뉴</span>
@@ -163,7 +159,7 @@
         <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
           <a href="/" itemprop="item"><span itemprop="name">Home</span></a>
 
-          <meta itemprop="position" content="1">
+          <meta itemprop="position" content="1" />
         </li>
         <span class="sep">/</span>
       
@@ -171,7 +167,7 @@
         
         <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
           <a href="/categories/#git" itemprop="item"><span itemprop="name">Git</span></a>
-          <meta itemprop="position" content="2">
+          <meta itemprop="position" content="2" />
         </li>
         <span class="sep">/</span>
       
@@ -314,9 +310,9 @@
 
 <nav class="nav__list">
   
-  <input id="ac-toc" name="accordion-toc" type="checkbox">
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
   <label for="ac-toc">토글 메뉴</label>
-  <li> 전체 글 수 (19)개 </li>
+  <li> 전체 글 수 (20)개 </li>
   <ul class="nav__items">
     
       
@@ -374,7 +370,7 @@
           
           
 
-            <li><a href="/ue5"><span class="nav__sub-title-url">UE5  </span><span class="nav__sub-title-count">1</span></a></li>
+            <li><a href="/ue5"><span class="nav__sub-title-url">UE5  </span><span class="nav__sub-title-count">2</span></a></li>
           
         </ul>
         
@@ -497,28 +493,18 @@
         
           <aside class="sidebar__right sticky">
             <nav class="toc">
-              <header><h4 class="nav__title">
-<i class="fas fa-file-alt"></i> 목차</h4></header>
-              <ul class="toc__menu">
-<li><a href="#%EB%AC%B8%EC%A0%9C-%EB%B0%9C%EC%83%9D">문제 발생</a></li>
-<li><a href="#git-lfs">Git LFS</a></li>
-<li>
-<a href="#%EC%82%AC%EC%9A%A9%EB%B2%95">사용법</a><ul>
-<li><a href="#1-%EA%B4%80%EB%A6%AC%ED%8C%8C%EC%9D%BC-%EC%84%A4%EC%A0%95">1. 관리파일 설정</a></li>
-<li><a href="#2-gitattribute-%ED%8C%8C%EC%9D%BC-%EC%BB%A4%EB%B0%8B">2. .gitattribute 파일 커밋</a></li>
-</ul>
-</li>
-</ul>
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> 목차</h4></header>
+              <ul class="toc__menu"><li><a href="#문제-발생">문제 발생</a></li><li><a href="#git-lfs">Git LFS</a></li><li><a href="#사용법">사용법</a><ul><li><a href="#1-관리파일-설정">1. 관리파일 설정</a></li><li><a href="#2-gitattribute-파일-커밋">2. .gitattribute 파일 커밋</a></li></ul></li></ul>
 
             </nav>
           </aside>
         
         <h2 id="문제-발생">문제 발생</h2>
 <p>Github로 수정 내용을 저장소에 올리는 과정에서 특정 파일의 크기가 100MB가 넘어가면 Git에서 commit을 reject한다. 이를 해결 하기 위해선 100MB가 넘어가는 파일을 커밋하는 과정에서 <strong>제외</strong>하거나 <code class="language-plaintext highlighter-rouge">Git LFS</code>를 사용해야 한다.
-<img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/d780856e-da75-4942-856c-fe6b9299c5ce" alt="image"></p>
+<img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/d780856e-da75-4942-856c-fe6b9299c5ce" alt="image" /></p>
 
 <h2 id="git-lfs">Git LFS</h2>
-<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/063e1bdd-53e2-4d4c-96a9-b65cddbac7b5" alt="image"></p>
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/063e1bdd-53e2-4d4c-96a9-b65cddbac7b5" alt="image" /></p>
 
 <p>LFS로 관리 받는 파일은 실제 리포지토리가 아닌 다른 저장소로 옮겨지고 실제 리포지토리는 메타데이터를 통해 다른 저장소에 있는 파일을 가리키는 방식으로 대용량 파일을 관리한다.</p>
 
@@ -632,7 +618,7 @@ $ git push -u origin main
 
   <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fgit%2FGit-LFS%25EC%2582%25AC%25EC%259A%25A9%25EB%25B2%2595%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3A%2F%2Flocalhost%3A4000%2Fgit%2FGit-LFS%25EC%2582%25AC%25EC%259A%25A9%25EB%25B2%2595%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fgit%2FGit-LFS%25EC%2582%25AC%25EC%259A%25A9%25EB%25B2%2595%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
@@ -643,7 +629,8 @@ $ git push -u origin main
 ">이전</a>
     
     
-      <a href="#" class="pagination--pager disabled">다음</a>
+      <a href="/ue5/UE5-Unhanced-Input-IMC-%EC%84%B8%EB%B6%80%EC%84%A4%EC%A0%95/" class="pagination--pager" title="[UE5] Modifires로 여러 값 반환하기
+">다음</a>
     
   </nav>
 
@@ -657,6 +644,53 @@ $ git push -u origin main
     <div class="page__related">
       <h2 class="page__related-title">참고</h2>
       <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/ue5/UE5-Unhanced-Input-IMC-%EC%84%B8%EB%B6%80%EC%84%A4%EC%A0%95/" rel="permalink">[UE5] Modifires로 여러 값 반환하기
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2024-03-04T00:00:00+09:00">March 4, 2024</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          최대 1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">EnhancedInput
+언리얼엔진5은 기존 InputSystem을 대체하는 Enhanced Input을 이용해 더 확장성 높고 사용하기 편한 입력 시스템을 만들었다. 이 시스템 중 Input Mapping Context는 하나 이상의 Input Action을 트리거 할 수 있게 ...</p>
+  </article>
+</div>
+
         
           
 
@@ -802,55 +836,6 @@ OOP(객체지향언어)를 개발 하면서 지켜야 할 5가지 원칙을 말�
 </div>
 
         
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/gitblog/Jekyll-%EC%BD%94%EB%93%9C%EB%B8%94%EB%9F%AD-%ED%85%8C%EB%A7%88-%EB%B0%94%EA%BE%B8%EA%B8%B0/" rel="permalink">[Git Blog] Jekyll 코드블럭 테마 설정하기
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2024-02-22T00:00:00+09:00">February 22, 2024</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
-        
-          최대 1 분 소요
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">1. 테마 설치하기
-먼저 아래 코드블럭 테마 사이트에 가서 원하는 테마의 이름을 복사한다.
-<img class="emoji" title=":point_right:" alt=":point_right:" src="/assets/images/emoji/unicode/1f449.png" height="20" width="20"> 테마 사이트
-</p>
-  </article>
-</div>
-
-        
       </div>
     </div>
   
@@ -888,7 +873,7 @@ OOP(객체지향언어)를 개발 하면서 지켜야 할 5가지 원칙을 말�
   </ul>
 </div>
 
-<div class="page__footer-copyright">© 2024 전진성(Jeon Jin Sung). Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2024 전진성(Jeon Jin Sung). Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
 
       </footer>
     </div>
@@ -915,8 +900,7 @@ OOP(객체지향언어)를 개발 하면서 지켜야 할 5가지 원칙을 말�
       (d.head || d.body).appendChild(s);
     })();
   </script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-</noscript>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
 
   

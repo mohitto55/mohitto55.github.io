@@ -1,4 +1,59 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-03-01T22:55:33+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mohitto55 Note</title><subtitle>모히또의 노트</subtitle><author><name>Mohitto55</name></author><entry><title type="html">[C++] 백준 2665번-미로만들기</title><link href="http://localhost:4000/boj/BOJ-2665%EB%B2%88/" rel="alternate" type="text/html" title="[C++] 백준 2665번-미로만들기" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/boj/BOJ%202665%EB%B2%88</id><content type="html" xml:base="http://localhost:4000/boj/BOJ-2665%EB%B2%88/"><![CDATA[<p><a href="https://www.acmicpc.net/problem/2665">BOJ 2665-미로만들기</a></p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-03-04T18:09:51+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mohitto55 Note</title><subtitle>모히또의 노트</subtitle><author><name>Mohitto55</name></author><entry><title type="html">[UE5] Modifires로 여러 값 반환하기</title><link href="http://localhost:4000/ue5/UE5-Unhanced-Input-IMC-%EC%84%B8%EB%B6%80%EC%84%A4%EC%A0%95/" rel="alternate" type="text/html" title="[UE5] Modifires로 여러 값 반환하기" /><published>2024-03-04T00:00:00+09:00</published><updated>2024-03-04T00:00:00+09:00</updated><id>http://localhost:4000/ue5/UE5%20Unhanced%20Input%20IMC%20%EC%84%B8%EB%B6%80%EC%84%A4%EC%A0%95</id><content type="html" xml:base="http://localhost:4000/ue5/UE5-Unhanced-Input-IMC-%EC%84%B8%EB%B6%80%EC%84%A4%EC%A0%95/"><![CDATA[<h2 id="enhancedinput">EnhancedInput</h2>
+<p>언리얼엔진5은 기존 InputSystem을 대체하는 Enhanced Input을 이용해 더 확장성 높고 사용하기 편한 입력 시스템을 만들었다. 이 시스템 중 <code class="language-plaintext highlighter-rouge">Input Mapping Context</code>는 하나 이상의 <code class="language-plaintext highlighter-rouge">Input Action</code>을 트리거 할 수 있게 해준다.</p>
+
+<h3 id="mapping-context-설정">Mapping Context 설정</h3>
+<p><code class="language-plaintext highlighter-rouge">Mapping Context</code>가 하는 일을 나열해 보자면</p>
+<ul>
+  <li>키 등록 - 어떤 키를 입력해야 <code class="language-plaintext highlighter-rouge">InputAction</code>이 실행되는지 설정</li>
+  <li><code class="language-plaintext highlighter-rouge">Trigger</code> - 특정 키를 홀딩 등 키입력 조건을 설정</li>
+  <li><code class="language-plaintext highlighter-rouge">Modifiers</code> - 반환 되는 값을 수정</li>
+</ul>
+
+<h2 id="하나의-액션으로-여러값-반환">하나의 액션으로 여러값 반환</h2>
+<p>하나의 동작을 하는데 여러 종류의 반환 값이 필요한 경우가 있다. 예를 들면 <strong>이동</strong>이 있을 것이다. 이동은 상하좌우 총 <strong>4가지</strong> 종류의 행동을 할 수 있기에 4종류의 반환 값이 필요하다. 만약 InputAction을 4개를 만들어 각각 하나의 키를 맵핑 하는 방식으로 이동을 구현 한다면 상당히 번거로울 것이다.</p>
+
+<p>하지만 <code class="language-plaintext highlighter-rouge">Modifiers</code>를 이용하면 하나의 <code class="language-plaintext highlighter-rouge">InputAction</code>으로 여러 값을 반환할 수 있다.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">키</th>
+      <th style="text-align: center">원하는 값</th>
+      <th style="text-align: center">Modifire</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">w</td>
+      <td style="text-align: center">(0, 1)</td>
+      <td style="text-align: center">Swizzle Input Axis Values</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">A</td>
+      <td style="text-align: center">(-1,0)</td>
+      <td style="text-align: center">Negate</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">S</td>
+      <td style="text-align: center">(0, -1)</td>
+      <td style="text-align: center">Negate, Swizzle Input Axis Values</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">D</td>
+      <td style="text-align: center">(1, 0)</td>
+      <td style="text-align: center">None</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/e65b77fc-c37f-487d-bb1f-74cd250c576d" alt="image" /></p>
+
+<div class="Reference">
+<div class="callout-header"> </div>
+<p>
+<a href="https://docs.unrealengine.com/5.0/ko/enhanced-input-in-unreal-engine/">https://docs.unrealengine.com/5.0/ko/enhanced-input-in-unreal-engine/</a>
+</p>
+</div>]]></content><author><name>Mohitto55</name></author><category term="ue5" /><category term="Unrealengine5" /><category term="UE5" /><category term="EnhancedInput" /><category term="언리얼엔진5" /><summary type="html"><![CDATA[EnhancedInput 언리얼엔진5은 기존 InputSystem을 대체하는 Enhanced Input을 이용해 더 확장성 높고 사용하기 편한 입력 시스템을 만들었다. 이 시스템 중 Input Mapping Context는 하나 이상의 Input Action을 트리거 할 수 있게 해준다.]]></summary></entry><entry><title type="html">[C++] 백준 2665번-미로만들기</title><link href="http://localhost:4000/boj/BOJ-2665%EB%B2%88/" rel="alternate" type="text/html" title="[C++] 백준 2665번-미로만들기" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/boj/BOJ%202665%EB%B2%88</id><content type="html" xml:base="http://localhost:4000/boj/BOJ-2665%EB%B2%88/"><![CDATA[<p><a href="https://www.acmicpc.net/problem/2665">BOJ 2665-미로만들기</a></p>
 
 <h2 id="문제">문제</h2>
 <p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/9ade69c5-a7c6-407b-9652-6d181e5f0bd3" alt="image" /></p>
@@ -558,47 +613,4 @@ permalink: 링크
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% raw %}
 Liquid 문법
 {% endraw %}
-</code></pre></div></div>]]></content><author><name>Mohitto55</name></author><category term="gitblog" /><category term="minimal-mistake" /><category term="Jekyll" /><category term="Blog" /><category term="Liquid" /><category term="template" /><category term="markdown" /><summary type="html"><![CDATA[Liquid? 블로그를 작성하다 보면 가끔 {% %}라고 쓰여진 텍스트를 쓸 때가 있다. 하지만 그냥 작성하면 포스트에는 보이지 않고 사라지는 경우가 있다. 이는 {% %}는 Liquid라는 템플릿 언어의 문법 중 하나로 Jekyll같은 정적 사이트에서 주로 사용된다.]]></summary></entry><entry><title type="html">[Hardware] GPU 인식 안되는 현상 해결</title><link href="http://localhost:4000/hardware/GPU-%EC%9D%B8%EC%8B%9D%EC%95%88%EB%90%8C-%ED%95%B4%EA%B2%B0/" rel="alternate" type="text/html" title="[Hardware] GPU 인식 안되는 현상 해결" /><published>2024-02-01T00:00:00+09:00</published><updated>2024-02-01T00:00:00+09:00</updated><id>http://localhost:4000/hardware/GPU%20%EC%9D%B8%EC%8B%9D%EC%95%88%EB%90%8C%20%ED%95%B4%EA%B2%B0</id><content type="html" xml:base="http://localhost:4000/hardware/GPU-%EC%9D%B8%EC%8B%9D%EC%95%88%EB%90%8C-%ED%95%B4%EA%B2%B0/"><![CDATA[<p>큰돈을 주고 컴퓨터를 새로 장만하고 기쁜 마음으로 언리얼엔진5를 시작했다. 그런데 이상하게도 에디터의 인식이 굉장히 느렸었다. 단순한 버그라기엔 뭔가 이상해서 CPU-Z를 이용해 그래픽카드를 확인해 봤더니…</p>
-
-<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/8b71498c-988e-45d2-bd83-6a7b3f7d7448" alt="스크린샷 2024-02-01 192002" /></p>
-
-<p>분명 내 GPU는 <strong>RTX 4070 SUPER</strong>인데 구매한적도 없는 GPU가 들어가 있었다. 조립업체에 맡겨서 조립후 배달로 온건데 사기를 당한건가 싶기도 했다. 확인해 보니 인식되고 있던 GPU는 <strong>CPU내장 그래픽카드</strong>로 외장 그래픽이 없을 경우 적용되는 GPU였다. 그래서 GPU가 다시 인식될 수 있도록 조치를 해야한다.</p>
-
-<h2 id="pc-정보">PC 정보</h2>
-<p><strong>CPU</strong>: AMD 라이젠9-5세대 7900X3D
-<strong>메인보드</strong>: ASRock B650M PG Riptide
-<strong>GPU</strong>: ZOTAC GAMING 지포스 RTX 4070 SUPER TWIN Edge OC D6X 12GB</p>
-
-<h2 id="1-gpu-인식-확인">1. GPU 인식 확인</h2>
-<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/52c02b95-3fbd-4556-bdc6-761469d426f7" alt="스크린샷" /></p>
-
-<p>먼저 GPU가 인식이 되고 있는지 확인해봐야 한다. 
-장치 관리자로 들어가서 디스플레이 어댑터를 들어가면 인식되는 GPU를 확인할 수 있다.
-<img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/f4b93f52-e03c-464c-8470-6b55bfc295dc" alt="스크린샷" /></p>
-
-<p>인식이 안된다면 보기/숨겨진 장치 표시를 눌러 인식되고 있지 않은 GPU를 확인해본다.</p>
-
-<h2 id="2-그래픽-드라이버-업데이트">2. 그래픽 드라이버 업데이트</h2>
-<p>그래픽카드 드라이버가 제대로 설치되지 않아 발생할 수 있다. <a href="https://www.nvidia.co.kr/Download/index.aspx?lang=kr">엔비디아 드라이버</a>설치 사이트로 가서 자신의 버전에 맞는 드라이버를 설치한다.</p>
-
-<p>혹은 윈도우 업데이트 문제일 수 있으니 Win + I키를 누르고 Windows Update에 들어가 업데이트 해준다.</p>
-
-<h2 id="3-gpu-장착-확인하기">3. GPU 장착 확인하기</h2>
-<p>필자의 경우 이것이 문제였다. 메인보드 슬롯 부분에 GPU가 완전히 들어가지 않고 살짝 빠져와 있던 상태였다. 해체후 다시 장착하니 다행히 잘 작동되었다. 아마 조립업체에서 택배로 오던 도중 GPU가 살짝 빠져나온 것이 원인인 듯 싶다.</p>
-
-<h2 id="4-bios-설정문제">4. BIOS 설정문제</h2>
-<p>GPU팬도 잘돌아가 장착문제가 아닌것 같은면 바이오스 문제일 수도 있다. 참고로 BIOS는 <strong>메인보드의 종류에따라 화면 구성이 다르다</strong></p>
-
-<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/a348bf39-b279-47fe-9826-e2b712f89311" alt="image" /></p>
-
-<p>GPU가 내장GPU로 설정되어 생긴 문제일 수도 있다. 컴퓨터 재부팅 후 F2를 눌러 바이오스로 들어가고 Advanced/AMD CBS/NBIO Options/GFX configuration로 들어가서 iGPU Configuration을 iGPU Disabled로 바꿔 내장GPU를 끌 수 있다.</p>
-
-<p>iGPU Disabled로 했는데 계속 초기화 될 수 있다. 그럴 경우 여러가지 이유가 있다.</p>
-<ol>
-  <li><strong>외장GPU</strong> 고정 불량 - 필자의 경우에 이걸 간과해 자꾸 삽질했다. LED와 팬이 돌아가도 제대로 다시 확인해보자</li>
-  <li><strong>메인보드 전지 수명</strong> - 메인보드 메모리는 <strong>휘발성 메모리</strong>다. 오래 된 메인보드일 경우 수은전지를 구매해 다시 장착하자.</li>
-  <li><strong>조립불량</strong> - <strong>메인보드 조립</strong>이 불량하여 쇼트가 일어나는 것일 수 있다.</li>
-</ol>
-
-<h2 id="5-bios-업데이트">5. BIOS 업데이트</h2>
-<p>구형 BIOS일경우 메인보드 제조사 홈페이지로 들어가 최신BIOS로 업데이트 해준다.</p>]]></content><author><name>Mohitto55</name></author><category term="hardware" /><category term="GPU" /><category term="CPU" /><category term="Grapic Driver" /><category term="Bios" /><category term="Hardware" /><category term="Mainboard" /><summary type="html"><![CDATA[큰돈을 주고 컴퓨터를 새로 장만하고 기쁜 마음으로 언리얼엔진5를 시작했다. 그런데 이상하게도 에디터의 인식이 굉장히 느렸었다. 단순한 버그라기엔 뭔가 이상해서 CPU-Z를 이용해 그래픽카드를 확인해 봤더니…]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name>Mohitto55</name></author><category term="gitblog" /><category term="minimal-mistake" /><category term="Jekyll" /><category term="Blog" /><category term="Liquid" /><category term="template" /><category term="markdown" /><summary type="html"><![CDATA[Liquid? 블로그를 작성하다 보면 가끔 {% %}라고 쓰여진 텍스트를 쓸 때가 있다. 하지만 그냥 작성하면 포스트에는 보이지 않고 사라지는 경우가 있다. 이는 {% %}는 Liquid라는 템플릿 언어의 문법 중 하나로 Jekyll같은 정적 사이트에서 주로 사용된다.]]></summary></entry></feed>
