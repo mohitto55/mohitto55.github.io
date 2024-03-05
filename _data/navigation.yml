@@ -22,8 +22,8 @@ sidebar-category:
         url: "/cpp"
         category: "cpp"
       - title: "C#"
-        url:  "/cs"
-        category: "cs"
+        url:  "/csap"
+        category: "csap"
       - title: "JavaScript"
         url:  "/javascript"
         category: "javascript"
@@ -69,6 +69,9 @@ sidebar-category:
       - title: "Hardware"
         url:  "/hardware"
         category: "hardware"
+      - title: "CS"
+        url:  "/computerscience"
+        category: "computerscience"
 
   # - title: "About"
   #   url: https://mmistakes.github.io/minimal-mistakes/about/

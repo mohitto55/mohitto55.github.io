@@ -107,6 +107,12 @@ var store = [{
         "url": "/cpp/CPP-%EC%A0%84%EB%B0%A9%EC%84%A0%EC%96%B8/",
         "teaser": null
       },{
+        "title": "[CS] 짧은 순회 평가(Short circuit evaluation)",
+        "excerpt":"Short circuit evaluation 논리연산을 할 때 왼쪽 식부터 차례대로 논리평가를 하다가 만약 결과가 false일 경우 우측에 있는 식을 검증하지 않고 끝나는 것을 뜻한다. 왜 이런 것이 있을까 생각해보면 답은 간단하다. 이미 논리연산의 결과가 나왔기에 남은 논리평가를 실행할 이유가 없기 때문이다. if(v[0] != 0 &amp;&amp; v[3] == 5){} v의 length가 0일경우...","categories": ["computerscience"],
+        "tags": ["CS","Short circuit evaluation","짧은 순회 평가"],
+        "url": "/computerscience/CS-%EC%A7%A7%EC%9D%80-%EC%88%9C%ED%9A%8C-%ED%8F%89%EA%B0%80/",
+        "teaser": null
+      },{
         "title": "[Git] 100MB이상 커밋하기 Git-LFS",
         "excerpt":"문제 발생 Github로 수정 내용을 저장소에 올리는 과정에서 특정 파일의 크기가 100MB가 넘어가면 Git에서 commit을 reject한다. 이를 해결 하기 위해선 100MB가 넘어가는 파일을 커밋하는 과정에서 제외하거나 Git LFS를 사용해야 한다. Git LFS LFS로 관리 받는 파일은 실제 리포지토리가 아닌 다른 저장소로 옮겨지고 실제 리포지토리는 메타데이터를 통해 다른 저장소에 있는 파일을...","categories": ["git"],
         "tags": ["Git","LFS","Github"],
