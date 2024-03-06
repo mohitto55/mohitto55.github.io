@@ -1,4 +1,97 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-03-05T21:15:54+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mohitto55 Note</title><subtitle>모히또의 노트</subtitle><author><name>Mohitto55</name></author><entry><title type="html">[UE5] Modifires로 여러 값 반환하기</title><link href="http://localhost:4000/ue5/UE5-Unhanced-Input-IMC-%EC%84%B8%EB%B6%80%EC%84%A4%EC%A0%95/" rel="alternate" type="text/html" title="[UE5] Modifires로 여러 값 반환하기" /><published>2024-03-04T00:00:00+09:00</published><updated>2024-03-04T00:00:00+09:00</updated><id>http://localhost:4000/ue5/UE5%20Unhanced%20Input%20IMC%20%EC%84%B8%EB%B6%80%EC%84%A4%EC%A0%95</id><content type="html" xml:base="http://localhost:4000/ue5/UE5-Unhanced-Input-IMC-%EC%84%B8%EB%B6%80%EC%84%A4%EC%A0%95/"><![CDATA[<h2 id="enhancedinput">EnhancedInput</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-03-06T11:16:14+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mohitto55 Note</title><subtitle>모히또의 노트</subtitle><author><name>Mohitto55</name></author><entry><title type="html">[C++] 백준 2629번-양팔저울</title><link href="http://localhost:4000/boj/BOJ-2629%EB%B2%88/" rel="alternate" type="text/html" title="[C++] 백준 2629번-양팔저울" /><published>2024-03-06T00:00:00+09:00</published><updated>2024-03-06T00:00:00+09:00</updated><id>http://localhost:4000/boj/BOJ%202629%EB%B2%88</id><content type="html" xml:base="http://localhost:4000/boj/BOJ-2629%EB%B2%88/"><![CDATA[<p><a href="https://www.acmicpc.net/problem/2629">BOJ 2629-양팔저울</a></p>
+
+<h2 id="문제">문제</h2>
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/b8f27588-2419-4e33-b6a8-55f07c43faea" alt="image" /></p>
+
+<div class="code-block1">
+예제 입력1
+<div class="language-cpp highlighter-rouge">
+<div class="highlight">
+<pre class="highlight"><code>2
+1 4
+2
+3 2</code></pre></div></div></div>
+
+<div class="code-block2">
+에제 출력1
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight">
+<code>Y N</code></pre></div></div></div>
+
+<div class="code-block1">
+예제 입력2
+<div class="language-cpp highlighter-rouge">
+<div class="highlight">
+<pre class="highlight"><code>4
+2 3 3 3
+3
+1 4 10</code></pre></div></div></div>
+
+<div class="code-block2">
+에제 출력2
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight">
+<code>Y Y N</code></pre></div></div></div>
+
+<h2 id="풀이">풀이</h2>
+<p>DP를 사용하여 푸는 문제다.</p>
+<ul>
+  <li>구슬의 무게 + 왼쪽 추의 무게합 = 우측 추의 무게 합 이 성립될 경우 Y를 출력하라는 문제이다.</li>
+  <li>그렇기에 <strong>구슬 무게 = 우측 추의 무게합 - 왼쪽 추의 무게합</strong>이 점화식이다.</li>
+  <li>추를 놓는 모든 경우의 수 중 <strong>우측 추의 무게합 - 왼쪽 추의 무게합</strong>이 존재 할 경우 해당 무게와 같은 무게인 구슬이 있으면 해당 구슬은 Y를 출력할 수 있다.</li>
+  <li>모든 경우의 수를 탐색할 경우 시간 초과가 발생할 수 있으므로 flag[무게합][i번 째 추]에 체크해서 중복되는 경우는 넘기도록 한다.</li>
+</ul>
+
+<h2 id="소스코드">소스코드</h2>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">"bits/stdc++.h"</span><span class="cp">
+</span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">weights</span><span class="p">[</span><span class="mi">31</span><span class="p">];</span>
+<span class="kt">int</span> <span class="n">beads</span><span class="p">[</span><span class="mi">31</span><span class="p">];</span>
+<span class="kt">int</span> <span class="n">answer</span><span class="p">[</span><span class="mi">50001</span><span class="p">];</span>
+<span class="kt">int</span> <span class="n">flag</span><span class="p">[</span><span class="mi">50001</span><span class="p">][</span><span class="mi">600</span><span class="p">];</span>
+
+
+<span class="kt">int</span> <span class="nf">DP</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span><span class="kt">int</span> <span class="n">c</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">if</span> <span class="p">(</span><span class="n">c</span> <span class="o">&gt;=</span> <span class="mi">50000</span><span class="p">)</span>
+		<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+	<span class="k">if</span> <span class="p">(</span><span class="n">flag</span><span class="p">[</span><span class="n">abs</span><span class="p">(</span><span class="n">c</span><span class="p">)][</span><span class="n">x</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
+		<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+	<span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="n">n</span><span class="p">)</span>
+		<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+	<span class="n">answer</span><span class="p">[</span><span class="n">abs</span><span class="p">(</span><span class="n">c</span><span class="p">)]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+	<span class="n">flag</span><span class="p">[</span><span class="n">abs</span><span class="p">(</span><span class="n">c</span><span class="p">)][</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+
+	<span class="n">DP</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">c</span> <span class="o">+</span> <span class="mi">0</span><span class="p">);</span>
+	<span class="n">DP</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">c</span> <span class="o">-</span> <span class="n">weights</span><span class="p">[</span><span class="n">x</span><span class="p">]);</span>
+	<span class="n">DP</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">c</span> <span class="o">+</span> <span class="n">weights</span><span class="p">[</span><span class="n">x</span><span class="p">]);</span>
+	<span class="k">return</span> <span class="n">abs</span><span class="p">(</span><span class="n">weights</span><span class="p">[</span><span class="n">x</span><span class="p">]);</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="n">ios_base</span><span class="o">::</span><span class="n">sync_with_stdio</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+	<span class="n">cin</span><span class="p">.</span><span class="n">tie</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+
+	<span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">n</span><span class="p">;</span>
+	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+		<span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">weights</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+	<span class="p">}</span>
+
+	<span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">m</span><span class="p">;</span>
+	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">m</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+		<span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">beads</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+	<span class="p">}</span>
+	<span class="n">answer</span><span class="p">[</span><span class="n">DP</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+
+	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">m</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">if</span> <span class="p">(</span><span class="n">answer</span><span class="p">[</span><span class="n">beads</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Y "</span><span class="p">;</span>
+		<span class="p">}</span>
+		<span class="k">else</span> <span class="p">{</span>
+			<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"N "</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>]]></content><author><name>Mohitto55</name></author><category term="boj" /><category term="boj" /><category term="백준" /><category term="solved" /><category term="문제풀이 2665번" /><summary type="html"><![CDATA[BOJ 2629-양팔저울]]></summary></entry><entry><title type="html">[UE5] Modifires로 여러 값 반환하기</title><link href="http://localhost:4000/ue5/UE5-Unhanced-Input-IMC-%EC%84%B8%EB%B6%80%EC%84%A4%EC%A0%95/" rel="alternate" type="text/html" title="[UE5] Modifires로 여러 값 반환하기" /><published>2024-03-04T00:00:00+09:00</published><updated>2024-03-04T00:00:00+09:00</updated><id>http://localhost:4000/ue5/UE5%20Unhanced%20Input%20IMC%20%EC%84%B8%EB%B6%80%EC%84%A4%EC%A0%95</id><content type="html" xml:base="http://localhost:4000/ue5/UE5-Unhanced-Input-IMC-%EC%84%B8%EB%B6%80%EC%84%A4%EC%A0%95/"><![CDATA[<h2 id="enhancedinput">EnhancedInput</h2>
 <p>언리얼엔진5은 기존 InputSystem을 대체하는 Enhanced Input을 이용해 더 확장성 높고 사용하기 편한 입력 시스템을 만들었다. 이 시스템 중 <code class="language-plaintext highlighter-rouge">Input Mapping Context</code>는 하나 이상의 <code class="language-plaintext highlighter-rouge">Input Action</code>을 트리거 할 수 있게 해준다.</p>
 
 <h3 id="mapping-context-설정">Mapping Context 설정</h3>
@@ -548,13 +641,4 @@ InputAction의 값을 쓰고 싶으면 <a href="https://docs.unrealengine.com/4.
 <blockquote>
   <p><a href="https://www.youtube.com/watch?v=fW1pXOAIviw">UE5 C++ Enhanced Input-2 Bind C++ Functions to Input Actions</a>
 <a href="https://docs.unrealengine.com/5.0/ko/enhanced-input-in-unreal-engine/">UE5 - EnhancedInput 공식문서</a></p>
-</blockquote>]]></content><author><name>Mohitto55</name></author><category term="ue5" /><category term="UnrealEngine5" /><category term="Actor" /><category term="Component" /><category term="C++" /><summary type="html"><![CDATA[EnhancedInput? EnhancedInput 시스템은 Unreal Engine5에 등장한 새로운 Input 시스템으로 기존 InputSystem 보다 더 나은 기능 및 확장성을 가졌다. 이 포스팅에서는 코드로 EngancedInput를 사용하는 법을 작성할 것이다.]]></summary></entry><entry><title type="html">[Git Blog] Liquid 문법{% %}표시하기</title><link href="http://localhost:4000/gitblog/Liquid-%EB%AC%B8%EB%B2%95-%ED%91%9C%EC%8B%9C%ED%95%98%EA%B8%B0/" rel="alternate" type="text/html" title="[Git Blog] Liquid 문법{% %}표시하기" /><published>2024-02-02T00:00:00+09:00</published><updated>2024-02-02T00:00:00+09:00</updated><id>http://localhost:4000/gitblog/Liquid%20%EB%AC%B8%EB%B2%95%20%ED%91%9C%EC%8B%9C%ED%95%98%EA%B8%B0</id><content type="html" xml:base="http://localhost:4000/gitblog/Liquid-%EB%AC%B8%EB%B2%95-%ED%91%9C%EC%8B%9C%ED%95%98%EA%B8%B0/"><![CDATA[<h2 id="liquid">Liquid?</h2>
-<p>블로그를 작성하다 보면 가끔 {% %}라고 쓰여진 텍스트를 쓸 때가 있다. 하지만 그냥 작성하면 포스트에는 보이지 않고 사라지는 경우가 있다. 이는 {% %}는 Liquid라는 템플릿 언어의 문법 중 하나로 Jekyll같은 정적 사이트에서 주로 사용된다.</p>
-
-<p>{% %} 사이에 Liquid 문법을 넣어 템플릿을 생성하거나 조건문을 넣는데 아무 조치없이 사용하면 Jekyll 사이트는 글이 아닌 문법으로 보고 실행 되어 사라져 보였던 것이다.</p>
-<h2 id="해결법">해결법</h2>
-<p>raw 태그를 이용해 다음과 같이 작성하면 표시된다.</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% raw %}
-Liquid 문법
-{% endraw %}
-</code></pre></div></div>]]></content><author><name>Mohitto55</name></author><category term="gitblog" /><category term="minimal-mistake" /><category term="Jekyll" /><category term="Blog" /><category term="Liquid" /><category term="template" /><category term="markdown" /><summary type="html"><![CDATA[Liquid? 블로그를 작성하다 보면 가끔 {% %}라고 쓰여진 텍스트를 쓸 때가 있다. 하지만 그냥 작성하면 포스트에는 보이지 않고 사라지는 경우가 있다. 이는 {% %}는 Liquid라는 템플릿 언어의 문법 중 하나로 Jekyll같은 정적 사이트에서 주로 사용된다.]]></summary></entry></feed>
+</blockquote>]]></content><author><name>Mohitto55</name></author><category term="ue5" /><category term="UnrealEngine5" /><category term="Actor" /><category term="Component" /><category term="C++" /><summary type="html"><![CDATA[EnhancedInput? EnhancedInput 시스템은 Unreal Engine5에 등장한 새로운 Input 시스템으로 기존 InputSystem 보다 더 나은 기능 및 확장성을 가졌다. 이 포스팅에서는 코드로 EngancedInput를 사용하는 법을 작성할 것이다.]]></summary></entry></feed>

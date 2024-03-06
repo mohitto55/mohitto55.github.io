@@ -124,4 +124,10 @@ var store = [{
         "tags": ["Unrealengine5","UE5","EnhancedInput","언리얼엔진5"],
         "url": "/ue5/UE5-Unhanced-Input-IMC-%EC%84%B8%EB%B6%80%EC%84%A4%EC%A0%95/",
         "teaser": null
+      },{
+        "title": "[C++] 백준 2629번-양팔저울",
+        "excerpt":"BOJ 2629-양팔저울 문제 예제 입력1 2 1 4 2 3 2 에제 출력1 Y N 예제 입력2 4 2 3 3 3 3 1 4 10 에제 출력2 Y Y N 풀이 DP를 사용하여 푸는 문제다. 구슬의 무게 + 왼쪽 추의 무게합 = 우측 추의 무게 합 이 성립될 경우...","categories": ["boj"],
+        "tags": ["boj","백준","solved","문제풀이 2665번"],
+        "url": "/boj/BOJ-2629%EB%B2%88/",
+        "teaser": null
       }]
