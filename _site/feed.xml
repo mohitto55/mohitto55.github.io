@@ -1,4 +1,67 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-03-06T11:16:14+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mohitto55 Note</title><subtitle>모히또의 노트</subtitle><author><name>Mohitto55</name></author><entry><title type="html">[C++] 백준 2629번-양팔저울</title><link href="http://localhost:4000/boj/BOJ-2629%EB%B2%88/" rel="alternate" type="text/html" title="[C++] 백준 2629번-양팔저울" /><published>2024-03-06T00:00:00+09:00</published><updated>2024-03-06T00:00:00+09:00</updated><id>http://localhost:4000/boj/BOJ%202629%EB%B2%88</id><content type="html" xml:base="http://localhost:4000/boj/BOJ-2629%EB%B2%88/"><![CDATA[<p><a href="https://www.acmicpc.net/problem/2629">BOJ 2629-양팔저울</a></p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-03-06T11:47:16+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mohitto55 Note</title><subtitle>모히또의 노트</subtitle><author><name>Mohitto55</name></author><entry><title type="html">[C++] 백준 12865번-평범한 배낭</title><link href="http://localhost:4000/boj/BOJ-12865%EB%B2%88/" rel="alternate" type="text/html" title="[C++] 백준 12865번-평범한 배낭" /><published>2024-03-06T00:00:00+09:00</published><updated>2024-03-06T00:00:00+09:00</updated><id>http://localhost:4000/boj/BOJ%2012865%EB%B2%88</id><content type="html" xml:base="http://localhost:4000/boj/BOJ-12865%EB%B2%88/"><![CDATA[<p><a href="https://www.acmicpc.net/problem/12865">BOJ 12865-평범한 배낭</a></p>
+
+<h2 id="문제">문제</h2>
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/a44cd234-e6ab-416d-ba26-dc7cc217c050" alt="image" /></p>
+
+<div class="code-block1">
+예제 입력
+<div class="language-cpp highlighter-rouge">
+<div class="highlight">
+<pre class="highlight"><code>4 7
+6 13
+4 8
+3 6
+5 12</code></pre></div></div></div>
+
+<div class="code-block2">
+에제 출력
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight">
+<code>14</code></pre></div></div></div>
+
+<h2 id="풀이">풀이</h2>
+<p>DP를 이용하는 <strong>냅색(Knapsack)</strong>문제다.</p>
+<ul>
+  <li>물건을 넣는 경우와 안넣는 경우 두가지에 대한 모든 경우의 수 중 무게가 k보다 안 높고 value가 가장 높은 경우를 구한다.</li>
+  <li>필요없는 경우의 수를 제외하기 위해 flag[무게 합][탐색 중인 배낭 Index]의 값에 가장 높은 value값을 저장하고 만약 이 값보다 낮으면 탐색을 중단한다.</li>
+</ul>
+
+<h2 id="소스코드">소스코드</h2>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">"bits/stdc++.h"</span><span class="cp">
+</span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="n">k</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">weight</span><span class="p">[</span><span class="mi">101</span><span class="p">];</span>
+<span class="kt">int</span> <span class="n">value</span><span class="p">[</span><span class="mi">101</span><span class="p">];</span>
+<span class="kt">int</span> <span class="n">flag</span><span class="p">[</span><span class="mi">100001</span><span class="p">][</span><span class="mi">101</span><span class="p">];</span>
+
+<span class="kt">int</span> <span class="nf">DP</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">w</span><span class="p">,</span> <span class="kt">int</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">if</span> <span class="p">(</span><span class="n">w</span> <span class="o">&gt;</span> <span class="n">k</span><span class="p">)</span>
+		<span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+	<span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="n">v</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="k">if</span> <span class="p">(</span><span class="n">flag</span><span class="p">[</span><span class="n">w</span><span class="p">][</span><span class="n">x</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">flag</span><span class="p">[</span><span class="n">w</span><span class="p">][</span><span class="n">x</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">v</span><span class="p">)</span>
+		<span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+	<span class="n">flag</span><span class="p">[</span><span class="n">w</span><span class="p">][</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span><span class="p">;</span>
+	<span class="kt">int</span> <span class="n">val</span> <span class="o">=</span> <span class="n">v</span><span class="p">;</span>
+	<span class="n">val</span> <span class="o">=</span> <span class="n">max</span><span class="p">(</span><span class="n">val</span><span class="p">,</span><span class="n">DP</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">v</span><span class="p">));</span>
+	<span class="n">val</span> <span class="o">=</span> <span class="n">max</span><span class="p">(</span><span class="n">val</span><span class="p">,</span><span class="n">DP</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">w</span> <span class="o">+</span> <span class="n">weight</span><span class="p">[</span><span class="n">x</span><span class="p">],</span> <span class="n">v</span> <span class="o">+</span> <span class="n">value</span><span class="p">[</span><span class="n">x</span><span class="p">]));</span>
+	<span class="k">return</span> <span class="n">val</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="n">ios_base</span><span class="o">::</span><span class="n">sync_with_stdio</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+	<span class="n">cin</span><span class="p">.</span><span class="n">tie</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+
+	<span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">n</span> <span class="o">&gt;&gt;</span> <span class="n">k</span><span class="p">;</span>
+
+	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+		<span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">weight</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+		<span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">value</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+	<span class="p">}</span>
+	<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">DP</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>]]></content><author><name>Mohitto55</name></author><category term="boj" /><category term="boj" /><category term="백준" /><category term="solved" /><category term="문제풀이 12865번" /><category term="Knapsack" /><category term="Daynamic Programming" /><category term="DP" /><category term="C++" /><summary type="html"><![CDATA[BOJ 12865-평범한 배낭]]></summary></entry><entry><title type="html">[C++] 백준 2629번-양팔저울</title><link href="http://localhost:4000/boj/BOJ-2629%EB%B2%88/" rel="alternate" type="text/html" title="[C++] 백준 2629번-양팔저울" /><published>2024-03-06T00:00:00+09:00</published><updated>2024-03-06T00:00:00+09:00</updated><id>http://localhost:4000/boj/BOJ%202629%EB%B2%88</id><content type="html" xml:base="http://localhost:4000/boj/BOJ-2629%EB%B2%88/"><![CDATA[<p><a href="https://www.acmicpc.net/problem/2629">BOJ 2629-양팔저울</a></p>
 
 <h2 id="문제">문제</h2>
 <p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/b8f27588-2419-4e33-b6a8-55f07c43faea" alt="image" /></p>
@@ -91,7 +154,7 @@
 		<span class="p">}</span>
 	<span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div></div>]]></content><author><name>Mohitto55</name></author><category term="boj" /><category term="boj" /><category term="백준" /><category term="solved" /><category term="문제풀이 2665번" /><summary type="html"><![CDATA[BOJ 2629-양팔저울]]></summary></entry><entry><title type="html">[UE5] Modifires로 여러 값 반환하기</title><link href="http://localhost:4000/ue5/UE5-Unhanced-Input-IMC-%EC%84%B8%EB%B6%80%EC%84%A4%EC%A0%95/" rel="alternate" type="text/html" title="[UE5] Modifires로 여러 값 반환하기" /><published>2024-03-04T00:00:00+09:00</published><updated>2024-03-04T00:00:00+09:00</updated><id>http://localhost:4000/ue5/UE5%20Unhanced%20Input%20IMC%20%EC%84%B8%EB%B6%80%EC%84%A4%EC%A0%95</id><content type="html" xml:base="http://localhost:4000/ue5/UE5-Unhanced-Input-IMC-%EC%84%B8%EB%B6%80%EC%84%A4%EC%A0%95/"><![CDATA[<h2 id="enhancedinput">EnhancedInput</h2>
+</code></pre></div></div>]]></content><author><name>Mohitto55</name></author><category term="boj" /><category term="boj" /><category term="백준" /><category term="solved" /><category term="문제풀이 2629번" /><summary type="html"><![CDATA[BOJ 2629-양팔저울]]></summary></entry><entry><title type="html">[UE5] Modifires로 여러 값 반환하기</title><link href="http://localhost:4000/ue5/UE5-Unhanced-Input-IMC-%EC%84%B8%EB%B6%80%EC%84%A4%EC%A0%95/" rel="alternate" type="text/html" title="[UE5] Modifires로 여러 값 반환하기" /><published>2024-03-04T00:00:00+09:00</published><updated>2024-03-04T00:00:00+09:00</updated><id>http://localhost:4000/ue5/UE5%20Unhanced%20Input%20IMC%20%EC%84%B8%EB%B6%80%EC%84%A4%EC%A0%95</id><content type="html" xml:base="http://localhost:4000/ue5/UE5-Unhanced-Input-IMC-%EC%84%B8%EB%B6%80%EC%84%A4%EC%A0%95/"><![CDATA[<h2 id="enhancedinput">EnhancedInput</h2>
 <p>언리얼엔진5은 기존 InputSystem을 대체하는 Enhanced Input을 이용해 더 확장성 높고 사용하기 편한 입력 시스템을 만들었다. 이 시스템 중 <code class="language-plaintext highlighter-rouge">Input Mapping Context</code>는 하나 이상의 <code class="language-plaintext highlighter-rouge">Input Action</code>을 트리거 할 수 있게 해준다.</p>
 
 <h3 id="mapping-context-설정">Mapping Context 설정</h3>
@@ -545,100 +608,4 @@ kramdown:
 <h2 id="page_with_curl-reference">:page_with_curl: Reference</h2>
 <blockquote>
   <p>https://onda2me.github.io/blog/codeblock/</p>
-</blockquote>]]></content><author><name>Mohitto55</name></author><category term="gitblog" /><category term="Git" /><category term="Blog" /><category term="Jekyll" /><category term="minimal-mistakes" /><category term="코드블럭" /><summary type="html"><![CDATA[1. 테마 설치하기 먼저 아래 코드블럭 테마 사이트에 가서 원하는 테마의 이름을 복사한다. :point_right: 테마 사이트]]></summary></entry><entry><title type="html">[UE5] Enhanced Input</title><link href="http://localhost:4000/ue5/UE5-Enhanced-Input/" rel="alternate" type="text/html" title="[UE5] Enhanced Input" /><published>2024-02-21T00:00:00+09:00</published><updated>2024-02-21T00:00:00+09:00</updated><id>http://localhost:4000/ue5/UE5%20Enhanced%20Input</id><content type="html" xml:base="http://localhost:4000/ue5/UE5-Enhanced-Input/"><![CDATA[<h2 id="enhancedinput">EnhancedInput?</h2>
-<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/a97835eb-26a9-4120-8bd5-e04c51590fd8" alt="image" />
-EnhancedInput 시스템은 Unreal Engine5에 등장한 새로운 Input 시스템으로 기존 InputSystem 보다 더 나은 기능 및 확장성을 가졌다. 이 포스팅에서는 코드로 EngancedInput를 사용하는 법을 작성할 것이다.</p>
-
-<h2 id="enhancedinput-모듈준비">EnhancedInput 모듈준비</h2>
-<p>EnhancedInput은 코드로 작성할 수 있다. EnhancedInput 시스템을 사용하기 전에 먼저 모듈을 추가시켜줘야 한다.</p>
-
-<h3 id="1모듈이란">1.모듈이란</h3>
-<p>UEnhancedInputLocalPlayerSubSystem는 EnhancedInputSubsystems.h 헤더 안에 있다 이 헤더를 쓰기 위해선 모듈을 추가해줘야 한다.</p>
-
-<hr />
-<h3 id="2모듈추가">2.모듈추가</h3>
-<p>모듈은 플러그인을 빌드에 포함시키게 해주는 것으로 언리얼이 모든 플러그인이 아닌 필요한 플러그인만 빌드 시키게 함으로써 성능 향상 시켜준다.
-<img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/4f373422-5831-4b69-8cd3-cef821f8f859" alt="스크린샷 2024-02-21 125554" /></p>
-
-<p>플러그인은 <code class="language-plaintext highlighter-rouge">Engine/UE5/Plugins</code> 안에 있는 파일들에 볼 수 있으며 <code class="language-plaintext highlighter-rouge">프로젝트이름.Build.cs</code>파일에서 모듈을 관리할 수 있다.</p>
-
-<hr />
-<h3 id="3빌드-및-임시파일-초기화">3.빌드 및 임시파일 초기화</h3>
-<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/009474f9-35d1-42c5-b3df-e0fdcc9f2e49" alt="스크린샷 2024-02-21 130600" /></p>
-
-<p>추가 후 CTRL+SHIFT+B로 빌드 해주면 헤더를 사용할 수 있다.
-안되는 경우 컴파일시 생성되는 임시파일을 삭제해줘야 한다. 프로젝트 폴더에 가서 Binaries, Intermediate, Saved 폴더를 삭제한다.</p>
-
-<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/b3854688-4d87-46c1-8ef0-8fb827ebf289" alt="스크린샷 2024-02-21 130747" /></p>
-
-<p>그리고 프로젝트파일 우클릭 후 Generate Visual Studio project files를 눌러 삭제한 폴더들을 다시 만든다.</p>
-
-<h2 id="코드로-enhancedinput-작성">코드로 EnhancedInput 작성</h2>
-<h3 id="1-1-mappingcontext">1-1. MappingContext</h3>
-<p>코드로 사용하기 위해선 로컬플레이어 Input Subsystem인 <a href="https://docs.unrealengine.com/4.27/en-US/API/Plugins/EnhancedInput/UEnhancedInputLocalPlayerSubsyst-/">UEnhancedInputLocalPlayerSubSystem</a>이 필요하다.</p>
-
-<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="n">UMyPlayer</span><span class="o">::</span><span class="n">BeginPlay</span><span class="p">()</span>
-<span class="p">{</span>
-	<span class="n">Super</span><span class="o">::</span><span class="n">BeginPlay</span><span class="p">();</span>
-	<span class="k">if</span> <span class="p">(</span><span class="n">APlayerController</span><span class="o">*</span> <span class="n">PlayerController</span> <span class="o">=</span> <span class="n">Cast</span><span class="o">&lt;</span><span class="n">APlayerController</span><span class="o">&gt;</span><span class="p">(</span><span class="n">GetController</span><span class="p">()))</span> <span class="p">{</span>
-		<span class="k">if</span> <span class="p">(</span><span class="n">UEnhancedInputLocalPlayerSubsystem</span><span class="o">*</span> <span class="n">Subsystem</span> <span class="o">=</span> <span class="n">ULocalPlayer</span><span class="o">::</span><span class="n">GetSubsystem</span><span class="o">&lt;</span> <span class="n">UEnhancedInputLocalPlayerSubsystem</span><span class="o">&gt;</span><span class="p">(</span><span class="n">PlayerController</span><span class="o">-&gt;</span><span class="n">GetLocalPlayer</span><span class="p">()))</span> <span class="p">{</span>
-			<span class="n">Subsystem</span><span class="o">-&gt;</span><span class="n">AddMappingContext</span><span class="p">(</span><span class="s">"MAPPING CONTEXT VARIABLE"</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
-		<span class="p">}</span>
-	<span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></div>
-<hr />
-<h3 id="1-2-component에서-사용할-시">1-2. Component에서 사용할 시</h3>
-<p><code class="language-plaintext highlighter-rouge">GetControll</code>메타함수는 <code class="language-plaintext highlighter-rouge">Pawn</code> 이하 클래스에서만 사용 할 수 있다. Component는 컨트롤러를 가지고 있지 않기 때문에 Pawn의 컨트롤러를 가져와야한다.</p>
-
-<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">AController</span><span class="o">*</span> <span class="n">UGrabber</span><span class="o">::</span><span class="n">GetOwnerController</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span>
-	<span class="n">AActor</span><span class="o">*</span> <span class="n">Owner</span> <span class="o">=</span> <span class="n">GetOwner</span><span class="p">();</span>
-	<span class="k">if</span> <span class="p">(</span><span class="n">Owner</span><span class="p">)</span> <span class="p">{</span>
-		<span class="n">APawn</span><span class="o">*</span> <span class="n">PawnOwner</span> <span class="o">=</span> <span class="n">Cast</span><span class="o">&lt;</span><span class="n">APawn</span><span class="o">&gt;</span><span class="p">(</span><span class="n">Owner</span><span class="p">);</span>
-		<span class="k">if</span> <span class="p">(</span><span class="n">PawnOwner</span><span class="p">)</span> <span class="p">{</span>
-			<span class="k">return</span> <span class="n">PawnOwner</span><span class="o">-&gt;</span><span class="n">GetController</span><span class="p">();</span>
-		<span class="p">}</span>
-	<span class="p">}</span>
-	<span class="k">return</span> <span class="nb">nullptr</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<p>다만 게임설계상 컴포넌트에서 직접 하는 것 보단 컴포넌트를 관리하는 Actor에서 Input을 관리하는 것이 더 좋다.</p>
-
-<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/80ee01ac-c280-40ee-9989-3b32e152886b" alt="스크린샷 2024-02-21 170725" /></p>
-
-<p>위 과정을 BP로 할 경우 이렇게 된다.</p>
-
-<hr />
-
-<h3 id="2-inputaction-사용">2. InputAction 사용</h3>
-<p>이제 <code class="language-plaintext highlighter-rouge">MappingContext</code>를 시스템에 적용했으니 키를 누르면 InputAction 입력 값이 나올 것이다.
-InputAction의 값을 쓰고 싶으면 <a href="https://docs.unrealengine.com/4.26/en-US/API/Plugins/EnhancedInput/FInputActionValue/">FInputActionValue</a>타입 변수를 써야한다.</p>
-
-<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">"InputActionValue.h"</span><span class="cp">
-</span><span class="kt">void</span> <span class="nf">Grab</span><span class="p">(</span><span class="k">const</span> <span class="n">FInputActionValue</span><span class="o">&amp;</span> <span class="n">Value</span><span class="p">);</span>
-</code></pre></div></div>
-
-<hr />
-
-<h3 id="3-바인딩-추가">3. 바인딩 추가</h3>
-<p>키가 입력 됬을 때 특정 함수를 실행 시키고 싶다면 <a href="https://docs.unrealengine.com/4.27/en-US/API/Plugins/EnhancedInput/UEnhancedInputComponent/">EnhancedInputComponent</a>를 사용하면 된다.</p>
-
-<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">"EnhancedInputComponent.h"</span><span class="cp">
-#include</span> <span class="cpf">"Components/InputComponent.h"</span><span class="cp">
-</span>
-<span class="kt">void</span> <span class="n">UMyPlayer</span><span class="o">::</span><span class="n">SetupPlayerInputComponent</span><span class="p">(</span><span class="k">class</span> <span class="nc">UInputComponent</span><span class="o">*</span> <span class="n">PlayerInputComponent</span><span class="p">)</span> <span class="p">{</span>
-	<span class="k">if</span> <span class="p">(</span><span class="n">UEnhancedInputComponent</span><span class="o">*</span> <span class="n">EnhancedInputComponent</span> <span class="o">=</span> <span class="n">CastChecked</span><span class="o">&lt;</span><span class="n">UEnhancedInputComponent</span><span class="o">&gt;</span><span class="p">(</span><span class="n">PlayerInputComponent</span><span class="p">))</span> <span class="p">{</span>
-		<span class="n">EnhancedInputComponent</span><span class="o">-&gt;</span><span class="n">BindAction</span><span class="p">(</span><span class="n">GrabAction</span><span class="p">,</span><span class="n">ETriggerEvent</span><span class="o">::</span><span class="n">Started</span><span class="p">,</span> <span class="k">this</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">UGrabber</span><span class="o">::</span><span class="n">Grab</span><span class="p">);</span>
-	<span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></div>
-<p>PlayerController에 의해 호출되는  <a href="https://docs.unrealengine.com/4.27/en-US/API/Runtime/Engine/GameFramework/APawn/SetupPlayerInputComponent/">APawn::SetupPlayerInputComponent</a>함수에서 InputComponent를 EnhancedInputComponent로 캐스팅 후 키 입력시 발생할 함수를 바인딩 해준다.</p>
-
-<p>만약 CastChecked가 실패할 경우 게임이 크래시되어 종료한다.</p>
-
-<h2 id="page_with_curl-reference">:page_with_curl: Reference</h2>
-<blockquote>
-  <p><a href="https://www.youtube.com/watch?v=fW1pXOAIviw">UE5 C++ Enhanced Input-2 Bind C++ Functions to Input Actions</a>
-<a href="https://docs.unrealengine.com/5.0/ko/enhanced-input-in-unreal-engine/">UE5 - EnhancedInput 공식문서</a></p>
-</blockquote>]]></content><author><name>Mohitto55</name></author><category term="ue5" /><category term="UnrealEngine5" /><category term="Actor" /><category term="Component" /><category term="C++" /><summary type="html"><![CDATA[EnhancedInput? EnhancedInput 시스템은 Unreal Engine5에 등장한 새로운 Input 시스템으로 기존 InputSystem 보다 더 나은 기능 및 확장성을 가졌다. 이 포스팅에서는 코드로 EngancedInput를 사용하는 법을 작성할 것이다.]]></summary></entry></feed>
+</blockquote>]]></content><author><name>Mohitto55</name></author><category term="gitblog" /><category term="Git" /><category term="Blog" /><category term="Jekyll" /><category term="minimal-mistakes" /><category term="코드블럭" /><summary type="html"><![CDATA[1. 테마 설치하기 먼저 아래 코드블럭 테마 사이트에 가서 원하는 테마의 이름을 복사한다. :point_right: 테마 사이트]]></summary></entry></feed>

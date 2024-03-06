@@ -125,9 +125,15 @@ var store = [{
         "url": "/ue5/UE5-Unhanced-Input-IMC-%EC%84%B8%EB%B6%80%EC%84%A4%EC%A0%95/",
         "teaser": null
       },{
+        "title": "[C++] 백준 12865번-평범한 배낭",
+        "excerpt":"BOJ 12865-평범한 배낭 문제 예제 입력 4 7 6 13 4 8 3 6 5 12 에제 출력 14 풀이 DP를 이용하는 냅색(Knapsack)문제다. 물건을 넣는 경우와 안넣는 경우 두가지에 대한 모든 경우의 수 중 무게가 k보다 안 높고 value가 가장 높은 경우를 구한다. 필요없는 경우의 수를 제외하기 위해 flag[무게 합][탐색...","categories": ["boj"],
+        "tags": ["boj","백준","solved","문제풀이 12865번","Knapsack","Daynamic Programming","DP","C++"],
+        "url": "/boj/BOJ-12865%EB%B2%88/",
+        "teaser": null
+      },{
         "title": "[C++] 백준 2629번-양팔저울",
         "excerpt":"BOJ 2629-양팔저울 문제 예제 입력1 2 1 4 2 3 2 에제 출력1 Y N 예제 입력2 4 2 3 3 3 3 1 4 10 에제 출력2 Y Y N 풀이 DP를 사용하여 푸는 문제다. 구슬의 무게 + 왼쪽 추의 무게합 = 우측 추의 무게 합 이 성립될 경우...","categories": ["boj"],
-        "tags": ["boj","백준","solved","문제풀이 2665번"],
+        "tags": ["boj","백준","solved","문제풀이 2629번"],
         "url": "/boj/BOJ-2629%EB%B2%88/",
         "teaser": null
       }]
