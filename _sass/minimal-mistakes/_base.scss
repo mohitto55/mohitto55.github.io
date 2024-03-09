@@ -126,11 +126,10 @@ blockquote {
 .CCC{
   border-radius: 20%;
 }
-
-.callout-text{
-  padding-left: 5px;
-  padding-top: 4px;
+.width-half {
+  width: 50%;
 }
+
 
 // 콜아웃
 .callout {
@@ -140,8 +139,9 @@ blockquote {
   border-width: 0px 0px 0px 5px !important;
   box-shadow: 3px 3px 3px rgba(223, 223, 223, 0.63) !important;
   box-sizing: border-box;
-  p{
+  p{ // 콜아웃 내부 텍스트
     padding-left: 5px;
+    font-size: 0.8em !important;
   }
 }
 .callout-red{
@@ -168,13 +168,20 @@ blockquote {
   position: relative;
   padding-top: 0.2em;
   padding-bottom: 0.2em;
+  font-size: 0.7em;
   display: flex;
   align-items: center;
   text-align: center;
+  line-height: 2em; // 배경 높이
+
+  +p{
+    
+  }
 }
 .callout-header::before{
   content:"";
-  background-position: center;
+  font-size: 0.8em; // 이미지 크기
+  background-position: center; 
   background-size: 1.4em 1.4em;
   width: 1.4em;
   height: 1.4em;
@@ -182,7 +189,7 @@ blockquote {
   margin-right: 0.325rem;
 }
 
-.callout-red-expanded{
+.callout-warning-expanded{
   @extend .callout-expanded;
   background-color: rgb(255, 245, 245);
   border-color: rgb(238, 101, 101);
@@ -195,6 +202,19 @@ blockquote {
   }
 }
 
+.callout-info-expanded{
+  @extend .callout-expanded;
+  background-color: #fcfcfc;
+  border-color: #48b3e4;
+  .callout-header{
+    background-color: #48b3e4;
+    color: #f3f3f3;
+  }
+  .callout-header::before{
+    background-image: url('images/info.png');
+  }
+}
+
 .Reference{
   @extend .callout-expanded;
   background-color: rgba(248, 248, 248, 0.829);
@@ -202,6 +222,7 @@ blockquote {
   .callout-header{
     background-color: #5e6969;
     color: rgb(238, 238, 238);
+    font-size: 1em;
   }
   .callout-header::before{
     background-image: url('images/1f4c3.png');

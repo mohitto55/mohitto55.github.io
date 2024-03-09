@@ -1,4 +1,171 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-03-09T16:52:53+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mohitto55 Note</title><subtitle>모히또의 노트</subtitle><author><name>Mohitto55</name></author><entry><title type="html">[C++] 백준 12865번-평범한 배낭</title><link href="http://localhost:4000/boj/BOJ-12865%EB%B2%88/" rel="alternate" type="text/html" title="[C++] 백준 12865번-평범한 배낭" /><published>2024-03-06T00:00:00+09:00</published><updated>2024-03-06T00:00:00+09:00</updated><id>http://localhost:4000/boj/BOJ%2012865%EB%B2%88</id><content type="html" xml:base="http://localhost:4000/boj/BOJ-12865%EB%B2%88/"><![CDATA[<p><a href="https://www.acmicpc.net/problem/12865">BOJ 12865-평범한 배낭</a></p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-03-09T21:46:04+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mohitto55 Note</title><subtitle>모히또의 노트</subtitle><author><name>Mohitto55</name></author><entry><title type="html">[VScode] Snippet을 이용해 템플릿 사용하기</title><link href="http://localhost:4000/vscode/VSCode-Snippets/" rel="alternate" type="text/html" title="[VScode] Snippet을 이용해 템플릿 사용하기" /><published>2024-03-09T00:00:00+09:00</published><updated>2024-03-09T00:00:00+09:00</updated><id>http://localhost:4000/vscode/VSCode%20Snippets</id><content type="html" xml:base="http://localhost:4000/vscode/VSCode-Snippets/"><![CDATA[<h2 id="snippet">Snippet</h2>
+<blockquote>
+  <p>스니펫(snippet)은 재사용 가능한 소스 코드, 기계어, 텍스트의 작은 부분을 일컫는 프로그래밍 용어이다. 사용자가 루틴 편집 조작 중 반복 타이핑을 회피할 수 있게 도와준다.
+-<a href="https://ko.wikipedia.org/wiki/%EC%8A%A4%EB%8B%88%ED%8E%AB">Wikipedia</a></p>
+</blockquote>
+
+<p><code class="language-plaintext highlighter-rouge">snippet</code>이란 <strong>작은 코드 조각</strong>을 뜻하는 말로 자주 쓰는 코드를 하나의 템플릿으로 만들어 반복작업을 줄일 수 있게 해주는 기능을 말한다.</p>
+
+<p>대부분의 텍스트 편집기, IDE는 이런 <code class="language-plaintext highlighter-rouge">snipet</code> 기능을 지원하며 VScode또한 마찬가지다.</p>
+
+<h2 id="vscode에서-snippet-사용하기">VScode에서 Snippet 사용하기</h2>
+<h3 id="1-snippet-파일-열기">1. Snippet 파일 열기</h3>
+<p><code class="language-plaintext highlighter-rouge">snippet</code>을 작성하기 위해선 먼저 <code class="language-plaintext highlighter-rouge">snippet</code>코드를 관리하는 <code class="language-plaintext highlighter-rouge">JSON</code>파일을 열어야 한다. 파일을 열기위한 방법은 두가지가 있다.</p>
+
+<hr />
+
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/63414c56-30f2-4f78-9818-b1f4fa30e2d2" alt="image" /></p>
+
+<p><strong>1. File-&gt;Preferences-&gt;Configure User Snippets</strong></p>
+
+<p><strong>2. Setting-&gt;User Snippets</strong></p>
+
+<hr />
+
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/b3df2470-fc19-45ba-bca8-60f4c685993a" alt="image" /></p>
+
+<p>위 두가지 방법 중 하나를 실행하면 화면 상단에 커맨드창이 나올것이다. 필요한 <code class="language-plaintext highlighter-rouge">snipet</code> 파일을 열고 없으면 <code class="language-plaintext highlighter-rouge">New Global Snippets file</code>을 눌러 파일이름을 설정 한 후 연다.</p>
+
+<hr />
+<h3 id="2-내용-작성하기">2. 내용 작성하기</h3>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+	</span><span class="nl">"snippet-name"</span><span class="p">:{</span><span class="w">
+		</span><span class="nl">"prefix"</span><span class="p">:</span><span class="w"> </span><span class="s2">"blog-template"</span><span class="p">,</span><span class="w">
+		</span><span class="nl">"body"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+		</span><span class="s2">"---"</span><span class="p">,</span><span class="w">
+		</span><span class="s2">"title : '[] '"</span><span class="p">,</span><span class="w">
+		</span><span class="s2">"category: "</span><span class="p">,</span><span class="w">
+		</span><span class="s2">"tags: []"</span><span class="p">,</span><span class="w">
+		</span><span class="s2">"---"</span><span class="p">,</span><span class="w">
+		</span><span class="s2">""</span><span class="p">,</span><span class="w">
+		</span><span class="s2">""</span><span class="p">,</span><span class="w">
+		</span><span class="s2">""</span><span class="p">,</span><span class="w">
+		</span><span class="s2">"&lt;div class='Reference'&gt;"</span><span class="p">,</span><span class="w">
+		</span><span class="s2">"&lt;div class='callout-header'&gt; &lt;/div&gt;"</span><span class="p">,</span><span class="w">
+		</span><span class="s2">"&lt;p&gt;"</span><span class="p">,</span><span class="w">
+		</span><span class="s2">"&lt;a href=''&gt;&lt;/a&gt;"</span><span class="p">,</span><span class="w">
+		</span><span class="s2">"&lt;/p&gt;"</span><span class="p">,</span><span class="w">
+		</span><span class="s2">"&lt;/div&gt;"</span><span class="w">
+	</span><span class="p">],</span><span class="w">
+		</span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Blog Template"</span><span class="w">
+	</span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+<p>소스는 다음 규격을 맞춰 작성하면 된다.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">이름</th>
+      <th><center>설명</center></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">snippet-name</td>
+      <td>- snippet의 이름<br />- description이 설정 되있지 않으면 Intellisense에서 해당 이름이 표시된다.</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">prefix</td>
+      <td>- 자동완성시 불러올 키워드</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">body</td>
+      <td>- 자동완성시 불러올 내용<br />- 줄이 여러개일 경우 ,(comma)를 이용해 줄 바꿈을 한다.</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">description</td>
+      <td>- prefix 작성 시 Intellisense에서 표시 될 설명이다.</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/c15bcda9-d6d5-4340-a7e4-992411b7f4d6" alt="Honeycam" /><em>snippet을 활용해 생산성을 높일 수 있다</em></p>
+
+<p><code class="language-plaintext highlighter-rouge">snippet</code>이 적용이 되면 위와 같이 작동한다. 단 몇 타자 만으로 긴 코드를 빠르게 작성할 수 있다.</p>
+
+<h2 id="snippet-적용이-안될-경우">Snippet 적용이 안될 경우</h2>
+<p>설정을 완벽하게 했음에도 불구하고 Intellisense가 작동하지 않는 경우가 있다. 그럴경우 <code class="language-plaintext highlighter-rouge">setting.json</code>에서 <code class="language-plaintext highlighter-rouge">editor.quickSuggestions</code>을 true로 설정해줘야 한다.</p>
+
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/53927eaa-961c-4f7a-8006-13142db2a248" alt="image" /><em>View-&gt;Command palette OR Ctrl+Shift+p</em></p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"[markdown]"</span><span class="p">:{</span><span class="w">
+     </span><span class="nl">"editor.quickSuggestions"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>커맨드 창을 열어 <code class="language-plaintext highlighter-rouge">Open User Setting(JSON)</code>을 적고 위 소스를 넣어주면 된다.</p>
+
+<div class="callout-info-expanded">
+<div class="callout-header">setting.json과 quickSuggestions</div>
+<p>
+setting.json은 작업중인 프로젝트의 셋팅값을 설정하는 파일이고 quickSuggestions 설정은 자동 완성 활성화 여부를 결정하는 값이다.
+</p>
+</div>
+
+<h2 id="snippet-변수">Snippet 변수</h2>
+<p><code class="language-plaintext highlighter-rouge">snippet</code>은 여러 변수 값을 지원한다. <code class="language-plaintext highlighter-rouge">$name</code> or <code class="language-plaintext highlighter-rouge">${name:default}</code> 같은 문구를 사용 함으로써 파일의 이름이나 내용을 불러올 수 있다. 자세한 내용은 <a href="https://code.visualstudio.com/docs/editor/userdefinedsnippets">공식문서</a>에서 확인하기 바란다.</p>
+
+<hr />
+
+<div class="Reference">
+<div class="callout-header"> </div>
+<p>
+<a href="https://velog.io/@humblego42/VSCode%EC%97%90%EC%84%9C-Snippet-%ED%99%9C%EC%9A%A9%ED%95%98%EA%B8%B0">vVSCode에서 Snippet 활용하기</a>
+<a href="https://junu-k.medium.com/vscode-%EA%BF%80%ED%8C%81-1-%EB%82%98%EB%A7%8C%EC%9D%98-%EC%8A%A4%EB%8B%88%ED%8E%AB-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0-28b6044a77d3">vscode 꿀팁: 나만의 스니펫 사용하기</a>
+<a href="https://gnews365.tistory.com/entry/vscode-settingjson-%EC%97%90-%EB%93%A4%EC%96%B4%EA%B0%80%EA%B8%B0-%EB%B9%84%EC%A3%BC%EC%96%BC-%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4-%EC%BD%94%EB%93%9C">vscode setting.json 에 들어가기</a>
+</p>
+</div>]]></content><author><name>Mohitto55</name></author><category term="vscode" /><category term="Vscode" /><category term="Snippet" /><category term="Template" /><category term="템플릿" /><category term="스니펫" /><category term="IDE" /><summary type="html"><![CDATA[Snippet 스니펫(snippet)은 재사용 가능한 소스 코드, 기계어, 텍스트의 작은 부분을 일컫는 프로그래밍 용어이다. 사용자가 루틴 편집 조작 중 반복 타이핑을 회피할 수 있게 도와준다. -Wikipedia]]></summary></entry><entry><title type="html">[Git Blog] 이미지 캡션 추가하기</title><link href="http://localhost:4000/gitblog/%EB%A7%88%ED%81%AC%EB%8B%A4%EC%9A%B4-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EC%BA%A1%EC%85%98/" rel="alternate" type="text/html" title="[Git Blog] 이미지 캡션 추가하기" /><published>2024-03-09T00:00:00+09:00</published><updated>2024-03-09T00:00:00+09:00</updated><id>http://localhost:4000/gitblog/%EB%A7%88%ED%81%AC%EB%8B%A4%EC%9A%B4%20%EC%9D%B4%EB%AF%B8%EC%A7%80%20%EC%BA%A1%EC%85%98</id><content type="html" xml:base="http://localhost:4000/gitblog/%EB%A7%88%ED%81%AC%EB%8B%A4%EC%9A%B4-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EC%BA%A1%EC%85%98/"><![CDATA[<h2 id="이미지-캡션">이미지 캡션</h2>
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/4f373422-5831-4b69-8cd3-cef821f8f859" alt="image" /><em>이미지 아래 회색 글씨</em>
+캡션이란 위와 같이 이미지 아래 작은 글씨로 이미지에 대한 설명 글을 뜻한다. 한 문장으로 이미지에 대한 설명을 간략히 보여주기에 글을 이해하는데 도움을 주는 기능이다.</p>
+
+<hr />
+<h3 id="markdown-이미지">Markdown 이미지</h3>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">![</span><span class="nv">이름</span><span class="p">](</span><span class="sx">링크</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>minimal-mistake 블로그 글을 쓸 때 이미지 표시를 주로 마크다운 기능을 이용해서 작성하는데 아쉽게도 마크다운에선 캡션 기능을 지원하고 있지 않다. <strong>css</strong>를 이용하면 구현이 되지만 <strong>html</strong>태그를 작성해야 하기에 어떻게든 마크다운 만으로 캡션기능을 넣고 싶어 이것 저것 찾아봤다.</p>
+
+<hr />
+
+<h3 id="markdown-이미지-캡션-사용법">Markdown 이미지 캡션 사용법</h3>
+<p>html태그를 쓰지 않으면서 마크다운 만으로 캡션을 넣는 방법이 있다. 다만 css를 이용해야 하는데</p>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">![</span><span class="nv">이름</span><span class="p">](</span><span class="sx">링크</span><span class="p">)</span><span class="ge">*캡션내용*</span>
+</code></pre></div></div>
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/429cfcbd-d2e3-464b-84c3-7f6affb15c4d" alt="image" class="width-half" /><em>em 태그가 만들어진다</em>
+위와 같이 이미지 링크 바로 뒤에 <em>Italics</em>글씨체로 바꿔주는 ** 문법을 넣는다. 해당 문법은 블로그 페이지가 생성될 시 em태그로 변환되어 지는데 css에서 <strong>em</strong>태그 속성을 변경해주면 된다.</p>
+
+<hr />
+<h4 id="css-추가">CSS 추가</h4>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">img</span> <span class="o">+</span> <span class="nt">em</span> <span class="p">{</span>
+    <span class="nl">display</span><span class="p">:</span> <span class="nb">block</span><span class="p">;</span>
+    <span class="nl">text-align</span><span class="p">:</span> <span class="nb">center</span><span class="p">;</span>
+    <span class="nl">text-emphasis</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
+  <span class="p">}</span>
+</code></pre></div></div>
+<p><code class="language-plaintext highlighter-rouge">_sass/_page.scss</code>로가서 위 소스를 추가해주면 된다.
+이는 img 뒤에 올 em태그의 속성을 변경하는 css로 캡션과 같이 이미지 아래에 글씨가 오게 설정한다.</p>
+
+<p>해당 소스를 그대로 사용하면 em태그로 인해 글씨체가 기울어져 있을 것이다. 일반 글씨체로 바꾸고 싶고 작게 보이게 하고 싶다면 아래 내용을 추가한다.</p>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">img</span> <span class="o">+</span> <span class="nt">em</span> <span class="p">{</span>
+    <span class="nl">display</span><span class="p">:</span> <span class="nb">block</span><span class="p">;</span>
+    <span class="nl">text-align</span><span class="p">:</span> <span class="nb">center</span><span class="p">;</span>
+    <span class="nl">text-emphasis</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
+    <span class="nl">font-size</span><span class="p">:</span> <span class="m">0.8em</span><span class="p">;</span> <span class="err">//글씨</span> <span class="err">크기를</span> <span class="err">줄인다</span>
+    <span class="nl">font-style</span><span class="p">:</span> <span class="nb">normal</span><span class="p">;</span> <span class="err">//Italics글씨체가</span> <span class="err">아닌</span> <span class="err">일반</span> <span class="err">글씨체</span>
+    <span class="nl">color</span><span class="p">:</span> <span class="n">rgba</span><span class="p">(</span><span class="err">$</span><span class="n">text-color</span><span class="p">,</span> <span class="m">0.75</span><span class="p">);</span> <span class="err">//폰트색의</span> <span class="err">투명도를</span> <span class="err">낮춘다</span>
+  <span class="p">}</span>
+</code></pre></div></div>
+
+<hr />
+<div class="Reference">
+<div class="callout-header"> </div>
+<p>
+<a href="https://62che.com/blog/vuepress/%EC%9D%B4%EB%AF%B8%EC%A7%80%EC%97%90-%EC%BA%A1%EC%85%98-%EB%8B%AC%EA%B8%B0.html#%E1%84%8B%E1%85%AF%E1%86%AB%E1%84%92%E1%85%A1%E1%84%82%E1%85%B3%E1%86%AB-%E1%84%86%E1%85%A9%E1%84%8B%E1%85%A3%E1%86%BC">https://62che.com/blog/vuepress/%EC%9D%B4%EB%AF%B8%EC%A7%80%EC%97%90-%EC%BA%A1%EC%85%98-%EB%8B%AC%EA%B8%B0.html#%E1%84%8B%E1%85%AF%E1%86%AB%E1%84%92%E1%85%A1%E1%84%82%E1%85%B3%E1%86%AB-%E1%84%86%E1%85%A9%E1%84%8B%E1%85%A3%E1%86%BC</a>
+<a href="https://yoophi.github.io/logs/vuepress/image-caption.html">https://yoophi.github.io/logs/vuepress/image-caption.html</a>
+</p>
+</div>]]></content><author><name>Mohitto55</name></author><category term="gitblog" /><category term="Git" /><category term="Blog" /><category term="minimal-mistake" /><category term="Jekyll" /><summary type="html"><![CDATA[이미지 캡션 이미지 아래 회색 글씨 캡션이란 위와 같이 이미지 아래 작은 글씨로 이미지에 대한 설명 글을 뜻한다. 한 문장으로 이미지에 대한 설명을 간략히 보여주기에 글을 이해하는데 도움을 주는 기능이다.]]></summary></entry><entry><title type="html">[C++] 백준 12865번-평범한 배낭</title><link href="http://localhost:4000/boj/BOJ-12865%EB%B2%88/" rel="alternate" type="text/html" title="[C++] 백준 12865번-평범한 배낭" /><published>2024-03-06T00:00:00+09:00</published><updated>2024-03-06T00:00:00+09:00</updated><id>http://localhost:4000/boj/BOJ%2012865%EB%B2%88</id><content type="html" xml:base="http://localhost:4000/boj/BOJ-12865%EB%B2%88/"><![CDATA[<p><a href="https://www.acmicpc.net/problem/12865">BOJ 12865-평범한 배낭</a></p>
 
 <h2 id="문제">문제</h2>
 <p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/a44cd234-e6ab-416d-ba26-dc7cc217c050" alt="image" /></p>
@@ -390,7 +557,7 @@ $ git push -u origin main
 
 <p>빨간색 포인트가 생략되는 부분이다.</p>
 
-<div class="callout-red-expanded">
+<div class="callout-warning-expanded">
 <div class="callout-header">주의사항</div>
 <p>
 만약 생략되는 구간에 command 함수가 들어가면 함수가 실행이 되지 않아 로직이 깨지는 side effect가 생길 수 있다. 이런 경우는 if 문 안이 아닌 밖에서 따로 실행 해줘야 한다.
@@ -574,109 +741,4 @@ $ git push -u origin main
 	<span class="n">BFS</span><span class="p">();</span>
 	<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">answer</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div></div>]]></content><author><name>Mohitto55</name></author><category term="boj" /><category term="boj" /><category term="백준" /><category term="solved" /><category term="문제풀이 2665번" /><summary type="html"><![CDATA[BOJ 2665-미로만들기]]></summary></entry><entry><title type="html">[Git Blog] Jekyll에서 emoji사용하기</title><link href="http://localhost:4000/gitblog/Jekyll-%EC%9D%B4%EB%AA%A8%EC%A7%80-%EC%A0%81%EC%9A%A9%EB%B2%95/" rel="alternate" type="text/html" title="[Git Blog] Jekyll에서 emoji사용하기" /><published>2024-02-22T00:00:00+09:00</published><updated>2024-02-22T00:00:00+09:00</updated><id>http://localhost:4000/gitblog/Jekyll%20%EC%9D%B4%EB%AA%A8%EC%A7%80%20%EC%A0%81%EC%9A%A9%EB%B2%95</id><content type="html" xml:base="http://localhost:4000/gitblog/Jekyll-%EC%9D%B4%EB%AA%A8%EC%A7%80-%EC%A0%81%EC%9A%A9%EB%B2%95/"><![CDATA[<h2 id="emoji">Emoji?</h2>
-<p>Jekyll 테마는 github의 <code class="language-plaintext highlighter-rouge">gemoji</code> 같이 <font color="red">::</font> 사이에 이름를 넣어 Emoji를 사용 할 수 있는 기능인 <code class="language-plaintext highlighter-rouge">jemoji</code>를 제공한다. 다만 기본적으로 제공하는 건 아니고 플러그인을 추가해줘야 한다.</p>
-
-<h3 id="jemoji-적용">jemoji 적용</h3>
-<p><code class="language-plaintext highlighter-rouge">Gemfile</code>에 jemoji를 추가한다.</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gem "jemoji"
-</code></pre></div></div>
-<p>그리고 <code class="language-plaintext highlighter-rouge">_config.yml</code>에도 jemoji 플러그인을 추가한다.</p>
-<blockquote>
-  <p>gem은 Ruby에서 지원하는 패키지 시스템이다.</p>
-</blockquote>
-
-<hr />
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>plugins:
-	...
-	- jemoji
-</code></pre></div></div>
-
-<p>그럼 <font color="red">::</font> 사이에 사용할 Emoji 이름을 넣어주면 된다. 예를 들어 white_check_mark를 넣으면 다음과 같이 나온다.
-<img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/032a9bbf-5bac-480e-9582-ef77e53c0aef" alt="image" /></p>
-
-<h2 id="커스텀-emoji-사용하기">커스텀 Emoji 사용하기</h2>
-<p>Jekyll에서 제공하는 Emoji는 GitHub.com CDN에서 가져오는 것들이다. 그래서 마음에 들지 않는 Emoji가 있을 수 있는데 자신이 원하는 Emoji를 로컬저장소에서 불러오는 방식으로 커스터마이징 할 수 있다. <code class="language-plaintext highlighter-rouge">_config.yml</code>파일에 아래 소스를 추가한다.</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>emoji:
-  src: "/assets/images"
-</code></pre></div></div>
-<p>그리고 <code class="language-plaintext highlighter-rouge">/assets/images/emoji/unicode</code>위치로가서 <code class="language-plaintext highlighter-rouge">유니코드.png</code>의 이미지 파일을 놓아주면 된다. 그러면 방금처럼 <code class="language-plaintext highlighter-rouge">:white_check_mark:</code>를 써보면 <img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/032a9bbf-5bac-480e-9582-ef77e53c0aef" alt="image" />였던 것이 :white_check_mark: 로 바뀐 것을 볼 수 있다.</p>
-
-<hr />
-<h3 id="유니코드-확인법">유니코드 확인법</h3>
-<p>유니코드는 이모지 유니코드 사이트에서 직접 찾거나</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bundle install
-bundle exec jekyll serve
-</code></pre></div></div>
-<p>로컬서버를 돌린 뒤 에러메시지로 사용할려는 Emoji의 유니코드.png가 없다고 나오는 걸 보고 적용해주면 된다.</p>
-
-<hr />
-<h2 id="page_with_curl-reference">:page_with_curl: Reference</h2>
-<blockquote>
-  <p><a href="https://github.com/jekyll/jemoji?tab=readme-ov-file">jemoji</a></p>
-
-  <p><a href="https://github.com/wooorm/gemoji">gemoji</a></p>
-</blockquote>]]></content><author><name>Mohitto55</name></author><category term="gitblog" /><category term="jekyll" /><category term="minimal-mistake" /><category term="emoji" /><category term="이모지" /><category term="jemoji" /><category term="gemoji" /><summary type="html"><![CDATA[Emoji? Jekyll 테마는 github의 gemoji 같이 :: 사이에 이름를 넣어 Emoji를 사용 할 수 있는 기능인 jemoji를 제공한다. 다만 기본적으로 제공하는 건 아니고 플러그인을 추가해줘야 한다.]]></summary></entry><entry><title type="html">SOLID 객체지향 5대원칙</title><link href="http://localhost:4000/cpp/SOLID-%EC%9B%90%EC%B9%99/" rel="alternate" type="text/html" title="SOLID 객체지향 5대원칙" /><published>2024-02-22T00:00:00+09:00</published><updated>2024-02-22T00:00:00+09:00</updated><id>http://localhost:4000/cpp/SOLID%20%EC%9B%90%EC%B9%99</id><content type="html" xml:base="http://localhost:4000/cpp/SOLID-%EC%9B%90%EC%B9%99/"><![CDATA[<h2 id="설명">설명</h2>
-<p>OOP(객체지향언어)를 개발 하면서 지켜야 할 5가지 원칙을 말한다. 많은 Design Pattern이 SOLID 원칙을 토대로 만들어졌기에 이 원칙을 숙지하면 Design Pattern 및 구조 설계를 하기 수월해진다.</p>
-
-<p>모든 코드에 반드시 적용할 필요는 없지만 좋은 설계를 위해선 해당 사항들을 의식하면서 작성하면 좋다.</p>
-
-<hr />
-
-<h3 id="장점">장점</h3>
-<ul>
-  <li>수정과 유지보수가 수월하다</li>
-</ul>
-
-<h3 id="단일-책임-원칙srp">단일 책임 원칙(<font color="dodgerred">S</font>RP)</h3>
-<ul>
-  <li>객체는 하나의 목적만 가지기</li>
-  <li><strong>모듈이 변경되는 이유는 한가지여야함</strong></li>
-  <li>모듈 다른 모듈에 대한 책임지면 안됨</li>
-</ul>
-
-<h3 id="개방-폐쇄-원칙ocp">개방 폐쇄 원칙(<font color="dodgerred">O</font>CP)</h3>
-<ul>
-  <li>모듈은 확장에 열려있고 수정엔 닫혀야함</li>
-  <li>추상화에 의존해야함</li>
-  <li><strong>인터페이스를 통해 과정이 어떻든 결과만 받기</strong></li>
-  <li>Inject 같은 느낌</li>
-  <li>과정이 어떻게 바뀌든 결과만 받으면 되니 확장이 용이하다</li>
-</ul>
-
-<h3 id="리스코프-치환-원칙lsp">리스코프 치환 원칙(<font color="dodgerred">L</font>SP)</h3>
-<ul>
-  <li>상위 클래스는 하위 클래스로 대체 될 수 있어야함</li>
-  <li>직사각형을 부모로 둔 정사각형이 resize로 가로 세로를 다르게 설정 못함</li>
-  <li>이럴 경우 resize못하게 막거나 [[C++ Overriding]]</li>
-  <li><strong>항상 사용하는 클라이언트 기준으로 생각하기</strong></li>
-</ul>
-
-<h3 id="인터페이스-분리-원칙isp">인터페이스 분리 원칙(<font color="dodgerred">I</font>SP)</h3>
-<ul>
-  <li>클라이언트 용도에 맞는 인터페이스만 제공</li>
-  <li><strong>하나의 Interface보단 구체적인 여러 Interface가 좋다</strong></li>
-  <li>그러면 불필요한 간섭이 줄어든다</li>
-  <li>다른 인터페이스에선 필요없는 정보를 안 알아도 되게 된다</li>
-</ul>
-
-<h3 id="의존-역전-원칙dip">의존 역전 원칙(<font color="dodgerred">D</font>IP)</h3>
-<ul>
-  <li>상위 모듈이 하위 모듈에 의존하면 안됨</li>
-  <li>상위가 갑 하위가 을 까라면 까기</li>
-  <li>상위-입출력과 먼 내부</li>
-  <li>하위-입풀력과 가까운 겉부분</li>
-  <li><strong>Interface, Virtual</strong>를 통해 모듈이 어떻든 값만 받기</li>
-  <li>OCP와 연관깊다</li>
-  <li>인터페이스는 적당히 만들기</li>
-</ul>
-
-<hr />
-
-<h2 id="page_with_curl-reference">:page_with_curl: Reference</h2>
-<blockquote>
-  <p><a href="https://inpa.tistory.com/entry/OOP-%F0%9F%92%A0-%EA%B0%9D%EC%B2%B4-%EC%A7%80%ED%96%A5-%EC%84%A4%EA%B3%84%EC%9D%98-5%EA%B0%80%EC%A7%80-%EC%9B%90%EC%B9%99-SOLID">Inpa Dev - 객체 지향 설계의 5가지 원칙 - S.O.L.I.D</a></p>
-
-  <p><a href="https://dev-cool.tistory.com/18">혼잣말하는 개발자 - 객체지향의 5대 원칙 SOLID</a></p>
-</blockquote>]]></content><author><name>Mohitto55</name></author><category term="cpp" /><category term="SOLID" /><category term="OOP" /><category term="객체지향" /><category term="객체지향5대원칙" /><category term="디자인패턴" /><category term="Design Pattern" /><summary type="html"><![CDATA[설명 OOP(객체지향언어)를 개발 하면서 지켜야 할 5가지 원칙을 말한다. 많은 Design Pattern이 SOLID 원칙을 토대로 만들어졌기에 이 원칙을 숙지하면 Design Pattern 및 구조 설계를 하기 수월해진다.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name>Mohitto55</name></author><category term="boj" /><category term="boj" /><category term="백준" /><category term="solved" /><category term="문제풀이 2665번" /><summary type="html"><![CDATA[BOJ 2665-미로만들기]]></summary></entry></feed>
