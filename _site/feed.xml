@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-03-09T21:46:04+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mohitto55 Note</title><subtitle>모히또의 노트</subtitle><author><name>Mohitto55</name></author><entry><title type="html">[VScode] Snippet을 이용해 템플릿 사용하기</title><link href="http://localhost:4000/vscode/VSCode-Snippets/" rel="alternate" type="text/html" title="[VScode] Snippet을 이용해 템플릿 사용하기" /><published>2024-03-09T00:00:00+09:00</published><updated>2024-03-09T00:00:00+09:00</updated><id>http://localhost:4000/vscode/VSCode%20Snippets</id><content type="html" xml:base="http://localhost:4000/vscode/VSCode-Snippets/"><![CDATA[<h2 id="snippet">Snippet</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-03-09T21:53:18+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mohitto55 Note</title><subtitle>모히또의 노트</subtitle><author><name>Mohitto55</name></author><entry><title type="html">[VScode] Snippet을 이용해 템플릿 사용하기</title><link href="http://localhost:4000/vscode/VSCode-Snippets/" rel="alternate" type="text/html" title="[VScode] Snippet을 이용해 템플릿 사용하기" /><published>2024-03-09T00:00:00+09:00</published><updated>2024-03-09T00:00:00+09:00</updated><id>http://localhost:4000/vscode/VSCode%20Snippets</id><content type="html" xml:base="http://localhost:4000/vscode/VSCode-Snippets/"><![CDATA[<h2 id="snippet">Snippet</h2>
 <blockquote>
   <p>스니펫(snippet)은 재사용 가능한 소스 코드, 기계어, 텍스트의 작은 부분을 일컫는 프로그래밍 용어이다. 사용자가 루틴 편집 조작 중 반복 타이핑을 회피할 수 있게 도와준다.
 -<a href="https://ko.wikipedia.org/wiki/%EC%8A%A4%EB%8B%88%ED%8E%AB">Wikipedia</a></p>
@@ -116,7 +116,7 @@ setting.json은 작업중인 프로젝트의 셋팅값을 설정하는 파일이
 <a href="https://junu-k.medium.com/vscode-%EA%BF%80%ED%8C%81-1-%EB%82%98%EB%A7%8C%EC%9D%98-%EC%8A%A4%EB%8B%88%ED%8E%AB-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0-28b6044a77d3">vscode 꿀팁: 나만의 스니펫 사용하기</a>
 <a href="https://gnews365.tistory.com/entry/vscode-settingjson-%EC%97%90-%EB%93%A4%EC%96%B4%EA%B0%80%EA%B8%B0-%EB%B9%84%EC%A3%BC%EC%96%BC-%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4-%EC%BD%94%EB%93%9C">vscode setting.json 에 들어가기</a>
 </p>
-</div>]]></content><author><name>Mohitto55</name></author><category term="vscode" /><category term="Vscode" /><category term="Snippet" /><category term="Template" /><category term="템플릿" /><category term="스니펫" /><category term="IDE" /><summary type="html"><![CDATA[Snippet 스니펫(snippet)은 재사용 가능한 소스 코드, 기계어, 텍스트의 작은 부분을 일컫는 프로그래밍 용어이다. 사용자가 루틴 편집 조작 중 반복 타이핑을 회피할 수 있게 도와준다. -Wikipedia]]></summary></entry><entry><title type="html">[Git Blog] 이미지 캡션 추가하기</title><link href="http://localhost:4000/gitblog/%EB%A7%88%ED%81%AC%EB%8B%A4%EC%9A%B4-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EC%BA%A1%EC%85%98/" rel="alternate" type="text/html" title="[Git Blog] 이미지 캡션 추가하기" /><published>2024-03-09T00:00:00+09:00</published><updated>2024-03-09T00:00:00+09:00</updated><id>http://localhost:4000/gitblog/%EB%A7%88%ED%81%AC%EB%8B%A4%EC%9A%B4%20%EC%9D%B4%EB%AF%B8%EC%A7%80%20%EC%BA%A1%EC%85%98</id><content type="html" xml:base="http://localhost:4000/gitblog/%EB%A7%88%ED%81%AC%EB%8B%A4%EC%9A%B4-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EC%BA%A1%EC%85%98/"><![CDATA[<h2 id="이미지-캡션">이미지 캡션</h2>
+</div>]]></content><author><name>Mohitto55</name></author><category term="vscode" /><category term="Vscode" /><category term="Snippet" /><category term="Template" /><category term="템플릿" /><category term="스니펫" /><category term="IDE" /><summary type="html"><![CDATA[Snippet 스니펫(snippet)은 재사용 가능한 소스 코드, 기계어, 텍스트의 작은 부분을 일컫는 프로그래밍 용어이다. 사용자가 루틴 편집 조작 중 반복 타이핑을 회피할 수 있게 도와준다. -Wikipedia]]></summary></entry><entry><title type="html">[Git Blog] 마크다운으로 이미지 캡션 추가하기</title><link href="http://localhost:4000/gitblog/%EB%A7%88%ED%81%AC%EB%8B%A4%EC%9A%B4-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EC%BA%A1%EC%85%98/" rel="alternate" type="text/html" title="[Git Blog] 마크다운으로 이미지 캡션 추가하기" /><published>2024-03-09T00:00:00+09:00</published><updated>2024-03-09T00:00:00+09:00</updated><id>http://localhost:4000/gitblog/%EB%A7%88%ED%81%AC%EB%8B%A4%EC%9A%B4%20%EC%9D%B4%EB%AF%B8%EC%A7%80%20%EC%BA%A1%EC%85%98</id><content type="html" xml:base="http://localhost:4000/gitblog/%EB%A7%88%ED%81%AC%EB%8B%A4%EC%9A%B4-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EC%BA%A1%EC%85%98/"><![CDATA[<h2 id="이미지-캡션">이미지 캡션</h2>
 <p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/4f373422-5831-4b69-8cd3-cef821f8f859" alt="image" /><em>이미지 아래 회색 글씨</em>
 캡션이란 위와 같이 이미지 아래 작은 글씨로 이미지에 대한 설명 글을 뜻한다. 한 문장으로 이미지에 대한 설명을 간략히 보여주기에 글을 이해하는데 도움을 주는 기능이다.</p>
 
@@ -125,16 +125,19 @@ setting.json은 작업중인 프로젝트의 셋팅값을 설정하는 파일이
 <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">![</span><span class="nv">이름</span><span class="p">](</span><span class="sx">링크</span><span class="p">)</span>
 </code></pre></div></div>
 
-<p>minimal-mistake 블로그 글을 쓸 때 이미지 표시를 주로 마크다운 기능을 이용해서 작성하는데 아쉽게도 마크다운에선 캡션 기능을 지원하고 있지 않다. <strong>css</strong>를 이용하면 구현이 되지만 <strong>html</strong>태그를 작성해야 하기에 어떻게든 마크다운 만으로 캡션기능을 넣고 싶어 이것 저것 찾아봤다.</p>
+<p>minimal-mistake 블로그 글을 쓸 때 이미지 표시를 주로 마크다운 기능을 이용해서 작성하는데 아쉽게도 마크다운에선 캡션 기능을 지원하고 있지 않다.</p>
+
+<p><strong>css</strong>를 이용하면 구현이 되지만 <strong>html</strong>태그를 작성해야 하기에 어떻게든 마크다운 만으로 캡션기능을 넣고 싶어 이것 저것 찾아봤다.</p>
 
 <hr />
 
 <h3 id="markdown-이미지-캡션-사용법">Markdown 이미지 캡션 사용법</h3>
-<p>html태그를 쓰지 않으면서 마크다운 만으로 캡션을 넣는 방법이 있다. 다만 css를 이용해야 하는데</p>
 <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">![</span><span class="nv">이름</span><span class="p">](</span><span class="sx">링크</span><span class="p">)</span><span class="ge">*캡션내용*</span>
 </code></pre></div></div>
 <p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/429cfcbd-d2e3-464b-84c3-7f6affb15c4d" alt="image" class="width-half" /><em>em 태그가 만들어진다</em>
-위와 같이 이미지 링크 바로 뒤에 <em>Italics</em>글씨체로 바꿔주는 ** 문법을 넣는다. 해당 문법은 블로그 페이지가 생성될 시 em태그로 변환되어 지는데 css에서 <strong>em</strong>태그 속성을 변경해주면 된다.</p>
+html태그를 쓰지 않으면서 마크다운 만으로 캡션을 넣는 방법이 있다. 마크다운 이미지 링크 바로 뒤에 <em>Italics</em>글씨체로 바꿔주는 ** 문법을 넣는다.</p>
+
+<p>해당 문법은 블로그 페이지가 생성될 시 em태그로 변환되어 지는데 css에서 <strong>em</strong>태그 속성을 변경하는 방식으로 캡션 기능을 만든다.</p>
 
 <hr />
 <h4 id="css-추가">CSS 추가</h4>
@@ -164,8 +167,9 @@ setting.json은 작업중인 프로젝트의 셋팅값을 설정하는 파일이
 <p>
 <a href="https://62che.com/blog/vuepress/%EC%9D%B4%EB%AF%B8%EC%A7%80%EC%97%90-%EC%BA%A1%EC%85%98-%EB%8B%AC%EA%B8%B0.html#%E1%84%8B%E1%85%AF%E1%86%AB%E1%84%92%E1%85%A1%E1%84%82%E1%85%B3%E1%86%AB-%E1%84%86%E1%85%A9%E1%84%8B%E1%85%A3%E1%86%BC">https://62che.com/blog/vuepress/%EC%9D%B4%EB%AF%B8%EC%A7%80%EC%97%90-%EC%BA%A1%EC%85%98-%EB%8B%AC%EA%B8%B0.html#%E1%84%8B%E1%85%AF%E1%86%AB%E1%84%92%E1%85%A1%E1%84%82%E1%85%B3%E1%86%AB-%E1%84%86%E1%85%A9%E1%84%8B%E1%85%A3%E1%86%BC</a>
 <a href="https://yoophi.github.io/logs/vuepress/image-caption.html">https://yoophi.github.io/logs/vuepress/image-caption.html</a>
+<a href="https://stackoverflow.com/questions/19331362/using-an-image-caption-in-markdown-jekyll">https://stackoverflow.com/questions/19331362/using-an-image-caption-in-markdown-jekyll</a>
 </p>
-</div>]]></content><author><name>Mohitto55</name></author><category term="gitblog" /><category term="Git" /><category term="Blog" /><category term="minimal-mistake" /><category term="Jekyll" /><summary type="html"><![CDATA[이미지 캡션 이미지 아래 회색 글씨 캡션이란 위와 같이 이미지 아래 작은 글씨로 이미지에 대한 설명 글을 뜻한다. 한 문장으로 이미지에 대한 설명을 간략히 보여주기에 글을 이해하는데 도움을 주는 기능이다.]]></summary></entry><entry><title type="html">[C++] 백준 12865번-평범한 배낭</title><link href="http://localhost:4000/boj/BOJ-12865%EB%B2%88/" rel="alternate" type="text/html" title="[C++] 백준 12865번-평범한 배낭" /><published>2024-03-06T00:00:00+09:00</published><updated>2024-03-06T00:00:00+09:00</updated><id>http://localhost:4000/boj/BOJ%2012865%EB%B2%88</id><content type="html" xml:base="http://localhost:4000/boj/BOJ-12865%EB%B2%88/"><![CDATA[<p><a href="https://www.acmicpc.net/problem/12865">BOJ 12865-평범한 배낭</a></p>
+</div>]]></content><author><name>Mohitto55</name></author><category term="gitblog" /><category term="Git" /><category term="Blog" /><category term="minimal-mistake" /><category term="Jekyll" /><category term="Markdown" /><category term="Caption" /><category term="마크다운" /><category term="캡션" /><summary type="html"><![CDATA[이미지 캡션 이미지 아래 회색 글씨 캡션이란 위와 같이 이미지 아래 작은 글씨로 이미지에 대한 설명 글을 뜻한다. 한 문장으로 이미지에 대한 설명을 간략히 보여주기에 글을 이해하는데 도움을 주는 기능이다.]]></summary></entry><entry><title type="html">[C++] 백준 12865번-평범한 배낭</title><link href="http://localhost:4000/boj/BOJ-12865%EB%B2%88/" rel="alternate" type="text/html" title="[C++] 백준 12865번-평범한 배낭" /><published>2024-03-06T00:00:00+09:00</published><updated>2024-03-06T00:00:00+09:00</updated><id>http://localhost:4000/boj/BOJ%2012865%EB%B2%88</id><content type="html" xml:base="http://localhost:4000/boj/BOJ-12865%EB%B2%88/"><![CDATA[<p><a href="https://www.acmicpc.net/problem/12865">BOJ 12865-평범한 배낭</a></p>
 
 <h2 id="문제">문제</h2>
 <p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/a44cd234-e6ab-416d-ba26-dc7cc217c050" alt="image" /></p>

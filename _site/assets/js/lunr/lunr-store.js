@@ -149,9 +149,9 @@ var store = [{
         "url": "/vscode/VSCode-Snippets/",
         "teaser": null
       },{
-        "title": "[Git Blog] 이미지 캡션 추가하기",
+        "title": "[Git Blog] 마크다운으로 이미지 캡션 추가하기",
         "excerpt":"이미지 캡션 이미지 아래 회색 글씨 캡션이란 위와 같이 이미지 아래 작은 글씨로 이미지에 대한 설명 글을 뜻한다. 한 문장으로 이미지에 대한 설명을 간략히 보여주기에 글을 이해하는데 도움을 주는 기능이다. Markdown 이미지 ![이름](링크) minimal-mistake 블로그 글을 쓸 때 이미지 표시를 주로 마크다운 기능을 이용해서 작성하는데 아쉽게도 마크다운에선 캡션 기능을 지원하고...","categories": ["gitblog"],
-        "tags": ["Git","Blog","minimal-mistake","Jekyll"],
+        "tags": ["Git","Blog","minimal-mistake","Jekyll","Markdown","Caption","마크다운","캡션"],
         "url": "/gitblog/%EB%A7%88%ED%81%AC%EB%8B%A4%EC%9A%B4-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EC%BA%A1%EC%85%98/",
         "teaser": null
       }]
