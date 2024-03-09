@@ -194,11 +194,14 @@ blockquote {
   background-color: rgb(255, 245, 245);
   border-color: rgb(238, 101, 101);
   .callout-header{
-    background-color: rgb(255, 157, 157);
-    color: rgb(214, 55, 55);
+    background-color: rgb(238, 101, 101);
+    color: rgb(247, 247, 247);
   }
   .callout-header::before{
     background-image: url('images/warning.png');
+    background-size: 1.8em 1.8em;
+    width: 1.8em;
+    height: 1.8em;
   }
 }
 
