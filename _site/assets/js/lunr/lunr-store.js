@@ -154,4 +154,10 @@ var store = [{
         "tags": ["Git","Blog","minimal-mistake","Jekyll","Markdown","Caption","마크다운","캡션"],
         "url": "/gitblog/%EB%A7%88%ED%81%AC%EB%8B%A4%EC%9A%B4-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EC%BA%A1%EC%85%98/",
         "teaser": null
+      },{
+        "title": "[UE5] 프로젝트 폴더 정리본",
+        "excerpt":"폴더를 알아야 최적화 어쩌구 해서 정리해본다 aaa 중요한 폴더 파일 및 폴더 설명 Config - 프로젝트의 환경 설정 값을 보관하는 곳 - 지우면 기본 설정 값으로 바뀐다 Content - 프로젝트에서 사용하는 .uasset 파일들이 있는 폴더 Source - C++ 소스가 있는 폴더 - 모듈 소스와 빌드 파이프라인 C# 소스도 있다. .uproject파일...","categories": ["ue5"],
+        "tags": ["UnrealEngine5","Folder","UE5","uproject"],
+        "url": "/ue5/%EC%96%B8%EB%A6%AC%EC%96%BC-%ED%8F%B4%EB%8D%94-%EC%A0%95%EB%A6%AC/",
+        "teaser": null
       }]
