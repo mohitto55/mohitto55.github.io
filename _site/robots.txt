@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://mohitto55.github.io/my-sitemap.xml
+Sitemap: https://mohitto55.github.io/sitemap.xml

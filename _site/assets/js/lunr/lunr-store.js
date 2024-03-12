@@ -155,9 +155,9 @@ var store = [{
         "url": "/gitblog/%EB%A7%88%ED%81%AC%EB%8B%A4%EC%9A%B4-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EC%BA%A1%EC%85%98/",
         "teaser": null
       },{
-        "title": "[UE5] 프로젝트 폴더 정리본",
-        "excerpt":"폴더를 알아야 최적화 어쩌구 해서 정리해본다 aaa 중요한 폴더 파일 및 폴더 설명 Config - 프로젝트의 환경 설정 값을 보관하는 곳 - 지우면 기본 설정 값으로 바뀐다 Content - 프로젝트에서 사용하는 .uasset 파일들이 있는 폴더 Source - C++ 소스가 있는 폴더 - 모듈 소스와 빌드 파이프라인 C# 소스도 있다. .uproject파일...","categories": ["ue5"],
-        "tags": ["UnrealEngine5","Folder","UE5","uproject"],
-        "url": "/ue5/%EC%96%B8%EB%A6%AC%EC%96%BC-%ED%8F%B4%EB%8D%94-%EC%A0%95%EB%A6%AC/",
+        "title": "[Algorithm] GCD 최소공약수 알고리즘",
+        "excerpt":"예전 블로그에서 GCD에 관한 글을 작성하였는데 너무 오래되어 기억이 안나서 다시 재 작성하기로 했다. 최대공약수, 최소공배수의 개념 최대공약수 : 두 수의 약수 중 가장 큰 공통된 약수 최소공배수 : 두 수의 배수 중 가장 작은 공통된 배수 유클리드 알고리즘 두 자연수의 최대 공약수(Greatest Common Divisor)를 찾는 알고리즘을 뜻한다. 유클리드 알고리즘으로...","categories": ["algorithm"],
+        "tags": ["Algorighm","최대공약수","최소공배수","GCD","LCM","유클리드 호제법","유클리드 알고리즘"],
+        "url": "/algorithm/GCD-%EC%B5%9C%EB%8C%80%EA%B3%B5%EC%95%BD%EC%88%98-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/",
         "teaser": null
       }]

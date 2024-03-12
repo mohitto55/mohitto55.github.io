@@ -1,4 +1,104 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-03-09T22:14:30+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mohitto55 Note</title><subtitle>모히또의 노트</subtitle><author><name>Mohitto55</name></author><entry><title type="html">[VScode] Snippet을 이용해 템플릿 사용하기</title><link href="http://localhost:4000/vscode/VSCode-Snippets/" rel="alternate" type="text/html" title="[VScode] Snippet을 이용해 템플릿 사용하기" /><published>2024-03-09T00:00:00+09:00</published><updated>2024-03-09T00:00:00+09:00</updated><id>http://localhost:4000/vscode/VSCode%20Snippets</id><content type="html" xml:base="http://localhost:4000/vscode/VSCode-Snippets/"><![CDATA[<h2 id="snippet">Snippet</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-03-12T22:01:29+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mohitto55 Note</title><subtitle>모히또의 노트</subtitle><author><name>Mohitto55</name></author><entry><title type="html">[Algorithm] GCD 최소공약수 알고리즘</title><link href="http://localhost:4000/algorithm/GCD-%EC%B5%9C%EB%8C%80%EA%B3%B5%EC%95%BD%EC%88%98-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/" rel="alternate" type="text/html" title="[Algorithm] GCD 최소공약수 알고리즘" /><published>2024-03-12T00:00:00+09:00</published><updated>2024-03-12T00:00:00+09:00</updated><id>http://localhost:4000/algorithm/GCD%20%EC%B5%9C%EB%8C%80%EA%B3%B5%EC%95%BD%EC%88%98%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98</id><content type="html" xml:base="http://localhost:4000/algorithm/GCD-%EC%B5%9C%EB%8C%80%EA%B3%B5%EC%95%BD%EC%88%98-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/"><![CDATA[<p>예전 블로그에서 GCD에 관한 글을 작성하였는데 너무 오래되어 기억이 안나서 다시 재 작성하기로 했다.</p>
+
+<h2 id="최대공약수-최소공배수의-개념">최대공약수, 최소공배수의 개념</h2>
+<ul>
+  <li>최대공약수 : 두 수의 약수 중 가장 큰 공통된 약수</li>
+  <li>최소공배수 : 두 수의 배수 중 가장 작은 공통된 배수</li>
+</ul>
+
+<h2 id="유클리드-알고리즘">유클리드 알고리즘</h2>
+<p>두 자연수의 최대 공약수(Greatest Common Divisor)를 찾는 알고리즘을 뜻한다.
+유클리드 알고리즘으로 푸는 법은 두개가 있다.</p>
+
+<h3 id="첫-번째">첫 번째</h3>
+<ul>
+  <li>a &gt; b 일 경우 GCD(a,b) = GCD(a-b,b)</li>
+  <li>a &lt; b 일 경우 GCD(a,b) = GCD(a, b-a)</li>
+  <li>a == b 일 경우 GCD(a,a)=a 이면 최대 공약수이다.</li>
+</ul>
+
+<hr />
+
+<h4 id="재귀함수-구현">재귀함수 구현</h4>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">GCD</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="n">GCD</span><span class="p">(</span><span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span>
+	<span class="p">}</span>
+	<span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">&lt;</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="n">GCD</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">-</span> <span class="n">a</span><span class="p">);</span>
+	<span class="p">}</span>
+	<span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="n">a</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<hr />
+
+<h4 id="반복문-구현">반복문 구현</h4>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">GCD</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">while</span> <span class="p">(</span><span class="n">a</span> <span class="o">!=</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span><span class="p">)</span>
+			<span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="p">;</span>
+		<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">&lt;</span> <span class="n">b</span><span class="p">)</span>
+			<span class="n">b</span> <span class="o">=</span> <span class="n">b</span> <span class="o">-</span> <span class="n">a</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="k">return</span> <span class="n">a</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<hr />
+
+<h3 id="두-번째-방법">두 번째 방법</h3>
+<h4 id="원리">원리</h4>
+<blockquote>
+  <p>2개의 자연수(또는 정식) a, b에 대해서 a를 b로 나눈 나머지를 r이라 하면(단, a&gt;b), a와 b의 최대공약수는 b와 r의 최대공약수와 같다.</p>
+
+  <p>이 성질에 따라, b를 r로 나눈 나머지 r’를 구하고, 다시 r을 r’로 나눈 나머지를 구하는 과정을 반복하여 나머지가 0이 되었을 때 나누는 수가 a와 b의 최대공약수이다.</p>
+  <ul>
+    <li>위키백과</li>
+  </ul>
+</blockquote>
+
+<p>A&gt;B일 때 A%B=r 이고 GCD(A,B) = GCD(B,r) 임을 이용하여 푼다.</p>
+
+<p>A % B = r,  B % r = r’ .. 를 반복해 나머지가 0이면 최대공약수이다.</p>
+
+<hr />
+
+<h4 id="반복문-구현-1">반복문 구현</h4>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">GCD</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+	<span class="kt">int</span> <span class="n">c</span><span class="p">;</span>
+	<span class="k">while</span> <span class="p">(</span><span class="n">b</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+		<span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">%</span> <span class="n">b</span><span class="p">;</span>
+		<span class="n">a</span> <span class="o">=</span> <span class="n">b</span><span class="p">;</span>
+		<span class="n">b</span> <span class="o">=</span> <span class="n">c</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="k">return</span> <span class="n">a</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<hr />
+
+<h4 id="재귀함수-구현-1">재귀함수 구현</h4>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">GCD</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="n">b</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">?</span> <span class="n">a</span> <span class="o">:</span> <span class="n">GCD</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">%</span> <span class="n">b</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="최소공배수lcm-구현">최소공배수(LCM) 구현</h2>
+<p>최소공배수 * 최대공약수 = a * b 임을 이용하여 푼다.</p>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">LCM</span> <span class="o">=</span> <span class="n">A</span> <span class="o">*</span> <span class="n">B</span> <span class="o">/</span> <span class="n">GCD</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">);</span>
+</code></pre></div></div>
+
+<hr />
+
+<div class="Reference">
+<div class="callout-header"> </div>
+<p>
+<a href="https://seunghyum.github.io/algorithm/Euclidean-algorithm/#">https://seunghyum.github.io/algorithm/Euclidean-algorithm/#</a>
+</p>
+</div>]]></content><author><name>Mohitto55</name></author><category term="algorithm" /><category term="Algorighm" /><category term="최대공약수" /><category term="최소공배수" /><category term="GCD" /><category term="LCM" /><category term="유클리드 호제법" /><category term="유클리드 알고리즘" /><summary type="html"><![CDATA[예전 블로그에서 GCD에 관한 글을 작성하였는데 너무 오래되어 기억이 안나서 다시 재 작성하기로 했다.]]></summary></entry><entry><title type="html">[VScode] Snippet을 이용해 템플릿 사용하기</title><link href="http://localhost:4000/vscode/VSCode-Snippets/" rel="alternate" type="text/html" title="[VScode] Snippet을 이용해 템플릿 사용하기" /><published>2024-03-09T00:00:00+09:00</published><updated>2024-03-09T00:00:00+09:00</updated><id>http://localhost:4000/vscode/VSCode%20Snippets</id><content type="html" xml:base="http://localhost:4000/vscode/VSCode-Snippets/"><![CDATA[<h2 id="snippet">Snippet</h2>
 <blockquote>
   <p>스니펫(snippet)은 재사용 가능한 소스 코드, 기계어, 텍스트의 작은 부분을 일컫는 프로그래밍 용어이다. 사용자가 루틴 편집 조작 중 반복 타이핑을 회피할 수 있게 도와준다.
 -<a href="https://ko.wikipedia.org/wiki/%EC%8A%A4%EB%8B%88%ED%8E%AB">Wikipedia</a></p>
@@ -116,56 +216,7 @@ setting.json은 작업중인 프로젝트의 셋팅값을 설정하는 파일이
 <a href="https://junu-k.medium.com/vscode-%EA%BF%80%ED%8C%81-1-%EB%82%98%EB%A7%8C%EC%9D%98-%EC%8A%A4%EB%8B%88%ED%8E%AB-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0-28b6044a77d3">vscode 꿀팁: 나만의 스니펫 사용하기</a>
 <a href="https://gnews365.tistory.com/entry/vscode-settingjson-%EC%97%90-%EB%93%A4%EC%96%B4%EA%B0%80%EA%B8%B0-%EB%B9%84%EC%A3%BC%EC%96%BC-%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4-%EC%BD%94%EB%93%9C">vscode setting.json 에 들어가기</a>
 </p>
-</div>]]></content><author><name>Mohitto55</name></author><category term="vscode" /><category term="Vscode" /><category term="Snippet" /><category term="Template" /><category term="템플릿" /><category term="스니펫" /><category term="IDE" /><summary type="html"><![CDATA[Snippet 스니펫(snippet)은 재사용 가능한 소스 코드, 기계어, 텍스트의 작은 부분을 일컫는 프로그래밍 용어이다. 사용자가 루틴 편집 조작 중 반복 타이핑을 회피할 수 있게 도와준다. -Wikipedia]]></summary></entry><entry><title type="html">[UE5] 프로젝트 폴더 정리본</title><link href="http://localhost:4000/ue5/%EC%96%B8%EB%A6%AC%EC%96%BC-%ED%8F%B4%EB%8D%94-%EC%A0%95%EB%A6%AC/" rel="alternate" type="text/html" title="[UE5] 프로젝트 폴더 정리본" /><published>2024-03-09T00:00:00+09:00</published><updated>2024-03-09T00:00:00+09:00</updated><id>http://localhost:4000/ue5/%EC%96%B8%EB%A6%AC%EC%96%BC%20%ED%8F%B4%EB%8D%94%20%EC%A0%95%EB%A6%AC</id><content type="html" xml:base="http://localhost:4000/ue5/%EC%96%B8%EB%A6%AC%EC%96%BC-%ED%8F%B4%EB%8D%94-%EC%A0%95%EB%A6%AC/"><![CDATA[<p>폴더를 알아야 최적화 어쩌구 해서 정리해본다</p>
-
-<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/f497b94b-a94d-492f-bebc-bb0e864c4e75" alt="image" /><em>aaa</em></p>
-
-<h2 id="중요한-폴더">중요한 폴더</h2>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: center">파일 및 폴더</th>
-      <th><center>설명</center></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: center">Config</td>
-      <td>- 프로젝트의 환경 설정 값을 보관하는 곳<br />- 지우면 기본 설정 값으로 바뀐다</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">Content</td>
-      <td>- 프로젝트에서 사용하는 .uasset 파일들이 있는 폴더</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">Source</td>
-      <td>- C++ 소스가 있는 폴더<br />- <strong>모듈</strong> 소스와 빌드 파이프라인 C# 소스도 있다.</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">.uproject파일</td>
-      <td>- 언리얼 에디터를 구동 시키는 JSON 파일</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="안-중요한-폴더">안 중요한 폴더</h2>
-<p>|파일 및 폴더|<center>설명</center>|
-|:—:|—|
-|Binaries|- 컴파일 도중 생성되는 실행 파일이나 기타파일이 있다.|
-|Intermediate|- 엔진이나 게임 빌드 도중 생성되는 임시 파일.<br />- 게임 디렉터리에서 셰이더는 이 폴더에 있다.|
-|||
-|.sln|- C++ 소스가 있는 폴더<br />- <strong>모듈</strong> 소스와 빌드 파이프라인 C# 소스도 있다.|
-|.vs|- 언리얼 에디터를 구동 시키는 JSON 파일|</p>
-
-<div class="Reference">
-<div class="callout-header"> </div>
-<p>
-<a href="https://docs.unrealengine.com/5.0/ko/unreal-engine-directory-structure/">https://docs.unrealengine.com/5.0/ko/unreal-engine-directory-structure/</a>
-<a href="https://leeporter.tistory.com/10#%E-%--%B-%--%EC%--%-C%EC%-A%A-%EB%B-%-C%EB%--%-C%--%-B%--%ED%--%-C%EB%-F%AC%EA%B-%B-%EC%-D%B-%--%EC%B-%--%EA%B-%--%--%-B%--%ED%-C%A-%ED%--%A-%EC%A-%--%EA%B-%-C%EC%A-%--%--%EB%A-%--%EC%B-%-C%--%EC%B-%-C%EC%A-%--%--%ED%--%--%EB%A-%-C%EC%A-%-D%ED%-A%B-%--%ED%-F%B-%EB%-D%--%--%EA%B-%AC%EC%A-%B--C%-B%-B-">[언리얼 엔진] 프로젝트 폴더 구조 및 용량 관리</a>
-<a href="https://jiyun-hong.tistory.com/78">https://jiyun-hong.tistory.com/78</a>
-</p>
-</div>]]></content><author><name>Mohitto55</name></author><category term="ue5" /><category term="UnrealEngine5" /><category term="Folder" /><category term="UE5" /><category term="uproject" /><summary type="html"><![CDATA[폴더를 알아야 최적화 어쩌구 해서 정리해본다]]></summary></entry><entry><title type="html">[Git Blog] 마크다운으로 이미지 캡션 추가하기</title><link href="http://localhost:4000/gitblog/%EB%A7%88%ED%81%AC%EB%8B%A4%EC%9A%B4-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EC%BA%A1%EC%85%98/" rel="alternate" type="text/html" title="[Git Blog] 마크다운으로 이미지 캡션 추가하기" /><published>2024-03-09T00:00:00+09:00</published><updated>2024-03-09T00:00:00+09:00</updated><id>http://localhost:4000/gitblog/%EB%A7%88%ED%81%AC%EB%8B%A4%EC%9A%B4%20%EC%9D%B4%EB%AF%B8%EC%A7%80%20%EC%BA%A1%EC%85%98</id><content type="html" xml:base="http://localhost:4000/gitblog/%EB%A7%88%ED%81%AC%EB%8B%A4%EC%9A%B4-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EC%BA%A1%EC%85%98/"><![CDATA[<h2 id="이미지-캡션">이미지 캡션</h2>
+</div>]]></content><author><name>Mohitto55</name></author><category term="vscode" /><category term="Vscode" /><category term="Snippet" /><category term="Template" /><category term="템플릿" /><category term="스니펫" /><category term="IDE" /><summary type="html"><![CDATA[Snippet 스니펫(snippet)은 재사용 가능한 소스 코드, 기계어, 텍스트의 작은 부분을 일컫는 프로그래밍 용어이다. 사용자가 루틴 편집 조작 중 반복 타이핑을 회피할 수 있게 도와준다. -Wikipedia]]></summary></entry><entry><title type="html">[Git Blog] 마크다운으로 이미지 캡션 추가하기</title><link href="http://localhost:4000/gitblog/%EB%A7%88%ED%81%AC%EB%8B%A4%EC%9A%B4-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EC%BA%A1%EC%85%98/" rel="alternate" type="text/html" title="[Git Blog] 마크다운으로 이미지 캡션 추가하기" /><published>2024-03-09T00:00:00+09:00</published><updated>2024-03-09T00:00:00+09:00</updated><id>http://localhost:4000/gitblog/%EB%A7%88%ED%81%AC%EB%8B%A4%EC%9A%B4%20%EC%9D%B4%EB%AF%B8%EC%A7%80%20%EC%BA%A1%EC%85%98</id><content type="html" xml:base="http://localhost:4000/gitblog/%EB%A7%88%ED%81%AC%EB%8B%A4%EC%9A%B4-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EC%BA%A1%EC%85%98/"><![CDATA[<h2 id="이미지-캡션">이미지 캡션</h2>
 <p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/4f373422-5831-4b69-8cd3-cef821f8f859" alt="image" /><em>이미지 아래 회색 글씨</em>
 캡션이란 위와 같이 이미지 아래 작은 글씨로 이미지에 대한 설명 글을 뜻한다. 한 문장으로 이미지에 대한 설명을 간략히 보여주기에 글을 이해하는데 도움을 주는 기능이다.</p>
 
