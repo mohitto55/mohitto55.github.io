@@ -5,7 +5,7 @@ tags: [Unreal Engine5, Actor, Pawn, Character, Component, UE5]
 ---
 
 언리얼 엔진에선 화면상에 움직이는 객체들을 Actor라고 한다.
-Actor는 3가지 종류가 있으며 각각 알맞은 상황에 쓰인다.
+Actor는 3가지 종류가 있으며 각각 적합한 상황에 쓰인다.
 
 
 ## Actor

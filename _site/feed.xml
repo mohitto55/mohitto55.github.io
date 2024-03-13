@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-03-12T22:01:29+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mohitto55 Note</title><subtitle>모히또의 노트</subtitle><author><name>Mohitto55</name></author><entry><title type="html">[Algorithm] GCD 최소공약수 알고리즘</title><link href="http://localhost:4000/algorithm/GCD-%EC%B5%9C%EB%8C%80%EA%B3%B5%EC%95%BD%EC%88%98-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/" rel="alternate" type="text/html" title="[Algorithm] GCD 최소공약수 알고리즘" /><published>2024-03-12T00:00:00+09:00</published><updated>2024-03-12T00:00:00+09:00</updated><id>http://localhost:4000/algorithm/GCD%20%EC%B5%9C%EB%8C%80%EA%B3%B5%EC%95%BD%EC%88%98%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98</id><content type="html" xml:base="http://localhost:4000/algorithm/GCD-%EC%B5%9C%EB%8C%80%EA%B3%B5%EC%95%BD%EC%88%98-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/"><![CDATA[<p>예전 블로그에서 GCD에 관한 글을 작성하였는데 너무 오래되어 기억이 안나서 다시 재 작성하기로 했다.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-03-13T10:09:33+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mohitto55 Note</title><subtitle>모히또의 노트</subtitle><author><name>Mohitto55</name></author><entry><title type="html">[Algorithm] GCD 최소공약수 알고리즘</title><link href="http://localhost:4000/algorithm/GCD-%EC%B5%9C%EB%8C%80%EA%B3%B5%EC%95%BD%EC%88%98-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/" rel="alternate" type="text/html" title="[Algorithm] GCD 최소공약수 알고리즘" /><published>2024-03-12T00:00:00+09:00</published><updated>2024-03-12T00:00:00+09:00</updated><id>http://localhost:4000/algorithm/GCD%20%EC%B5%9C%EB%8C%80%EA%B3%B5%EC%95%BD%EC%88%98%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98</id><content type="html" xml:base="http://localhost:4000/algorithm/GCD-%EC%B5%9C%EB%8C%80%EA%B3%B5%EC%95%BD%EC%88%98-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/"><![CDATA[<p>예전 블로그에서 GCD에 관한 글을 작성하였는데 너무 오래되어 기억이 안나서 다시 재 작성하기로 했다.</p>
 
 <h2 id="최대공약수-최소공배수의-개념">최대공약수, 최소공배수의 개념</h2>
 <ul>
@@ -269,7 +269,70 @@ html태그를 쓰지 않으면서 마크다운 만으로 캡션을 넣는 방법
 <a href="https://yoophi.github.io/logs/vuepress/image-caption.html">https://yoophi.github.io/logs/vuepress/image-caption.html</a>
 <a href="https://stackoverflow.com/questions/19331362/using-an-image-caption-in-markdown-jekyll">https://stackoverflow.com/questions/19331362/using-an-image-caption-in-markdown-jekyll</a>
 </p>
-</div>]]></content><author><name>Mohitto55</name></author><category term="gitblog" /><category term="Git" /><category term="Blog" /><category term="minimal-mistake" /><category term="Jekyll" /><category term="Markdown" /><category term="Caption" /><category term="마크다운" /><category term="캡션" /><summary type="html"><![CDATA[이미지 캡션 이미지 아래 회색 글씨 캡션이란 위와 같이 이미지 아래 작은 글씨로 이미지에 대한 설명 글을 뜻한다. 한 문장으로 이미지에 대한 설명을 간략히 보여주기에 글을 이해하는데 도움을 주는 기능이다.]]></summary></entry><entry><title type="html">[Algorithm] Dynamic Programming(동적 계획법) 설명</title><link href="http://localhost:4000/algorithm/%EB%8F%99%EC%A0%81%EA%B3%84%ED%9A%8D%EB%B2%95-%EC%84%A4%EB%AA%85/" rel="alternate" type="text/html" title="[Algorithm] Dynamic Programming(동적 계획법) 설명" /><published>2024-03-06T00:00:00+09:00</published><updated>2024-03-06T00:00:00+09:00</updated><id>http://localhost:4000/algorithm/%EB%8F%99%EC%A0%81%EA%B3%84%ED%9A%8D%EB%B2%95%20%EC%84%A4%EB%AA%85</id><content type="html" xml:base="http://localhost:4000/algorithm/%EB%8F%99%EC%A0%81%EA%B3%84%ED%9A%8D%EB%B2%95-%EC%84%A4%EB%AA%85/"><![CDATA[<h2 id="dynamic-programming">Dynamic Programming</h2>
+</div>]]></content><author><name>Mohitto55</name></author><category term="gitblog" /><category term="Git" /><category term="Blog" /><category term="minimal-mistake" /><category term="Jekyll" /><category term="Markdown" /><category term="Caption" /><category term="마크다운" /><category term="캡션" /><summary type="html"><![CDATA[이미지 캡션 이미지 아래 회색 글씨 캡션이란 위와 같이 이미지 아래 작은 글씨로 이미지에 대한 설명 글을 뜻한다. 한 문장으로 이미지에 대한 설명을 간략히 보여주기에 글을 이해하는데 도움을 주는 기능이다.]]></summary></entry><entry><title type="html">[C++] 백준 12865번-평범한 배낭</title><link href="http://localhost:4000/boj/BOJ-12865%EB%B2%88/" rel="alternate" type="text/html" title="[C++] 백준 12865번-평범한 배낭" /><published>2024-03-06T00:00:00+09:00</published><updated>2024-03-06T00:00:00+09:00</updated><id>http://localhost:4000/boj/BOJ%2012865%EB%B2%88</id><content type="html" xml:base="http://localhost:4000/boj/BOJ-12865%EB%B2%88/"><![CDATA[<p><a href="https://www.acmicpc.net/problem/12865">BOJ 12865-평범한 배낭</a></p>
+
+<h2 id="문제">문제</h2>
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/a44cd234-e6ab-416d-ba26-dc7cc217c050" alt="image" /></p>
+
+<div class="code-block1">
+예제 입력
+<div class="language-cpp highlighter-rouge">
+<div class="highlight">
+<pre class="highlight"><code>4 7
+6 13
+4 8
+3 6
+5 12</code></pre></div></div></div>
+
+<div class="code-block2">
+에제 출력
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight">
+<code>14</code></pre></div></div></div>
+
+<h2 id="풀이">풀이</h2>
+<p>DP를 이용하는 <strong>냅색(Knapsack)</strong>문제다.</p>
+<ul>
+  <li>물건을 넣는 경우와 안넣는 경우 두가지에 대한 모든 경우의 수 중 무게가 k보다 안 높고 value가 가장 높은 경우를 구한다.</li>
+  <li>필요없는 경우의 수를 제외하기 위해 flag[무게 합][탐색 중인 배낭 Index]의 값에 가장 높은 value값을 저장하고 만약 이 값보다 낮으면 탐색을 중단한다.</li>
+</ul>
+
+<h2 id="소스코드">소스코드</h2>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">"bits/stdc++.h"</span><span class="cp">
+</span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="n">k</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">weight</span><span class="p">[</span><span class="mi">101</span><span class="p">];</span>
+<span class="kt">int</span> <span class="n">value</span><span class="p">[</span><span class="mi">101</span><span class="p">];</span>
+<span class="kt">int</span> <span class="n">flag</span><span class="p">[</span><span class="mi">100001</span><span class="p">][</span><span class="mi">101</span><span class="p">];</span>
+
+<span class="kt">int</span> <span class="nf">DP</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">w</span><span class="p">,</span> <span class="kt">int</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">if</span> <span class="p">(</span><span class="n">w</span> <span class="o">&gt;</span> <span class="n">k</span><span class="p">)</span>
+		<span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+	<span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="n">v</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="k">if</span> <span class="p">(</span><span class="n">flag</span><span class="p">[</span><span class="n">w</span><span class="p">][</span><span class="n">x</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">flag</span><span class="p">[</span><span class="n">w</span><span class="p">][</span><span class="n">x</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">v</span><span class="p">)</span>
+		<span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+	<span class="n">flag</span><span class="p">[</span><span class="n">w</span><span class="p">][</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span><span class="p">;</span>
+	<span class="kt">int</span> <span class="n">val</span> <span class="o">=</span> <span class="n">v</span><span class="p">;</span>
+	<span class="n">val</span> <span class="o">=</span> <span class="n">max</span><span class="p">(</span><span class="n">val</span><span class="p">,</span><span class="n">DP</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">v</span><span class="p">));</span>
+	<span class="n">val</span> <span class="o">=</span> <span class="n">max</span><span class="p">(</span><span class="n">val</span><span class="p">,</span><span class="n">DP</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">w</span> <span class="o">+</span> <span class="n">weight</span><span class="p">[</span><span class="n">x</span><span class="p">],</span> <span class="n">v</span> <span class="o">+</span> <span class="n">value</span><span class="p">[</span><span class="n">x</span><span class="p">]));</span>
+	<span class="k">return</span> <span class="n">val</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="n">ios_base</span><span class="o">::</span><span class="n">sync_with_stdio</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+	<span class="n">cin</span><span class="p">.</span><span class="n">tie</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+
+	<span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">n</span> <span class="o">&gt;&gt;</span> <span class="n">k</span><span class="p">;</span>
+
+	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+		<span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">weight</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+		<span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">value</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+	<span class="p">}</span>
+	<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">DP</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>]]></content><author><name>Mohitto55</name></author><category term="boj" /><category term="boj" /><category term="백준" /><category term="solved" /><category term="문제풀이 12865번" /><category term="Knapsack" /><category term="Dynamic Programming" /><category term="DP" /><category term="C++" /><category term="배낭문제" /><summary type="html"><![CDATA[BOJ 12865-평범한 배낭]]></summary></entry><entry><title type="html">[Algorithm] Dynamic Programming(동적 계획법) 설명</title><link href="http://localhost:4000/algorithm/%EB%8F%99%EC%A0%81%EA%B3%84%ED%9A%8D%EB%B2%95-%EC%84%A4%EB%AA%85/" rel="alternate" type="text/html" title="[Algorithm] Dynamic Programming(동적 계획법) 설명" /><published>2024-03-06T00:00:00+09:00</published><updated>2024-03-06T00:00:00+09:00</updated><id>http://localhost:4000/algorithm/%EB%8F%99%EC%A0%81%EA%B3%84%ED%9A%8D%EB%B2%95%20%EC%84%A4%EB%AA%85</id><content type="html" xml:base="http://localhost:4000/algorithm/%EB%8F%99%EC%A0%81%EA%B3%84%ED%9A%8D%EB%B2%95-%EC%84%A4%EB%AA%85/"><![CDATA[<h2 id="dynamic-programming">Dynamic Programming</h2>
 <p>다이나믹 프로그래밍이란 복잡한 문제를 여러개의 작은 문제로 나누고 값을 저장하여 푸는 <strong>방법</strong>을 말한다. 일반적으로 재귀 함수를 통해 이전 함수의 결과 값을 이용해 문제를 풀어나간다.</p>
 
 <h2 id="동적계획법-사용하는-이유">동적계획법 사용하는 이유</h2>
@@ -464,70 +527,7 @@ html태그를 쓰지 않으면서 마크다운 만으로 캡션을 넣는 방법
 		<span class="p">}</span>
 	<span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div></div>]]></content><author><name>Mohitto55</name></author><category term="boj" /><category term="boj" /><category term="백준" /><category term="solved" /><category term="문제풀이 2629번" /><category term="Dynamic Programming" /><category term="DP" /><summary type="html"><![CDATA[BOJ 2629-양팔저울]]></summary></entry><entry><title type="html">[C++] 백준 12865번-평범한 배낭</title><link href="http://localhost:4000/boj/BOJ-12865%EB%B2%88/" rel="alternate" type="text/html" title="[C++] 백준 12865번-평범한 배낭" /><published>2024-03-06T00:00:00+09:00</published><updated>2024-03-06T00:00:00+09:00</updated><id>http://localhost:4000/boj/BOJ%2012865%EB%B2%88</id><content type="html" xml:base="http://localhost:4000/boj/BOJ-12865%EB%B2%88/"><![CDATA[<p><a href="https://www.acmicpc.net/problem/12865">BOJ 12865-평범한 배낭</a></p>
-
-<h2 id="문제">문제</h2>
-<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/a44cd234-e6ab-416d-ba26-dc7cc217c050" alt="image" /></p>
-
-<div class="code-block1">
-예제 입력
-<div class="language-cpp highlighter-rouge">
-<div class="highlight">
-<pre class="highlight"><code>4 7
-6 13
-4 8
-3 6
-5 12</code></pre></div></div></div>
-
-<div class="code-block2">
-에제 출력
-<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight">
-<code>14</code></pre></div></div></div>
-
-<h2 id="풀이">풀이</h2>
-<p>DP를 이용하는 <strong>냅색(Knapsack)</strong>문제다.</p>
-<ul>
-  <li>물건을 넣는 경우와 안넣는 경우 두가지에 대한 모든 경우의 수 중 무게가 k보다 안 높고 value가 가장 높은 경우를 구한다.</li>
-  <li>필요없는 경우의 수를 제외하기 위해 flag[무게 합][탐색 중인 배낭 Index]의 값에 가장 높은 value값을 저장하고 만약 이 값보다 낮으면 탐색을 중단한다.</li>
-</ul>
-
-<h2 id="소스코드">소스코드</h2>
-<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">"bits/stdc++.h"</span><span class="cp">
-</span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
-
-<span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="n">k</span><span class="p">;</span>
-<span class="kt">int</span> <span class="n">weight</span><span class="p">[</span><span class="mi">101</span><span class="p">];</span>
-<span class="kt">int</span> <span class="n">value</span><span class="p">[</span><span class="mi">101</span><span class="p">];</span>
-<span class="kt">int</span> <span class="n">flag</span><span class="p">[</span><span class="mi">100001</span><span class="p">][</span><span class="mi">101</span><span class="p">];</span>
-
-<span class="kt">int</span> <span class="nf">DP</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">w</span><span class="p">,</span> <span class="kt">int</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span>
-	<span class="k">if</span> <span class="p">(</span><span class="n">w</span> <span class="o">&gt;</span> <span class="n">k</span><span class="p">)</span>
-		<span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
-	<span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
-		<span class="k">return</span> <span class="n">v</span><span class="p">;</span>
-	<span class="p">}</span>
-	<span class="k">if</span> <span class="p">(</span><span class="n">flag</span><span class="p">[</span><span class="n">w</span><span class="p">][</span><span class="n">x</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">flag</span><span class="p">[</span><span class="n">w</span><span class="p">][</span><span class="n">x</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">v</span><span class="p">)</span>
-		<span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
-	<span class="n">flag</span><span class="p">[</span><span class="n">w</span><span class="p">][</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span><span class="p">;</span>
-	<span class="kt">int</span> <span class="n">val</span> <span class="o">=</span> <span class="n">v</span><span class="p">;</span>
-	<span class="n">val</span> <span class="o">=</span> <span class="n">max</span><span class="p">(</span><span class="n">val</span><span class="p">,</span><span class="n">DP</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">v</span><span class="p">));</span>
-	<span class="n">val</span> <span class="o">=</span> <span class="n">max</span><span class="p">(</span><span class="n">val</span><span class="p">,</span><span class="n">DP</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">w</span> <span class="o">+</span> <span class="n">weight</span><span class="p">[</span><span class="n">x</span><span class="p">],</span> <span class="n">v</span> <span class="o">+</span> <span class="n">value</span><span class="p">[</span><span class="n">x</span><span class="p">]));</span>
-	<span class="k">return</span> <span class="n">val</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-	<span class="n">ios_base</span><span class="o">::</span><span class="n">sync_with_stdio</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-	<span class="n">cin</span><span class="p">.</span><span class="n">tie</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-
-	<span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">n</span> <span class="o">&gt;&gt;</span> <span class="n">k</span><span class="p">;</span>
-
-	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-		<span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">weight</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-		<span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">value</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-	<span class="p">}</span>
-	<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">DP</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div></div>]]></content><author><name>Mohitto55</name></author><category term="boj" /><category term="boj" /><category term="백준" /><category term="solved" /><category term="문제풀이 12865번" /><category term="Knapsack" /><category term="Dynamic Programming" /><category term="DP" /><category term="C++" /><category term="배낭문제" /><summary type="html"><![CDATA[BOJ 12865-평범한 배낭]]></summary></entry><entry><title type="html">[UE5] Modifires로 여러 값 반환하기</title><link href="http://localhost:4000/ue5/UE5-Unhanced-Input-IMC-%EC%84%B8%EB%B6%80%EC%84%A4%EC%A0%95/" rel="alternate" type="text/html" title="[UE5] Modifires로 여러 값 반환하기" /><published>2024-03-04T00:00:00+09:00</published><updated>2024-03-04T00:00:00+09:00</updated><id>http://localhost:4000/ue5/UE5%20Unhanced%20Input%20IMC%20%EC%84%B8%EB%B6%80%EC%84%A4%EC%A0%95</id><content type="html" xml:base="http://localhost:4000/ue5/UE5-Unhanced-Input-IMC-%EC%84%B8%EB%B6%80%EC%84%A4%EC%A0%95/"><![CDATA[<h2 id="enhancedinput">EnhancedInput</h2>
+</code></pre></div></div>]]></content><author><name>Mohitto55</name></author><category term="boj" /><category term="boj" /><category term="백준" /><category term="solved" /><category term="문제풀이 2629번" /><category term="Dynamic Programming" /><category term="DP" /><summary type="html"><![CDATA[BOJ 2629-양팔저울]]></summary></entry><entry><title type="html">[UE5] Modifires로 여러 값 반환하기</title><link href="http://localhost:4000/ue5/UE5-Unhanced-Input-IMC-%EC%84%B8%EB%B6%80%EC%84%A4%EC%A0%95/" rel="alternate" type="text/html" title="[UE5] Modifires로 여러 값 반환하기" /><published>2024-03-04T00:00:00+09:00</published><updated>2024-03-04T00:00:00+09:00</updated><id>http://localhost:4000/ue5/UE5%20Unhanced%20Input%20IMC%20%EC%84%B8%EB%B6%80%EC%84%A4%EC%A0%95</id><content type="html" xml:base="http://localhost:4000/ue5/UE5-Unhanced-Input-IMC-%EC%84%B8%EB%B6%80%EC%84%A4%EC%A0%95/"><![CDATA[<h2 id="enhancedinput">EnhancedInput</h2>
 <p>언리얼엔진5은 기존 InputSystem을 대체하는 Enhanced Input을 이용해 더 확장성 높고 사용하기 편한 입력 시스템을 만들었다. 이 시스템 중 <code class="language-plaintext highlighter-rouge">Input Mapping Context</code>는 하나 이상의 <code class="language-plaintext highlighter-rouge">Input Action</code>을 트리거 할 수 있게 해준다.</p>
 
 <h3 id="mapping-context-설정">Mapping Context 설정</h3>

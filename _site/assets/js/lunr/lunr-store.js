@@ -71,6 +71,12 @@ var store = [{
         "url": "/gitblog/Liquid-%EB%AC%B8%EB%B2%95-%ED%91%9C%EC%8B%9C%ED%95%98%EA%B8%B0/",
         "teaser": null
       },{
+        "title": "[UE5] Actor Pawn Character 비교",
+        "excerpt":"언리얼 엔진에선 화면상에 움직이는 객체들을 Actor라고 한다. Actor는 3가지 종류가 있으며 각각 적합한 상황에 쓰인다. Actor 언리얼 엔진의 레벨에 배치할 수 있는 오브젝트를 의미한다. 직접 무언가를 실행하는 기능은 주로 컴포넌트가 하고 Actor는 컴포넌트를 담는 포장지 같은 역할만 한다. Pawn Actor를 상속받는 클래스 플레이어나 AI가 제어할 수 있는 모든 액터의 베이스...","categories": ["ue5"],
+        "tags": ["Unreal Engine5","Actor","Pawn","Character","Component","UE5"],
+        "url": "/ue5/UE5-Acotr-Pawn-Character-%EB%B9%84%EA%B5%90/",
+        "teaser": null
+      },{
         "title": "[UE5] Enhanced Input",
         "excerpt":"EnhancedInput? EnhancedInput 시스템은 Unreal Engine5에 등장한 새로운 Input 시스템으로 기존 InputSystem 보다 더 나은 기능 및 확장성을 가졌다. 이 포스팅에서는 코드로 EngancedInput를 사용하는 법을 작성할 것이다. EnhancedInput 모듈준비 EnhancedInput은 코드로 작성할 수 있다. EnhancedInput 시스템을 사용하기 전에 먼저 모듈을 추가시켜줘야 한다. 1.모듈이란 UEnhancedInputLocalPlayerSubSystem는 EnhancedInputSubsystems.h 헤더 안에 있다 이 헤더를 쓰기...","categories": ["ue5"],
         "tags": ["UnrealEngine5","Actor","Component","C++"],
