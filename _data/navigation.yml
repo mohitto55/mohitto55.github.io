@@ -41,7 +41,7 @@ sidebar-category:
       - title: "UE5"
         url:  "/ue5"
         category: "ue5"
-  - title: "Tool"
+  - title: "Productivity"
     children:
       - title: "VisualStudio"
         url: "/vs"
@@ -52,6 +52,9 @@ sidebar-category:
       - title: "Obsidian"
         url:  "/obsidian"
         category: "obsidian"
+      - title: "Jira"
+        url:  "/jira"
+        category: "jira"
   - title: "PS"
     children:
       - title: "BOJ"
