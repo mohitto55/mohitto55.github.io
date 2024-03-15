@@ -4,6 +4,19 @@
         xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     
     <url>
+        <loc>http://localhost:4000/unity/%ED%8C%A8%ED%82%A4%EC%A7%80-%EB%A7%A4%EB%8B%88%EC%A0%80/</loc>
+        
+        <lastmod>2024-03-15T00:00:00+09:00</lastmod>
+        
+        
+        <changefreq>weekly</changefreq>
+        
+        
+        <priority>0.5</priority>
+        
+    </url>
+    
+    <url>
         <loc>http://localhost:4000/algorithm/GCD-%EC%B5%9C%EB%8C%80%EA%B3%B5%EC%95%BD%EC%88%98-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/</loc>
         
         <lastmod>2024-03-12T00:00:00+09:00</lastmod>

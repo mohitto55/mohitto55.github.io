@@ -166,4 +166,10 @@ var store = [{
         "tags": ["Algorighm","최대공약수","최소공배수","GCD","LCM","유클리드 호제법","유클리드 알고리즘"],
         "url": "/algorithm/GCD-%EC%B5%9C%EB%8C%80%EA%B3%B5%EC%95%BD%EC%88%98-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/",
         "teaser": null
+      },{
+        "title": "[Unity] Private Repository 패키지를 UPM를 이용한 업데이트 방법",
+        "excerpt":"들어가며 Unity를 이용하다 보니 생산성을 위해 여러가지 모듈을 개발하곤 한다. 나는 만들어진 모듈을 GitHub에 올리고 그것을 필요한 프로젝트에서 다시 다운 하는 방식으로 사용하고 있었다. 하지만 이런 방식은 너무 번거롭고 버전관리도 제대로 되지 않아 자동으로 관리할 수 있는 기능을 원했고 그렇게 찾은 것이 UPM 기능이다. UPM을 이용하여 Private 한 Repository에 접근해...","categories": ["unity"],
+        "tags": ["Unity","PackageManager","UPM","유니티","Git","Repository","Git Credential Helper","CI/CD"],
+        "url": "/unity/%ED%8C%A8%ED%82%A4%EC%A7%80-%EB%A7%A4%EB%8B%88%EC%A0%80/",
+        "teaser": null
       }]
