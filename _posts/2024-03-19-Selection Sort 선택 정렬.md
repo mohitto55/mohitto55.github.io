@@ -19,9 +19,9 @@ tags: [Algorighm, Sort, 정렬, Selection Sort, 선택정렬]
 $$(n-1) + (n-2)... = \frac{n(n-1)}{2} = O(N^2)$$
 
 - 비교 횟수
-- i가 n-2 일 때 비교횟수 : <font color='dodgerred'>n-2</font>
-- i가 n-1 일 때 비교횟수 : <font color='dodgerred'>n-1</font>
-- i가 1 일 때 비교횟수 : <font color='dodgerred'>1</font>
+	- i가 n-2 일 때 비교횟수 : <font color='dodgerred'>n-2</font>
+	- i가 n-1 일 때 비교횟수 : <font color='dodgerred'>n-1</font>
+	- i가 1 일 때 비교횟수 : <font color='dodgerred'>1</font>
 
 - 교환 횟수
 	- 외부 루프의 실행 횟수와 동일
