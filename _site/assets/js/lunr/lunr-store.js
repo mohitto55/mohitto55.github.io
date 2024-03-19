@@ -172,4 +172,16 @@ var store = [{
         "tags": ["Unity","PackageManager","UPM","유니티","Git","Repository","Git Credential Helper","CI/CD"],
         "url": "/unity/%ED%8C%A8%ED%82%A4%EC%A7%80-%EB%A7%A4%EB%8B%88%EC%A0%80/",
         "teaser": null
+      },{
+        "title": "[Network] 네트워크공부",
+        "excerpt":"통신을 위한 규칙, 프로토콜 Packet을 처리하려면 규칙이 필요하다 프로토콜 덕에 회사가 달라도 패킷 처리가 가능하다 Https도 프로토콜이다. 프로토콜에 결정되어 있는 것 LAN케이블 소재나 핀도 프로토콜이 있다. Packet와 Header에도 어느 영역이 어떤 정보인지 프로토콜이 있다. 프로토콜은 계층으로 정리한다. 데이터 송신할 땐 위 계층에서 아래 계층으로 데이터 수신할 땐 아래 계층에서 위...","categories": ["network"],
+        "tags": ["Network","TCPIP"],
+        "url": "/network/TCPIP%EA%B3%B5%EB%B6%80/",
+        "teaser": null
+      },{
+        "title": "[Algorithm] Selection Sort 선택정렬 알고리즘",
+        "excerpt":"Selection Sort 선택정렬 알고리즘은 제자리 정렬 알고리즘 중 하나로 입력 데이터 외 추가 데이터가 필요하지 않은 알고리즘이다. 원리 정렬하고자 하는 데이터 중 가장 큰 데이터의 맨 끝 데이터랑 교환 0번 째 Index부터 N-i까지 차례로 순회한다. 순회를 하던 중 값이 Index &lt; Index +1 일 경우 가장 큰 값을 Index +...","categories": ["algorithm"],
+        "tags": ["Algorighm","Sort","정렬","Selection Sort","선택정렬"],
+        "url": "/algorithm/Selection-Sort-%EC%84%A0%ED%83%9D-%EC%A0%95%EB%A0%AC/",
+        "teaser": null
       }]

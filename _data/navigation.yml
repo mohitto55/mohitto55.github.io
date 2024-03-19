@@ -52,9 +52,9 @@ sidebar-category:
       - title: "Obsidian"
         url:  "/obsidian"
         category: "obsidian"
-      - title: "Jira"
-        url:  "/jira"
-        category: "jira"
+      - title: "Tool"
+        url:  "/tool"
+        category: "tool"
   - title: "PS"
     children:
       - title: "BOJ"

@@ -1,4 +1,262 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-03-15T16:49:14+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mohitto55 Note</title><subtitle>모히또의 노트</subtitle><author><name>Mohitto55</name></author><entry><title type="html">[Unity] Private Repository 패키지를 UPM를 이용한 업데이트 방법</title><link href="http://localhost:4000/unity/%ED%8C%A8%ED%82%A4%EC%A7%80-%EB%A7%A4%EB%8B%88%EC%A0%80/" rel="alternate" type="text/html" title="[Unity] Private Repository 패키지를 UPM를 이용한 업데이트 방법" /><published>2024-03-15T00:00:00+09:00</published><updated>2024-03-15T00:00:00+09:00</updated><id>http://localhost:4000/unity/%ED%8C%A8%ED%82%A4%EC%A7%80%20%EB%A7%A4%EB%8B%88%EC%A0%80</id><content type="html" xml:base="http://localhost:4000/unity/%ED%8C%A8%ED%82%A4%EC%A7%80-%EB%A7%A4%EB%8B%88%EC%A0%80/"><![CDATA[<h2 id="들어가며">들어가며</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-03-19T20:47:59+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mohitto55 Note</title><subtitle>모히또의 노트</subtitle><author><name>Mohitto55</name></author><entry><title type="html">[Algorithm] Selection Sort 선택정렬 알고리즘</title><link href="http://localhost:4000/algorithm/Selection-Sort-%EC%84%A0%ED%83%9D-%EC%A0%95%EB%A0%AC/" rel="alternate" type="text/html" title="[Algorithm] Selection Sort 선택정렬 알고리즘" /><published>2024-03-19T00:00:00+09:00</published><updated>2024-03-19T00:00:00+09:00</updated><id>http://localhost:4000/algorithm/Selection%20Sort%20%EC%84%A0%ED%83%9D%20%EC%A0%95%EB%A0%AC</id><content type="html" xml:base="http://localhost:4000/algorithm/Selection-Sort-%EC%84%A0%ED%83%9D-%EC%A0%95%EB%A0%AC/"><![CDATA[<h2 id="selection-sort">Selection Sort</h2>
+<p>선택정렬 알고리즘은 제자리 정렬 알고리즘 중 하나로 입력 데이터 외 추가 데이터가 필요하지 않은 알고리즘이다.</p>
+
+<h2 id="원리">원리</h2>
+<ul>
+  <li>정렬하고자 하는 데이터 중 가장 큰 데이터의 맨 끝 데이터랑 교환
+    <ol>
+      <li>0번 째 Index부터 N-i까지 차례로 순회한다.</li>
+      <li>순회를 하던 중 값이 Index &lt; Index +1 일 경우 가장 큰 값을 Index + 1이라 한다.</li>
+      <li>순회를 마쳤으면 마지막 값이랑 <font color="dodgerred">가장 큰 값</font>이랑 교환한다.</li>
+      <li>i를 1 올리고 다시 0부터 순회한다.</li>
+    </ol>
+  </li>
+</ul>
+
+<h2 id="시간-복잡도">시간 복잡도</h2>
+
+\[(n-1) + (n-2)... = \frac{n(n-1)}{2} = O(N^2)\]
+
+<ul>
+  <li>비교 횟수</li>
+  <li>i가 n-2 일 때 비교횟수 : <font color="dodgerred">n-2</font></li>
+  <li>i가 n-1 일 때 비교횟수 : <font color="dodgerred">n-1</font></li>
+  <li>
+    <p>i가 1 일 때 비교횟수 : <font color="dodgerred">1</font></p>
+  </li>
+  <li>교환 횟수
+    <ul>
+      <li>외부 루프의 실행 횟수와 동일</li>
+      <li>Swap시 3번의 데이터 이동 발생</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="코드">코드</h2>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">public</span> <span class="kt">void</span> <span class="nf">SelectionSort</span><span class="p">(){</span>
+	<span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">last</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">last</span> <span class="o">&lt;</span> <span class="n">size</span><span class="p">;</span> <span class="n">last</span><span class="o">++</span><span class="p">){</span>
+		<span class="kt">int</span> <span class="n">largestIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+		<span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">cur</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">cur</span> <span class="o">&lt;</span> <span class="n">size</span> <span class="o">-</span> <span class="n">last</span><span class="p">;</span> <span class="n">cur</span><span class="o">++</span><span class="p">){</span>
+			<span class="k">if</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">largestIndex</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">data</span><span class="p">[</span><span class="n">cur</span><span class="p">]){</span>
+				<span class="n">largestIndex</span> <span class="o">=</span> <span class="n">cur</span><span class="p">;</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+		<span class="n">swap</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">largestIndex</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="n">cur</span><span class="p">]);</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<hr />
+
+<div class="Reference">
+<div class="callout-header"> </div>
+<p>
+<a href="https://gmlwjd9405.github.io/2018/05/06/algorithm-selection-sort.html">https://gmlwjd9405.github.io/2018/05/06/algorithm-selection-sort.html</a>
+<a href="https://ko.wikipedia.org/wiki/%EC%84%A0%ED%83%9D_%EC%A0%95%EB%A0%AC">https://ko.wikipedia.org/wiki/%EC%84%A0%ED%83%9D_%EC%A0%95%EB%A0%AC</a>
+</p>
+</div>]]></content><author><name>Mohitto55</name></author><category term="algorithm" /><category term="Algorighm" /><category term="Sort" /><category term="정렬" /><category term="Selection Sort" /><category term="선택정렬" /><summary type="html"><![CDATA[Selection Sort 선택정렬 알고리즘은 제자리 정렬 알고리즘 중 하나로 입력 데이터 외 추가 데이터가 필요하지 않은 알고리즘이다.]]></summary></entry><entry><title type="html">[Network] 네트워크공부</title><link href="http://localhost:4000/network/TCPIP%EA%B3%B5%EB%B6%80/" rel="alternate" type="text/html" title="[Network] 네트워크공부" /><published>2024-03-16T00:00:00+09:00</published><updated>2024-03-16T00:00:00+09:00</updated><id>http://localhost:4000/network/TCPIP%EA%B3%B5%EB%B6%80</id><content type="html" xml:base="http://localhost:4000/network/TCPIP%EA%B3%B5%EB%B6%80/"><![CDATA[<h2 id="통신을-위한-규칙-프로토콜">통신을 위한 규칙, 프로토콜</h2>
+<ul>
+  <li>Packet을 처리하려면 규칙이 필요하다</li>
+  <li>프로토콜 덕에 회사가 달라도 패킷 처리가 가능하다</li>
+  <li>Https도 프로토콜이다.</li>
+</ul>
+
+<h3 id="프로토콜에-결정되어-있는-것">프로토콜에 결정되어 있는 것</h3>
+<ul>
+  <li>LAN케이블 소재나 핀도 프로토콜이 있다.</li>
+  <li>Packet와 Header에도 어느 영역이 어떤 정보인지 프로토콜이 있다.</li>
+</ul>
+
+<h3 id="프로토콜은-계층으로-정리한다">프로토콜은 계층으로 정리한다.</h3>
+<ul>
+  <li>데이터 송신할 땐 위 계층에서 아래 계층으로</li>
+  <li>데이터 수신할 땐 아래 계층에서 위 계층으로</li>
+  <li>송수신 할 때 같은 계층에서 일처리한다.
+    <h3 id="두가지-계층구조-모델">두가지 계층구조 모델</h3>
+    <h4 id="tcpip-45계층">TCP/IP 4,5계층</h4>
+    <p><img src="https://github.com/mohitto55/Blog_Images/assets/154340583/ba6486b7-2af9-40f1-bc00-d72910333b8d" alt="image" /></p>
+  </li>
+  <li>문서마다 4계층 혹은 5계층으로 나뉜다
+    <ul>
+      <li>5계층으로 생각하는 것이 좋을 듯하다</li>
+    </ul>
+  </li>
+  <li>실질적으로 OSI보다 이 구조를 많이 사용한다.</li>
+</ul>
+
+<h4 id="osi-7계층">OSI 7계층</h4>
+<p><img src="https://github.com/mohitto55/Blog_Images/assets/154340583/a4426d89-74fb-4b5c-a4f4-c19fb5f006ec" alt="image" />
+국제표준기구에서 만든 컴퓨터 프로토콜 계층으로 각 계층은 다른 계층에 의존할 필요 없어 캡슐화와 은닉이 용이하다.</p>
+
+<p>OSI를 다 지켜서 하는 프로토콜은 없다고 한다. 이유는 너무 복잡하기 때문이다.</p>
+
+<h3 id="ip-주소ip-address">IP 주소(IP Address)</h3>
+<p>인터넷에 연결된 컴퓨터들의 주소로 Ipv4 버전을 사용한다. 32bit로 구성되며 192.168.212.153 과 같이 표기한다. 네트워크 계층에서 쓰이는 값이다.</p>
+
+<h3 id="mac-주소">MAC 주소</h3>
+<p><img src="https://github.com/mohitto55/Blog_Images/assets/154340583/8e1257f2-702b-44d4-be35-3455a39dda5b" alt="image" />
+MAC주소는 6바이트로 구성되며, ‘00-0c-29-43-5e-be’ 혹은 ‘00:0c:29:43:5e:be’ 처럼 16진수로 표현된다.</p>
+
+<ul>
+  <li>물리 <em>Appliance</em>의 경우 물리 <em>NIC</em>가 만들어 질때 <em>ROM</em>에 기록한다.</li>
+  <li>가상 <em>Appliance</em>의 경우 기본적으로 하이퍼바이저에서 가상 <em>NIC</em>에 할당된다.</li>
+</ul>
+
+<p>MAC 주소 맨 앞자리 3개는 벤더코드로 OUI라고 불리고 단말의 NIC를 어디서 제조했는지 알 수 있음. 뒤자리 3개는 UAA라고 벤더에서 할당하거나 무작위로 정해진 값이다.</p>
+
+<p>MAC주소는 <strong>고유한 값을 가지지 않는다</strong>. 그래서 MAC주소가 같은 기기가 여러 대가 같은 이더넷을 쓸 경우 주소를 바꿔줘야 한다.</p>
+
+<p>※ Appliance - 특정 목적에 최적화된 성능 내도록 만들어진 하드웨어, OS, 어플리케이션
+※ NIC - **Network Interface Controller의 약자로 인터넷에 연결하기 위한 하드웨어 장치
+※ ROM - 한번 기록 시 다시 기록 못하지만 빨라서 바이오스를 저장하는 용도의 저장장치</p>
+
+<h3 id="mac주소와-ip-주소-모두-필요한-이유">Mac주소와 IP 주소 모두 필요한 이유</h3>
+<ul>
+  <li>MAC Address는 NIC에 할당 된 <strong>물리적</strong> 주소 - 어떤 기기에 프레임 전달하지?</li>
+  <li>IP주소는 OS에 할당된 <strong>논리적</strong> 주소 - 어디에 패킷 전달하지?</li>
+  <li>이 두 주소를 연결하는 다리가 ARP
+    <ul>
+      <li>네트워크 계층과 데이터 링크 계층 연결</li>
+    </ul>
+  </li>
+  <li>데이터 링크 계층 - 이더넷</li>
+  <li>네트워크 계층 - IP 이기 때문에 양쪽 주소가 필요함</li>
+  <li>데이터링크 계층에서 PPP사용하면 MAC은 필요없음</li>
+</ul>
+
+<p>※ ppp - 점대점 프로토콜로 연결 양끝 노드간에 일대일(point-to-point)직렬 링크를 구성하여 데이터 전달한다</p>
+
+<p>출처 : 그림으로 배우는 TCPIP구조
+http://www.ktword.co.kr/test/view/view.php?m_temp1=1074&amp;id=429</p>
+
+<h3 id="ipaddress-클래스">IPAddress 클래스</h3>
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">public</span> <span class="k">class</span> <span class="nc">IPAddress</span> <span class="p">:</span> <span class="n">IParsable</span><span class="p">&lt;</span><span class="n">System</span><span class="p">.</span><span class="n">Net</span><span class="p">.</span><span class="n">IPAddress</span><span class="p">&gt;,</span> <span class="n">ISpanFormattable</span><span class="p">,</span> <span class="n">ISpanParsable</span><span class="p">&lt;</span><span class="n">System</span><span class="p">.</span><span class="n">Net</span><span class="p">.</span><span class="n">IPAddress</span><span class="p">&gt;,</span> <span class="n">IUtf8SpanFormattable</span>
+</code></pre></div></div>
+<p>.NET에서는 IP 주소를 표기하기위해 IPAddress 클래스를 사용한다.
+IPAddress를 초기화 하는 데는 여러 방법이 있다.</p>
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">IPAddress</span> <span class="n">ip1</span> <span class="p">=</span> <span class="n">IPAddress</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="s">"192.168.1.13"</span><span class="p">);</span>
+<span class="n">IPAddress</span> <span class="n">ip2</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">IPAddress</span><span class="p">(</span><span class="k">new</span> <span class="kt">byte</span><span class="p">[]</span> <span class="p">{</span> <span class="m">192</span><span class="p">,</span> <span class="m">168</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">13</span> <span class="p">});</span>
+<span class="n">IPAddress</span> <span class="n">ip3</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">IPAddress</span><span class="p">(</span><span class="m">218212544</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>https://www.csharpstudy.com/net/article/3-IP-%EC%A3%BC%EC%86%8C%EC%99%80-%ED%98%B8%EC%8A%A4%ED%8A%B8</p>
+
+<p>https://www.csharpstudy.com/net/article/9-Socket-%ED%81%B4%EB%9D%BC%EC%9D%B4%EC%96%B8%ED%8A%B8</p>
+
+<p>https://learn.microsoft.com/ko-kr/dotnet/api/system.net.sockets.socket?view=net-8.0</p>
+
+<h3 id="socket-class">Socket class</h3>
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">public</span> <span class="k">class</span> <span class="nc">Socket</span> <span class="p">:</span> <span class="n">IDisposable</span>
+</code></pre></div></div>
+<p>Socket은 .NET Framework에서 가장 Low 레벨 클래스로 TcpClient, TcpListener, UDPClient들 모두 Socket을 바탕으로 만들어 졌다. Socket은 AppleTalk, IPX, Netbios 등 다양한 네트워크 통신에서 사용할 수 있다.</p>
+
+<h3 id="ipendpoint">IPEndPoint</h3>
+<p>https://learn.microsoft.com/ko-kr/dotnet/api/system.net.ipendpoint?view=net-7.0</p>
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">public</span> <span class="k">class</span> <span class="nc">IPEndPoint</span> <span class="p">:</span> <span class="n">System</span><span class="p">.</span><span class="n">Net</span><span class="p">.</span><span class="n">EndPoint</span>
+</code></pre></div></div>
+<blockquote>
+  <p>네트워크 엔드포인트를 IP주소와 포트 번호로 나타낸다.</p>
+</blockquote>
+
+<h3 id="socket-클라이언트">Socket 클라이언트</h3>
+<p>Socket 클래스는 클라이언트와 서버에서 공히 사용 할 수 있다.</p>
+
+<ul>
+  <li>Stream - 데이터 복제와 경계 보존 없이 연결기반 byte 스트림을 지원한다. 이 소켓 유형은 싱글 피어와
+    <h3 id="encoding">Encoding</h3>
+    <div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">public</span> <span class="k">abstract</span> <span class="k">class</span> <span class="nc">Encoding</span> <span class="p">:</span> <span class="n">ICloneable</span>
+</code></pre></div>    </div>
+    <p>우리가 문자를 패킷으로 보낼 땐 문자를 0101같은 컴퓨터 언어(byte)로 변경해야 한다. 이러한 과정을 <strong>인코딩</strong>이라고 부르며 ASCII, Unicode, UTF8 과 같은 다양한 방식으로 인코딩 할 수 있다. C#에서는 이런 인코딩 과정을 도와주는 Encoding 클래스가 있다.</p>
+  </li>
+</ul>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">string</span> <span class="n">s1</span> <span class="p">=</span> <span class="n">Encoding</span><span class="p">.</span><span class="n">Unicode</span><span class="p">.</span><span class="nf">GetString</span><span class="p">(</span><span class="n">uniBytes</span><span class="p">);</span>
+<span class="kt">string</span> <span class="n">s2</span> <span class="p">=</span> <span class="n">Encoding</span><span class="p">.</span><span class="n">UTF8</span><span class="p">.</span><span class="nf">GetString</span><span class="p">(</span><span class="n">utf8bytes</span><span class="p">);</span>
+<span class="kt">string</span> <span class="n">s3</span> <span class="p">=</span> <span class="n">Encoding</span><span class="p">.</span><span class="n">Default</span><span class="p">.</span><span class="nf">GetString</span><span class="p">(</span><span class="n">defBytes</span><span class="p">);</span>
+</code></pre></div></div>
+<blockquote>
+  <p>이런 방식으로 byte를 다시 사람이 읽을 수 있는 문자로 바꿀 수 있다.</p>
+</blockquote>
+
+<p>https://www.csharpstudy.com/Tip/Tip-string-encoding.aspx</p>
+
+<h3 id="addressfamily">AddressFamily</h3>
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">public</span> <span class="k">enum</span> <span class="n">AddressFamily</span>
+</code></pre></div></div>
+<p>네트워크 유형을 뜻한다. 일반 네트워크 IP 통신에선 언제나 AddressFamily.Internetwork를 사용한다. 필드 값으로 AppleTalk, Atm, FireFox, Max 등이 있는데 사용할 경우는 적어보인다.</p>
+
+<h3 id="sockettype">SocketType</h3>
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">public</span> <span class="k">enum</span> <span class="n">SocketType</span>
+</code></pre></div></div>
+
+<h3 id="socketflags">SocketFlags</h3>
+<p>주로 Socket.Send(), Socket.Receive() 메서드와 함께 사용되며 데이터 전송 및 수신 동작을 제어할 수 있다. Field를 몇가지 살펴보자면</p>
+<ul>
+  <li>None - 기본 동작 소켓 수행</li>
+  <li>Peek - 들어오는 메시지를 미리 확인</li>
+  <li>OutOfBand - 대역 외 데이터 처리</li>
+  <li>DontRoute - 라우팅 테이블 사용하지 않고 보내기</li>
+  <li>Truncated - 메시지가 너무 커 지정된 버퍼에 맞지 않아 자른다.
+https://learn.microsoft.com/ko-kr/dotnet/api/system.net.sockets.socketflags?view=netcore-3.1</li>
+</ul>
+
+<h2 id="소켓-함수">소켓 함수</h2>
+<h3 id="bind">Bind</h3>
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Socket</span><span class="p">.</span><span class="nf">Bind</span><span class="p">();</span>
+</code></pre></div></div>
+<p><img src="https://github.com/mohitto55/Blog_Images/assets/154340583/984b5482-906d-4683-b012-344b8ddc24be" alt="image" />
+응용 프로그램 자신(Local)주소와 소켓번호를 연결하는 작업</p>
+
+<p>서버에서 Bind를 해야하는 이유는 임의의 클라이언트가 서버 프로그램이 만든 소켓과 통신 하려면 그 소켓을 찾을 수 있어야 하며 따라서 서버는 소켓번호와 클라이언트가 알고 있을 서버의 IP주소 및 포트번호(서버의 소켓주소)를 미리 연결 시켜두는 것이 필요하다</p>
+
+<p>간단히 말해 클라이언트가 서버 소켓과 위치를 알기위해 줄로 연결한 작업이다.</p>
+
+<h3 id="accept">Accept</h3>
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Socket</span><span class="p">.</span><span class="nf">Accept</span><span class="p">()</span>
+</code></pre></div></div>
+<p>소켓에서 들어오는 연결 시도를 허용하는 함수
+소켓과의 연결함
+https://learn.microsoft.com/ko-kr/windows/win32/api/winsock2/nf-winsock2-accept</p>
+
+<h3 id="connect">Connect</h3>
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Socket</span><span class="p">.</span><span class="nf">Connect</span><span class="p">()</span>
+</code></pre></div></div>
+<p>원격 호스트에 대한 연결 설정.
+호스트는 hostname과 port number로 지정된다.</p>
+
+<p>※ 호스트(host) : 네트워크/인터넷에서 호스트는 네트워크/인터넷을 통해 다른 컴퓨터들과 쌍방향 통신이 가능한 컴퓨터</p>
+
+<h3 id="accept와-connect-차이점">Accept와 Connect 차이점</h3>
+<ul>
+  <li>Accept
+    <ul>
+      <li>서버 소켓에서 호출</li>
+      <li>소켓에서의 연결 시도 허용</li>
+    </ul>
+  </li>
+  <li>Connect
+    <ul>
+      <li>클라이언트 소켓에서 호출</li>
+      <li>서버에 연결하기 위해 호출한다</li>
+      <li>서버에서 Accept를 하면 양방향 통신 시작한다</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="쓰레드-함수">쓰레드 함수</h2>
+<h3 id="join">Join</h3>
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Thread</span><span class="p">.</span><span class="nf">Join</span><span class="p">()</span>
+</code></pre></div></div>
+<p>이 인스턴스가 나타내는 스레드가 종료될 때까지 호출 스레드를 차단
+현재 스레드 객체의 작업이 완료되거나 종료 될 때까지 기본 스레드의 실행을 대기 하도록 한다.
+이 스레드가 끝날 때까지 메인 프로그램은 종료되지 않는다.</p>
+
+<div class="Reference">
+<div class="callout-header"> </div>
+<p>
+<a href=""></a>
+</p>
+</div>]]></content><author><name>Mohitto55</name></author><category term="network" /><category term="Network" /><category term="TCPIP" /><summary type="html"><![CDATA[통신을 위한 규칙, 프로토콜 Packet을 처리하려면 규칙이 필요하다 프로토콜 덕에 회사가 달라도 패킷 처리가 가능하다 Https도 프로토콜이다.]]></summary></entry><entry><title type="html">[Unity] Private Repository 패키지를 UPM를 이용한 업데이트 방법</title><link href="http://localhost:4000/unity/%ED%8C%A8%ED%82%A4%EC%A7%80-%EB%A7%A4%EB%8B%88%EC%A0%80/" rel="alternate" type="text/html" title="[Unity] Private Repository 패키지를 UPM를 이용한 업데이트 방법" /><published>2024-03-15T00:00:00+09:00</published><updated>2024-03-15T00:00:00+09:00</updated><id>http://localhost:4000/unity/%ED%8C%A8%ED%82%A4%EC%A7%80%20%EB%A7%A4%EB%8B%88%EC%A0%80</id><content type="html" xml:base="http://localhost:4000/unity/%ED%8C%A8%ED%82%A4%EC%A7%80-%EB%A7%A4%EB%8B%88%EC%A0%80/"><![CDATA[<h2 id="들어가며">들어가며</h2>
 <p>Unity를 이용하다 보니 생산성을 위해 여러가지 모듈을 개발하곤 한다. 나는 만들어진 <strong>모듈</strong>을 GitHub에 올리고 그것을 필요한 프로젝트에서 다시 다운 하는 방식으로 사용하고 있었다.</p>
 
 <p>하지만 이런 방식은 너무 번거롭고 버전관리도 제대로 되지 않아 자동으로 관리할 수 있는 기능을 원했고 그렇게 찾은 것이 <strong>UPM</strong> 기능이다. UPM을 이용하여 Private 한 Repository에 접근해 개발 관리를 쉽게하는 <strong>CI/CD</strong>를 개발 할 것이다.</p>
@@ -847,177 +1105,4 @@ html태그를 쓰지 않으면서 마크다운 만으로 캡션을 넣는 방법
 <p>
 <a href="https://docs.unrealengine.com/5.0/ko/enhanced-input-in-unreal-engine/">https://docs.unrealengine.com/5.0/ko/enhanced-input-in-unreal-engine/</a>
 </p>
-</div>]]></content><author><name>Mohitto55</name></author><category term="ue5" /><category term="Unrealengine5" /><category term="UE5" /><category term="EnhancedInput" /><category term="언리얼엔진5" /><summary type="html"><![CDATA[EnhancedInput 언리얼엔진5은 기존 InputSystem을 대체하는 Enhanced Input을 이용해 더 확장성 높고 사용하기 편한 입력 시스템을 만들었다. 이 시스템 중 Input Mapping Context는 하나 이상의 Input Action을 트리거 할 수 있게 해준다.]]></summary></entry><entry><title type="html">[C++] 백준 2665번-미로만들기</title><link href="http://localhost:4000/boj/BOJ-2665%EB%B2%88/" rel="alternate" type="text/html" title="[C++] 백준 2665번-미로만들기" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/boj/BOJ%202665%EB%B2%88</id><content type="html" xml:base="http://localhost:4000/boj/BOJ-2665%EB%B2%88/"><![CDATA[<p><a href="https://www.acmicpc.net/problem/2665">BOJ 2665-미로만들기</a></p>
-
-<h2 id="문제">문제</h2>
-<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/9ade69c5-a7c6-407b-9652-6d181e5f0bd3" alt="image" /></p>
-
-<div class="code-block1">
-예제 입력
-<div class="language-cpp highlighter-rouge">
-<div class="highlight">
-<pre class="highlight"><code>8
-11100110
-11010010
-10011010
-11101100
-01000111
-00110001
-11011000
-11000111</code></pre></div></div></div>
-
-<div class="code-block2">
-에제 출력
-<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight">
-<code>2</code></pre></div></div></div>
-
-<h2 id="풀이">풀이</h2>
-<p>BFS를 사용하여 풀었다.</p>
-<ol>
-  <li>board의 맵을 저장하고 flag는 방문 시 가장 적은 횟수로 벽을 부셨던 경우다.</li>
-  <li>queue에 좌표(x,y)와 부순 횟수(c)를 담는다.</li>
-  <li>queue를 탐색하고 현재 탐색 노드의 flag값보다 c가 크면 다음으로 넘어간다.</li>
-  <li>도착지점이면 답을 갱신한다.</li>
-  <li>주변 4개의 타일을 큐에 삽입한다.</li>
-</ol>
-
-<h2 id="소스코드">소스코드</h2>
-<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">"bits/stdc++.h"</span><span class="cp">
-</span>
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
-<span class="cp">#define MAX 10000000
-</span>
-<span class="kt">int</span> <span class="n">dx</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span> <span class="p">};</span>
-<span class="kt">int</span> <span class="n">dy</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span> <span class="p">};</span>
-
-<span class="kt">int</span> <span class="n">board</span><span class="p">[</span><span class="mi">51</span><span class="p">][</span><span class="mi">51</span><span class="p">];</span>
-<span class="kt">int</span> <span class="n">flag</span><span class="p">[</span><span class="mi">51</span><span class="p">][</span><span class="mi">51</span><span class="p">];</span>
-
-<span class="kt">int</span> <span class="n">answer</span> <span class="o">=</span> <span class="n">MAX</span><span class="p">;</span>
-<span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
-<span class="kt">bool</span> <span class="nf">InMap</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
-	<span class="k">if</span> <span class="p">(</span><span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">x</span> <span class="o">&amp;&amp;</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="o">&amp;&amp;</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">y</span> <span class="o">&amp;&amp;</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">)</span>
-		<span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
-	<span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="kt">void</span> <span class="nf">BFS</span><span class="p">()</span> <span class="p">{</span>
-	<span class="n">queue</span><span class="o">&lt;</span><span class="n">tuple</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;&gt;</span> <span class="n">q</span><span class="p">;</span>
-	<span class="n">q</span><span class="p">.</span><span class="n">push</span><span class="p">({</span> <span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span> <span class="p">});</span>
-
-	<span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">q</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span> <span class="p">{</span>
-		<span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="n">get</span><span class="o">&lt;</span><span class="mi">0</span><span class="o">&gt;</span><span class="p">(</span><span class="n">q</span><span class="p">.</span><span class="n">front</span><span class="p">());</span>
-		<span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="n">get</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">q</span><span class="p">.</span><span class="n">front</span><span class="p">());</span>
-		<span class="kt">int</span> <span class="n">c</span> <span class="o">=</span> <span class="n">get</span><span class="o">&lt;</span><span class="mi">2</span><span class="o">&gt;</span><span class="p">(</span><span class="n">q</span><span class="p">.</span><span class="n">front</span><span class="p">());</span>
-
-		<span class="n">q</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
-
-		<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">InMap</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span> <span class="p">{</span>
-			<span class="k">continue</span><span class="p">;</span>
-		<span class="p">}</span>
-
-		<span class="k">if</span> <span class="p">(</span><span class="n">c</span> <span class="o">&gt;=</span> <span class="n">answer</span><span class="p">)</span>
-			<span class="k">continue</span><span class="p">;</span>
-
-		<span class="k">if</span> <span class="p">(</span><span class="n">board</span><span class="p">[</span><span class="n">y</span><span class="p">][</span><span class="n">x</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-			<span class="n">c</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
-		<span class="p">}</span>
-
-		<span class="k">if</span> <span class="p">(</span><span class="n">flag</span><span class="p">[</span><span class="n">y</span><span class="p">][</span><span class="n">x</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">c</span><span class="p">)</span> <span class="p">{</span>
-			<span class="k">continue</span><span class="p">;</span>
-		<span class="p">}</span>
-		
-		<span class="n">flag</span><span class="p">[</span><span class="n">y</span><span class="p">][</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="n">c</span><span class="p">;</span>
-
-		<span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="n">y</span> <span class="o">==</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-			<span class="n">answer</span> <span class="o">=</span> <span class="n">min</span><span class="p">(</span><span class="n">answer</span><span class="p">,</span> <span class="n">c</span><span class="p">);</span>
-		<span class="p">}</span>
-
-		<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-			<span class="kt">int</span> <span class="n">nx</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">dx</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-			<span class="kt">int</span> <span class="n">ny</span> <span class="o">=</span> <span class="n">y</span> <span class="o">+</span> <span class="n">dy</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-			<span class="n">q</span><span class="p">.</span><span class="n">push</span><span class="p">({</span> <span class="n">nx</span><span class="p">,</span><span class="n">ny</span><span class="p">,</span><span class="n">c</span> <span class="p">});</span>
-		<span class="p">}</span>
-	<span class="p">}</span>
-
-	<span class="k">if</span> <span class="p">(</span><span class="n">answer</span> <span class="o">==</span> <span class="n">MAX</span><span class="p">)</span>
-		<span class="n">answer</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
-	<span class="n">ios_base</span><span class="o">::</span><span class="n">sync_with_stdio</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
-	<span class="n">cin</span><span class="p">.</span><span class="n">tie</span><span class="p">(</span><span class="nb">NULL</span><span class="p">);</span>
-	<span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">n</span><span class="p">;</span>
-	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">y</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-		<span class="n">string</span> <span class="n">s</span><span class="p">;</span>
-		<span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">s</span><span class="p">;</span>
-		<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">s</span><span class="p">.</span><span class="n">length</span><span class="p">();</span> <span class="n">x</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-			<span class="n">board</span><span class="p">[</span><span class="n">y</span><span class="p">][</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="kt">int</span><span class="p">)</span><span class="n">s</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">-</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="sc">'0'</span><span class="p">);</span>
-			<span class="n">flag</span><span class="p">[</span><span class="n">y</span><span class="p">][</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="n">MAX</span><span class="p">;</span>
-		<span class="p">}</span>
-	<span class="p">}</span>
-
-	<span class="n">BFS</span><span class="p">();</span>
-	<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">answer</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></div>]]></content><author><name>Mohitto55</name></author><category term="boj" /><category term="boj" /><category term="백준" /><category term="solved" /><category term="문제풀이 2665번" /><summary type="html"><![CDATA[BOJ 2665-미로만들기]]></summary></entry><entry><title type="html">[Git] 100MB이상 커밋하기 Git-LFS</title><link href="http://localhost:4000/git/Git-LFS%EC%82%AC%EC%9A%A9%EB%B2%95/" rel="alternate" type="text/html" title="[Git] 100MB이상 커밋하기 Git-LFS" /><published>2024-03-01T00:00:00+09:00</published><updated>2024-03-01T00:00:00+09:00</updated><id>http://localhost:4000/git/Git%20LFS%EC%82%AC%EC%9A%A9%EB%B2%95</id><content type="html" xml:base="http://localhost:4000/git/Git-LFS%EC%82%AC%EC%9A%A9%EB%B2%95/"><![CDATA[<h2 id="문제-발생">문제 발생</h2>
-<p>Github로 수정 내용을 저장소에 올리는 과정에서 특정 파일의 크기가 100MB가 넘어가면 Git에서 commit을 reject한다. 이를 해결 하기 위해선 100MB가 넘어가는 파일을 커밋하는 과정에서 <strong>제외</strong>하거나 <code class="language-plaintext highlighter-rouge">Git LFS</code>를 사용해야 한다.
-<img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/d780856e-da75-4942-856c-fe6b9299c5ce" alt="image" /></p>
-
-<h2 id="git-lfs">Git LFS</h2>
-<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/063e1bdd-53e2-4d4c-96a9-b65cddbac7b5" alt="image" /></p>
-
-<p>LFS로 관리 받는 파일은 실제 리포지토리가 아닌 다른 저장소로 옮겨지고 실제 리포지토리는 메타데이터를 통해 다른 저장소에 있는 파일을 가리키는 방식으로 대용량 파일을 관리한다.</p>
-
-<p>관리하는 파일 하나당 최대 크기가 있다. 해당 크기는 사용하는 GitHub Product에 따라 다르다.</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Product</th>
-      <th>최대 파일 크기</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>GitHub Free</td>
-      <td>2GB</td>
-    </tr>
-    <tr>
-      <td>GitHub Pro</td>
-      <td>2GB</td>
-    </tr>
-    <tr>
-      <td>GitHub Team</td>
-      <td>4GB</td>
-    </tr>
-    <tr>
-      <td>GitHub Enterprise Cloud</td>
-      <td>5GB</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="사용법">사용법</h2>
-<h3 id="1-관리파일-설정">1. 관리파일 설정</h3>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git lfs install
-$ git lfs track "파일명"
-$ git lfs track "*.png"
-</code></pre></div></div>
-<p>lfs를 다운 받고 추적하려는 파일을 설정한다.</p>
-
-<h3 id="2-gitattribute-파일-커밋">2. .gitattribute 파일 커밋</h3>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git add .gitattribute
-$ git commit -m "Add gitattribute"
-$ git push -u origin main
-</code></pre></div></div>
-<p>파일을 track하면 <code class="language-plaintext highlighter-rouge">.gitattribute</code>라는 파일이 생성된다. 이 또한 커밋을 해줘야한다.</p>
-
-<div class="Reference">
-<div class="callout-header"> </div>
-<p>
-<a href="https://oneseat.tistory.com/entry/Github%EC%97%90-100MB%EA%B0%80-%EB%84%98%EB%8A%94-%ED%8C%8C%EC%9D%BC%EC%9D%84-%EC%B6%94%EA%B0%80%ED%95%A0-%EB%95%8C-%EC%83%9D%EA%B8%B0%EB%8A%94-%EB%AC%B8%EC%A0%9C-%ED%95%B4%EA%B2%B0%ED%95%98%EA%B8%B0">https://oneseat.tistory.com/</a>
-<a href="https://github.com/git-lfs/git-lfs">https://github.com/git-lfs/git-lfs</a>
-<a href="https://docs.github.com/ko/repositories/working-with-files/managing-large-files/about-git-large-file-storage">https://docs.github.com/ko/repositories/working-with-files/managing-large-files/about-git-large-file-storage</a>
-</p>
-</div>]]></content><author><name>Mohitto55</name></author><category term="git" /><category term="Git" /><category term="LFS" /><category term="Github" /><summary type="html"><![CDATA[문제 발생 Github로 수정 내용을 저장소에 올리는 과정에서 특정 파일의 크기가 100MB가 넘어가면 Git에서 commit을 reject한다. 이를 해결 하기 위해선 100MB가 넘어가는 파일을 커밋하는 과정에서 제외하거나 Git LFS를 사용해야 한다.]]></summary></entry></feed>
+</div>]]></content><author><name>Mohitto55</name></author><category term="ue5" /><category term="Unrealengine5" /><category term="UE5" /><category term="EnhancedInput" /><category term="언리얼엔진5" /><summary type="html"><![CDATA[EnhancedInput 언리얼엔진5은 기존 InputSystem을 대체하는 Enhanced Input을 이용해 더 확장성 높고 사용하기 편한 입력 시스템을 만들었다. 이 시스템 중 Input Mapping Context는 하나 이상의 Input Action을 트리거 할 수 있게 해준다.]]></summary></entry></feed>
