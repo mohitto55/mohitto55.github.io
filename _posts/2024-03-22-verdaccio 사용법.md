@@ -1,7 +1,7 @@
 ---
-title : "[Window] 자동 문서화 툴 Docfx 시작하기"
-categories: os
-tags: [Window, Linux, Ubuntu, WSL2, 우분투, 윈도우 리눅스, 유클리드 알고리즘]
+title : "[Verdaccio] Private 패키지 관리 Verdaccio"
+categories: network
+tags: [Verdaccio, Package, Server, Private, npm, NodeJs]
 ---
 ## 들어가며
 Docker를 사용하기 위해 알아보던 중 Hyper-V 기능을 활성화 해야하는 것을 알았다. 활성화 하려고 했지만 아무리 찾아도 보이지 않았다. 어찌된 것인지 알아보니 Window Pro 이상의 버전만 지원하는 기능이였고 난 Home였기에 할 수 없었다.
@@ -24,9 +24,6 @@ WSL2(Window Service for Linux)는 Window에서 **Linux Vritual Machine** 환경�
 ```
 wsl --install
 ```
-
----
-
 그러고 난 후 재부팅을 하고 나면 자동으로 Ubuntu가 설치되고 있을 것이다.
 
 그렇지 않다면 PowerShell에서 아래 명령어를 입력한다.
@@ -38,7 +35,7 @@ wsl --install -d Ubuntu
 
 
 ## 마무리
-이것으로 Window에서 Linux 환경을 구성했다. 이것으로 Docker를 이용한 다양한 프로젝트를 진행해볼 것이다.
+이것으로 Window에서 Linux 환경을 구성했다. 이 것으로 다양한 프로젝트를 진행해볼 것이다.
 
 
 ---
