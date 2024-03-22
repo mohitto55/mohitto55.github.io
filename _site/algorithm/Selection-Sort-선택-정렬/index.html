@@ -317,7 +317,7 @@
   
   <input id="ac-toc" name="accordion-toc" type="checkbox" />
   <label for="ac-toc">토글 메뉴</label>
-  <li> 전체 글 수 (31)개 </li>
+  <li> 전체 글 수 (33)개 </li>
   <ul class="nav__items">
     
       
@@ -398,7 +398,7 @@
           
           
 
-            <li><a href="/vscode"><span class="nav__sub-title-url">VScode  </span><span class="nav__sub-title-count">1</span></a></li>
+            <li><a href="/vscode"><span class="nav__sub-title-url">VScode  </span><span class="nav__sub-title-count">2</span></a></li>
           
           
           
@@ -431,7 +431,7 @@
           
           
 
-            <li><a href="/algorithm"><span class="nav__sub-title-url">Algorithm  </span><span class="nav__sub-title-count">3</span></a></li>
+            <li><a href="/algorithm"><span class="nav__sub-title-url">Algorithm  </span><span class="nav__sub-title-count">4</span></a></li>
           
         </ul>
         
@@ -449,12 +449,12 @@
           
           
 
-            <li><a href="/math"><span class="nav__sub-title-url">Math  </span><span class="nav__sub-title-count">0</span></a></li>
+            <li><a href="/os"><span class="nav__sub-title-url">OS  </span><span class="nav__sub-title-count">1</span></a></li>
           
           
           
 
-            <li><a href="/network"><span class="nav__sub-title-url">Network  </span><span class="nav__sub-title-count">2</span></a></li>
+            <li><a href="/network"><span class="nav__sub-title-url">Network  </span><span class="nav__sub-title-count">1</span></a></li>
           
           
           
@@ -475,6 +475,11 @@
           
 
             <li><a href="/computerscience"><span class="nav__sub-title-url">CS  </span><span class="nav__sub-title-count">1</span></a></li>
+          
+          
+          
+
+            <li><a href="/math"><span class="nav__sub-title-url">Math  </span><span class="nav__sub-title-count">0</span></a></li>
           
         </ul>
         
@@ -562,11 +567,12 @@
 \[(n-1) + (n-2)... = \frac{n(n-1)}{2} = O(N^2)\]
 
 <ul>
-  <li>비교 횟수</li>
-  <li>i가 n-2 일 때 비교횟수 : <font color="dodgerred">n-2</font></li>
-  <li>i가 n-1 일 때 비교횟수 : <font color="dodgerred">n-1</font></li>
-  <li>
-    <p>i가 1 일 때 비교횟수 : <font color="dodgerred">1</font></p>
+  <li>비교 횟수
+    <ul>
+      <li>i가 n-2 일 때 비교횟수 : <font color="dodgerred">n-2</font></li>
+      <li>i가 n-1 일 때 비교횟수 : <font color="dodgerred">n-1</font></li>
+      <li>i가 1 일 때 비교횟수 : <font color="dodgerred">1</font></li>
+    </ul>
   </li>
   <li>교환 횟수
     <ul>
@@ -668,11 +674,12 @@
       
   <nav class="pagination">
     
-      <a href="/network/TCPIP%EA%B3%B5%EB%B6%80/" class="pagination--pager" title="[Network] 네트워크공부
+      <a href="/algorithm/Bubble-Sort-%EB%B2%84%EB%B8%94-%EC%A0%95%EB%A0%AC/" class="pagination--pager" title="[Algorithm] Bubble Sort 버블정렬 알고리즘
 ">이전</a>
     
     
-      <a href="#" class="pagination--pager disabled">다음</a>
+      <a href="/os/WSL2-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0/" class="pagination--pager" title="[Window] 자동 문서화 툴 Docfx 시작하기
+">다음</a>
     
   </nav>
 
@@ -696,7 +703,7 @@
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/network/TCPIP%EA%B3%B5%EB%B6%80/" rel="permalink">[Network] 네트워크공부
+        <a href="/os/WSL2-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0/" rel="permalink">[Window] 자동 문서화 툴 Docfx 시작하기
 </a>
       
     </h2>
@@ -708,7 +715,7 @@
       <span class="page__meta-date">
         <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
         
-        <time datetime="2024-03-16T00:00:00+09:00">March 16, 2024</time>
+        <time datetime="2024-03-22T00:00:00+09:00">March 22, 2024</time>
       </span>
     
 
@@ -721,19 +728,63 @@
       <span class="page__meta-readtime">
         <i class="far fa-fw fa-clock" aria-hidden="true"></i>
         
-          3 분 소요
+          최대 1 분 소요
         
       </span>
     
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">통신을 위한 규칙, 프로토콜
+    <p class="archive__item-excerpt" itemprop="description">들어가며
+Docker를 사용하기 위해 알아보던 중 Hyper-V 기능을 활성화 해야하는 것을 알았다. 활성화 하려고 했지만 아무리 찾아도 보이지 않았다. 어찌된 것인지 알아보니 Window Pro 이상의 버전만 지원하는 기능이였고 난 Home였기에 할 수 없었다.
+</p>
+  </article>
+</div>
 
-  Packet을 처리하려면 규칙이 필요하다
-  프로토콜 덕에 회사가 달라도 패킷 처리가 가능하다
-  Https도 프로토콜이다.
+        
+          
 
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/algorithm/Bubble-Sort-%EB%B2%84%EB%B8%94-%EC%A0%95%EB%A0%AC/" rel="permalink">[Algorithm] Bubble Sort 버블정렬 알고리즘
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2024-03-19T00:00:00+09:00">March 19, 2024</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          최대 1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Bubble Sort
+버블 정렬 알고리즘은 정렬 알고리즘 중 하나로 느리지만 간단하여 자주 쓰이는 알고리즘이다.
 </p>
   </article>
 </div>
@@ -829,55 +880,6 @@ Unity를 이용하다 보니 생산성을 위해 여러가지 모듈을 개발�
 
 
     <p class="archive__item-excerpt" itemprop="description">예전 블로그에서 GCD에 관한 글을 작성하였는데 너무 오래되어 기억이 안나서 다시 재 작성하기로 했다.
-</p>
-  </article>
-</div>
-
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/gitblog/%EB%A7%88%ED%81%AC%EB%8B%A4%EC%9A%B4-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EC%BA%A1%EC%85%98/" rel="permalink">[Git Blog] 마크다운으로 이미지 캡션 추가하기
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2024-03-09T00:00:00+09:00">March 9, 2024</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
-        
-          최대 1 분 소요
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">이미지 캡션
-이미지 아래 회색 글씨
-캡션이란 위와 같이 이미지 아래 작은 글씨로 이미지에 대한 설명 글을 뜻한다. 한 문장으로 이미지에 대한 설명을 간략히 보여주기에 글을 이해하는데 도움을 주는 기능이다.
 </p>
   </article>
 </div>

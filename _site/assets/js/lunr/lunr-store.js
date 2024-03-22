@@ -149,6 +149,12 @@ var store = [{
         "url": "/algorithm/%EB%8F%99%EC%A0%81%EA%B3%84%ED%9A%8D%EB%B2%95-%EC%84%A4%EB%AA%85/",
         "teaser": null
       },{
+        "title": "[Ubuntu] Window11에서 Ubuntu(WSL2) 설치하기",
+        "excerpt":"들어가며 Docker를 시작하려던 중에 Hyper-V 기능이 있어야 사용할 수 있단 것을 알았다. Hyper-V를 킬려고 했으나 어째서인지 보이지 않았고 알고보니 Windows Pro 버전 이상만 지원이 되는 것이였다. 나는 Home 버전이였고 Docker Desktop을 사용하지 못하였다. 방법을 찾던도중 윈도우에 Linux 환경을 설치해 Linux 환경에서 Docker를 실행 할 수 있다는 것을 알았고 그렇게 찾은...","categories": ["vscode"],
+        "tags": ["Ubuntu","Window11","Window","우분투","WSL2"],
+        "url": "/vscode/VSCode-Snippets-%EB%B3%B5%EC%82%AC%EB%B3%B8/",
+        "teaser": null
+      },{
         "title": "[VScode] Snippet을 이용해 템플릿 사용하기",
         "excerpt":"Snippet 스니펫(snippet)은 재사용 가능한 소스 코드, 기계어, 텍스트의 작은 부분을 일컫는 프로그래밍 용어이다. 사용자가 루틴 편집 조작 중 반복 타이핑을 회피할 수 있게 도와준다. -Wikipedia snippet이란 작은 코드 조각을 뜻하는 말로 자주 쓰는 코드를 하나의 템플릿으로 만들어 반복작업을 줄일 수 있게 해주는 기능을 말한다. 대부분의 텍스트 편집기, IDE는 이런 snipet...","categories": ["vscode"],
         "tags": ["Vscode","Snippet","Template","템플릿","스니펫","IDE"],
@@ -173,15 +179,21 @@ var store = [{
         "url": "/unity/%ED%8C%A8%ED%82%A4%EC%A7%80-%EB%A7%A4%EB%8B%88%EC%A0%80/",
         "teaser": null
       },{
-        "title": "[Network] 네트워크공부",
-        "excerpt":"통신을 위한 규칙, 프로토콜 Packet을 처리하려면 규칙이 필요하다 프로토콜 덕에 회사가 달라도 패킷 처리가 가능하다 Https도 프로토콜이다. 프로토콜에 결정되어 있는 것 LAN케이블 소재나 핀도 프로토콜이 있다. Packet와 Header에도 어느 영역이 어떤 정보인지 프로토콜이 있다. 프로토콜은 계층으로 정리한다. 데이터 송신할 땐 위 계층에서 아래 계층으로 데이터 수신할 땐 아래 계층에서 위...","categories": ["network"],
-        "tags": ["Network","TCPIP"],
-        "url": "/network/TCPIP%EA%B3%B5%EB%B6%80/",
+        "title": "[Algorithm] Bubble Sort 버블정렬 알고리즘",
+        "excerpt":"Bubble Sort 버블 정렬 알고리즘은 정렬 알고리즘 중 하나로 느리지만 간단하여 자주 쓰이는 알고리즘이다. 원리 Index 0 부터 시작해서 n-i까지 비교해 자신 보다 작은 값을 보면 Swap 한 회차에 한번도 정렬이 안됐으면 정렬을 종료한다. 시간 복잡도 \\[(n-1) + (n-2)... = \\frac{n(n-1)}{2} = O(N^2)\\] 비교 횟수 i가 n-2 일 때 비교횟수...","categories": ["algorithm"],
+        "tags": ["Algorighm","Sort","정렬","Bubble Sort","버블정렬"],
+        "url": "/algorithm/Bubble-Sort-%EB%B2%84%EB%B8%94-%EC%A0%95%EB%A0%AC/",
         "teaser": null
       },{
         "title": "[Algorithm] Selection Sort 선택정렬 알고리즘",
         "excerpt":"Selection Sort 선택정렬 알고리즘은 제자리 정렬 알고리즘 중 하나로 입력 데이터 외 추가 데이터가 필요하지 않은 알고리즘이다. 원리 정렬하고자 하는 데이터 중 가장 큰 데이터의 맨 끝 데이터랑 교환 0번 째 Index부터 N-i까지 차례로 순회한다. 순회를 하던 중 값이 Index &lt; Index +1 일 경우 가장 큰 값을 Index +...","categories": ["algorithm"],
         "tags": ["Algorighm","Sort","정렬","Selection Sort","선택정렬"],
         "url": "/algorithm/Selection-Sort-%EC%84%A0%ED%83%9D-%EC%A0%95%EB%A0%AC/",
+        "teaser": null
+      },{
+        "title": "[Window] 자동 문서화 툴 Docfx 시작하기",
+        "excerpt":"들어가며 Docker를 사용하기 위해 알아보던 중 Hyper-V 기능을 활성화 해야하는 것을 알았다. 활성화 하려고 했지만 아무리 찾아도 보이지 않았다. 어찌된 것인지 알아보니 Window Pro 이상의 버전만 지원하는 기능이였고 난 Home였기에 할 수 없었다. 어떻게든 방법을 찾던 와중 Window에서 Linux 환경을 실행할 수 있는 기능이 있었고 이를 이용하면 Docker도 설치할 수...","categories": ["os"],
+        "tags": ["Window","Linux","Ubuntu","WSL2","우분투","윈도우 리눅스","유클리드 알고리즘"],
+        "url": "/os/WSL2-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0/",
         "teaser": null
       }]

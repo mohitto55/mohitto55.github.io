@@ -65,9 +65,9 @@ sidebar-category:
         category: "algorithm"
   - title: "ETC"
     children:
-      - title: "Math"
-        url: "/math"
-        category: "math"
+      - title: "OS"
+        url: "/os"
+        category: "os" 
       - title: "Network"
         url: "/network"
         category: "network"
@@ -83,7 +83,9 @@ sidebar-category:
       - title: "CS"
         url:  "/computerscience"
         category: "computerscience"
-        
+      - title: "Math"
+        url: "/math"
+        category: "math"
 
   # - title: "About"
   #   url: https://mmistakes.github.io/minimal-mistakes/about/

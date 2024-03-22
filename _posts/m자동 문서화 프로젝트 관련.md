@@ -142,6 +142,10 @@ https://j1y00h4.tistory.com/32
 ## 현재 등록 된 유저 확인
 http://127.0.0.1:4873/ 로 이동하면 보임
 
+## 유저 등록하기
+npm adduser --registry=http://172.30.1.79:4873/
+이름, 패스워드, 이메일 적기
+
 ### 패키지 저장소 지정
 패키지 저장 폴더 위치까지 이동
 npm set registry 도메인(ip주소)
@@ -254,6 +258,9 @@ https://inpa.tistory.com/entry/GIT-%E2%9A%A1%EF%B8%8F-%ED%83%9C%EA%B7%B8-%EA%B8%
 
 `REPO_URL: https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git`
 
+### 방화벽 풀기!!
+방화벽을 풀지 않으면 로컬 서버로는 접속이 안된다.
+
 #### secret 컨텍스트에 변수 추가하기
 ##### 토큰 추가하기
 ![image](https://github.com/mohitto55/mohitto55.github.io/assets/154340583/ecbcb5dc-8582-40ee-8cc7-d300f271ff3e)
@@ -276,11 +283,14 @@ New repository token 로 생성준비
 - Secret는 token 입력
 
 ##### 유저 정보 추가하기
-리포지토리->setting->secrets and variable->Actions->Variables에서
+리포지토리->setting->secrets and variable->Actions->Secrets에서
 NPM_USER
 NPM_PASS
 NPM_EMAIL
 NPM_REGISTRY
+  - http://172.30.1.79:4873/ 자기주소:4873
+  - Action은 공개된 주소만 되고 로컬 주소는 안됨
+
 추가하기
 
 ### 레지스트리 배포
@@ -358,6 +368,7 @@ jobs:
           npm-cli-login
           npm publish --registry $NPM_REGISTRY
 ```
+
 
 ## 오류 모음
 fatal: unable to access 'https://github.com/mohitto55/UPMTest.git/': The requested URL returned error: 403
