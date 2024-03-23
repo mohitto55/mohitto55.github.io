@@ -1,7 +1,7 @@
 ---
-title : "[Docker] Docker와 MySQL 설치하기"
+title : "[Docker] Ubuntu에서 Docker 설치하기"
 categories: network
-tags: [Docket, MySQL, 컨테이너]
+tags: [Docket, Ubuntu, Linux, 컨테이너]
 ---
 
 ## Docker

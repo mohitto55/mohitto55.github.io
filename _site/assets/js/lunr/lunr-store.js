@@ -149,12 +149,6 @@ var store = [{
         "url": "/algorithm/%EB%8F%99%EC%A0%81%EA%B3%84%ED%9A%8D%EB%B2%95-%EC%84%A4%EB%AA%85/",
         "teaser": null
       },{
-        "title": "[Ubuntu] Window11에서 Ubuntu(WSL2) 설치하기",
-        "excerpt":"들어가며 Docker를 시작하려던 중에 Hyper-V 기능이 있어야 사용할 수 있단 것을 알았다. Hyper-V를 킬려고 했으나 어째서인지 보이지 않았고 알고보니 Windows Pro 버전 이상만 지원이 되는 것이였다. 나는 Home 버전이였고 Docker Desktop을 사용하지 못하였다. 방법을 찾던도중 윈도우에 Linux 환경을 설치해 Linux 환경에서 Docker를 실행 할 수 있다는 것을 알았고 그렇게 찾은...","categories": ["vscode"],
-        "tags": ["Ubuntu","Window11","Window","우분투","WSL2"],
-        "url": "/vscode/VSCode-Snippets-%EB%B3%B5%EC%82%AC%EB%B3%B8/",
-        "teaser": null
-      },{
         "title": "[VScode] Snippet을 이용해 템플릿 사용하기",
         "excerpt":"Snippet 스니펫(snippet)은 재사용 가능한 소스 코드, 기계어, 텍스트의 작은 부분을 일컫는 프로그래밍 용어이다. 사용자가 루틴 편집 조작 중 반복 타이핑을 회피할 수 있게 도와준다. -Wikipedia snippet이란 작은 코드 조각을 뜻하는 말로 자주 쓰는 코드를 하나의 템플릿으로 만들어 반복작업을 줄일 수 있게 해주는 기능을 말한다. 대부분의 텍스트 편집기, IDE는 이런 snipet...","categories": ["vscode"],
         "tags": ["Vscode","Snippet","Template","템플릿","스니펫","IDE"],
@@ -191,9 +185,27 @@ var store = [{
         "url": "/algorithm/Selection-Sort-%EC%84%A0%ED%83%9D-%EC%A0%95%EB%A0%AC/",
         "teaser": null
       },{
-        "title": "[Window] 자동 문서화 툴 Docfx 시작하기",
+        "title": "[Docker] Docker와 MySQL 설치하기",
+        "excerpt":"들어가며   MySQL  docker -v     버전 확인    sudo docker pull mysql     mysql 다운로드       sudo docker images     다운된 이미지 확인           https://hipopatamus.tistory.com/109    ","categories": ["network"],
+        "tags": ["Docket","MySQL","컨테이너"],
+        "url": "/network/Docker,-mysql-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0/",
+        "teaser": null
+      },{
+        "title": "[Docker] Ubuntu에서 Docker 설치하기",
+        "excerpt":"Docker Docker란 컨테이너를 이용한 오픈소스 가상화 플랫폼이다. 컨테이너는 OS레벨의 가상화로 프로세스를 격리시켜 동작하는 것을 말한다. OS자체를 가상화 하던 방식과는 다른데 무슨 차이가 있는 것일 까 VM 가상화 vs Docker 가상화 사용하는 이유 개발하고 서버에 올리면 끝 그런데 서버에 올리면 작동 안함 whyt 컴터는 윈도우, 서버는 리눅스여서 도커를 사용하면 다른 머신에서도...","categories": ["network"],
+        "tags": ["Docket","Ubuntu","Linux","컨테이너"],
+        "url": "/network/Docker%EC%97%90-MySql-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0/",
+        "teaser": null
+      },{
+        "title": "[Window] Window에서 Linux(WSL2) 환경 설치하기",
         "excerpt":"들어가며 Docker를 사용하기 위해 알아보던 중 Hyper-V 기능을 활성화 해야하는 것을 알았다. 활성화 하려고 했지만 아무리 찾아도 보이지 않았다. 어찌된 것인지 알아보니 Window Pro 이상의 버전만 지원하는 기능이였고 난 Home였기에 할 수 없었다. 어떻게든 방법을 찾던 와중 Window에서 Linux 환경을 실행할 수 있는 기능이 있었고 이를 이용하면 Docker도 설치할 수...","categories": ["os"],
-        "tags": ["Window","Linux","Ubuntu","WSL2","우분투","윈도우 리눅스","유클리드 알고리즘"],
+        "tags": ["Window","Linux","Ubuntu","WSL2","Window Service for Linux","우분투","윈도우","리눅스"],
         "url": "/os/WSL2-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0/",
+        "teaser": null
+      },{
+        "title": "[C++] 백준 17396번-백도어",
+        "excerpt":"문제 링크 BOJ 17396-백도어 문제 예제 입력1 5 7 0 0 0 1 1 0 1 7 0 2 2 1 2 4 1 3 3 1 4 6 2 3 2 3 4 1 에제 출력1 12 예제 입력2 5 7 0 1 0 1 1 0 1 7...","categories": ["boj"],
+        "tags": ["boj","백준","PS","solved","문제풀이 17396번","Dijkstra","다익스트라"],
+        "url": "/boj/BOJ-17396/",
         "teaser": null
       }]

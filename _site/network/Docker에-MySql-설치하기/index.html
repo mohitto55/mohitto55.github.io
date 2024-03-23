@@ -9,8 +9,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>[C++] 백준 2629번-양팔저울 | Mohitto55 Note</title>
-<meta name="description" content="BOJ 2629-양팔저울">
+<!-- begin _includes/seo.html --><title>[Docker] Ubuntu에서 Docker 설치하기 | Mohitto55 Note</title>
+<meta name="description" content="Docker Docker란 컨테이너를 이용한 오픈소스 가상화 플랫폼이다.  컨테이너는 OS레벨의 가상화로 프로세스를 격리시켜 동작하는 것을 말한다. OS자체를 가상화 하던 방식과는 다른데 무슨 차이가 있는 것일 까">
 
 
   <meta name="author" content="Mohitto55">
@@ -22,30 +22,30 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:site_name" content="Mohitto55 Note">
-<meta property="og:title" content="[C++] 백준 2629번-양팔저울">
-<meta property="og:url" content="http://localhost:4000/boj/BOJ-2629%EB%B2%88/">
+<meta property="og:title" content="[Docker] Ubuntu에서 Docker 설치하기">
+<meta property="og:url" content="http://localhost:4000/network/Docker%EC%97%90-MySql-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0/">
 
 
-  <meta property="og:description" content="BOJ 2629-양팔저울">
-
-
-
-
-
-
-
-  <meta property="article:published_time" content="2024-03-06T00:00:00+09:00">
+  <meta property="og:description" content="Docker Docker란 컨테이너를 이용한 오픈소스 가상화 플랫폼이다.  컨테이너는 OS레벨의 가상화로 프로세스를 격리시켜 동작하는 것을 말한다. OS자체를 가상화 하던 방식과는 다른데 무슨 차이가 있는 것일 까">
 
 
 
 
 
-  
+
+
+  <meta property="article:published_time" content="2024-03-22T00:00:00+09:00">
+
+
+
+
 
   
 
+  
 
-<link rel="canonical" href="http://localhost:4000/boj/BOJ-2629%EB%B2%88/">
+
+<link rel="canonical" href="http://localhost:4000/network/Docker%EC%97%90-MySql-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0/">
 
 
 
@@ -171,7 +171,7 @@
       
         
         <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-          <a href="/categories/#boj" itemprop="item"><span itemprop="name">Boj</span></a>
+          <a href="/categories/#network" itemprop="item"><span itemprop="name">Network</span></a>
           <meta itemprop="position" content="2" />
         </li>
         <span class="sep">/</span>
@@ -179,7 +179,7 @@
     
       
       
-        <li class="current">[C++] 백준 2629번-양팔저울</li>
+        <li class="current">[Docker] Ubuntu에서 Docker 설치하기</li>
       
     
   </ol>
@@ -494,16 +494,16 @@
 
 
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="[C++] 백준 2629번-양팔저울">
-    <meta itemprop="description" content="BOJ 2629-양팔저울">
-    <meta itemprop="datePublished" content="2024-03-06T00:00:00+09:00">
+    <meta itemprop="headline" content="[Docker] Ubuntu에서 Docker 설치하기">
+    <meta itemprop="description" content="DockerDocker란 컨테이너를 이용한 오픈소스 가상화 플랫폼이다. 컨테이너는 OS레벨의 가상화로 프로세스를 격리시켜 동작하는 것을 말한다. OS자체를 가상화 하던 방식과는 다른데 무슨 차이가 있는 것일 까">
+    <meta itemprop="datePublished" content="2024-03-22T00:00:00+09:00">
     
 
     <div class="page__inner-wrap">
       
         <header>
           <h1 id="page-title" class="page__title p-name" itemprop="headline">
-            <a href="http://localhost:4000/boj/BOJ-2629%EB%B2%88/" class="u-url" itemprop="url">[C++] 백준 2629번-양팔저울
+            <a href="http://localhost:4000/network/Docker%EC%97%90-MySql-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0/" class="u-url" itemprop="url">[Docker] Ubuntu에서 Docker 설치하기
 </a>
           </h1>
           
@@ -514,7 +514,7 @@
       <span class="page__meta-date">
         <i class="far fa-calendar-alt" aria-hidden="true"></i>
         
-        <time datetime="2024-03-06T00:00:00+09:00">March 6, 2024</time>
+        <time datetime="2024-03-22T00:00:00+09:00">March 22, 2024</time>
       </span>
     
 
@@ -527,7 +527,7 @@
       <span class="page__meta-readtime">
         <i class="far fa-clock" aria-hidden="true"></i>
         
-          1 분 소요
+          최대 1 분 소요
         
       </span>
     
@@ -542,105 +542,70 @@
           <aside class="sidebar__right sticky">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> 목차</h4></header>
-              <ul class="toc__menu"><li><a href="#문제">문제</a></li><li><a href="#풀이">풀이</a></li><li><a href="#소스코드">소스코드</a></li></ul>
+              <ul class="toc__menu"><li><a href="#docker">Docker</a></li><li><a href="#vm-가상화-vs-docker-가상화">VM 가상화 vs Docker 가상화</a></li><li><a href="#사용하는-이유">사용하는 이유</a></li><li><a href="#docker-이미지">Docker 이미지</a></li><li><a href="#mysql">MySQL</a></li></ul>
 
             </nav>
           </aside>
         
-        <p><a href="https://www.acmicpc.net/problem/2629">BOJ 2629-양팔저울</a></p>
+        <h2 id="docker">Docker</h2>
+<p>Docker란 컨테이너를 이용한 오픈소스 가상화 플랫폼이다. 
+컨테이너는 OS레벨의 가상화로 프로세스를 격리시켜 동작하는 것을 말한다. OS자체를 가상화 하던 방식과는 다른데 무슨 차이가 있는 것일 까</p>
 
-<h2 id="문제">문제</h2>
-<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/b8f27588-2419-4e33-b6a8-55f07c43faea" alt="image" /></p>
+<h2 id="vm-가상화-vs-docker-가상화">VM 가상화 vs Docker 가상화</h2>
 
-<div class="code-block1">
-예제 입력1
-<div class="language-cpp highlighter-rouge">
-<div class="highlight">
-<pre class="highlight"><code>2
-1 4
-2
-3 2</code></pre></div></div></div>
+<h2 id="사용하는-이유">사용하는 이유</h2>
+<p>개발하고 서버에 올리면 끝
+그런데 서버에 올리면 작동 안함
+whyt 컴터는 윈도우, 서버는 리눅스여서
+도커를 사용하면 다른 머신에서도 같은 환경 구성 가능</p>
 
-<div class="code-block2">
-에제 출력1
-<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight">
-<code>Y N</code></pre></div></div></div>
+<p>윈도우, 서버에 둘다 Docker 설치
+구성하고 싶은 환경 설정하면 됨</p>
 
-<div class="code-block1">
-예제 입력2
-<div class="language-cpp highlighter-rouge">
-<div class="highlight">
-<pre class="highlight"><code>4
-2 3 3 3
-3
-1 4 10</code></pre></div></div></div>
+<p>도커는 파일읽고 필요한걸 다운 받고
+같은 환경을 컨테이너에 구성함</p>
 
-<div class="code-block2">
-에제 출력2
-<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight">
-<code>Y Y N</code></pre></div></div></div>
+<p>그래서 컴에서 서버로 코드 업로드하면(Docker와 같이) 잘 작동 함</p>
 
-<h2 id="풀이">풀이</h2>
-<p>DP를 사용하여 푸는 문제다.</p>
-<ul>
-  <li>구슬의 무게 + 왼쪽 추의 무게합 = 우측 추의 무게 합 이 성립될 경우 Y를 출력하라는 문제이다.</li>
-  <li>그렇기에 <strong>구슬 무게 = 우측 추의 무게합 - 왼쪽 추의 무게합</strong>이 점화식이다.</li>
-  <li>추를 놓는 모든 경우의 수 중 <strong>우측 추의 무게합 - 왼쪽 추의 무게합</strong>이 존재 할 경우 해당 무게와 같은 무게인 구슬이 있으면 해당 구슬은 Y를 출력할 수 있다.</li>
-  <li>모든 경우의 수를 탐색할 경우 시간 초과가 발생할 수 있으므로 flag[무게합][i번 째 추]에 체크해서 중복되는 경우는 넘기도록 한다.</li>
-</ul>
+<p>또 각 컨테이너는 각기 분리되어 있음
+컨테이너들은 독립적임
+이덕에 한개의 서버에서 수많은 컨테이너 가질 수 있음</p>
 
-<h2 id="소스코드">소스코드</h2>
-<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">"bits/stdc++.h"</span><span class="cp">
-</span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<p>만약 자바 애플리케이션이 인기 많으면 자바 컨테이너 늘리고 인기 줄면 줄이고 가능
+매번 서버를 사고 팔 이유가 없음</p>
 
-<span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">;</span>
-<span class="kt">int</span> <span class="n">weights</span><span class="p">[</span><span class="mi">31</span><span class="p">];</span>
-<span class="kt">int</span> <span class="n">beads</span><span class="p">[</span><span class="mi">31</span><span class="p">];</span>
-<span class="kt">int</span> <span class="n">answer</span><span class="p">[</span><span class="mi">50001</span><span class="p">];</span>
-<span class="kt">int</span> <span class="n">flag</span><span class="p">[</span><span class="mi">50001</span><span class="p">][</span><span class="mi">600</span><span class="p">];</span>
+<ol>
+  <li>원하는 개발 환경을 파일에 저장하면 어떤 머신에든 해당 환경 구성해줌</li>
+  <li>각 환경을 독립적이기 때문에 무슨 환경이든 모듈식 관리 가능</li>
+</ol>
 
+<h2 id="docker-이미지">Docker 이미지</h2>
+<p>컨테이너를 만드는데 사용되는 Template</p>
 
-<span class="kt">int</span> <span class="nf">DP</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span><span class="kt">int</span> <span class="n">c</span><span class="p">)</span> <span class="p">{</span>
-	<span class="k">if</span> <span class="p">(</span><span class="n">c</span> <span class="o">&gt;=</span> <span class="mi">50000</span><span class="p">)</span>
-		<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-	<span class="k">if</span> <span class="p">(</span><span class="n">flag</span><span class="p">[</span><span class="n">abs</span><span class="p">(</span><span class="n">c</span><span class="p">)][</span><span class="n">x</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
-		<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-	<span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="n">n</span><span class="p">)</span>
-		<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-	<span class="n">answer</span><span class="p">[</span><span class="n">abs</span><span class="p">(</span><span class="n">c</span><span class="p">)]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-	<span class="n">flag</span><span class="p">[</span><span class="n">abs</span><span class="p">(</span><span class="n">c</span><span class="p">)][</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<h2 id="mysql">MySQL</h2>
 
-	<span class="n">DP</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">c</span> <span class="o">+</span> <span class="mi">0</span><span class="p">);</span>
-	<span class="n">DP</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">c</span> <span class="o">-</span> <span class="n">weights</span><span class="p">[</span><span class="n">x</span><span class="p">]);</span>
-	<span class="n">DP</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">c</span> <span class="o">+</span> <span class="n">weights</span><span class="p">[</span><span class="n">x</span><span class="p">]);</span>
-	<span class="k">return</span> <span class="n">abs</span><span class="p">(</span><span class="n">weights</span><span class="p">[</span><span class="n">x</span><span class="p">]);</span>
-<span class="p">}</span>
-
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-	<span class="n">ios_base</span><span class="o">::</span><span class="n">sync_with_stdio</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-	<span class="n">cin</span><span class="p">.</span><span class="n">tie</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-
-	<span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">n</span><span class="p">;</span>
-	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-		<span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">weights</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-	<span class="p">}</span>
-
-	<span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">m</span><span class="p">;</span>
-	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">m</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-		<span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">beads</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-	<span class="p">}</span>
-	<span class="n">answer</span><span class="p">[</span><span class="n">DP</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-
-	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">m</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-		<span class="k">if</span> <span class="p">(</span><span class="n">answer</span><span class="p">[</span><span class="n">beads</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-			<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Y "</span><span class="p">;</span>
-		<span class="p">}</span>
-		<span class="k">else</span> <span class="p">{</span>
-			<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"N "</span><span class="p">;</span>
-		<span class="p">}</span>
-	<span class="p">}</span>
-<span class="p">}</span>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker -v
 </code></pre></div></div>
+<blockquote>
+  <p>Docker 버전 확인</p>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker pull mysql
+</code></pre></div></div>
+<blockquote>
+  <p>Docker 이미지 다운</p>
+</blockquote>
+
+<p><img src="https://github.com/mohitto55/Blog_Images/assets/154340583/5c72a46d-5327-48a0-bfbe-c5e80a298495" alt="image" /></p>
+
+<div class="Reference">
+<div class="callout-header"> </div>
+<p>
+<a href="https://hipopatamus.tistory.com/109">https://hipopatamus.tistory.com/109</a>
+<a href="https://khj93.tistory.com/entry/Docker-Docker-%EA%B0%9C%EB%85%90">https://khj93.tistory.com/entry/Docker-Docker-%EA%B0%9C%EB%85%90</a>
+<a href="https://www.youtube.com/watch?v=chnCcGCTyBg">https://www.youtube.com/watch?v=chnCcGCTyBg</a>
+</p>
+</div>
 
         
       </section>
@@ -657,17 +622,13 @@
     <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
     <span itemprop="keywords">
     
-      <a href="/tags/#boj" class="page__taxonomy-item p-category" rel="tag">boj</a><span class="sep">, </span>
+      <a href="/tags/#docket" class="page__taxonomy-item p-category" rel="tag">Docket</a><span class="sep">, </span>
     
-      <a href="/tags/#dp" class="page__taxonomy-item p-category" rel="tag">DP</a><span class="sep">, </span>
+      <a href="/tags/#linux" class="page__taxonomy-item p-category" rel="tag">Linux</a><span class="sep">, </span>
     
-      <a href="/tags/#dynamic-programming" class="page__taxonomy-item p-category" rel="tag">Dynamic Programming</a><span class="sep">, </span>
+      <a href="/tags/#ubuntu" class="page__taxonomy-item p-category" rel="tag">Ubuntu</a><span class="sep">, </span>
     
-      <a href="/tags/#solved" class="page__taxonomy-item p-category" rel="tag">solved</a><span class="sep">, </span>
-    
-      <a href="/tags/#%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2629%EB%B2%88" class="page__taxonomy-item p-category" rel="tag">문제풀이 2629번</a><span class="sep">, </span>
-    
-      <a href="/tags/#%EB%B0%B1%EC%A4%80" class="page__taxonomy-item p-category" rel="tag">백준</a>
+      <a href="/tags/#%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88" class="page__taxonomy-item p-category" rel="tag">컨테이너</a>
     
     </span>
   </p>
@@ -684,7 +645,7 @@
     <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
     <span itemprop="keywords">
     
-      <a href="/categories/#boj" class="page__taxonomy-item p-category" rel="tag">boj</a>
+      <a href="/categories/#network" class="page__taxonomy-item p-category" rel="tag">network</a>
     
     </span>
   </p>
@@ -692,7 +653,7 @@
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2024-03-06T00:00:00+09:00">March 6, 2024</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2024-03-22T00:00:00+09:00">March 22, 2024</time></p>
 
       </footer>
 
@@ -701,22 +662,22 @@
     <h4 class="page__share-title">공유하기</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=%5BC%2B%2B%5D+%EB%B0%B1%EC%A4%80+2629%EB%B2%88-%EC%96%91%ED%8C%94%EC%A0%80%EC%9A%B8%20http%3A%2F%2Flocalhost%3A4000%2Fboj%2FBOJ-2629%25EB%25B2%2588%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=%5BDocker%5D+Ubuntu%EC%97%90%EC%84%9C+Docker+%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0%20http%3A%2F%2Flocalhost%3A4000%2Fnetwork%2FDocker%25EC%2597%2590-MySql-%25EC%2584%25A4%25EC%25B9%2598%25ED%2595%2598%25EA%25B8%25B0%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fboj%2FBOJ-2629%25EB%25B2%2588%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fnetwork%2FDocker%25EC%2597%2590-MySql-%25EC%2584%25A4%25EC%25B9%2598%25ED%2595%2598%25EA%25B8%25B0%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fboj%2FBOJ-2629%25EB%25B2%2588%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fnetwork%2FDocker%25EC%2597%2590-MySql-%25EC%2584%25A4%25EC%25B9%2598%25ED%2595%2598%25EA%25B8%25B0%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="/boj/BOJ-12865%EB%B2%88/" class="pagination--pager" title="[C++] 백준 12865번-평범한 배낭
+      <a href="/network/Docker,-mysql-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0/" class="pagination--pager" title="[Docker] Docker와 MySQL 설치하기
 ">이전</a>
     
     
-      <a href="/algorithm/%EB%8F%99%EC%A0%81%EA%B3%84%ED%9A%8D%EB%B2%95-%EC%84%A4%EB%AA%85/" class="pagination--pager" title="[Algorithm] Dynamic Programming(동적 계획법) 설명
+      <a href="/os/WSL2-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0/" class="pagination--pager" title="[Window] Window에서 Linux(WSL2) 환경 설치하기
 ">다음</a>
     
   </nav>
@@ -841,55 +802,6 @@ Docker를 사용하기 위해 알아보던 중 Hyper-V 기능을 활성화 해�
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/network/Docker%EC%97%90-MySql-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0/" rel="permalink">[Docker] Ubuntu에서 Docker 설치하기
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2024-03-22T00:00:00+09:00">March 22, 2024</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
-        
-          최대 1 분 소요
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">Docker
-Docker란 컨테이너를 이용한 오픈소스 가상화 플랫폼이다. 
-컨테이너는 OS레벨의 가상화로 프로세스를 격리시켜 동작하는 것을 말한다. OS자체를 가상화 하던 방식과는 다른데 무슨 차이가 있는 것일 까
-</p>
-  </article>
-</div>
-
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
         <a href="/network/Docker,-mysql-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0/" rel="permalink">[Docker] Docker와 MySQL 설치하기
 </a>
       
@@ -923,6 +835,54 @@ Docker란 컨테이너를 이용한 오픈소스 가상화 플랫폼이다.
 
 
     <p class="archive__item-excerpt" itemprop="description">들어가며
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/algorithm/Selection-Sort-%EC%84%A0%ED%83%9D-%EC%A0%95%EB%A0%AC/" rel="permalink">[Algorithm] Selection Sort 선택정렬 알고리즘
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2024-03-19T00:00:00+09:00">March 19, 2024</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          최대 1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Selection Sort
+선택정렬 알고리즘은 제자리 정렬 알고리즘 중 하나로 입력 데이터 외 추가 데이터가 필요하지 않은 알고리즘이다.
 </p>
   </article>
 </div>
@@ -982,8 +942,8 @@ Docker란 컨테이너를 이용한 오픈소스 가상화 플랫폼이다.
     
   <script>
     var disqus_config = function () {
-      this.page.url = "http://localhost:4000/boj/BOJ-2629%EB%B2%88/";  /* Replace PAGE_URL with your page's canonical URL variable */
-      this.page.identifier = "/boj/BOJ 2629번"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+      this.page.url = "http://localhost:4000/network/Docker%EC%97%90-MySql-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/network/Docker에 MySql 설치하기"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
     };
     (function() { /* DON'T EDIT BELOW THIS LINE */
       var d = document, s = d.createElement('script');
