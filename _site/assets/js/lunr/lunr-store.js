@@ -196,4 +196,10 @@ var store = [{
         "tags": ["boj","백준","PS","solved","문제풀이 17396번","Dijkstra","다익스트라"],
         "url": "/boj/BOJ-17396%EB%B2%88/",
         "teaser": null
+      },{
+        "title": "[Math] 데카르트 좌표계와 극 좌표계",
+        "excerpt":"들어가기 좌표는 우리 일상 생활에서 중요한 요소다. 사람과의 거리, 건축, 컴퓨터 등 다양한 분야에서 사용하는 개념이다. 좌표계는 고대에도 사용된 개념인데 천문학자들이 별의 위치를 추정하기 위하여 사용하곤 했다. 오늘은 우리 일상과 빠트릴 수 없는 좌표계에 대하여 알아볼 것이다. 좌표계란 공간에 대해서 위치를 숫자나 가하학 요소를 이용해 나타낸 것이다 데카르트 좌표계(Cartesian coordinate...","categories": ["math"],
+        "tags": ["데카르트 좌표계","Cartesian coordinate system","극 좌표계","Polar coordinate system"],
+        "url": "/math/%EC%A2%8C%ED%91%9C%EA%B3%84-%EC%A0%95%EB%A6%AC/",
+        "teaser": null
       }]

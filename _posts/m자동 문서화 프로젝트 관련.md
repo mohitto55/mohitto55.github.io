@@ -125,6 +125,9 @@ yo: Yeoman은 웹 애플리케이션 및 프로젝트의 생성기입니다. Yeo
 `npm install --location=global generator-verdaccio-plugin`
 플러그인 설치
 
+## 패키지 기본 파일 설정
+npm init 하기
+
 ## 접근허가하기
 외부 접근 허가 위해 config.yaml 수정 필요함
 아니면 유저등록, 분배등을 못한다
@@ -140,10 +143,10 @@ https://j1y00h4.tistory.com/32
 `verdaccio`를 입력해 서버를 열고 나서 유저를 등록해야 한다.
 
 ## 현재 등록 된 유저 확인
-http://127.0.0.1:4873/ 로 이동하면 보임
+http://localhost:4873/ 로 이동하면 보임
 
 ## 유저 등록하기
-npm adduser --registry=http://172.30.1.79:4873/
+npm adduser --registry=http://localhost:4873/
 이름, 패스워드, 이메일 적기
 
 ### 패키지 저장소 지정
@@ -260,6 +263,33 @@ https://inpa.tistory.com/entry/GIT-%E2%9A%A1%EF%B8%8F-%ED%83%9C%EA%B7%B8-%EA%B8%
 
 ### 방화벽 풀기!!
 방화벽을 풀지 않으면 로컬 서버로는 접속이 안된다.
+
+https://dev.to/verdaccio/how-to-use-verdaccio-with-github-registry-2ejj?source=post_page-----268ef36fb225--------------------------------
+#### Uplink
+config.yaml 열고 아래를 추가한다
+```
+uplinks:
+  npmjs:
+    url: https://registry.npmjs.org/
+  github:
+    url: https://npm.pkg.github.com
+    auth:
+      type: bearer
+      token: xxxx
+```
+깃허브 토큰을 구해야 하는데 \
+자세한건 여기서 https://verdaccio.org/docs/uplinks/#auth-property
+
+#### 패키지 엑세싱
+깃허브는 내 퍼블릭 패키지를 스코프 접속을 필요로 한다.
+Proxy
+
+
+### 로컬 verdaccio 서버와 github action 연결하기
+로컬IP는 외부와 접촉할 수 없다
+그래서 훅킹을 해줘야 한다.
+
+
 
 #### secret 컨텍스트에 변수 추가하기
 ##### 토큰 추가하기
