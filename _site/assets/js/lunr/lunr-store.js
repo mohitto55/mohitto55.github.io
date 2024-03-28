@@ -202,4 +202,16 @@ var store = [{
         "tags": ["데카르트 좌표계","Cartesian coordinate system","극 좌표계","Polar coordinate system"],
         "url": "/math/%EC%A2%8C%ED%91%9C%EA%B3%84-%EC%A0%95%EB%A6%AC/",
         "teaser": null
+      },{
+        "title": "[Ubuntu] Docker 설치하기",
+        "excerpt":"도커 다운받기 1. 우분투 시스템 패키지 업데이트 sudo apt-get update 2. 필요한 패키지 설치 sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common 3. Docker의 공식 GPG키를 추가 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - 4. Docker의 공식 apt 저장소를 추가 sudo add-apt-repository \"deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable\" 5....","categories": ["linux"],
+        "tags": ["Window","Linux","Ubuntu","WSL2","Window Service for Linux","Docker","도커","우분투","윈도우","리눅스"],
+        "url": "/linux/Docker-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0/",
+        "teaser": null
+      },{
+        "title": "[Ubuntu] Docker 삭제하기",
+        "excerpt":"Docker 삭제하기 1. docker 설치 확인하기 dpkg -l | grep -i docker 2. docker를 삭제 sudo apt-get purge -y docker-engine docker docker.io docker-ce sudo apt-get autoremove -y --purge docker-engine docker docker.io docker-ce 위의 명령으로 호스트에서 이미지, 컨테이너, 볼륨 또는 사용자 생성 구성 파일을 제외한 모든 파일을 삭제한다. ​3. 모든 이미지,...","categories": ["linux"],
+        "tags": ["Window","Linux","Ubuntu","WSL2","Window Service for Linux","Docker","도커","우분투","윈도우","리눅스"],
+        "url": "/linux/Docker-%EC%99%84%EC%A0%84-%EC%82%AD%EC%A0%9C%ED%95%98%EA%B8%B0/",
+        "teaser": null
       }]

@@ -1,4 +1,81 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-03-25T21:34:27+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mohitto55 Note</title><subtitle>모히또의 노트</subtitle><author><name>Mohitto55</name></author><entry><title type="html">[Math] 데카르트 좌표계와 극 좌표계</title><link href="http://localhost:4000/math/%EC%A2%8C%ED%91%9C%EA%B3%84-%EC%A0%95%EB%A6%AC/" rel="alternate" type="text/html" title="[Math] 데카르트 좌표계와 극 좌표계" /><published>2024-03-25T00:00:00+09:00</published><updated>2024-03-25T00:00:00+09:00</updated><id>http://localhost:4000/math/%EC%A2%8C%ED%91%9C%EA%B3%84%20%EC%A0%95%EB%A6%AC</id><content type="html" xml:base="http://localhost:4000/math/%EC%A2%8C%ED%91%9C%EA%B3%84-%EC%A0%95%EB%A6%AC/"><![CDATA[<h2 id="들어가기">들어가기</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-03-28T13:05:40+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mohitto55 Note</title><subtitle>모히또의 노트</subtitle><author><name>Mohitto55</name></author><entry><title type="html">[Ubuntu] Docker 설치하기</title><link href="http://localhost:4000/linux/Docker-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0/" rel="alternate" type="text/html" title="[Ubuntu] Docker 설치하기" /><published>2024-03-28T00:00:00+09:00</published><updated>2024-03-28T00:00:00+09:00</updated><id>http://localhost:4000/linux/Docker%20%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0</id><content type="html" xml:base="http://localhost:4000/linux/Docker-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0/"><![CDATA[<h2 id="도커-다운받기">도커 다운받기</h2>
+<h3 id="1-우분투-시스템-패키지-업데이트">1. 우분투 시스템 패키지 업데이트</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get update
+</code></pre></div></div>
+
+<h3 id="2-필요한-패키지-설치">2. 필요한 패키지 설치</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+</code></pre></div></div>
+
+<h3 id="3-docker의-공식-gpg키를-추가">3. Docker의 공식 GPG키를 추가</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+</code></pre></div></div>
+
+<h3 id="4-docker의-공식-apt-저장소를-추가">4. Docker의 공식 apt 저장소를 추가</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+</code></pre></div></div>
+
+<h3 id="5-시스템-패키지-업데이트">5. 시스템 패키지 업데이트</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get update
+</code></pre></div></div>
+
+<h3 id="6-docker-설치">6. Docker 설치</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get install docker-ce docker-ce-cli containerd.io
+</code></pre></div></div>
+
+<h3 id="7-docker가-설치-확인">7. Docker가 설치 확인</h3>
+<p>7-1 도커 버전 확인</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker -v
+</code></pre></div></div>
+
+<p>7-2 도커 실행상태 확인</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo systemctl status docker
+</code></pre></div></div>
+
+<hr />
+
+<div class="Reference">
+<div class="callout-header"> </div>
+<p>
+<a href="https://may9noy.tistory.com/392">https://may9noy.tistory.com/392</a>
+</p>
+</div>]]></content><author><name>Mohitto55</name></author><category term="linux" /><category term="Window" /><category term="Linux" /><category term="Ubuntu" /><category term="WSL2" /><category term="Window Service for Linux" /><category term="Docker" /><category term="도커" /><category term="우분투" /><category term="윈도우" /><category term="리눅스" /><summary type="html"><![CDATA[도커 다운받기 1. 우분투 시스템 패키지 업데이트 sudo apt-get update]]></summary></entry><entry><title type="html">[Ubuntu] Docker 삭제하기</title><link href="http://localhost:4000/linux/Docker-%EC%99%84%EC%A0%84-%EC%82%AD%EC%A0%9C%ED%95%98%EA%B8%B0/" rel="alternate" type="text/html" title="[Ubuntu] Docker 삭제하기" /><published>2024-03-28T00:00:00+09:00</published><updated>2024-03-28T00:00:00+09:00</updated><id>http://localhost:4000/linux/Docker%20%EC%99%84%EC%A0%84%20%EC%82%AD%EC%A0%9C%ED%95%98%EA%B8%B0</id><content type="html" xml:base="http://localhost:4000/linux/Docker-%EC%99%84%EC%A0%84-%EC%82%AD%EC%A0%9C%ED%95%98%EA%B8%B0/"><![CDATA[<h1 id="docker-삭제하기">Docker 삭제하기</h1>
+<h2 id="1-docker-설치-확인하기">1. docker 설치 확인하기</h2>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dpkg -l | grep -i docker
+</code></pre></div></div>
+
+<h2 id="2-docker를-삭제">2. docker를 삭제</h2>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get purge -y docker-engine docker docker.io docker-ce
+sudo apt-get autoremove -y --purge docker-engine docker docker.io docker-ce
+</code></pre></div></div>
+<p>위의 명령으로 호스트에서 이미지, 컨테이너, 볼륨 또는 사용자 생성 구성 파일을 제외한 모든 파일을 삭제한다.</p>
+
+<h2 id="3-모든-이미지-컨테이너-및-볼륨을-삭제">​3. 모든 이미지, 컨테이너 및 볼륨을 삭제</h2>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo rm -rf /var/lib/docker /etc/docker
+sudo rm /etc/apparmor.d/docker
+sudo groupdel docker
+sudo rm -rf /var/run/docker.sock
+</code></pre></div></div>
+<p>시스템에서 Docker를 완전히 제거,</p>
+
+<hr />
+
+<h3 id="우분투에서-삭제하기">우분투에서 삭제하기</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo snap remove docker
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo find / -name "*docker*" -exec `rm -rf` {} +
+</code></pre></div></div>
+<p>모든 docker 관련 파일을 삭제</p>
+
+<hr />
+
+<div class="Reference">
+<div class="callout-header"> </div>
+<p>
+<a href="https://may9noy.tistory.com/392">https://may9noy.tistory.com/392</a>
+</p>
+</div>]]></content><author><name>Mohitto55</name></author><category term="linux" /><category term="Window" /><category term="Linux" /><category term="Ubuntu" /><category term="WSL2" /><category term="Window Service for Linux" /><category term="Docker" /><category term="도커" /><category term="우분투" /><category term="윈도우" /><category term="리눅스" /><summary type="html"><![CDATA[Docker 삭제하기 1. docker 설치 확인하기 dpkg -l | grep -i docker]]></summary></entry><entry><title type="html">[Math] 데카르트 좌표계와 극 좌표계</title><link href="http://localhost:4000/math/%EC%A2%8C%ED%91%9C%EA%B3%84-%EC%A0%95%EB%A6%AC/" rel="alternate" type="text/html" title="[Math] 데카르트 좌표계와 극 좌표계" /><published>2024-03-25T00:00:00+09:00</published><updated>2024-03-25T00:00:00+09:00</updated><id>http://localhost:4000/math/%EC%A2%8C%ED%91%9C%EA%B3%84%20%EC%A0%95%EB%A6%AC</id><content type="html" xml:base="http://localhost:4000/math/%EC%A2%8C%ED%91%9C%EA%B3%84-%EC%A0%95%EB%A6%AC/"><![CDATA[<h2 id="들어가기">들어가기</h2>
 <p>좌표는 우리 일상 생활에서 중요한 요소다. 사람과의 거리, 건축, 컴퓨터 등 다양한 분야에서 사용하는 개념이다. 좌표계는 고대에도 사용된 개념인데 천문학자들이 별의 위치를 추정하기 위하여 사용하곤 했다.</p>
 
 <p>오늘은 우리 일상과 빠트릴 수 없는 좌표계에 대하여 알아볼 것이다.</p>
@@ -739,60 +816,7 @@ Configure Git to use GCM by running the following command in a terminal:</p>
 <p>
 <a href="https://seunghyum.github.io/algorithm/Euclidean-algorithm/#">https://seunghyum.github.io/algorithm/Euclidean-algorithm/#</a>
 </p>
-</div>]]></content><author><name>Mohitto55</name></author><category term="algorithm" /><category term="Algorighm" /><category term="최대공약수" /><category term="최소공배수" /><category term="GCD" /><category term="LCM" /><category term="유클리드 호제법" /><category term="유클리드 알고리즘" /><summary type="html"><![CDATA[예전 블로그에서 GCD에 관한 글을 작성하였는데 너무 오래되어 기억이 안나서 다시 재 작성하기로 했다.]]></summary></entry><entry><title type="html">[Git Blog] 마크다운으로 이미지 캡션 추가하기</title><link href="http://localhost:4000/gitblog/%EB%A7%88%ED%81%AC%EB%8B%A4%EC%9A%B4-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EC%BA%A1%EC%85%98/" rel="alternate" type="text/html" title="[Git Blog] 마크다운으로 이미지 캡션 추가하기" /><published>2024-03-09T00:00:00+09:00</published><updated>2024-03-09T00:00:00+09:00</updated><id>http://localhost:4000/gitblog/%EB%A7%88%ED%81%AC%EB%8B%A4%EC%9A%B4%20%EC%9D%B4%EB%AF%B8%EC%A7%80%20%EC%BA%A1%EC%85%98</id><content type="html" xml:base="http://localhost:4000/gitblog/%EB%A7%88%ED%81%AC%EB%8B%A4%EC%9A%B4-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EC%BA%A1%EC%85%98/"><![CDATA[<h2 id="이미지-캡션">이미지 캡션</h2>
-<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/4f373422-5831-4b69-8cd3-cef821f8f859" alt="image" /><em>이미지 아래 회색 글씨</em>
-캡션이란 위와 같이 이미지 아래 작은 글씨로 이미지에 대한 설명 글을 뜻한다. 한 문장으로 이미지에 대한 설명을 간략히 보여주기에 글을 이해하는데 도움을 주는 기능이다.</p>
-
-<hr />
-<h3 id="markdown-이미지">Markdown 이미지</h3>
-<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">![</span><span class="nv">이름</span><span class="p">](</span><span class="sx">링크</span><span class="p">)</span>
-</code></pre></div></div>
-
-<p>minimal-mistake 블로그 글을 쓸 때 이미지 표시를 주로 마크다운 기능을 이용해서 작성하는데 아쉽게도 마크다운에선 캡션 기능을 지원하고 있지 않다.</p>
-
-<p><strong>css</strong>를 이용하면 구현이 되지만 <strong>html</strong>태그를 작성해야 하기에 어떻게든 마크다운 만으로 캡션기능을 넣고 싶어 이것 저것 찾아봤다.</p>
-
-<hr />
-
-<h3 id="markdown-이미지-캡션-사용법">Markdown 이미지 캡션 사용법</h3>
-<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">![</span><span class="nv">이름</span><span class="p">](</span><span class="sx">링크</span><span class="p">)</span><span class="ge">*캡션내용*</span>
-</code></pre></div></div>
-<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/429cfcbd-d2e3-464b-84c3-7f6affb15c4d" alt="image" class="width-half" /><em>em 태그가 만들어진다</em>
-html태그를 쓰지 않으면서 마크다운 만으로 캡션을 넣는 방법이 있다. 마크다운 이미지 링크 바로 뒤에 <em>Italics</em>글씨체로 바꿔주는 ** 문법을 넣는다.</p>
-
-<p>해당 문법은 블로그 페이지가 생성될 시 em태그로 변환되어 지는데 css에서 <strong>em</strong>태그 속성을 변경하는 방식으로 캡션 기능을 만든다.</p>
-
-<hr />
-<h4 id="css-추가">CSS 추가</h4>
-<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">img</span> <span class="o">+</span> <span class="nt">em</span> <span class="p">{</span>
-    <span class="nl">display</span><span class="p">:</span> <span class="nb">block</span><span class="p">;</span>
-    <span class="nl">text-align</span><span class="p">:</span> <span class="nb">center</span><span class="p">;</span>
-    <span class="nl">text-emphasis</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
-  <span class="p">}</span>
-</code></pre></div></div>
-<p><code class="language-plaintext highlighter-rouge">_sass/_page.scss</code>로가서 위 소스를 추가해주면 된다.
-이는 img 뒤에 올 em태그의 속성을 변경하는 css로 캡션과 같이 이미지 아래에 글씨가 오게 설정한다.</p>
-
-<p>해당 소스를 그대로 사용하면 em태그로 인해 글씨체가 기울어져 있을 것이다. 일반 글씨체로 바꾸고 싶고 작게 보이게 하고 싶다면 아래 내용을 추가한다.</p>
-<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">img</span> <span class="o">+</span> <span class="nt">em</span> <span class="p">{</span>
-    <span class="nl">display</span><span class="p">:</span> <span class="nb">block</span><span class="p">;</span>
-    <span class="nl">text-align</span><span class="p">:</span> <span class="nb">center</span><span class="p">;</span>
-    <span class="nl">text-emphasis</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
-    <span class="nl">font-size</span><span class="p">:</span> <span class="m">0.8em</span><span class="p">;</span> <span class="err">//글씨</span> <span class="err">크기를</span> <span class="err">줄인다</span>
-    <span class="nl">font-style</span><span class="p">:</span> <span class="nb">normal</span><span class="p">;</span> <span class="err">//Italics글씨체가</span> <span class="err">아닌</span> <span class="err">일반</span> <span class="err">글씨체</span>
-    <span class="nl">color</span><span class="p">:</span> <span class="n">rgba</span><span class="p">(</span><span class="err">$</span><span class="n">text-color</span><span class="p">,</span> <span class="m">0.75</span><span class="p">);</span> <span class="err">//폰트색의</span> <span class="err">투명도를</span> <span class="err">낮춘다</span>
-  <span class="p">}</span>
-</code></pre></div></div>
-
-<hr />
-<div class="Reference">
-<div class="callout-header"> </div>
-<p>
-<a href="https://62che.com/blog/vuepress/%EC%9D%B4%EB%AF%B8%EC%A7%80%EC%97%90-%EC%BA%A1%EC%85%98-%EB%8B%AC%EA%B8%B0.html#%E1%84%8B%E1%85%AF%E1%86%AB%E1%84%92%E1%85%A1%E1%84%82%E1%85%B3%E1%86%AB-%E1%84%86%E1%85%A9%E1%84%8B%E1%85%A3%E1%86%BC">https://62che.com/blog/vuepress/%EC%9D%B4%EB%AF%B8%EC%A7%80%EC%97%90-%EC%BA%A1%EC%85%98-%EB%8B%AC%EA%B8%B0.html#%E1%84%8B%E1%85%AF%E1%86%AB%E1%84%92%E1%85%A1%E1%84%82%E1%85%B3%E1%86%AB-%E1%84%86%E1%85%A9%E1%84%8B%E1%85%A3%E1%86%BC</a>
-<a href="https://yoophi.github.io/logs/vuepress/image-caption.html">https://yoophi.github.io/logs/vuepress/image-caption.html</a>
-<a href="https://stackoverflow.com/questions/19331362/using-an-image-caption-in-markdown-jekyll">https://stackoverflow.com/questions/19331362/using-an-image-caption-in-markdown-jekyll</a>
-</p>
-</div>]]></content><author><name>Mohitto55</name></author><category term="gitblog" /><category term="Git" /><category term="Blog" /><category term="minimal-mistake" /><category term="Jekyll" /><category term="Markdown" /><category term="Caption" /><category term="마크다운" /><category term="캡션" /><summary type="html"><![CDATA[이미지 캡션 이미지 아래 회색 글씨 캡션이란 위와 같이 이미지 아래 작은 글씨로 이미지에 대한 설명 글을 뜻한다. 한 문장으로 이미지에 대한 설명을 간략히 보여주기에 글을 이해하는데 도움을 주는 기능이다.]]></summary></entry><entry><title type="html">[VScode] Snippet을 이용해 템플릿 사용하기</title><link href="http://localhost:4000/vscode/VSCode-Snippets/" rel="alternate" type="text/html" title="[VScode] Snippet을 이용해 템플릿 사용하기" /><published>2024-03-09T00:00:00+09:00</published><updated>2024-03-09T00:00:00+09:00</updated><id>http://localhost:4000/vscode/VSCode%20Snippets</id><content type="html" xml:base="http://localhost:4000/vscode/VSCode-Snippets/"><![CDATA[<h2 id="snippet">Snippet</h2>
+</div>]]></content><author><name>Mohitto55</name></author><category term="algorithm" /><category term="Algorighm" /><category term="최대공약수" /><category term="최소공배수" /><category term="GCD" /><category term="LCM" /><category term="유클리드 호제법" /><category term="유클리드 알고리즘" /><summary type="html"><![CDATA[예전 블로그에서 GCD에 관한 글을 작성하였는데 너무 오래되어 기억이 안나서 다시 재 작성하기로 했다.]]></summary></entry><entry><title type="html">[VScode] Snippet을 이용해 템플릿 사용하기</title><link href="http://localhost:4000/vscode/VSCode-Snippets/" rel="alternate" type="text/html" title="[VScode] Snippet을 이용해 템플릿 사용하기" /><published>2024-03-09T00:00:00+09:00</published><updated>2024-03-09T00:00:00+09:00</updated><id>http://localhost:4000/vscode/VSCode%20Snippets</id><content type="html" xml:base="http://localhost:4000/vscode/VSCode-Snippets/"><![CDATA[<h2 id="snippet">Snippet</h2>
 <blockquote>
   <p>스니펫(snippet)은 재사용 가능한 소스 코드, 기계어, 텍스트의 작은 부분을 일컫는 프로그래밍 용어이다. 사용자가 루틴 편집 조작 중 반복 타이핑을 회피할 수 있게 도와준다.
 -<a href="https://ko.wikipedia.org/wiki/%EC%8A%A4%EB%8B%88%ED%8E%AB">Wikipedia</a></p>
@@ -910,67 +934,4 @@ setting.json은 작업중인 프로젝트의 셋팅값을 설정하는 파일이
 <a href="https://junu-k.medium.com/vscode-%EA%BF%80%ED%8C%81-1-%EB%82%98%EB%A7%8C%EC%9D%98-%EC%8A%A4%EB%8B%88%ED%8E%AB-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0-28b6044a77d3">vscode 꿀팁: 나만의 스니펫 사용하기</a>
 <a href="https://gnews365.tistory.com/entry/vscode-settingjson-%EC%97%90-%EB%93%A4%EC%96%B4%EA%B0%80%EA%B8%B0-%EB%B9%84%EC%A3%BC%EC%96%BC-%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4-%EC%BD%94%EB%93%9C">vscode setting.json 에 들어가기</a>
 </p>
-</div>]]></content><author><name>Mohitto55</name></author><category term="vscode" /><category term="Vscode" /><category term="Snippet" /><category term="Template" /><category term="템플릿" /><category term="스니펫" /><category term="IDE" /><summary type="html"><![CDATA[Snippet 스니펫(snippet)은 재사용 가능한 소스 코드, 기계어, 텍스트의 작은 부분을 일컫는 프로그래밍 용어이다. 사용자가 루틴 편집 조작 중 반복 타이핑을 회피할 수 있게 도와준다. -Wikipedia]]></summary></entry><entry><title type="html">[C++] 백준 12865번-평범한 배낭</title><link href="http://localhost:4000/boj/BOJ-12865%EB%B2%88/" rel="alternate" type="text/html" title="[C++] 백준 12865번-평범한 배낭" /><published>2024-03-06T00:00:00+09:00</published><updated>2024-03-06T00:00:00+09:00</updated><id>http://localhost:4000/boj/BOJ%2012865%EB%B2%88</id><content type="html" xml:base="http://localhost:4000/boj/BOJ-12865%EB%B2%88/"><![CDATA[<p><a href="https://www.acmicpc.net/problem/12865">BOJ 12865-평범한 배낭</a></p>
-
-<h2 id="문제">문제</h2>
-<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/a44cd234-e6ab-416d-ba26-dc7cc217c050" alt="image" /></p>
-
-<div class="code-block1">
-예제 입력
-<div class="language-cpp highlighter-rouge">
-<div class="highlight">
-<pre class="highlight"><code>4 7
-6 13
-4 8
-3 6
-5 12</code></pre></div></div></div>
-
-<div class="code-block2">
-에제 출력
-<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight">
-<code>14</code></pre></div></div></div>
-
-<h2 id="풀이">풀이</h2>
-<p>DP를 이용하는 <strong>냅색(Knapsack)</strong>문제다.</p>
-<ul>
-  <li>물건을 넣는 경우와 안넣는 경우 두가지에 대한 모든 경우의 수 중 무게가 k보다 안 높고 value가 가장 높은 경우를 구한다.</li>
-  <li>필요없는 경우의 수를 제외하기 위해 flag[무게 합][탐색 중인 배낭 Index]의 값에 가장 높은 value값을 저장하고 만약 이 값보다 낮으면 탐색을 중단한다.</li>
-</ul>
-
-<h2 id="소스코드">소스코드</h2>
-<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">"bits/stdc++.h"</span><span class="cp">
-</span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
-
-<span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="n">k</span><span class="p">;</span>
-<span class="kt">int</span> <span class="n">weight</span><span class="p">[</span><span class="mi">101</span><span class="p">];</span>
-<span class="kt">int</span> <span class="n">value</span><span class="p">[</span><span class="mi">101</span><span class="p">];</span>
-<span class="kt">int</span> <span class="n">flag</span><span class="p">[</span><span class="mi">100001</span><span class="p">][</span><span class="mi">101</span><span class="p">];</span>
-
-<span class="kt">int</span> <span class="nf">DP</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">w</span><span class="p">,</span> <span class="kt">int</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span>
-	<span class="k">if</span> <span class="p">(</span><span class="n">w</span> <span class="o">&gt;</span> <span class="n">k</span><span class="p">)</span>
-		<span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
-	<span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
-		<span class="k">return</span> <span class="n">v</span><span class="p">;</span>
-	<span class="p">}</span>
-	<span class="k">if</span> <span class="p">(</span><span class="n">flag</span><span class="p">[</span><span class="n">w</span><span class="p">][</span><span class="n">x</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">flag</span><span class="p">[</span><span class="n">w</span><span class="p">][</span><span class="n">x</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">v</span><span class="p">)</span>
-		<span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
-	<span class="n">flag</span><span class="p">[</span><span class="n">w</span><span class="p">][</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span><span class="p">;</span>
-	<span class="kt">int</span> <span class="n">val</span> <span class="o">=</span> <span class="n">v</span><span class="p">;</span>
-	<span class="n">val</span> <span class="o">=</span> <span class="n">max</span><span class="p">(</span><span class="n">val</span><span class="p">,</span><span class="n">DP</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">v</span><span class="p">));</span>
-	<span class="n">val</span> <span class="o">=</span> <span class="n">max</span><span class="p">(</span><span class="n">val</span><span class="p">,</span><span class="n">DP</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">w</span> <span class="o">+</span> <span class="n">weight</span><span class="p">[</span><span class="n">x</span><span class="p">],</span> <span class="n">v</span> <span class="o">+</span> <span class="n">value</span><span class="p">[</span><span class="n">x</span><span class="p">]));</span>
-	<span class="k">return</span> <span class="n">val</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-	<span class="n">ios_base</span><span class="o">::</span><span class="n">sync_with_stdio</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-	<span class="n">cin</span><span class="p">.</span><span class="n">tie</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-
-	<span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">n</span> <span class="o">&gt;&gt;</span> <span class="n">k</span><span class="p">;</span>
-
-	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-		<span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">weight</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-		<span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">value</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-	<span class="p">}</span>
-	<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">DP</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div></div>]]></content><author><name>Mohitto55</name></author><category term="boj" /><category term="boj" /><category term="백준" /><category term="solved" /><category term="문제풀이 12865번" /><category term="Knapsack" /><category term="Dynamic Programming" /><category term="DP" /><category term="C++" /><category term="배낭문제" /><summary type="html"><![CDATA[BOJ 12865-평범한 배낭]]></summary></entry></feed>
+</div>]]></content><author><name>Mohitto55</name></author><category term="vscode" /><category term="Vscode" /><category term="Snippet" /><category term="Template" /><category term="템플릿" /><category term="스니펫" /><category term="IDE" /><summary type="html"><![CDATA[Snippet 스니펫(snippet)은 재사용 가능한 소스 코드, 기계어, 텍스트의 작은 부분을 일컫는 프로그래밍 용어이다. 사용자가 루틴 편집 조작 중 반복 타이핑을 회피할 수 있게 도와준다. -Wikipedia]]></summary></entry></feed>
