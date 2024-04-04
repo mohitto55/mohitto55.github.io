@@ -185,6 +185,12 @@ var store = [{
         "url": "/algorithm/Selection-Sort-%EC%84%A0%ED%83%9D-%EC%A0%95%EB%A0%AC/",
         "teaser": null
       },{
+        "title": "[Docker] Ubuntu에서 Docker 설치하기",
+        "excerpt":"Docker Docker란 컨테이너를 이용한 오픈소스 가상화 플랫폼이다. 컨테이너는 OS레벨의 가상화로 프로세스를 격리시켜 동작하는 것을 말한다. OS자체를 가상화 하던 방식과는 다른데 무슨 차이가 있는 것일 까 VM 가상화 vs Docker 가상화 사용하는 이유 개발하고 서버에 올리면 끝 그런데 서버에 올리면 작동 안함 whyt 컴터는 윈도우, 서버는 리눅스여서 도커를 사용하면 다른 머신에서도...","categories": ["network"],
+        "tags": ["Docket","Ubuntu","Linux","컨테이너"],
+        "url": "/network/Docker%EC%97%90-MySql-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0/",
+        "teaser": null
+      },{
         "title": "[Window] Window에서 Linux(WSL2) 환경 설치하기",
         "excerpt":"들어가며 Docker를 사용하기 위해 알아보던 중 Hyper-V 기능을 활성화 해야하는 것을 알았다. 활성화 하려고 했지만 아무리 찾아도 보이지 않았다. 어찌된 것인지 알아보니 Window Pro 이상의 버전만 지원하는 기능이였고 난 Home였기에 할 수 없었다. 어떻게든 방법을 찾던 와중 Window에서 Linux 환경을 실행할 수 있는 기능이 있었고 이를 이용하면 Docker도 설치할 수...","categories": ["os"],
         "tags": ["Window","Linux","Ubuntu","WSL2","Window Service for Linux","우분투","윈도우","리눅스"],
@@ -213,5 +219,11 @@ var store = [{
         "excerpt":"Docker 삭제하기 1. docker 설치 확인하기 dpkg -l | grep -i docker 2. docker를 삭제 sudo apt-get purge -y docker-engine docker docker.io docker-ce sudo apt-get autoremove -y --purge docker-engine docker docker.io docker-ce 위의 명령으로 호스트에서 이미지, 컨테이너, 볼륨 또는 사용자 생성 구성 파일을 제외한 모든 파일을 삭제한다. ​3. 모든 이미지,...","categories": ["linux"],
         "tags": ["Window","Linux","Ubuntu","WSL2","Window Service for Linux","Docker","도커","우분투","윈도우","리눅스"],
         "url": "/linux/Docker-%EC%99%84%EC%A0%84-%EC%82%AD%EC%A0%9C%ED%95%98%EA%B8%B0/",
+        "teaser": null
+      },{
+        "title": "[Visual Studio] Nuget Package Manager Console 사용 방법",
+        "excerpt":"들어가며 C#을 통해 작업하다보면 외부 라이브러리를 사용해야 할 경우가 있다. 마침 적당한 라이브러리가 보여서 Nuget 패키지를 통해서 찾다보면 검색이 안되는 경우가 있다. 그래서 공식 사이트에가서 설치 방법을 알아보면 저런 설치 명령어가 있는 경우가 있다. 필자도 Itext를 다운 받으려고 했는데 Nuget에서 Itext가 다운이 되지 않아 방법을 찾아보니 저런걸 발견했다. 결론은 C#은...","categories": ["vs"],
+        "tags": ["Visual Studio","Nuget","Nuget Package Manager Console","WSL2","C#"],
+        "url": "/vs/VS-%ED%8C%A8%ED%82%A4%EC%A7%80-%EB%A7%A4%EB%8B%88%EC%A0%80-%EC%BD%98%EC%86%94-%EC%82%AC%EC%9A%A9%EB%B2%95/",
         "teaser": null
       }]
