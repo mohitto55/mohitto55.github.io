@@ -226,4 +226,10 @@ var store = [{
         "tags": ["Visual Studio","Nuget","Nuget Package Manager Console","WSL2","C#"],
         "url": "/vs/VS-%ED%8C%A8%ED%82%A4%EC%A7%80-%EB%A7%A4%EB%8B%88%EC%A0%80-%EC%BD%98%EC%86%94-%EC%82%AC%EC%9A%A9%EB%B2%95/",
         "teaser": null
+      },{
+        "title": "[Obsidian] CSS 적용하며 PDF로 내보내는법",
+        "excerpt":"PDF 출력 옵시디언을 통해 내용을 정리하고 다양한 기능들을 이용해 꾸민뒤 PDF로 변환해야할 때가 있다. 그런데 이상하게도 css로 열심히 꾸며도 PDF로 출력만 하면은 제대로 적용이 되지 않은채 변환되곤한다. 같은 내용 다른 느낌 어떻게든 CSS를 제대로 적용시키고 싶어서 ITEXT로 PDF로 변환도 해보고 기존 CSS를 수정하는 등 여러 시행착오를 거쳐서 변환 전 모습과...","categories": ["obsidian"],
+        "tags": ["css","html","Obsidian","PDF","옵시디언"],
+        "url": "/obsidian/Obsidian-PDF-Export/",
+        "teaser": null
       }]
