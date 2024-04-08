@@ -1,7 +1,7 @@
 ---
 title : "[UE5] Actor, Component, GameMode 개념 정리"
 categories: ue5
-tags: [UnrealEngine5, Actor, Pawn, Character, PlayerController, Component, GameMode, C++]
+tags: [UnrealEngine5, Actor, Component, C++]
 ---
 
 ## 언리얼 엔진의 기본 개념
@@ -38,7 +38,7 @@ tags: [UnrealEngine5, Actor, Pawn, Character, PlayerController, Component, GameM
 
 ---
 ### PlayerController
-![image](https://github.com/mohitto55/mohitto55.github.io/assets/154340583/17fbc3d0-f330-41d1-ad52-2238ec499e7c)
+![[PlayerController And Pawn.excalidraw]]
 - 액터에 **빙의(Possess)** 하는 PlayerController
 - 화면에 보이는 무언가가 아닌 플레이어 그 자체
 - 캐릭터, 카메라를 제어하거나 상호작용 할 때 사용하는 클래스

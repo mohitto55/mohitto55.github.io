@@ -71,9 +71,9 @@ var store = [{
         "url": "/gitblog/Liquid-%EB%AC%B8%EB%B2%95-%ED%91%9C%EC%8B%9C%ED%95%98%EA%B8%B0/",
         "teaser": null
       },{
-        "title": "[UE5] Actor Pawn Character 비교",
-        "excerpt":"언리얼 엔진에선 화면상에 움직이는 객체들을 Actor라고 한다. Actor는 3가지 종류가 있으며 각각 적합한 상황에 쓰인다. Actor 언리얼 엔진의 레벨에 배치할 수 있는 오브젝트를 의미한다. 직접 무언가를 실행하는 기능은 주로 컴포넌트가 하고 Actor는 컴포넌트를 담는 포장지 같은 역할만 한다. Pawn Actor를 상속받는 클래스 플레이어나 AI가 제어할 수 있는 모든 액터의 베이스...","categories": ["ue5"],
-        "tags": ["Unreal Engine5","Actor","Pawn","Character","Component","UE5"],
+        "title": "[UE5] Actor, Component, GameMode 개념 정리",
+        "excerpt":"언리얼 엔진의 기본 개념 컴포넌트 직접 코드를 작성해 시스템을 수행하는 모듈 액터의 추가 기능 확장 모듈이라 생각하면 된다. 트랜스폼 여부에 따라 불리는 이름이 다르다 액터 컴포넌트 - 트랜스폼 없이 기능만 제공 씬컴포넌트 - 트랜스폼이 있을 경우 Actor 월드내에 존재하는 유형, 무형의 게임 오브젝트 반드시 보이는 것 뿐만이 아닌 시스템 적으로...","categories": ["ue5"],
+        "tags": ["UnrealEngine5","Actor","Pawn","Character","PlayerController","Component","GameMode","C++"],
         "url": "/ue5/UE5-Acotr-Pawn-Character-%EB%B9%84%EA%B5%90/",
         "teaser": null
       },{
