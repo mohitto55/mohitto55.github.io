@@ -1,0 +1,1020 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>[Unity] 정점24개 큐브 만들기 | Mohitto55 Note</title>
+<meta name="description" content="지난번 정점 8개 큐브 만들기에 이어서 이번엔 정점24개를 가진 큐브를 만들어 볼 것이다.">
+
+
+  <meta name="author" content="Mohitto55">
+  
+  <meta property="article:author" content="Mohitto55">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="Mohitto55 Note">
+<meta property="og:title" content="[Unity] 정점24개 큐브 만들기">
+<meta property="og:url" content="http://localhost:4000/unity/Unity-%EC%A0%95%EC%A0%9024%EA%B0%9C-%ED%81%90%EB%B8%8C-%EB%A7%8C%EB%93%A4%EA%B8%B0/">
+
+
+  <meta property="og:description" content="지난번 정점 8개 큐브 만들기에 이어서 이번엔 정점24개를 가진 큐브를 만들어 볼 것이다.">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2024-04-11T00:00:00+09:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/unity/Unity-%EC%A0%95%EC%A0%9024%EA%B0%9C-%ED%81%90%EB%B8%8C-%EB%A7%8C%EB%93%A4%EA%B8%B0/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "전진성(Jeon Jin Sung)",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+  <meta name="naver-site-verification" content="a4ad39eaff04b6c72cdd72276b5e8a94d931b215">
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Mohitto55 Note Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+<!-- Mathjax Support -->
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/mohitto.jpg" alt="Mohitto55 Note"></a>
+        
+        <a class="site-title" href="/">
+          Mohitto55 Note
+          <span class="site-subtitle">small positive action</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/categories/">Category</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">Tag</a>
+            </li><li class="masthead__menu-item">
+              <a href="/search/">Search</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">토글 메뉴</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+  
+    
+
+
+
+<nav class="breadcrumbs">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    
+    
+    
+      
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/" itemprop="item"><span itemprop="name">Home</span></a>
+
+          <meta itemprop="position" content="1" />
+        </li>
+        <span class="sep">/</span>
+      
+      
+        
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/categories/#unity" itemprop="item"><span itemprop="name">Unity</span></a>
+          <meta itemprop="position" content="2" />
+        </li>
+        <span class="sep">/</span>
+      
+    
+      
+      
+        <li class="current">[Unity] 정점24개 큐브 만들기</li>
+      
+    
+  </ol>
+</nav>
+
+  
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:4000/">
+        <img src="/assets/images/mohitto.jpg" alt="Mohitto55" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Mohitto55</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>Mohitto’s Note’</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">팔로우</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">South Korea</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="mailto:mohitto55@gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/mohitto55" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://twitter.com/jeonjinseong5" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span class="label">Twitter</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+    
+      
+      
+      
+      
+    
+    
+      
+
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">토글 메뉴</label>
+  <li> 전체 글 수 (41)개 </li>
+  <ul class="nav__items">
+    
+      
+      <li>
+        
+          <span class="nav__sub-title">Language</span>
+        
+
+        
+        <ul>
+          
+          
+          
+
+            <li><a href="/cpp"><span class="nav__sub-title-url">C++  </span><span class="nav__sub-title-count">3</span></a></li>
+          
+          
+          
+
+            <li><a href="/csap"><span class="nav__sub-title-url">C#  </span><span class="nav__sub-title-count">0</span></a></li>
+          
+          
+          
+
+            <li><a href="/javascript"><span class="nav__sub-title-url">JavaScript  </span><span class="nav__sub-title-count">0</span></a></li>
+          
+          
+          
+
+            <li><a href="/python"><span class="nav__sub-title-url">Python  </span><span class="nav__sub-title-count">0</span></a></li>
+          
+          
+          
+
+            <li><a href="/css"><span class="nav__sub-title-url">HTML/CSS  </span><span class="nav__sub-title-count">0</span></a></li>
+          
+        </ul>
+        
+      </li>
+    
+      
+      <li>
+        
+          <span class="nav__sub-title">Engine</span>
+        
+
+        
+        <ul>
+          
+          
+          
+
+            <li><a href="/unity"><span class="nav__sub-title-url">Unity  </span><span class="nav__sub-title-count">3</span></a></li>
+          
+          
+          
+
+            <li><a href="/ue5"><span class="nav__sub-title-url">UE5  </span><span class="nav__sub-title-count">3</span></a></li>
+          
+        </ul>
+        
+      </li>
+    
+      
+      <li>
+        
+          <span class="nav__sub-title">Productivity</span>
+        
+
+        
+        <ul>
+          
+          
+          
+
+            <li><a href="/vs"><span class="nav__sub-title-url">VisualStudio  </span><span class="nav__sub-title-count">1</span></a></li>
+          
+          
+          
+
+            <li><a href="/vscode"><span class="nav__sub-title-url">VScode  </span><span class="nav__sub-title-count">1</span></a></li>
+          
+          
+          
+
+            <li><a href="/obsidian"><span class="nav__sub-title-url">Obsidian  </span><span class="nav__sub-title-count">2</span></a></li>
+          
+          
+          
+
+            <li><a href="/tool"><span class="nav__sub-title-url">Tool  </span><span class="nav__sub-title-count">0</span></a></li>
+          
+        </ul>
+        
+      </li>
+    
+      
+      <li>
+        
+          <span class="nav__sub-title">PS</span>
+        
+
+        
+        <ul>
+          
+          
+          
+
+            <li><a href="/boj"><span class="nav__sub-title-url">BOJ  </span><span class="nav__sub-title-count">4</span></a></li>
+          
+          
+          
+
+            <li><a href="/algorithm"><span class="nav__sub-title-url">Algorithm  </span><span class="nav__sub-title-count">4</span></a></li>
+          
+        </ul>
+        
+      </li>
+    
+      
+      <li>
+        
+          <span class="nav__sub-title">ETC</span>
+        
+
+        
+        <ul>
+          
+          
+          
+
+            <li><a href="/os"><span class="nav__sub-title-url">OS  </span><span class="nav__sub-title-count">1</span></a></li>
+          
+          
+          
+
+            <li><a href="/network"><span class="nav__sub-title-url">Network  </span><span class="nav__sub-title-count">2</span></a></li>
+          
+          
+          
+
+            <li><a href="/git"><span class="nav__sub-title-url">Git  </span><span class="nav__sub-title-count">2</span></a></li>
+          
+          
+          
+
+            <li><a href="/gitblog"><span class="nav__sub-title-url">Git Blog  </span><span class="nav__sub-title-count">9</span></a></li>
+          
+          
+          
+
+            <li><a href="/hardware"><span class="nav__sub-title-url">Hardware  </span><span class="nav__sub-title-count">1</span></a></li>
+          
+          
+          
+
+            <li><a href="/computerscience"><span class="nav__sub-title-url">CS  </span><span class="nav__sub-title-count">1</span></a></li>
+          
+          
+          
+
+            <li><a href="/math"><span class="nav__sub-title-url">Math  </span><span class="nav__sub-title-count">1</span></a></li>
+          
+        </ul>
+        
+      </li>
+    
+  </ul>
+</nav>
+    
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="[Unity] 정점24개 큐브 만들기">
+    <meta itemprop="description" content="지난번 정점 8개 큐브 만들기에 이어서 이번엔 정점24개를 가진 큐브를 만들어 볼 것이다.">
+    <meta itemprop="datePublished" content="2024-04-11T00:00:00+09:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://localhost:4000/unity/Unity-%EC%A0%95%EC%A0%9024%EA%B0%9C-%ED%81%90%EB%B8%8C-%EB%A7%8C%EB%93%A4%EA%B8%B0/" class="u-url" itemprop="url">[Unity] 정점24개 큐브 만들기
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2024-04-11T00:00:00+09:00">April 11, 2024</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> 목차</h4></header>
+              <ul class="toc__menu"><li><a href="#cube-작성">Cube 작성</a><ul><li><a href="#정점위치-참조-테이블">정점위치 참조 테이블</a></li><li><a href="#정점-위치-테이블">정점 위치 테이블</a></li><li><a href="#cube-구현">Cube 구현</a></li></ul></li></ul>
+
+            </nav>
+          </aside>
+        
+        <p>지난번 <a href="https://mohitto55.github.io/unity/Unity-%EC%A0%95%EC%A0%908%EA%B0%9C-%ED%81%90%EB%B8%8C-%EB%A7%8C%EB%93%A4%EA%B8%B0/">정점 8개 큐브 만들기</a>에 이어서 이번엔 정점24개를 가진 큐브를 만들어 볼 것이다.</p>
+
+<h2 id="cube-작성">Cube 작성</h2>
+<h3 id="정점위치-참조-테이블">정점위치 참조 테이블</h3>
+<p>한 위치에 같은 정점이 3개가 만들어지는데 이 정점의 위치를 매번 계산하는 것 보단 <strong>테이블</strong>로 만들고 면이 테이블에 있는 정점 위치 정보를 가져오게 하는 것이 좋을 것이다.</p>
+
+<p>그러기 위해선 각 면에서 사용할 정점 위치index를 지정해 줘야한다.
+먼저 큐브의 각 면들의 방향을 표현한 enum을 선언한다.</p>
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="k">public</span> <span class="k">enum</span> <span class="n">Direction</span>
+    <span class="p">{</span>
+        <span class="n">FORWARD</span><span class="p">,</span> <span class="c1">// (0, 0, 1)</span>
+        <span class="n">RIGHT</span><span class="p">,</span>   <span class="c1">// (1, 0, 0)</span>
+        <span class="n">UP</span><span class="p">,</span>      <span class="c1">// (0, 1, 0)</span>
+        <span class="n">BACK</span><span class="p">,</span>    <span class="c1">// (0, 0, -1)</span>
+        <span class="n">LEFT</span><span class="p">,</span>    <span class="c1">// (-1, 0, 0)</span>
+        <span class="n">DOWN</span>     <span class="c1">// (0, -1, 0)</span>
+    <span class="p">}</span>
+</code></pre></div></div>
+
+<hr />
+
+<p>그 다음 면에서 사용하는 정점 Index를 정한다.
+유니티에선 Z축이 Forward이기에 Z축 기준으로 정점을 구성해 준다.</p>
+
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/edffa96d-8a33-44f7-ace7-f5898913d147" alt="image" /><em>vertex 순서</em></p>
+
+<hr />
+
+<p><strong>Direction enum</strong>에서 설계한 방향을 토대로 면의 정점을 만든다.</p>
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kt">int</span><span class="p">[][]</span> <span class="n">faceNumber</span> <span class="p">=</span>
+    <span class="p">{</span>
+        <span class="k">new</span> <span class="kt">int</span><span class="p">[]{</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">},</span>
+        <span class="k">new</span> <span class="kt">int</span><span class="p">[]{</span><span class="m">5</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">6</span><span class="p">},</span>
+        <span class="k">new</span> <span class="kt">int</span><span class="p">[]{</span><span class="m">5</span><span class="p">,</span><span class="m">4</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">0</span><span class="p">},</span>
+        <span class="k">new</span> <span class="kt">int</span><span class="p">[]{</span><span class="m">4</span><span class="p">,</span><span class="m">5</span><span class="p">,</span><span class="m">6</span><span class="p">,</span><span class="m">7</span><span class="p">},</span>
+        <span class="k">new</span> <span class="kt">int</span><span class="p">[]{</span><span class="m">1</span><span class="p">,</span><span class="m">4</span><span class="p">,</span><span class="m">7</span><span class="p">,</span><span class="m">2</span><span class="p">},</span>
+        <span class="k">new</span> <span class="kt">int</span><span class="p">[]{</span><span class="m">3</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">7</span><span class="p">,</span><span class="m">6</span><span class="p">},</span>
+    <span class="p">};</span>
+</code></pre></div></div>
+
+<hr />
+<h3 id="정점-위치-테이블">정점 위치 테이블</h3>
+<p>정점들의 위치 데이터를 가진 테이블을 만들어준다.
+Scale을 적용하기 위해 <font color="dodgerred">아다마르 곱</font> 을 해준다.</p>
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="n">Vector3</span> <span class="n">scale</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Vector3</span><span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">width</span><span class="p">);</span>
+    <span class="n">List</span><span class="p">&lt;</span><span class="n">Vector3</span><span class="p">&gt;</span> <span class="n">vertices</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">Vector3</span><span class="p">&gt;();</span>
+    <span class="c1">// 정점들 위치 배열</span>
+    <span class="n">vSet</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">Vector3</span><span class="p">.</span><span class="nf">Scale</span><span class="p">(</span><span class="k">new</span> <span class="nf">Vector3</span><span class="p">(</span><span class="n">half</span><span class="p">,</span> <span class="n">half</span><span class="p">,</span> <span class="n">half</span><span class="p">),</span> <span class="n">scale</span><span class="p">));</span>
+    <span class="n">vSet</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">Vector3</span><span class="p">.</span><span class="nf">Scale</span><span class="p">(</span><span class="k">new</span> <span class="nf">Vector3</span><span class="p">(-</span><span class="n">half</span><span class="p">,</span> <span class="n">half</span><span class="p">,</span> <span class="n">half</span><span class="p">),</span> <span class="n">scale</span><span class="p">));</span>
+    <span class="n">vSet</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">Vector3</span><span class="p">.</span><span class="nf">Scale</span><span class="p">(</span><span class="k">new</span> <span class="nf">Vector3</span><span class="p">(-</span><span class="n">half</span><span class="p">,</span> <span class="p">-</span><span class="n">half</span><span class="p">,</span> <span class="n">half</span><span class="p">),</span> <span class="n">scale</span><span class="p">));</span>
+    <span class="n">vSet</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">Vector3</span><span class="p">.</span><span class="nf">Scale</span><span class="p">(</span><span class="k">new</span> <span class="nf">Vector3</span><span class="p">(</span><span class="n">half</span><span class="p">,</span> <span class="p">-</span><span class="n">half</span><span class="p">,</span> <span class="n">half</span><span class="p">),</span> <span class="n">scale</span><span class="p">));</span>
+    <span class="n">vSet</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">Vector3</span><span class="p">.</span><span class="nf">Scale</span><span class="p">(</span><span class="k">new</span> <span class="nf">Vector3</span><span class="p">(-</span><span class="n">half</span><span class="p">,</span> <span class="n">half</span><span class="p">,</span> <span class="p">-</span><span class="n">half</span><span class="p">),</span> <span class="n">scale</span><span class="p">));</span>
+    <span class="n">vSet</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">Vector3</span><span class="p">.</span><span class="nf">Scale</span><span class="p">(</span><span class="k">new</span> <span class="nf">Vector3</span><span class="p">(</span><span class="n">half</span><span class="p">,</span> <span class="n">half</span><span class="p">,</span> <span class="p">-</span><span class="n">half</span><span class="p">),</span> <span class="n">scale</span><span class="p">));</span>
+    <span class="n">vSet</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">Vector3</span><span class="p">.</span><span class="nf">Scale</span><span class="p">(</span><span class="k">new</span> <span class="nf">Vector3</span><span class="p">(</span><span class="n">half</span><span class="p">,</span> <span class="p">-</span><span class="n">half</span><span class="p">,</span> <span class="p">-</span><span class="n">half</span><span class="p">),</span> <span class="n">scale</span><span class="p">));</span>
+    <span class="n">vSet</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">Vector3</span><span class="p">.</span><span class="nf">Scale</span><span class="p">(</span><span class="k">new</span> <span class="nf">Vector3</span><span class="p">(-</span><span class="n">half</span><span class="p">,</span> <span class="p">-</span><span class="n">half</span><span class="p">,</span> <span class="p">-</span><span class="n">half</span><span class="p">),</span> <span class="n">scale</span><span class="p">));</span>
+</code></pre></div></div>
+
+<div class="callout-info-expanded">
+<div class="callout-header">아다마르 곱 (Hadamard Product)</div>
+<p>
+벡터와 벡터를 각 성분 끼리만 곱하는 행렬 곱이다.
+</p>
+</div>
+
+<hr />
+
+<h3 id="cube-구현">Cube 구현</h3>
+<p>Cube의 면은 6개, 면에 존재하는 정점은 4개 이므로 총 24개의 정점을 만든다. 
+면마다 정점이 필요한 이유는 <a href="https://mohitto55.github.io/unity/Unity-%EC%A0%95%EC%A0%908%EA%B0%9C-%ED%81%90%EB%B8%8C-%EB%A7%8C%EB%93%A4%EA%B8%B0/">이전 포스트</a>에서도 말했다시피</p>
+
+<p>정점 하나가 가질 수 있는 uv 정보는 1개 까지라 면 3개에 대한 정보를 가질 수 없다.
+그래서 면마다 정점을 만들어주는 것이다.</p>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">faceDir</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">faceDir</span> <span class="p">&lt;</span> <span class="m">6</span><span class="p">;</span> <span class="n">faceDir</span><span class="p">++)</span>
+<span class="p">{</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">faceIndex</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">faceIndex</span> <span class="p">&lt;</span> <span class="m">4</span><span class="p">;</span> <span class="n">faceIndex</span><span class="p">++)</span>
+    <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">faceVertexIndex</span> <span class="p">=</span> <span class="n">faceNumber</span><span class="p">[</span><span class="n">faceDir</span><span class="p">][</span><span class="n">faceIndex</span><span class="p">];</span>
+        <span class="n">vertices</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">vSet</span><span class="p">[</span><span class="n">faceVertexIndex</span><span class="p">]);</span>
+    <span class="p">}</span>
+</code></pre></div></div>
+
+<hr />
+
+<p>정점에 대응하는 uv정보와 면을 구성하는 삼각형을 그리기 위해 triangles에 정점 번호를 넣어준다.</p>
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="n">uvs</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="k">new</span> <span class="nf">Vector2</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">));</span>
+    <span class="n">uvs</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="k">new</span> <span class="nf">Vector2</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">));</span>
+    <span class="n">uvs</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="k">new</span> <span class="nf">Vector2</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">0</span><span class="p">));</span>
+    <span class="n">uvs</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="k">new</span> <span class="nf">Vector2</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">));</span>
+
+    <span class="kt">int</span> <span class="n">triangleIndex</span> <span class="p">=</span> <span class="n">faceDir</span> <span class="p">*</span> <span class="m">4</span><span class="p">;</span>
+    <span class="n">triangles</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">triangleIndex</span> <span class="p">+</span> <span class="m">0</span><span class="p">);</span>
+    <span class="n">triangles</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">triangleIndex</span> <span class="p">+</span> <span class="m">1</span><span class="p">);</span>
+    <span class="n">triangles</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">triangleIndex</span> <span class="p">+</span> <span class="m">3</span><span class="p">);</span>
+
+    <span class="n">triangles</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">triangleIndex</span> <span class="p">+</span> <span class="m">1</span><span class="p">);</span>
+    <span class="n">triangles</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">triangleIndex</span> <span class="p">+</span> <span class="m">2</span><span class="p">);</span>
+    <span class="n">triangles</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">triangleIndex</span> <span class="p">+</span> <span class="m">3</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>지금까지 작성한 데이터들을 Mesh로 만들어 MeshFilter에 넣어준다.</p>
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="n">Mesh</span> <span class="n">mesh</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Mesh</span><span class="p">();</span>
+    <span class="n">mesh</span><span class="p">.</span><span class="n">vertices</span> <span class="p">=</span> <span class="n">vertices</span><span class="p">.</span><span class="nf">ToArray</span><span class="p">();</span>
+    <span class="n">mesh</span><span class="p">.</span><span class="n">uv</span> <span class="p">=</span> <span class="n">uvs</span><span class="p">.</span><span class="nf">ToArray</span><span class="p">();</span>
+    <span class="n">mesh</span><span class="p">.</span><span class="n">triangles</span> <span class="p">=</span> <span class="n">triangles</span><span class="p">.</span><span class="nf">ToArray</span><span class="p">();</span>
+    <span class="n">mesh</span><span class="p">.</span><span class="nf">RecalculateBounds</span><span class="p">();</span>
+
+    <span class="n">GetComponent</span><span class="p">&lt;</span><span class="n">MeshFilter</span><span class="p">&gt;().</span><span class="n">mesh</span> <span class="p">=</span> <span class="n">mesh</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/f42a96ff-e563-4ba2-97e7-8c150c2e5ff4" alt="image" /><em>완성된 Cube</em></p>
+
+<div class="Reference">
+<div class="callout-header"> </div>
+<p>
+<a href="https://bloodstrawberry.tistory.com/1021">https://bloodstrawberry.tistory.com/1021</a>
+</p>
+</div>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#cube" class="page__taxonomy-item p-category" rel="tag">Cube</a><span class="sep">, </span>
+    
+      <a href="/tags/#mesh" class="page__taxonomy-item p-category" rel="tag">Mesh</a><span class="sep">, </span>
+    
+      <a href="/tags/#unity" class="page__taxonomy-item p-category" rel="tag">Unity</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#unity" class="page__taxonomy-item p-category" rel="tag">unity</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2024-04-11T00:00:00+09:00">April 11, 2024</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=%5BUnity%5D+%EC%A0%95%EC%A0%9024%EA%B0%9C+%ED%81%90%EB%B8%8C+%EB%A7%8C%EB%93%A4%EA%B8%B0%20http%3A%2F%2Flocalhost%3A4000%2Funity%2FUnity-%25EC%25A0%2595%25EC%25A0%259024%25EA%25B0%259C-%25ED%2581%2590%25EB%25B8%258C-%25EB%25A7%258C%25EB%2593%25A4%25EA%25B8%25B0%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Funity%2FUnity-%25EC%25A0%2595%25EC%25A0%259024%25EA%25B0%259C-%25ED%2581%2590%25EB%25B8%258C-%25EB%25A7%258C%25EB%2593%25A4%25EA%25B8%25B0%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Funity%2FUnity-%25EC%25A0%2595%25EC%25A0%259024%25EA%25B0%259C-%25ED%2581%2590%25EB%25B8%258C-%25EB%25A7%258C%25EB%2593%25A4%25EA%25B8%25B0%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/obsidian/Obsidian-PDF-Export/" class="pagination--pager" title="[Obsidian] CSS 적용하며 PDF로 내보내는법
+">이전</a>
+    
+    
+      <a href="/unity/Unity-%EC%A0%95%EC%A0%908%EA%B0%9C-%ED%81%90%EB%B8%8C-%EB%A7%8C%EB%93%A4%EA%B8%B0/" class="pagination--pager" title="[Unity] 정점이 8개인 Cube 만들기
+">다음</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h2 class="page__related-title">참고</h2>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/unity/Unity-%EC%A0%95%EC%A0%908%EA%B0%9C-%ED%81%90%EB%B8%8C-%EB%A7%8C%EB%93%A4%EA%B8%B0/" rel="permalink">[Unity] 정점이 8개인 Cube 만들기
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2024-04-11T00:00:00+09:00">April 11, 2024</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">유니티 큐브의 정점갯수는 기본적으로 24개다.
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/obsidian/Obsidian-PDF-Export/" rel="permalink">[Obsidian] CSS 적용하며 PDF로 내보내는법
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2024-04-06T00:00:00+09:00">April 6, 2024</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          4 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">PDF 출력
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/vs/VS-%ED%8C%A8%ED%82%A4%EC%A7%80-%EB%A7%A4%EB%8B%88%EC%A0%80-%EC%BD%98%EC%86%94-%EC%82%AC%EC%9A%A9%EB%B2%95/" rel="permalink">[Visual Studio] Nuget Package Manager Console 사용 방법
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2024-04-05T00:00:00+09:00">April 5, 2024</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          최대 1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">들어가며
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/linux/Docker-%EC%99%84%EC%A0%84-%EC%82%AD%EC%A0%9C%ED%95%98%EA%B8%B0/" rel="permalink">[Ubuntu] Docker 삭제하기
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2024-03-28T00:00:00+09:00">March 28, 2024</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          최대 1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Docker 삭제하기
+1. docker 설치 확인하기
+dpkg -l | grep -i docker
+
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="https://github.com/mohitto55" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2024 전진성(Jeon Jin Sung). Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "http://localhost:4000/unity/Unity-%EC%A0%95%EC%A0%9024%EA%B0%9C-%ED%81%90%EB%B8%8C-%EB%A7%8C%EB%93%A4%EA%B8%B0/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/unity/Unity 정점24개 큐브 만들기"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+    };
+    (function() { /* DON'T EDIT BELOW THIS LINE */
+      var d = document, s = d.createElement('script');
+      s.src = 'https://MohittoBlog.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+  </body>
+</html>

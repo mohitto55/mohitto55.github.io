@@ -1,4 +1,122 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-04-11T13:52:43+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mohitto55 Note</title><subtitle>모히또의 노트</subtitle><author><name>Mohitto55</name></author><entry><title type="html">[Unity] 정점이 8개인 Cube 만들기</title><link href="http://localhost:4000/unity/Unity-%EC%A0%95%EC%A0%908%EA%B0%9C-%ED%81%90%EB%B8%8C-%EB%A7%8C%EB%93%A4%EA%B8%B0/" rel="alternate" type="text/html" title="[Unity] 정점이 8개인 Cube 만들기" /><published>2024-04-11T00:00:00+09:00</published><updated>2024-04-11T00:00:00+09:00</updated><id>http://localhost:4000/unity/Unity%20%EC%A0%95%EC%A0%908%EA%B0%9C%20%ED%81%90%EB%B8%8C%20%EB%A7%8C%EB%93%A4%EA%B8%B0</id><content type="html" xml:base="http://localhost:4000/unity/Unity-%EC%A0%95%EC%A0%908%EA%B0%9C-%ED%81%90%EB%B8%8C-%EB%A7%8C%EB%93%A4%EA%B8%B0/"><![CDATA[<p>유니티 큐브의 정점갯수는 기본적으로 24개다.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-04-11T15:55:16+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mohitto55 Note</title><subtitle>모히또의 노트</subtitle><author><name>Mohitto55</name></author><entry><title type="html">[Unity] 정점24개 큐브 만들기</title><link href="http://localhost:4000/unity/Unity-%EC%A0%95%EC%A0%9024%EA%B0%9C-%ED%81%90%EB%B8%8C-%EB%A7%8C%EB%93%A4%EA%B8%B0/" rel="alternate" type="text/html" title="[Unity] 정점24개 큐브 만들기" /><published>2024-04-11T00:00:00+09:00</published><updated>2024-04-11T00:00:00+09:00</updated><id>http://localhost:4000/unity/Unity%20%EC%A0%95%EC%A0%9024%EA%B0%9C%20%ED%81%90%EB%B8%8C%20%EB%A7%8C%EB%93%A4%EA%B8%B0</id><content type="html" xml:base="http://localhost:4000/unity/Unity-%EC%A0%95%EC%A0%9024%EA%B0%9C-%ED%81%90%EB%B8%8C-%EB%A7%8C%EB%93%A4%EA%B8%B0/"><![CDATA[<p>지난번 <a href="https://mohitto55.github.io/unity/Unity-%EC%A0%95%EC%A0%908%EA%B0%9C-%ED%81%90%EB%B8%8C-%EB%A7%8C%EB%93%A4%EA%B8%B0/">정점 8개 큐브 만들기</a>에 이어서 이번엔 정점24개를 가진 큐브를 만들어 볼 것이다.</p>
+
+<h2 id="cube-작성">Cube 작성</h2>
+<h3 id="정점위치-참조-테이블">정점위치 참조 테이블</h3>
+<p>한 위치에 같은 정점이 3개가 만들어지는데 이 정점의 위치를 매번 계산하는 것 보단 <strong>테이블</strong>로 만들고 면이 테이블에 있는 정점 위치 정보를 가져오게 하는 것이 좋을 것이다.</p>
+
+<p>그러기 위해선 각 면에서 사용할 정점 위치index를 지정해 줘야한다.
+먼저 큐브의 각 면들의 방향을 표현한 enum을 선언한다.</p>
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="k">public</span> <span class="k">enum</span> <span class="n">Direction</span>
+    <span class="p">{</span>
+        <span class="n">FORWARD</span><span class="p">,</span> <span class="c1">// (0, 0, 1)</span>
+        <span class="n">RIGHT</span><span class="p">,</span>   <span class="c1">// (1, 0, 0)</span>
+        <span class="n">UP</span><span class="p">,</span>      <span class="c1">// (0, 1, 0)</span>
+        <span class="n">BACK</span><span class="p">,</span>    <span class="c1">// (0, 0, -1)</span>
+        <span class="n">LEFT</span><span class="p">,</span>    <span class="c1">// (-1, 0, 0)</span>
+        <span class="n">DOWN</span>     <span class="c1">// (0, -1, 0)</span>
+    <span class="p">}</span>
+</code></pre></div></div>
+
+<hr />
+
+<p>그 다음 면에서 사용하는 정점 Index를 정한다.
+유니티에선 Z축이 Forward이기에 Z축 기준으로 정점을 구성해 준다.</p>
+
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/edffa96d-8a33-44f7-ace7-f5898913d147" alt="image" /><em>vertex 순서</em></p>
+
+<hr />
+
+<p><strong>Direction enum</strong>에서 설계한 방향을 토대로 면의 정점을 만든다.</p>
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kt">int</span><span class="p">[][]</span> <span class="n">faceNumber</span> <span class="p">=</span>
+    <span class="p">{</span>
+        <span class="k">new</span> <span class="kt">int</span><span class="p">[]{</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">},</span>
+        <span class="k">new</span> <span class="kt">int</span><span class="p">[]{</span><span class="m">5</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">6</span><span class="p">},</span>
+        <span class="k">new</span> <span class="kt">int</span><span class="p">[]{</span><span class="m">5</span><span class="p">,</span><span class="m">4</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">0</span><span class="p">},</span>
+        <span class="k">new</span> <span class="kt">int</span><span class="p">[]{</span><span class="m">4</span><span class="p">,</span><span class="m">5</span><span class="p">,</span><span class="m">6</span><span class="p">,</span><span class="m">7</span><span class="p">},</span>
+        <span class="k">new</span> <span class="kt">int</span><span class="p">[]{</span><span class="m">1</span><span class="p">,</span><span class="m">4</span><span class="p">,</span><span class="m">7</span><span class="p">,</span><span class="m">2</span><span class="p">},</span>
+        <span class="k">new</span> <span class="kt">int</span><span class="p">[]{</span><span class="m">3</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">7</span><span class="p">,</span><span class="m">6</span><span class="p">},</span>
+    <span class="p">};</span>
+</code></pre></div></div>
+
+<hr />
+<h3 id="정점-위치-테이블">정점 위치 테이블</h3>
+<p>정점들의 위치 데이터를 가진 테이블을 만들어준다.
+Scale을 적용하기 위해 <font color="dodgerred">아다마르 곱</font> 을 해준다.</p>
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="n">Vector3</span> <span class="n">scale</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Vector3</span><span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">width</span><span class="p">);</span>
+    <span class="n">List</span><span class="p">&lt;</span><span class="n">Vector3</span><span class="p">&gt;</span> <span class="n">vertices</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">Vector3</span><span class="p">&gt;();</span>
+    <span class="c1">// 정점들 위치 배열</span>
+    <span class="n">vSet</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">Vector3</span><span class="p">.</span><span class="nf">Scale</span><span class="p">(</span><span class="k">new</span> <span class="nf">Vector3</span><span class="p">(</span><span class="n">half</span><span class="p">,</span> <span class="n">half</span><span class="p">,</span> <span class="n">half</span><span class="p">),</span> <span class="n">scale</span><span class="p">));</span>
+    <span class="n">vSet</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">Vector3</span><span class="p">.</span><span class="nf">Scale</span><span class="p">(</span><span class="k">new</span> <span class="nf">Vector3</span><span class="p">(-</span><span class="n">half</span><span class="p">,</span> <span class="n">half</span><span class="p">,</span> <span class="n">half</span><span class="p">),</span> <span class="n">scale</span><span class="p">));</span>
+    <span class="n">vSet</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">Vector3</span><span class="p">.</span><span class="nf">Scale</span><span class="p">(</span><span class="k">new</span> <span class="nf">Vector3</span><span class="p">(-</span><span class="n">half</span><span class="p">,</span> <span class="p">-</span><span class="n">half</span><span class="p">,</span> <span class="n">half</span><span class="p">),</span> <span class="n">scale</span><span class="p">));</span>
+    <span class="n">vSet</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">Vector3</span><span class="p">.</span><span class="nf">Scale</span><span class="p">(</span><span class="k">new</span> <span class="nf">Vector3</span><span class="p">(</span><span class="n">half</span><span class="p">,</span> <span class="p">-</span><span class="n">half</span><span class="p">,</span> <span class="n">half</span><span class="p">),</span> <span class="n">scale</span><span class="p">));</span>
+    <span class="n">vSet</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">Vector3</span><span class="p">.</span><span class="nf">Scale</span><span class="p">(</span><span class="k">new</span> <span class="nf">Vector3</span><span class="p">(-</span><span class="n">half</span><span class="p">,</span> <span class="n">half</span><span class="p">,</span> <span class="p">-</span><span class="n">half</span><span class="p">),</span> <span class="n">scale</span><span class="p">));</span>
+    <span class="n">vSet</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">Vector3</span><span class="p">.</span><span class="nf">Scale</span><span class="p">(</span><span class="k">new</span> <span class="nf">Vector3</span><span class="p">(</span><span class="n">half</span><span class="p">,</span> <span class="n">half</span><span class="p">,</span> <span class="p">-</span><span class="n">half</span><span class="p">),</span> <span class="n">scale</span><span class="p">));</span>
+    <span class="n">vSet</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">Vector3</span><span class="p">.</span><span class="nf">Scale</span><span class="p">(</span><span class="k">new</span> <span class="nf">Vector3</span><span class="p">(</span><span class="n">half</span><span class="p">,</span> <span class="p">-</span><span class="n">half</span><span class="p">,</span> <span class="p">-</span><span class="n">half</span><span class="p">),</span> <span class="n">scale</span><span class="p">));</span>
+    <span class="n">vSet</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">Vector3</span><span class="p">.</span><span class="nf">Scale</span><span class="p">(</span><span class="k">new</span> <span class="nf">Vector3</span><span class="p">(-</span><span class="n">half</span><span class="p">,</span> <span class="p">-</span><span class="n">half</span><span class="p">,</span> <span class="p">-</span><span class="n">half</span><span class="p">),</span> <span class="n">scale</span><span class="p">));</span>
+</code></pre></div></div>
+
+<div class="callout-info-expanded">
+<div class="callout-header">아다마르 곱 (Hadamard Product)</div>
+<p>
+벡터와 벡터를 각 성분 끼리만 곱하는 행렬 곱이다.
+</p>
+</div>
+
+<hr />
+
+<h3 id="cube-구현">Cube 구현</h3>
+<p>Cube의 면은 6개, 면에 존재하는 정점은 4개 이므로 총 24개의 정점을 만든다. 
+면마다 정점이 필요한 이유는 <a href="https://mohitto55.github.io/unity/Unity-%EC%A0%95%EC%A0%908%EA%B0%9C-%ED%81%90%EB%B8%8C-%EB%A7%8C%EB%93%A4%EA%B8%B0/">이전 포스트</a>에서도 말했다시피</p>
+
+<p>정점 하나가 가질 수 있는 uv 정보는 1개 까지라 면 3개에 대한 정보를 가질 수 없다.
+그래서 면마다 정점을 만들어주는 것이다.</p>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">faceDir</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">faceDir</span> <span class="p">&lt;</span> <span class="m">6</span><span class="p">;</span> <span class="n">faceDir</span><span class="p">++)</span>
+<span class="p">{</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">faceIndex</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">faceIndex</span> <span class="p">&lt;</span> <span class="m">4</span><span class="p">;</span> <span class="n">faceIndex</span><span class="p">++)</span>
+    <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">faceVertexIndex</span> <span class="p">=</span> <span class="n">faceNumber</span><span class="p">[</span><span class="n">faceDir</span><span class="p">][</span><span class="n">faceIndex</span><span class="p">];</span>
+        <span class="n">vertices</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">vSet</span><span class="p">[</span><span class="n">faceVertexIndex</span><span class="p">]);</span>
+    <span class="p">}</span>
+</code></pre></div></div>
+
+<hr />
+
+<p>정점에 대응하는 uv정보와 면을 구성하는 삼각형을 그리기 위해 triangles에 정점 번호를 넣어준다.</p>
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="n">uvs</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="k">new</span> <span class="nf">Vector2</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">));</span>
+    <span class="n">uvs</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="k">new</span> <span class="nf">Vector2</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">));</span>
+    <span class="n">uvs</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="k">new</span> <span class="nf">Vector2</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">0</span><span class="p">));</span>
+    <span class="n">uvs</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="k">new</span> <span class="nf">Vector2</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">));</span>
+
+    <span class="kt">int</span> <span class="n">triangleIndex</span> <span class="p">=</span> <span class="n">faceDir</span> <span class="p">*</span> <span class="m">4</span><span class="p">;</span>
+    <span class="n">triangles</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">triangleIndex</span> <span class="p">+</span> <span class="m">0</span><span class="p">);</span>
+    <span class="n">triangles</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">triangleIndex</span> <span class="p">+</span> <span class="m">1</span><span class="p">);</span>
+    <span class="n">triangles</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">triangleIndex</span> <span class="p">+</span> <span class="m">3</span><span class="p">);</span>
+
+    <span class="n">triangles</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">triangleIndex</span> <span class="p">+</span> <span class="m">1</span><span class="p">);</span>
+    <span class="n">triangles</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">triangleIndex</span> <span class="p">+</span> <span class="m">2</span><span class="p">);</span>
+    <span class="n">triangles</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">triangleIndex</span> <span class="p">+</span> <span class="m">3</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>지금까지 작성한 데이터들을 Mesh로 만들어 MeshFilter에 넣어준다.</p>
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="n">Mesh</span> <span class="n">mesh</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Mesh</span><span class="p">();</span>
+    <span class="n">mesh</span><span class="p">.</span><span class="n">vertices</span> <span class="p">=</span> <span class="n">vertices</span><span class="p">.</span><span class="nf">ToArray</span><span class="p">();</span>
+    <span class="n">mesh</span><span class="p">.</span><span class="n">uv</span> <span class="p">=</span> <span class="n">uvs</span><span class="p">.</span><span class="nf">ToArray</span><span class="p">();</span>
+    <span class="n">mesh</span><span class="p">.</span><span class="n">triangles</span> <span class="p">=</span> <span class="n">triangles</span><span class="p">.</span><span class="nf">ToArray</span><span class="p">();</span>
+    <span class="n">mesh</span><span class="p">.</span><span class="nf">RecalculateBounds</span><span class="p">();</span>
+
+    <span class="n">GetComponent</span><span class="p">&lt;</span><span class="n">MeshFilter</span><span class="p">&gt;().</span><span class="n">mesh</span> <span class="p">=</span> <span class="n">mesh</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/f42a96ff-e563-4ba2-97e7-8c150c2e5ff4" alt="image" /><em>완성된 Cube</em></p>
+
+<div class="Reference">
+<div class="callout-header"> </div>
+<p>
+<a href="https://bloodstrawberry.tistory.com/1021">https://bloodstrawberry.tistory.com/1021</a>
+</p>
+</div>]]></content><author><name>Mohitto55</name></author><category term="unity" /><category term="Unity" /><category term="Cube" /><category term="Mesh" /><summary type="html"><![CDATA[지난번 정점 8개 큐브 만들기에 이어서 이번엔 정점24개를 가진 큐브를 만들어 볼 것이다.]]></summary></entry><entry><title type="html">[Unity] 정점이 8개인 Cube 만들기</title><link href="http://localhost:4000/unity/Unity-%EC%A0%95%EC%A0%908%EA%B0%9C-%ED%81%90%EB%B8%8C-%EB%A7%8C%EB%93%A4%EA%B8%B0/" rel="alternate" type="text/html" title="[Unity] 정점이 8개인 Cube 만들기" /><published>2024-04-11T00:00:00+09:00</published><updated>2024-04-11T00:00:00+09:00</updated><id>http://localhost:4000/unity/Unity%20%EC%A0%95%EC%A0%908%EA%B0%9C%20%ED%81%90%EB%B8%8C%20%EB%A7%8C%EB%93%A4%EA%B8%B0</id><content type="html" xml:base="http://localhost:4000/unity/Unity-%EC%A0%95%EC%A0%908%EA%B0%9C-%ED%81%90%EB%B8%8C-%EB%A7%8C%EB%93%A4%EA%B8%B0/"><![CDATA[<p>유니티 큐브의 정점갯수는 기본적으로 24개다.</p>
 
 <p>정점 8개만 이용해도 큐브를 만들 수 있지 않나 싶어서 만들어보았다.</p>
 
@@ -520,43 +638,7 @@ Nuget 작업 실행 시간: 83밀리초
 <p>
 <a href="https://narup.tistory.com/123">https://narup.tistory.com/123</a>
 </p>
-</div>]]></content><author><name>Mohitto55</name></author><category term="vs" /><category term="Visual Studio" /><category term="Nuget" /><category term="Nuget Package Manager Console" /><category term="WSL2" /><category term="C#" /><summary type="html"><![CDATA[들어가며]]></summary></entry><entry><title type="html">[Ubuntu] Docker 삭제하기</title><link href="http://localhost:4000/linux/Docker-%EC%99%84%EC%A0%84-%EC%82%AD%EC%A0%9C%ED%95%98%EA%B8%B0/" rel="alternate" type="text/html" title="[Ubuntu] Docker 삭제하기" /><published>2024-03-28T00:00:00+09:00</published><updated>2024-03-28T00:00:00+09:00</updated><id>http://localhost:4000/linux/Docker%20%EC%99%84%EC%A0%84%20%EC%82%AD%EC%A0%9C%ED%95%98%EA%B8%B0</id><content type="html" xml:base="http://localhost:4000/linux/Docker-%EC%99%84%EC%A0%84-%EC%82%AD%EC%A0%9C%ED%95%98%EA%B8%B0/"><![CDATA[<h1 id="docker-삭제하기">Docker 삭제하기</h1>
-<h2 id="1-docker-설치-확인하기">1. docker 설치 확인하기</h2>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dpkg -l | grep -i docker
-</code></pre></div></div>
-
-<h2 id="2-docker를-삭제">2. docker를 삭제</h2>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get purge -y docker-engine docker docker.io docker-ce
-sudo apt-get autoremove -y --purge docker-engine docker docker.io docker-ce
-</code></pre></div></div>
-<p>위의 명령으로 호스트에서 이미지, 컨테이너, 볼륨 또는 사용자 생성 구성 파일을 제외한 모든 파일을 삭제한다.</p>
-
-<h2 id="3-모든-이미지-컨테이너-및-볼륨을-삭제">​3. 모든 이미지, 컨테이너 및 볼륨을 삭제</h2>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo rm -rf /var/lib/docker /etc/docker
-sudo rm /etc/apparmor.d/docker
-sudo groupdel docker
-sudo rm -rf /var/run/docker.sock
-</code></pre></div></div>
-<p>시스템에서 Docker를 완전히 제거,</p>
-
-<hr />
-
-<h3 id="우분투에서-삭제하기">우분투에서 삭제하기</h3>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo snap remove docker
-</code></pre></div></div>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo find / -name "*docker*" -exec `rm -rf` {} +
-</code></pre></div></div>
-<p>모든 docker 관련 파일을 삭제</p>
-
-<hr />
-
-<div class="Reference">
-<div class="callout-header"> </div>
-<p>
-<a href="https://may9noy.tistory.com/392">https://may9noy.tistory.com/392</a>
-</p>
-</div>]]></content><author><name>Mohitto55</name></author><category term="linux" /><category term="Window" /><category term="Linux" /><category term="Ubuntu" /><category term="WSL2" /><category term="Window Service for Linux" /><category term="Docker" /><category term="도커" /><category term="우분투" /><category term="윈도우" /><category term="리눅스" /><summary type="html"><![CDATA[Docker 삭제하기 1. docker 설치 확인하기 dpkg -l | grep -i docker]]></summary></entry><entry><title type="html">[Ubuntu] Docker 설치하기</title><link href="http://localhost:4000/linux/Docker-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0/" rel="alternate" type="text/html" title="[Ubuntu] Docker 설치하기" /><published>2024-03-28T00:00:00+09:00</published><updated>2024-03-28T00:00:00+09:00</updated><id>http://localhost:4000/linux/Docker%20%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0</id><content type="html" xml:base="http://localhost:4000/linux/Docker-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0/"><![CDATA[<h2 id="도커-다운받기">도커 다운받기</h2>
+</div>]]></content><author><name>Mohitto55</name></author><category term="vs" /><category term="Visual Studio" /><category term="Nuget" /><category term="Nuget Package Manager Console" /><category term="WSL2" /><category term="C#" /><summary type="html"><![CDATA[들어가며]]></summary></entry><entry><title type="html">[Ubuntu] Docker 설치하기</title><link href="http://localhost:4000/linux/Docker-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0/" rel="alternate" type="text/html" title="[Ubuntu] Docker 설치하기" /><published>2024-03-28T00:00:00+09:00</published><updated>2024-03-28T00:00:00+09:00</updated><id>http://localhost:4000/linux/Docker%20%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0</id><content type="html" xml:base="http://localhost:4000/linux/Docker-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0/"><![CDATA[<h2 id="도커-다운받기">도커 다운받기</h2>
 <h3 id="1-우분투-시스템-패키지-업데이트">1. 우분투 시스템 패키지 업데이트</h3>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get update
 </code></pre></div></div>
@@ -597,7 +679,43 @@ sudo rm -rf /var/run/docker.sock
 <p>
 <a href="https://may9noy.tistory.com/392">https://may9noy.tistory.com/392</a>
 </p>
-</div>]]></content><author><name>Mohitto55</name></author><category term="linux" /><category term="Window" /><category term="Linux" /><category term="Ubuntu" /><category term="WSL2" /><category term="Window Service for Linux" /><category term="Docker" /><category term="도커" /><category term="우분투" /><category term="윈도우" /><category term="리눅스" /><summary type="html"><![CDATA[도커 다운받기 1. 우분투 시스템 패키지 업데이트 sudo apt-get update]]></summary></entry><entry><title type="html">[Math] 데카르트 좌표계와 극 좌표계</title><link href="http://localhost:4000/math/%EC%A2%8C%ED%91%9C%EA%B3%84-%EC%A0%95%EB%A6%AC/" rel="alternate" type="text/html" title="[Math] 데카르트 좌표계와 극 좌표계" /><published>2024-03-25T00:00:00+09:00</published><updated>2024-03-25T00:00:00+09:00</updated><id>http://localhost:4000/math/%EC%A2%8C%ED%91%9C%EA%B3%84%20%EC%A0%95%EB%A6%AC</id><content type="html" xml:base="http://localhost:4000/math/%EC%A2%8C%ED%91%9C%EA%B3%84-%EC%A0%95%EB%A6%AC/"><![CDATA[<h2 id="들어가기">들어가기</h2>
+</div>]]></content><author><name>Mohitto55</name></author><category term="linux" /><category term="Window" /><category term="Linux" /><category term="Ubuntu" /><category term="WSL2" /><category term="Window Service for Linux" /><category term="Docker" /><category term="도커" /><category term="우분투" /><category term="윈도우" /><category term="리눅스" /><summary type="html"><![CDATA[도커 다운받기 1. 우분투 시스템 패키지 업데이트 sudo apt-get update]]></summary></entry><entry><title type="html">[Ubuntu] Docker 삭제하기</title><link href="http://localhost:4000/linux/Docker-%EC%99%84%EC%A0%84-%EC%82%AD%EC%A0%9C%ED%95%98%EA%B8%B0/" rel="alternate" type="text/html" title="[Ubuntu] Docker 삭제하기" /><published>2024-03-28T00:00:00+09:00</published><updated>2024-03-28T00:00:00+09:00</updated><id>http://localhost:4000/linux/Docker%20%EC%99%84%EC%A0%84%20%EC%82%AD%EC%A0%9C%ED%95%98%EA%B8%B0</id><content type="html" xml:base="http://localhost:4000/linux/Docker-%EC%99%84%EC%A0%84-%EC%82%AD%EC%A0%9C%ED%95%98%EA%B8%B0/"><![CDATA[<h1 id="docker-삭제하기">Docker 삭제하기</h1>
+<h2 id="1-docker-설치-확인하기">1. docker 설치 확인하기</h2>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dpkg -l | grep -i docker
+</code></pre></div></div>
+
+<h2 id="2-docker를-삭제">2. docker를 삭제</h2>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get purge -y docker-engine docker docker.io docker-ce
+sudo apt-get autoremove -y --purge docker-engine docker docker.io docker-ce
+</code></pre></div></div>
+<p>위의 명령으로 호스트에서 이미지, 컨테이너, 볼륨 또는 사용자 생성 구성 파일을 제외한 모든 파일을 삭제한다.</p>
+
+<h2 id="3-모든-이미지-컨테이너-및-볼륨을-삭제">​3. 모든 이미지, 컨테이너 및 볼륨을 삭제</h2>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo rm -rf /var/lib/docker /etc/docker
+sudo rm /etc/apparmor.d/docker
+sudo groupdel docker
+sudo rm -rf /var/run/docker.sock
+</code></pre></div></div>
+<p>시스템에서 Docker를 완전히 제거,</p>
+
+<hr />
+
+<h3 id="우분투에서-삭제하기">우분투에서 삭제하기</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo snap remove docker
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo find / -name "*docker*" -exec `rm -rf` {} +
+</code></pre></div></div>
+<p>모든 docker 관련 파일을 삭제</p>
+
+<hr />
+
+<div class="Reference">
+<div class="callout-header"> </div>
+<p>
+<a href="https://may9noy.tistory.com/392">https://may9noy.tistory.com/392</a>
+</p>
+</div>]]></content><author><name>Mohitto55</name></author><category term="linux" /><category term="Window" /><category term="Linux" /><category term="Ubuntu" /><category term="WSL2" /><category term="Window Service for Linux" /><category term="Docker" /><category term="도커" /><category term="우분투" /><category term="윈도우" /><category term="리눅스" /><summary type="html"><![CDATA[Docker 삭제하기 1. docker 설치 확인하기 dpkg -l | grep -i docker]]></summary></entry><entry><title type="html">[Math] 데카르트 좌표계와 극 좌표계</title><link href="http://localhost:4000/math/%EC%A2%8C%ED%91%9C%EA%B3%84-%EC%A0%95%EB%A6%AC/" rel="alternate" type="text/html" title="[Math] 데카르트 좌표계와 극 좌표계" /><published>2024-03-25T00:00:00+09:00</published><updated>2024-03-25T00:00:00+09:00</updated><id>http://localhost:4000/math/%EC%A2%8C%ED%91%9C%EA%B3%84%20%EC%A0%95%EB%A6%AC</id><content type="html" xml:base="http://localhost:4000/math/%EC%A2%8C%ED%91%9C%EA%B3%84-%EC%A0%95%EB%A6%AC/"><![CDATA[<h2 id="들어가기">들어가기</h2>
 <p>좌표는 우리 일상 생활에서 중요한 요소다. 사람과의 거리, 건축, 컴퓨터 등 다양한 분야에서 사용하는 개념이다. 좌표계는 고대에도 사용된 개념인데 천문학자들이 별의 위치를 추정하기 위하여 사용하곤 했다.</p>
 
 <p>오늘은 우리 일상과 빠트릴 수 없는 좌표계에 대하여 알아볼 것이다.</p>
@@ -823,7 +941,49 @@ sudo rm -rf /var/run/docker.sock
 	<span class="p">}</span>
 	<span class="n">Dijkstra</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
 <span class="p">}</span>
-</code></pre></div></div>]]></content><author><name>Mohitto55</name></author><category term="boj" /><category term="boj" /><category term="백준" /><category term="PS" /><category term="solved" /><category term="문제풀이 17396번" /><category term="Dijkstra" /><category term="다익스트라" /><summary type="html"><![CDATA[문제 링크 BOJ 17396-백도어]]></summary></entry><entry><title type="html">[Docker] Ubuntu에서 Docker 설치하기</title><link href="http://localhost:4000/network/Docker%EC%97%90-MySql-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0/" rel="alternate" type="text/html" title="[Docker] Ubuntu에서 Docker 설치하기" /><published>2024-03-22T00:00:00+09:00</published><updated>2024-03-22T00:00:00+09:00</updated><id>http://localhost:4000/network/Docker%EC%97%90%20MySql%20%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0</id><content type="html" xml:base="http://localhost:4000/network/Docker%EC%97%90-MySql-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0/"><![CDATA[<h2 id="docker">Docker</h2>
+</code></pre></div></div>]]></content><author><name>Mohitto55</name></author><category term="boj" /><category term="boj" /><category term="백준" /><category term="PS" /><category term="solved" /><category term="문제풀이 17396번" /><category term="Dijkstra" /><category term="다익스트라" /><summary type="html"><![CDATA[문제 링크 BOJ 17396-백도어]]></summary></entry><entry><title type="html">[Window] Window에서 Linux(WSL2) 환경 설치하기</title><link href="http://localhost:4000/os/WSL2-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0/" rel="alternate" type="text/html" title="[Window] Window에서 Linux(WSL2) 환경 설치하기" /><published>2024-03-22T00:00:00+09:00</published><updated>2024-03-22T00:00:00+09:00</updated><id>http://localhost:4000/os/WSL2%20%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0</id><content type="html" xml:base="http://localhost:4000/os/WSL2-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0/"><![CDATA[<h2 id="들어가며">들어가며</h2>
+<p>Docker를 사용하기 위해 알아보던 중 Hyper-V 기능을 활성화 해야하는 것을 알았다. 활성화 하려고 했지만 아무리 찾아도 보이지 않았다. 어찌된 것인지 알아보니 Window Pro 이상의 버전만 지원하는 기능이였고 난 Home였기에 할 수 없었다.</p>
+
+<p>어떻게든 방법을 찾던 와중 Window에서 Linux 환경을 실행할 수 있는 기능이 있었고 이를 이용하면 Docker도 설치할 수 있다는 것을 알았다.</p>
+
+<h2 id="wsl2">WSL2</h2>
+<p>WSL2(Window Service for Linux)는 Window에서 <strong>Linux Vritual Machine</strong> 환경을 구성할 수 있게 해주는 기능이다. MS에서 지원하는 기능으로 과거에 비해 제약이 많이 줄어 Window 환경만 최신으로 해놨다면 큰 무리 없이 설치할 수 있을 것이다.</p>
+
+<hr />
+
+<h3 id="설치하기">설치하기</h3>
+<p>우선 제어판 &gt; 프로그램 &gt; Windows 기능 켜기/끄기 에서 Linux용 Windows 하위 시스템을 활성화한다.</p>
+
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/c7cfecd1-3618-42a2-b85e-a611e472df2a" alt="스크린샷 2024-03-22 223031" /></p>
+
+<p>그 후 PowerShell을 관리자 권한으로 실행시킨다.</p>
+
+<p>아래 명령어를 입력해 WSL을 설치한다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wsl --install
+</code></pre></div></div>
+
+<hr />
+
+<p>그러고 난 후 재부팅을 하고 나면 자동으로 Ubuntu가 설치되고 있을 것이다.</p>
+
+<p>그렇지 않다면 PowerShell에서 아래 명령어를 입력한다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wsl --install -d Ubuntu
+</code></pre></div></div>
+
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/6be99b3f-7460-4fb1-ac05-c316519b24e6" alt="스크린샷 2024-03-22 223448" /></p>
+
+<h2 id="마무리">마무리</h2>
+<p>이것으로 Window에서 Linux 환경을 구성했다. 이것으로 Docker를 이용한 다양한 프로젝트를 진행해볼 것이다.</p>
+
+<hr />
+
+<div class="Reference">
+<div class="callout-header"> </div>
+<p>
+<a href="https://docs.docker.com/desktop/wsl/">https://docs.docker.com/desktop/wsl/</a>
+<a href="https://velog.io/@darktrace1/%EC%9C%88%EB%8F%84%EC%9A%B011%EC%97%90-UbuntuWSL2-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0">https://velog.io/@darktrace1/%EC%9C%88%EB%8F%84%EC%9A%B011%EC%97%90-UbuntuWSL2-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0</a>
+</p>
+</div>]]></content><author><name>Mohitto55</name></author><category term="os" /><category term="Window" /><category term="Linux" /><category term="Ubuntu" /><category term="WSL2" /><category term="Window Service for Linux" /><category term="우분투" /><category term="윈도우" /><category term="리눅스" /><summary type="html"><![CDATA[들어가며 Docker를 사용하기 위해 알아보던 중 Hyper-V 기능을 활성화 해야하는 것을 알았다. 활성화 하려고 했지만 아무리 찾아도 보이지 않았다. 어찌된 것인지 알아보니 Window Pro 이상의 버전만 지원하는 기능이였고 난 Home였기에 할 수 없었다.]]></summary></entry><entry><title type="html">[Docker] Ubuntu에서 Docker 설치하기</title><link href="http://localhost:4000/network/Docker%EC%97%90-MySql-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0/" rel="alternate" type="text/html" title="[Docker] Ubuntu에서 Docker 설치하기" /><published>2024-03-22T00:00:00+09:00</published><updated>2024-03-22T00:00:00+09:00</updated><id>http://localhost:4000/network/Docker%EC%97%90%20MySql%20%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0</id><content type="html" xml:base="http://localhost:4000/network/Docker%EC%97%90-MySql-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0/"><![CDATA[<h2 id="docker">Docker</h2>
 <p>Docker란 컨테이너를 이용한 오픈소스 가상화 플랫폼이다. 
 컨테이너는 OS레벨의 가상화로 프로세스를 격리시켜 동작하는 것을 말한다. OS자체를 가상화 하던 방식과는 다른데 무슨 차이가 있는 것일 까</p>
 
@@ -881,103 +1041,4 @@ whyt 컴터는 윈도우, 서버는 리눅스여서
 <a href="https://khj93.tistory.com/entry/Docker-Docker-%EA%B0%9C%EB%85%90">https://khj93.tistory.com/entry/Docker-Docker-%EA%B0%9C%EB%85%90</a>
 <a href="https://www.youtube.com/watch?v=chnCcGCTyBg">https://www.youtube.com/watch?v=chnCcGCTyBg</a>
 </p>
-</div>]]></content><author><name>Mohitto55</name></author><category term="network" /><category term="Docket" /><category term="Ubuntu" /><category term="Linux" /><category term="컨테이너" /><summary type="html"><![CDATA[Docker Docker란 컨테이너를 이용한 오픈소스 가상화 플랫폼이다. 컨테이너는 OS레벨의 가상화로 프로세스를 격리시켜 동작하는 것을 말한다. OS자체를 가상화 하던 방식과는 다른데 무슨 차이가 있는 것일 까]]></summary></entry><entry><title type="html">[Window] Window에서 Linux(WSL2) 환경 설치하기</title><link href="http://localhost:4000/os/WSL2-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0/" rel="alternate" type="text/html" title="[Window] Window에서 Linux(WSL2) 환경 설치하기" /><published>2024-03-22T00:00:00+09:00</published><updated>2024-03-22T00:00:00+09:00</updated><id>http://localhost:4000/os/WSL2%20%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0</id><content type="html" xml:base="http://localhost:4000/os/WSL2-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0/"><![CDATA[<h2 id="들어가며">들어가며</h2>
-<p>Docker를 사용하기 위해 알아보던 중 Hyper-V 기능을 활성화 해야하는 것을 알았다. 활성화 하려고 했지만 아무리 찾아도 보이지 않았다. 어찌된 것인지 알아보니 Window Pro 이상의 버전만 지원하는 기능이였고 난 Home였기에 할 수 없었다.</p>
-
-<p>어떻게든 방법을 찾던 와중 Window에서 Linux 환경을 실행할 수 있는 기능이 있었고 이를 이용하면 Docker도 설치할 수 있다는 것을 알았다.</p>
-
-<h2 id="wsl2">WSL2</h2>
-<p>WSL2(Window Service for Linux)는 Window에서 <strong>Linux Vritual Machine</strong> 환경을 구성할 수 있게 해주는 기능이다. MS에서 지원하는 기능으로 과거에 비해 제약이 많이 줄어 Window 환경만 최신으로 해놨다면 큰 무리 없이 설치할 수 있을 것이다.</p>
-
-<hr />
-
-<h3 id="설치하기">설치하기</h3>
-<p>우선 제어판 &gt; 프로그램 &gt; Windows 기능 켜기/끄기 에서 Linux용 Windows 하위 시스템을 활성화한다.</p>
-
-<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/c7cfecd1-3618-42a2-b85e-a611e472df2a" alt="스크린샷 2024-03-22 223031" /></p>
-
-<p>그 후 PowerShell을 관리자 권한으로 실행시킨다.</p>
-
-<p>아래 명령어를 입력해 WSL을 설치한다.</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wsl --install
-</code></pre></div></div>
-
-<hr />
-
-<p>그러고 난 후 재부팅을 하고 나면 자동으로 Ubuntu가 설치되고 있을 것이다.</p>
-
-<p>그렇지 않다면 PowerShell에서 아래 명령어를 입력한다.</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wsl --install -d Ubuntu
-</code></pre></div></div>
-
-<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/6be99b3f-7460-4fb1-ac05-c316519b24e6" alt="스크린샷 2024-03-22 223448" /></p>
-
-<h2 id="마무리">마무리</h2>
-<p>이것으로 Window에서 Linux 환경을 구성했다. 이것으로 Docker를 이용한 다양한 프로젝트를 진행해볼 것이다.</p>
-
-<hr />
-
-<div class="Reference">
-<div class="callout-header"> </div>
-<p>
-<a href="https://docs.docker.com/desktop/wsl/">https://docs.docker.com/desktop/wsl/</a>
-<a href="https://velog.io/@darktrace1/%EC%9C%88%EB%8F%84%EC%9A%B011%EC%97%90-UbuntuWSL2-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0">https://velog.io/@darktrace1/%EC%9C%88%EB%8F%84%EC%9A%B011%EC%97%90-UbuntuWSL2-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0</a>
-</p>
-</div>]]></content><author><name>Mohitto55</name></author><category term="os" /><category term="Window" /><category term="Linux" /><category term="Ubuntu" /><category term="WSL2" /><category term="Window Service for Linux" /><category term="우분투" /><category term="윈도우" /><category term="리눅스" /><summary type="html"><![CDATA[들어가며 Docker를 사용하기 위해 알아보던 중 Hyper-V 기능을 활성화 해야하는 것을 알았다. 활성화 하려고 했지만 아무리 찾아도 보이지 않았다. 어찌된 것인지 알아보니 Window Pro 이상의 버전만 지원하는 기능이였고 난 Home였기에 할 수 없었다.]]></summary></entry><entry><title type="html">[Algorithm] Selection Sort 선택정렬 알고리즘</title><link href="http://localhost:4000/algorithm/Selection-Sort-%EC%84%A0%ED%83%9D-%EC%A0%95%EB%A0%AC/" rel="alternate" type="text/html" title="[Algorithm] Selection Sort 선택정렬 알고리즘" /><published>2024-03-19T00:00:00+09:00</published><updated>2024-03-19T00:00:00+09:00</updated><id>http://localhost:4000/algorithm/Selection%20Sort%20%EC%84%A0%ED%83%9D%20%EC%A0%95%EB%A0%AC</id><content type="html" xml:base="http://localhost:4000/algorithm/Selection-Sort-%EC%84%A0%ED%83%9D-%EC%A0%95%EB%A0%AC/"><![CDATA[<h2 id="selection-sort">Selection Sort</h2>
-<p>선택정렬 알고리즘은 제자리 정렬 알고리즘 중 하나로 입력 데이터 외 추가 데이터가 필요하지 않은 알고리즘이다.</p>
-
-<h2 id="원리">원리</h2>
-<ul>
-  <li>정렬하고자 하는 데이터 중 가장 큰 데이터의 맨 끝 데이터랑 교환
-    <ol>
-      <li>0번 째 Index부터 N-i까지 차례로 순회한다.</li>
-      <li>순회를 하던 중 값이 Index &lt; Index +1 일 경우 가장 큰 값을 Index + 1이라 한다.</li>
-      <li>순회를 마쳤으면 마지막 값이랑 <font color="dodgerred">가장 큰 값</font>이랑 교환한다.</li>
-      <li>i를 1 올리고 다시 0부터 순회한다.</li>
-    </ol>
-  </li>
-</ul>
-
-<h2 id="시간-복잡도">시간 복잡도</h2>
-
-\[(n-1) + (n-2)... = \frac{n(n-1)}{2} = O(N^2)\]
-
-<ul>
-  <li>비교 횟수
-    <ul>
-      <li>i가 n-2 일 때 비교횟수 : <font color="dodgerred">n-2</font></li>
-      <li>i가 n-1 일 때 비교횟수 : <font color="dodgerred">n-1</font></li>
-      <li>i가 1 일 때 비교횟수 : <font color="dodgerred">1</font></li>
-    </ul>
-  </li>
-  <li>교환 횟수
-    <ul>
-      <li>외부 루프의 실행 횟수와 동일</li>
-      <li>Swap시 3번의 데이터 이동 발생</li>
-    </ul>
-  </li>
-</ul>
-
-<h2 id="코드">코드</h2>
-<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">public</span> <span class="kt">void</span> <span class="nf">SelectionSort</span><span class="p">(){</span>
-	<span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">last</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">last</span> <span class="o">&lt;</span> <span class="n">size</span><span class="p">;</span> <span class="n">last</span><span class="o">++</span><span class="p">){</span>
-		<span class="kt">int</span> <span class="n">largestIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-		<span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">cur</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">cur</span> <span class="o">&lt;</span> <span class="n">size</span> <span class="o">-</span> <span class="n">last</span><span class="p">;</span> <span class="n">cur</span><span class="o">++</span><span class="p">){</span>
-			<span class="k">if</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">largestIndex</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">data</span><span class="p">[</span><span class="n">cur</span><span class="p">]){</span>
-				<span class="n">largestIndex</span> <span class="o">=</span> <span class="n">cur</span><span class="p">;</span>
-			<span class="p">}</span>
-		<span class="p">}</span>
-		<span class="n">swap</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">largestIndex</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="n">cur</span><span class="p">]);</span>
-	<span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<hr />
-
-<div class="Reference">
-<div class="callout-header"> </div>
-<p>
-<a href="https://gmlwjd9405.github.io/2018/05/06/algorithm-selection-sort.html">https://gmlwjd9405.github.io/2018/05/06/algorithm-selection-sort.html</a>
-<a href="https://ko.wikipedia.org/wiki/%EC%84%A0%ED%83%9D_%EC%A0%95%EB%A0%AC">https://ko.wikipedia.org/wiki/%EC%84%A0%ED%83%9D_%EC%A0%95%EB%A0%AC</a>
-</p>
-</div>]]></content><author><name>Mohitto55</name></author><category term="algorithm" /><category term="Algorighm" /><category term="Sort" /><category term="정렬" /><category term="Selection Sort" /><category term="선택정렬" /><summary type="html"><![CDATA[Selection Sort 선택정렬 알고리즘은 제자리 정렬 알고리즘 중 하나로 입력 데이터 외 추가 데이터가 필요하지 않은 알고리즘이다.]]></summary></entry></feed>
+</div>]]></content><author><name>Mohitto55</name></author><category term="network" /><category term="Docket" /><category term="Ubuntu" /><category term="Linux" /><category term="컨테이너" /><summary type="html"><![CDATA[Docker Docker란 컨테이너를 이용한 오픈소스 가상화 플랫폼이다. 컨테이너는 OS레벨의 가상화로 프로세스를 격리시켜 동작하는 것을 말한다. OS자체를 가상화 하던 방식과는 다른데 무슨 차이가 있는 것일 까]]></summary></entry></feed>

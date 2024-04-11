@@ -233,6 +233,12 @@ var store = [{
         "url": "/obsidian/Obsidian-PDF-Export/",
         "teaser": null
       },{
+        "title": "[Unity] 정점24개 큐브 만들기",
+        "excerpt":"지난번 정점 8개 큐브 만들기에 이어서 이번엔 정점24개를 가진 큐브를 만들어 볼 것이다. Cube 작성 정점위치 참조 테이블 한 위치에 같은 정점이 3개가 만들어지는데 이 정점의 위치를 매번 계산하는 것 보단 테이블로 만들고 면이 테이블에 있는 정점 위치 정보를 가져오게 하는 것이 좋을 것이다. 그러기 위해선 각 면에서 사용할 정점...","categories": ["unity"],
+        "tags": ["Unity","Cube","Mesh"],
+        "url": "/unity/Unity-%EC%A0%95%EC%A0%9024%EA%B0%9C-%ED%81%90%EB%B8%8C-%EB%A7%8C%EB%93%A4%EA%B8%B0/",
+        "teaser": null
+      },{
         "title": "[Unity] 정점이 8개인 Cube 만들기",
         "excerpt":"유니티 큐브의 정점갯수는 기본적으로 24개다. 정점 8개만 이용해도 큐브를 만들 수 있지 않나 싶어서 만들어보았다. Cube 만들기 vertex 순서 우선 정점을 만들어준다. 정점의 순서는 위와 같이 정했으며 이를 구현한다. float halfWidth = width / 2; float halfHeight = height / 2; List&lt;Vector3&gt; vertexs = new List&lt;Vector3&gt;(); vertexs.Add(new Vector3(-halfWidth, -halfHeight, -halfWidth));...","categories": ["unity"],
         "tags": ["Unity","Mesh","Cube","UV"],
