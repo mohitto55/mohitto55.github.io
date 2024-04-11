@@ -74,7 +74,7 @@ var store = [{
         "title": "[UE5] Actor, Component, GameMode 개념 정리",
         "excerpt":"언리얼 엔진의 기본 개념 컴포넌트 직접 코드를 작성해 시스템을 수행하는 모듈 액터의 추가 기능 확장 모듈이라 생각하면 된다. 트랜스폼 여부에 따라 불리는 이름이 다르다 액터 컴포넌트 - 트랜스폼 없이 기능만 제공 씬컴포넌트 - 트랜스폼이 있을 경우 Actor 월드내에 존재하는 유형, 무형의 게임 오브젝트 반드시 보이는 것 뿐만이 아닌 시스템 적으로...","categories": ["ue5"],
         "tags": ["UnrealEngine5","Actor","Pawn","Character","PlayerController","Component","GameMode","C++"],
-        "url": "/ue5/UE5-Acotr-Pawn-Character-%EB%B9%84%EA%B5%90/",
+        "url": "/ue5/UE5-Actor-Pawn-Character-%EB%B9%84%EA%B5%90/",
         "teaser": null
       },{
         "title": "[UE5] Enhanced Input",
@@ -231,5 +231,11 @@ var store = [{
         "excerpt":"PDF 출력 옵시디언을 통해 내용을 정리하고 다양한 기능들을 이용해 꾸민뒤 PDF로 변환해야할 때가 있다. 그런데 이상하게도 css로 열심히 꾸며도 PDF로 출력만 하면은 제대로 적용이 되지 않은채 변환되곤한다. 같은 내용 다른 느낌 어떻게든 CSS를 제대로 적용시키고 싶어서 ITEXT로 PDF로 변환도 해보고 기존 CSS를 수정하는 등 여러 시행착오를 거쳐서 변환 전 모습과...","categories": ["obsidian"],
         "tags": ["css","html","Obsidian","PDF","옵시디언"],
         "url": "/obsidian/Obsidian-PDF-Export/",
+        "teaser": null
+      },{
+        "title": "[Unity] 정점이 8개인 Cube 만들기",
+        "excerpt":"유니티 큐브의 정점갯수는 기본적으로 24개다. 정점 8개만 이용해도 큐브를 만들 수 있지 않나 싶어서 만들어보았다. Cube 만들기 vertex 순서 우선 정점을 만들어준다. 정점의 순서는 위와 같이 정했으며 이를 구현한다. float halfWidth = width / 2; float halfHeight = height / 2; List&lt;Vector3&gt; vertexs = new List&lt;Vector3&gt;(); vertexs.Add(new Vector3(-halfWidth, -halfHeight, -halfWidth));...","categories": ["unity"],
+        "tags": ["Unity","Mesh","Cube","UV"],
+        "url": "/unity/Unity-%EC%A0%95%EC%A0%908%EA%B0%9C-%ED%81%90%EB%B8%8C-%EB%A7%8C%EB%93%A4%EA%B8%B0/",
         "teaser": null
       }]

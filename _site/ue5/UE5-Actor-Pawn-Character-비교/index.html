@@ -23,7 +23,7 @@
 <meta property="og:locale" content="ko_KR">
 <meta property="og:site_name" content="Mohitto55 Note">
 <meta property="og:title" content="[UE5] Actor, Component, GameMode 개념 정리">
-<meta property="og:url" content="http://localhost:4000/ue5/UE5-Acotr-Pawn-Character-%EB%B9%84%EA%B5%90/">
+<meta property="og:url" content="http://localhost:4000/ue5/UE5-Actor-Pawn-Character-%EB%B9%84%EA%B5%90/">
 
 
   <meta property="og:description" content="언리얼 엔진의 기본 개념">
@@ -45,7 +45,7 @@
   
 
 
-<link rel="canonical" href="http://localhost:4000/ue5/UE5-Acotr-Pawn-Character-%EB%B9%84%EA%B5%90/">
+<link rel="canonical" href="http://localhost:4000/ue5/UE5-Actor-Pawn-Character-%EB%B9%84%EA%B5%90/">
 
 
 
@@ -317,7 +317,7 @@
   
   <input id="ac-toc" name="accordion-toc" type="checkbox" />
   <label for="ac-toc">토글 메뉴</label>
-  <li> 전체 글 수 (39)개 </li>
+  <li> 전체 글 수 (40)개 </li>
   <ul class="nav__items">
     
       
@@ -370,7 +370,7 @@
           
           
 
-            <li><a href="/unity"><span class="nav__sub-title-url">Unity  </span><span class="nav__sub-title-count">1</span></a></li>
+            <li><a href="/unity"><span class="nav__sub-title-url">Unity  </span><span class="nav__sub-title-count">2</span></a></li>
           
           
           
@@ -503,7 +503,7 @@
       
         <header>
           <h1 id="page-title" class="page__title p-name" itemprop="headline">
-            <a href="http://localhost:4000/ue5/UE5-Acotr-Pawn-Character-%EB%B9%84%EA%B5%90/" class="u-url" itemprop="url">[UE5] Actor, Component, GameMode 개념 정리
+            <a href="http://localhost:4000/ue5/UE5-Actor-Pawn-Character-%EB%B9%84%EA%B5%90/" class="u-url" itemprop="url">[UE5] Actor, Component, GameMode 개념 정리
 </a>
           </h1>
           
@@ -677,11 +677,11 @@
     <h4 class="page__share-title">공유하기</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=%5BUE5%5D+Actor%2C+Component%2C+GameMode+%EA%B0%9C%EB%85%90+%EC%A0%95%EB%A6%AC%20http%3A%2F%2Flocalhost%3A4000%2Fue5%2FUE5-Acotr-Pawn-Character-%25EB%25B9%2584%25EA%25B5%2590%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=%5BUE5%5D+Actor%2C+Component%2C+GameMode+%EA%B0%9C%EB%85%90+%EC%A0%95%EB%A6%AC%20http%3A%2F%2Flocalhost%3A4000%2Fue5%2FUE5-Actor-Pawn-Character-%25EB%25B9%2584%25EA%25B5%2590%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fue5%2FUE5-Acotr-Pawn-Character-%25EB%25B9%2584%25EA%25B5%2590%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fue5%2FUE5-Actor-Pawn-Character-%25EB%25B9%2584%25EA%25B5%2590%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fue5%2FUE5-Acotr-Pawn-Character-%25EB%25B9%2584%25EA%25B5%2590%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fue5%2FUE5-Actor-Pawn-Character-%25EB%25B9%2584%25EA%25B5%2590%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
@@ -707,6 +707,53 @@
     <div class="page__related">
       <h2 class="page__related-title">참고</h2>
       <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/unity/Unity-%EC%A0%95%EC%A0%908%EA%B0%9C-%ED%81%90%EB%B8%8C-%EB%A7%8C%EB%93%A4%EA%B8%B0/" rel="permalink">[Unity] 정점이 8개인 Cube 만들기
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2024-04-11T00:00:00+09:00">April 11, 2024</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">유니티 큐브의 정점갯수는 기본적으로 24개다.
+</p>
+  </article>
+</div>
+
         
           
 
@@ -854,56 +901,6 @@ dpkg -l | grep -i docker
 </div>
 
         
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/linux/Docker-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0/" rel="permalink">[Ubuntu] Docker 설치하기
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2024-03-28T00:00:00+09:00">March 28, 2024</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
-        
-          최대 1 분 소요
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">도커 다운받기
-1. 우분투 시스템 패키지 업데이트
-sudo apt-get update
-
-</p>
-  </article>
-</div>
-
-        
       </div>
     </div>
   
@@ -958,8 +955,8 @@ sudo apt-get update
     
   <script>
     var disqus_config = function () {
-      this.page.url = "http://localhost:4000/ue5/UE5-Acotr-Pawn-Character-%EB%B9%84%EA%B5%90/";  /* Replace PAGE_URL with your page's canonical URL variable */
-      this.page.identifier = "/ue5/UE5 Acotr Pawn Character 비교"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+      this.page.url = "http://localhost:4000/ue5/UE5-Actor-Pawn-Character-%EB%B9%84%EA%B5%90/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/ue5/UE5 Actor Pawn Character 비교"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
     };
     (function() { /* DON'T EDIT BELOW THIS LINE */
       var d = document, s = d.createElement('script');

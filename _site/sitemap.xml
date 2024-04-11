@@ -4,6 +4,19 @@
         xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     
     <url>
+        <loc>http://localhost:4000/unity/Unity-%EC%A0%95%EC%A0%908%EA%B0%9C-%ED%81%90%EB%B8%8C-%EB%A7%8C%EB%93%A4%EA%B8%B0/</loc>
+        
+        <lastmod>2024-04-11T00:00:00+09:00</lastmod>
+        
+        
+        <changefreq>weekly</changefreq>
+        
+        
+        <priority>0.5</priority>
+        
+    </url>
+    
+    <url>
         <loc>http://localhost:4000/obsidian/Obsidian-PDF-Export/</loc>
         
         <lastmod>2024-04-06T00:00:00+09:00</lastmod>
@@ -342,7 +355,7 @@
     </url>
     
     <url>
-        <loc>http://localhost:4000/ue5/UE5-Acotr-Pawn-Character-%EB%B9%84%EA%B5%90/</loc>
+        <loc>http://localhost:4000/ue5/UE5-Actor-Pawn-Character-%EB%B9%84%EA%B5%90/</loc>
         
         <lastmod>2024-02-15T00:00:00+09:00</lastmod>
         

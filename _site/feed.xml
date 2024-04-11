@@ -1,4 +1,124 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-04-08T16:46:17+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mohitto55 Note</title><subtitle>모히또의 노트</subtitle><author><name>Mohitto55</name></author><entry><title type="html">[Obsidian] CSS 적용하며 PDF로 내보내는법</title><link href="http://localhost:4000/obsidian/Obsidian-PDF-Export/" rel="alternate" type="text/html" title="[Obsidian] CSS 적용하며 PDF로 내보내는법" /><published>2024-04-06T00:00:00+09:00</published><updated>2024-04-06T00:00:00+09:00</updated><id>http://localhost:4000/obsidian/Obsidian%20PDF%20Export</id><content type="html" xml:base="http://localhost:4000/obsidian/Obsidian-PDF-Export/"><![CDATA[<h2 id="pdf-출력">PDF 출력</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-04-11T13:52:43+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mohitto55 Note</title><subtitle>모히또의 노트</subtitle><author><name>Mohitto55</name></author><entry><title type="html">[Unity] 정점이 8개인 Cube 만들기</title><link href="http://localhost:4000/unity/Unity-%EC%A0%95%EC%A0%908%EA%B0%9C-%ED%81%90%EB%B8%8C-%EB%A7%8C%EB%93%A4%EA%B8%B0/" rel="alternate" type="text/html" title="[Unity] 정점이 8개인 Cube 만들기" /><published>2024-04-11T00:00:00+09:00</published><updated>2024-04-11T00:00:00+09:00</updated><id>http://localhost:4000/unity/Unity%20%EC%A0%95%EC%A0%908%EA%B0%9C%20%ED%81%90%EB%B8%8C%20%EB%A7%8C%EB%93%A4%EA%B8%B0</id><content type="html" xml:base="http://localhost:4000/unity/Unity-%EC%A0%95%EC%A0%908%EA%B0%9C-%ED%81%90%EB%B8%8C-%EB%A7%8C%EB%93%A4%EA%B8%B0/"><![CDATA[<p>유니티 큐브의 정점갯수는 기본적으로 24개다.</p>
+
+<p>정점 8개만 이용해도 큐브를 만들 수 있지 않나 싶어서 만들어보았다.</p>
+
+<h2 id="cube-만들기">Cube 만들기</h2>
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/13883c6d-2d30-4f2f-914c-f380fcf18748" alt="image" /><em>vertex 순서</em></p>
+
+<p>우선 정점을 만들어준다. 정점의 순서는 위와 같이 정했으며 이를 구현한다.</p>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kt">float</span> <span class="n">halfWidth</span> <span class="p">=</span> <span class="n">width</span> <span class="p">/</span> <span class="m">2</span><span class="p">;</span>
+    <span class="kt">float</span> <span class="n">halfHeight</span> <span class="p">=</span> <span class="n">height</span> <span class="p">/</span> <span class="m">2</span><span class="p">;</span>
+    <span class="n">List</span><span class="p">&lt;</span><span class="n">Vector3</span><span class="p">&gt;</span> <span class="n">vertexs</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">Vector3</span><span class="p">&gt;();</span>
+
+    <span class="n">vertexs</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="k">new</span> <span class="nf">Vector3</span><span class="p">(-</span><span class="n">halfWidth</span><span class="p">,</span> <span class="p">-</span><span class="n">halfHeight</span><span class="p">,</span> <span class="p">-</span><span class="n">halfWidth</span><span class="p">));</span>
+    <span class="n">vertexs</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="k">new</span> <span class="nf">Vector3</span><span class="p">(-</span><span class="n">halfWidth</span><span class="p">,</span> <span class="p">-</span><span class="n">halfHeight</span><span class="p">,</span> <span class="n">halfWidth</span><span class="p">));</span>
+    <span class="n">vertexs</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="k">new</span> <span class="nf">Vector3</span><span class="p">(-</span><span class="n">halfWidth</span><span class="p">,</span> <span class="n">halfHeight</span><span class="p">,</span> <span class="n">halfWidth</span><span class="p">));</span>
+    <span class="n">vertexs</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="k">new</span> <span class="nf">Vector3</span><span class="p">(-</span><span class="n">halfWidth</span><span class="p">,</span> <span class="n">halfHeight</span><span class="p">,</span> <span class="p">-</span><span class="n">halfWidth</span><span class="p">));</span>
+    <span class="n">vertexs</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="k">new</span> <span class="nf">Vector3</span><span class="p">(</span><span class="n">halfWidth</span><span class="p">,</span> <span class="p">-</span><span class="n">halfHeight</span><span class="p">,</span> <span class="p">-</span><span class="n">halfWidth</span><span class="p">));</span>
+    <span class="n">vertexs</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="k">new</span> <span class="nf">Vector3</span><span class="p">(</span><span class="n">halfWidth</span><span class="p">,</span> <span class="p">-</span><span class="n">halfHeight</span><span class="p">,</span> <span class="n">halfWidth</span><span class="p">));</span>
+    <span class="n">vertexs</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="k">new</span> <span class="nf">Vector3</span><span class="p">(</span><span class="n">halfWidth</span><span class="p">,</span> <span class="n">halfHeight</span><span class="p">,</span> <span class="n">halfWidth</span><span class="p">));</span>
+    <span class="n">vertexs</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="k">new</span> <span class="nf">Vector3</span><span class="p">(</span><span class="n">halfWidth</span><span class="p">,</span> <span class="n">halfHeight</span><span class="p">,</span> <span class="p">-</span><span class="n">halfWidth</span><span class="p">));</span>
+</code></pre></div></div>
+
+<hr />
+<p>vertex 정보를 토대로 triangle를 지정하여준다.
+방향은 시계방향으로 해야 큐브 바깥쪽 방향으로 메쉬가 생성된다.</p>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="n">List</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">triangles</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;()</span>
+    <span class="p">{</span>
+        <span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span>
+        <span class="m">0</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">4</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">7</span><span class="p">,</span><span class="m">4</span><span class="p">,</span>
+        <span class="m">7</span><span class="p">,</span><span class="m">6</span><span class="p">,</span><span class="m">5</span><span class="p">,</span><span class="m">7</span><span class="p">,</span><span class="m">5</span><span class="p">,</span><span class="m">4</span><span class="p">,</span>
+        <span class="m">6</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">6</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">5</span><span class="p">,</span>
+        <span class="m">6</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">6</span><span class="p">,</span><span class="m">7</span><span class="p">,</span><span class="m">3</span><span class="p">,</span>
+        <span class="m">5</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">5</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">4</span>
+    <span class="p">};</span>
+</code></pre></div></div>
+
+<p>이렇게 생성한 정보를 토대로 Mesh에 옮겨준다.</p>
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="n">mesh</span><span class="p">.</span><span class="n">vertices</span> <span class="p">=</span> <span class="n">vertexs</span><span class="p">.</span><span class="nf">ToArray</span><span class="p">();</span>
+    <span class="n">mesh</span><span class="p">.</span><span class="n">triangles</span> <span class="p">=</span> <span class="n">triangles</span><span class="p">.</span><span class="nf">ToArray</span><span class="p">();</span>
+
+    <span class="n">mesh</span><span class="p">.</span><span class="nf">RecalculateBounds</span><span class="p">();</span>
+    <span class="n">GetComponent</span><span class="p">&lt;</span><span class="n">MeshFilter</span><span class="p">&gt;().</span><span class="n">mesh</span> <span class="p">=</span> <span class="n">mesh</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="전체-코드">전체 코드</h3>
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="k">void</span> <span class="nf">GenerateCube</span><span class="p">(</span><span class="kt">float</span> <span class="n">width</span><span class="p">,</span> <span class="kt">float</span> <span class="n">height</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">Mesh</span> <span class="n">mesh</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Mesh</span><span class="p">();</span>
+
+        <span class="kt">float</span> <span class="n">halfWidth</span> <span class="p">=</span> <span class="n">width</span> <span class="p">/</span> <span class="m">2</span><span class="p">;</span>
+        <span class="kt">float</span> <span class="n">halfHeight</span> <span class="p">=</span> <span class="n">height</span> <span class="p">/</span> <span class="m">2</span><span class="p">;</span>
+        <span class="n">List</span><span class="p">&lt;</span><span class="n">Vector3</span><span class="p">&gt;</span> <span class="n">vertexs</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">Vector3</span><span class="p">&gt;();</span>
+
+        <span class="n">vertexs</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="k">new</span> <span class="nf">Vector3</span><span class="p">(-</span><span class="n">halfWidth</span><span class="p">,</span> <span class="p">-</span><span class="n">halfHeight</span><span class="p">,</span> <span class="p">-</span><span class="n">halfWidth</span><span class="p">));</span>
+        <span class="n">vertexs</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="k">new</span> <span class="nf">Vector3</span><span class="p">(-</span><span class="n">halfWidth</span><span class="p">,</span> <span class="p">-</span><span class="n">halfHeight</span><span class="p">,</span> <span class="n">halfWidth</span><span class="p">));</span>
+        <span class="n">vertexs</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="k">new</span> <span class="nf">Vector3</span><span class="p">(-</span><span class="n">halfWidth</span><span class="p">,</span> <span class="n">halfHeight</span><span class="p">,</span> <span class="n">halfWidth</span><span class="p">));</span>
+        <span class="n">vertexs</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="k">new</span> <span class="nf">Vector3</span><span class="p">(-</span><span class="n">halfWidth</span><span class="p">,</span> <span class="n">halfHeight</span><span class="p">,</span> <span class="p">-</span><span class="n">halfWidth</span><span class="p">));</span>
+        <span class="n">vertexs</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="k">new</span> <span class="nf">Vector3</span><span class="p">(</span><span class="n">halfWidth</span><span class="p">,</span> <span class="p">-</span><span class="n">halfHeight</span><span class="p">,</span> <span class="p">-</span><span class="n">halfWidth</span><span class="p">));</span>
+        <span class="n">vertexs</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="k">new</span> <span class="nf">Vector3</span><span class="p">(</span><span class="n">halfWidth</span><span class="p">,</span> <span class="p">-</span><span class="n">halfHeight</span><span class="p">,</span> <span class="n">halfWidth</span><span class="p">));</span>
+        <span class="n">vertexs</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="k">new</span> <span class="nf">Vector3</span><span class="p">(</span><span class="n">halfWidth</span><span class="p">,</span> <span class="n">halfHeight</span><span class="p">,</span> <span class="n">halfWidth</span><span class="p">));</span>
+        <span class="n">vertexs</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="k">new</span> <span class="nf">Vector3</span><span class="p">(</span><span class="n">halfWidth</span><span class="p">,</span> <span class="n">halfHeight</span><span class="p">,</span> <span class="p">-</span><span class="n">halfWidth</span><span class="p">));</span>
+
+        <span class="n">List</span><span class="p">&lt;</span><span class="n">Vector2</span><span class="p">&gt;</span> <span class="n">uvs</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">Vector2</span><span class="p">&gt;</span>
+        <span class="p">{</span>
+            <span class="k">new</span> <span class="nf">Vector2</span><span class="p">(</span><span class="m">0f</span><span class="p">,</span> <span class="m">1f</span><span class="p">),</span> <span class="k">new</span> <span class="nf">Vector2</span><span class="p">(</span><span class="m">1f</span><span class="p">,</span><span class="m">1f</span><span class="p">),</span>
+            <span class="k">new</span> <span class="nf">Vector2</span><span class="p">(</span><span class="m">0f</span><span class="p">,</span> <span class="m">0f</span><span class="p">),</span> <span class="k">new</span> <span class="nf">Vector2</span><span class="p">(</span><span class="m">1f</span><span class="p">,</span><span class="m">0f</span><span class="p">),</span>
+            <span class="k">new</span> <span class="nf">Vector2</span><span class="p">(</span><span class="m">0f</span><span class="p">,</span> <span class="m">1f</span><span class="p">),</span> <span class="k">new</span> <span class="nf">Vector2</span><span class="p">(</span><span class="m">1f</span><span class="p">,</span><span class="m">1f</span><span class="p">),</span>
+            <span class="k">new</span> <span class="nf">Vector2</span><span class="p">(</span><span class="m">0f</span><span class="p">,</span> <span class="m">0f</span><span class="p">),</span> <span class="k">new</span> <span class="nf">Vector2</span><span class="p">(</span><span class="m">1f</span><span class="p">,</span><span class="m">0f</span><span class="p">)</span>
+        <span class="p">};</span>
+
+        <span class="n">List</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">triangles</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;()</span>
+        <span class="p">{</span>
+            <span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span>
+            <span class="m">0</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">4</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">7</span><span class="p">,</span><span class="m">4</span><span class="p">,</span>
+            <span class="m">7</span><span class="p">,</span><span class="m">6</span><span class="p">,</span><span class="m">5</span><span class="p">,</span><span class="m">7</span><span class="p">,</span><span class="m">5</span><span class="p">,</span><span class="m">4</span><span class="p">,</span>
+            <span class="m">6</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">6</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">5</span><span class="p">,</span>
+            <span class="m">6</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">6</span><span class="p">,</span><span class="m">7</span><span class="p">,</span><span class="m">3</span><span class="p">,</span>
+            <span class="m">5</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">5</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">4</span>
+        <span class="p">};</span>
+        
+        <span class="n">mesh</span><span class="p">.</span><span class="n">vertices</span> <span class="p">=</span> <span class="n">vertexs</span><span class="p">.</span><span class="nf">ToArray</span><span class="p">();</span>
+        <span class="n">mesh</span><span class="p">.</span><span class="n">triangles</span> <span class="p">=</span> <span class="n">triangles</span><span class="p">.</span><span class="nf">ToArray</span><span class="p">();</span>
+
+        <span class="n">mesh</span><span class="p">.</span><span class="nf">RecalculateBounds</span><span class="p">();</span>
+        <span class="n">GetComponent</span><span class="p">&lt;</span><span class="n">MeshFilter</span><span class="p">&gt;().</span><span class="n">mesh</span> <span class="p">=</span> <span class="n">mesh</span><span class="p">;</span>
+    <span class="p">}</span>
+</code></pre></div></div>
+
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/aa900bc4-c0f5-4a9d-a086-4816e876855e" alt="image" /><em>완성된 정점8개 큐브</em></p>
+
+<h2 id="단점">단점</h2>
+<p>정점 8개만 있어도 큐브를 만들 수 있지만 문제는 uv를 통한 라이팅과 Material 표현이 불가능했다.</p>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="n">List</span><span class="p">&lt;</span><span class="n">Vector2</span><span class="p">&gt;</span> <span class="n">uvs</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">Vector2</span><span class="p">&gt;</span>
+    <span class="p">{</span>
+        <span class="k">new</span> <span class="nf">Vector2</span><span class="p">(</span><span class="m">0f</span><span class="p">,</span> <span class="m">1f</span><span class="p">),</span> <span class="k">new</span> <span class="nf">Vector2</span><span class="p">(</span><span class="m">1f</span><span class="p">,</span><span class="m">1f</span><span class="p">),</span>
+        <span class="k">new</span> <span class="nf">Vector2</span><span class="p">(</span><span class="m">0f</span><span class="p">,</span> <span class="m">0f</span><span class="p">),</span> <span class="k">new</span> <span class="nf">Vector2</span><span class="p">(</span><span class="m">1f</span><span class="p">,</span><span class="m">0f</span><span class="p">),</span>
+        <span class="k">new</span> <span class="nf">Vector2</span><span class="p">(</span><span class="m">0f</span><span class="p">,</span> <span class="m">1f</span><span class="p">),</span> <span class="k">new</span> <span class="nf">Vector2</span><span class="p">(</span><span class="m">1f</span><span class="p">,</span><span class="m">1f</span><span class="p">),</span>
+        <span class="k">new</span> <span class="nf">Vector2</span><span class="p">(</span><span class="m">0f</span><span class="p">,</span> <span class="m">0f</span><span class="p">),</span> <span class="k">new</span> <span class="nf">Vector2</span><span class="p">(</span><span class="m">1f</span><span class="p">,</span><span class="m">0f</span><span class="p">)</span>
+    <span class="p">};</span>
+</code></pre></div></div>
+
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/5cb348fc-4c48-490f-bc7f-2cbdfb9a1f93" alt="image" /><em>깨져버린 Material</em></p>
+
+<hr />
+
+<h3 id="원인">원인</h3>
+<p>이는 uv하나가 표현해야할 면이 3개이지만 1개를 초과하는 정보를 담당할 수 없기 떄문이다. 각 면마다 사용해야할 uv 정보가 다 다른데 겹쳐서 저렇게 깨져버린 것이다.</p>
+
+<p>그래서 유니티에선 정점을 24개로 구현해 각 면마다 사용할 uv정보를 담아주었다.</p>
+
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/5e4a0aa5-69de-44e6-9cdf-8c9c913cd856" alt="image" /><em>유니티 Cube</em></p>
+
+<div class="Reference">
+<div class="callout-header"> </div>
+<p>
+<a href="https://bloodstrawberry.tistory.com/1016">https://bloodstrawberry.tistory.com/1016</a>
+</p>
+</div>]]></content><author><name>Mohitto55</name></author><category term="unity" /><category term="Unity" /><category term="Mesh" /><category term="Cube" /><category term="UV" /><summary type="html"><![CDATA[유니티 큐브의 정점갯수는 기본적으로 24개다.]]></summary></entry><entry><title type="html">[Obsidian] CSS 적용하며 PDF로 내보내는법</title><link href="http://localhost:4000/obsidian/Obsidian-PDF-Export/" rel="alternate" type="text/html" title="[Obsidian] CSS 적용하며 PDF로 내보내는법" /><published>2024-04-06T00:00:00+09:00</published><updated>2024-04-06T00:00:00+09:00</updated><id>http://localhost:4000/obsidian/Obsidian%20PDF%20Export</id><content type="html" xml:base="http://localhost:4000/obsidian/Obsidian-PDF-Export/"><![CDATA[<h2 id="pdf-출력">PDF 출력</h2>
 <p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/10ba20e0-7a36-4e9f-98d0-46aea8136612" alt="image" /></p>
 
 <p>옵시디언을 통해 내용을 정리하고 다양한 기능들을 이용해 꾸민뒤 PDF로 변환해야할 때가 있다. 그런데 이상하게도 css로 열심히 꾸며도 PDF로 출력만 하면은 제대로 적용이 되지 않은채 변환되곤한다.</p>
@@ -400,7 +520,43 @@ Nuget 작업 실행 시간: 83밀리초
 <p>
 <a href="https://narup.tistory.com/123">https://narup.tistory.com/123</a>
 </p>
-</div>]]></content><author><name>Mohitto55</name></author><category term="vs" /><category term="Visual Studio" /><category term="Nuget" /><category term="Nuget Package Manager Console" /><category term="WSL2" /><category term="C#" /><summary type="html"><![CDATA[들어가며]]></summary></entry><entry><title type="html">[Ubuntu] Docker 설치하기</title><link href="http://localhost:4000/linux/Docker-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0/" rel="alternate" type="text/html" title="[Ubuntu] Docker 설치하기" /><published>2024-03-28T00:00:00+09:00</published><updated>2024-03-28T00:00:00+09:00</updated><id>http://localhost:4000/linux/Docker%20%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0</id><content type="html" xml:base="http://localhost:4000/linux/Docker-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0/"><![CDATA[<h2 id="도커-다운받기">도커 다운받기</h2>
+</div>]]></content><author><name>Mohitto55</name></author><category term="vs" /><category term="Visual Studio" /><category term="Nuget" /><category term="Nuget Package Manager Console" /><category term="WSL2" /><category term="C#" /><summary type="html"><![CDATA[들어가며]]></summary></entry><entry><title type="html">[Ubuntu] Docker 삭제하기</title><link href="http://localhost:4000/linux/Docker-%EC%99%84%EC%A0%84-%EC%82%AD%EC%A0%9C%ED%95%98%EA%B8%B0/" rel="alternate" type="text/html" title="[Ubuntu] Docker 삭제하기" /><published>2024-03-28T00:00:00+09:00</published><updated>2024-03-28T00:00:00+09:00</updated><id>http://localhost:4000/linux/Docker%20%EC%99%84%EC%A0%84%20%EC%82%AD%EC%A0%9C%ED%95%98%EA%B8%B0</id><content type="html" xml:base="http://localhost:4000/linux/Docker-%EC%99%84%EC%A0%84-%EC%82%AD%EC%A0%9C%ED%95%98%EA%B8%B0/"><![CDATA[<h1 id="docker-삭제하기">Docker 삭제하기</h1>
+<h2 id="1-docker-설치-확인하기">1. docker 설치 확인하기</h2>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dpkg -l | grep -i docker
+</code></pre></div></div>
+
+<h2 id="2-docker를-삭제">2. docker를 삭제</h2>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get purge -y docker-engine docker docker.io docker-ce
+sudo apt-get autoremove -y --purge docker-engine docker docker.io docker-ce
+</code></pre></div></div>
+<p>위의 명령으로 호스트에서 이미지, 컨테이너, 볼륨 또는 사용자 생성 구성 파일을 제외한 모든 파일을 삭제한다.</p>
+
+<h2 id="3-모든-이미지-컨테이너-및-볼륨을-삭제">​3. 모든 이미지, 컨테이너 및 볼륨을 삭제</h2>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo rm -rf /var/lib/docker /etc/docker
+sudo rm /etc/apparmor.d/docker
+sudo groupdel docker
+sudo rm -rf /var/run/docker.sock
+</code></pre></div></div>
+<p>시스템에서 Docker를 완전히 제거,</p>
+
+<hr />
+
+<h3 id="우분투에서-삭제하기">우분투에서 삭제하기</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo snap remove docker
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo find / -name "*docker*" -exec `rm -rf` {} +
+</code></pre></div></div>
+<p>모든 docker 관련 파일을 삭제</p>
+
+<hr />
+
+<div class="Reference">
+<div class="callout-header"> </div>
+<p>
+<a href="https://may9noy.tistory.com/392">https://may9noy.tistory.com/392</a>
+</p>
+</div>]]></content><author><name>Mohitto55</name></author><category term="linux" /><category term="Window" /><category term="Linux" /><category term="Ubuntu" /><category term="WSL2" /><category term="Window Service for Linux" /><category term="Docker" /><category term="도커" /><category term="우분투" /><category term="윈도우" /><category term="리눅스" /><summary type="html"><![CDATA[Docker 삭제하기 1. docker 설치 확인하기 dpkg -l | grep -i docker]]></summary></entry><entry><title type="html">[Ubuntu] Docker 설치하기</title><link href="http://localhost:4000/linux/Docker-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0/" rel="alternate" type="text/html" title="[Ubuntu] Docker 설치하기" /><published>2024-03-28T00:00:00+09:00</published><updated>2024-03-28T00:00:00+09:00</updated><id>http://localhost:4000/linux/Docker%20%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0</id><content type="html" xml:base="http://localhost:4000/linux/Docker-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0/"><![CDATA[<h2 id="도커-다운받기">도커 다운받기</h2>
 <h3 id="1-우분투-시스템-패키지-업데이트">1. 우분투 시스템 패키지 업데이트</h3>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get update
 </code></pre></div></div>
@@ -441,43 +597,7 @@ Nuget 작업 실행 시간: 83밀리초
 <p>
 <a href="https://may9noy.tistory.com/392">https://may9noy.tistory.com/392</a>
 </p>
-</div>]]></content><author><name>Mohitto55</name></author><category term="linux" /><category term="Window" /><category term="Linux" /><category term="Ubuntu" /><category term="WSL2" /><category term="Window Service for Linux" /><category term="Docker" /><category term="도커" /><category term="우분투" /><category term="윈도우" /><category term="리눅스" /><summary type="html"><![CDATA[도커 다운받기 1. 우분투 시스템 패키지 업데이트 sudo apt-get update]]></summary></entry><entry><title type="html">[Ubuntu] Docker 삭제하기</title><link href="http://localhost:4000/linux/Docker-%EC%99%84%EC%A0%84-%EC%82%AD%EC%A0%9C%ED%95%98%EA%B8%B0/" rel="alternate" type="text/html" title="[Ubuntu] Docker 삭제하기" /><published>2024-03-28T00:00:00+09:00</published><updated>2024-03-28T00:00:00+09:00</updated><id>http://localhost:4000/linux/Docker%20%EC%99%84%EC%A0%84%20%EC%82%AD%EC%A0%9C%ED%95%98%EA%B8%B0</id><content type="html" xml:base="http://localhost:4000/linux/Docker-%EC%99%84%EC%A0%84-%EC%82%AD%EC%A0%9C%ED%95%98%EA%B8%B0/"><![CDATA[<h1 id="docker-삭제하기">Docker 삭제하기</h1>
-<h2 id="1-docker-설치-확인하기">1. docker 설치 확인하기</h2>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dpkg -l | grep -i docker
-</code></pre></div></div>
-
-<h2 id="2-docker를-삭제">2. docker를 삭제</h2>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get purge -y docker-engine docker docker.io docker-ce
-sudo apt-get autoremove -y --purge docker-engine docker docker.io docker-ce
-</code></pre></div></div>
-<p>위의 명령으로 호스트에서 이미지, 컨테이너, 볼륨 또는 사용자 생성 구성 파일을 제외한 모든 파일을 삭제한다.</p>
-
-<h2 id="3-모든-이미지-컨테이너-및-볼륨을-삭제">​3. 모든 이미지, 컨테이너 및 볼륨을 삭제</h2>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo rm -rf /var/lib/docker /etc/docker
-sudo rm /etc/apparmor.d/docker
-sudo groupdel docker
-sudo rm -rf /var/run/docker.sock
-</code></pre></div></div>
-<p>시스템에서 Docker를 완전히 제거,</p>
-
-<hr />
-
-<h3 id="우분투에서-삭제하기">우분투에서 삭제하기</h3>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo snap remove docker
-</code></pre></div></div>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo find / -name "*docker*" -exec `rm -rf` {} +
-</code></pre></div></div>
-<p>모든 docker 관련 파일을 삭제</p>
-
-<hr />
-
-<div class="Reference">
-<div class="callout-header"> </div>
-<p>
-<a href="https://may9noy.tistory.com/392">https://may9noy.tistory.com/392</a>
-</p>
-</div>]]></content><author><name>Mohitto55</name></author><category term="linux" /><category term="Window" /><category term="Linux" /><category term="Ubuntu" /><category term="WSL2" /><category term="Window Service for Linux" /><category term="Docker" /><category term="도커" /><category term="우분투" /><category term="윈도우" /><category term="리눅스" /><summary type="html"><![CDATA[Docker 삭제하기 1. docker 설치 확인하기 dpkg -l | grep -i docker]]></summary></entry><entry><title type="html">[Math] 데카르트 좌표계와 극 좌표계</title><link href="http://localhost:4000/math/%EC%A2%8C%ED%91%9C%EA%B3%84-%EC%A0%95%EB%A6%AC/" rel="alternate" type="text/html" title="[Math] 데카르트 좌표계와 극 좌표계" /><published>2024-03-25T00:00:00+09:00</published><updated>2024-03-25T00:00:00+09:00</updated><id>http://localhost:4000/math/%EC%A2%8C%ED%91%9C%EA%B3%84%20%EC%A0%95%EB%A6%AC</id><content type="html" xml:base="http://localhost:4000/math/%EC%A2%8C%ED%91%9C%EA%B3%84-%EC%A0%95%EB%A6%AC/"><![CDATA[<h2 id="들어가기">들어가기</h2>
+</div>]]></content><author><name>Mohitto55</name></author><category term="linux" /><category term="Window" /><category term="Linux" /><category term="Ubuntu" /><category term="WSL2" /><category term="Window Service for Linux" /><category term="Docker" /><category term="도커" /><category term="우분투" /><category term="윈도우" /><category term="리눅스" /><summary type="html"><![CDATA[도커 다운받기 1. 우분투 시스템 패키지 업데이트 sudo apt-get update]]></summary></entry><entry><title type="html">[Math] 데카르트 좌표계와 극 좌표계</title><link href="http://localhost:4000/math/%EC%A2%8C%ED%91%9C%EA%B3%84-%EC%A0%95%EB%A6%AC/" rel="alternate" type="text/html" title="[Math] 데카르트 좌표계와 극 좌표계" /><published>2024-03-25T00:00:00+09:00</published><updated>2024-03-25T00:00:00+09:00</updated><id>http://localhost:4000/math/%EC%A2%8C%ED%91%9C%EA%B3%84%20%EC%A0%95%EB%A6%AC</id><content type="html" xml:base="http://localhost:4000/math/%EC%A2%8C%ED%91%9C%EA%B3%84-%EC%A0%95%EB%A6%AC/"><![CDATA[<h2 id="들어가기">들어가기</h2>
 <p>좌표는 우리 일상 생활에서 중요한 요소다. 사람과의 거리, 건축, 컴퓨터 등 다양한 분야에서 사용하는 개념이다. 좌표계는 고대에도 사용된 개념인데 천문학자들이 별의 위치를 추정하기 위하여 사용하곤 했다.</p>
 
 <p>오늘은 우리 일상과 빠트릴 수 없는 좌표계에 대하여 알아볼 것이다.</p>
@@ -860,55 +980,4 @@ whyt 컴터는 윈도우, 서버는 리눅스여서
 <a href="https://gmlwjd9405.github.io/2018/05/06/algorithm-selection-sort.html">https://gmlwjd9405.github.io/2018/05/06/algorithm-selection-sort.html</a>
 <a href="https://ko.wikipedia.org/wiki/%EC%84%A0%ED%83%9D_%EC%A0%95%EB%A0%AC">https://ko.wikipedia.org/wiki/%EC%84%A0%ED%83%9D_%EC%A0%95%EB%A0%AC</a>
 </p>
-</div>]]></content><author><name>Mohitto55</name></author><category term="algorithm" /><category term="Algorighm" /><category term="Sort" /><category term="정렬" /><category term="Selection Sort" /><category term="선택정렬" /><summary type="html"><![CDATA[Selection Sort 선택정렬 알고리즘은 제자리 정렬 알고리즘 중 하나로 입력 데이터 외 추가 데이터가 필요하지 않은 알고리즘이다.]]></summary></entry><entry><title type="html">[Algorithm] Bubble Sort 버블정렬 알고리즘</title><link href="http://localhost:4000/algorithm/Bubble-Sort-%EB%B2%84%EB%B8%94-%EC%A0%95%EB%A0%AC/" rel="alternate" type="text/html" title="[Algorithm] Bubble Sort 버블정렬 알고리즘" /><published>2024-03-19T00:00:00+09:00</published><updated>2024-03-19T00:00:00+09:00</updated><id>http://localhost:4000/algorithm/Bubble%20Sort%20%EB%B2%84%EB%B8%94%20%EC%A0%95%EB%A0%AC</id><content type="html" xml:base="http://localhost:4000/algorithm/Bubble-Sort-%EB%B2%84%EB%B8%94-%EC%A0%95%EB%A0%AC/"><![CDATA[<h2 id="bubble-sort">Bubble Sort</h2>
-<p>버블 정렬 알고리즘은 정렬 알고리즘 중 하나로 느리지만 간단하여 자주 쓰이는 알고리즘이다.</p>
-
-<h2 id="원리">원리</h2>
-<ul>
-  <li>Index 0 부터 시작해서 n-i까지 비교해 자신 보다 작은 값을 보면 Swap</li>
-  <li>한 회차에 한번도 정렬이 안됐으면 정렬을 종료한다.</li>
-</ul>
-
-<h2 id="시간-복잡도">시간 복잡도</h2>
-
-\[(n-1) + (n-2)... = \frac{n(n-1)}{2} = O(N^2)\]
-
-<ul>
-  <li>비교 횟수
-    <ul>
-      <li>i가 n-2 일 때 비교횟수 : <font color="dodgerred">n-2</font></li>
-      <li>i가 n-1 일 때 비교횟수 : <font color="dodgerred">n-1</font></li>
-      <li>i가 1 일 때 비교횟수 : <font color="dodgerred">1</font></li>
-    </ul>
-  </li>
-  <li>교환 횟수
-    <ul>
-      <li>모두 정렬 되어 있을 경우 횟수 0</li>
-      <li>평균 \(\frac{3n(n-1)}{4}\)</li>
-    </ul>
-  </li>
-</ul>
-
-<h2 id="코드">코드</h2>
-<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">public</span> <span class="kt">void</span> <span class="nf">BubbleSort</span><span class="p">(){</span>
-	<span class="kt">bool</span> <span class="n">sorting</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
-	<span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">last</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">last</span> <span class="o">&lt;</span> <span class="n">size</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">sorting</span> <span class="o">==</span> <span class="nb">true</span><span class="p">);</span> <span class="n">last</span><span class="o">++</span><span class="p">){</span>
-		<span class="n">sorting</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
-		<span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">cur</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">cur</span> <span class="o">&lt;</span> <span class="n">size</span> <span class="o">-</span> <span class="n">last</span><span class="p">;</span> <span class="n">cur</span><span class="o">++</span><span class="p">){</span>
-			<span class="k">if</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">cur</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">data</span><span class="p">[</span><span class="n">cur</span><span class="o">+</span><span class="mi">1</span><span class="p">]){</span>
-				<span class="n">swap</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">cur</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="n">cur</span><span class="o">+</span><span class="mi">1</span><span class="p">]);</span>
-				<span class="n">sorting</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
-			<span class="p">}</span>
-		<span class="p">}</span>
-	<span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<hr />
-
-<div class="Reference">
-<div class="callout-header"> </div>
-<p>
-<a href="https://ko.wikipedia.org/wiki/%EB%B2%84%EB%B8%94_%EC%A0%95%EB%A0%AC">https://ko.wikipedia.org/wiki/%EB%B2%84%EB%B8%94_%EC%A0%95%EB%A0%AC</a>
-</p>
-</div>]]></content><author><name>Mohitto55</name></author><category term="algorithm" /><category term="Algorighm" /><category term="Sort" /><category term="정렬" /><category term="Bubble Sort" /><category term="버블정렬" /><summary type="html"><![CDATA[Bubble Sort 버블 정렬 알고리즘은 정렬 알고리즘 중 하나로 느리지만 간단하여 자주 쓰이는 알고리즘이다.]]></summary></entry></feed>
+</div>]]></content><author><name>Mohitto55</name></author><category term="algorithm" /><category term="Algorighm" /><category term="Sort" /><category term="정렬" /><category term="Selection Sort" /><category term="선택정렬" /><summary type="html"><![CDATA[Selection Sort 선택정렬 알고리즘은 제자리 정렬 알고리즘 중 하나로 입력 데이터 외 추가 데이터가 필요하지 않은 알고리즘이다.]]></summary></entry></feed>
