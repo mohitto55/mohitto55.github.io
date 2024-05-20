@@ -262,4 +262,10 @@ var store = [{
         "tags": ["UE5","Unreal Engine5","Unreal Engine","Animation Retargeting"],
         "url": "/ue5/UE5-%EC%95%A0%EB%8B%88%EB%A9%94%EC%9D%B4%EC%85%98-%EB%A6%AC%ED%83%80%EA%B2%9F%ED%8C%85/",
         "teaser": null
+      },{
+        "title": "[UE5] Unreal Insights 사용법",
+        "excerpt":"프로파일링 (Profiling) 프로그래밍에서의 프로파일링이란 소프트웨어의 성능 분석을 말한다. 프로그램의 메모리, CPU 사용량, 여러 이벤트 발생률들을 통계적으로 요약하여 보여준다. 프로파일링 툴을 이용하여 성능 취약점 부분을 찾아내어 보다 쉬운 최적화가 가능하다. 언리얼 인사이트 언리얼의 프로파일링 툴이다. 다양한 퍼포먼스 데이터를 체크할 수 있다. 네트워크 통신 상태도 확인 가능하다. 로컬 게임 설정법 인사이트 실행하기...","categories": ["ue5"],
+        "tags": ["UE5","Unreal Engine5","Unreal Engine","Unreal Insights"],
+        "url": "/ue5/UE5-%EC%9D%B8%EC%82%AC%EC%9D%B4%ED%8A%B8-%EC%82%AC%EC%9A%A9%EB%B2%95/",
+        "teaser": null
       }]
