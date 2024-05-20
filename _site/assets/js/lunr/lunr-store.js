@@ -233,21 +233,27 @@ var store = [{
         "url": "/obsidian/Obsidian-PDF-Export/",
         "teaser": null
       },{
-        "title": "[Unity] 정점이 24개인 큐브 만들기",
-        "excerpt":"지난번 정점 8개 큐브 만들기에 이어서 이번엔 정점24개를 가진 큐브를 만들어 볼 것이다. Cube 작성 정점위치 참조 테이블 한 위치에 같은 정점이 3개가 만들어지는데 이 정점의 위치를 매번 계산하는 것 보단 테이블로 만들고 면이 테이블에 있는 정점 위치 정보를 가져오게 하는 것이 좋을 것이다. 그러기 위해선 각 면에서 사용할 정점...","categories": ["unity"],
-        "tags": ["Unity","Cube","Mesh"],
-        "url": "/unity/Unity-%EC%A0%95%EC%A0%9024%EA%B0%9C-%ED%81%90%EB%B8%8C-%EB%A7%8C%EB%93%A4%EA%B8%B0/",
-        "teaser": null
-      },{
         "title": "[Unity] 정점이 8개인 Cube 만들기",
         "excerpt":"유니티 큐브의 정점갯수는 기본적으로 24개다. 정점 8개만 이용해도 큐브를 만들 수 있지 않나 싶어서 만들어보았다. Cube 만들기 vertex 순서 우선 정점을 만들어준다. 정점의 순서는 위와 같이 정했으며 이를 구현한다. float halfWidth = width / 2; float halfHeight = height / 2; List&lt;Vector3&gt; vertexs = new List&lt;Vector3&gt;(); vertexs.Add(new Vector3(-halfWidth, -halfHeight, -halfWidth));...","categories": ["unity"],
         "tags": ["Unity","Mesh","Cube","UV"],
         "url": "/unity/Unity-%EC%A0%95%EC%A0%908%EA%B0%9C-%ED%81%90%EB%B8%8C-%EB%A7%8C%EB%93%A4%EA%B8%B0/",
         "teaser": null
       },{
+        "title": "[Unity] 정점이 24개인 큐브 만들기",
+        "excerpt":"지난번 정점 8개 큐브 만들기에 이어서 이번엔 정점24개를 가진 큐브를 만들어 볼 것이다. Cube 작성 정점위치 참조 테이블 한 위치에 같은 정점이 3개가 만들어지는데 이 정점의 위치를 매번 계산하는 것 보단 테이블로 만들고 면이 테이블에 있는 정점 위치 정보를 가져오게 하는 것이 좋을 것이다. 그러기 위해선 각 면에서 사용할 정점...","categories": ["unity"],
+        "tags": ["Unity","Cube","Mesh"],
+        "url": "/unity/Unity-%EC%A0%95%EC%A0%9024%EA%B0%9C-%ED%81%90%EB%B8%8C-%EB%A7%8C%EB%93%A4%EA%B8%B0/",
+        "teaser": null
+      },{
         "title": "[Unity] 패럴씽크로 멀티플레이 게임 개발하기",
-        "excerpt":"멀티플레이 게임을 개발할 때 가장 중요한 것 중 하나가 여러 유저의 동시 접속 기능이다. 예전에 멀티 게임을 구현할 때 시스템이 제대로 작동하는지 테스트하기 위해 게임을 빌드하고 직접 다운 받고 실행하는 방식으로 했었는데 시간이 매우 오래걸리고 비효율 적이였다. 오랜만에 다시 멀티게임을 만들게 되었는데 과거의 끔찍했던 경험을 다시 하고싶지 않아 에디터 상에서...","categories": ["unity"],
+        "excerpt":"들어가며 멀티플레이 게임을 개발할 때 가장 중요한 것 중 하나가 여러 유저의 동시 접속 기능이다. 예전에 멀티 게임을 구현할 때 시스템이 제대로 작동하는지 테스트하기 위해 게임을 빌드하고 직접 다운 받고 실행하는 방식으로 했었는데 시간이 매우 오래걸리고 비효율 적이였다. 오랜만에 다시 멀티게임을 만들게 되었는데 과거의 끔찍했던 경험을 다시 하고싶지 않아 에디터...","categories": ["unity"],
         "tags": ["Unity","MultiPlay"],
         "url": "/unity/Unity-%ED%8C%A8%EB%9F%B4-%EC%8B%B1%ED%81%AC/",
+        "teaser": null
+      },{
+        "title": "[UE5] 애니메이션 리타겟팅 완벽히 이해하기",
+        "excerpt":"개요 언리얼 마켓플레이스나 Mixamo를 둘러보다 보면 좋은 애니메이션들이 많다. 찾은 애니메이션을 다른 Skeleton에 적용시키려고하면 Skeleton이 일치하지 않아 사용할 수 없는데 Animation Retargeting은 다른 Skeleton에 애니메이션을 사용할 수 있게 만들어주는 기능이다. Mixamo 에셋 가져오기 원하는 캐릭터로 애니메이션 가져오기 Mixamo캐릭터에서 원하는 메시를 고른다. 리타겟팅 5.4 이상 5.4 버전부터는 자동으로 애니메이션 리타겟팅이 가능하다....","categories": ["ue5"],
+        "tags": ["UE5","Unreal Engine5","Unreal Engine","Animation Retargeting"],
+        "url": "/ue5/UE5-%EC%95%A0%EB%8B%88%EB%A9%94%EC%9D%B4%EC%85%98-%EB%A6%AC%ED%83%80%EA%B2%9F%ED%8C%85/",
         "teaser": null
       }]

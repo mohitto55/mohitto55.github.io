@@ -4,6 +4,19 @@
         xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     
     <url>
+        <loc>http://localhost:4000/ue5/UE5-%EC%95%A0%EB%8B%88%EB%A9%94%EC%9D%B4%EC%85%98-%EB%A6%AC%ED%83%80%EA%B2%9F%ED%8C%85/</loc>
+        
+        <lastmod>2024-05-20T00:00:00+09:00</lastmod>
+        
+        
+        <changefreq>weekly</changefreq>
+        
+        
+        <priority>0.5</priority>
+        
+    </url>
+    
+    <url>
         <loc>http://localhost:4000/unity/Unity-%ED%8C%A8%EB%9F%B4-%EC%8B%B1%ED%81%AC/</loc>
         
         <lastmod>2024-04-12T00:00:00+09:00</lastmod>
@@ -17,9 +30,9 @@
     </url>
     
     <url>
-        <loc>http://localhost:4000/unity/Unity-%EC%A0%95%EC%A0%908%EA%B0%9C-%ED%81%90%EB%B8%8C-%EB%A7%8C%EB%93%A4%EA%B8%B0/</loc>
+        <loc>http://localhost:4000/unity/Unity-%EC%A0%95%EC%A0%9024%EA%B0%9C-%ED%81%90%EB%B8%8C-%EB%A7%8C%EB%93%A4%EA%B8%B0/</loc>
         
-        <lastmod>2024-04-11T00:00:00+09:00</lastmod>
+        <lastmod>2024-04-12T00:00:00+09:00</lastmod>
         
         
         <changefreq>weekly</changefreq>
@@ -30,7 +43,7 @@
     </url>
     
     <url>
-        <loc>http://localhost:4000/unity/Unity-%EC%A0%95%EC%A0%9024%EA%B0%9C-%ED%81%90%EB%B8%8C-%EB%A7%8C%EB%93%A4%EA%B8%B0/</loc>
+        <loc>http://localhost:4000/unity/Unity-%EC%A0%95%EC%A0%908%EA%B0%9C-%ED%81%90%EB%B8%8C-%EB%A7%8C%EB%93%A4%EA%B8%B0/</loc>
         
         <lastmod>2024-04-11T00:00:00+09:00</lastmod>
         
