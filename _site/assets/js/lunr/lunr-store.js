@@ -251,6 +251,12 @@ var store = [{
         "url": "/unity/Unity-%ED%8C%A8%EB%9F%B4-%EC%8B%B1%ED%81%AC/",
         "teaser": null
       },{
+        "title": "[UE5] C++ 폴더 추가하는 법",
+        "excerpt":"개요 언리얼엔진은 C++ Class 폴더가 존재한다. 이 폴더에서 프로젝트에 적용하는 모든 C++ 파일들이 들어가게 되는데 해당 폴더안에 폴더를 새로 생성하면 인식이 되지 않는 경우가 있다. 이를 해결하기 위해선 언리얼이 감지할 수 있게 범위를 지정해 주어야한다. 폴더 감지 설정 C++ 파일은 모두 All/C++Classes 폴더 아래에 생성된다. 언리얼엔진은 이 폴더안에 있는 C++...","categories": ["ue5"],
+        "tags": ["UE5","Unreal Engine5","Unreal Engine","C++"],
+        "url": "/ue5/UE5-C++-%ED%8F%B4%EB%8D%94-%EC%83%9D%EC%84%B1%EB%B2%95/",
+        "teaser": null
+      },{
         "title": "[UE5] 애니메이션 리타겟팅 완벽히 이해하기",
         "excerpt":"개요 언리얼 마켓플레이스나 Mixamo를 둘러보다 보면 좋은 애니메이션들이 많다. 찾은 애니메이션을 다른 Skeleton에 적용시키려고하면 Skeleton이 일치하지 않아 사용할 수 없는데 Animation Retargeting은 다른 Skeleton에 애니메이션을 사용할 수 있게 만들어주는 기능이다. Mixamo 에셋 가져오기 원하는 캐릭터로 애니메이션 가져오기 Mixamo캐릭터에서 원하는 메시를 고른다. 리타겟팅 5.4 이상 5.4 버전부터는 자동으로 애니메이션 리타겟팅이 가능하다....","categories": ["ue5"],
         "tags": ["UE5","Unreal Engine5","Unreal Engine","Animation Retargeting"],
