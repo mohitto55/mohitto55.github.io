@@ -161,6 +161,12 @@ var store = [{
         "url": "/gitblog/%EB%A7%88%ED%81%AC%EB%8B%A4%EC%9A%B4-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EC%BA%A1%EC%85%98/",
         "teaser": null
       },{
+        "title": "[UE5] 프로젝트 폴더 정리본",
+        "excerpt":"언리얼 엔진 사용 시 aaa 중요한 폴더 파일 및 폴더 설명 Config - 프로젝트의 환경 설정 값을 보관하는 곳 - 지우면 기본 설정 값으로 바뀐다 Content - 프로젝트에서 사용하는 .uasset 파일들이 있는 폴더 Source - C++ 소스가 있는 폴더 - 모듈 소스와 빌드 파이프라인 C# 소스도 있다. .uproject파일 - 언리얼...","categories": ["ue5"],
+        "tags": ["UnrealEngine5","Folder","UE5","uproject"],
+        "url": "/ue5/%EC%96%B8%EB%A6%AC%EC%96%BC-%ED%8F%B4%EB%8D%94-%EC%A0%95%EB%A6%AC/",
+        "teaser": null
+      },{
         "title": "[Algorithm] GCD 최소공약수 알고리즘",
         "excerpt":"예전 블로그에서 GCD에 관한 글을 작성하였는데 너무 오래되어 기억이 안나서 다시 재 작성하기로 했다. 최대공약수, 최소공배수의 개념 최대공약수 : 두 수의 약수 중 가장 큰 공통된 약수 최소공배수 : 두 수의 배수 중 가장 작은 공통된 배수 유클리드 알고리즘 두 자연수의 최대 공약수(Greatest Common Divisor)를 찾는 알고리즘을 뜻한다. 유클리드 알고리즘으로...","categories": ["algorithm"],
         "tags": ["Algorighm","최대공약수","최소공배수","GCD","LCM","유클리드 호제법","유클리드 알고리즘"],
@@ -209,6 +215,12 @@ var store = [{
         "url": "/math/%EC%A2%8C%ED%91%9C%EA%B3%84-%EC%A0%95%EB%A6%AC/",
         "teaser": null
       },{
+        "title": "[Algorithm] Merge Sort 합병정렬 알고리즘",
+        "excerpt":"Merge Sort 선택정렬 알고리즘은 제자리 정렬 알고리즘 중 하나로 입력 데이터 외 추가 데이터가 필요하지 않은 알고리즘이다. 원리 정렬하고자 하는 데이터 중 가장 큰 데이터의 맨 끝 데이터랑 교환 0번 째 Index부터 N-i까지 차례로 순회한다. 순회를 하던 중 값이 Index &lt; Index +1 일 경우 가장 큰 값을 Index +...","categories": ["algorithm"],
+        "tags": ["Algorighm","Merge","Divide and Conquer","정렬","Merge Sort","합병정렬","분할정복"],
+        "url": "/algorithm/Merge-Sort-%ED%95%A9%EB%B3%91%EC%A0%95%EB%A0%AC/",
+        "teaser": null
+      },{
         "title": "[Ubuntu] Docker 설치하기",
         "excerpt":"도커 다운받기 1. 우분투 시스템 패키지 업데이트 sudo apt-get update 2. 필요한 패키지 설치 sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common 3. Docker의 공식 GPG키를 추가 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - 4. Docker의 공식 apt 저장소를 추가 sudo add-apt-repository \"deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable\" 5....","categories": ["linux"],
         "tags": ["Window","Linux","Ubuntu","WSL2","Window Service for Linux","Docker","도커","우분투","윈도우","리눅스"],
@@ -219,6 +231,12 @@ var store = [{
         "excerpt":"Docker 삭제하기 1. docker 설치 확인하기 dpkg -l | grep -i docker 2. docker를 삭제 sudo apt-get purge -y docker-engine docker docker.io docker-ce sudo apt-get autoremove -y --purge docker-engine docker docker.io docker-ce 위의 명령으로 호스트에서 이미지, 컨테이너, 볼륨 또는 사용자 생성 구성 파일을 제외한 모든 파일을 삭제한다. ​3. 모든 이미지,...","categories": ["linux"],
         "tags": ["Window","Linux","Ubuntu","WSL2","Window Service for Linux","Docker","도커","우분투","윈도우","리눅스"],
         "url": "/linux/Docker-%EC%99%84%EC%A0%84-%EC%82%AD%EC%A0%9C%ED%95%98%EA%B8%B0/",
+        "teaser": null
+      },{
+        "title": "[Docker] Error response from daemon: container id is not running 에러 해결법",
+        "excerpt":"들어가며 docker exec -it mysql-container bash 를 통해 MySql 컨테이너에 진입하려고 했는데 Error response from daemon: container id is not running 라는 오류가 나오며 실행되지 않았다. 도커 컨테이너 접속시 오류 Error response from daemon: container 1a0ab9fe9da2301b1d7959614ad2e8335ae745cf9b72a2b0394474236526557c is not running 이것은 컨테이너 접속전행전 도커 이미지가 실행되고 있지 않아서 일어나는 오류로 아래...","categories": ["network"],
+        "tags": ["Docket","Ubuntu","Linux","컨테이너"],
+        "url": "/network/Docker-%EC%BD%98%ED%85%8C%EC%9D%B4%EB%84%88-%EB%9F%B0-%EC%98%A4%EB%A5%98/",
         "teaser": null
       },{
         "title": "[Visual Studio] Nuget Package Manager Console 사용 방법",
@@ -251,6 +269,12 @@ var store = [{
         "url": "/unity/Unity-%ED%8C%A8%EB%9F%B4-%EC%8B%B1%ED%81%AC/",
         "teaser": null
       },{
+        "title": "[Visual Studio] LNK2019 함수에서 참조되는 확인할 수 없는 외부기호",
+        "excerpt":"설명 보통 솔류션 파일을 직접 만들어 작업하지 않고 복사 붙여넣을 때 발생하는 오류다. 발생과정 MyQueue.h에 클래스 구현 Alt Enter로 함수 구현 하려 했으나 h에 생성이 됨 직접 cpp파일을 만들고 구현. 빌드 오류 해결과정 아마 cpp파일을 복사 붙여넣기 하여 만든것이 원인이라 생각하여 참조 디렉터리를 확인해보기로 했다. 하지만 생각해보니 하나의 프로제그에 모두...","categories": ["vs"],
+        "tags": ["Visual Studio","비쥬얼스튜디오","LNK2019","오류"],
+        "url": "/vs/VS-%ED%95%A8%EC%88%98%EC%97%90%EC%84%9C-%EC%B0%B8%EC%A1%B0%EB%90%98%EB%8A%94-%ED%99%95%EC%9D%B8%ED%95%A0-%EC%88%98-%EC%97%86%EB%8A%94-%EC%99%B8%EB%B6%80%EA%B8%B0%ED%98%B8/",
+        "teaser": null
+      },{
         "title": "[UE5] C++ 폴더 추가하는 법",
         "excerpt":"개요 언리얼엔진은 C++ Class 폴더가 존재한다. 이 폴더에서 프로젝트에 적용하는 모든 C++ 파일들이 들어가게 되는데 해당 폴더안에 폴더를 새로 생성하면 인식이 되지 않는 경우가 있다. 이를 해결하기 위해선 언리얼이 감지할 수 있게 범위를 지정해 주어야한다. 폴더 감지 설정 C++ 파일은 모두 All/C++Classes 폴더 아래에 생성된다. 언리얼엔진은 이 폴더안에 있는 C++...","categories": ["ue5"],
         "tags": ["UE5","Unreal Engine5","Unreal Engine","C++"],
@@ -267,5 +291,17 @@ var store = [{
         "excerpt":"프로파일링 (Profiling) 프로그래밍에서의 프로파일링이란 소프트웨어의 성능 분석을 말한다. 프로그램의 메모리, CPU 사용량, 여러 이벤트 발생률들을 통계적으로 요약하여 보여준다. 프로파일링 툴을 이용하여 성능 취약점 부분을 찾아내어 보다 쉬운 최적화가 가능하다. 언리얼 인사이트 언리얼의 프로파일링 툴이다. 다양한 퍼포먼스 데이터를 체크할 수 있다. 네트워크 통신 상태도 확인 가능하다. 로컬 게임 설정법 인사이트 실행하기...","categories": ["ue5"],
         "tags": ["UE5","Unreal Engine5","Unreal Engine","Unreal Insights"],
         "url": "/ue5/UE5-%EC%9D%B8%EC%82%AC%EC%9D%B4%ED%8A%B8-%EC%82%AC%EC%9A%A9%EB%B2%95/",
+        "teaser": null
+      },{
+        "title": "[UE5] 트레이스 채널 사용법",
+        "excerpt":"개요 트레이스 채널 생성 for 액션 판정 - ABAction 캐릭터 캡슐용 프로필 : ABAction 트레이스 채널에 반응 타입은 Pawn이다. 스켈레탈 메시용 프로필 - 주로 랙돌 구현 트리거용 프로필 : 폰 캡슐에만 반응, 타입은 WorldStaticd 트레이스 채널 추가 Project Setting -&gt; Engine -&gt; Collision -&gt; New Trace Channel 프리셋 추가 아래...","categories": ["ue5"],
+        "tags": ["UE5","Unreal Engine5","Unreal Engine","Trace Channel"],
+        "url": "/ue5/UE5-%ED%8A%B8%EB%A0%88%EC%9D%B4%EC%8A%A4-%EC%B1%84%EB%84%90-%EC%82%AC%EC%9A%A9%EB%B2%95/",
+        "teaser": null
+      },{
+        "title": "[UE5] 패키지된 게임 디버그 하는 법",
+        "excerpt":"개요 네트워크 기능이 있는 게임을 만들었는데 PIE상에서는 괜찮았는데 패키지를 하니 버그가 발생했다. 이게 네트워크에서 발생한 것인지 아니면 내부 구조 로직에서 충돌이 일어난 것인지 알길이 없어서 디버그를 해야만 했다. 언리얼 디버그에 관한 지식이 전무 했었기 때문에 이 기회에 패키지된 게임을 디버그하는 방법을 공부하여 정리하는 시간을 가져보았다. 사전 준비 디버깅을 위한 편집기...","categories": ["ue5"],
+        "tags": ["UE5","Unreal Engine5","Unreal Engine","Debug","Package"],
+        "url": "/ue5/UE5-%ED%8C%A8%ED%82%A4%EC%A7%80-%EB%94%94%EB%B2%84%EA%B7%B8/",
         "teaser": null
       }]

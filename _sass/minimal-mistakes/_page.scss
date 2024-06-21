@@ -89,11 +89,12 @@ body {
 
 .page__content {
   h2 {
-    padding-bottom: 0.2em;
+    padding-bottom: 0.1em;
     border-bottom: 2px solid $border-color;
   }
 
 	h1, h2, h3, h4, h5, h6 {
+    margin : 0.1em !important;
 		.header-link {
 			position: relative;
 			left: 0.5em;
@@ -189,7 +190,13 @@ body {
   blockquote + .small {
     margin-top: -1.5em;
     padding-left: 1.25rem;
+    border-color: red;
   }
+}
+
+blockquote {
+  border-color: red !important;
+  background-color:  !important;
 }
 .page__hero {
   position: relative;

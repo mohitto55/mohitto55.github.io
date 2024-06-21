@@ -506,8 +506,14 @@ Install docfx as a global tool:
 dotnet tool install -g docfx
 
 Create and start a website locally:
+
 기본 파일 만들기
 docfx init -y
+
+메타데이터 생성하기
+docfx
+>api 폴더에 메타데이터가 생성된다.
+
 
 로컬 서버 작동
 docfx serve

@@ -352,12 +352,53 @@ PDF에서 적용되는 css를 작성하기 위해선 `@media print`안에서 작
   .callout {
     background: none;
     border-width: 0px;
-    background-color: rgba(var(--callout-color), 0.15) !important;
-    border-color: rgba(var(--callout-color), 0.75) !important;
+  }
+  .callout[data-callout=warning]{
+    --ctp-background-yellow: rgba(249, 226, 175, 0.15) !important;
+    color : rgba(249, 226, 175, 1) !important;
+    border-left-color: rgba(249, 226, 175, 1) !important;
+    background-color: var(--ctp-background-yellow) !important;
+  }
+  .callout[data-callout=warning] .callout-title{
+    color: rgba(249, 226, 175, 1) !important;
+    --callout-color : rgba(249, 226, 175, 1) !important;
+  }
+
+  .callout[data-callout=warning] .callout-title .callout-title-inner{
+    color: rgba(249, 226, 175, 1) !important;
+  }
+
+  .callout[data-callout=info]{
+    --ctp-background-blue : rgba(148,226,213, 0.15) !important;
+    color : #94E2D5 !important;
+    border-left-color: #94E2D5 !important;
+    background-color: var(--ctp-background-blue) !important;
+  }
+  .callout[data-callout=info] .callout-title{
+    color: #94E2D5 !important;
+    --callout-color : #94E2D5 !important;
+  }
+  .callout[data-callout=info] .callout-title .callout-title-inner{
+    color: #94E2D5 !important;
   }
 ```
-콜아웃의 색을 변경한다. 다만 타이틀 부분 색상이 변경이 되지 않는데 이후에 변경 방법을 발견하면 추가하겠다.
+콜아웃의 색을 변경한다.
 
+---
+### 임베드
+```css
+  a.external-link {
+    position: relative;
+    color: var(--link-color) !important;
+  }
+  
+  a.external-link:after {
+    display: none !important;
+  }
+```
+하이퍼링크의 색상변경과 실제 주소를 가려준다.
+
+---
 
 <div class="Reference">
 <div class="callout-header"> </div>
@@ -367,5 +408,6 @@ PDF에서 적용되는 css를 작성하기 위해선 `@media print`안에서 작
 <a href="https://kaminik.tistory.com/entry/CSS-Snippet-%EC%BD%94%EB%93%9C%EB%B8%94%EB%A1%9D-%EC%8A%A4%ED%83%80%EC%9D%BCLight-mode">https://kaminik.tistory.com/entry/CSS-Snippet-%EC%BD%94%EB%93%9C%EB%B8%94%EB%A1%9D-%EC%8A%A4%ED%83%80%EC%9D%BCLight-mode</a>
 <a href="https://github.com/AnubisNekhet/AnuPpuccin/issues/48">https://github.com/AnubisNekhet/AnuPpuccin/issues/48</a>
 <a href="https://forum.squarespace.com/topic/180631-how-do-you-change-color-of-italic-text-using-css/">https://forum.squarespace.com/topic/180631-how-do-you-change-color-of-italic-text-using-css/</a>
+<a href="https://forum.obsidian.md/t/external-link-hover-view-url/2876/4">https://forum.obsidian.md/t/external-link-hover-view-url/2876/4</a>
 </p>
 </div>

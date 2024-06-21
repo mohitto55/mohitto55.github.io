@@ -1,4 +1,113 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-05-20T17:53:46+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mohitto55 Note</title><subtitle>모히또의 노트</subtitle><author><name>Mohitto55</name></author><entry><title type="html">[UE5] C++ 폴더 추가하는 법</title><link href="http://localhost:4000/ue5/UE5-C++-%ED%8F%B4%EB%8D%94-%EC%83%9D%EC%84%B1%EB%B2%95/" rel="alternate" type="text/html" title="[UE5] C++ 폴더 추가하는 법" /><published>2024-05-20T00:00:00+09:00</published><updated>2024-05-20T00:00:00+09:00</updated><id>http://localhost:4000/ue5/UE5%20C++%20%ED%8F%B4%EB%8D%94%20%EC%83%9D%EC%84%B1%EB%B2%95</id><content type="html" xml:base="http://localhost:4000/ue5/UE5-C++-%ED%8F%B4%EB%8D%94-%EC%83%9D%EC%84%B1%EB%B2%95/"><![CDATA[<h1 id="개요">개요</h1>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-06-21T21:29:14+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mohitto55 Note</title><subtitle>모히또의 노트</subtitle><author><name>Mohitto55</name></author><entry><title type="html">[UE5] 패키지된 게임 디버그 하는 법</title><link href="http://localhost:4000/ue5/UE5-%ED%8C%A8%ED%82%A4%EC%A7%80-%EB%94%94%EB%B2%84%EA%B7%B8/" rel="alternate" type="text/html" title="[UE5] 패키지된 게임 디버그 하는 법" /><published>2024-06-21T00:00:00+09:00</published><updated>2024-06-21T00:00:00+09:00</updated><id>http://localhost:4000/ue5/UE5%20%ED%8C%A8%ED%82%A4%EC%A7%80%20%EB%94%94%EB%B2%84%EA%B7%B8</id><content type="html" xml:base="http://localhost:4000/ue5/UE5-%ED%8C%A8%ED%82%A4%EC%A7%80-%EB%94%94%EB%B2%84%EA%B7%B8/"><![CDATA[<h1 id="개요">개요</h1>
+<p>네트워크 기능이 있는 게임을 만들었는데 PIE상에서는 괜찮았는데 패키지를 하니 버그가 발생했다.
+이게 네트워크에서 발생한 것인지 아니면 내부 구조 로직에서 충돌이 일어난 것인지 알길이 없어서 디버그를 해야만 했다.<br /> 언리얼 디버그에 관한 지식이 전무 했었기 때문에 이 기회에 패키지된 게임을 디버그하는 방법을 공부하여 정리하는 시간을 가져보았다.</p>
+
+<hr />
+
+<h1 id="사전-준비">사전 준비</h1>
+<h2 id="디버깅을-위한-편집기-심볼">디버깅을 위한 편집기 심볼</h2>
+<ul>
+  <li>엔진에서 디버깅에 필요한 심볼 기호들이 저장되어있다.</li>
+  <li>엔진 레벨에서 어떻게 동작하는지 알고 싶다면 체크해야 한다.</li>
+  <li>용량이 30기가 이상으로 굉장히 크다.
+<img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/cbec9f66-8e47-4727-81d8-db08c793fbc9" alt="image" /></li>
+</ul>
+
+<hr />
+
+<h3 id="디버그-심볼">디버그 심볼</h3>
+<p>디버그에 필요한 정보. 이 디버그 심볼이 들은걸 디버그 심볼 파일(프로그램 데이터베이스 파일, PDB) 이라고 한다.</p>
+<ul>
+  <li>디버그 심볼은 ‘정보’ 이기 때문에, 빌드 종류에 따라 달라지는 <strong>최적화 정도에 따라서 일부 혹은 전부가 ‘손실’</strong> 된다.</li>
+  <li>왜냐하면 <strong>최적화 과정에서 컴파일러가 심볼을 삭제하기 때문이다.</strong></li>
+  <li>그렇기에 디버그 모드로 패키지를 해야 자세한 디버그가 가능하다..</li>
+</ul>
+
+<h2 id="디버그-모드로-패키징-하기">디버그 모드로 패키징 하기</h2>
+<ul>
+  <li>디버깅을 자세하게 하고 싶으면 패키징 구성을 DebugGame으로 설정한다.
+<img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/0922c39c-b084-4b2b-97a8-2e366f004a86" alt="image" /></li>
+</ul>
+
+<h1 id="디버그-방법들">디버그 방법들</h1>
+<h2 id="1-텍스트-파일-로그-확인하기">1. 텍스트 파일 로그 확인하기</h2>
+<ul>
+  <li>Build&gt;Windows&gt;MultiShooter&gt;Saved&gt;Logs
+<img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/4c09e66a-1257-43fb-9b0c-0eae6ab08548" alt="image" /></li>
+</ul>
+
+<h2 id="2-visual-studio-창에서-실시간-확인">2. Visual Studio 창에서 실시간 확인</h2>
+<ul>
+  <li>비쥬얼 스튜디오를 킨다.</li>
+  <li>
+    <p>디버그 탭 &gt; 프로세스에 연결 을 누른다.
+<img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/36bdc818-5c14-469a-b7cc-bb6c2665d5b6" alt="image" /></p>
+  </li>
+  <li>패키징한 프로그램을 실행한다.</li>
+  <li>창이 뜨면 현재 실행중인 프로세스들이 확인된다.</li>
+  <li>
+    <p>그중 패키킹 프로그램의 이름 + Debuggame.exe 파일을 선택한다.
+<img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/9de0581a-1ca4-4283-acc5-074d2551c9e4" alt="image" /></p>
+  </li>
+  <li>그러면 실시간으로 로그가 보이는 것을 알 수 있다.
+<img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/2dbb4c76-92c4-4efa-b04a-1753331b1ad3" alt="image" /></li>
+</ul>
+
+<h2 id="3-직접-로그창-열지-않고-에러창이-나오게-하기">3. 직접 로그창 열지 않고 에러창이 나오게 하기</h2>
+<ul>
+  <li>
+    <p>Project Setting &gt; Packaging &gt; Project &gt; Build Configuration
+<img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/0a0af894-e830-49d3-95d6-638f01c44331" alt="image" /></p>
+  </li>
+  <li>
+    <p>직접 로그창을 열지 않아도 자동으로 크래쉬 로그가 뜬다.
+<img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/8d7e477f-8425-424c-8dfe-0fa8a2087c27" alt="image|400" /></p>
+  </li>
+</ul>
+
+<h2 id="4-덤프파일을-통해-상황-재현하기">4. 덤프파일을 통해 상황 재현하기</h2>
+<ul>
+  <li>언리얼 엔진에서 크래시가 나는 경우 minidump 파일을 Saved/Crashes 디렉터리에 스테이징한다.</li>
+  <li>덤프파일을 이용하면 크래시가 난 시점의 메모리 상태로 디버깅을 진행할 수 있다.</li>
+  <li>이 파일을 visual studio에 드래그하고 오른쪽 네이티브 전용(으)로 디버그 버튼을 누르면 디버깅을 진행할 수 있다.</li>
+</ul>
+
+<hr />
+
+<h1 id="그-외">그 외</h1>
+<p><br /></p>
+<h3 id="소스코드로-디버그-관리하기">소스코드로 디버그 관리하기</h3>
+<p>스택트레이스를 로그로 남길 수 있다.</p>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">FDebug</span><span class="p">::</span><span class="nf">DumpStackTraceToLog</span><span class="p">(</span><span class="n">ELogVerbosity</span><span class="p">::</span><span class="n">Type</span><span class="p">::</span><span class="n">Error</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>현재 호출되는 스레드 ID를 알 수 있다.</p>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">uint32</span> <span class="n">ThreadId</span> <span class="p">=</span> <span class="n">FPlatformTLS</span><span class="p">::</span><span class="nf">GetCurrentThreadId</span><span class="p">();</span> 
+<span class="n">FString</span> <span class="n">ThreadName</span> <span class="p">=</span> <span class="n">FThreadManager</span><span class="p">::</span><span class="nf">Get</span><span class="p">().</span><span class="nf">GetThreadName</span><span class="p">(</span><span class="n">ThreadId</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>FullName과 Outer 객체를 활용하여 현재 오브젝트의 인스턴스를 확인할 수 있다.</p>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">FString</span> <span class="n">FullName</span> <span class="p">=</span> <span class="nf">GetFullName</span><span class="p">();</span>
+	<span class="n">FString</span> <span class="n">OuterFullName</span> <span class="p">=</span> <span class="nf">GetOuter</span><span class="p">()-&gt;</span><span class="nf">GetFullName</span><span class="p">();</span>
+	<span class="n">FString</span> <span class="nf">FuncName</span><span class="p">(</span><span class="n">__FUNCTION__</span><span class="p">);</span>
+	<span class="nf">UE_LOG</span><span class="p">(</span><span class="n">LogTemp</span><span class="p">,</span> <span class="n">Error</span><span class="p">,</span> <span class="nf">TEXT</span><span class="p">(</span><span class="s">"%s  FullName : %s  OuterFullName : %s"</span><span class="p">),</span>
+		<span class="p">*</span><span class="n">FuncName</span><span class="p">,</span> <span class="p">*</span><span class="n">FullName</span><span class="p">,</span> <span class="p">*</span><span class="n">OuterFullName</span><span class="p">);</span>
+</code></pre></div></div>
+
+<hr />
+
+<h3 id="debuggame-editor">DebugGame Editor</h3>
+<p>Editor가 안 붙은 것을 선택하고 디버거를 돌리면 exe 파일이 만들어지는데, Editor가 붙은 것을 선택하고 디버거를 돌리면 dll 파일이 만들어진다.<br />
+이것을 선택하면 언리얼 에디터를 켠 다음에 dll만 교체해서 컨텐츠를 엔진에 올리는 식으로 동작을 하기 때문에, 아까처럼 글로벌 셰이더가 없다는 식의 alert가 뜨지 않는다.</p>
+
+<div class="Reference">
+<div class="callout-header"> </div>
+<p>
+<a href="https://colory-games.net/site/en/ue5-debug_packaged_project-en/">https://colory-games.net/site/en/ue5-debug_packaged_project-en/</a>
+<a href="https://velog.io/@liha_engineer/ue4start-4">https://velog.io/@liha_engineer/ue4start-4</a>
+<a href="https://mingyu0403.tistory.com/298">https://mingyu0403.tistory.com/298</a>
+</p>
+</div>]]></content><author><name>Mohitto55</name></author><category term="ue5" /><category term="UE5" /><category term="Unreal Engine5" /><category term="Unreal Engine" /><category term="Debug" /><category term="Package" /><summary type="html"><![CDATA[개요 네트워크 기능이 있는 게임을 만들었는데 PIE상에서는 괜찮았는데 패키지를 하니 버그가 발생했다. 이게 네트워크에서 발생한 것인지 아니면 내부 구조 로직에서 충돌이 일어난 것인지 알길이 없어서 디버그를 해야만 했다. 언리얼 디버그에 관한 지식이 전무 했었기 때문에 이 기회에 패키지된 게임을 디버그하는 방법을 공부하여 정리하는 시간을 가져보았다.]]></summary></entry><entry><title type="html">[UE5] C++ 폴더 추가하는 법</title><link href="http://localhost:4000/ue5/UE5-C++-%ED%8F%B4%EB%8D%94-%EC%83%9D%EC%84%B1%EB%B2%95/" rel="alternate" type="text/html" title="[UE5] C++ 폴더 추가하는 법" /><published>2024-05-20T00:00:00+09:00</published><updated>2024-05-20T00:00:00+09:00</updated><id>http://localhost:4000/ue5/UE5%20C++%20%ED%8F%B4%EB%8D%94%20%EC%83%9D%EC%84%B1%EB%B2%95</id><content type="html" xml:base="http://localhost:4000/ue5/UE5-C++-%ED%8F%B4%EB%8D%94-%EC%83%9D%EC%84%B1%EB%B2%95/"><![CDATA[<h1 id="개요">개요</h1>
 <p>언리얼엔진은 C++ Class 폴더가 존재한다. 이 폴더에서 프로젝트에 적용하는 모든 C++ 파일들이 들어가게 되는데 해당 폴더안에 폴더를 새로 생성하면 인식이 되지 않는 경우가 있다.</p>
 
 <p>이를 해결하기 위해선 언리얼이 감지할 수 있게 범위를 지정해 주어야한다.</p>
@@ -27,7 +136,180 @@
 
 Build.cs 파일은 이러한 모듈을 관리하는 cs파일로 모듈뿐 아니라 컴파일에 이용 하는 여러 설정을 제어한다.
 </p>
-</div>]]></content><author><name>Mohitto55</name></author><category term="ue5" /><category term="UE5" /><category term="Unreal Engine5" /><category term="Unreal Engine" /><category term="C++" /><summary type="html"><![CDATA[개요 언리얼엔진은 C++ Class 폴더가 존재한다. 이 폴더에서 프로젝트에 적용하는 모든 C++ 파일들이 들어가게 되는데 해당 폴더안에 폴더를 새로 생성하면 인식이 되지 않는 경우가 있다.]]></summary></entry><entry><title type="html">[UE5] Unreal Insights 사용법</title><link href="http://localhost:4000/ue5/UE5-%EC%9D%B8%EC%82%AC%EC%9D%B4%ED%8A%B8-%EC%82%AC%EC%9A%A9%EB%B2%95/" rel="alternate" type="text/html" title="[UE5] Unreal Insights 사용법" /><published>2024-05-20T00:00:00+09:00</published><updated>2024-05-20T00:00:00+09:00</updated><id>http://localhost:4000/ue5/UE5%20%EC%9D%B8%EC%82%AC%EC%9D%B4%ED%8A%B8%20%EC%82%AC%EC%9A%A9%EB%B2%95</id><content type="html" xml:base="http://localhost:4000/ue5/UE5-%EC%9D%B8%EC%82%AC%EC%9D%B4%ED%8A%B8-%EC%82%AC%EC%9A%A9%EB%B2%95/"><![CDATA[<h2 id="프로파일링-profiling">프로파일링 (Profiling)</h2>
+</div>]]></content><author><name>Mohitto55</name></author><category term="ue5" /><category term="UE5" /><category term="Unreal Engine5" /><category term="Unreal Engine" /><category term="C++" /><summary type="html"><![CDATA[개요 언리얼엔진은 C++ Class 폴더가 존재한다. 이 폴더에서 프로젝트에 적용하는 모든 C++ 파일들이 들어가게 되는데 해당 폴더안에 폴더를 새로 생성하면 인식이 되지 않는 경우가 있다.]]></summary></entry><entry><title type="html">[UE5] 트레이스 채널 사용법</title><link href="http://localhost:4000/ue5/UE5-%ED%8A%B8%EB%A0%88%EC%9D%B4%EC%8A%A4-%EC%B1%84%EB%84%90-%EC%82%AC%EC%9A%A9%EB%B2%95/" rel="alternate" type="text/html" title="[UE5] 트레이스 채널 사용법" /><published>2024-05-20T00:00:00+09:00</published><updated>2024-05-20T00:00:00+09:00</updated><id>http://localhost:4000/ue5/UE5%20%ED%8A%B8%EB%A0%88%EC%9D%B4%EC%8A%A4%20%EC%B1%84%EB%84%90%20%EC%82%AC%EC%9A%A9%EB%B2%95</id><content type="html" xml:base="http://localhost:4000/ue5/UE5-%ED%8A%B8%EB%A0%88%EC%9D%B4%EC%8A%A4-%EC%B1%84%EB%84%90-%EC%82%AC%EC%9A%A9%EB%B2%95/"><![CDATA[<h2 id="개요">개요</h2>
+
+<ul>
+  <li>트레이스 채널 생성 for 액션 판정 - ABAction</li>
+  <li>캐릭터 캡슐용 프로필 : ABAction 트레이스 채널에 반응 타입은 Pawn이다.</li>
+  <li>스켈레탈 메시용 프로필 - 주로 랙돌 구현</li>
+  <li>트리거용 프로필 : 폰 캡슐에만 반응, 타입은 WorldStaticd
+    <h3 id="트레이스-채널-추가">트레이스 채널 추가</h3>
+  </li>
+  <li>Project Setting -&gt; Engine -&gt; Collision -&gt; New Trace Channel
+<img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/790c3cdb-0cc0-47c8-951b-2684e9ff83e0" alt="image" /></li>
+</ul>
+
+<hr />
+<h3 id="프리셋-추가">프리셋 추가</h3>
+
+<ul>
+  <li>아래 쪽 New를 통해 새 프리셋을 제작가능하다.
+<img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/4a377dfa-33c4-4d18-8413-a3b5894a3416" alt="image" /></li>
+</ul>
+
+<h3 id="트레이스-채널-확인법">트레이스 채널 확인법</h3>
+<ul>
+  <li>Config -&gt; DefaultEngine.ini 에서 확인할 수 있다.</li>
+</ul>
+
+<h2 id="트레이싱-함수-선택">트레이싱 함수 선택</h2>
+<h3 id="카테고리-1-처리방법">카테고리 1: 처리방법</h3>
+<h3 id="카테고리2-대상">카테고리2: 대상</h3>
+<ul>
+  <li>Test : 무언가 감지되었는지 테스트</li>
+  <li>Single, AnyTest : 감지된 단일 물체 정보 반환</li>
+  <li>Multi : 감지된 모든 물체 정보 배열로 봔혼</li>
+</ul>
+
+<h3 id="카테고리3-처리설정">카테고리3: 처리설정</h3>
+<ul>
+  <li>ByChannel : 채널 이용한 감지</li>
+  <li>ByObjectType : 물리 타입 감지</li>
+  <li>ByProfile : 프로필 감지</li>
+</ul>
+
+<h2 id="공격-판정-구현">공격 판정 구현</h2>
+<ul>
+  <li>캐릭터 위치서 시선 방향 쪽 물체 감지</li>
+  <li>작은 구체 제작, 시선 방향 으로 투사</li>
+  <li>하나의 물체만 감지</li>
+  <li>트레이스 감지</li>
+</ul>
+
+<h2 id="터렛-애셋-구하기">터렛 애셋 구하기</h2>
+<p><a href="https://www.artstation.com/marketplace/p/8gMjY/capital-ship-turret">ArtStation - capital ship Turret | Game Assets</a></p>
+
+<h1 id="터렛-만들기">터렛 만들기</h1>
+<ul>
+  <li>플레이어가 일정 거리 안에 오면 플레이어 방향으로 회전하게 한다.</li>
+  <li>플레이어가 거리안에 오면 일정시간마다 공격을 한다.</li>
+  <li>터렛의 공격은 LineTrace로 판정하며 벽을 다 무시하고 오직 플레이어만 맞도록 한다.</li>
+</ul>
+
+<h2 id="공격-판정-구현-1">공격 판정 구현</h2>
+
+<h3 id="트레이스-채널-추가-1">트레이스 채널 추가</h3>
+<ul>
+  <li><em>트레이스</em> : 레이캐스트, 스위프 같이 트레이스를 통한 판정여부를 확인할 때 해당 채널에 대해서만 충돌 검사하도록 지정하는 레이어</li>
+  <li>Project Setting -&gt; Engine -&gt; Collision -&gt; New Trace Channel</li>
+  <li>트레이스 이름은 Attack와 디폴트 반응으로 Ignore설정</li>
+</ul>
+
+<p>| Default Response | 설명                         |
+| —————- | ————————– |
+| Block            | 트레이스에 대해 모든 물체가 반응한다.      |
+| Overlap          | 충돌은 일어나지 않지만 트리거 반응을 감지한다. |
+| Ignore           | 완전히 무시한다.                  |
+<img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/4a93d8e7-9c7d-4583-93de-a421a3ca3455" alt="image" /></p>
+
+<h3 id="프로필-추가">프로필 추가</h3>
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/9ceb5829-48e8-4536-bd61-55f9046cdf8f" alt="image" /></p>
+
+<blockquote>
+  <p>프로필 - 특정 ObjectType이 다른 트레이스, 오브젝트간 충돌판정 여부가 있는 데이터</p>
+</blockquote>
+
+<ul>
+  <li>아래 쪽 Preset New를 통해 새 프로필 제작가능</li>
+  <li>CollisionEnabled : <font color="dodgerred">Collision</font>을 처리하는 방법에
+    <ul>
+      <li>
+        <font color="dodgerred">No Collision</font>
+        <p>: 충돌 없음. 움직이는 오브젝트에서 최적의 퍼포먼스를 낸다.</p>
+      </li>
+      <li>
+        <font color="dodgerred">Query Only</font>
+        <p>: 두 물체의 충돌 영역이 서로 겹치는지 테스트하는 설정. 충돌 영역의 겹침을 감지하는 것을 오버랩(Overlap) 이라고 부르며, 충돌 영역이 겹치면 관련 컴포넌트에 <em>BeginOverlap</em> 이벤트가 발생한다. 지정한 영역에 물체가 충돌하는지 탐지하는 레이캐스트(Raycast) 나 스윕(Sweep) 기능도 Query 에 속한다.</p>
+      </li>
+      <li>
+        <font color="dodgerred">Physics Only</font>
+        <p>: Simulate (RigidBody, Constraint) 에만 충돌을 처리. 본 단위의 감지가 필요치는 않은 캐릭터의 2차 시뮬레이션에 좋습니다.</p>
+      </li>
+      <li>
+        <font color="dodgerred">Collision Enabled</font>
+        <p>: Query와 Simulate를 다 사용합니다.</p>
+      </li>
+    </ul>
+  </li>
+  <li>ObjectType : 해당 프로필을 사용하는 콜리전 채널 설정
+    <ul>
+      <li>
+        <font color="dodgerred">WorldStatic</font>
+        <p>: 이동하지 않는 액터.</p>
+      </li>
+      <li>
+        <font color="dodgerred">WorldDynamic</font>
+        <p> : 열리는 문과 같이 애니메이션 또는 Kinematic 같은 코드의 영향을 받아 움직이는 액터 유형.</p>
+      </li>
+      <li>
+        <font color="dodgerred">Pawn</font>
+        <p>: 플레이어 캐릭터같은 Pawn 유형.</p>
+      </li>
+      <li>
+        <font color="dodgerred">PhysicsBody</font>
+        <p>: Physics Simulation으로 인해 움직이게 되는 캐릭터.</p>
+      </li>
+      <li>
+        <font color="dodgerred">Vehicle</font>
+        <p>: Vehicle 유형.</p>
+      </li>
+      <li>
+        <font color="dodgerred">Destructible</font>
+        <p>: 부술 수 있는 어떠한 오브젝트.</p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<h4 id="attack-트레이스-감지용-프리셋-설정">Attack 트레이스 감지용 프리셋 설정</h4>
+<ul>
+  <li>Name : UECapsule</li>
+  <li>CollisionEnabled : Query Only</li>
+  <li>ObjectType : Pawn
+![[Pasted image 20240421002830.png|200]]</li>
+</ul>
+
+<hr />
+
+<h3 id="트레이스-채널-확인법-1">트레이스 채널 확인법</h3>
+<ul>
+  <li>Config -&gt; DefaultEngine.ini 에서 확인</li>
+  <li>트레이스 채널 이름으로 검색하면 DefaultChannelResponses 부분에 <code class="language-plaintext highlighter-rouge">ECC_GameTraceChannel1</code>와 같은 트레이스 채널이 적혀있다.</li>
+</ul>
+
+<div class="callout-warning-expanded">
+<div class="callout-header">주의사항</div>
+<p>
+ECC트레이스 채널 이름 중 ECC_Engine과 같이 비슷한 이름들이 많다.
+ECC_GameTraceChannel 유형의 채널들을 선택해야한다.
+</p>
+</div>
+
+<hr />
+<h3 id="캐릭터의-트레이스-프로파일-설정">캐릭터의 트레이스 프로파일 설정</h3>
+<h4 id="에디터">에디터</h4>
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/42a8a974-0448-4406-9f75-5149e86ac974" alt="image" /></p>
+
+<h4 id="코드">코드</h4>
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">GetCapsuleComponent</span><span class="p">()-&gt;</span><span class="nf">SetCollisionProfileName</span><span class="p">(</span><span class="nf">TEXT</span><span class="p">(</span><span class="s">"UECapsule"</span><span class="p">));</span>
+</code></pre></div></div>
+<blockquote>
+  <p>프로필 이름을 통해 프로필을 설정해준다. 생성자에서 작성해주면 된다.
+GetCapsuleComponent는 Character를 상속받는 폰에서만 사용 가능하다.
+상속받지 않는다면 직접 Collision 컴포넌트를 생성해 설정해주어야 한다.</p>
+</blockquote>]]></content><author><name>Mohitto55</name></author><category term="ue5" /><category term="UE5" /><category term="Unreal Engine5" /><category term="Unreal Engine" /><category term="Trace Channel" /><summary type="html"><![CDATA[개요]]></summary></entry><entry><title type="html">[UE5] Unreal Insights 사용법</title><link href="http://localhost:4000/ue5/UE5-%EC%9D%B8%EC%82%AC%EC%9D%B4%ED%8A%B8-%EC%82%AC%EC%9A%A9%EB%B2%95/" rel="alternate" type="text/html" title="[UE5] Unreal Insights 사용법" /><published>2024-05-20T00:00:00+09:00</published><updated>2024-05-20T00:00:00+09:00</updated><id>http://localhost:4000/ue5/UE5%20%EC%9D%B8%EC%82%AC%EC%9D%B4%ED%8A%B8%20%EC%82%AC%EC%9A%A9%EB%B2%95</id><content type="html" xml:base="http://localhost:4000/ue5/UE5-%EC%9D%B8%EC%82%AC%EC%9D%B4%ED%8A%B8-%EC%82%AC%EC%9A%A9%EB%B2%95/"><![CDATA[<h2 id="프로파일링-profiling">프로파일링 (Profiling)</h2>
 <ul>
   <li>프로그래밍에서의 프로파일링이란 소프트웨어의 성능 분석을 말한다.</li>
   <li>프로그램의 메모리, CPU 사용량, 여러 이벤트 발생률들을 통계적으로 요약하여 보여준다.</li>
@@ -341,7 +623,45 @@ Build.cs 파일은 이러한 모듈을 관리하는 cs파일로 모듈뿐 아니
 <p>
 <a href="https://lunchballer.com/archives/1741">https://lunchballer.com/archives/1741</a>
 </p>
-</div>]]></content><author><name>Mohitto55</name></author><category term="ue5" /><category term="UE5" /><category term="Unreal Engine5" /><category term="Unreal Engine" /><category term="Animation Retargeting" /><summary type="html"><![CDATA[개요 언리얼 마켓플레이스나 Mixamo를 둘러보다 보면 좋은 애니메이션들이 많다. 찾은 애니메이션을 다른 Skeleton에 적용시키려고하면 Skeleton이 일치하지 않아 사용할 수 없는데 Animation Retargeting은 다른 Skeleton에 애니메이션을 사용할 수 있게 만들어주는 기능이다.]]></summary></entry><entry><title type="html">[Unity] 정점이 24개인 큐브 만들기</title><link href="http://localhost:4000/unity/Unity-%EC%A0%95%EC%A0%9024%EA%B0%9C-%ED%81%90%EB%B8%8C-%EB%A7%8C%EB%93%A4%EA%B8%B0/" rel="alternate" type="text/html" title="[Unity] 정점이 24개인 큐브 만들기" /><published>2024-04-12T00:00:00+09:00</published><updated>2024-04-12T00:00:00+09:00</updated><id>http://localhost:4000/unity/Unity%20%EC%A0%95%EC%A0%9024%EA%B0%9C%20%ED%81%90%EB%B8%8C%20%EB%A7%8C%EB%93%A4%EA%B8%B0</id><content type="html" xml:base="http://localhost:4000/unity/Unity-%EC%A0%95%EC%A0%9024%EA%B0%9C-%ED%81%90%EB%B8%8C-%EB%A7%8C%EB%93%A4%EA%B8%B0/"><![CDATA[<p>지난번 <a href="https://mohitto55.github.io/unity/Unity-%EC%A0%95%EC%A0%908%EA%B0%9C-%ED%81%90%EB%B8%8C-%EB%A7%8C%EB%93%A4%EA%B8%B0/">정점 8개 큐브 만들기</a>에 이어서 이번엔 정점24개를 가진 큐브를 만들어 볼 것이다.</p>
+</div>]]></content><author><name>Mohitto55</name></author><category term="ue5" /><category term="UE5" /><category term="Unreal Engine5" /><category term="Unreal Engine" /><category term="Animation Retargeting" /><summary type="html"><![CDATA[개요 언리얼 마켓플레이스나 Mixamo를 둘러보다 보면 좋은 애니메이션들이 많다. 찾은 애니메이션을 다른 Skeleton에 적용시키려고하면 Skeleton이 일치하지 않아 사용할 수 없는데 Animation Retargeting은 다른 Skeleton에 애니메이션을 사용할 수 있게 만들어주는 기능이다.]]></summary></entry><entry><title type="html">[Visual Studio] LNK2019 함수에서 참조되는 확인할 수 없는 외부기호</title><link href="http://localhost:4000/vs/VS-%ED%95%A8%EC%88%98%EC%97%90%EC%84%9C-%EC%B0%B8%EC%A1%B0%EB%90%98%EB%8A%94-%ED%99%95%EC%9D%B8%ED%95%A0-%EC%88%98-%EC%97%86%EB%8A%94-%EC%99%B8%EB%B6%80%EA%B8%B0%ED%98%B8/" rel="alternate" type="text/html" title="[Visual Studio] LNK2019 함수에서 참조되는 확인할 수 없는 외부기호" /><published>2024-04-19T00:00:00+09:00</published><updated>2024-04-19T00:00:00+09:00</updated><id>http://localhost:4000/vs/VS%20%ED%95%A8%EC%88%98%EC%97%90%EC%84%9C%20%EC%B0%B8%EC%A1%B0%EB%90%98%EB%8A%94%20%ED%99%95%EC%9D%B8%ED%95%A0%20%EC%88%98%20%EC%97%86%EB%8A%94%20%EC%99%B8%EB%B6%80%EA%B8%B0%ED%98%B8</id><content type="html" xml:base="http://localhost:4000/vs/VS-%ED%95%A8%EC%88%98%EC%97%90%EC%84%9C-%EC%B0%B8%EC%A1%B0%EB%90%98%EB%8A%94-%ED%99%95%EC%9D%B8%ED%95%A0-%EC%88%98-%EC%97%86%EB%8A%94-%EC%99%B8%EB%B6%80%EA%B8%B0%ED%98%B8/"><![CDATA[<h2 id="설명">설명</h2>
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/74f27e43-22bf-4ab1-8e28-a4b93db44d36" alt="image" /></p>
+
+<p>보통 솔류션 파일을 직접 만들어 작업하지 않고 복사 붙여넣을 때 발생하는 오류다.</p>
+
+<h2 id="발생과정">발생과정</h2>
+<ol>
+  <li>MyQueue.h에 클래스 구현</li>
+  <li>Alt Enter로 함수 구현 하려 했으나 h에 생성이 됨</li>
+  <li>직접 cpp파일을 만들고 구현.</li>
+  <li>빌드 오류</li>
+</ol>
+
+<h2 id="해결과정">해결과정</h2>
+<p>아마 cpp파일을 복사 붙여넣기 하여 만든것이 원인이라 생각하여 참조 디렉터리를 확인해보기로 했다. 하지만 생각해보니 하나의 프로제그에 모두 있으므로 이 것은 아니라고 생각되었고 다른 방법을 생각했다.</p>
+
+<p>내 문법이 이상해서 이런건가 생각하고 다른 블로그에 있는 예제들을 복사 붙여넣기해서 확인 해본 결과 선언과 구현을 h파일에서 모두 했을 경우에만 작동 되는 것을 확인했다.</p>
+
+<p>알고보니 템플릿 클래스를 h파일, cpp파일로 나눠서 구현한 것이 문제였다.</p>
+
+<h2 id="원인">원인</h2>
+<ol>
+  <li>main 함수 정의하기</li>
+  <li>정의되지 않은 변수, 함수 정의하기</li>
+  <li>x86, x64가 혼합되었거나 잘못 선택 되었을 경우</li>
+</ol>
+
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/f5777ffe-3671-4c66-a26b-62e0bd17cee1" alt="image" /></p>
+<blockquote>
+  <p>빌드가 32비트인지 64비트인지 확인하기</p>
+</blockquote>
+
+<div class="Reference">
+<div class="callout-header"> </div>
+<p>
+<a href="https://davi06000.tistory.com/5">https://davi06000.tistory.com/5</a>
+<a href="https://master-hun.tistory.com/121">https://master-hun.tistory.com/121</a>
+</p>
+</div>]]></content><author><name>Mohitto55</name></author><category term="vs" /><category term="Visual Studio" /><category term="비쥬얼스튜디오" /><category term="LNK2019" /><category term="오류" /><summary type="html"><![CDATA[설명]]></summary></entry><entry><title type="html">[Unity] 정점이 24개인 큐브 만들기</title><link href="http://localhost:4000/unity/Unity-%EC%A0%95%EC%A0%9024%EA%B0%9C-%ED%81%90%EB%B8%8C-%EB%A7%8C%EB%93%A4%EA%B8%B0/" rel="alternate" type="text/html" title="[Unity] 정점이 24개인 큐브 만들기" /><published>2024-04-12T00:00:00+09:00</published><updated>2024-04-12T00:00:00+09:00</updated><id>http://localhost:4000/unity/Unity%20%EC%A0%95%EC%A0%9024%EA%B0%9C%20%ED%81%90%EB%B8%8C%20%EB%A7%8C%EB%93%A4%EA%B8%B0</id><content type="html" xml:base="http://localhost:4000/unity/Unity-%EC%A0%95%EC%A0%9024%EA%B0%9C-%ED%81%90%EB%B8%8C-%EB%A7%8C%EB%93%A4%EA%B8%B0/"><![CDATA[<p>지난번 <a href="https://mohitto55.github.io/unity/Unity-%EC%A0%95%EC%A0%908%EA%B0%9C-%ED%81%90%EB%B8%8C-%EB%A7%8C%EB%93%A4%EA%B8%B0/">정점 8개 큐브 만들기</a>에 이어서 이번엔 정점24개를 가진 큐브를 만들어 볼 것이다.</p>
 
 <h2 id="cube-작성">Cube 작성</h2>
 <h3 id="정점위치-참조-테이블">정점위치 참조 테이블</h3>
@@ -988,11 +1308,52 @@ Scale을 적용하기 위해 <font color="dodgerred">아다마르 곱</font> 을
 <div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nc">.callout</span> <span class="p">{</span>
     <span class="nl">background</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span>
     <span class="nl">border-width</span><span class="p">:</span> <span class="m">0px</span><span class="p">;</span>
-    <span class="nl">background-color</span><span class="p">:</span> <span class="n">rgba</span><span class="p">(</span><span class="n">var</span><span class="p">(</span><span class="n">--callout-color</span><span class="p">),</span> <span class="m">0.15</span><span class="p">)</span> <span class="cp">!important</span><span class="p">;</span>
-    <span class="nl">border-color</span><span class="p">:</span> <span class="n">rgba</span><span class="p">(</span><span class="n">var</span><span class="p">(</span><span class="n">--callout-color</span><span class="p">),</span> <span class="m">0.75</span><span class="p">)</span> <span class="cp">!important</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="nc">.callout</span><span class="o">[</span><span class="nt">data-callout</span><span class="o">=</span><span class="nt">warning</span><span class="o">]</span><span class="p">{</span>
+    <span class="py">--ctp-background-yellow</span><span class="p">:</span> <span class="n">rgba</span><span class="p">(</span><span class="m">249</span><span class="p">,</span> <span class="m">226</span><span class="p">,</span> <span class="m">175</span><span class="p">,</span> <span class="m">0.15</span><span class="p">)</span> <span class="cp">!important</span><span class="p">;</span>
+    <span class="nl">color</span> <span class="p">:</span> <span class="n">rgba</span><span class="p">(</span><span class="m">249</span><span class="p">,</span> <span class="m">226</span><span class="p">,</span> <span class="m">175</span><span class="p">,</span> <span class="m">1</span><span class="p">)</span> <span class="cp">!important</span><span class="p">;</span>
+    <span class="nl">border-left-color</span><span class="p">:</span> <span class="n">rgba</span><span class="p">(</span><span class="m">249</span><span class="p">,</span> <span class="m">226</span><span class="p">,</span> <span class="m">175</span><span class="p">,</span> <span class="m">1</span><span class="p">)</span> <span class="cp">!important</span><span class="p">;</span>
+    <span class="nl">background-color</span><span class="p">:</span> <span class="n">var</span><span class="p">(</span><span class="n">--ctp-background-yellow</span><span class="p">)</span> <span class="cp">!important</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="nc">.callout</span><span class="o">[</span><span class="nt">data-callout</span><span class="o">=</span><span class="nt">warning</span><span class="o">]</span> <span class="nc">.callout-title</span><span class="p">{</span>
+    <span class="nl">color</span><span class="p">:</span> <span class="n">rgba</span><span class="p">(</span><span class="m">249</span><span class="p">,</span> <span class="m">226</span><span class="p">,</span> <span class="m">175</span><span class="p">,</span> <span class="m">1</span><span class="p">)</span> <span class="cp">!important</span><span class="p">;</span>
+    <span class="py">--callout-color</span> <span class="p">:</span> <span class="n">rgba</span><span class="p">(</span><span class="m">249</span><span class="p">,</span> <span class="m">226</span><span class="p">,</span> <span class="m">175</span><span class="p">,</span> <span class="m">1</span><span class="p">)</span> <span class="cp">!important</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="nc">.callout</span><span class="o">[</span><span class="nt">data-callout</span><span class="o">=</span><span class="nt">warning</span><span class="o">]</span> <span class="nc">.callout-title</span> <span class="nc">.callout-title-inner</span><span class="p">{</span>
+    <span class="nl">color</span><span class="p">:</span> <span class="n">rgba</span><span class="p">(</span><span class="m">249</span><span class="p">,</span> <span class="m">226</span><span class="p">,</span> <span class="m">175</span><span class="p">,</span> <span class="m">1</span><span class="p">)</span> <span class="cp">!important</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="nc">.callout</span><span class="o">[</span><span class="nt">data-callout</span><span class="o">=</span><span class="nt">info</span><span class="o">]</span><span class="p">{</span>
+    <span class="py">--ctp-background-blue</span> <span class="p">:</span> <span class="n">rgba</span><span class="p">(</span><span class="m">148</span><span class="p">,</span><span class="m">226</span><span class="p">,</span><span class="m">213</span><span class="p">,</span> <span class="m">0.15</span><span class="p">)</span> <span class="cp">!important</span><span class="p">;</span>
+    <span class="nl">color</span> <span class="p">:</span> <span class="m">#94E2D5</span> <span class="cp">!important</span><span class="p">;</span>
+    <span class="nl">border-left-color</span><span class="p">:</span> <span class="m">#94E2D5</span> <span class="cp">!important</span><span class="p">;</span>
+    <span class="nl">background-color</span><span class="p">:</span> <span class="n">var</span><span class="p">(</span><span class="n">--ctp-background-blue</span><span class="p">)</span> <span class="cp">!important</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="nc">.callout</span><span class="o">[</span><span class="nt">data-callout</span><span class="o">=</span><span class="nt">info</span><span class="o">]</span> <span class="nc">.callout-title</span><span class="p">{</span>
+    <span class="nl">color</span><span class="p">:</span> <span class="m">#94E2D5</span> <span class="cp">!important</span><span class="p">;</span>
+    <span class="py">--callout-color</span> <span class="p">:</span> <span class="m">#94E2D5</span> <span class="cp">!important</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="nc">.callout</span><span class="o">[</span><span class="nt">data-callout</span><span class="o">=</span><span class="nt">info</span><span class="o">]</span> <span class="nc">.callout-title</span> <span class="nc">.callout-title-inner</span><span class="p">{</span>
+    <span class="nl">color</span><span class="p">:</span> <span class="m">#94E2D5</span> <span class="cp">!important</span><span class="p">;</span>
   <span class="p">}</span>
 </code></pre></div></div>
-<p>콜아웃의 색을 변경한다. 다만 타이틀 부분 색상이 변경이 되지 않는데 이후에 변경 방법을 발견하면 추가하겠다.</p>
+<p>콜아웃의 색을 변경한다.</p>
+
+<hr />
+<h3 id="임베드">임베드</h3>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nt">a</span><span class="nc">.external-link</span> <span class="p">{</span>
+    <span class="nl">position</span><span class="p">:</span> <span class="nb">relative</span><span class="p">;</span>
+    <span class="nl">color</span><span class="p">:</span> <span class="n">var</span><span class="p">(</span><span class="n">--link-color</span><span class="p">)</span> <span class="cp">!important</span><span class="p">;</span>
+  <span class="p">}</span>
+  
+  <span class="nt">a</span><span class="nc">.external-link</span><span class="nd">:after</span> <span class="p">{</span>
+    <span class="nl">display</span><span class="p">:</span> <span class="nb">none</span> <span class="cp">!important</span><span class="p">;</span>
+  <span class="p">}</span>
+</code></pre></div></div>
+<p>하이퍼링크의 색상변경과 실제 주소를 가려준다.</p>
+
+<hr />
 
 <div class="Reference">
 <div class="callout-header"> </div>
@@ -1002,123 +1363,6 @@ Scale을 적용하기 위해 <font color="dodgerred">아다마르 곱</font> 을
 <a href="https://kaminik.tistory.com/entry/CSS-Snippet-%EC%BD%94%EB%93%9C%EB%B8%94%EB%A1%9D-%EC%8A%A4%ED%83%80%EC%9D%BCLight-mode">https://kaminik.tistory.com/entry/CSS-Snippet-%EC%BD%94%EB%93%9C%EB%B8%94%EB%A1%9D-%EC%8A%A4%ED%83%80%EC%9D%BCLight-mode</a>
 <a href="https://github.com/AnubisNekhet/AnuPpuccin/issues/48">https://github.com/AnubisNekhet/AnuPpuccin/issues/48</a>
 <a href="https://forum.squarespace.com/topic/180631-how-do-you-change-color-of-italic-text-using-css/">https://forum.squarespace.com/topic/180631-how-do-you-change-color-of-italic-text-using-css/</a>
+<a href="https://forum.obsidian.md/t/external-link-hover-view-url/2876/4">https://forum.obsidian.md/t/external-link-hover-view-url/2876/4</a>
 </p>
-</div>]]></content><author><name>Mohitto55</name></author><category term="obsidian" /><category term="css" /><category term="html" /><category term="Obsidian" /><category term="PDF" /><category term="옵시디언" /><summary type="html"><![CDATA[PDF 출력]]></summary></entry><entry><title type="html">[Visual Studio] Nuget Package Manager Console 사용 방법</title><link href="http://localhost:4000/vs/VS-%ED%8C%A8%ED%82%A4%EC%A7%80-%EB%A7%A4%EB%8B%88%EC%A0%80-%EC%BD%98%EC%86%94-%EC%82%AC%EC%9A%A9%EB%B2%95/" rel="alternate" type="text/html" title="[Visual Studio] Nuget Package Manager Console 사용 방법" /><published>2024-04-05T00:00:00+09:00</published><updated>2024-04-05T00:00:00+09:00</updated><id>http://localhost:4000/vs/VS%20%ED%8C%A8%ED%82%A4%EC%A7%80%20%EB%A7%A4%EB%8B%88%EC%A0%80%20%EC%BD%98%EC%86%94%20%EC%82%AC%EC%9A%A9%EB%B2%95</id><content type="html" xml:base="http://localhost:4000/vs/VS-%ED%8C%A8%ED%82%A4%EC%A7%80-%EB%A7%A4%EB%8B%88%EC%A0%80-%EC%BD%98%EC%86%94-%EC%82%AC%EC%9A%A9%EB%B2%95/"><![CDATA[<h2 id="들어가며">들어가며</h2>
-<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/66918995-af63-45b2-8696-5bbf16e1e523" alt="image" /></p>
-
-<p>C#을 통해 작업하다보면 외부 라이브러리를 사용해야 할 경우가 있다.
-마침 적당한 라이브러리가 보여서 Nuget 패키지를 통해서 찾다보면 검색이 안되는 경우가 있다. 그래서 공식 사이트에가서 설치 방법을 알아보면 저런 설치 명령어가 있는 경우가 있다.</p>
-
-<p>필자도 Itext를 다운 받으려고 했는데 Nuget에서 Itext가 다운이 되지 않아 방법을 찾아보니 저런걸 발견했다. 결론은 C#은 ItextSharp 라는 버전을 따로 설치해야 했던 거지만 말이다.</p>
-
-<p>아무튼 CLI에 치면 될 것 처럼 생겼는데 일반 CMD에서 치면 적용이 안된다. 해당 명령어는 Nuget Package Manager Console이라고 Visual Studio 내부 명령어 창에서 사용해야 한다.</p>
-
-<h2 id="nuget-package-manager-console">Nuget Package Manager Console</h2>
-<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/b8fdf5fe-907f-43d7-8547-b980951828d3" alt="image" /></p>
-
-<p>콘솔창을 여는 방법은 도구 &gt; Nuget 패키지 관리자 &gt; 패키지 관리자 콘솔 을 누르면 하단 솔루션 창에 입력이 가능하다.
-ItextSharp 버전을 다운 받기위해 아래 명령어를 입력했다.</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Install-Package ItextSharp
-</code></pre></div></div>
-
-<hr />
-
-<h3 id="결과">결과</h3>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PM&gt; Install-Package itextsharp
-C:\Users\admin\source\repos\ITEXT\ITEXT\ITEXT.csproj의 패키지를 복원하는 중...
-  CACHE https://api.nuget.org/v3/vulnerabilities/index.json
-  CACHE https://api.nuget.org/v3-vulnerabilities/2024.04.03.05.44.44/vulnerability.base.json
-  CACHE https://api.nuget.org/v3-vulnerabilities/2024.04.03.05.44.44/2024.04.04.17.44.54/vulnerability.update.json
-NuGet 패키지 itextsharp 5.5.13.3을(를) 설치하고 있습니다.
-자산 파일을 디스크에 쓰는 중입니다. 경로: C:\Users\admin\source\repos\ITEXT\ITEXT\obj\project.assets.json
-C:\Users\admin\source\repos\ITEXT\ITEXT\ITEXT.csproj을(를) 28밀리초 동안 복원했습니다.
-ITEXT에 'BouncyCastle 1.8.9'을(를) 설치했습니다.
-ITEXT에 'iTextSharp 5.5.13.3'을(를) 설치했습니다.
-Nuget 작업 실행 시간: 83밀리초
-경과 시간: 00:00:00.1162594
-</code></pre></div></div>
-<p>결과적으론 잘 다운되어 적용된다.</p>
-
-<div class="Reference">
-<div class="callout-header"> </div>
-<p>
-<a href="https://narup.tistory.com/123">https://narup.tistory.com/123</a>
-</p>
-</div>]]></content><author><name>Mohitto55</name></author><category term="vs" /><category term="Visual Studio" /><category term="Nuget" /><category term="Nuget Package Manager Console" /><category term="WSL2" /><category term="C#" /><summary type="html"><![CDATA[들어가며]]></summary></entry><entry><title type="html">[Ubuntu] Docker 삭제하기</title><link href="http://localhost:4000/linux/Docker-%EC%99%84%EC%A0%84-%EC%82%AD%EC%A0%9C%ED%95%98%EA%B8%B0/" rel="alternate" type="text/html" title="[Ubuntu] Docker 삭제하기" /><published>2024-03-28T00:00:00+09:00</published><updated>2024-03-28T00:00:00+09:00</updated><id>http://localhost:4000/linux/Docker%20%EC%99%84%EC%A0%84%20%EC%82%AD%EC%A0%9C%ED%95%98%EA%B8%B0</id><content type="html" xml:base="http://localhost:4000/linux/Docker-%EC%99%84%EC%A0%84-%EC%82%AD%EC%A0%9C%ED%95%98%EA%B8%B0/"><![CDATA[<h1 id="docker-삭제하기">Docker 삭제하기</h1>
-<h2 id="1-docker-설치-확인하기">1. docker 설치 확인하기</h2>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dpkg -l | grep -i docker
-</code></pre></div></div>
-
-<h2 id="2-docker를-삭제">2. docker를 삭제</h2>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get purge -y docker-engine docker docker.io docker-ce
-sudo apt-get autoremove -y --purge docker-engine docker docker.io docker-ce
-</code></pre></div></div>
-<p>위의 명령으로 호스트에서 이미지, 컨테이너, 볼륨 또는 사용자 생성 구성 파일을 제외한 모든 파일을 삭제한다.</p>
-
-<h2 id="3-모든-이미지-컨테이너-및-볼륨을-삭제">​3. 모든 이미지, 컨테이너 및 볼륨을 삭제</h2>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo rm -rf /var/lib/docker /etc/docker
-sudo rm /etc/apparmor.d/docker
-sudo groupdel docker
-sudo rm -rf /var/run/docker.sock
-</code></pre></div></div>
-<p>시스템에서 Docker를 완전히 제거,</p>
-
-<hr />
-
-<h3 id="우분투에서-삭제하기">우분투에서 삭제하기</h3>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo snap remove docker
-</code></pre></div></div>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo find / -name "*docker*" -exec `rm -rf` {} +
-</code></pre></div></div>
-<p>모든 docker 관련 파일을 삭제</p>
-
-<hr />
-
-<div class="Reference">
-<div class="callout-header"> </div>
-<p>
-<a href="https://may9noy.tistory.com/392">https://may9noy.tistory.com/392</a>
-</p>
-</div>]]></content><author><name>Mohitto55</name></author><category term="linux" /><category term="Window" /><category term="Linux" /><category term="Ubuntu" /><category term="WSL2" /><category term="Window Service for Linux" /><category term="Docker" /><category term="도커" /><category term="우분투" /><category term="윈도우" /><category term="리눅스" /><summary type="html"><![CDATA[Docker 삭제하기 1. docker 설치 확인하기 dpkg -l | grep -i docker]]></summary></entry><entry><title type="html">[Ubuntu] Docker 설치하기</title><link href="http://localhost:4000/linux/Docker-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0/" rel="alternate" type="text/html" title="[Ubuntu] Docker 설치하기" /><published>2024-03-28T00:00:00+09:00</published><updated>2024-03-28T00:00:00+09:00</updated><id>http://localhost:4000/linux/Docker%20%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0</id><content type="html" xml:base="http://localhost:4000/linux/Docker-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0/"><![CDATA[<h2 id="도커-다운받기">도커 다운받기</h2>
-<h3 id="1-우분투-시스템-패키지-업데이트">1. 우분투 시스템 패키지 업데이트</h3>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get update
-</code></pre></div></div>
-
-<h3 id="2-필요한-패키지-설치">2. 필요한 패키지 설치</h3>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
-</code></pre></div></div>
-
-<h3 id="3-docker의-공식-gpg키를-추가">3. Docker의 공식 GPG키를 추가</h3>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-</code></pre></div></div>
-
-<h3 id="4-docker의-공식-apt-저장소를-추가">4. Docker의 공식 apt 저장소를 추가</h3>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-</code></pre></div></div>
-
-<h3 id="5-시스템-패키지-업데이트">5. 시스템 패키지 업데이트</h3>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get update
-</code></pre></div></div>
-
-<h3 id="6-docker-설치">6. Docker 설치</h3>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get install docker-ce docker-ce-cli containerd.io
-</code></pre></div></div>
-
-<h3 id="7-docker가-설치-확인">7. Docker가 설치 확인</h3>
-<p>7-1 도커 버전 확인</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker -v
-</code></pre></div></div>
-
-<p>7-2 도커 실행상태 확인</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo systemctl status docker
-</code></pre></div></div>
-
-<hr />
-
-<div class="Reference">
-<div class="callout-header"> </div>
-<p>
-<a href="https://may9noy.tistory.com/392">https://may9noy.tistory.com/392</a>
-</p>
-</div>]]></content><author><name>Mohitto55</name></author><category term="linux" /><category term="Window" /><category term="Linux" /><category term="Ubuntu" /><category term="WSL2" /><category term="Window Service for Linux" /><category term="Docker" /><category term="도커" /><category term="우분투" /><category term="윈도우" /><category term="리눅스" /><summary type="html"><![CDATA[도커 다운받기 1. 우분투 시스템 패키지 업데이트 sudo apt-get update]]></summary></entry></feed>
+</div>]]></content><author><name>Mohitto55</name></author><category term="obsidian" /><category term="css" /><category term="html" /><category term="Obsidian" /><category term="PDF" /><category term="옵시디언" /><summary type="html"><![CDATA[PDF 출력]]></summary></entry></feed>
