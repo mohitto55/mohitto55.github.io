@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-06-21T21:29:14+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mohitto55 Note</title><subtitle>모히또의 노트</subtitle><author><name>Mohitto55</name></author><entry><title type="html">[UE5] 패키지된 게임 디버그 하는 법</title><link href="http://localhost:4000/ue5/UE5-%ED%8C%A8%ED%82%A4%EC%A7%80-%EB%94%94%EB%B2%84%EA%B7%B8/" rel="alternate" type="text/html" title="[UE5] 패키지된 게임 디버그 하는 법" /><published>2024-06-21T00:00:00+09:00</published><updated>2024-06-21T00:00:00+09:00</updated><id>http://localhost:4000/ue5/UE5%20%ED%8C%A8%ED%82%A4%EC%A7%80%20%EB%94%94%EB%B2%84%EA%B7%B8</id><content type="html" xml:base="http://localhost:4000/ue5/UE5-%ED%8C%A8%ED%82%A4%EC%A7%80-%EB%94%94%EB%B2%84%EA%B7%B8/"><![CDATA[<h1 id="개요">개요</h1>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-06-21T22:52:50+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mohitto55 Note</title><subtitle>모히또의 노트</subtitle><author><name>Mohitto55</name></author><entry><title type="html">[UE5] 패키지된 게임 디버그 하는 법</title><link href="http://localhost:4000/ue5/UE5-%ED%8C%A8%ED%82%A4%EC%A7%80-%EB%94%94%EB%B2%84%EA%B7%B8/" rel="alternate" type="text/html" title="[UE5] 패키지된 게임 디버그 하는 법" /><published>2024-06-21T00:00:00+09:00</published><updated>2024-06-21T00:00:00+09:00</updated><id>http://localhost:4000/ue5/UE5%20%ED%8C%A8%ED%82%A4%EC%A7%80%20%EB%94%94%EB%B2%84%EA%B7%B8</id><content type="html" xml:base="http://localhost:4000/ue5/UE5-%ED%8C%A8%ED%82%A4%EC%A7%80-%EB%94%94%EB%B2%84%EA%B7%B8/"><![CDATA[<h1 id="개요">개요</h1>
 <p>네트워크 기능이 있는 게임을 만들었는데 PIE상에서는 괜찮았는데 패키지를 하니 버그가 발생했다.
 이게 네트워크에서 발생한 것인지 아니면 내부 구조 로직에서 충돌이 일어난 것인지 알길이 없어서 디버그를 해야만 했다.<br /> 언리얼 디버그에 관한 지식이 전무 했었기 때문에 이 기회에 패키지된 게임을 디버그하는 방법을 공부하여 정리하는 시간을 가져보았다.</p>
 
@@ -137,15 +137,18 @@
 Build.cs 파일은 이러한 모듈을 관리하는 cs파일로 모듈뿐 아니라 컴파일에 이용 하는 여러 설정을 제어한다.
 </p>
 </div>]]></content><author><name>Mohitto55</name></author><category term="ue5" /><category term="UE5" /><category term="Unreal Engine5" /><category term="Unreal Engine" /><category term="C++" /><summary type="html"><![CDATA[개요 언리얼엔진은 C++ Class 폴더가 존재한다. 이 폴더에서 프로젝트에 적용하는 모든 C++ 파일들이 들어가게 되는데 해당 폴더안에 폴더를 새로 생성하면 인식이 되지 않는 경우가 있다.]]></summary></entry><entry><title type="html">[UE5] 트레이스 채널 사용법</title><link href="http://localhost:4000/ue5/UE5-%ED%8A%B8%EB%A0%88%EC%9D%B4%EC%8A%A4-%EC%B1%84%EB%84%90-%EC%82%AC%EC%9A%A9%EB%B2%95/" rel="alternate" type="text/html" title="[UE5] 트레이스 채널 사용법" /><published>2024-05-20T00:00:00+09:00</published><updated>2024-05-20T00:00:00+09:00</updated><id>http://localhost:4000/ue5/UE5%20%ED%8A%B8%EB%A0%88%EC%9D%B4%EC%8A%A4%20%EC%B1%84%EB%84%90%20%EC%82%AC%EC%9A%A9%EB%B2%95</id><content type="html" xml:base="http://localhost:4000/ue5/UE5-%ED%8A%B8%EB%A0%88%EC%9D%B4%EC%8A%A4-%EC%B1%84%EB%84%90-%EC%82%AC%EC%9A%A9%EB%B2%95/"><![CDATA[<h2 id="개요">개요</h2>
-
 <ul>
   <li>트레이스 채널 생성 for 액션 판정 - ABAction</li>
   <li>캐릭터 캡슐용 프로필 : ABAction 트레이스 채널에 반응 타입은 Pawn이다.</li>
   <li>스켈레탈 메시용 프로필 - 주로 랙돌 구현</li>
-  <li>트리거용 프로필 : 폰 캡슐에만 반응, 타입은 WorldStaticd
-    <h3 id="트레이스-채널-추가">트레이스 채널 추가</h3>
-  </li>
-  <li>Project Setting -&gt; Engine -&gt; Collision -&gt; New Trace Channel
+  <li>트리거용 프로필 : 폰 캡슐에만 반응, 타입은 WorldStaticd</li>
+</ul>
+
+<hr />
+
+<h3 id="트레이스-채널-추가">트레이스 채널 추가</h3>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">Project Setting &gt; Engine &gt; Collision &gt; New Trace Channel</code>
 <img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/790c3cdb-0cc0-47c8-951b-2684e9ff83e0" alt="image" /></li>
 </ul>
 
@@ -159,17 +162,22 @@ Build.cs 파일은 이러한 모듈을 관리하는 cs파일로 모듈뿐 아니
 
 <h3 id="트레이스-채널-확인법">트레이스 채널 확인법</h3>
 <ul>
-  <li>Config -&gt; DefaultEngine.ini 에서 확인할 수 있다.</li>
+  <li><code class="language-plaintext highlighter-rouge">Config -&gt; DefaultEngine.ini</code> 에서 확인할 수 있다.</li>
 </ul>
 
 <h2 id="트레이싱-함수-선택">트레이싱 함수 선택</h2>
 <h3 id="카테고리-1-처리방법">카테고리 1: 처리방법</h3>
+
+<hr />
+
 <h3 id="카테고리2-대상">카테고리2: 대상</h3>
 <ul>
   <li>Test : 무언가 감지되었는지 테스트</li>
   <li>Single, AnyTest : 감지된 단일 물체 정보 반환</li>
   <li>Multi : 감지된 모든 물체 정보 배열로 봔혼</li>
 </ul>
+
+<hr />
 
 <h3 id="카테고리3-처리설정">카테고리3: 처리설정</h3>
 <ul>
@@ -189,6 +197,8 @@ Build.cs 파일은 이러한 모듈을 관리하는 cs파일로 모듈뿐 아니
 <h2 id="터렛-애셋-구하기">터렛 애셋 구하기</h2>
 <p><a href="https://www.artstation.com/marketplace/p/8gMjY/capital-ship-turret">ArtStation - capital ship Turret | Game Assets</a></p>
 
+<hr />
+
 <h1 id="터렛-만들기">터렛 만들기</h1>
 <ul>
   <li>플레이어가 일정 거리 안에 오면 플레이어 방향으로 회전하게 한다.</li>
@@ -200,17 +210,37 @@ Build.cs 파일은 이러한 모듈을 관리하는 cs파일로 모듈뿐 아니
 
 <h3 id="트레이스-채널-추가-1">트레이스 채널 추가</h3>
 <ul>
-  <li><em>트레이스</em> : 레이캐스트, 스위프 같이 트레이스를 통한 판정여부를 확인할 때 해당 채널에 대해서만 충돌 검사하도록 지정하는 레이어</li>
-  <li>Project Setting -&gt; Engine -&gt; Collision -&gt; New Trace Channel</li>
+  <li>트레이스 : 레이캐스트, 스위프 같이 트레이스를 통한 판정여부를 확인할 때 해당 채널에 대해서만 충돌 검사하도록 지정하는 레이어</li>
+  <li><code class="language-plaintext highlighter-rouge">Project Setting -&gt; Engine -&gt; Collision -&gt; New Trace Channel</code> 에서 채널을 추가한다.</li>
   <li>트레이스 이름은 Attack와 디폴트 반응으로 Ignore설정</li>
 </ul>
 
-<p>| Default Response | 설명                         |
-| —————- | ————————– |
-| Block            | 트레이스에 대해 모든 물체가 반응한다.      |
-| Overlap          | 충돌은 일어나지 않지만 트리거 반응을 감지한다. |
-| Ignore           | 완전히 무시한다.                  |
-<img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/4a93d8e7-9c7d-4583-93de-a421a3ca3455" alt="image" /></p>
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Default Response</th>
+      <th><center>설명</center></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">Block</td>
+      <td>트레이스에 대해 모든 물체가 반응한다.</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Overlap</td>
+      <td>충돌은 일어나지 않지만 트리거 반응을 감지한다.</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Ignore</td>
+      <td>완전히 무시한다.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/4a93d8e7-9c7d-4583-93de-a421a3ca3455" alt="image" /></p>
+
+<hr />
 
 <h3 id="프로필-추가">프로필 추가</h3>
 <p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/9ceb5829-48e8-4536-bd61-55f9046cdf8f" alt="image" /></p>
@@ -277,9 +307,10 @@ Build.cs 파일은 이러한 모듈을 관리하는 cs파일로 모듈뿐 아니
 <ul>
   <li>Name : UECapsule</li>
   <li>CollisionEnabled : Query Only</li>
-  <li>ObjectType : Pawn
-![[Pasted image 20240421002830.png|200]]</li>
+  <li>ObjectType : Pawn</li>
 </ul>
+
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/9b48a11c-f0da-4f85-8b47-c3f8f685bcab" alt="Pasted image 20240421002830" /></p>
 
 <hr />
 
@@ -303,13 +334,15 @@ ECC_GameTraceChannel 유형의 채널들을 선택해야한다.
 <p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/42a8a974-0448-4406-9f75-5149e86ac974" alt="image" /></p>
 
 <h4 id="코드">코드</h4>
-<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">GetCapsuleComponent</span><span class="p">()-&gt;</span><span class="nf">SetCollisionProfileName</span><span class="p">(</span><span class="nf">TEXT</span><span class="p">(</span><span class="s">"UECapsule"</span><span class="p">));</span>
-</code></pre></div></div>
+
 <blockquote>
-  <p>프로필 이름을 통해 프로필을 설정해준다. 생성자에서 작성해주면 된다.
+  <p>프로필 이름을 통해 프로필을 설정해준다. 생성자에서 작성한다.
 GetCapsuleComponent는 Character를 상속받는 폰에서만 사용 가능하다.
 상속받지 않는다면 직접 Collision 컴포넌트를 생성해 설정해주어야 한다.</p>
-</blockquote>]]></content><author><name>Mohitto55</name></author><category term="ue5" /><category term="UE5" /><category term="Unreal Engine5" /><category term="Unreal Engine" /><category term="Trace Channel" /><summary type="html"><![CDATA[개요]]></summary></entry><entry><title type="html">[UE5] Unreal Insights 사용법</title><link href="http://localhost:4000/ue5/UE5-%EC%9D%B8%EC%82%AC%EC%9D%B4%ED%8A%B8-%EC%82%AC%EC%9A%A9%EB%B2%95/" rel="alternate" type="text/html" title="[UE5] Unreal Insights 사용법" /><published>2024-05-20T00:00:00+09:00</published><updated>2024-05-20T00:00:00+09:00</updated><id>http://localhost:4000/ue5/UE5%20%EC%9D%B8%EC%82%AC%EC%9D%B4%ED%8A%B8%20%EC%82%AC%EC%9A%A9%EB%B2%95</id><content type="html" xml:base="http://localhost:4000/ue5/UE5-%EC%9D%B8%EC%82%AC%EC%9D%B4%ED%8A%B8-%EC%82%AC%EC%9A%A9%EB%B2%95/"><![CDATA[<h2 id="프로파일링-profiling">프로파일링 (Profiling)</h2>
+</blockquote>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">GetCapsuleComponent</span><span class="p">()-&gt;</span><span class="nf">SetCollisionProfileName</span><span class="p">(</span><span class="nf">TEXT</span><span class="p">(</span><span class="s">"UECapsule"</span><span class="p">));</span>
+</code></pre></div></div>]]></content><author><name>Mohitto55</name></author><category term="ue5" /><category term="UE5" /><category term="Unreal Engine5" /><category term="Unreal Engine" /><category term="Trace Channel" /><summary type="html"><![CDATA[개요 트레이스 채널 생성 for 액션 판정 - ABAction 캐릭터 캡슐용 프로필 : ABAction 트레이스 채널에 반응 타입은 Pawn이다. 스켈레탈 메시용 프로필 - 주로 랙돌 구현 트리거용 프로필 : 폰 캡슐에만 반응, 타입은 WorldStaticd]]></summary></entry><entry><title type="html">[UE5] Unreal Insights 사용법</title><link href="http://localhost:4000/ue5/UE5-%EC%9D%B8%EC%82%AC%EC%9D%B4%ED%8A%B8-%EC%82%AC%EC%9A%A9%EB%B2%95/" rel="alternate" type="text/html" title="[UE5] Unreal Insights 사용법" /><published>2024-05-20T00:00:00+09:00</published><updated>2024-05-20T00:00:00+09:00</updated><id>http://localhost:4000/ue5/UE5%20%EC%9D%B8%EC%82%AC%EC%9D%B4%ED%8A%B8%20%EC%82%AC%EC%9A%A9%EB%B2%95</id><content type="html" xml:base="http://localhost:4000/ue5/UE5-%EC%9D%B8%EC%82%AC%EC%9D%B4%ED%8A%B8-%EC%82%AC%EC%9A%A9%EB%B2%95/"><![CDATA[<h2 id="프로파일링-profiling">프로파일링 (Profiling)</h2>
 <ul>
   <li>프로그래밍에서의 프로파일링이란 소프트웨어의 성능 분석을 말한다.</li>
   <li>프로그램의 메모리, CPU 사용량, 여러 이벤트 발생률들을 통계적으로 요약하여 보여준다.</li>
@@ -654,6 +687,8 @@ GetCapsuleComponent는 Character를 상속받는 폰에서만 사용 가능하�
 <blockquote>
   <p>빌드가 32비트인지 64비트인지 확인하기</p>
 </blockquote>
+
+<p><br /></p>
 
 <div class="Reference">
 <div class="callout-header"> </div>

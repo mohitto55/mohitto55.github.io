@@ -135,8 +135,8 @@ body {
   }
   /* paragraph indents */
   p {
-    margin: 0 0 $indent-var;
-
+    margin: 0 0 0;
+    margin-bottom: 0px;
     /* sibling indentation*/
     @if $paragraph-indent == true {
       & + p {
@@ -145,7 +145,17 @@ body {
       }
     }
   }
-
+  .div3 {
+    text-align: center;
+  }
+  
+  .div3 ul {
+    display: inline-block;
+  }
+  
+  .div3 ul li {
+    text-align: left;
+  }
   a:not(.btn) {
     &:hover {
       text-decoration: underline;
@@ -162,7 +172,7 @@ body {
     font-size: 0.8em;
     background: $code-background-color;
     border-radius: $border-radius;
-
+    color: $code-text-color;
     &::before,
     &::after {
       letter-spacing: -0.2em;
@@ -190,13 +200,14 @@ body {
   blockquote + .small {
     margin-top: -1.5em;
     padding-left: 1.25rem;
-    border-color: red;
+    border-color: #B4BEFE;
   }
 }
 
 blockquote {
-  border-color: red !important;
-  background-color:  !important;
+  border-color: $mohitto-color !important;
+  background-color: mix($mohitto-color, rgb(255, 255, 255), 20%)!important;
+  margin-top: 0px;
 }
 .page__hero {
   position: relative;

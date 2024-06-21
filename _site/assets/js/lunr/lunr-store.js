@@ -294,7 +294,7 @@ var store = [{
         "teaser": null
       },{
         "title": "[UE5] 트레이스 채널 사용법",
-        "excerpt":"개요 트레이스 채널 생성 for 액션 판정 - ABAction 캐릭터 캡슐용 프로필 : ABAction 트레이스 채널에 반응 타입은 Pawn이다. 스켈레탈 메시용 프로필 - 주로 랙돌 구현 트리거용 프로필 : 폰 캡슐에만 반응, 타입은 WorldStaticd 트레이스 채널 추가 Project Setting -&gt; Engine -&gt; Collision -&gt; New Trace Channel 프리셋 추가 아래...","categories": ["ue5"],
+        "excerpt":"개요 트레이스 채널 생성 for 액션 판정 - ABAction 캐릭터 캡슐용 프로필 : ABAction 트레이스 채널에 반응 타입은 Pawn이다. 스켈레탈 메시용 프로필 - 주로 랙돌 구현 트리거용 프로필 : 폰 캡슐에만 반응, 타입은 WorldStaticd 트레이스 채널 추가 Project Setting &gt; Engine &gt; Collision &gt; New Trace Channel 프리셋 추가 아래...","categories": ["ue5"],
         "tags": ["UE5","Unreal Engine5","Unreal Engine","Trace Channel"],
         "url": "/ue5/UE5-%ED%8A%B8%EB%A0%88%EC%9D%B4%EC%8A%A4-%EC%B1%84%EB%84%90-%EC%82%AC%EC%9A%A9%EB%B2%95/",
         "teaser": null
