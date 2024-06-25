@@ -146,7 +146,7 @@ var store = [{
         "title": "[Algorithm] Dynamic Programming(동적 계획법) 설명",
         "excerpt":"Dynamic Programming 다이나믹 프로그래밍이란 복잡한 문제를 여러개의 작은 문제로 나누고 값을 저장하여 푸는 방법을 말한다. 일반적으로 재귀 함수를 통해 이전 함수의 결과 값을 이용해 문제를 풀어나간다. 동적계획법 사용하는 이유 동적계획법은 재귀(Naive Recursion)함수와 비슷하다. 일반적인 재귀 함수는 같은 조건의 작은 문제들이 여러번 반복되어서 효율성이 낮다. 가장 대표적인 문제 중 하나인 피보나치...","categories": ["algorithm"],
         "tags": ["Algorithm","DP","Danamic Programming"],
-        "url": "/algorithm/%EB%8F%99%EC%A0%81%EA%B3%84%ED%9A%8D%EB%B2%95-%EC%84%A4%EB%AA%85/",
+        "url": "/algorithm/Dynamic%EB%8F%99%EC%A0%81%EA%B3%84%ED%9A%8D%EB%B2%95-%EC%84%A4%EB%AA%85/",
         "teaser": null
       },{
         "title": "[VScode] Snippet을 이용해 템플릿 사용하기",
@@ -303,5 +303,11 @@ var store = [{
         "excerpt":"개요 네트워크 기능이 있는 게임을 만들었는데 PIE상에서는 괜찮았는데 패키지를 하니 버그가 발생했다. 이게 네트워크에서 발생한 것인지 아니면 내부 구조 로직에서 충돌이 일어난 것인지 알길이 없어서 디버그를 해야만 했다. 언리얼 디버그에 관한 지식이 전무 했었기 때문에 이 기회에 패키지된 게임을 디버그하는 방법을 공부하여 정리하는 시간을 가져보았다. 사전 준비 디버깅을 위한 편집기...","categories": ["ue5"],
         "tags": ["UE5","Unreal Engine5","Unreal Engine","Debug","Package"],
         "url": "/ue5/UE5-%ED%8C%A8%ED%82%A4%EC%A7%80-%EB%94%94%EB%B2%84%EA%B7%B8/",
+        "teaser": null
+      },{
+        "title": "[UE5] Loading PreDefault Modules for Plugin 오류 해결하기",
+        "excerpt":"에러 현상 사용하던 5.3프로젝트를 5.4로 변경하고 Motion Matching을 연습 중이였는데 빌드하고 재시작하니 위와 같이 75%에서 계속 멈추고 진행이 되지 않았다. 해결 과정 Warning LogAnimation SkeletalMesh SkeletalMesh /Game/Characters/Mannequin_UE4/Meshes/SK_Mannequin.SK_Mannequin has no skeleton. This needs to fixed before an animation can be set Warning LogLinker [AssetLog] C:\\Users\\admin\\git\\UE5\\Multi\\Content\\MCO_Mocap_Basics\\Character\\Mesh\\UE4_Mannequin_Skeleton.uasset: Failed to load '/Engine/EngineMeshes/Humanoid': Can't find...","categories": ["ue5"],
+        "tags": ["UE5","Unreal Engine5","Unreal Engine","Plugin","Error","Motion Matching"],
+        "url": "/ue5/UE5-Modules-for-Plugin-%EC%98%A4%EB%A5%98-%ED%95%B4%EA%B2%B0/",
         "teaser": null
       }]

@@ -1,4 +1,32 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-06-21T22:52:50+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mohitto55 Note</title><subtitle>모히또의 노트</subtitle><author><name>Mohitto55</name></author><entry><title type="html">[UE5] 패키지된 게임 디버그 하는 법</title><link href="http://localhost:4000/ue5/UE5-%ED%8C%A8%ED%82%A4%EC%A7%80-%EB%94%94%EB%B2%84%EA%B7%B8/" rel="alternate" type="text/html" title="[UE5] 패키지된 게임 디버그 하는 법" /><published>2024-06-21T00:00:00+09:00</published><updated>2024-06-21T00:00:00+09:00</updated><id>http://localhost:4000/ue5/UE5%20%ED%8C%A8%ED%82%A4%EC%A7%80%20%EB%94%94%EB%B2%84%EA%B7%B8</id><content type="html" xml:base="http://localhost:4000/ue5/UE5-%ED%8C%A8%ED%82%A4%EC%A7%80-%EB%94%94%EB%B2%84%EA%B7%B8/"><![CDATA[<h1 id="개요">개요</h1>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-06-26T07:40:57+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mohitto55 Note</title><subtitle>모히또의 노트</subtitle><author><name>Mohitto55</name></author><entry><title type="html">[UE5] Loading PreDefault Modules for Plugin 오류 해결하기</title><link href="http://localhost:4000/ue5/UE5-Modules-for-Plugin-%EC%98%A4%EB%A5%98-%ED%95%B4%EA%B2%B0/" rel="alternate" type="text/html" title="[UE5] Loading PreDefault Modules for Plugin 오류 해결하기" /><published>2024-06-25T00:00:00+09:00</published><updated>2024-06-25T00:00:00+09:00</updated><id>http://localhost:4000/ue5/UE5%20Modules%20for%20Plugin%20%EC%98%A4%EB%A5%98%20%ED%95%B4%EA%B2%B0</id><content type="html" xml:base="http://localhost:4000/ue5/UE5-Modules-for-Plugin-%EC%98%A4%EB%A5%98-%ED%95%B4%EA%B2%B0/"><![CDATA[<h2 id="에러-현상">에러 현상</h2>
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/cdba9f11-665f-4a29-a248-84da8582661d" alt="image" />
+사용하던 5.3프로젝트를 5.4로 변경하고 Motion Matching을 연습 중이였는데 빌드하고 재시작하니 위와 같이 75%에서 계속 멈추고 진행이 되지 않았다.</p>
+
+<p><br /></p>
+<h2 id="해결-과정">해결 과정</h2>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Warning</span>      <span class="n">LogAnimation</span>              <span class="n">SkeletalMesh</span> <span class="n">SkeletalMesh</span> <span class="o">/</span><span class="n">Game</span><span class="o">/</span><span class="n">Characters</span><span class="o">/</span><span class="n">Mannequin_UE4</span><span class="o">/</span><span class="n">Meshes</span><span class="o">/</span><span class="n">SK_Mannequin</span><span class="p">.</span><span class="n">SK_Mannequin</span> <span class="n">has</span> <span class="n">no</span> <span class="n">skeleton</span><span class="p">.</span> <span class="n">This</span> <span class="n">needs</span> <span class="n">to</span> <span class="n">fixed</span> <span class="n">before</span> <span class="n">an</span> <span class="n">animation</span> <span class="n">can</span> <span class="n">be</span> <span class="n">set</span>
+<span class="n">Warning</span>      <span class="n">LogLinker</span>                 <span class="p">[</span><span class="n">AssetLog</span><span class="p">]</span> <span class="n">C</span><span class="o">:</span><span class="err">\</span><span class="n">Users</span><span class="err">\</span><span class="n">admin</span><span class="err">\</span><span class="n">git</span><span class="err">\</span><span class="n">UE5</span><span class="err">\</span><span class="n">Multi</span><span class="err">\</span><span class="n">Content</span><span class="err">\</span><span class="n">MCO_Mocap_Basics</span><span class="err">\</span><span class="n">Character</span><span class="err">\</span><span class="n">Mesh</span><span class="err">\</span><span class="n">UE4_Mannequin_Skeleton</span><span class="p">.</span><span class="n">uasset</span><span class="o">:</span> <span class="n">Failed</span> <span class="n">to</span> <span class="n">load</span> <span class="err">'</span><span class="o">/</span><span class="n">Engine</span><span class="o">/</span><span class="n">EngineMeshes</span><span class="o">/</span><span class="n">Humanoid</span><span class="err">'</span><span class="o">:</span> <span class="n">Can</span><span class="err">'</span><span class="n">t</span> <span class="n">find</span> <span class="n">file</span><span class="p">.</span>
+<span class="n">Warning</span>      <span class="n">LogLinker</span>                 <span class="p">[</span><span class="n">AssetLog</span><span class="p">]</span> <span class="n">C</span><span class="o">:</span><span class="err">\</span><span class="n">Users</span><span class="err">\</span><span class="n">admin</span><span class="err">\</span><span class="n">git</span><span class="err">\</span><span class="n">UE5</span><span class="err">\</span><span class="n">Multi</span><span class="err">\</span><span class="n">Content</span><span class="err">\</span><span class="n">MCO_Mocap_Basics</span><span class="err">\</span><span class="n">Character</span><span class="err">\</span><span class="n">Mesh</span><span class="err">\</span><span class="n">UE4_Mannequin_Skeleton</span><span class="p">.</span><span class="n">uasset</span><span class="o">:</span> <span class="n">VerifyImport</span><span class="o">:</span> <span class="n">Failed</span> <span class="n">to</span> <span class="n">load</span> <span class="n">package</span> <span class="k">for</span> <span class="n">import</span> <span class="n">object</span> <span class="err">'</span><span class="n">Package</span> <span class="o">/</span><span class="n">Engine</span><span class="o">/</span><span class="n">EngineMeshes</span><span class="o">/</span><span class="n">Humanoid</span><span class="err">'</span>
+<span class="n">Warning</span>      <span class="n">LogAnimation</span>              <span class="n">SkeletalMesh</span> <span class="n">SkeletalMesh</span> <span class="o">/</span><span class="n">Game</span><span class="o">/</span><span class="n">Characters</span><span class="o">/</span><span class="n">Mannequin_UE4</span><span class="o">/</span><span class="n">Meshes</span><span class="o">/</span><span class="n">SK_Mannequin</span><span class="p">.</span><span class="n">SK_Mannequin</span> <span class="n">has</span> <span class="n">no</span> <span class="n">skeleton</span><span class="p">.</span> <span class="n">This</span> <span class="n">needs</span> <span class="n">to</span> <span class="n">fixed</span> <span class="n">before</span> <span class="n">an</span> <span class="n">animation</span> <span class="n">can</span> <span class="n">be</span> <span class="n">set</span>
+</code></pre></div></div>
+<p>라이더에서 warning로그를 보니 캐릭터 메쉬쪽 오류로 보였다.
+모션매칭을 하느라 애니메이션, Animation Blueprint등을 이것저것 만졌는데 그게 오류가 발생한 것으로 생각되어 수정한 에셋들을 하나씩 꺼내보며 확인했다.</p>
+
+<p><br /></p>
+<h2 id="발생-원인-및-해결">발생 원인 및 해결</h2>
+<ul>
+  <li>ABP가 깨져서 생긴 미싱 문제때문에 빌드가 멈춘 것이였다.</li>
+  <li>삭제하고 새로운 ABP를 만드니 제대로 작동된다.
+<img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/ed7901e8-c95e-408e-a1d6-49db1e766d87" alt="image" /></li>
+</ul>
+
+<hr />
+
+<div class="Reference">
+<div class="callout-header"> </div>
+<p>
+</p>
+</div>]]></content><author><name>Mohitto55</name></author><category term="ue5" /><category term="UE5" /><category term="Unreal Engine5" /><category term="Unreal Engine" /><category term="Plugin" /><category term="Error" /><category term="Motion Matching" /><summary type="html"><![CDATA[에러 현상 사용하던 5.3프로젝트를 5.4로 변경하고 Motion Matching을 연습 중이였는데 빌드하고 재시작하니 위와 같이 75%에서 계속 멈추고 진행이 되지 않았다.]]></summary></entry><entry><title type="html">[UE5] 패키지된 게임 디버그 하는 법</title><link href="http://localhost:4000/ue5/UE5-%ED%8C%A8%ED%82%A4%EC%A7%80-%EB%94%94%EB%B2%84%EA%B7%B8/" rel="alternate" type="text/html" title="[UE5] 패키지된 게임 디버그 하는 법" /><published>2024-06-21T00:00:00+09:00</published><updated>2024-06-21T00:00:00+09:00</updated><id>http://localhost:4000/ue5/UE5%20%ED%8C%A8%ED%82%A4%EC%A7%80%20%EB%94%94%EB%B2%84%EA%B7%B8</id><content type="html" xml:base="http://localhost:4000/ue5/UE5-%ED%8C%A8%ED%82%A4%EC%A7%80-%EB%94%94%EB%B2%84%EA%B7%B8/"><![CDATA[<h1 id="개요">개요</h1>
 <p>네트워크 기능이 있는 게임을 만들었는데 PIE상에서는 괜찮았는데 패키지를 하니 버그가 발생했다.
 이게 네트워크에서 발생한 것인지 아니면 내부 구조 로직에서 충돌이 일어난 것인지 알길이 없어서 디버그를 해야만 했다.<br /> 언리얼 디버그에 관한 지식이 전무 했었기 때문에 이 기회에 패키지된 게임을 디버그하는 방법을 공부하여 정리하는 시간을 가져보았다.</p>
 
@@ -107,36 +135,7 @@
 <a href="https://velog.io/@liha_engineer/ue4start-4">https://velog.io/@liha_engineer/ue4start-4</a>
 <a href="https://mingyu0403.tistory.com/298">https://mingyu0403.tistory.com/298</a>
 </p>
-</div>]]></content><author><name>Mohitto55</name></author><category term="ue5" /><category term="UE5" /><category term="Unreal Engine5" /><category term="Unreal Engine" /><category term="Debug" /><category term="Package" /><summary type="html"><![CDATA[개요 네트워크 기능이 있는 게임을 만들었는데 PIE상에서는 괜찮았는데 패키지를 하니 버그가 발생했다. 이게 네트워크에서 발생한 것인지 아니면 내부 구조 로직에서 충돌이 일어난 것인지 알길이 없어서 디버그를 해야만 했다. 언리얼 디버그에 관한 지식이 전무 했었기 때문에 이 기회에 패키지된 게임을 디버그하는 방법을 공부하여 정리하는 시간을 가져보았다.]]></summary></entry><entry><title type="html">[UE5] C++ 폴더 추가하는 법</title><link href="http://localhost:4000/ue5/UE5-C++-%ED%8F%B4%EB%8D%94-%EC%83%9D%EC%84%B1%EB%B2%95/" rel="alternate" type="text/html" title="[UE5] C++ 폴더 추가하는 법" /><published>2024-05-20T00:00:00+09:00</published><updated>2024-05-20T00:00:00+09:00</updated><id>http://localhost:4000/ue5/UE5%20C++%20%ED%8F%B4%EB%8D%94%20%EC%83%9D%EC%84%B1%EB%B2%95</id><content type="html" xml:base="http://localhost:4000/ue5/UE5-C++-%ED%8F%B4%EB%8D%94-%EC%83%9D%EC%84%B1%EB%B2%95/"><![CDATA[<h1 id="개요">개요</h1>
-<p>언리얼엔진은 C++ Class 폴더가 존재한다. 이 폴더에서 프로젝트에 적용하는 모든 C++ 파일들이 들어가게 되는데 해당 폴더안에 폴더를 새로 생성하면 인식이 되지 않는 경우가 있다.</p>
-
-<p>이를 해결하기 위해선 언리얼이 감지할 수 있게 범위를 지정해 주어야한다.</p>
-
-<h2 id="폴더-감지-설정">폴더 감지 설정</h2>
-
-<p>C++ 파일은 모두 All/C++Classes 폴더 아래에 생성된다.
-언리얼엔진은 이 폴더안에 있는 C++ 파일은 감지하지만 안에 있는 폴더는 감지하지 못한다. 그래서 하위폴더도 감지할 수 있게 작업해 줘야한다.</p>
-
-<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/26460e8d-af22-41d4-83a3-b6da36e10d42" alt="image" /></p>
-<blockquote>
-  <p>프로젝트이름.Build.cs 파일로 이동해서 아래 코드 사진과 같이 삽입하기
-이는 이름에서 알 수 있듯이 언리얼 엔진의 Include 경로를 추가하는 코드다.</p>
-</blockquote>
-
-<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">PublicIncludePaths</span><span class="p">.</span><span class="n">AddRange</span><span class="p">(</span><span class="k">new</span> <span class="n">string</span><span class="p">[]</span> <span class="p">{</span> <span class="s">"StudyExample"</span> <span class="p">});</span>
-</code></pre></div></div>
-
-<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/0e087686-7bf8-4c2b-84aa-bd4071416da0" alt="image" /><em>코드 삽입시 모습</em></p>
-
-<div class="callout-info-expanded">
-<div class="callout-header">Build.cs 파일이 뭔가요?</div>
-<p>
-언리얼에는 모듈이라는 개념이 있는데 이는 언리얼 엔진의 기본 구성요소다.
-모듈을 여러개로 분리한 이유는 사용하지 않는 모듈도 컴파일 하면 빌드 시간이 오래 걸리에 분리한다. 
-
-Build.cs 파일은 이러한 모듈을 관리하는 cs파일로 모듈뿐 아니라 컴파일에 이용 하는 여러 설정을 제어한다.
-</p>
-</div>]]></content><author><name>Mohitto55</name></author><category term="ue5" /><category term="UE5" /><category term="Unreal Engine5" /><category term="Unreal Engine" /><category term="C++" /><summary type="html"><![CDATA[개요 언리얼엔진은 C++ Class 폴더가 존재한다. 이 폴더에서 프로젝트에 적용하는 모든 C++ 파일들이 들어가게 되는데 해당 폴더안에 폴더를 새로 생성하면 인식이 되지 않는 경우가 있다.]]></summary></entry><entry><title type="html">[UE5] 트레이스 채널 사용법</title><link href="http://localhost:4000/ue5/UE5-%ED%8A%B8%EB%A0%88%EC%9D%B4%EC%8A%A4-%EC%B1%84%EB%84%90-%EC%82%AC%EC%9A%A9%EB%B2%95/" rel="alternate" type="text/html" title="[UE5] 트레이스 채널 사용법" /><published>2024-05-20T00:00:00+09:00</published><updated>2024-05-20T00:00:00+09:00</updated><id>http://localhost:4000/ue5/UE5%20%ED%8A%B8%EB%A0%88%EC%9D%B4%EC%8A%A4%20%EC%B1%84%EB%84%90%20%EC%82%AC%EC%9A%A9%EB%B2%95</id><content type="html" xml:base="http://localhost:4000/ue5/UE5-%ED%8A%B8%EB%A0%88%EC%9D%B4%EC%8A%A4-%EC%B1%84%EB%84%90-%EC%82%AC%EC%9A%A9%EB%B2%95/"><![CDATA[<h2 id="개요">개요</h2>
+</div>]]></content><author><name>Mohitto55</name></author><category term="ue5" /><category term="UE5" /><category term="Unreal Engine5" /><category term="Unreal Engine" /><category term="Debug" /><category term="Package" /><summary type="html"><![CDATA[개요 네트워크 기능이 있는 게임을 만들었는데 PIE상에서는 괜찮았는데 패키지를 하니 버그가 발생했다. 이게 네트워크에서 발생한 것인지 아니면 내부 구조 로직에서 충돌이 일어난 것인지 알길이 없어서 디버그를 해야만 했다. 언리얼 디버그에 관한 지식이 전무 했었기 때문에 이 기회에 패키지된 게임을 디버그하는 방법을 공부하여 정리하는 시간을 가져보았다.]]></summary></entry><entry><title type="html">[UE5] 트레이스 채널 사용법</title><link href="http://localhost:4000/ue5/UE5-%ED%8A%B8%EB%A0%88%EC%9D%B4%EC%8A%A4-%EC%B1%84%EB%84%90-%EC%82%AC%EC%9A%A9%EB%B2%95/" rel="alternate" type="text/html" title="[UE5] 트레이스 채널 사용법" /><published>2024-05-20T00:00:00+09:00</published><updated>2024-05-20T00:00:00+09:00</updated><id>http://localhost:4000/ue5/UE5%20%ED%8A%B8%EB%A0%88%EC%9D%B4%EC%8A%A4%20%EC%B1%84%EB%84%90%20%EC%82%AC%EC%9A%A9%EB%B2%95</id><content type="html" xml:base="http://localhost:4000/ue5/UE5-%ED%8A%B8%EB%A0%88%EC%9D%B4%EC%8A%A4-%EC%B1%84%EB%84%90-%EC%82%AC%EC%9A%A9%EB%B2%95/"><![CDATA[<h2 id="개요">개요</h2>
 <ul>
   <li>트레이스 채널 생성 for 액션 판정 - ABAction</li>
   <li>캐릭터 캡슐용 프로필 : ABAction 트레이스 채널에 반응 타입은 Pawn이다.</li>
@@ -656,7 +655,36 @@ GetCapsuleComponent는 Character를 상속받는 폰에서만 사용 가능하�
 <p>
 <a href="https://lunchballer.com/archives/1741">https://lunchballer.com/archives/1741</a>
 </p>
-</div>]]></content><author><name>Mohitto55</name></author><category term="ue5" /><category term="UE5" /><category term="Unreal Engine5" /><category term="Unreal Engine" /><category term="Animation Retargeting" /><summary type="html"><![CDATA[개요 언리얼 마켓플레이스나 Mixamo를 둘러보다 보면 좋은 애니메이션들이 많다. 찾은 애니메이션을 다른 Skeleton에 적용시키려고하면 Skeleton이 일치하지 않아 사용할 수 없는데 Animation Retargeting은 다른 Skeleton에 애니메이션을 사용할 수 있게 만들어주는 기능이다.]]></summary></entry><entry><title type="html">[Visual Studio] LNK2019 함수에서 참조되는 확인할 수 없는 외부기호</title><link href="http://localhost:4000/vs/VS-%ED%95%A8%EC%88%98%EC%97%90%EC%84%9C-%EC%B0%B8%EC%A1%B0%EB%90%98%EB%8A%94-%ED%99%95%EC%9D%B8%ED%95%A0-%EC%88%98-%EC%97%86%EB%8A%94-%EC%99%B8%EB%B6%80%EA%B8%B0%ED%98%B8/" rel="alternate" type="text/html" title="[Visual Studio] LNK2019 함수에서 참조되는 확인할 수 없는 외부기호" /><published>2024-04-19T00:00:00+09:00</published><updated>2024-04-19T00:00:00+09:00</updated><id>http://localhost:4000/vs/VS%20%ED%95%A8%EC%88%98%EC%97%90%EC%84%9C%20%EC%B0%B8%EC%A1%B0%EB%90%98%EB%8A%94%20%ED%99%95%EC%9D%B8%ED%95%A0%20%EC%88%98%20%EC%97%86%EB%8A%94%20%EC%99%B8%EB%B6%80%EA%B8%B0%ED%98%B8</id><content type="html" xml:base="http://localhost:4000/vs/VS-%ED%95%A8%EC%88%98%EC%97%90%EC%84%9C-%EC%B0%B8%EC%A1%B0%EB%90%98%EB%8A%94-%ED%99%95%EC%9D%B8%ED%95%A0-%EC%88%98-%EC%97%86%EB%8A%94-%EC%99%B8%EB%B6%80%EA%B8%B0%ED%98%B8/"><![CDATA[<h2 id="설명">설명</h2>
+</div>]]></content><author><name>Mohitto55</name></author><category term="ue5" /><category term="UE5" /><category term="Unreal Engine5" /><category term="Unreal Engine" /><category term="Animation Retargeting" /><summary type="html"><![CDATA[개요 언리얼 마켓플레이스나 Mixamo를 둘러보다 보면 좋은 애니메이션들이 많다. 찾은 애니메이션을 다른 Skeleton에 적용시키려고하면 Skeleton이 일치하지 않아 사용할 수 없는데 Animation Retargeting은 다른 Skeleton에 애니메이션을 사용할 수 있게 만들어주는 기능이다.]]></summary></entry><entry><title type="html">[UE5] C++ 폴더 추가하는 법</title><link href="http://localhost:4000/ue5/UE5-C++-%ED%8F%B4%EB%8D%94-%EC%83%9D%EC%84%B1%EB%B2%95/" rel="alternate" type="text/html" title="[UE5] C++ 폴더 추가하는 법" /><published>2024-05-20T00:00:00+09:00</published><updated>2024-05-20T00:00:00+09:00</updated><id>http://localhost:4000/ue5/UE5%20C++%20%ED%8F%B4%EB%8D%94%20%EC%83%9D%EC%84%B1%EB%B2%95</id><content type="html" xml:base="http://localhost:4000/ue5/UE5-C++-%ED%8F%B4%EB%8D%94-%EC%83%9D%EC%84%B1%EB%B2%95/"><![CDATA[<h1 id="개요">개요</h1>
+<p>언리얼엔진은 C++ Class 폴더가 존재한다. 이 폴더에서 프로젝트에 적용하는 모든 C++ 파일들이 들어가게 되는데 해당 폴더안에 폴더를 새로 생성하면 인식이 되지 않는 경우가 있다.</p>
+
+<p>이를 해결하기 위해선 언리얼이 감지할 수 있게 범위를 지정해 주어야한다.</p>
+
+<h2 id="폴더-감지-설정">폴더 감지 설정</h2>
+
+<p>C++ 파일은 모두 All/C++Classes 폴더 아래에 생성된다.
+언리얼엔진은 이 폴더안에 있는 C++ 파일은 감지하지만 안에 있는 폴더는 감지하지 못한다. 그래서 하위폴더도 감지할 수 있게 작업해 줘야한다.</p>
+
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/26460e8d-af22-41d4-83a3-b6da36e10d42" alt="image" /></p>
+<blockquote>
+  <p>프로젝트이름.Build.cs 파일로 이동해서 아래 코드 사진과 같이 삽입하기
+이는 이름에서 알 수 있듯이 언리얼 엔진의 Include 경로를 추가하는 코드다.</p>
+</blockquote>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">PublicIncludePaths</span><span class="p">.</span><span class="n">AddRange</span><span class="p">(</span><span class="k">new</span> <span class="n">string</span><span class="p">[]</span> <span class="p">{</span> <span class="s">"StudyExample"</span> <span class="p">});</span>
+</code></pre></div></div>
+
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/0e087686-7bf8-4c2b-84aa-bd4071416da0" alt="image" /><em>코드 삽입시 모습</em></p>
+
+<div class="callout-info-expanded">
+<div class="callout-header">Build.cs 파일이 뭔가요?</div>
+<p>
+언리얼에는 모듈이라는 개념이 있는데 이는 언리얼 엔진의 기본 구성요소다.
+모듈을 여러개로 분리한 이유는 사용하지 않는 모듈도 컴파일 하면 빌드 시간이 오래 걸리에 분리한다. 
+
+Build.cs 파일은 이러한 모듈을 관리하는 cs파일로 모듈뿐 아니라 컴파일에 이용 하는 여러 설정을 제어한다.
+</p>
+</div>]]></content><author><name>Mohitto55</name></author><category term="ue5" /><category term="UE5" /><category term="Unreal Engine5" /><category term="Unreal Engine" /><category term="C++" /><summary type="html"><![CDATA[개요 언리얼엔진은 C++ Class 폴더가 존재한다. 이 폴더에서 프로젝트에 적용하는 모든 C++ 파일들이 들어가게 되는데 해당 폴더안에 폴더를 새로 생성하면 인식이 되지 않는 경우가 있다.]]></summary></entry><entry><title type="html">[Visual Studio] LNK2019 함수에서 참조되는 확인할 수 없는 외부기호</title><link href="http://localhost:4000/vs/VS-%ED%95%A8%EC%88%98%EC%97%90%EC%84%9C-%EC%B0%B8%EC%A1%B0%EB%90%98%EB%8A%94-%ED%99%95%EC%9D%B8%ED%95%A0-%EC%88%98-%EC%97%86%EB%8A%94-%EC%99%B8%EB%B6%80%EA%B8%B0%ED%98%B8/" rel="alternate" type="text/html" title="[Visual Studio] LNK2019 함수에서 참조되는 확인할 수 없는 외부기호" /><published>2024-04-19T00:00:00+09:00</published><updated>2024-04-19T00:00:00+09:00</updated><id>http://localhost:4000/vs/VS%20%ED%95%A8%EC%88%98%EC%97%90%EC%84%9C%20%EC%B0%B8%EC%A1%B0%EB%90%98%EB%8A%94%20%ED%99%95%EC%9D%B8%ED%95%A0%20%EC%88%98%20%EC%97%86%EB%8A%94%20%EC%99%B8%EB%B6%80%EA%B8%B0%ED%98%B8</id><content type="html" xml:base="http://localhost:4000/vs/VS-%ED%95%A8%EC%88%98%EC%97%90%EC%84%9C-%EC%B0%B8%EC%A1%B0%EB%90%98%EB%8A%94-%ED%99%95%EC%9D%B8%ED%95%A0-%EC%88%98-%EC%97%86%EB%8A%94-%EC%99%B8%EB%B6%80%EA%B8%B0%ED%98%B8/"><![CDATA[<h2 id="설명">설명</h2>
 <p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/74f27e43-22bf-4ab1-8e28-a4b93db44d36" alt="image" /></p>
 
 <p>보통 솔류션 파일을 직접 만들어 작업하지 않고 복사 붙여넣을 때 발생하는 오류다.</p>
@@ -997,407 +1025,4 @@ Scale을 적용하기 위해 <font color="dodgerred">아다마르 곱</font> 을
 <p>
 <a href="https://bloodstrawberry.tistory.com/1016">https://bloodstrawberry.tistory.com/1016</a>
 </p>
-</div>]]></content><author><name>Mohitto55</name></author><category term="unity" /><category term="Unity" /><category term="Mesh" /><category term="Cube" /><category term="UV" /><summary type="html"><![CDATA[유니티 큐브의 정점갯수는 기본적으로 24개다.]]></summary></entry><entry><title type="html">[Obsidian] CSS 적용하며 PDF로 내보내는법</title><link href="http://localhost:4000/obsidian/Obsidian-PDF-Export/" rel="alternate" type="text/html" title="[Obsidian] CSS 적용하며 PDF로 내보내는법" /><published>2024-04-06T00:00:00+09:00</published><updated>2024-04-06T00:00:00+09:00</updated><id>http://localhost:4000/obsidian/Obsidian%20PDF%20Export</id><content type="html" xml:base="http://localhost:4000/obsidian/Obsidian-PDF-Export/"><![CDATA[<h2 id="pdf-출력">PDF 출력</h2>
-<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/10ba20e0-7a36-4e9f-98d0-46aea8136612" alt="image" /></p>
-
-<p>옵시디언을 통해 내용을 정리하고 다양한 기능들을 이용해 꾸민뒤 PDF로 변환해야할 때가 있다. 그런데 이상하게도 css로 열심히 꾸며도 PDF로 출력만 하면은 제대로 적용이 되지 않은채 변환되곤한다.</p>
-
-<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/ee11d162-e739-44b9-b083-f7a466eb63c9" alt="image" /><em>같은 내용 다른 느낌</em></p>
-
-<p>어떻게든 CSS를 제대로 적용시키고 싶어서 ITEXT로 PDF로 변환도 해보고 기존 CSS를 수정하는 등 여러 시행착오를 거쳐서 변환 전 모습과 거의 비슷하게 만드는데 성공했다.</p>
-
-<h2 id="원인">원인</h2>
-<p>옵시디언에선 일반적인 노트에서 적용되는 css와 PDF 출력시 적용되는 css가 따로 있다. 그렇게 PDF로 적용되는 CSS는 <font color="dodgerred">@media print</font>라는 body 안에 작성되어야 한다. 나의 경우 AnuPpuccin 테마를 이용중인데 이 테마는 PDF 출력시 css 적용 기능을 대부분 지원하지 않고 있다. 왜 그런가 하니</p>
-
-<blockquote>
-  <p>afaik this is an issue with the default theme as well, though i’ve made some adjustments to make it more readable in dark mode. the major problem is that the white background cannot be changed with any kind of CSS.</p>
-  <ul>
-    <li><a href="https://github.com/AnubisNekhet/AnuPpuccin/issues/48">아누푸친 개발자</a></li>
-  </ul>
-</blockquote>
-
-<p>요약하면 흰 배경을 바꾸는 기능이 없다고 하는 것인데 아마 많은 기능이 이런 이유로 지원되지 않는 듯 싶다. 그런데 찾아보니 배경 색을 바꾸는 기능이 존재하였는데 테마 개발자가 몰랐든지 뭔가 이유가 있지 않을까 싶다.</p>
-
-<h2 id="pdf-출력-전용-css-작성">PDF 출력 전용 CSS 작성</h2>
-<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@media</span> <span class="n">print</span><span class="p">{</span>
-<span class="p">}</span>
-</code></pre></div></div>
-<p>PDF에서 적용되는 css를 작성하기 위해선 <code class="language-plaintext highlighter-rouge">@media print</code>안에서 작성해야 한다. 그럼 이안에 테마에서 쓰는 css를 모두 복사 붙여넣기 하면 되는 것 아닌가 싶지만 아쉽게도 되지 않았다. 그래서 내용을 모두 하나 하나 작성해야하는데 다행히도 누군가 템플릿을 하나 작성해주었다.</p>
-
-<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/* Obsidian snippet to style output of pdf exports
- */</span>
-
-<span class="k">@media</span> <span class="n">print</span> <span class="p">{</span>
-
-  <span class="c">/* set your preferred fonts here.
-   */</span>
-
-  <span class="nd">:root</span> <span class="p">{</span>
-    <span class="py">--body-font-family</span><span class="p">:</span> <span class="s1">"Newsreader Text"</span><span class="p">,</span> <span class="n">TimesNewRoman</span><span class="p">,</span> <span class="s1">"Times New Roman"</span><span class="p">,</span> <span class="n">Times</span><span class="p">,</span> <span class="n">Baskerville</span><span class="p">,</span> <span class="n">Georgia</span><span class="p">,</span> <span class="nb">serif</span><span class="p">;</span>
-    <span class="py">--header-font-family</span><span class="p">:</span> <span class="s1">"Century Gothic"</span><span class="p">,</span> <span class="n">CenturyGothic</span><span class="p">,</span> <span class="n">AppleGothic</span><span class="p">,</span> <span class="nb">sans-serif</span><span class="p">;</span>
-    <span class="py">--code-font-family</span><span class="p">:</span> <span class="n">MonoLisa</span><span class="p">,</span> <span class="n">Menlo</span><span class="p">,</span> <span class="n">SFMono-Regular</span><span class="p">,</span> <span class="n">Consolas</span><span class="p">,</span> <span class="s1">"Roboto Mono"</span><span class="p">,</span> <span class="nb">monospace</span><span class="p">;</span>
-  <span class="p">}</span>
-
-  <span class="nt">body</span> <span class="p">{</span>
-    <span class="nl">width</span><span class="p">:</span> <span class="m">100%</span> <span class="cp">!important</span><span class="p">;</span>
-    <span class="nl">margin</span><span class="p">:</span> <span class="m">0</span> <span class="cp">!important</span><span class="p">;</span>
-    <span class="nl">padding</span><span class="p">:</span> <span class="m">0</span> <span class="cp">!important</span><span class="p">;</span>
-    <span class="nl">background</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span>
-  <span class="p">}</span>
-
-  <span class="c">/* If you find your font settings ae not being used for an element,
-   * Add it below. You can fund the element by inspecting the document
-   * in "Reading" mode in the console.
-   */</span>
-  <span class="nt">body</span><span class="o">,</span> <span class="nt">p</span><span class="o">,</span> <span class="nt">li</span><span class="o">,</span> <span class="nt">div</span><span class="nc">.callout</span> <span class="p">{</span>
-    <span class="nl">line-height</span><span class="p">:</span> <span class="m">1.4</span><span class="p">;</span>
-    <span class="nl">word-spacing</span><span class="p">:</span> <span class="m">1.1pt</span><span class="p">;</span>
-    <span class="nl">letter-spacing</span><span class="p">:</span> <span class="m">0.2pt</span><span class="p">;</span>
-    <span class="nl">font-family</span><span class="p">:</span> <span class="n">var</span><span class="p">(</span><span class="n">--body-font-family</span><span class="p">);</span>
-    <span class="nl">font-size</span><span class="p">:</span> <span class="m">12pt</span>
-  <span class="p">}</span>
-
-  <span class="c">/* */</span>
-
-  <span class="nt">h1</span><span class="o">,</span> <span class="nt">h2</span><span class="o">,</span> <span class="nt">h3</span><span class="o">,</span> <span class="nt">h4</span><span class="o">,</span> <span class="nt">h5</span><span class="o">,</span> <span class="nt">h6</span> <span class="p">{</span>
-    <span class="nl">font-family</span><span class="p">:</span> <span class="n">var</span><span class="p">(</span><span class="n">--header-font-family</span><span class="p">);</span>
-    <span class="nl">font-weight</span><span class="p">:</span> <span class="nb">normal</span> <span class="cp">!important</span>
-  <span class="p">}</span>
-
-  <span class="nt">h1</span> <span class="p">{</span>
-    <span class="nl">font-size</span><span class="p">:</span> <span class="m">19pt</span> <span class="cp">!important</span>
-  <span class="p">}</span>
-
-  <span class="nt">h2</span> <span class="p">{</span>
-    <span class="nl">font-size</span><span class="p">:</span> <span class="m">17pt</span> <span class="cp">!important</span>
-  <span class="p">}</span>
-
-  <span class="nt">h3</span> <span class="p">{</span>
-    <span class="nl">font-size</span><span class="p">:</span> <span class="m">15pt</span> <span class="cp">!important</span>
-  <span class="p">}</span>
-
-  <span class="nt">h4</span><span class="o">,</span> <span class="nt">h5</span><span class="o">,</span> <span class="nt">h6</span> <span class="p">{</span>
-    <span class="nl">font-size</span><span class="p">:</span> <span class="m">12pt</span> <span class="cp">!important</span>
-  <span class="p">}</span>
-
-  <span class="nt">code</span><span class="o">,</span> <span class="nt">code</span><span class="o">[</span><span class="nt">class</span><span class="o">*=</span><span class="s1">"language-"</span><span class="o">],</span>
-  <span class="nt">pre</span><span class="o">,</span> <span class="nt">pre</span><span class="o">[</span><span class="nt">class</span><span class="o">*=</span><span class="s1">"language-"</span><span class="o">]</span> <span class="p">{</span>
-    <span class="nl">font-size</span><span class="p">:</span> <span class="m">10pt</span><span class="p">;</span>
-    <span class="nl">font-family</span><span class="p">:</span> <span class="n">var</span><span class="p">(</span><span class="n">--code-font-family</span><span class="p">);</span>
-    <span class="nl">color</span><span class="p">:</span> <span class="no">black</span> <span class="cp">!important</span><span class="p">;</span>
-    <span class="nl">background</span><span class="p">:</span> <span class="nb">none</span> <span class="cp">!important</span><span class="p">;</span>
-  <span class="p">}</span>
-
-  <span class="nt">pre</span><span class="o">,</span>
-  <span class="nt">code</span> <span class="nt">span</span><span class="o">,</span>
-  <span class="nt">code</span> <span class="p">{</span>
-    <span class="nl">color</span><span class="p">:</span> <span class="no">black</span> <span class="cp">!important</span>
-  <span class="p">}</span>
-
-  <span class="nt">code</span> <span class="p">{</span>
-    <span class="nl">border</span><span class="p">:</span> <span class="m">1px</span> <span class="nb">solid</span> <span class="no">darkgray</span> <span class="cp">!important</span><span class="p">;</span>
-    <span class="nl">padding</span><span class="p">:</span> <span class="m">0</span> <span class="m">0.2em</span> <span class="cp">!important</span><span class="p">;</span>
-    <span class="nl">line-height</span><span class="p">:</span> <span class="n">initial</span> <span class="cp">!important</span><span class="p">;</span>
-    <span class="nl">border-radius</span><span class="p">:</span> <span class="m">4px</span> <span class="cp">!important</span>
-  <span class="p">}</span>
-
-  <span class="nt">pre</span> <span class="p">{</span>
-    <span class="nl">border</span><span class="p">:</span> <span class="m">1px</span> <span class="nb">solid</span> <span class="no">darkgray</span> <span class="cp">!important</span><span class="p">;</span>
-    <span class="nl">margin</span><span class="p">:</span> <span class="m">1em</span> <span class="m">0px</span> <span class="cp">!important</span><span class="p">;</span>
-    <span class="nl">padding</span><span class="p">:</span> <span class="m">0.5em</span> <span class="cp">!important</span><span class="p">;</span>
-    <span class="nl">border-radius</span><span class="p">:</span> <span class="m">4px</span> <span class="cp">!important</span>
-  <span class="p">}</span>
-
-  <span class="nt">pre</span> <span class="o">&gt;</span> <span class="nt">code</span> <span class="p">{</span>
-    <span class="nl">font-size</span><span class="p">:</span> <span class="m">12px</span> <span class="cp">!important</span><span class="p">;</span>
-    <span class="nl">border</span><span class="p">:</span> <span class="nb">none</span> <span class="cp">!important</span><span class="p">;</span>
-    <span class="nl">border-radius</span><span class="p">:</span> <span class="m">0</span> <span class="cp">!important</span><span class="p">;</span>
-    <span class="nl">border-radius</span><span class="p">:</span> <span class="m">4px</span> <span class="cp">!important</span>
-  <span class="p">}</span>
-
-  <span class="nt">blockquote</span> <span class="p">{</span>
-    <span class="nl">margin</span><span class="p">:</span> <span class="m">1.3em</span><span class="p">;</span>
-    <span class="nl">padding</span><span class="p">:</span> <span class="m">1em</span><span class="p">;</span>
-    <span class="nl">font-size</span><span class="p">:</span> <span class="m">10pt</span><span class="p">;</span>
-    <span class="nl">color</span><span class="p">:</span> <span class="no">darkslategray</span> <span class="cp">!important</span>
-  <span class="p">}</span>
-
-  <span class="nt">hr</span> <span class="p">{</span>
-    <span class="nl">background-color</span><span class="p">:</span> <span class="m">#ccc</span>
-  <span class="p">}</span>
-
-  <span class="nt">img</span> <span class="p">{</span>
-    <span class="nl">display</span><span class="p">:</span><span class="nb">block</span><span class="p">;</span>
-    <span class="nl">margin</span><span class="p">:</span> <span class="m">1em</span> <span class="m">0</span>
-  <span class="p">}</span>
-
-  <span class="nt">a</span> <span class="nt">img</span> <span class="p">{</span>
-    <span class="nl">border</span><span class="p">:</span> <span class="nb">none</span>
-  <span class="p">}</span>
-
-  <span class="nt">table</span> <span class="p">{</span>
-    <span class="nl">margin</span><span class="p">:</span> <span class="m">1px</span><span class="p">;</span>
-    <span class="nl">text-align</span><span class="p">:</span> <span class="nb">left</span>
-  <span class="p">}</span>
-
-  <span class="nt">th</span> <span class="p">{</span>
-    <span class="nl">border-bottom</span><span class="p">:</span> <span class="m">1px</span> <span class="n">aolis</span> <span class="m">#333</span>
-  <span class="p">}</span>
-
-  <span class="nt">td</span> <span class="p">{</span>
-    <span class="nl">border-bottom</span><span class="p">:</span> <span class="m">1px</span> <span class="nb">solid</span> <span class="m">#333</span>
-  <span class="p">}</span>
-
-  <span class="nt">th</span><span class="o">,</span><span class="nt">td</span><span class="o">,</span> <span class="nt">tr</span> <span class="p">{</span>
-    <span class="nl">padding</span><span class="p">:</span> <span class="m">4px</span> <span class="m">10px</span> <span class="m">4px</span> <span class="m">0</span><span class="p">;</span>
-    <span class="nl">color</span><span class="p">:</span> <span class="no">black</span> <span class="cp">!important</span><span class="p">;</span>
-    <span class="nl">background</span><span class="p">:</span> <span class="nb">none</span> <span class="cp">!important</span>
-  <span class="p">}</span>
-
-  <span class="nt">tfoot</span> <span class="p">{</span>
-    <span class="nl">font-style</span><span class="p">:</span> <span class="nb">italic</span>
-  <span class="p">}</span>
-
-  <span class="nt">caption</span> <span class="p">{</span>
-    <span class="nl">background</span><span class="p">:</span> <span class="m">#fff</span><span class="p">;</span>
-    <span class="nl">margin-bottom</span><span class="p">:</span> <span class="m">2em</span><span class="p">;</span>
-    <span class="nl">text-align</span><span class="p">:</span> <span class="nb">left</span>
-  <span class="p">}</span>
-
-  <span class="nt">thead</span> <span class="p">{</span>
-    <span class="nl">display</span><span class="p">:</span> <span class="nb">table-header-group</span>
-  <span class="p">}</span>
-
-  <span class="nt">tr</span> <span class="p">{</span>
-    <span class="nl">page-break-inside</span><span class="p">:</span> <span class="nb">avoid</span>
-  <span class="p">}</span>
-
-  <span class="nt">a</span> <span class="p">{</span>
-    <span class="nl">text-decoration</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span>
-    <span class="nl">color</span><span class="p">:</span> <span class="no">black</span> <span class="cp">!important</span>
-  <span class="p">}</span>
-
-
-  <span class="nt">a</span><span class="o">[</span><span class="nt">aria-label</span><span class="o">]</span><span class="nd">::after</span> <span class="p">{</span>
-    <span class="nl">display</span><span class="p">:</span> <span class="nb">inline</span> <span class="cp">!important</span><span class="p">;</span>
-    <span class="nl">content</span><span class="p">:</span> <span class="s1">" ("</span> <span class="n">attr</span><span class="p">(</span><span class="n">aria-label</span><span class="p">)</span> <span class="s1">")"</span> <span class="cp">!important</span><span class="p">;</span>
-    <span class="nl">color</span><span class="p">:</span> <span class="no">slategray</span> <span class="cp">!important</span><span class="p">;</span>
-    <span class="nl">font-size</span><span class="p">:</span> <span class="m">70%</span> <span class="cp">!important</span><span class="p">;</span>
-  <span class="p">}</span>
-
-  <span class="nt">a</span><span class="o">[</span><span class="nt">class</span><span class="o">=</span><span class="s1">"tag"</span><span class="o">]</span> <span class="p">{</span>
-    <span class="nl">font-weight</span><span class="p">:</span> <span class="nb">bold</span><span class="p">;</span>
-    <span class="nl">font-family</span><span class="p">:</span> <span class="n">var</span><span class="p">(</span><span class="n">--font-monospace</span><span class="p">);</span>
-    <span class="nl">background</span><span class="p">:</span> <span class="nb">none</span>
-  <span class="p">}</span>
-
-  <span class="nc">.callout</span> <span class="p">{</span>
-    <span class="nl">background</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span>
-    <span class="nl">border-width</span><span class="p">:</span> <span class="m">1px</span><span class="p">;</span>
-    <span class="nl">border-color</span><span class="p">:</span> <span class="n">rgba</span><span class="p">(</span><span class="n">var</span><span class="p">(</span><span class="n">--callout-color</span><span class="p">),</span> <span class="m">0.75</span><span class="p">)</span>
-  <span class="p">}</span>
-
-  <span class="c">/* -=-=-=-=-=-=-
-   * Specific to custom checkboxes in @kepano's minimal theme
-   */</span>
-  <span class="nt">li</span><span class="o">[</span><span class="nt">data-task</span><span class="o">=</span><span class="s1">"/"</span><span class="o">]&gt;</span><span class="nt">input</span><span class="nd">:checked::after</span><span class="o">,</span>
-  <span class="nt">input</span><span class="o">[</span><span class="nt">type</span><span class="o">=</span><span class="nt">checkbox</span><span class="o">]</span><span class="nd">:checked::after</span> <span class="p">{</span>
-    <span class="nl">background-color</span><span class="p">:</span> <span class="no">black</span>
-  <span class="p">}</span>
-
-  <span class="nt">input</span><span class="o">[</span><span class="nt">type</span><span class="o">=</span><span class="nt">checkbox</span><span class="o">]</span><span class="nd">:checked</span> <span class="p">{</span>
-    <span class="nl">background</span><span class="p">:</span> <span class="nb">none</span>
-  <span class="p">}</span>
-
-  <span class="nt">ul</span><span class="o">&gt;</span><span class="nt">li</span><span class="nc">.task-list-item</span><span class="o">[</span><span class="nt">data-task</span><span class="o">=</span><span class="s1">"x"</span><span class="o">]</span> <span class="p">{</span>
-    <span class="nl">color</span><span class="p">:</span> <span class="no">black</span>
-  <span class="p">}</span>
-
-  <span class="nt">li</span><span class="o">[</span><span class="nt">data-task</span><span class="o">=</span><span class="s1">"!"</span><span class="o">]&gt;</span><span class="nt">input</span><span class="nd">:checked::after</span><span class="o">,</span>
-  <span class="nt">li</span><span class="o">[</span><span class="nt">data-task</span><span class="o">=</span><span class="s1">"*"</span><span class="o">]&gt;</span><span class="nt">input</span><span class="nd">:checked::after</span><span class="o">,</span>
-  <span class="nt">li</span><span class="o">[</span><span class="nt">data-task</span><span class="o">=</span><span class="s2">'"'</span><span class="o">]&gt;</span><span class="nt">input</span><span class="nd">:checked::after</span><span class="o">,</span>
-  <span class="nt">li</span><span class="o">[</span><span class="nt">data-task</span><span class="o">=</span><span class="s1">"l"</span><span class="o">]&gt;</span><span class="nt">input</span><span class="nd">:checked::after</span><span class="o">,</span>
-  <span class="nt">li</span><span class="o">[</span><span class="nt">data-task</span><span class="o">=</span><span class="s1">"b"</span><span class="o">]&gt;</span><span class="nt">input</span><span class="nd">:checked::after</span><span class="o">,</span>
-  <span class="nt">li</span><span class="o">[</span><span class="nt">data-task</span><span class="o">=</span><span class="s1">"i"</span><span class="o">]&gt;</span><span class="nt">input</span><span class="nd">:checked::after</span><span class="o">,</span>
-  <span class="nt">li</span><span class="o">[</span><span class="nt">data-task</span><span class="o">=</span><span class="s1">"S"</span><span class="o">]&gt;</span><span class="nt">input</span><span class="nd">:checked::after</span><span class="o">,</span>
-  <span class="nt">li</span><span class="o">[</span><span class="nt">data-task</span><span class="o">=</span><span class="s1">"I"</span><span class="o">]&gt;</span><span class="nt">input</span><span class="nd">:checked::after</span><span class="o">,</span>
-  <span class="nt">li</span><span class="o">[</span><span class="nt">data-task</span><span class="o">=</span><span class="s1">"p"</span><span class="o">]&gt;</span><span class="nt">input</span><span class="nd">:checked::after</span><span class="o">,</span>
-  <span class="nt">li</span><span class="o">[</span><span class="nt">data-task</span><span class="o">=</span><span class="s1">"c"</span><span class="o">]&gt;</span><span class="nt">input</span><span class="nd">:checked::after</span><span class="o">,</span>
-  <span class="nt">li</span><span class="o">[</span><span class="nt">data-task</span><span class="o">=</span><span class="s1">"f"</span><span class="o">]&gt;</span><span class="nt">input</span><span class="nd">:checked::after</span><span class="o">,</span>
-  <span class="nt">li</span><span class="o">[</span><span class="nt">data-task</span><span class="o">=</span><span class="s1">"k"</span><span class="o">]&gt;</span><span class="nt">input</span><span class="nd">:checked::after</span><span class="o">,</span>
-  <span class="nt">li</span><span class="o">[</span><span class="nt">data-task</span><span class="o">=</span><span class="s1">"w"</span><span class="o">]&gt;</span><span class="nt">input</span><span class="nd">:checked::after</span><span class="o">,</span>
-  <span class="nt">li</span><span class="o">[</span><span class="nt">data-task</span><span class="o">=</span><span class="s1">"u"</span><span class="o">]&gt;</span><span class="nt">input</span><span class="nd">:checked::after</span><span class="o">,</span>
-  <span class="nt">li</span><span class="o">[</span><span class="nt">data-task</span><span class="o">=</span><span class="s1">"d"</span><span class="o">]&gt;</span><span class="nt">input</span><span class="nd">:checked::after</span><span class="o">,</span>
-  <span class="nt">li</span><span class="o">[</span><span class="nt">data-task</span><span class="o">=</span><span class="s1">"?"</span><span class="o">]&gt;</span><span class="nt">input</span><span class="nd">:checked::after</span> <span class="p">{</span>
-    <span class="nl">background</span><span class="p">:</span> <span class="nb">none</span> <span class="cp">!important</span><span class="p">;</span>
-    <span class="nl">-webkit-mask-image</span><span class="p">:</span> <span class="nb">none</span> <span class="cp">!important</span>
-  <span class="p">}</span>
-  <span class="c">/* -=-=-=-=-=-=- */</span>
-
-<span class="p">}</span>
-</code></pre></div></div>
-<p><a href="https://gist.github.com/ScottKillen/499246e2f44fc1b59d8ff3795311f21f?permalink_comment_id=4503094">CSS 템플릿</a></p>
-
-<p>이것만으로도 많은 경우를 커버할 수 있지만 저것만으론 부족하다 그래서 다른 기능들도 추가로 작성해야한다.</p>
-
-<hr />
-
-<h3 id="백그라운드-컬러">백그라운드 컬러</h3>
-<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nc">.print</span> <span class="nc">.markdown-preview-view</span> <span class="p">{</span>
-    <span class="nl">background-color</span><span class="p">:</span> <span class="m">#1E1E2E</span><span class="p">;</span>
-    <span class="nl">color</span><span class="p">:</span> <span class="n">var</span><span class="p">(</span><span class="n">--text-normal</span><span class="p">);</span>
-  <span class="c">/* -=-=-=-=-=-=- */</span>
-<span class="p">}</span>
-</code></pre></div></div>
-<p>배경 색상을 바꾼다.</p>
-
-<hr />
-
-<h3 id="코드블럭-색상">코드블럭 색상</h3>
-<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/*코드블럭 색상 변경*/</span>
-  <span class="nt">code</span><span class="o">,</span> <span class="nt">code</span><span class="o">[</span><span class="nt">class</span><span class="o">*=</span><span class="s1">"language-"</span><span class="o">],</span>
-  <span class="nt">pre</span><span class="o">,</span> <span class="nt">pre</span><span class="o">[</span><span class="nt">class</span><span class="o">*=</span><span class="s1">"language-"</span><span class="o">]</span> <span class="p">{</span>
-    <span class="nl">font-size</span><span class="p">:</span> <span class="m">10pt</span><span class="p">;</span>
-    <span class="nl">font-family</span><span class="p">:</span> <span class="n">var</span><span class="p">(</span><span class="n">--code-font-family</span><span class="p">);</span>
-    <span class="nl">color</span><span class="p">:</span> <span class="m">#79C1CF</span> <span class="cp">!important</span><span class="p">;</span>
-    <span class="nl">background</span><span class="p">:</span> <span class="nb">none</span> <span class="cp">!important</span><span class="p">;</span>
-    <span class="nl">background-color</span><span class="p">:</span> <span class="m">#11111B</span> <span class="cp">!important</span><span class="p">;</span>
-    <span class="nl">margin</span><span class="p">:</span> <span class="m">0px</span> <span class="cp">!important</span><span class="p">;</span>
-  <span class="p">}</span>
-
-
-<span class="nc">.token.block-comment</span><span class="o">,</span>
-<span class="nc">.token.cdata</span><span class="o">,</span>
-<span class="nc">.token.comment</span><span class="o">,</span>
-<span class="nc">.token.doctype</span><span class="o">,</span>
-<span class="nc">.token.prolog</span> <span class="p">{</span>
-    <span class="nl">color</span><span class="p">:</span> <span class="m">#B2BADD</span> <span class="cp">!important</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="nc">.token.punctuation</span><span class="o">,</span>
-<span class="nc">.token.class-name</span> <span class="p">{</span>
-    <span class="nl">color</span><span class="p">:</span> <span class="m">#B2BADD</span> <span class="cp">!important</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="nc">.token.boolean</span><span class="o">,</span>
-<span class="nc">.token.constant</span><span class="o">,</span>
-<span class="nc">.token.deleted</span><span class="o">,</span>
-<span class="nc">.token.function-name</span><span class="o">,</span>
-<span class="nc">.token.number</span><span class="o">,</span>
-<span class="nc">.token.property</span><span class="o">,</span>
-<span class="nc">.token.symbol</span><span class="o">,</span>
-<span class="nc">.token.tag</span> <span class="p">{</span>
-    <span class="nl">color</span><span class="p">:</span> <span class="m">#79C1CF</span> <span class="cp">!important</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="nc">.token.entity</span><span class="o">,</span>
-<span class="nc">.token.operator</span><span class="o">,</span>
-<span class="nc">.token.url</span><span class="p">{</span>
-  <span class="nl">color</span><span class="p">:</span> <span class="m">#DF809B</span> <span class="cp">!important</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="nc">.token.keyword</span> <span class="p">{</span>
-  <span class="nl">color</span><span class="p">:</span> <span class="m">#EEBCE1</span> <span class="cp">!important</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="nc">.token.attr-name</span><span class="o">,</span>
-<span class="nc">.token.builtin</span><span class="o">,</span>
-<span class="nc">.token.char</span><span class="o">,</span>
-<span class="nc">.token.function</span><span class="o">,</span>
-<span class="nc">.token.inserted</span><span class="o">,</span>
-<span class="nc">.token.selector</span><span class="o">,</span>
-<span class="nc">.token.string</span><span class="o">,</span>
-<span class="nc">.token.variable</span>
- <span class="p">{</span>
-    <span class="nl">color</span><span class="p">:</span> <span class="m">#EED8A8</span> <span class="cp">!important</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="nc">.token.atrule</span><span class="o">,</span>
-<span class="nc">.token.attr-value</span><span class="o">,</span>
-<span class="nc">.token.class-name</span> <span class="p">{</span>
-  <span class="c">/*EED8A8*/</span>
-    <span class="nl">color</span><span class="p">:</span> <span class="m">#79C1CF</span> <span class="cp">!important</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="nc">.token.important</span><span class="o">,</span>
-<span class="nc">.token.regex</span> <span class="p">{</span>
-    <span class="nl">color</span><span class="p">:</span> <span class="m">#e90</span>
-<span class="p">}</span>
-</code></pre></div></div>
-<p>코드블럭 내부에 있는 다양한 글자 색상을 변경한다.</p>
-
-<hr />
-<h3 id="bold-italic-체-색상">Bold, Italic 체 색상</h3>
-<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nt">strong</span><span class="p">{</span>
-    <span class="nl">color</span> <span class="p">:</span><span class="m">#DF809B</span> <span class="cp">!important</span><span class="p">;</span>
-  <span class="p">}</span>
-
-  <span class="c">/*이태릭 색깔 정하기*/</span>
-  <span class="nt">em</span><span class="p">{</span>
-    <span class="nl">color</span><span class="p">:</span><span class="m">#A5E1A0</span> <span class="cp">!important</span><span class="p">;</span>
-  <span class="p">}</span>
-</code></pre></div></div>
-
-<hr />
-<h3 id="콜아웃-색상">콜아웃 색상</h3>
-<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nc">.callout</span> <span class="p">{</span>
-    <span class="nl">background</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span>
-    <span class="nl">border-width</span><span class="p">:</span> <span class="m">0px</span><span class="p">;</span>
-  <span class="p">}</span>
-  <span class="nc">.callout</span><span class="o">[</span><span class="nt">data-callout</span><span class="o">=</span><span class="nt">warning</span><span class="o">]</span><span class="p">{</span>
-    <span class="py">--ctp-background-yellow</span><span class="p">:</span> <span class="n">rgba</span><span class="p">(</span><span class="m">249</span><span class="p">,</span> <span class="m">226</span><span class="p">,</span> <span class="m">175</span><span class="p">,</span> <span class="m">0.15</span><span class="p">)</span> <span class="cp">!important</span><span class="p">;</span>
-    <span class="nl">color</span> <span class="p">:</span> <span class="n">rgba</span><span class="p">(</span><span class="m">249</span><span class="p">,</span> <span class="m">226</span><span class="p">,</span> <span class="m">175</span><span class="p">,</span> <span class="m">1</span><span class="p">)</span> <span class="cp">!important</span><span class="p">;</span>
-    <span class="nl">border-left-color</span><span class="p">:</span> <span class="n">rgba</span><span class="p">(</span><span class="m">249</span><span class="p">,</span> <span class="m">226</span><span class="p">,</span> <span class="m">175</span><span class="p">,</span> <span class="m">1</span><span class="p">)</span> <span class="cp">!important</span><span class="p">;</span>
-    <span class="nl">background-color</span><span class="p">:</span> <span class="n">var</span><span class="p">(</span><span class="n">--ctp-background-yellow</span><span class="p">)</span> <span class="cp">!important</span><span class="p">;</span>
-  <span class="p">}</span>
-  <span class="nc">.callout</span><span class="o">[</span><span class="nt">data-callout</span><span class="o">=</span><span class="nt">warning</span><span class="o">]</span> <span class="nc">.callout-title</span><span class="p">{</span>
-    <span class="nl">color</span><span class="p">:</span> <span class="n">rgba</span><span class="p">(</span><span class="m">249</span><span class="p">,</span> <span class="m">226</span><span class="p">,</span> <span class="m">175</span><span class="p">,</span> <span class="m">1</span><span class="p">)</span> <span class="cp">!important</span><span class="p">;</span>
-    <span class="py">--callout-color</span> <span class="p">:</span> <span class="n">rgba</span><span class="p">(</span><span class="m">249</span><span class="p">,</span> <span class="m">226</span><span class="p">,</span> <span class="m">175</span><span class="p">,</span> <span class="m">1</span><span class="p">)</span> <span class="cp">!important</span><span class="p">;</span>
-  <span class="p">}</span>
-
-  <span class="nc">.callout</span><span class="o">[</span><span class="nt">data-callout</span><span class="o">=</span><span class="nt">warning</span><span class="o">]</span> <span class="nc">.callout-title</span> <span class="nc">.callout-title-inner</span><span class="p">{</span>
-    <span class="nl">color</span><span class="p">:</span> <span class="n">rgba</span><span class="p">(</span><span class="m">249</span><span class="p">,</span> <span class="m">226</span><span class="p">,</span> <span class="m">175</span><span class="p">,</span> <span class="m">1</span><span class="p">)</span> <span class="cp">!important</span><span class="p">;</span>
-  <span class="p">}</span>
-
-  <span class="nc">.callout</span><span class="o">[</span><span class="nt">data-callout</span><span class="o">=</span><span class="nt">info</span><span class="o">]</span><span class="p">{</span>
-    <span class="py">--ctp-background-blue</span> <span class="p">:</span> <span class="n">rgba</span><span class="p">(</span><span class="m">148</span><span class="p">,</span><span class="m">226</span><span class="p">,</span><span class="m">213</span><span class="p">,</span> <span class="m">0.15</span><span class="p">)</span> <span class="cp">!important</span><span class="p">;</span>
-    <span class="nl">color</span> <span class="p">:</span> <span class="m">#94E2D5</span> <span class="cp">!important</span><span class="p">;</span>
-    <span class="nl">border-left-color</span><span class="p">:</span> <span class="m">#94E2D5</span> <span class="cp">!important</span><span class="p">;</span>
-    <span class="nl">background-color</span><span class="p">:</span> <span class="n">var</span><span class="p">(</span><span class="n">--ctp-background-blue</span><span class="p">)</span> <span class="cp">!important</span><span class="p">;</span>
-  <span class="p">}</span>
-  <span class="nc">.callout</span><span class="o">[</span><span class="nt">data-callout</span><span class="o">=</span><span class="nt">info</span><span class="o">]</span> <span class="nc">.callout-title</span><span class="p">{</span>
-    <span class="nl">color</span><span class="p">:</span> <span class="m">#94E2D5</span> <span class="cp">!important</span><span class="p">;</span>
-    <span class="py">--callout-color</span> <span class="p">:</span> <span class="m">#94E2D5</span> <span class="cp">!important</span><span class="p">;</span>
-  <span class="p">}</span>
-  <span class="nc">.callout</span><span class="o">[</span><span class="nt">data-callout</span><span class="o">=</span><span class="nt">info</span><span class="o">]</span> <span class="nc">.callout-title</span> <span class="nc">.callout-title-inner</span><span class="p">{</span>
-    <span class="nl">color</span><span class="p">:</span> <span class="m">#94E2D5</span> <span class="cp">!important</span><span class="p">;</span>
-  <span class="p">}</span>
-</code></pre></div></div>
-<p>콜아웃의 색을 변경한다.</p>
-
-<hr />
-<h3 id="임베드">임베드</h3>
-<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nt">a</span><span class="nc">.external-link</span> <span class="p">{</span>
-    <span class="nl">position</span><span class="p">:</span> <span class="nb">relative</span><span class="p">;</span>
-    <span class="nl">color</span><span class="p">:</span> <span class="n">var</span><span class="p">(</span><span class="n">--link-color</span><span class="p">)</span> <span class="cp">!important</span><span class="p">;</span>
-  <span class="p">}</span>
-  
-  <span class="nt">a</span><span class="nc">.external-link</span><span class="nd">:after</span> <span class="p">{</span>
-    <span class="nl">display</span><span class="p">:</span> <span class="nb">none</span> <span class="cp">!important</span><span class="p">;</span>
-  <span class="p">}</span>
-</code></pre></div></div>
-<p>하이퍼링크의 색상변경과 실제 주소를 가려준다.</p>
-
-<hr />
-
-<div class="Reference">
-<div class="callout-header"> </div>
-<p>
-<a href="https://gist.github.com/ScottKillen/499246e2f44fc1b59d8ff3795311f21f?permalink_comment_id=4503094">https://gist.github.com/ScottKillen/499246e2f44fc1b59d8ff3795311f21f?permalink_comment_id=4503094</a>
-<a href="https://forum.obsidian.md/t/how-to-style-the-pdf-with-media-print/9673">https://forum.obsidian.md/t/how-to-style-the-pdf-with-media-print/9673</a>
-<a href="https://kaminik.tistory.com/entry/CSS-Snippet-%EC%BD%94%EB%93%9C%EB%B8%94%EB%A1%9D-%EC%8A%A4%ED%83%80%EC%9D%BCLight-mode">https://kaminik.tistory.com/entry/CSS-Snippet-%EC%BD%94%EB%93%9C%EB%B8%94%EB%A1%9D-%EC%8A%A4%ED%83%80%EC%9D%BCLight-mode</a>
-<a href="https://github.com/AnubisNekhet/AnuPpuccin/issues/48">https://github.com/AnubisNekhet/AnuPpuccin/issues/48</a>
-<a href="https://forum.squarespace.com/topic/180631-how-do-you-change-color-of-italic-text-using-css/">https://forum.squarespace.com/topic/180631-how-do-you-change-color-of-italic-text-using-css/</a>
-<a href="https://forum.obsidian.md/t/external-link-hover-view-url/2876/4">https://forum.obsidian.md/t/external-link-hover-view-url/2876/4</a>
-</p>
-</div>]]></content><author><name>Mohitto55</name></author><category term="obsidian" /><category term="css" /><category term="html" /><category term="Obsidian" /><category term="PDF" /><category term="옵시디언" /><summary type="html"><![CDATA[PDF 출력]]></summary></entry></feed>
+</div>]]></content><author><name>Mohitto55</name></author><category term="unity" /><category term="Unity" /><category term="Mesh" /><category term="Cube" /><category term="UV" /><summary type="html"><![CDATA[유니티 큐브의 정점갯수는 기본적으로 24개다.]]></summary></entry></feed>
