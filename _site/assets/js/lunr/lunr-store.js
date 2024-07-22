@@ -30,7 +30,7 @@ var store = [{
         "teaser": null
       },{
         "title": "[UE5] 언리얼 리플렉션(Reflection) 알아보기",
-        "excerpt":"개요 언리얼 엔진을 사용하면 UPROPERTY를 자주 사용하게된다. 정확한 이유는 모르지만 에디터에 변수를 표시하고 싶으면 쓰라고 공부해서 아무생각 없이 작성했었는데, 멀티플레이 게임을 제작할 때 Replicate를 하려면 UPROPERTY를 필수로 붙인다던가 지속적으로 사용하는 변수에 UPROPERTY를 붙이지 않으면 잠깐 사용안하는 1초사이에 GC가 처리해서 오류가 발생한다고 지인한테 듣는 등 내가 생각한 것보다 상당히 복잡한 기능이...","categories": ["ue5"],
+        "excerpt":"개요 언리얼 엔진을 사용하면 UPROPERTY를 자주 사용하게된다. 정확한 이유는 모르지만 에디터에 변수를 표시하고 싶으면 쓰라고 공부해서 아무생각 없이 작성했었다. 그런데 사용할 수록 점점 의문이 들었는데 멀티플레이 게임을 제작할 때 Replicate를 하려면 UPROPERTY를 필수로 붙인다던가 지속적으로 사용하는 변수에 UPROPERTY를 붙이지 않으면 잠깐 사용안하는 1초사이에 GC가 처리해서 오류가 발생한다고 지인한테서 듣게되었다. 내가...","categories": ["ue5"],
         "tags": ["UnrealEngine","UE","Reflection","Property","UPROPERTY","C++"],
         "url": "/ue5/%EC%96%B8%EB%A6%AC%EC%96%BC-UPROPERTY/",
         "teaser": null
