@@ -1,0 +1,48 @@
+<p>Minimal-Mistakes 테마를 이용해 사이드바를 만들어 볼 것이다.</p>
+
+<h3 id="1-사이드바-옵션-설정">1. 사이드바 옵션 설정</h3>
+
+<p>사이드바를 만들기 전에 사이드바 내용을 정해줘야 한다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">_data/navigation.yml</code> 파일을 들어가자. <code class="language-plaintext highlighter-rouge">_data</code> 폴더는 블로그에서 사용할 데이터들을 모아 놓는 폴더이고 <code class="language-plaintext highlighter-rouge">navigation.yml</code>은 navigation에 필요한 데이터를 저장하는 파일이다.</p>
+
+<p>파일에 들어가면 <strong>main</strong> 이라고 쓰인 오브젝트가 있을 것이다. 네비게이션에 쓰일 기본 데이터다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>main:
+  - title: "Category"
+    url: /categories/
+  - title: "Tag"
+    url: /tags/
+</code></pre></div></div>
+<p>적혀 있는 걸 확인 했으면 다른 오브젝트를 하나더 만든다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>오브젝트이름:
+    - title: "대목차 이름"
+      children:
+        - title: "이름"
+          url: main 오브젝트 주소
+        - title: "Tag"
+          url: /tags/
+</code></pre></div></div>
+<p>이 오브젝트는 사이드바에 표시 될 목록 오브젝트다.</p>
+
+<p>여기에 쓰여진 대로 사이드바가 생성 될 것이다.</p>
+
+<hr />
+
+<h3 id="2-프론트매터-입력">2. 프론트매터 입력</h3>
+
+<p>이제 포스트 마크다운 파일로 가서 프론트매터를 작성한다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>---
+...
+
+author_profile: false
+sidebar:
+	nav: "navigation.yml에 쓴 오브젝트 이름"
+---
+</code></pre></div></div>
+<p>Profile이 사라지게 하기 위해 <code class="language-plaintext highlighter-rouge">author_profile</code>을 false로 설정해주고 <code class="language-plaintext highlighter-rouge">sidebar</code>을 추가해 아까 작성한 오브젝트의 이름을 넣어준다. 이제 로컬서버를 실행시켜서 확인을 해보면</p>
+
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/525e23a5-d127-4e75-aed2-f288870a0cda" alt="SideBar Category" /></p>
+
+<p>잘 적용 된 것을 볼 수 있다.</p>

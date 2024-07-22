@@ -1,0 +1,42 @@
+<h2 id="들어가며">들어가며</h2>
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/66918995-af63-45b2-8696-5bbf16e1e523" alt="image" /></p>
+
+<p>C#을 통해 작업하다보면 외부 라이브러리를 사용해야 할 경우가 있다.
+마침 적당한 라이브러리가 보여서 Nuget 패키지를 통해서 찾다보면 검색이 안되는 경우가 있다. 그래서 공식 사이트에가서 설치 방법을 알아보면 저런 설치 명령어가 있는 경우가 있다.</p>
+
+<p>필자도 Itext를 다운 받으려고 했는데 Nuget에서 Itext가 다운이 되지 않아 방법을 찾아보니 저런걸 발견했다. 결론은 C#은 ItextSharp 라는 버전을 따로 설치해야 했던 거지만 말이다.</p>
+
+<p>아무튼 CLI에 치면 될 것 처럼 생겼는데 일반 CMD에서 치면 적용이 안된다. 해당 명령어는 Nuget Package Manager Console이라고 Visual Studio 내부 명령어 창에서 사용해야 한다.</p>
+
+<h2 id="nuget-package-manager-console">Nuget Package Manager Console</h2>
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/b8fdf5fe-907f-43d7-8547-b980951828d3" alt="image" /></p>
+
+<p>콘솔창을 여는 방법은 도구 &gt; Nuget 패키지 관리자 &gt; 패키지 관리자 콘솔 을 누르면 하단 솔루션 창에 입력이 가능하다.
+ItextSharp 버전을 다운 받기위해 아래 명령어를 입력했다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Install-Package ItextSharp
+</code></pre></div></div>
+
+<hr />
+
+<h3 id="결과">결과</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PM&gt; Install-Package itextsharp
+C:\Users\admin\source\repos\ITEXT\ITEXT\ITEXT.csproj의 패키지를 복원하는 중...
+  CACHE https://api.nuget.org/v3/vulnerabilities/index.json
+  CACHE https://api.nuget.org/v3-vulnerabilities/2024.04.03.05.44.44/vulnerability.base.json
+  CACHE https://api.nuget.org/v3-vulnerabilities/2024.04.03.05.44.44/2024.04.04.17.44.54/vulnerability.update.json
+NuGet 패키지 itextsharp 5.5.13.3을(를) 설치하고 있습니다.
+자산 파일을 디스크에 쓰는 중입니다. 경로: C:\Users\admin\source\repos\ITEXT\ITEXT\obj\project.assets.json
+C:\Users\admin\source\repos\ITEXT\ITEXT\ITEXT.csproj을(를) 28밀리초 동안 복원했습니다.
+ITEXT에 'BouncyCastle 1.8.9'을(를) 설치했습니다.
+ITEXT에 'iTextSharp 5.5.13.3'을(를) 설치했습니다.
+Nuget 작업 실행 시간: 83밀리초
+경과 시간: 00:00:00.1162594
+</code></pre></div></div>
+<p>결과적으론 잘 다운되어 적용된다.</p>
+
+<div class="Reference">
+<div class="callout-header"> </div>
+<p>
+<a href="https://narup.tistory.com/123">https://narup.tistory.com/123</a>
+</p>
+</div>

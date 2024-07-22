@@ -1,0 +1,25 @@
+<p>ffmpeg는 터미널에서 사용하는</p>
+
+<h2 id="설치하기">설치하기</h2>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>winget install ffmpeg
+</code></pre></div></div>
+
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/078f4e07-fb3f-42f3-beb8-47f0b7f0c9c8" alt="스크린샷" /></p>
+
+<h3 id="convert">Convert</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ffmpeg -i source.dcrc result.mp4
+</code></pre></div></div>
+
+<h3 id="자막-추가하기">자막 추가하기</h3>
+<p>자막을 추가하기 위해선 *.ass 라는 자막 파일이 필요하다. 이 파일을 편집하는 툴로 aegisub가 있는데 <img src="https://aegisub.org/" alt="여기" />에서 다운 받을 수 있다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ffmpeg -i source.mp4 -vf subtitles=자막.ass result.mp4
+</code></pre></div></div>
+
+<div class="Reference">
+<div class="callout-header"> </div>
+<p>
+<a href="https://www.youtube.com/watch?v=z2iodiQW0fg&amp;t=4s">https://www.youtube.com/watch?v=z2iodiQW0fg&amp;t=4s</a>
+</p>
+</div>

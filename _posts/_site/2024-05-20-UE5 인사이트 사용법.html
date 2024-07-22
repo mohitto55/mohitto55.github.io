@@ -1,0 +1,114 @@
+<h2 id="프로파일링-profiling">프로파일링 (Profiling)</h2>
+<ul>
+  <li>프로그래밍에서의 프로파일링이란 소프트웨어의 성능 분석을 말한다.</li>
+  <li>프로그램의 메모리, CPU 사용량, 여러 이벤트 발생률들을 통계적으로 요약하여 보여준다.</li>
+  <li>프로파일링 툴을 이용하여 성능 취약점 부분을 찾아내어 보다 쉬운 최적화가 가능하다.</li>
+</ul>
+
+<h2 id="언리얼-인사이트">언리얼 인사이트</h2>
+<ul>
+  <li>언리얼의 프로파일링 툴이다.</li>
+  <li>다양한 퍼포먼스 데이터를 체크할 수 있다.</li>
+  <li>네트워크 통신 상태도 확인 가능하다.</li>
+</ul>
+
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/e9651a4e-a15b-4aa3-9d51-8d53c662a740" alt="image" /></p>
+
+<h2 id="로컬-게임-설정법">로컬 게임 설정법</h2>
+<h3 id="인사이트-실행하기">인사이트 실행하기</h3>
+<ul>
+  <li>언리얼 엔진 설치 폴더 확인
+    <ul>
+      <li>프로젝트 폴더가 아닌 <font color="dodgerred">프로그램 설치위치</font></li>
+      <li><code class="language-plaintext highlighter-rouge">C:\Program Files\Epic Games\UE_5.3\Engine\Binaries\Win64\UnrealInsights.exe</code>
+<img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/b2b71b52-4bf7-4383-8992-10772f62a3cd" alt="image" /></li>
+    </ul>
+  </li>
+  <li>인사이트 프로그램의 숏컷 생성
+    <ul>
+      <li>Win64 폴더안에 <code class="language-plaintext highlighter-rouge">UnrealInsights.exe</code> 파일 찾기</li>
+      <li>바로가기 만들거나 작업 표시줄 생성
+<img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/385f22a8-04ec-4722-9231-fb4dc54e743f" alt="image" /></li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<h3 id="환경-설정하기">환경 설정하기</h3>
+<ul>
+  <li>언리얼 에디터 실행 파일의 PATH 설정
+    <ul>
+      <li>설정 &gt; 시스템 &gt; 정보 &gt; 고급 시스템 설정 &gt; <font color="dodgerred">환경변수</font> &gt; admin 사용자 변수에서 <em>Path</em> 추가 혹은 편집으로 <code class="language-plaintext highlighter-rouge">C:\Program Files\Epic Games\UE_5.3\Engine\Binaries\Win64</code> 넣기</li>
+    </ul>
+  </li>
+</ul>
+
+<div class="callout-info-expanded">
+<div class="callout-header">환경변수</div>
+<p>
+환경 변수(Environment Variable) 란 프로세스가 컴퓨터에서 동작하는 방식에 영향을 미치는, 동적인 값들의 모임이다.
+환경변수 PATH는 실행시키려는 프로그램의 기본 경로를 말한다.
+</p>
+</div>
+
+<hr />
+
+<h3 id="인사이트-변수-설정">인사이트 변수 설정</h3>
+<ul>
+  <li>언리얼 에디터를 구동하기  위한 <font color="dodgerred">배치 파일</font> 제작
+    <ul>
+      <li>프로젝트 루트 폴더로 이동</li>
+      <li>NetworkInsightsEditor.bat 생성</li>
+      <li><code class="language-plaintext highlighter-rouge">UnrealEditor.exe %cd%\프로젝트.uproject 추가옵션</code> 작성</li>
+      <li>배치 파일 실행</li>
+      <li>경로 중에 뛰어쓰기가 있으면 안된다</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/89aab183-06c8-4bf0-bff2-5e81e43a07cb" alt="image" /><em>루트 폴더에 있는 bat 파일</em></p>
+
+<ul>
+  <li>-trace
+    <ul>
+      <li>활성화할 <font color="dodgerred">트레이스 채널</font>을 정하는 옵션이다.</li>
+      <li>아래는 활성 가능한 트레이스 채널종류이다.</li>
+      <li><code class="language-plaintext highlighter-rouge">Log,Bookmark,Frame,CPU,GPU,LoadTime,File,Net</code></li>
+      <li>트레이스 시스템을 이용해 최소한의 오버헤드로 높은 빈도의 이벤트 처리가 가능하다.
+<img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/74bdc30e-ea52-45aa-891f-2dbdf7494fae" alt="image" /></li>
+    </ul>
+  </li>
+  <li>트레이스 명령 옵션에 대한 자세한 설명은 아래 링크에서 확인
+    <ul>
+      <li><a href="https://docs.unrealengine.com/4.27/ko/TestingAndOptimization/PerformanceAndProfiling/UnrealInsights/Reference/">Trace Document</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="트레이스-기록-확인-호스트-설정">트레이스 기록 확인 호스트 설정</h2>
+<ul>
+  <li>이벤트 스트림은 소켓을 통해 호스팅되는 서버로 전송될 수 있다. (원격 프로파일링)</li>
+  <li>굳이 원격호스팅이 아니고 로컬이여도 프로파일링을 기록하기 위해선 본인 기기의 IP를 적용해주어야 한다.</li>
+</ul>
+
+<h4 id="변수-설정단계에서-지정하기">변수 설정단계에서 지정하기</h4>
+<ul>
+  <li>로컬 호스트가 아닌 다른 컴퓨터에서 실행되는 경우 <code class="language-plaintext highlighter-rouge">-tracehost=주소</code> 를 통해 호스트 주소 지정이 가능하다</li>
+</ul>
+
+<hr />
+
+<h4 id="gui에서-지정하기">GUI에서 지정하기</h4>
+<ul>
+  <li>Connection에 가서 호스트 IP 주소 입력후 Connect를 클릭한다.
+<img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/9f6bae44-7032-446f-bfdb-4537019192a6" alt="image" /></li>
+</ul>
+
+<hr />
+
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/c35ce651-f6fd-4230-a23c-b756f584228e" alt="스크린샷 2024-03-23 212051" /><em>Recoder 목록</em></p>
+
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/ce1cdba3-f6bb-44ea-947a-a77eae1d85eb" alt="스크린샷 2024-03-23 212108" /><em>CPU Stream</em></p>
+
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/eaf72e9b-3b19-4cf4-b328-09929d0bb771" alt="스크린샷 2024-03-23 212513" /><em>Net Stream</em></p>

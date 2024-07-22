@@ -1,0 +1,61 @@
+<h2 id="문제-발생">문제 발생</h2>
+<p>Github로 수정 내용을 저장소에 올리는 과정에서 특정 파일의 크기가 100MB가 넘어가면 Git에서 commit을 reject한다. 이를 해결 하기 위해선 100MB가 넘어가는 파일을 커밋하는 과정에서 <strong>제외</strong>하거나 <code class="language-plaintext highlighter-rouge">Git LFS</code>를 사용해야 한다.
+<img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/d780856e-da75-4942-856c-fe6b9299c5ce" alt="image" /></p>
+
+<h2 id="git-lfs">Git LFS</h2>
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/063e1bdd-53e2-4d4c-96a9-b65cddbac7b5" alt="image" /></p>
+
+<p>LFS로 관리 받는 파일은 실제 리포지토리가 아닌 다른 저장소로 옮겨지고 실제 리포지토리는 메타데이터를 통해 다른 저장소에 있는 파일을 가리키는 방식으로 대용량 파일을 관리한다.</p>
+
+<p>관리하는 파일 하나당 최대 크기가 있다. 해당 크기는 사용하는 GitHub Product에 따라 다르다.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Product</th>
+      <th>최대 파일 크기</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>GitHub Free</td>
+      <td>2GB</td>
+    </tr>
+    <tr>
+      <td>GitHub Pro</td>
+      <td>2GB</td>
+    </tr>
+    <tr>
+      <td>GitHub Team</td>
+      <td>4GB</td>
+    </tr>
+    <tr>
+      <td>GitHub Enterprise Cloud</td>
+      <td>5GB</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="사용법">사용법</h2>
+<h3 id="1-관리파일-설정">1. 관리파일 설정</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git lfs install
+$ git lfs track "파일명"
+$ git lfs track "*.png"
+</code></pre></div></div>
+<p>lfs를 다운 받고 추적하려는 파일을 설정한다.</p>
+
+<h3 id="2-gitattribute-파일-커밋">2. .gitattribute 파일 커밋</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git add .gitattribute
+$ git commit -m "Add gitattribute"
+$ git push -u origin main
+</code></pre></div></div>
+<p>파일을 track하면 <code class="language-plaintext highlighter-rouge">.gitattribute</code>라는 파일이 생성된다. 이 또한 커밋을 해줘야한다.</p>
+
+<div class="Reference">
+<div class="callout-header"> </div>
+<p>
+<a href="https://oneseat.tistory.com/entry/Github%EC%97%90-100MB%EA%B0%80-%EB%84%98%EB%8A%94-%ED%8C%8C%EC%9D%BC%EC%9D%84-%EC%B6%94%EA%B0%80%ED%95%A0-%EB%95%8C-%EC%83%9D%EA%B8%B0%EB%8A%94-%EB%AC%B8%EC%A0%9C-%ED%95%B4%EA%B2%B0%ED%95%98%EA%B8%B0">https://oneseat.tistory.com/</a>
+<a href="https://github.com/git-lfs/git-lfs">https://github.com/git-lfs/git-lfs</a>
+<a href="https://docs.github.com/ko/repositories/working-with-files/managing-large-files/about-git-large-file-storage">https://docs.github.com/ko/repositories/working-with-files/managing-large-files/about-git-large-file-storage</a>
+</p>
+</div>

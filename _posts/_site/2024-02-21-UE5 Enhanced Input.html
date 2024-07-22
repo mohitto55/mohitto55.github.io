@@ -1,0 +1,97 @@
+<h2 id="enhancedinput">EnhancedInput?</h2>
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/a97835eb-26a9-4120-8bd5-e04c51590fd8" alt="image" />
+EnhancedInput 시스템은 Unreal Engine5에 등장한 새로운 Input 시스템으로 기존 InputSystem 보다 더 나은 기능 및 확장성을 가졌다. 이 포스팅에서는 코드로 EngancedInput를 사용하는 법을 작성할 것이다.</p>
+
+<h2 id="enhancedinput-모듈준비">EnhancedInput 모듈준비</h2>
+<p>EnhancedInput은 코드로 작성할 수 있다. EnhancedInput 시스템을 사용하기 전에 먼저 모듈을 추가시켜줘야 한다.</p>
+
+<h3 id="1모듈이란">1.모듈이란</h3>
+<p>UEnhancedInputLocalPlayerSubSystem는 EnhancedInputSubsystems.h 헤더 안에 있다 이 헤더를 쓰기 위해선 모듈을 추가해줘야 한다.</p>
+
+<hr />
+<h3 id="2모듈추가">2.모듈추가</h3>
+<p>모듈은 플러그인을 빌드에 포함시키게 해주는 것으로 언리얼이 모든 플러그인이 아닌 필요한 플러그인만 빌드 시키게 함으로써 성능 향상 시켜준다.
+<img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/4f373422-5831-4b69-8cd3-cef821f8f859" alt="스크린샷 2024-02-21 125554" /></p>
+
+<p>플러그인은 <code class="language-plaintext highlighter-rouge">Engine/UE5/Plugins</code> 안에 있는 파일들에 볼 수 있으며 <code class="language-plaintext highlighter-rouge">프로젝트이름.Build.cs</code>파일에서 모듈을 관리할 수 있다.</p>
+
+<hr />
+<h3 id="3빌드-및-임시파일-초기화">3.빌드 및 임시파일 초기화</h3>
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/009474f9-35d1-42c5-b3df-e0fdcc9f2e49" alt="스크린샷 2024-02-21 130600" /></p>
+
+<p>추가 후 CTRL+SHIFT+B로 빌드 해주면 헤더를 사용할 수 있다.
+안되는 경우 컴파일시 생성되는 임시파일을 삭제해줘야 한다. 프로젝트 폴더에 가서 Binaries, Intermediate, Saved 폴더를 삭제한다.</p>
+
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/b3854688-4d87-46c1-8ef0-8fb827ebf289" alt="스크린샷 2024-02-21 130747" /></p>
+
+<p>그리고 프로젝트파일 우클릭 후 Generate Visual Studio project files를 눌러 삭제한 폴더들을 다시 만든다.</p>
+
+<h2 id="코드로-enhancedinput-작성">코드로 EnhancedInput 작성</h2>
+<h3 id="1-1-mappingcontext">1-1. MappingContext</h3>
+<p>코드로 사용하기 위해선 로컬플레이어 Input Subsystem인 <a href="https://docs.unrealengine.com/4.27/en-US/API/Plugins/EnhancedInput/UEnhancedInputLocalPlayerSubsyst-/">UEnhancedInputLocalPlayerSubSystem</a>이 필요하다.</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="n">UMyPlayer</span><span class="o">::</span><span class="n">BeginPlay</span><span class="p">()</span>
+<span class="p">{</span>
+	<span class="n">Super</span><span class="o">::</span><span class="n">BeginPlay</span><span class="p">();</span>
+	<span class="k">if</span> <span class="p">(</span><span class="n">APlayerController</span><span class="o">*</span> <span class="n">PlayerController</span> <span class="o">=</span> <span class="n">Cast</span><span class="o">&lt;</span><span class="n">APlayerController</span><span class="o">&gt;</span><span class="p">(</span><span class="n">GetController</span><span class="p">()))</span> <span class="p">{</span>
+		<span class="k">if</span> <span class="p">(</span><span class="n">UEnhancedInputLocalPlayerSubsystem</span><span class="o">*</span> <span class="n">Subsystem</span> <span class="o">=</span> <span class="n">ULocalPlayer</span><span class="o">::</span><span class="n">GetSubsystem</span><span class="o">&lt;</span> <span class="n">UEnhancedInputLocalPlayerSubsystem</span><span class="o">&gt;</span><span class="p">(</span><span class="n">PlayerController</span><span class="o">-&gt;</span><span class="n">GetLocalPlayer</span><span class="p">()))</span> <span class="p">{</span>
+			<span class="n">Subsystem</span><span class="o">-&gt;</span><span class="n">AddMappingContext</span><span class="p">(</span><span class="s">"MAPPING CONTEXT VARIABLE"</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<hr />
+<h3 id="1-2-component에서-사용할-시">1-2. Component에서 사용할 시</h3>
+<p><code class="language-plaintext highlighter-rouge">GetControll</code>메타함수는 <code class="language-plaintext highlighter-rouge">Pawn</code> 이하 클래스에서만 사용 할 수 있다. Component는 컨트롤러를 가지고 있지 않기 때문에 Pawn의 컨트롤러를 가져와야한다.</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">AController</span><span class="o">*</span> <span class="n">UGrabber</span><span class="o">::</span><span class="n">GetOwnerController</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span>
+	<span class="n">AActor</span><span class="o">*</span> <span class="n">Owner</span> <span class="o">=</span> <span class="n">GetOwner</span><span class="p">();</span>
+	<span class="k">if</span> <span class="p">(</span><span class="n">Owner</span><span class="p">)</span> <span class="p">{</span>
+		<span class="n">APawn</span><span class="o">*</span> <span class="n">PawnOwner</span> <span class="o">=</span> <span class="n">Cast</span><span class="o">&lt;</span><span class="n">APawn</span><span class="o">&gt;</span><span class="p">(</span><span class="n">Owner</span><span class="p">);</span>
+		<span class="k">if</span> <span class="p">(</span><span class="n">PawnOwner</span><span class="p">)</span> <span class="p">{</span>
+			<span class="k">return</span> <span class="n">PawnOwner</span><span class="o">-&gt;</span><span class="n">GetController</span><span class="p">();</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+	<span class="k">return</span> <span class="nb">nullptr</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>다만 게임설계상 컴포넌트에서 직접 하는 것 보단 컴포넌트를 관리하는 Actor에서 Input을 관리하는 것이 더 좋다.</p>
+
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/80ee01ac-c280-40ee-9989-3b32e152886b" alt="스크린샷 2024-02-21 170725" /></p>
+
+<p>위 과정을 BP로 할 경우 이렇게 된다.</p>
+
+<hr />
+
+<h3 id="2-inputaction-사용">2. InputAction 사용</h3>
+<p>이제 <code class="language-plaintext highlighter-rouge">MappingContext</code>를 시스템에 적용했으니 키를 누르면 InputAction 입력 값이 나올 것이다.
+InputAction의 값을 쓰고 싶으면 <a href="https://docs.unrealengine.com/4.26/en-US/API/Plugins/EnhancedInput/FInputActionValue/">FInputActionValue</a>타입 변수를 써야한다.</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">"InputActionValue.h"</span><span class="cp">
+</span><span class="kt">void</span> <span class="nf">Grab</span><span class="p">(</span><span class="k">const</span> <span class="n">FInputActionValue</span><span class="o">&amp;</span> <span class="n">Value</span><span class="p">);</span>
+</code></pre></div></div>
+
+<hr />
+
+<h3 id="3-바인딩-추가">3. 바인딩 추가</h3>
+<p>키가 입력 됬을 때 특정 함수를 실행 시키고 싶다면 <a href="https://docs.unrealengine.com/4.27/en-US/API/Plugins/EnhancedInput/UEnhancedInputComponent/">EnhancedInputComponent</a>를 사용하면 된다.</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">"EnhancedInputComponent.h"</span><span class="cp">
+#include</span> <span class="cpf">"Components/InputComponent.h"</span><span class="cp">
+</span>
+<span class="kt">void</span> <span class="n">UMyPlayer</span><span class="o">::</span><span class="n">SetupPlayerInputComponent</span><span class="p">(</span><span class="k">class</span> <span class="nc">UInputComponent</span><span class="o">*</span> <span class="n">PlayerInputComponent</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">if</span> <span class="p">(</span><span class="n">UEnhancedInputComponent</span><span class="o">*</span> <span class="n">EnhancedInputComponent</span> <span class="o">=</span> <span class="n">CastChecked</span><span class="o">&lt;</span><span class="n">UEnhancedInputComponent</span><span class="o">&gt;</span><span class="p">(</span><span class="n">PlayerInputComponent</span><span class="p">))</span> <span class="p">{</span>
+		<span class="n">EnhancedInputComponent</span><span class="o">-&gt;</span><span class="n">BindAction</span><span class="p">(</span><span class="n">GrabAction</span><span class="p">,</span><span class="n">ETriggerEvent</span><span class="o">::</span><span class="n">Started</span><span class="p">,</span> <span class="k">this</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">UGrabber</span><span class="o">::</span><span class="n">Grab</span><span class="p">);</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>PlayerController에 의해 호출되는  <a href="https://docs.unrealengine.com/4.27/en-US/API/Runtime/Engine/GameFramework/APawn/SetupPlayerInputComponent/">APawn::SetupPlayerInputComponent</a>함수에서 InputComponent를 EnhancedInputComponent로 캐스팅 후 키 입력시 발생할 함수를 바인딩 해준다.</p>
+
+<p>만약 CastChecked가 실패할 경우 게임이 크래시되어 종료한다.</p>
+
+<h2 id="page_with_curl-reference">:page_with_curl: Reference</h2>
+<blockquote>
+  <p><a href="https://www.youtube.com/watch?v=fW1pXOAIviw">UE5 C++ Enhanced Input-2 Bind C++ Functions to Input Actions</a>
+<a href="https://docs.unrealengine.com/5.0/ko/enhanced-input-in-unreal-engine/">UE5 - EnhancedInput 공식문서</a></p>
+</blockquote>

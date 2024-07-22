@@ -1,0 +1,208 @@
+<h2 id="개요">개요</h2>
+<ul>
+  <li>트레이스 채널 생성 for 액션 판정 - ABAction</li>
+  <li>캐릭터 캡슐용 프로필 : ABAction 트레이스 채널에 반응 타입은 Pawn이다.</li>
+  <li>스켈레탈 메시용 프로필 - 주로 랙돌 구현</li>
+  <li>트리거용 프로필 : 폰 캡슐에만 반응, 타입은 WorldStaticd</li>
+</ul>
+
+<hr />
+
+<h3 id="트레이스-채널-추가">트레이스 채널 추가</h3>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">Project Setting &gt; Engine &gt; Collision &gt; New Trace Channel</code>
+<img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/790c3cdb-0cc0-47c8-951b-2684e9ff83e0" alt="image" /></li>
+</ul>
+
+<hr />
+<h3 id="프리셋-추가">프리셋 추가</h3>
+
+<ul>
+  <li>아래 쪽 New를 통해 새 프리셋을 제작가능하다.
+<img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/4a377dfa-33c4-4d18-8413-a3b5894a3416" alt="image" /></li>
+</ul>
+
+<h3 id="트레이스-채널-확인법">트레이스 채널 확인법</h3>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">Config -&gt; DefaultEngine.ini</code> 에서 확인할 수 있다.</li>
+</ul>
+
+<h2 id="트레이싱-함수-선택">트레이싱 함수 선택</h2>
+<h3 id="카테고리-1-처리방법">카테고리 1: 처리방법</h3>
+
+<hr />
+
+<h3 id="카테고리2-대상">카테고리2: 대상</h3>
+<ul>
+  <li>Test : 무언가 감지되었는지 테스트</li>
+  <li>Single, AnyTest : 감지된 단일 물체 정보 반환</li>
+  <li>Multi : 감지된 모든 물체 정보 배열로 봔혼</li>
+</ul>
+
+<hr />
+
+<h3 id="카테고리3-처리설정">카테고리3: 처리설정</h3>
+<ul>
+  <li>ByChannel : 채널 이용한 감지</li>
+  <li>ByObjectType : 물리 타입 감지</li>
+  <li>ByProfile : 프로필 감지</li>
+</ul>
+
+<h2 id="공격-판정-구현">공격 판정 구현</h2>
+<ul>
+  <li>캐릭터 위치서 시선 방향 쪽 물체 감지</li>
+  <li>작은 구체 제작, 시선 방향 으로 투사</li>
+  <li>하나의 물체만 감지</li>
+  <li>트레이스 감지</li>
+</ul>
+
+<h2 id="터렛-애셋-구하기">터렛 애셋 구하기</h2>
+<p><a href="https://www.artstation.com/marketplace/p/8gMjY/capital-ship-turret">ArtStation - capital ship Turret | Game Assets</a></p>
+
+<hr />
+
+<h1 id="터렛-만들기">터렛 만들기</h1>
+<ul>
+  <li>플레이어가 일정 거리 안에 오면 플레이어 방향으로 회전하게 한다.</li>
+  <li>플레이어가 거리안에 오면 일정시간마다 공격을 한다.</li>
+  <li>터렛의 공격은 LineTrace로 판정하며 벽을 다 무시하고 오직 플레이어만 맞도록 한다.</li>
+</ul>
+
+<h2 id="공격-판정-구현-1">공격 판정 구현</h2>
+
+<h3 id="트레이스-채널-추가-1">트레이스 채널 추가</h3>
+<ul>
+  <li>트레이스 : 레이캐스트, 스위프 같이 트레이스를 통한 판정여부를 확인할 때 해당 채널에 대해서만 충돌 검사하도록 지정하는 레이어</li>
+  <li><code class="language-plaintext highlighter-rouge">Project Setting -&gt; Engine -&gt; Collision -&gt; New Trace Channel</code> 에서 채널을 추가한다.</li>
+  <li>트레이스 이름은 Attack와 디폴트 반응으로 Ignore설정</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Default Response</th>
+      <th><center>설명</center></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">Block</td>
+      <td>트레이스에 대해 모든 물체가 반응한다.</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Overlap</td>
+      <td>충돌은 일어나지 않지만 트리거 반응을 감지한다.</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Ignore</td>
+      <td>완전히 무시한다.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/4a93d8e7-9c7d-4583-93de-a421a3ca3455" alt="image" /></p>
+
+<hr />
+
+<h3 id="프로필-추가">프로필 추가</h3>
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/9ceb5829-48e8-4536-bd61-55f9046cdf8f" alt="image" /></p>
+
+<blockquote>
+  <p>프로필 - 특정 ObjectType이 다른 트레이스, 오브젝트간 충돌판정 여부가 있는 데이터</p>
+</blockquote>
+
+<ul>
+  <li>아래 쪽 Preset New를 통해 새 프로필 제작가능</li>
+  <li>CollisionEnabled : <font color="dodgerred">Collision</font>을 처리하는 방법에
+    <ul>
+      <li>
+        <font color="dodgerred">No Collision</font>
+        <p>: 충돌 없음. 움직이는 오브젝트에서 최적의 퍼포먼스를 낸다.</p>
+      </li>
+      <li>
+        <font color="dodgerred">Query Only</font>
+        <p>: 두 물체의 충돌 영역이 서로 겹치는지 테스트하는 설정. 충돌 영역의 겹침을 감지하는 것을 오버랩(Overlap) 이라고 부르며, 충돌 영역이 겹치면 관련 컴포넌트에 <em>BeginOverlap</em> 이벤트가 발생한다. 지정한 영역에 물체가 충돌하는지 탐지하는 레이캐스트(Raycast) 나 스윕(Sweep) 기능도 Query 에 속한다.</p>
+      </li>
+      <li>
+        <font color="dodgerred">Physics Only</font>
+        <p>: Simulate (RigidBody, Constraint) 에만 충돌을 처리. 본 단위의 감지가 필요치는 않은 캐릭터의 2차 시뮬레이션에 좋습니다.</p>
+      </li>
+      <li>
+        <font color="dodgerred">Collision Enabled</font>
+        <p>: Query와 Simulate를 다 사용합니다.</p>
+      </li>
+    </ul>
+  </li>
+  <li>ObjectType : 해당 프로필을 사용하는 콜리전 채널 설정
+    <ul>
+      <li>
+        <font color="dodgerred">WorldStatic</font>
+        <p>: 이동하지 않는 액터.</p>
+      </li>
+      <li>
+        <font color="dodgerred">WorldDynamic</font>
+        <p> : 열리는 문과 같이 애니메이션 또는 Kinematic 같은 코드의 영향을 받아 움직이는 액터 유형.</p>
+      </li>
+      <li>
+        <font color="dodgerred">Pawn</font>
+        <p>: 플레이어 캐릭터같은 Pawn 유형.</p>
+      </li>
+      <li>
+        <font color="dodgerred">PhysicsBody</font>
+        <p>: Physics Simulation으로 인해 움직이게 되는 캐릭터.</p>
+      </li>
+      <li>
+        <font color="dodgerred">Vehicle</font>
+        <p>: Vehicle 유형.</p>
+      </li>
+      <li>
+        <font color="dodgerred">Destructible</font>
+        <p>: 부술 수 있는 어떠한 오브젝트.</p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<h4 id="attack-트레이스-감지용-프리셋-설정">Attack 트레이스 감지용 프리셋 설정</h4>
+<ul>
+  <li>Name : UECapsule</li>
+  <li>CollisionEnabled : Query Only</li>
+  <li>ObjectType : Pawn</li>
+</ul>
+
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/9b48a11c-f0da-4f85-8b47-c3f8f685bcab" alt="Pasted image 20240421002830" /></p>
+
+<hr />
+
+<h3 id="트레이스-채널-확인법-1">트레이스 채널 확인법</h3>
+<ul>
+  <li>Config -&gt; DefaultEngine.ini 에서 확인</li>
+  <li>트레이스 채널 이름으로 검색하면 DefaultChannelResponses 부분에 <code class="language-plaintext highlighter-rouge">ECC_GameTraceChannel1</code>와 같은 트레이스 채널이 적혀있다.</li>
+</ul>
+
+<div class="callout-warning-expanded">
+<div class="callout-header">주의사항</div>
+<p>
+ECC트레이스 채널 이름 중 ECC_Engine과 같이 비슷한 이름들이 많다.
+ECC_GameTraceChannel 유형의 채널들을 선택해야한다.
+</p>
+</div>
+
+<hr />
+<h3 id="캐릭터의-트레이스-프로파일-설정">캐릭터의 트레이스 프로파일 설정</h3>
+<h4 id="에디터">에디터</h4>
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/42a8a974-0448-4406-9f75-5149e86ac974" alt="image" /></p>
+
+<h4 id="코드">코드</h4>
+
+<blockquote>
+  <p>프로필 이름을 통해 프로필을 설정해준다. 생성자에서 작성한다.
+GetCapsuleComponent는 Character를 상속받는 폰에서만 사용 가능하다.
+상속받지 않는다면 직접 Collision 컴포넌트를 생성해 설정해주어야 한다.</p>
+</blockquote>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">GetCapsuleComponent</span><span class="p">()-&gt;</span><span class="nf">SetCollisionProfileName</span><span class="p">(</span><span class="nf">TEXT</span><span class="p">(</span><span class="s">"UECapsule"</span><span class="p">));</span>
+</code></pre></div></div>
+

@@ -1,0 +1,94 @@
+<p><a href="https://www.acmicpc.net/problem/2629">BOJ 2629-양팔저울</a></p>
+
+<h2 id="문제">문제</h2>
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/b8f27588-2419-4e33-b6a8-55f07c43faea" alt="image" /></p>
+
+<div class="code-block1">
+예제 입력1
+<div class="language-cpp highlighter-rouge">
+<div class="highlight">
+<pre class="highlight"><code>2
+1 4
+2
+3 2</code></pre></div></div></div>
+
+<div class="code-block2">
+에제 출력1
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight">
+<code>Y N</code></pre></div></div></div>
+
+<div class="code-block1">
+예제 입력2
+<div class="language-cpp highlighter-rouge">
+<div class="highlight">
+<pre class="highlight"><code>4
+2 3 3 3
+3
+1 4 10</code></pre></div></div></div>
+
+<div class="code-block2">
+에제 출력2
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight">
+<code>Y Y N</code></pre></div></div></div>
+
+<h2 id="풀이">풀이</h2>
+<p>DP를 사용하여 푸는 문제다.</p>
+<ul>
+  <li>구슬의 무게 + 왼쪽 추의 무게합 = 우측 추의 무게 합 이 성립될 경우 Y를 출력하라는 문제이다.</li>
+  <li>그렇기에 <strong>구슬 무게 = 우측 추의 무게합 - 왼쪽 추의 무게합</strong>이 점화식이다.</li>
+  <li>추를 놓는 모든 경우의 수 중 <strong>우측 추의 무게합 - 왼쪽 추의 무게합</strong>이 존재 할 경우 해당 무게와 같은 무게인 구슬이 있으면 해당 구슬은 Y를 출력할 수 있다.</li>
+  <li>모든 경우의 수를 탐색할 경우 시간 초과가 발생할 수 있으므로 flag[무게합][i번 째 추]에 체크해서 중복되는 경우는 넘기도록 한다.</li>
+</ul>
+
+<h2 id="소스코드">소스코드</h2>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">"bits/stdc++.h"</span><span class="cp">
+</span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">weights</span><span class="p">[</span><span class="mi">31</span><span class="p">];</span>
+<span class="kt">int</span> <span class="n">beads</span><span class="p">[</span><span class="mi">31</span><span class="p">];</span>
+<span class="kt">int</span> <span class="n">answer</span><span class="p">[</span><span class="mi">50001</span><span class="p">];</span>
+<span class="kt">int</span> <span class="n">flag</span><span class="p">[</span><span class="mi">50001</span><span class="p">][</span><span class="mi">600</span><span class="p">];</span>
+
+
+<span class="kt">int</span> <span class="nf">DP</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span><span class="kt">int</span> <span class="n">c</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">if</span> <span class="p">(</span><span class="n">c</span> <span class="o">&gt;=</span> <span class="mi">50000</span><span class="p">)</span>
+		<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+	<span class="k">if</span> <span class="p">(</span><span class="n">flag</span><span class="p">[</span><span class="n">abs</span><span class="p">(</span><span class="n">c</span><span class="p">)][</span><span class="n">x</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
+		<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+	<span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="n">n</span><span class="p">)</span>
+		<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+	<span class="n">answer</span><span class="p">[</span><span class="n">abs</span><span class="p">(</span><span class="n">c</span><span class="p">)]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+	<span class="n">flag</span><span class="p">[</span><span class="n">abs</span><span class="p">(</span><span class="n">c</span><span class="p">)][</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+
+	<span class="n">DP</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">c</span> <span class="o">+</span> <span class="mi">0</span><span class="p">);</span>
+	<span class="n">DP</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">c</span> <span class="o">-</span> <span class="n">weights</span><span class="p">[</span><span class="n">x</span><span class="p">]);</span>
+	<span class="n">DP</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">c</span> <span class="o">+</span> <span class="n">weights</span><span class="p">[</span><span class="n">x</span><span class="p">]);</span>
+	<span class="k">return</span> <span class="n">abs</span><span class="p">(</span><span class="n">weights</span><span class="p">[</span><span class="n">x</span><span class="p">]);</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="n">ios_base</span><span class="o">::</span><span class="n">sync_with_stdio</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+	<span class="n">cin</span><span class="p">.</span><span class="n">tie</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+
+	<span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">n</span><span class="p">;</span>
+	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+		<span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">weights</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+	<span class="p">}</span>
+
+	<span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">m</span><span class="p">;</span>
+	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">m</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+		<span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">beads</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+	<span class="p">}</span>
+	<span class="n">answer</span><span class="p">[</span><span class="n">DP</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+
+	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">m</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">if</span> <span class="p">(</span><span class="n">answer</span><span class="p">[</span><span class="n">beads</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Y "</span><span class="p">;</span>
+		<span class="p">}</span>
+		<span class="k">else</span> <span class="p">{</span>
+			<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"N "</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>

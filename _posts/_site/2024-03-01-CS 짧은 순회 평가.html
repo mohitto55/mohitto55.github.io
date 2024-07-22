@@ -1,0 +1,34 @@
+<h2 id="short-circuit-evaluation">Short circuit evaluation</h2>
+<p>논리연산을 할 때 왼쪽 식부터 차례대로 논리평가를 하다가 만약 결과가 false일 경우 우측에 있는 식을 검증하지 않고 끝나는 것을 뜻한다. 왜 이런 것이 있을까 생각해보면 답은 간단하다. 이미 논리연산의 결과가 나왔기에 남은 논리평가를 실행할 이유가 없기 때문이다.</p>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">v</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">==</span> <span class="mi">5</span><span class="p">){}</span>
+</code></pre></div></div>
+<p>v의 length가 0일경우 만약 우측 논리 평가를 한다면 에러가 나올 테지만 v[0]이 0일 경우 false가 되고 <strong>AND(&amp;&amp;)연산자</strong>라 우측이 true,false 뭐가 되든 false일 테니 우측은 볼필요 없기에 <strong>생략</strong>한다.</p>
+
+<p>이렇듯 뒤의 계산의 결과 값이 어떻든 이미 값이 정해져서 논리평가를 생략하는 것이 <strong>짧은 순회 평가</strong>다.</p>
+
+<hr />
+<h3 id="발생하는-경우">발생하는 경우</h3>
+<ul>
+  <li>false <code class="language-plaintext highlighter-rouge">&amp;&amp;</code> <font color="dodgerred">true or false</font></li>
+  <li>true <code class="language-plaintext highlighter-rouge">&amp;&amp;</code> true or false</li>
+  <li>false <code class="language-plaintext highlighter-rouge">||</code> true or false</li>
+  <li>true <code class="language-plaintext highlighter-rouge">||</code> <font color="dodgerred">true or false</font></li>
+</ul>
+
+<p>빨간색 포인트가 생략되는 부분이다.</p>
+
+<div class="callout-warning-expanded">
+<div class="callout-header">주의사항</div>
+<p>
+만약 생략되는 구간에 command 함수가 들어가면 함수가 실행이 되지 않아 로직이 깨지는 side effect가 생길 수 있다. 이런 경우는 if 문 안이 아닌 밖에서 따로 실행 해줘야 한다.
+</p>
+</div>
+<hr />
+
+<div class="Reference">
+<div class="callout-header"> </div>
+<p>
+<a href="https://en.wikipedia.org/wiki/Short-circuit_evaluation">https://en.wikipedia.org/wiki/Short-circuit_evaluation</a>
+<a href="https://80000coding.oopy.io/2283e1be-93c5-4f00-ac7a-83bcb7dcad0d">https://80000coding.oopy.io/2283e1be-93c5-4f00-ac7a-83bcb7dcad0d</a>
+</p>
+</div>

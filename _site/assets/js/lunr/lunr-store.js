@@ -316,4 +316,10 @@ var store = [{
         "tags": ["UE5","Unreal Engine5","Unreal Engine","Plugin","Error","Motion Matching"],
         "url": "/ue5/UE5-Modules-for-Plugin-%EC%98%A4%EB%A5%98-%ED%95%B4%EA%B2%B0/",
         "teaser": null
+      },{
+        "title": "[CS] 컴퓨터에서 문자를 표현하는 방법",
+        "excerpt":"문자 집합과 인코딩 문자집합 컴퓨터가 인식할 수 있는 문자의 모음이다. 인코딩 문자를 0과 1로 변환해 컴퓨터가 이해할 수 있는 정보로 변환하는 과정이다. 디코딩 0과1을 사람이 이해하는 문자로 변환하는 과정이다. 아스키 코드 초창기 문자집합이다. 7비트로 표현할 수 있는 문자는 총 128개이다. 표현 가능한 수가 적기 때문에 한글을 표현할 수 없다. 확장...","categories": ["computerscience"],
+        "tags": ["인코딩","디코딩","유니코드","아스키코드","Unicode","ASCII","Encode","Decode","ECU-KR","UTF-8","UTF-16","UTF-32"],
+        "url": "/computerscience/%EB%AC%B8%EC%9E%90%EB%A5%BC-%ED%91%9C%ED%98%84%ED%95%98%EB%8A%94-%EC%9D%B8%EC%BD%94%EB%94%A9%EA%B3%BC-%EC%9C%A0%EB%8B%88%EC%BD%94%EB%93%9C/",
+        "teaser": null
       }]

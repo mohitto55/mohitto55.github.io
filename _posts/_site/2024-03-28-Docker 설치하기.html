@@ -1,0 +1,42 @@
+<h2 id="도커-다운받기">도커 다운받기</h2>
+<h3 id="1-우분투-시스템-패키지-업데이트">1. 우분투 시스템 패키지 업데이트</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get update
+</code></pre></div></div>
+
+<h3 id="2-필요한-패키지-설치">2. 필요한 패키지 설치</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+</code></pre></div></div>
+
+<h3 id="3-docker의-공식-gpg키를-추가">3. Docker의 공식 GPG키를 추가</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+</code></pre></div></div>
+
+<h3 id="4-docker의-공식-apt-저장소를-추가">4. Docker의 공식 apt 저장소를 추가</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+</code></pre></div></div>
+
+<h3 id="5-시스템-패키지-업데이트">5. 시스템 패키지 업데이트</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get update
+</code></pre></div></div>
+
+<h3 id="6-docker-설치">6. Docker 설치</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get install docker-ce docker-ce-cli containerd.io
+</code></pre></div></div>
+
+<h3 id="7-docker가-설치-확인">7. Docker가 설치 확인</h3>
+<p>7-1 도커 버전 확인</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker -v
+</code></pre></div></div>
+
+<p>7-2 도커 실행상태 확인</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo systemctl status docker
+</code></pre></div></div>
+
+<hr />
+
+<div class="Reference">
+<div class="callout-header"> </div>
+<p>
+<a href="https://may9noy.tistory.com/392">https://may9noy.tistory.com/392</a>
+</p>
+</div>

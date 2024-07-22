@@ -1,0 +1,40 @@
+<h2 id="들어가며">들어가며</h2>
+<p>Docker를 사용하기 위해 알아보던 중 Hyper-V 기능을 활성화 해야하는 것을 알았다. 활성화 하려고 했지만 아무리 찾아도 보이지 않았다. 어찌된 것인지 알아보니 Window Pro 이상의 버전만 지원하는 기능이였고 난 Home였기에 할 수 없었다.</p>
+
+<p>어떻게든 방법을 찾던 와중 Window에서 Linux 환경을 실행할 수 있는 기능이 있었고 이를 이용하면 Docker도 설치할 수 있다는 것을 알았다.</p>
+
+<h2 id="wsl2">WSL2</h2>
+<p>WSL2(Window Service for Linux)는 Window에서 <strong>Linux Vritual Machine</strong> 환경을 구성할 수 있게 해주는 기능이다. MS에서 지원하는 기능으로 과거에 비해 제약이 많이 줄어 Window 환경만 최신으로 해놨다면 큰 무리 없이 설치할 수 있을 것이다.</p>
+
+<hr />
+
+<h3 id="설치하기">설치하기</h3>
+<p>우선 제어판 &gt; 프로그램 &gt; Windows 기능 켜기/끄기 에서 Linux용 Windows 하위 시스템을 활성화한다.</p>
+
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/c7cfecd1-3618-42a2-b85e-a611e472df2a" alt="스크린샷 2024-03-22 223031" /></p>
+
+<p>그 후 PowerShell을 관리자 권한으로 실행시킨다.</p>
+
+<p>아래 명령어를 입력해 WSL을 설치한다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wsl --install
+</code></pre></div></div>
+<p>그러고 난 후 재부팅을 하고 나면 자동으로 Ubuntu가 설치되고 있을 것이다.</p>
+
+<p>그렇지 않다면 PowerShell에서 아래 명령어를 입력한다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wsl --install -d Ubuntu
+</code></pre></div></div>
+
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/6be99b3f-7460-4fb1-ac05-c316519b24e6" alt="스크린샷 2024-03-22 223448" /></p>
+
+<h2 id="마무리">마무리</h2>
+<p>이것으로 Window에서 Linux 환경을 구성했다. 이 것으로 다양한 프로젝트를 진행해볼 것이다.</p>
+
+<hr />
+
+<div class="Reference">
+<div class="callout-header"> </div>
+<p>
+<a href="https://docs.docker.com/desktop/wsl/">https://docs.docker.com/desktop/wsl/</a>
+<a href="https://velog.io/@darktrace1/%EC%9C%88%EB%8F%84%EC%9A%B011%EC%97%90-UbuntuWSL2-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0">https://velog.io/@darktrace1/%EC%9C%88%EB%8F%84%EC%9A%B011%EC%97%90-UbuntuWSL2-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0</a>
+</p>
+</div>

@@ -1,0 +1,28 @@
+<h2 id="들어가며">들어가며</h2>
+<p><code class="language-plaintext highlighter-rouge">docker exec -it mysql-container bash</code> 를 통해 MySql 컨테이너에 진입하려고 했는데 <code class="language-plaintext highlighter-rouge">Error response from daemon: container id is not running</code> 라는 오류가 나오며 실행되지 않았다.</p>
+
+<h2 id="도커-컨테이너-접속시-오류">도커 컨테이너 접속시 오류</h2>
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/35339eca-e852-42ca-9642-59a6c69e6e32" alt="image" /></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Error response from daemon: container 1a0ab9fe9da2301b1d7959614ad2e8335ae745cf9b72a2b0394474236526557c is not running
+</code></pre></div></div>
+<p>이것은 컨테이너 접속전행전 도커 이미지가 실행되고 있지 않아서 일어나는 오류로 아래 명령어를 통해서 이미지를 런 시킨다.</p>
+
+<p>콘테이너 시작시켜주 면 됨
+sudo docker container start mysql-container</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo docker exec -it mysql-container bash
+</code></pre></div></div>
+<p>도커 컨테이너 접속하기</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysql -u root -p
+</code></pre></div></div>
+<p>루트권한에 접근하기</p>
+
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/64449571/7d89434e-6c5a-44e6-b812-7794738c5831" alt="image" /></p>
+
+<div class="Reference">
+<div class="callout-header"> </div>
+<p>
+<a href="https://nirsa.tistory.com/55">https://nirsa.tistory.com/55</a>
+</p>
+</div>

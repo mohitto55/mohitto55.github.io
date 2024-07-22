@@ -1,0 +1,78 @@
+<p>폴더를 알아야 최적화 어쩌구 해서 정리해본다</p>
+
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/f497b94b-a94d-492f-bebc-bb0e864c4e75" alt="image" /><em>aaa</em></p>
+
+<h2 id="중요한-폴더">중요한 폴더</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">파일 및 폴더</th>
+      <th><center>설명</center></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">Config</td>
+      <td>- 프로젝트의 환경 설정 값을 보관하는 곳<br />- 지우면 기본 설정 값으로 바뀐다</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Content</td>
+      <td>- 프로젝트에서 사용하는 .uasset 파일들이 있는 폴더</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Source</td>
+      <td>- C++ 소스가 있는 폴더<br />- <strong>모듈</strong> 소스와 빌드 파이프라인 C# 소스도 있다.</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">.uproject파일</td>
+      <td>- 언리얼 에디터를 구동 시키는 JSON 파일</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Saved</td>
+      <td>- 지워도 되지만 지우지 않는 것이 좋다.<br />- 프로젝트 임시 파일들이 저장되는 곳으로, 자동 저장, 스크린샷, 빌드 파일, 백업 임시파일, 로그 등 많은 파일이 들어가있다.<br />- 언리얼 사용 시 작업 효율성 높이거나 복구작업, 문제 확인등 활용성이 높다. <br />- 작업길어지고 패키징까지 할 시 용량이 꽤 크다</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="안-중요한-폴더">안 중요한 폴더</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">파일 및 폴더</th>
+      <th><center>설명</center></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">Binaries</td>
+      <td>- 컴파일 도중 생성되는 실행 파일이나 기타파일이 있다.</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Intermediate</td>
+      <td>- 엔진이나 게임 빌드 도중 생성되는 임시 파일.<br />- 게임 디렉터리에서 셰이더는 이 폴더에 있다.</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Build</td>
+      <td>- 언리얼 프로젝트 패키징 과정 거치면 생성되는 폴더<br />- 게임 빌드시 필요한 파일, 플랫폼별 빌드시 필요한 파일이 있다.</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">.sln</td>
+      <td>- C++ 소스가 있는 폴더<br />- <strong>모듈</strong> 소스와 빌드 파이프라인 C# 소스도 있다.</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">.vs</td>
+      <td>- 언리얼 에디터를 구동 시키는 JSON 파일</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="Reference">
+<div class="callout-header"> </div>
+<p>
+<a href="https://docs.unrealengine.com/5.0/ko/unreal-engine-directory-structure/">https://docs.unrealengine.com/5.0/ko/unreal-engine-directory-structure/</a>
+<a href="https://leeporter.tistory.com/10#%E-%--%B-%--%EC%--%-C%EC%-A%A-%EB%B-%-C%EB%--%-C%--%-B%--%ED%--%-C%EB%-F%AC%EA%B-%B-%EC%-D%B-%--%EC%B-%--%EA%B-%--%--%-B%--%ED%-C%A-%ED%--%A-%EC%A-%--%EA%B-%-C%EC%A-%--%--%EB%A-%--%EC%B-%-C%--%EC%B-%-C%EC%A-%--%--%ED%--%--%EB%A-%-C%EC%A-%-D%ED%-A%B-%--%ED%-F%B-%EB%-D%--%--%EA%B-%AC%EC%A-%B--C%-B%-B-">[언리얼 엔진] 프로젝트 폴더 구조 및 용량 관리</a>
+<a href="https://jiyun-hong.tistory.com/78">https://jiyun-hong.tistory.com/78</a>
+</p>
+</div>

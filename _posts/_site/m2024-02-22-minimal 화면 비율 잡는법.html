@@ -1,0 +1,59 @@
+<h2 id="화면-넓히기">화면 넓히기</h2>
+<p>minimal-mistake테마를 쓰다보면 본문과 사이드 카테가 딱 달라 붙어서 답답함을 느낄 때가 있다. 그래서 사이드 카테고리를 왼쪽에 놓고 본문의 길이를 늘려 볼 것이다.</p>
+
+<h2 id="반응형-픽셀-설정">반응형 픽셀 설정</h2>
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/1dff3a59-0d4c-4b13-a366-1f69339efd50" alt="image" />
+설정하기 전에 반응형 웹이라는 걸 알아야 한다. 사용자들은 모두 다른 해상도의 디바이스로 사이트를 접속한다. 만약 픽셀단위로 UI들의 위치를 설정하면 비율이 붕괴 되어 의도치 않은 형태의 사이트가 될 수 있다.</p>
+
+<p>그렇기에 화면의 크기를 구하는 단위인 <strong>vw</strong>와 <strong>vh</strong>를 사용해야한다.
+각각 <strong>vw</strong>가 가로길이 <strong>vh</strong>가 세로길이를 뜻하는데 <strong>100vw</strong>, <strong>100vh</strong>가 전체화면의 가로 세로길이다.</p>
+
+<hr />
+
+<h3 id="1-본문-가로-길이-늘리기">1. 본문 가로 길이 늘리기</h3>
+<p>전체 화면의 폭은 <code class="language-plaintext highlighter-rouge">_sass/_variables.scss</code> 에서 <code class="language-plaintext highlighter-rouge">$x-large</code>가 담당한다. 이 값을 100vw로 바꾼다.
+<img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/14168953-97a6-4bee-a3cd-248a018fe00a" alt="image" /></p>
+
+<p>그러면 이렇게 사이드바가 맨 왼쪽으로 가게 하고 본문영역이 매우 넓어 진것을 볼 수 있다.</p>
+
+<hr />
+
+<h3 id="2-archive-post-반응형-조정">2. archive, post 반응형 조정</h3>
+<p><code class="language-plaintext highlighter-rouge">_sass/_archive.scss</code> 에서 15번째 줄에 있는 소스를 다음과 같이 바꾼다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  @include breakpoint($x-large) {
+    width: calc(100% - #{$right-sidebar-width});
+    padding-right: calc(50% - #{$main-board-half-width});
+    padding-left: calc(calc(50% - #{$main-board-half-width}) - #{$right-sidebar-width});
+  }
+</code></pre></div></div>
+<p>본문의 가로길이를 main-oard-half-width의 두배 만큼 설정한다.
+<code class="language-plaintext highlighter-rouge">_page.scss</code>에도 45번쨰 줄에 똑같이 적용해 포스팅 페이지도 적용되게 한다.</p>
+
+<blockquote>
+  <p>main-oard-half-width은 _variables.scss에 직접 추가한 변수다.</p>
+</blockquote>
+
+<hr />
+
+<h3 id="3-navigation-조정">3. navigation 조정</h3>
+<p>네비게이션도 중앙에 오도록 <code class="language-plaintext highlighter-rouge">_sass/_navigation.scss</code> 21번 줄을 아래 소스로 바꾼다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  @include breakpoint($x-large) {
+    max-width: $x-large;
+    float: left;
+    width: calc(100% - #{$right-sidebar-width});
+    padding-right: calc(50% - #{$main-board-half-width});
+    padding-left: calc(calc(50% - #{$main-board-half-width}) - #{$right-sidebar-width});
+  }
+</code></pre></div></div>
+
+<hr />
+
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/5a6a955a-4d15-4600-b21b-a8ad8b2bdd74" alt="image" /></p>
+
+<p>적용하면 화면 비율이 잘 잡힌것을 볼 수 있다.</p>
+
+<h2 id="page_with_curl-reference">:page_with_curl: Reference</h2>
+<blockquote>
+  <p>https://m.blog.naver.com/zzaoday/221908180058</p>
+</blockquote>

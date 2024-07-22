@@ -1,0 +1,121 @@
+<p>유니티 큐브의 정점갯수는 기본적으로 24개다.</p>
+
+<p>정점 8개만 이용해도 큐브를 만들 수 있지 않나 싶어서 만들어보았다.</p>
+
+<h2 id="cube-만들기">Cube 만들기</h2>
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/13883c6d-2d30-4f2f-914c-f380fcf18748" alt="image" /><em>vertex 순서</em></p>
+
+<p>우선 정점을 만들어준다. 정점의 순서는 위와 같이 정했으며 이를 구현한다.</p>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kt">float</span> <span class="n">halfWidth</span> <span class="p">=</span> <span class="n">width</span> <span class="p">/</span> <span class="m">2</span><span class="p">;</span>
+    <span class="kt">float</span> <span class="n">halfHeight</span> <span class="p">=</span> <span class="n">height</span> <span class="p">/</span> <span class="m">2</span><span class="p">;</span>
+    <span class="n">List</span><span class="p">&lt;</span><span class="n">Vector3</span><span class="p">&gt;</span> <span class="n">vertexs</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">Vector3</span><span class="p">&gt;();</span>
+
+    <span class="n">vertexs</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="k">new</span> <span class="nf">Vector3</span><span class="p">(-</span><span class="n">halfWidth</span><span class="p">,</span> <span class="p">-</span><span class="n">halfHeight</span><span class="p">,</span> <span class="p">-</span><span class="n">halfWidth</span><span class="p">));</span>
+    <span class="n">vertexs</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="k">new</span> <span class="nf">Vector3</span><span class="p">(-</span><span class="n">halfWidth</span><span class="p">,</span> <span class="p">-</span><span class="n">halfHeight</span><span class="p">,</span> <span class="n">halfWidth</span><span class="p">));</span>
+    <span class="n">vertexs</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="k">new</span> <span class="nf">Vector3</span><span class="p">(-</span><span class="n">halfWidth</span><span class="p">,</span> <span class="n">halfHeight</span><span class="p">,</span> <span class="n">halfWidth</span><span class="p">));</span>
+    <span class="n">vertexs</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="k">new</span> <span class="nf">Vector3</span><span class="p">(-</span><span class="n">halfWidth</span><span class="p">,</span> <span class="n">halfHeight</span><span class="p">,</span> <span class="p">-</span><span class="n">halfWidth</span><span class="p">));</span>
+    <span class="n">vertexs</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="k">new</span> <span class="nf">Vector3</span><span class="p">(</span><span class="n">halfWidth</span><span class="p">,</span> <span class="p">-</span><span class="n">halfHeight</span><span class="p">,</span> <span class="p">-</span><span class="n">halfWidth</span><span class="p">));</span>
+    <span class="n">vertexs</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="k">new</span> <span class="nf">Vector3</span><span class="p">(</span><span class="n">halfWidth</span><span class="p">,</span> <span class="p">-</span><span class="n">halfHeight</span><span class="p">,</span> <span class="n">halfWidth</span><span class="p">));</span>
+    <span class="n">vertexs</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="k">new</span> <span class="nf">Vector3</span><span class="p">(</span><span class="n">halfWidth</span><span class="p">,</span> <span class="n">halfHeight</span><span class="p">,</span> <span class="n">halfWidth</span><span class="p">));</span>
+    <span class="n">vertexs</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="k">new</span> <span class="nf">Vector3</span><span class="p">(</span><span class="n">halfWidth</span><span class="p">,</span> <span class="n">halfHeight</span><span class="p">,</span> <span class="p">-</span><span class="n">halfWidth</span><span class="p">));</span>
+</code></pre></div></div>
+
+<hr />
+<p>vertex 정보를 토대로 triangle를 지정하여준다.
+방향은 시계방향으로 해야 큐브 바깥쪽 방향으로 메쉬가 생성된다.</p>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="n">List</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">triangles</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;()</span>
+    <span class="p">{</span>
+        <span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span>
+        <span class="m">0</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">4</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">7</span><span class="p">,</span><span class="m">4</span><span class="p">,</span>
+        <span class="m">7</span><span class="p">,</span><span class="m">6</span><span class="p">,</span><span class="m">5</span><span class="p">,</span><span class="m">7</span><span class="p">,</span><span class="m">5</span><span class="p">,</span><span class="m">4</span><span class="p">,</span>
+        <span class="m">6</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">6</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">5</span><span class="p">,</span>
+        <span class="m">6</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">6</span><span class="p">,</span><span class="m">7</span><span class="p">,</span><span class="m">3</span><span class="p">,</span>
+        <span class="m">5</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">5</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">4</span>
+    <span class="p">};</span>
+</code></pre></div></div>
+
+<p>이렇게 생성한 정보를 토대로 Mesh에 옮겨준다.</p>
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="n">mesh</span><span class="p">.</span><span class="n">vertices</span> <span class="p">=</span> <span class="n">vertexs</span><span class="p">.</span><span class="nf">ToArray</span><span class="p">();</span>
+    <span class="n">mesh</span><span class="p">.</span><span class="n">triangles</span> <span class="p">=</span> <span class="n">triangles</span><span class="p">.</span><span class="nf">ToArray</span><span class="p">();</span>
+
+    <span class="n">mesh</span><span class="p">.</span><span class="nf">RecalculateBounds</span><span class="p">();</span>
+    <span class="n">GetComponent</span><span class="p">&lt;</span><span class="n">MeshFilter</span><span class="p">&gt;().</span><span class="n">mesh</span> <span class="p">=</span> <span class="n">mesh</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="전체-코드">전체 코드</h3>
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="k">void</span> <span class="nf">GenerateCube</span><span class="p">(</span><span class="kt">float</span> <span class="n">width</span><span class="p">,</span> <span class="kt">float</span> <span class="n">height</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">Mesh</span> <span class="n">mesh</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Mesh</span><span class="p">();</span>
+
+        <span class="kt">float</span> <span class="n">halfWidth</span> <span class="p">=</span> <span class="n">width</span> <span class="p">/</span> <span class="m">2</span><span class="p">;</span>
+        <span class="kt">float</span> <span class="n">halfHeight</span> <span class="p">=</span> <span class="n">height</span> <span class="p">/</span> <span class="m">2</span><span class="p">;</span>
+        <span class="n">List</span><span class="p">&lt;</span><span class="n">Vector3</span><span class="p">&gt;</span> <span class="n">vertexs</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">Vector3</span><span class="p">&gt;();</span>
+
+        <span class="n">vertexs</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="k">new</span> <span class="nf">Vector3</span><span class="p">(-</span><span class="n">halfWidth</span><span class="p">,</span> <span class="p">-</span><span class="n">halfHeight</span><span class="p">,</span> <span class="p">-</span><span class="n">halfWidth</span><span class="p">));</span>
+        <span class="n">vertexs</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="k">new</span> <span class="nf">Vector3</span><span class="p">(-</span><span class="n">halfWidth</span><span class="p">,</span> <span class="p">-</span><span class="n">halfHeight</span><span class="p">,</span> <span class="n">halfWidth</span><span class="p">));</span>
+        <span class="n">vertexs</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="k">new</span> <span class="nf">Vector3</span><span class="p">(-</span><span class="n">halfWidth</span><span class="p">,</span> <span class="n">halfHeight</span><span class="p">,</span> <span class="n">halfWidth</span><span class="p">));</span>
+        <span class="n">vertexs</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="k">new</span> <span class="nf">Vector3</span><span class="p">(-</span><span class="n">halfWidth</span><span class="p">,</span> <span class="n">halfHeight</span><span class="p">,</span> <span class="p">-</span><span class="n">halfWidth</span><span class="p">));</span>
+        <span class="n">vertexs</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="k">new</span> <span class="nf">Vector3</span><span class="p">(</span><span class="n">halfWidth</span><span class="p">,</span> <span class="p">-</span><span class="n">halfHeight</span><span class="p">,</span> <span class="p">-</span><span class="n">halfWidth</span><span class="p">));</span>
+        <span class="n">vertexs</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="k">new</span> <span class="nf">Vector3</span><span class="p">(</span><span class="n">halfWidth</span><span class="p">,</span> <span class="p">-</span><span class="n">halfHeight</span><span class="p">,</span> <span class="n">halfWidth</span><span class="p">));</span>
+        <span class="n">vertexs</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="k">new</span> <span class="nf">Vector3</span><span class="p">(</span><span class="n">halfWidth</span><span class="p">,</span> <span class="n">halfHeight</span><span class="p">,</span> <span class="n">halfWidth</span><span class="p">));</span>
+        <span class="n">vertexs</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="k">new</span> <span class="nf">Vector3</span><span class="p">(</span><span class="n">halfWidth</span><span class="p">,</span> <span class="n">halfHeight</span><span class="p">,</span> <span class="p">-</span><span class="n">halfWidth</span><span class="p">));</span>
+
+        <span class="n">List</span><span class="p">&lt;</span><span class="n">Vector2</span><span class="p">&gt;</span> <span class="n">uvs</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">Vector2</span><span class="p">&gt;</span>
+        <span class="p">{</span>
+            <span class="k">new</span> <span class="nf">Vector2</span><span class="p">(</span><span class="m">0f</span><span class="p">,</span> <span class="m">1f</span><span class="p">),</span> <span class="k">new</span> <span class="nf">Vector2</span><span class="p">(</span><span class="m">1f</span><span class="p">,</span><span class="m">1f</span><span class="p">),</span>
+            <span class="k">new</span> <span class="nf">Vector2</span><span class="p">(</span><span class="m">0f</span><span class="p">,</span> <span class="m">0f</span><span class="p">),</span> <span class="k">new</span> <span class="nf">Vector2</span><span class="p">(</span><span class="m">1f</span><span class="p">,</span><span class="m">0f</span><span class="p">),</span>
+            <span class="k">new</span> <span class="nf">Vector2</span><span class="p">(</span><span class="m">0f</span><span class="p">,</span> <span class="m">1f</span><span class="p">),</span> <span class="k">new</span> <span class="nf">Vector2</span><span class="p">(</span><span class="m">1f</span><span class="p">,</span><span class="m">1f</span><span class="p">),</span>
+            <span class="k">new</span> <span class="nf">Vector2</span><span class="p">(</span><span class="m">0f</span><span class="p">,</span> <span class="m">0f</span><span class="p">),</span> <span class="k">new</span> <span class="nf">Vector2</span><span class="p">(</span><span class="m">1f</span><span class="p">,</span><span class="m">0f</span><span class="p">)</span>
+        <span class="p">};</span>
+
+        <span class="n">List</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">triangles</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;()</span>
+        <span class="p">{</span>
+            <span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span>
+            <span class="m">0</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">4</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">7</span><span class="p">,</span><span class="m">4</span><span class="p">,</span>
+            <span class="m">7</span><span class="p">,</span><span class="m">6</span><span class="p">,</span><span class="m">5</span><span class="p">,</span><span class="m">7</span><span class="p">,</span><span class="m">5</span><span class="p">,</span><span class="m">4</span><span class="p">,</span>
+            <span class="m">6</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">6</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">5</span><span class="p">,</span>
+            <span class="m">6</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">6</span><span class="p">,</span><span class="m">7</span><span class="p">,</span><span class="m">3</span><span class="p">,</span>
+            <span class="m">5</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">5</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">4</span>
+        <span class="p">};</span>
+        
+        <span class="n">mesh</span><span class="p">.</span><span class="n">vertices</span> <span class="p">=</span> <span class="n">vertexs</span><span class="p">.</span><span class="nf">ToArray</span><span class="p">();</span>
+        <span class="n">mesh</span><span class="p">.</span><span class="n">triangles</span> <span class="p">=</span> <span class="n">triangles</span><span class="p">.</span><span class="nf">ToArray</span><span class="p">();</span>
+
+        <span class="n">mesh</span><span class="p">.</span><span class="nf">RecalculateBounds</span><span class="p">();</span>
+        <span class="n">GetComponent</span><span class="p">&lt;</span><span class="n">MeshFilter</span><span class="p">&gt;().</span><span class="n">mesh</span> <span class="p">=</span> <span class="n">mesh</span><span class="p">;</span>
+    <span class="p">}</span>
+</code></pre></div></div>
+
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/aa900bc4-c0f5-4a9d-a086-4816e876855e" alt="image" /><em>완성된 정점8개 큐브</em></p>
+
+<h2 id="단점">단점</h2>
+<p>정점 8개만 있어도 큐브를 만들 수 있지만 문제는 uv를 통한 라이팅과 Material 표현이 불가능했다.</p>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="n">List</span><span class="p">&lt;</span><span class="n">Vector2</span><span class="p">&gt;</span> <span class="n">uvs</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">Vector2</span><span class="p">&gt;</span>
+    <span class="p">{</span>
+        <span class="k">new</span> <span class="nf">Vector2</span><span class="p">(</span><span class="m">0f</span><span class="p">,</span> <span class="m">1f</span><span class="p">),</span> <span class="k">new</span> <span class="nf">Vector2</span><span class="p">(</span><span class="m">1f</span><span class="p">,</span><span class="m">1f</span><span class="p">),</span>
+        <span class="k">new</span> <span class="nf">Vector2</span><span class="p">(</span><span class="m">0f</span><span class="p">,</span> <span class="m">0f</span><span class="p">),</span> <span class="k">new</span> <span class="nf">Vector2</span><span class="p">(</span><span class="m">1f</span><span class="p">,</span><span class="m">0f</span><span class="p">),</span>
+        <span class="k">new</span> <span class="nf">Vector2</span><span class="p">(</span><span class="m">0f</span><span class="p">,</span> <span class="m">1f</span><span class="p">),</span> <span class="k">new</span> <span class="nf">Vector2</span><span class="p">(</span><span class="m">1f</span><span class="p">,</span><span class="m">1f</span><span class="p">),</span>
+        <span class="k">new</span> <span class="nf">Vector2</span><span class="p">(</span><span class="m">0f</span><span class="p">,</span> <span class="m">0f</span><span class="p">),</span> <span class="k">new</span> <span class="nf">Vector2</span><span class="p">(</span><span class="m">1f</span><span class="p">,</span><span class="m">0f</span><span class="p">)</span>
+    <span class="p">};</span>
+</code></pre></div></div>
+
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/5cb348fc-4c48-490f-bc7f-2cbdfb9a1f93" alt="image" /><em>깨져버린 Material</em></p>
+
+<hr />
+
+<h3 id="원인">원인</h3>
+<p>이는 uv하나가 표현해야할 면이 3개이지만 1개를 초과하는 정보를 담당할 수 없기 떄문이다. 각 면마다 사용해야할 uv 정보가 다 다른데 겹쳐서 저렇게 깨져버린 것이다.</p>
+
+<p>그래서 유니티에선 정점을 24개로 구현해 각 면마다 사용할 uv정보를 담아주었다.</p>
+
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/5e4a0aa5-69de-44e6-9cdf-8c9c913cd856" alt="image" /><em>유니티 Cube</em></p>
+
+<div class="Reference">
+<div class="callout-header"> </div>
+<p>
+<a href="https://bloodstrawberry.tistory.com/1016">https://bloodstrawberry.tistory.com/1016</a>
+</p>
+</div>

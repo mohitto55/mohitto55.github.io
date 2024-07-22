@@ -1,0 +1,90 @@
+<p>좌측 사이드바에 카테고리를 넣어볼 것이다.</p>
+
+<h2 id="1-카테고리-목록-정하기">1. 카테고리 목록 정하기</h2>
+<p><code class="language-plaintext highlighter-rouge">_data/navigation.yml</code>에서 하단의 내용을 넣고 한글로 된 부분을 수정한다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sidebar-category:
+  - title: "타이틀"
+    children:
+      - title: "표시될제목"
+        url: "/주소"
+        category: "카테고리"
+</code></pre></div></div>
+
+<h2 id="2-카테고리-포스트-목록-페이지-생성">2. 카테고리 포스트 목록 페이지 생성</h2>
+<p><code class="language-plaintext highlighter-rouge">_page</code>로가서 <code class="language-plaintext highlighter-rouge">catagories</code>라는 폴더를 만들고 안에 카테고리 요소당 하나씩 <code class="language-plaintext highlighter-rouge">*.md</code>파일을 생성해 준다. 그리고 아래 요소들을 수정한다.</p>
+<ul>
+  <li>title: 페이지 제목</li>
+  <li>layout:페이지에서 사용할 layout</li>
+  <li>permalink: navigation.yml에서 설정한 url</li>
+  <li>탐색할카테고리: navigation.yml 설정한 category</li>
+</ul>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>---
+title: "페이지 이름"
+layout: archive
+permalink: 링크
+---
+ {% assign posts = site.categories.탐색할카테고리 %}
+{% for post in posts %}
+  {% include custom-archive-single.html type=entries_layout %}
+{% endfor %} 
+</code></pre></div></div>
+
+<h2 id="3포스트-수-표시">3.포스트 수 표시</h2>
+<p><code class="language-plaintext highlighter-rouge">_includes/nav_list</code>에 아래 내용을 모두 덮어쓴다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% assign navigation = site.data.navigation[include.nav] %}
+
+&lt;nav class="nav__list"&gt;
+  {% if page.sidebar.title %}&lt;h3 class="nav__title" style="padding-left: 0;"&gt;{{ page.sidebar.title }}&lt;/h3&gt;{% endif %}
+  &lt;input id="ac-toc" name="accordion-toc" type="checkbox" /&gt;
+  &lt;label for="ac-toc"&gt;{{ site.data.ui-text[site.locale].menu_label | default: "Toggle Menu" }}&lt;/label&gt;
+  &lt;ul class="nav__items"&gt;
+    {% for nav in navigation %}
+      &lt;li&gt;
+        {% if nav.url %}
+          &lt;a href="{{ nav.url | relative_url }}"&gt;&lt;span class="nav__sub-title"&gt;{{ nav.title }}&lt;/span&gt;&lt;/a&gt;
+        {% else %}
+          &lt;span class="nav__sub-title"&gt;{{ nav.title }}&lt;/span&gt;
+        {% endif %}
+
+        {% if nav.children != null %}
+        &lt;ul&gt;
+          {% for child in nav.children %}
+          {% assign post_cnt = 0 %}
+          {% for category in site.categories %}
+            {% if category[0] == child.category  %}
+                {% assign post_cnt = category[1].size %}
+            {% endif %}
+          {% endfor %}
+
+            &lt;li&gt;&lt;a href="{{ child.url | relative_url }}"{% if child.url == page.url %} class="active"{% endif %}&gt;{{ child.title }}({{ post_cnt }})&lt;/a&gt;&lt;/li&gt;
+          {% endfor %}
+        &lt;/ul&gt;
+        {% endif %}
+      &lt;/li&gt;
+    {% endfor %}
+  &lt;/ul&gt;
+&lt;/nav&gt; 
+</code></pre></div></div>
+
+<h2 id="4모든페이지-사이드바-적용">4.모든페이지 사이드바 적용</h2>
+<p>루트폴더에 있는 <code class="language-plaintext highlighter-rouge">config.yml</code>에서 sidebar 부분을 추가해준다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>defaults:
+  # _posts
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: single
+      author_profile: true
+      read_time: true
+      comments: true
+      share: true
+      related: true
+      show_date: true
+      sidebar: # 추가
+        nav: "sidebar-category"
+</code></pre></div></div>
+
+<h2 id="5결과">5.결과</h2>
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/12ef844b-9baa-4af1-8096-dd9c8ab1571c" alt="image" /></p>

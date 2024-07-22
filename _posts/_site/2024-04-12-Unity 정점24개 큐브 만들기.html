@@ -1,0 +1,119 @@
+<p>지난번 <a href="https://mohitto55.github.io/unity/Unity-%EC%A0%95%EC%A0%908%EA%B0%9C-%ED%81%90%EB%B8%8C-%EB%A7%8C%EB%93%A4%EA%B8%B0/">정점 8개 큐브 만들기</a>에 이어서 이번엔 정점24개를 가진 큐브를 만들어 볼 것이다.</p>
+
+<h2 id="cube-작성">Cube 작성</h2>
+<h3 id="정점위치-참조-테이블">정점위치 참조 테이블</h3>
+<p>한 위치에 같은 정점이 3개가 만들어지는데 이 정점의 위치를 매번 계산하는 것 보단 <strong>테이블</strong>로 만들고 면이 테이블에 있는 정점 위치 정보를 가져오게 하는 것이 좋을 것이다.</p>
+
+<p>그러기 위해선 각 면에서 사용할 정점 위치index를 지정해 줘야한다.
+먼저 큐브의 각 면들의 방향을 표현한 enum을 선언한다.</p>
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="k">public</span> <span class="k">enum</span> <span class="n">Direction</span>
+    <span class="p">{</span>
+        <span class="n">FORWARD</span><span class="p">,</span> <span class="c1">// (0, 0, 1)</span>
+        <span class="n">RIGHT</span><span class="p">,</span>   <span class="c1">// (1, 0, 0)</span>
+        <span class="n">UP</span><span class="p">,</span>      <span class="c1">// (0, 1, 0)</span>
+        <span class="n">BACK</span><span class="p">,</span>    <span class="c1">// (0, 0, -1)</span>
+        <span class="n">LEFT</span><span class="p">,</span>    <span class="c1">// (-1, 0, 0)</span>
+        <span class="n">DOWN</span>     <span class="c1">// (0, -1, 0)</span>
+    <span class="p">}</span>
+</code></pre></div></div>
+
+<hr />
+
+<p>그 다음 면에서 사용하는 정점 Index를 정한다.
+유니티에선 Z축이 Forward이기에 Z축 기준으로 정점을 구성해 준다.</p>
+
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/edffa96d-8a33-44f7-ace7-f5898913d147" alt="image" /><em>vertex 순서</em></p>
+
+<hr />
+
+<p><strong>Direction enum</strong>에서 설계한 방향을 토대로 면의 정점을 만든다.</p>
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kt">int</span><span class="p">[][]</span> <span class="n">faceNumber</span> <span class="p">=</span>
+    <span class="p">{</span>
+        <span class="k">new</span> <span class="kt">int</span><span class="p">[]{</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">},</span>
+        <span class="k">new</span> <span class="kt">int</span><span class="p">[]{</span><span class="m">5</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">6</span><span class="p">},</span>
+        <span class="k">new</span> <span class="kt">int</span><span class="p">[]{</span><span class="m">5</span><span class="p">,</span><span class="m">4</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">0</span><span class="p">},</span>
+        <span class="k">new</span> <span class="kt">int</span><span class="p">[]{</span><span class="m">4</span><span class="p">,</span><span class="m">5</span><span class="p">,</span><span class="m">6</span><span class="p">,</span><span class="m">7</span><span class="p">},</span>
+        <span class="k">new</span> <span class="kt">int</span><span class="p">[]{</span><span class="m">1</span><span class="p">,</span><span class="m">4</span><span class="p">,</span><span class="m">7</span><span class="p">,</span><span class="m">2</span><span class="p">},</span>
+        <span class="k">new</span> <span class="kt">int</span><span class="p">[]{</span><span class="m">3</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">7</span><span class="p">,</span><span class="m">6</span><span class="p">},</span>
+    <span class="p">};</span>
+</code></pre></div></div>
+
+<hr />
+<h3 id="정점-위치-테이블">정점 위치 테이블</h3>
+<p>정점들의 위치 데이터를 가진 테이블을 만들어준다.
+Scale을 적용하기 위해 <font color="dodgerred">아다마르 곱</font> 을 해준다.</p>
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="n">Vector3</span> <span class="n">scale</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Vector3</span><span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">width</span><span class="p">);</span>
+    <span class="n">List</span><span class="p">&lt;</span><span class="n">Vector3</span><span class="p">&gt;</span> <span class="n">vertices</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">Vector3</span><span class="p">&gt;();</span>
+    <span class="c1">// 정점들 위치 배열</span>
+    <span class="n">vSet</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">Vector3</span><span class="p">.</span><span class="nf">Scale</span><span class="p">(</span><span class="k">new</span> <span class="nf">Vector3</span><span class="p">(</span><span class="n">half</span><span class="p">,</span> <span class="n">half</span><span class="p">,</span> <span class="n">half</span><span class="p">),</span> <span class="n">scale</span><span class="p">));</span>
+    <span class="n">vSet</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">Vector3</span><span class="p">.</span><span class="nf">Scale</span><span class="p">(</span><span class="k">new</span> <span class="nf">Vector3</span><span class="p">(-</span><span class="n">half</span><span class="p">,</span> <span class="n">half</span><span class="p">,</span> <span class="n">half</span><span class="p">),</span> <span class="n">scale</span><span class="p">));</span>
+    <span class="n">vSet</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">Vector3</span><span class="p">.</span><span class="nf">Scale</span><span class="p">(</span><span class="k">new</span> <span class="nf">Vector3</span><span class="p">(-</span><span class="n">half</span><span class="p">,</span> <span class="p">-</span><span class="n">half</span><span class="p">,</span> <span class="n">half</span><span class="p">),</span> <span class="n">scale</span><span class="p">));</span>
+    <span class="n">vSet</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">Vector3</span><span class="p">.</span><span class="nf">Scale</span><span class="p">(</span><span class="k">new</span> <span class="nf">Vector3</span><span class="p">(</span><span class="n">half</span><span class="p">,</span> <span class="p">-</span><span class="n">half</span><span class="p">,</span> <span class="n">half</span><span class="p">),</span> <span class="n">scale</span><span class="p">));</span>
+    <span class="n">vSet</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">Vector3</span><span class="p">.</span><span class="nf">Scale</span><span class="p">(</span><span class="k">new</span> <span class="nf">Vector3</span><span class="p">(-</span><span class="n">half</span><span class="p">,</span> <span class="n">half</span><span class="p">,</span> <span class="p">-</span><span class="n">half</span><span class="p">),</span> <span class="n">scale</span><span class="p">));</span>
+    <span class="n">vSet</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">Vector3</span><span class="p">.</span><span class="nf">Scale</span><span class="p">(</span><span class="k">new</span> <span class="nf">Vector3</span><span class="p">(</span><span class="n">half</span><span class="p">,</span> <span class="n">half</span><span class="p">,</span> <span class="p">-</span><span class="n">half</span><span class="p">),</span> <span class="n">scale</span><span class="p">));</span>
+    <span class="n">vSet</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">Vector3</span><span class="p">.</span><span class="nf">Scale</span><span class="p">(</span><span class="k">new</span> <span class="nf">Vector3</span><span class="p">(</span><span class="n">half</span><span class="p">,</span> <span class="p">-</span><span class="n">half</span><span class="p">,</span> <span class="p">-</span><span class="n">half</span><span class="p">),</span> <span class="n">scale</span><span class="p">));</span>
+    <span class="n">vSet</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">Vector3</span><span class="p">.</span><span class="nf">Scale</span><span class="p">(</span><span class="k">new</span> <span class="nf">Vector3</span><span class="p">(-</span><span class="n">half</span><span class="p">,</span> <span class="p">-</span><span class="n">half</span><span class="p">,</span> <span class="p">-</span><span class="n">half</span><span class="p">),</span> <span class="n">scale</span><span class="p">));</span>
+</code></pre></div></div>
+
+<div class="callout-info-expanded">
+<div class="callout-header">아다마르 곱 (Hadamard Product)</div>
+<p>
+벡터와 벡터를 각 성분 끼리만 곱하는 행렬 곱이다.
+</p>
+</div>
+
+<hr />
+
+<h3 id="cube-구현">Cube 구현</h3>
+<p>Cube의 면은 6개, 면에 존재하는 정점은 4개 이므로 총 24개의 정점을 만든다. 
+면마다 정점이 필요한 이유는 <a href="https://mohitto55.github.io/unity/Unity-%EC%A0%95%EC%A0%908%EA%B0%9C-%ED%81%90%EB%B8%8C-%EB%A7%8C%EB%93%A4%EA%B8%B0/">이전 포스트</a>에서도 말했다시피</p>
+
+<p>정점 하나가 가질 수 있는 uv 정보는 1개 까지라 면 3개에 대한 정보를 가질 수 없다.
+그래서 면마다 정점을 만들어주는 것이다.</p>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">faceDir</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">faceDir</span> <span class="p">&lt;</span> <span class="m">6</span><span class="p">;</span> <span class="n">faceDir</span><span class="p">++)</span>
+<span class="p">{</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">faceIndex</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">faceIndex</span> <span class="p">&lt;</span> <span class="m">4</span><span class="p">;</span> <span class="n">faceIndex</span><span class="p">++)</span>
+    <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">faceVertexIndex</span> <span class="p">=</span> <span class="n">faceNumber</span><span class="p">[</span><span class="n">faceDir</span><span class="p">][</span><span class="n">faceIndex</span><span class="p">];</span>
+        <span class="n">vertices</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">vSet</span><span class="p">[</span><span class="n">faceVertexIndex</span><span class="p">]);</span>
+    <span class="p">}</span>
+</code></pre></div></div>
+
+<hr />
+
+<p>정점에 대응하는 uv정보와 면을 구성하는 삼각형을 그리기 위해 triangles에 정점 번호를 넣어준다.</p>
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="n">uvs</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="k">new</span> <span class="nf">Vector2</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">));</span>
+    <span class="n">uvs</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="k">new</span> <span class="nf">Vector2</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">));</span>
+    <span class="n">uvs</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="k">new</span> <span class="nf">Vector2</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">0</span><span class="p">));</span>
+    <span class="n">uvs</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="k">new</span> <span class="nf">Vector2</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">));</span>
+
+    <span class="kt">int</span> <span class="n">triangleIndex</span> <span class="p">=</span> <span class="n">faceDir</span> <span class="p">*</span> <span class="m">4</span><span class="p">;</span>
+    <span class="n">triangles</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">triangleIndex</span> <span class="p">+</span> <span class="m">0</span><span class="p">);</span>
+    <span class="n">triangles</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">triangleIndex</span> <span class="p">+</span> <span class="m">1</span><span class="p">);</span>
+    <span class="n">triangles</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">triangleIndex</span> <span class="p">+</span> <span class="m">3</span><span class="p">);</span>
+
+    <span class="n">triangles</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">triangleIndex</span> <span class="p">+</span> <span class="m">1</span><span class="p">);</span>
+    <span class="n">triangles</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">triangleIndex</span> <span class="p">+</span> <span class="m">2</span><span class="p">);</span>
+    <span class="n">triangles</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">triangleIndex</span> <span class="p">+</span> <span class="m">3</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>지금까지 작성한 데이터들을 Mesh로 만들어 MeshFilter에 넣어준다.</p>
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="n">Mesh</span> <span class="n">mesh</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Mesh</span><span class="p">();</span>
+    <span class="n">mesh</span><span class="p">.</span><span class="n">vertices</span> <span class="p">=</span> <span class="n">vertices</span><span class="p">.</span><span class="nf">ToArray</span><span class="p">();</span>
+    <span class="n">mesh</span><span class="p">.</span><span class="n">uv</span> <span class="p">=</span> <span class="n">uvs</span><span class="p">.</span><span class="nf">ToArray</span><span class="p">();</span>
+    <span class="n">mesh</span><span class="p">.</span><span class="n">triangles</span> <span class="p">=</span> <span class="n">triangles</span><span class="p">.</span><span class="nf">ToArray</span><span class="p">();</span>
+    <span class="n">mesh</span><span class="p">.</span><span class="nf">RecalculateBounds</span><span class="p">();</span>
+
+    <span class="n">GetComponent</span><span class="p">&lt;</span><span class="n">MeshFilter</span><span class="p">&gt;().</span><span class="n">mesh</span> <span class="p">=</span> <span class="n">mesh</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/f42a96ff-e563-4ba2-97e7-8c150c2e5ff4" alt="image" /><em>완성된 Cube</em></p>
+
+<div class="Reference">
+<div class="callout-header"> </div>
+<p>
+<a href="https://bloodstrawberry.tistory.com/1021">https://bloodstrawberry.tistory.com/1021</a>
+</p>
+</div>

@@ -1,0 +1,119 @@
+<h2 id="snippet">Snippet</h2>
+<blockquote>
+  <p>스니펫(snippet)은 재사용 가능한 소스 코드, 기계어, 텍스트의 작은 부분을 일컫는 프로그래밍 용어이다. 사용자가 루틴 편집 조작 중 반복 타이핑을 회피할 수 있게 도와준다.
+-<a href="https://ko.wikipedia.org/wiki/%EC%8A%A4%EB%8B%88%ED%8E%AB">Wikipedia</a></p>
+</blockquote>
+
+<p><code class="language-plaintext highlighter-rouge">snippet</code>이란 <strong>작은 코드 조각</strong>을 뜻하는 말로 자주 쓰는 코드를 하나의 템플릿으로 만들어 반복작업을 줄일 수 있게 해주는 기능을 말한다.</p>
+
+<p>대부분의 텍스트 편집기, IDE는 이런 <code class="language-plaintext highlighter-rouge">snipet</code> 기능을 지원하며 VScode또한 마찬가지다.</p>
+
+<h2 id="vscode에서-snippet-사용하기">VScode에서 Snippet 사용하기</h2>
+<h3 id="1-snippet-파일-열기">1. Snippet 파일 열기</h3>
+<p><code class="language-plaintext highlighter-rouge">snippet</code>을 작성하기 위해선 먼저 <code class="language-plaintext highlighter-rouge">snippet</code>코드를 관리하는 <code class="language-plaintext highlighter-rouge">JSON</code>파일을 열어야 한다. 파일을 열기위한 방법은 두가지가 있다.</p>
+
+<hr />
+
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/63414c56-30f2-4f78-9818-b1f4fa30e2d2" alt="image" /></p>
+
+<p><strong>1. File-&gt;Preferences-&gt;Configure User Snippets</strong></p>
+
+<p><strong>2. Setting-&gt;User Snippets</strong></p>
+
+<hr />
+
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/b3df2470-fc19-45ba-bca8-60f4c685993a" alt="image" /></p>
+
+<p>위 두가지 방법 중 하나를 실행하면 화면 상단에 커맨드창이 나올것이다. 필요한 <code class="language-plaintext highlighter-rouge">snipet</code> 파일을 열고 없으면 <code class="language-plaintext highlighter-rouge">New Global Snippets file</code>을 눌러 파일이름을 설정 한 후 연다.</p>
+
+<hr />
+<h3 id="2-내용-작성하기">2. 내용 작성하기</h3>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+	</span><span class="nl">"snippet-name"</span><span class="p">:{</span><span class="w">
+		</span><span class="nl">"prefix"</span><span class="p">:</span><span class="w"> </span><span class="s2">"blog-template"</span><span class="p">,</span><span class="w">
+		</span><span class="nl">"body"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+		</span><span class="s2">"---"</span><span class="p">,</span><span class="w">
+		</span><span class="s2">"title : '[] '"</span><span class="p">,</span><span class="w">
+		</span><span class="s2">"category: "</span><span class="p">,</span><span class="w">
+		</span><span class="s2">"tags: []"</span><span class="p">,</span><span class="w">
+		</span><span class="s2">"---"</span><span class="p">,</span><span class="w">
+		</span><span class="s2">""</span><span class="p">,</span><span class="w">
+		</span><span class="s2">""</span><span class="p">,</span><span class="w">
+		</span><span class="s2">""</span><span class="p">,</span><span class="w">
+		</span><span class="s2">"&lt;div class='Reference'&gt;"</span><span class="p">,</span><span class="w">
+		</span><span class="s2">"&lt;div class='callout-header'&gt; &lt;/div&gt;"</span><span class="p">,</span><span class="w">
+		</span><span class="s2">"&lt;p&gt;"</span><span class="p">,</span><span class="w">
+		</span><span class="s2">"&lt;a href=''&gt;&lt;/a&gt;"</span><span class="p">,</span><span class="w">
+		</span><span class="s2">"&lt;/p&gt;"</span><span class="p">,</span><span class="w">
+		</span><span class="s2">"&lt;/div&gt;"</span><span class="w">
+	</span><span class="p">],</span><span class="w">
+		</span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Blog Template"</span><span class="w">
+	</span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+<p>소스는 다음 규격을 맞춰 작성하면 된다.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">이름</th>
+      <th><center>설명</center></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">snippet-name</td>
+      <td>- snippet의 이름<br />- description이 설정 되있지 않으면 Intellisense에서 해당 이름이 표시된다.</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">prefix</td>
+      <td>- 자동완성시 불러올 키워드</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">body</td>
+      <td>- 자동완성시 불러올 내용<br />- 줄이 여러개일 경우 ,(comma)를 이용해 줄 바꿈을 한다.</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">description</td>
+      <td>- prefix 작성 시 Intellisense에서 표시 될 설명이다.</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/c15bcda9-d6d5-4340-a7e4-992411b7f4d6" alt="Honeycam" /><em>snippet을 활용해 생산성을 높일 수 있다</em></p>
+
+<p><code class="language-plaintext highlighter-rouge">snippet</code>이 적용이 되면 위와 같이 작동한다. 단 몇 타자 만으로 긴 코드를 빠르게 작성할 수 있다.</p>
+
+<h2 id="snippet-적용이-안될-경우">Snippet 적용이 안될 경우</h2>
+<p>설정을 완벽하게 했음에도 불구하고 Intellisense가 작동하지 않는 경우가 있다. 그럴경우 <code class="language-plaintext highlighter-rouge">setting.json</code>에서 <code class="language-plaintext highlighter-rouge">editor.quickSuggestions</code>을 true로 설정해줘야 한다.</p>
+
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/53927eaa-961c-4f7a-8006-13142db2a248" alt="image" /><em>View-&gt;Command palette OR Ctrl+Shift+p</em></p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"[markdown]"</span><span class="p">:{</span><span class="w">
+     </span><span class="nl">"editor.quickSuggestions"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>커맨드 창을 열어 <code class="language-plaintext highlighter-rouge">Open User Setting(JSON)</code>을 적고 위 소스를 넣어주면 된다.</p>
+
+<div class="callout-info-expanded">
+<div class="callout-header">setting.json과 quickSuggestions</div>
+<p>
+setting.json은 작업중인 프로젝트의 셋팅값을 설정하는 파일이고 quickSuggestions 설정은 자동 완성 활성화 여부를 결정하는 값이다.
+</p>
+</div>
+
+<h2 id="snippet-변수">Snippet 변수</h2>
+<p><code class="language-plaintext highlighter-rouge">snippet</code>은 여러 변수 값을 지원한다. <code class="language-plaintext highlighter-rouge">$name</code> or <code class="language-plaintext highlighter-rouge">${name:default}</code> 같은 문구를 사용 함으로써 파일의 이름이나 내용을 불러올 수 있다. 자세한 내용은 <a href="https://code.visualstudio.com/docs/editor/userdefinedsnippets">공식문서</a>에서 확인하기 바란다.</p>
+
+<hr />
+
+<div class="Reference">
+<div class="callout-header"> </div>
+<p>
+<a href="https://velog.io/@humblego42/VSCode%EC%97%90%EC%84%9C-Snippet-%ED%99%9C%EC%9A%A9%ED%95%98%EA%B8%B0">vVSCode에서 Snippet 활용하기</a>
+<a href="https://junu-k.medium.com/vscode-%EA%BF%80%ED%8C%81-1-%EB%82%98%EB%A7%8C%EC%9D%98-%EC%8A%A4%EB%8B%88%ED%8E%AB-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0-28b6044a77d3">vscode 꿀팁: 나만의 스니펫 사용하기</a>
+<a href="https://gnews365.tistory.com/entry/vscode-settingjson-%EC%97%90-%EB%93%A4%EC%96%B4%EA%B0%80%EA%B8%B0-%EB%B9%84%EC%A3%BC%EC%96%BC-%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4-%EC%BD%94%EB%93%9C">vscode setting.json 에 들어가기</a>
+</p>
+</div>

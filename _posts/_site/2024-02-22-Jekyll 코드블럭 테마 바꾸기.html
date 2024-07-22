@@ -1,0 +1,32 @@
+<h3 id="1-테마-설치하기">1. 테마 설치하기</h3>
+<p>먼저 아래 코드블럭 테마 사이트에 가서 원하는 테마의 이름을 복사한다.
+:point_right: <a href="https://spsarolkar.github.io/rouge-theme-preview/">테마 사이트</a></p>
+
+<h3 id="2-rouge설치">2. rouge설치</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gem install rouge
+</code></pre></div></div>
+<p>CMD에서 root폴더에 위와 같이 입력해서 테마를 설치한다.</p>
+
+<h3 id="3-_configyml-수정">3. <code class="language-plaintext highlighter-rouge">_config.yml</code> 수정.</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Conversion
+markdown: kramdown
+highlighter: rouge
+
+# Markdown Processing
+kramdown:
+  input: GFM
+</code></pre></div></div>
+
+<h3 id="4-css파일-다운받기">4. css파일 다운받기</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rougify style 테마이름 &gt; assets/css/syntax.css
+</code></pre></div></div>
+<p>원하는 테마의 syntax.css파일이 assets/css 경로에 생성된다.</p>
+
+<h3 id="5-테마-적용하기">5. 테마 적용하기</h3>
+<p>syntax.css 파일을 _scss 폴더에 놓거나 혹은 _syntax.scss 파일이 있을 경우 해당 파일에 덮어씌우기</p>
+
+<h2 id="page_with_curl-reference">:page_with_curl: Reference</h2>
+<blockquote>
+  <p>https://onda2me.github.io/blog/codeblock/</p>
+</blockquote>

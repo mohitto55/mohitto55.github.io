@@ -1,0 +1,37 @@
+<h1 id="docker-삭제하기">Docker 삭제하기</h1>
+<h2 id="1-docker-설치-확인하기">1. docker 설치 확인하기</h2>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dpkg -l | grep -i docker
+</code></pre></div></div>
+
+<h2 id="2-docker를-삭제">2. docker를 삭제</h2>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get purge -y docker-engine docker docker.io docker-ce
+sudo apt-get autoremove -y --purge docker-engine docker docker.io docker-ce
+</code></pre></div></div>
+<p>위의 명령으로 호스트에서 이미지, 컨테이너, 볼륨 또는 사용자 생성 구성 파일을 제외한 모든 파일을 삭제한다.</p>
+
+<h2 id="3-모든-이미지-컨테이너-및-볼륨을-삭제">​3. 모든 이미지, 컨테이너 및 볼륨을 삭제</h2>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo rm -rf /var/lib/docker /etc/docker
+sudo rm /etc/apparmor.d/docker
+sudo groupdel docker
+sudo rm -rf /var/run/docker.sock
+</code></pre></div></div>
+<p>시스템에서 Docker를 완전히 제거,</p>
+
+<hr />
+
+<h3 id="우분투에서-삭제하기">우분투에서 삭제하기</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo snap remove docker
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo find / -name "*docker*" -exec `rm -rf` {} +
+</code></pre></div></div>
+<p>모든 docker 관련 파일을 삭제</p>
+
+<hr />
+
+<div class="Reference">
+<div class="callout-header"> </div>
+<p>
+<a href="https://may9noy.tistory.com/392">https://may9noy.tistory.com/392</a>
+</p>
+</div>

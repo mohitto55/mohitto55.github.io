@@ -1,0 +1,58 @@
+<h2 id="전방선언">전방선언</h2>
+<p>식별자를 정의하기 전 미리 식별자를 <strong>컴파일러</strong>에 알리는 것을 뜻한다.
+원래는 식별자를 사용하기 위해선 정의된 헤더를 불러와야 하지만 전방선언(forward declaratioin)을 이용해 헤더를 선언하지 않아도 사용할 수 있다.</p>
+
+<h2 id="사용법">사용법</h2>
+<h3 id="클래스-타입-전방선언">클래스 타입 전방선언</h3>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">MyObject</span><span class="p">;</span> <span class="c1">// 타입 전방선언</span>
+
+<span class="n">MyObject</span><span class="o">*</span> <span class="n">ob1</span><span class="p">;</span>
+</code></pre></div></div>
+<p>타입이 클래스임을 알리는 전방선언(forward declaratioin)이다. 이렇게 헤더를 선언하지 않고 사용하는 것 이여서 <strong>포인터 객체</strong>만 이용 가능하다. 직접적인 함수를 이용하려 할 시 오류가 발생한다. 위에 이미 전방선언을 했다면 후에 같은 타입 클래스를 사용하면 전방선언을 해주지 않아도 된다.</p>
+
+<ul>
+  <li>헤더를 불러오는 시간이 줄어든다.
+    <ul>
+      <li>컴파일 단계에선 헤더 선언시 주석을 포함한 모드 코드를 불러옴</li>
+    </ul>
+  </li>
+  <li>의존성이 줄어든다</li>
+</ul>
+
+<hr />
+<h3 id="함수-전방선언">함수 전방선언</h3>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">add</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">);</span> <span class="c1">// 함수 전방선언</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+	<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">add</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">add</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">){</span>
+	<span class="k">return</span> <span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>만약 함수 전방선언을 하지 않고 코드를 실행할 시 main에서 add 함수를 실행하려 할 때 add 함수가 declaration 되어 있지 않다고 오류가 나올 것이다. 이는 C++가 위에서 부터 아래로 한줄 씩 코드를 읽는 <strong>컴파일 언어</strong>이기 때문에 발생하는 것인데 add함수는 아래에 정의(difinition)되어 있지만 main에서 사용할 때 까지 add 함수를 발견하지 못해서 발생하는 문제다.</p>
+
+<p>그렇기에 위와 같이 전방선언을 통해서 컴파일러에 미리 알려주면 컴파일이 완료된다.</p>
+
+<h2 id="summary">Summary</h2>
+<ul>
+  <li>타입 전방선언
+    <ul>
+      <li>헤더를 생략해 컴파일 속도 향상</li>
+      <li>헤더 의존성 감소</li>
+      <li>타입을 직접 사용하지 않는 경우에만 사용</li>
+    </ul>
+  </li>
+  <li>함수 전방선언
+    <ul>
+      <li>함수를 미리 선언해 선언 위치에 따른 컴파일 오류 해결</li>
+    </ul>
+  </li>
+</ul>
+
+<div class="Reference">
+<div class="callout-header"> </div>
+<p>
+<a href="https://boycoding.tistory.com/143">https://boycoding.tistory.com/143</a>
+</p>
+</div>
