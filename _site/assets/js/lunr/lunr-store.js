@@ -322,4 +322,10 @@ var store = [{
         "tags": ["인코딩","디코딩","유니코드","아스키코드","Unicode","ASCII","Encode","Decode","ECU-KR","UTF-8","UTF-16","UTF-32"],
         "url": "/computerscience/%EB%AC%B8%EC%9E%90%EB%A5%BC-%ED%91%9C%ED%98%84%ED%95%98%EB%8A%94-%EC%9D%B8%EC%BD%94%EB%94%A9%EA%B3%BC-%EC%9C%A0%EB%8B%88%EC%BD%94%EB%93%9C/",
         "teaser": null
+      },{
+        "title": "[Window] 구글캘린더 바탕화면에 위젯 생성하기",
+        "excerpt":"들어가며 나는 Todoist, Google Calendar, Obsidian을 통해 일정관리를 한다. 나는 일정관리에서 제일 중요하다 생각하는 부분이 언제 어디서든 최소한의 액션으로 간편하게 일정을 확인할 수 있어야 한다고 생각한다. 그래서 휴대폰에는 바탕화면에 구글 캘린더 위젯을 생성하고 옵시디언에서 Full Calendar 플러그인을 통해 구글 캘린더를 확인할 수 있다. 다만 윈도우의 경우에는 구글캘린더를 바탕화면 위젯으로 생성가능한...","categories": ["os"],
+        "tags": ["Window","Google Calendar","Outlook","Widget","Calendar","윈도우","구글캘린더","아웃룩"],
+        "url": "/os/%EA%B5%AC%EA%B8%80%EC%BA%98%EB%A6%B0%EB%8D%94-%EC%95%84%EC%9B%83%EB%A3%A9-%EC%97%B0%EB%8F%99-%EB%B0%94%ED%83%95%ED%99%94%EB%A9%B4/",
+        "teaser": null
       }]
