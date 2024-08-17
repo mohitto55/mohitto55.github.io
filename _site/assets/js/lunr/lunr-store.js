@@ -197,12 +197,6 @@ var store = [{
         "url": "/algorithm/Selection-Sort-%EC%84%A0%ED%83%9D-%EC%A0%95%EB%A0%AC/",
         "teaser": null
       },{
-        "title": "[Docker] Ubuntu에서 Docker 설치하기",
-        "excerpt":"Docker Docker란 컨테이너를 이용한 오픈소스 가상화 플랫폼이다. 컨테이너는 OS레벨의 가상화로 프로세스를 격리시켜 동작하는 것을 말한다. OS자체를 가상화 하던 방식과는 다른데 무슨 차이가 있는 것일 까 VM 가상화 vs Docker 가상화 사용하는 이유 개발하고 서버에 올리면 끝 그런데 서버에 올리면 작동 안함 whyt 컴터는 윈도우, 서버는 리눅스여서 도커를 사용하면 다른 머신에서도...","categories": ["network"],
-        "tags": ["Docket","Ubuntu","Linux","컨테이너"],
-        "url": "/network/Docker%EC%97%90-MySql-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0/",
-        "teaser": null
-      },{
         "title": "[Window] Window에서 Linux(WSL2) 환경 설치하기",
         "excerpt":"들어가며 Docker를 사용하기 위해 알아보던 중 Hyper-V 기능을 활성화 해야하는 것을 알았다. 활성화 하려고 했지만 아무리 찾아도 보이지 않았다. 어찌된 것인지 알아보니 Window Pro 이상의 버전만 지원하는 기능이였고 난 Home였기에 할 수 없었다. 어떻게든 방법을 찾던 와중 Window에서 Linux 환경을 실행할 수 있는 기능이 있었고 이를 이용하면 Docker도 설치할 수...","categories": ["os"],
         "tags": ["Window","Linux","Ubuntu","WSL2","Window Service for Linux","우분투","윈도우","리눅스"],
@@ -327,5 +321,23 @@ var store = [{
         "excerpt":"들어가며 나는 Todoist, Google Calendar, Obsidian을 통해 일정관리를 한다. 나는 일정관리에서 제일 중요하다 생각하는 부분이 언제 어디서든 최소한의 액션으로 간편하게 일정을 확인할 수 있어야 한다고 생각한다. 그래서 휴대폰에는 바탕화면에 구글 캘린더 위젯을 생성하고 옵시디언에서 Full Calendar 플러그인을 통해 구글 캘린더를 확인할 수 있다. 다만 윈도우의 경우에는 구글캘린더를 바탕화면 위젯으로 생성가능한...","categories": ["os"],
         "tags": ["Window","Google Calendar","Outlook","Widget","Calendar","윈도우","구글캘린더","아웃룩"],
         "url": "/os/%EA%B5%AC%EA%B8%80%EC%BA%98%EB%A6%B0%EB%8D%94-%EC%95%84%EC%9B%83%EB%A3%A9-%EC%97%B0%EB%8F%99-%EB%B0%94%ED%83%95%ED%99%94%EB%A9%B4/",
+        "teaser": null
+      },{
+        "title": "[Docker] Docker와 VM의 차이점",
+        "excerpt":"Docker Docker란 컨테이너를 이용한 오픈소스 가상화 플랫폼이다. 컨테이너는 OS레벨의 가상화로 프로세스를 격리시켜 동작하는 것을 말한다. OS자체를 가상화 하던 방식과는 다른데 무슨 차이가 있는것일까? VM 가상화 vs Docker 가상화 VM 기존에는 하나의 서버에 하나의 어플리케이션만 구동시켰다. 이는 남는 자원이 많아진다. 이를 극복하기 위해 나온것이 가상화다 하이퍼바이저 기반의 가상화가 많이 이용됐다. 논리적으로...","categories": ["network"],
+        "tags": ["Docker","Ubuntu","Linux","컨테이너","VM","가상환경","가상머신","도커","하이퍼바이저","HyperVisor","Virtual Machine"],
+        "url": "/network/Docker%EC%99%80-VM-%EC%B0%A8%EC%9D%B4/",
+        "teaser": null
+      },{
+        "title": "[Docker] Docker Image 개념과 구조",
+        "excerpt":"Docker 이미지 컨테이너를 만드는데 사용되는 Template이라 생각하면 된다. 컨테이너는 이미지를 기반으로 생성된다. 이미지는 Docker hub에서 다운받아서 사용하는 방식으로 도커 계정을 가진 사람들끼리 이미지를 공유할 수 있다. 이미지 구조와 레이어 이미지는 용량이 매우 큰데 기본 몇백MB다. 이미지를 업데이트하면 그 큰 용량을 매번 전부 다운 받는것은 비효율적이다. 그래서 Layer 구조를 통해 관리를...","categories": ["network"],
+        "tags": ["Docker","Ubuntu","Linux","컨테이너","Image","Layer"],
+        "url": "/network/Docker-Image-%EC%A0%95%EB%A6%AC/",
+        "teaser": null
+      },{
+        "title": "[Docker] Ubuntu에서 Docker로 Mysql설치하기",
+        "excerpt":"Docker 설치 Docker 다운받기 sudo wget -qO- http://get.docker.com/ | sh Docker 버전 확인 docker -v Mysql 설치 Docker 이미지 다운 sudo docker pull mysql 다운받아진 이미지 확인 docker images 컨테이너를 실행하기 docker run --name mysql-container -e MYSQL_ROOT_PASSWORD=&lt;password&gt; -d -p 3306:3306 mysql:latest --name &lt;container_name&gt; : &lt;container_name&gt; 이름의 컨테이너를 실행한다. -e :...","categories": ["network"],
+        "tags": ["Docket","Ubuntu","Linux","컨테이너"],
+        "url": "/network/Docker%EC%97%90-mysql-%EC%84%A4%EC%B9%98/",
         "teaser": null
       }]

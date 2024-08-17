@@ -4,6 +4,45 @@
         xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     
     <url>
+        <loc>http://localhost:4000/network/Docker%EC%97%90-mysql-%EC%84%A4%EC%B9%98/</loc>
+        
+        <lastmod>2024-08-17T00:00:00+09:00</lastmod>
+        
+        
+        <changefreq>weekly</changefreq>
+        
+        
+        <priority>0.5</priority>
+        
+    </url>
+    
+    <url>
+        <loc>http://localhost:4000/network/Docker-Image-%EC%A0%95%EB%A6%AC/</loc>
+        
+        <lastmod>2024-08-17T00:00:00+09:00</lastmod>
+        
+        
+        <changefreq>weekly</changefreq>
+        
+        
+        <priority>0.5</priority>
+        
+    </url>
+    
+    <url>
+        <loc>http://localhost:4000/network/Docker%EC%99%80-VM-%EC%B0%A8%EC%9D%B4/</loc>
+        
+        <lastmod>2024-08-16T00:00:00+09:00</lastmod>
+        
+        
+        <changefreq>weekly</changefreq>
+        
+        
+        <priority>0.5</priority>
+        
+    </url>
+    
+    <url>
         <loc>http://localhost:4000/os/%EA%B5%AC%EA%B8%80%EC%BA%98%EB%A6%B0%EB%8D%94-%EC%95%84%EC%9B%83%EB%A3%A9-%EC%97%B0%EB%8F%99-%EB%B0%94%ED%83%95%ED%99%94%EB%A9%B4/</loc>
         
         <lastmod>2024-08-05T00:00:00+09:00</lastmod>
@@ -265,19 +304,6 @@
     
     <url>
         <loc>http://localhost:4000/os/WSL2-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0/</loc>
-        
-        <lastmod>2024-03-22T00:00:00+09:00</lastmod>
-        
-        
-        <changefreq>weekly</changefreq>
-        
-        
-        <priority>0.5</priority>
-        
-    </url>
-    
-    <url>
-        <loc>http://localhost:4000/network/Docker%EC%97%90-MySql-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0/</loc>
         
         <lastmod>2024-03-22T00:00:00+09:00</lastmod>
         

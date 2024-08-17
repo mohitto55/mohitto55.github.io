@@ -1,4 +1,227 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-08-06T01:23:51+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mohitto55 Note</title><subtitle>모히또의 노트</subtitle><author><name>Mohitto55</name></author><entry><title type="html">[Window] 구글캘린더 바탕화면에 위젯 생성하기</title><link href="http://localhost:4000/os/%EA%B5%AC%EA%B8%80%EC%BA%98%EB%A6%B0%EB%8D%94-%EC%95%84%EC%9B%83%EB%A3%A9-%EC%97%B0%EB%8F%99-%EB%B0%94%ED%83%95%ED%99%94%EB%A9%B4/" rel="alternate" type="text/html" title="[Window] 구글캘린더 바탕화면에 위젯 생성하기" /><published>2024-08-05T00:00:00+09:00</published><updated>2024-08-05T00:00:00+09:00</updated><id>http://localhost:4000/os/%EA%B5%AC%EA%B8%80%EC%BA%98%EB%A6%B0%EB%8D%94%20%EC%95%84%EC%9B%83%EB%A3%A9%20%EC%97%B0%EB%8F%99%20%EB%B0%94%ED%83%95%ED%99%94%EB%A9%B4</id><content type="html" xml:base="http://localhost:4000/os/%EA%B5%AC%EA%B8%80%EC%BA%98%EB%A6%B0%EB%8D%94-%EC%95%84%EC%9B%83%EB%A3%A9-%EC%97%B0%EB%8F%99-%EB%B0%94%ED%83%95%ED%99%94%EB%A9%B4/"><![CDATA[<h2 id="들어가며">들어가며</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-08-17T21:42:12+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mohitto55 Note</title><subtitle>모히또의 노트</subtitle><author><name>Mohitto55</name></author><entry><title type="html">[Docker] Docker Image 개념과 구조</title><link href="http://localhost:4000/network/Docker-Image-%EC%A0%95%EB%A6%AC/" rel="alternate" type="text/html" title="[Docker] Docker Image 개념과 구조" /><published>2024-08-17T00:00:00+09:00</published><updated>2024-08-17T00:00:00+09:00</updated><id>http://localhost:4000/network/Docker%20Image%20%EC%A0%95%EB%A6%AC</id><content type="html" xml:base="http://localhost:4000/network/Docker-Image-%EC%A0%95%EB%A6%AC/"><![CDATA[<h2 id="docker-이미지">Docker 이미지</h2>
+<p>컨테이너를 만드는데 사용되는 Template이라 생각하면 된다.
+컨테이너는 이미지를 기반으로 생성된다.</p>
+
+<p><br />
+이미지는 <code class="language-plaintext highlighter-rouge">Docker hub</code>에서 다운받아서 사용하는 방식으로 도커 계정을 가진 사람들끼리 이미지를 공유할 수 있다.</p>
+
+<hr />
+
+<h3 id="이미지-구조와-레이어">이미지 구조와 레이어</h3>
+<p><img src="https://github.com/user-attachments/assets/4f99fce3-c1c1-4b4d-8077-65c5f3f53d2b" alt="image" /></p>
+
+<p><br />
+이미지는 용량이 매우 큰데 기본 몇백MB다. 이미지를 업데이트하면 그 큰 용량을 매번 전부 다운 받는것은 비효율적이다. 그래서 Layer 구조를 통해 관리를 한다.</p>
+
+<p><br />
+이미지는 기본적으로 <strong>읽기전용(Read-Only)</strong>의 레이어 여러개로 구성되어있다. 이 레이어들은 파일이 추가되거나 수정되면 새로운 레이어를 만든다. 즉 기존 Base레이어는 변경되지않고 새로운 Layer가 추가하면된다.</p>
+
+<p><br />
+위 그림처럼 기본 Base Image를 이용해 만드는 새로운 Image는 Layer를 수정하지 않고 새 Layer를 생성한다. 이렇게하면 web app 이미지를 업데이트 할 때 web app layer만 수정하면된다.</p>
+
+<p><br />
+맨 우측 그림을 보면 Docker Container에서 web app을 베이스로 이미지 생성을 하는데 해당 이미지 레이어들은 모두 <strong>읽기전용(Read-Only)</strong>으로 생성된다.</p>
+
+<p><br />
+컨테이너가 생성될 때마다 Container Layer가 생성되는데 해당 레이어는 <strong>읽기쓰기</strong> 모두 가능하지만 Container가 삭제되면 Container Layer도 삭제된다.</p>
+
+<p><img src="https://github.com/user-attachments/assets/4440ce1c-1063-4b1a-956a-d9d5b2f7b859" alt="image" /></p>
+
+<h2><br /></h2>
+<p><br /></p>
+<div class="Reference">
+<div class="callout-header"> </div>
+<p>
+<a href="https://velog.io/@kdaeyeop/%EB%8F%84%EC%BB%A4-Docker-%EC%99%80-VM%EC%9D%98-%EC%B0%A8%EC%9D%B4">https://velog.io/@kdaeyeop/%EB%8F%84%EC%BB%A4-Docker-%EC%99%80-VM%EC%9D%98-%EC%B0%A8%EC%9D%B4</a>
+<a href="https://creboring.net/blog/how-docker-divide-image-layer/">https://creboring.net/blog/how-docker-divide-image-layer/</a>
+</p>
+</div>]]></content><author><name>Mohitto55</name></author><category term="network" /><category term="Docker" /><category term="Ubuntu" /><category term="Linux" /><category term="컨테이너" /><category term="Image" /><category term="Layer" /><summary type="html"><![CDATA[Docker 이미지 컨테이너를 만드는데 사용되는 Template이라 생각하면 된다. 컨테이너는 이미지를 기반으로 생성된다.]]></summary></entry><entry><title type="html">[Docker] Ubuntu에서 Docker로 Mysql설치하기</title><link href="http://localhost:4000/network/Docker%EC%97%90-mysql-%EC%84%A4%EC%B9%98/" rel="alternate" type="text/html" title="[Docker] Ubuntu에서 Docker로 Mysql설치하기" /><published>2024-08-17T00:00:00+09:00</published><updated>2024-08-17T00:00:00+09:00</updated><id>http://localhost:4000/network/Docker%EC%97%90%20mysql%20%EC%84%A4%EC%B9%98</id><content type="html" xml:base="http://localhost:4000/network/Docker%EC%97%90-mysql-%EC%84%A4%EC%B9%98/"><![CDATA[<h2 id="docker-설치">Docker 설치</h2>
+<blockquote>
+  <p>Docker 다운받기</p>
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo wget -qO- http://get.docker.com/ | sh
+</code></pre></div>  </div>
+</blockquote>
+
+<p><br /></p>
+
+<blockquote>
+  <p>Docker 버전 확인</p>
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker -v
+</code></pre></div>  </div>
+  <p><img src="https://github.com/mohitto55/Blog_Images/assets/154340583/5c72a46d-5327-48a0-bfbe-c5e80a298495" alt="image" /></p>
+</blockquote>
+
+<h2 id="mysql-설치">Mysql 설치</h2>
+<p><br /></p>
+<blockquote>
+  <p>Docker 이미지 다운</p>
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo docker pull mysql
+</code></pre></div>  </div>
+</blockquote>
+
+<blockquote>
+  <p>다운받아진 이미지 확인</p>
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker images
+</code></pre></div>  </div>
+  <p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/64449571/2bd321ec-4107-480c-ab6f-6987f1401fd8" alt="image" /></p>
+</blockquote>
+
+<p><br /></p>
+
+<blockquote>
+  <p>컨테이너를 실행하기</p>
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker run --name mysql-container -e MYSQL_ROOT_PASSWORD=&lt;password&gt; -d -p 3306:3306 mysql:latest
+</code></pre></div>  </div>
+</blockquote>
+
+<p><code class="language-plaintext highlighter-rouge">--name &lt;container_name&gt;</code> : <code class="language-plaintext highlighter-rouge">&lt;container_name&gt;</code> 이름의 컨테이너를 실행한다.<br />
+<code class="language-plaintext highlighter-rouge">-e</code> : 컨테이너 내에서 사용할 환경변수를 설정<br />
+<code class="language-plaintext highlighter-rouge">-e MYSQL_ROOT_PASSWORD=&lt;password&gt;</code> : MySQL의 root 권한의 비밀번호를 <code class="language-plaintext highlighter-rouge">&lt;password&gt;</code>로 설정한다.<br />
+<code class="language-plaintext highlighter-rouge">-d</code> : detach 모드로 컨테이너가 실행된다. 컨테이너가 백그라운드로 실행된다고 보면 된다.<br />
+<code class="language-plaintext highlighter-rouge">-p &lt;호스트 포트&gt; &lt;컨테이너 포트&gt;</code> : 호스트와 컨테이너의 포트를 연결한다.<br />
+mysql:latest : 컨테이너에 사용할 이미지<br /></p>
+
+<hr />
+
+<blockquote>
+  <p>도커 목록 조회</p>
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker ps -a
+</code></pre></div>  </div>
+  <p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/64449571/c333d5b9-6317-44e8-ae13-b4698f63f1be" alt="image" /></p>
+</blockquote>
+
+<p><br /><br /></p>
+
+<h2 id="도커-이미지-런-오류">도커 이미지 런 오류</h2>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Unable to find image 'mysql-container:latest' locally
+</code></pre></div></div>
+<blockquote>
+  <p>이미지 이름이 다르다.
+콘테이너랑 이미지는 다른 개념이다.</p>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker: Error response from daemon: pull access denied for mysql-container, repository does not exist or may require 'docker login': denied: requested access to the resource is denied.
+</code></pre></div></div>
+<blockquote>
+  <p>로그인을 잘못했거나 이미지에 태그 된 이름이랑 다르거나 둘 중 하나다.</p>
+</blockquote>
+
+<p><br /></p>
+
+<h2 id="도커-컨테이너-접속시-오류">도커 컨테이너 접속시 오류</h2>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Error response from daemon: container 1a0ab9fe9da2301b1d7959614ad2e8335ae745cf9b72a2b0394474236526557c is not running
+</code></pre></div></div>
+<p>콘테이너가 실행되지 않아 발생하는 오류다.<br />
+아래 명령어를 통해 원하는 컨테이너를 실행하면 된다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo docker container start mysql-container
+</code></pre></div></div>
+
+<blockquote>
+  <p>도커 컨테이너 접속하기</p>
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo docker exec -it mysql-container bash
+</code></pre></div>  </div>
+</blockquote>
+
+<blockquote>
+  <p>루트권한에 접근하기</p>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysql -u root -p
+</code></pre></div></div>
+<p><br />
+<img src="https://github.com/mohitto55/mohitto55.github.io/assets/64449571/7d89434e-6c5a-44e6-b812-7794738c5831" alt="image" /></p>
+
+<h2><br /></h2>
+<p><br /></p>
+<div class="Reference">
+<div class="callout-header"> </div>
+<p>
+<a href="https://hipopatamus.tistory.com/109">https://hipopatamus.tistory.com/109</a>
+<a href="https://khj93.tistory.com/entry/Docker-Docker-%EA%B0%9C%EB%85%90">https://khj93.tistory.com/entry/Docker-Docker-%EA%B0%9C%EB%85%90</a>
+</p>
+</div>]]></content><author><name>Mohitto55</name></author><category term="network" /><category term="Docket" /><category term="Ubuntu" /><category term="Linux" /><category term="컨테이너" /><summary type="html"><![CDATA[Docker 설치 Docker 다운받기 sudo wget -qO- http://get.docker.com/ | sh]]></summary></entry><entry><title type="html">[Docker] Docker와 VM의 차이점</title><link href="http://localhost:4000/network/Docker%EC%99%80-VM-%EC%B0%A8%EC%9D%B4/" rel="alternate" type="text/html" title="[Docker] Docker와 VM의 차이점" /><published>2024-08-16T00:00:00+09:00</published><updated>2024-08-16T00:00:00+09:00</updated><id>http://localhost:4000/network/Docker%EC%99%80%20VM%20%EC%B0%A8%EC%9D%B4</id><content type="html" xml:base="http://localhost:4000/network/Docker%EC%99%80-VM-%EC%B0%A8%EC%9D%B4/"><![CDATA[<h2 id="docker">Docker</h2>
+<p>Docker란 컨테이너를 이용한 오픈소스 가상화 플랫폼이다. 
+컨테이너는 OS레벨의 가상화로 프로세스를 격리시켜 동작하는 것을 말한다. OS자체를 가상화 하던 방식과는 다른데 무슨 차이가 있는것일까?</p>
+
+<h2 id="vm-가상화-vs-docker-가상화">VM 가상화 vs Docker 가상화</h2>
+<h3 id="vm">VM</h3>
+<ul>
+  <li>기존에는 하나의 서버에 하나의 어플리케이션만 구동시켰다.
+    <ul>
+      <li>이는 남는 자원이 많아진다.</li>
+      <li>이를 극복하기 위해 나온것이 가상화다</li>
+    </ul>
+  </li>
+  <li>하이퍼바이저 기반의 가상화가 많이 이용됐다.
+    <ul>
+      <li>논리적으로 분리된 공간에서 VM이라는 독립된 가상환경 만든다.</li>
+      <li>그리고 호스트 시스템에서 VM에 게스트 OS를 구동 및 모니터링 한다.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/def35409-b1d9-4484-9a43-c6abd80140ab" alt="image" /><em>VM 구조</em></p>
+
+<h3 id="docker-1">Docker</h3>
+<ul>
+  <li>Docker은 Guest OS가 필요없다.
+    <ul>
+      <li>Host OS의 커널을 공유하기 때문이다.</li>
+    </ul>
+  </li>
+  <li>가상화를 할 때마다 OS를 할당해주면 자원 낭비가 된다.</li>
+  <li>그래서 Container라는 개념으로 필요한 기능을 모듈화 시켜뗏다 붙여다 하는 식으로 운영이 가능하다.</li>
+  <li>Docker의 컨테이너들은 리눅스 OS를 이용한다.
+    <ul>
+      <li>Host OS가 윈도우나 맥이면 어떻게 하는 것인가?</li>
+      <li>WSL 같은 리눅스환경 VM을 사용한다.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="https://github.com/user-attachments/assets/15360da2-1cef-4a8d-b2c0-8041522094db" alt="image" />
+<br /></p>
+<div class="callout-info-expanded">
+<div class="callout-header">차이점 요약</div>
+<p>
+1. VM은 하이퍼 바이저 기능을 이용해 Guest OS를 할당한다.<br />
+2. Docker은 Host OS의 커널을 공유해 사용한다<br />
+3. VM은 새 환경을 구성할 때 마다 새로운 OS를 다운받아야하지만 Docker은 컨테이너를 늘릴 때마다 OS를 다운할 필요없어 자원 효율성이 더 좋다.
+</p>
+</div>
+
+<h2 id="사용하는-이유">사용하는 이유</h2>
+<h3 id="개발환경-구성">개발환경 구성</h3>
+<p>개발하고 서버에 올리면 끝인 상황이다. 그런데 서버에 올리면 작동 하지 않는 경우가 있다.왜 그런가 알아보니 컴퓨터 윈도우, 서버는 리눅스라는 각각 다른 OS를 사용하여 발생하는 오류였다. 각 OS마다 호환되는 기능이 다르기에 발생하는 문제였다.
+<br /><br />
+하지만 도커를 사용하면 다른 머신에서도 같은 환경 구성이 가능하다.
+방법은 간단하다 윈도우, 서버에 둘다 Docker 설치하고 구성하고 싶은 환경 설정하면 된다.
+<br /><br /></p>
+
+<p>도커는 파일을 읽고 필요한걸 다운 받고 같은 환경을 컨테이너에 구성한다.
+그래서 컴퓨터에서 서버로 코드 업로드하면(Docker와 같이) 잘 작동 한다.
+<br /><br /></p>
+
+<p>또 각 컨테이너는 각기 분리되어 있다.컨테이너들은 독립적이다. 이덕에 한개의 서버에서 수많은 컨테이너 가질 수 있다. 만약 자바 애플리케이션이 인기 많으면 자바 컨테이너 늘리고 사용자가 줄면 컨테이너를 줄임으로써 매번 서버를 사고 팔 이유가 없어진다.</p>
+
+<p><br /></p>
+<div class="callout-info-expanded">
+<div class="callout-header">사용하는 이유 요약</div>
+<p>
+1. 원하는 개발 환경을 파일에 저장하면 어떤 머신에든 해당 환경 구성해준다.<br />
+2. 각 환경을 독립적이기 때문에 무슨 환경이든 모듈식 관리 가능하다.
+</p>
+</div>
+
+<h2><br /></h2>
+<p><br /></p>
+<div class="Reference">
+<div class="callout-header"> </div>
+<p>
+<a href="https://khj93.tistory.com/entry/Docker-Docker-%EA%B0%9C%EB%85%90">https://khj93.tistory.com/entry/Docker-Docker-%EA%B0%9C%EB%85%90</a>
+<a href="https://velog.io/@kdaeyeop/%EB%8F%84%EC%BB%A4-Docker-%EC%99%80-VM%EC%9D%98-%EC%B0%A8%EC%9D%B4">https://velog.io/@kdaeyeop/%EB%8F%84%EC%BB%A4-Docker-%EC%99%80-VM%EC%9D%98-%EC%B0%A8%EC%9D%B4</a>
+</p>
+</div>]]></content><author><name>Mohitto55</name></author><category term="network" /><category term="Docker" /><category term="Ubuntu" /><category term="Linux" /><category term="컨테이너" /><category term="VM" /><category term="가상환경" /><category term="가상머신" /><category term="도커" /><category term="하이퍼바이저" /><category term="HyperVisor" /><category term="Virtual Machine" /><summary type="html"><![CDATA[Docker Docker란 컨테이너를 이용한 오픈소스 가상화 플랫폼이다. 컨테이너는 OS레벨의 가상화로 프로세스를 격리시켜 동작하는 것을 말한다. OS자체를 가상화 하던 방식과는 다른데 무슨 차이가 있는것일까?]]></summary></entry><entry><title type="html">[Window] 구글캘린더 바탕화면에 위젯 생성하기</title><link href="http://localhost:4000/os/%EA%B5%AC%EA%B8%80%EC%BA%98%EB%A6%B0%EB%8D%94-%EC%95%84%EC%9B%83%EB%A3%A9-%EC%97%B0%EB%8F%99-%EB%B0%94%ED%83%95%ED%99%94%EB%A9%B4/" rel="alternate" type="text/html" title="[Window] 구글캘린더 바탕화면에 위젯 생성하기" /><published>2024-08-05T00:00:00+09:00</published><updated>2024-08-05T00:00:00+09:00</updated><id>http://localhost:4000/os/%EA%B5%AC%EA%B8%80%EC%BA%98%EB%A6%B0%EB%8D%94%20%EC%95%84%EC%9B%83%EB%A3%A9%20%EC%97%B0%EB%8F%99%20%EB%B0%94%ED%83%95%ED%99%94%EB%A9%B4</id><content type="html" xml:base="http://localhost:4000/os/%EA%B5%AC%EA%B8%80%EC%BA%98%EB%A6%B0%EB%8D%94-%EC%95%84%EC%9B%83%EB%A3%A9-%EC%97%B0%EB%8F%99-%EB%B0%94%ED%83%95%ED%99%94%EB%A9%B4/"><![CDATA[<h2 id="들어가며">들어가며</h2>
 <p>나는 <strong>Todoist, Google Calendar, Obsidian</strong>을 통해 일정관리를 한다.
 나는 일정관리에서 제일 중요하다 생각하는 부분이 언제 어디서든 최소한의 액션으로 간편하게 일정을 확인할 수 있어야 한다고 생각한다.
 그래서 휴대폰에는 바탕화면에 구글 캘린더 위젯을 생성하고 옵시디언에서 <strong>Full Calendar 플러그인</strong>을 통해 구글 캘린더를 확인할 수 있다.</p>
@@ -259,7 +482,36 @@
 <a href="https://velog.io/@liha_engineer/ue4start-4">https://velog.io/@liha_engineer/ue4start-4</a>
 <a href="https://mingyu0403.tistory.com/298">https://mingyu0403.tistory.com/298</a>
 </p>
-</div>]]></content><author><name>Mohitto55</name></author><category term="ue5" /><category term="UE5" /><category term="Unreal Engine5" /><category term="Unreal Engine" /><category term="Debug" /><category term="Package" /><summary type="html"><![CDATA[개요 네트워크 기능이 있는 게임을 만들었는데 PIE상에서는 괜찮았는데 패키지를 하니 버그가 발생했다. 이게 네트워크에서 발생한 것인지 아니면 내부 구조 로직에서 충돌이 일어난 것인지 알길이 없어서 디버그를 해야만 했다. 언리얼 디버그에 관한 지식이 전무 했었기 때문에 이 기회에 패키지된 게임을 디버그하는 방법을 공부하여 정리하는 시간을 가져보았다.]]></summary></entry><entry><title type="html">[UE5] 트레이스 채널 사용법</title><link href="http://localhost:4000/ue5/UE5-%ED%8A%B8%EB%A0%88%EC%9D%B4%EC%8A%A4-%EC%B1%84%EB%84%90-%EC%82%AC%EC%9A%A9%EB%B2%95/" rel="alternate" type="text/html" title="[UE5] 트레이스 채널 사용법" /><published>2024-05-20T00:00:00+09:00</published><updated>2024-05-20T00:00:00+09:00</updated><id>http://localhost:4000/ue5/UE5%20%ED%8A%B8%EB%A0%88%EC%9D%B4%EC%8A%A4%20%EC%B1%84%EB%84%90%20%EC%82%AC%EC%9A%A9%EB%B2%95</id><content type="html" xml:base="http://localhost:4000/ue5/UE5-%ED%8A%B8%EB%A0%88%EC%9D%B4%EC%8A%A4-%EC%B1%84%EB%84%90-%EC%82%AC%EC%9A%A9%EB%B2%95/"><![CDATA[<h2 id="개요">개요</h2>
+</div>]]></content><author><name>Mohitto55</name></author><category term="ue5" /><category term="UE5" /><category term="Unreal Engine5" /><category term="Unreal Engine" /><category term="Debug" /><category term="Package" /><summary type="html"><![CDATA[개요 네트워크 기능이 있는 게임을 만들었는데 PIE상에서는 괜찮았는데 패키지를 하니 버그가 발생했다. 이게 네트워크에서 발생한 것인지 아니면 내부 구조 로직에서 충돌이 일어난 것인지 알길이 없어서 디버그를 해야만 했다. 언리얼 디버그에 관한 지식이 전무 했었기 때문에 이 기회에 패키지된 게임을 디버그하는 방법을 공부하여 정리하는 시간을 가져보았다.]]></summary></entry><entry><title type="html">[UE5] C++ 폴더 추가하는 법</title><link href="http://localhost:4000/ue5/UE5-C++-%ED%8F%B4%EB%8D%94-%EC%83%9D%EC%84%B1%EB%B2%95/" rel="alternate" type="text/html" title="[UE5] C++ 폴더 추가하는 법" /><published>2024-05-20T00:00:00+09:00</published><updated>2024-05-20T00:00:00+09:00</updated><id>http://localhost:4000/ue5/UE5%20C++%20%ED%8F%B4%EB%8D%94%20%EC%83%9D%EC%84%B1%EB%B2%95</id><content type="html" xml:base="http://localhost:4000/ue5/UE5-C++-%ED%8F%B4%EB%8D%94-%EC%83%9D%EC%84%B1%EB%B2%95/"><![CDATA[<h1 id="개요">개요</h1>
+<p>언리얼엔진은 C++ Class 폴더가 존재한다. 이 폴더에서 프로젝트에 적용하는 모든 C++ 파일들이 들어가게 되는데 해당 폴더안에 폴더를 새로 생성하면 인식이 되지 않는 경우가 있다.</p>
+
+<p>이를 해결하기 위해선 언리얼이 감지할 수 있게 범위를 지정해 주어야한다.</p>
+
+<h2 id="폴더-감지-설정">폴더 감지 설정</h2>
+
+<p>C++ 파일은 모두 All/C++Classes 폴더 아래에 생성된다.
+언리얼엔진은 이 폴더안에 있는 C++ 파일은 감지하지만 안에 있는 폴더는 감지하지 못한다. 그래서 하위폴더도 감지할 수 있게 작업해 줘야한다.</p>
+
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/26460e8d-af22-41d4-83a3-b6da36e10d42" alt="image" /></p>
+<blockquote>
+  <p>프로젝트이름.Build.cs 파일로 이동해서 아래 코드 사진과 같이 삽입하기
+이는 이름에서 알 수 있듯이 언리얼 엔진의 Include 경로를 추가하는 코드다.</p>
+</blockquote>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">PublicIncludePaths</span><span class="p">.</span><span class="n">AddRange</span><span class="p">(</span><span class="k">new</span> <span class="n">string</span><span class="p">[]</span> <span class="p">{</span> <span class="s">"StudyExample"</span> <span class="p">});</span>
+</code></pre></div></div>
+
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/0e087686-7bf8-4c2b-84aa-bd4071416da0" alt="image" /><em>코드 삽입시 모습</em></p>
+
+<div class="callout-info-expanded">
+<div class="callout-header">Build.cs 파일이 뭔가요?</div>
+<p>
+언리얼에는 모듈이라는 개념이 있는데 이는 언리얼 엔진의 기본 구성요소다.
+모듈을 여러개로 분리한 이유는 사용하지 않는 모듈도 컴파일 하면 빌드 시간이 오래 걸리에 분리한다. 
+
+Build.cs 파일은 이러한 모듈을 관리하는 cs파일로 모듈뿐 아니라 컴파일에 이용 하는 여러 설정을 제어한다.
+</p>
+</div>]]></content><author><name>Mohitto55</name></author><category term="ue5" /><category term="UE5" /><category term="Unreal Engine5" /><category term="Unreal Engine" /><category term="C++" /><summary type="html"><![CDATA[개요 언리얼엔진은 C++ Class 폴더가 존재한다. 이 폴더에서 프로젝트에 적용하는 모든 C++ 파일들이 들어가게 되는데 해당 폴더안에 폴더를 새로 생성하면 인식이 되지 않는 경우가 있다.]]></summary></entry><entry><title type="html">[UE5] 트레이스 채널 사용법</title><link href="http://localhost:4000/ue5/UE5-%ED%8A%B8%EB%A0%88%EC%9D%B4%EC%8A%A4-%EC%B1%84%EB%84%90-%EC%82%AC%EC%9A%A9%EB%B2%95/" rel="alternate" type="text/html" title="[UE5] 트레이스 채널 사용법" /><published>2024-05-20T00:00:00+09:00</published><updated>2024-05-20T00:00:00+09:00</updated><id>http://localhost:4000/ue5/UE5%20%ED%8A%B8%EB%A0%88%EC%9D%B4%EC%8A%A4%20%EC%B1%84%EB%84%90%20%EC%82%AC%EC%9A%A9%EB%B2%95</id><content type="html" xml:base="http://localhost:4000/ue5/UE5-%ED%8A%B8%EB%A0%88%EC%9D%B4%EC%8A%A4-%EC%B1%84%EB%84%90-%EC%82%AC%EC%9A%A9%EB%B2%95/"><![CDATA[<h2 id="개요">개요</h2>
 <ul>
   <li>트레이스 채널 생성 for 액션 판정 - ABAction</li>
   <li>캐릭터 캡슐용 프로필 : ABAction 트레이스 채널에 반응 타입은 Pawn이다.</li>
@@ -578,392 +830,4 @@ GetCapsuleComponent는 Character를 상속받는 폰에서만 사용 가능하�
 
 <p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/ce1cdba3-f6bb-44ea-947a-a77eae1d85eb" alt="스크린샷 2024-03-23 212108" /><em>CPU Stream</em></p>
 
-<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/eaf72e9b-3b19-4cf4-b328-09929d0bb771" alt="스크린샷 2024-03-23 212513" /><em>Net Stream</em></p>]]></content><author><name>Mohitto55</name></author><category term="ue5" /><category term="UE5" /><category term="Unreal Engine5" /><category term="Unreal Engine" /><category term="Unreal Insights" /><summary type="html"><![CDATA[프로파일링 (Profiling) 프로그래밍에서의 프로파일링이란 소프트웨어의 성능 분석을 말한다. 프로그램의 메모리, CPU 사용량, 여러 이벤트 발생률들을 통계적으로 요약하여 보여준다. 프로파일링 툴을 이용하여 성능 취약점 부분을 찾아내어 보다 쉬운 최적화가 가능하다.]]></summary></entry><entry><title type="html">[UE5] 애니메이션 리타겟팅 완벽히 이해하기</title><link href="http://localhost:4000/ue5/UE5-%EC%95%A0%EB%8B%88%EB%A9%94%EC%9D%B4%EC%85%98-%EB%A6%AC%ED%83%80%EA%B2%9F%ED%8C%85/" rel="alternate" type="text/html" title="[UE5] 애니메이션 리타겟팅 완벽히 이해하기" /><published>2024-05-20T00:00:00+09:00</published><updated>2024-05-20T00:00:00+09:00</updated><id>http://localhost:4000/ue5/UE5%20%EC%95%A0%EB%8B%88%EB%A9%94%EC%9D%B4%EC%85%98%20%EB%A6%AC%ED%83%80%EA%B2%9F%ED%8C%85</id><content type="html" xml:base="http://localhost:4000/ue5/UE5-%EC%95%A0%EB%8B%88%EB%A9%94%EC%9D%B4%EC%85%98-%EB%A6%AC%ED%83%80%EA%B2%9F%ED%8C%85/"><![CDATA[<h1 id="개요">개요</h1>
-<p>언리얼 마켓플레이스나 Mixamo를 둘러보다 보면 좋은 애니메이션들이 많다. 
-찾은 애니메이션을 다른 Skeleton에 적용시키려고하면 Skeleton이 일치하지 않아 사용할 수 없는데 Animation Retargeting은 다른 Skeleton에 애니메이션을 사용할 수 있게 만들어주는 기능이다.</p>
-
-<h1 id="mixamo-에셋-가져오기">Mixamo 에셋 가져오기</h1>
-<h2 id="원하는-캐릭터로-애니메이션-가져오기">원하는 캐릭터로 애니메이션 가져오기</h2>
-<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/1f453bb3-eb17-4157-a4d3-e23b0a7ab833" alt="image" /></p>
-<blockquote>
-  <p>Mixamo캐릭터에서 원하는 메시를 고른다.</p>
-</blockquote>
-
-<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/9af49e37-74fa-4863-ad66-48b3d37b0dc9" alt="image" /></p>
-
-<h1 id="리타겟팅">리타겟팅</h1>
-<h2 id="54-이상">5.4 이상</h2>
-<ul>
-  <li>5.4 버전부터는 자동으로 애니메이션 리타겟팅이 가능하다.</li>
-  <li>하지만 규격이 너무 다르면 부자연스럽기에 수동으로 하는 방식을 추천한다. 
-<img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/fb055d90-6790-4818-a3db-f278c7b9c5a9" alt="image" /></li>
-</ul>
-
-<h2 id="53-이하">5.3 이하</h2>
-<p>언리얼 엔진에서의 애니메이션은 타겟팅한 스켈레톤 하나에 대해서만 작동한다. 그렇기에  원하는 애니메이션을 구해도 타겟팅된 스켈레톤이 다르면 사용할 수 없는데 이런 타겟팅을 바꿀수 있는 것이 리타겟팅이다.</p>
-
-<p>리타겟팅을 하기위해선 스켈레톤의 bone의 규격을 맞춰줘야 한다.</p>
-
-<h3 id="rig-설정">Rig 설정</h3>
-<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/937e1c5c-cb71-475a-a29a-7781841bb50e" alt="image" /></p>
-
-<p>서로 다른 스켈레톤간의 리타겟팅을 위한 Rig 규격을 설정해 줘야한다.
-애니메이션 스켈레톤 원본인 Source와 해당 스켈레톤으로 변경하고 싶은 Target의 IKRig 두개를 만들어준다.</p>
-
-<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/9793c784-e6fa-4f46-87aa-29b372fb1cfc" alt="스크린샷 2024-04-07 200353" /></p>
-
-<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/fbd2d32d-378a-4d19-a114-12a30fadc140" alt="스크린샷 2024-04-07 200408" /></p>
-
-<p>IK_Rig안에서 원하는 스켈레톤을 지정해준다.</p>
-
-<h2 id="세부설정">세부설정</h2>
-
-<h3 id="루트-설정">루트 설정</h3>
-<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/26b6b28a-ed45-4d9d-9edf-32be4e678ec6" alt="스크린샷 2024-04-07 200416" /></p>
-
-<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/9f844a0f-d535-4818-80f5-bd33a20d4d07" alt="image" /></p>
-
-<p>루트를 지정해줘야한다. 루트는 위 처럼 허리부분에 삼각형 표시가 나오는 것으로 지정했다.</p>
-
-<hr />
-
-<h3 id="체인-추가">체인 추가</h3>
-<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/11c77e90-f72f-4ea6-bed4-b7e2ddb3ac9d" alt="스크린샷 2024-04-07 200818" /></p>
-
-<p>IK Retargeting탭에서 Add New Chain을 눌러서 라타겟팅 기준이 되는 체인을 생성해준다. 위 과정들은 Source, Target 모두 해준다.</p>
-
-<h2 id="retargeter">Retargeter</h2>
-
-<p>두 IK_Rig를 만들었으면 애니메이션 스켈레톤을 변환할 IK_Retargeter를 만든다.</p>
-
-<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/522f66cc-d612-4f32-aa1a-f2a701c82c6f" alt="스크린샷 2024-04-07 201344" /></p>
-
-<hr />
-
-<p>Source와 Target의 IK_Rig를 설정해 준다.</p>
-
-<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/ebcb994c-bed4-40fa-afef-6ae46410cc38" alt="스크린샷 2024-04-07 201431" /></p>
-
-<hr />
-
-<p>그리고 Asset Browser에서 애니메이션 미리보기를 볼 수 있는데 확인해보면</p>
-
-<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/8123bcb5-5de4-4026-b264-ab7176d935b1" alt="스크린샷 2024-04-07 201614" /></p>
-
-<hr />
-
-<p>애니메이션이 잘 적용 되어있다.
-만약 적용했는데 포즈가 많이 엉켜있다면 Detail에서 각 체인별로 IK와 FK를 껏다 켜보면서 맞춰보면 된다.</p>
-
-<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/8559b383-4879-4883-8877-a592f991b92f" alt="스크린샷 2024-04-07 204610" /></p>
-
-<hr />
-
-<p>그리고 AssetBrowser 아래에 있는 ExportSelectedAnimations를 통해 애니메이션을 Export할 수 있다.</p>
-
-<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/7ea655ce-f110-44cd-9799-5b27d53a42dd" alt="image" /></p>
-
-<h2 id="apos-tpos-변경하기">APos, TPos 변경하기</h2>
-<ul>
-  <li>스켈레탈 메쉬들은 APos, TPos로 각각 다르다.</li>
-  <li>만약 해당 포즈들을 맞춰주지 않고 리타겟팅을 진행한다면 애니메이션이 깨지는 문제가 발생한다.
-<img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/0aae47b1-a16d-469f-85ee-c1c7b790f15c" alt="image" /></li>
-</ul>
-
-<hr />
-<h3 id="pos-변경하기">Pos 변경하기</h3>
-<h4 id="53-미만-버전">5.3 미만 버전</h4>
-<ul>
-  <li>IK Retargeter에서 직접 포즈를 수정할 수 있는 것으로 보인다.</li>
-  <li>정확히 몇버전부터 안돼는지는 확인필요하다.
-<img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/804c6179-141b-41c6-9c9b-026cbfcb933d" alt="image" /></li>
-</ul>
-
-<h4 id="53-이상">5.3 이상</h4>
-<ul>
-  <li>SkeletalMesh 혹은 Static Skeleton에셋에 진입해서 원하는 포즈로 변경해준다.
-<img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/881fd63a-7cb4-423a-9e99-6ace528f52d8" alt="image" /></li>
-</ul>
-
-<hr />
-
-<ul>
-  <li>상단부분 Create Asset으로 Current Pose를 눌러서 Pose Asset을 만들어준다.
-<img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/f44438ca-a3d9-47f2-a1e6-1f4ffee759d9" alt="image" /></li>
-</ul>
-
-<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/182b7bfe-8e6a-423e-a71d-e4a41ee41d97" alt="image" /></p>
-
-<hr />
-
-<ul>
-  <li>IK Retargeter를 열고 Editing Retarget Pose 모드에서 만들어둔 Pose Asset을 가져온다.
-<img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/3f197bae-2dbf-44b1-a532-1412c64e25e2" alt="image" /></li>
-</ul>
-
-<hr />
-
-<ul>
-  <li>
-    <p>Current Retarget Pose를 통해서 포즈를 변경해준다.
-<img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/7a721685-f31b-4637-9e09-fc12c270544e" alt="image" /></p>
-  </li>
-  <li>
-    <p>적용 후
-<img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/c48e7de4-b8bd-4ae0-975b-f53001d3df1a" alt="image" /></p>
-  </li>
-</ul>
-
-<h2 id="애니메이션이-정확하지-않은데">애니메이션이 정확하지 않은데?</h2>
-
-<ul>
-  <li>
-    <p>팔이 너무 벌려져 있다.
-<img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/5377666c-a76d-4ca4-bb7c-c409ac44cf27" alt="image" /></p>
-  </li>
-  <li>수정 후</li>
-  <li>
-    <p>팔 간격이 같아졌다.
-<img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/717c20fd-4b69-4d83-b4d5-3f7798ae145d" alt="image" /></p>
-  </li>
-  <li>모든 체인의 Rotation Mode를 One to One로 바꾼다.
-<img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/f93e647b-5fe6-47d2-930b-e6cc88bd9623" alt="image" /></li>
-</ul>
-
-<h2 id="공중에-떠있다">공중에 떠있다.</h2>
-
-<ul>
-  <li>
-    <p>Crouch 모션을 하면 아래처럼 떠있다.
-<img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/4c90569e-4d87-4412-a56a-1ddc5daaafb0" alt="image" /></p>
-  </li>
-  <li>
-    <p>수정 후
-<img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/1e307783-a762-4420-a5f7-478ae5ba93f6" alt="image" /></p>
-  </li>
-  <li>
-    <p>루트가 포함된 Chain의 TranslationMode를 GloballyScaled로 바꾼다.
-<img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/cebb1bc1-f93f-4c32-8cce-f7bda774a4b4" alt="image" /></p>
-  </li>
-  <li>그리고 애니메이션의 Translation Retargeting을 모두 Animation으로 변경해준다.</li>
-  <li>Translation Retargeting
-    <ul>
-      <li>
-        <font color="dodgerred">Animation</font>
-        <p> - 애니메이션 데이터에서 비롯되고 변경되지 않는다.</p>
-      </li>
-      <li>
-        <font color="dodgerred">Skeleton</font>
-        <p> - 스켈레톤의 bind Pose에 비롯된다.</p>
-      </li>
-      <li>
-        <font color="dodgerred">AnimationScaled</font>
-        <p> - 애니메이션 데이터에서 비롯되지만 스켈레톤의 Scale에 따라 비율이 조정된다. 이는 대상 스켈레톤과 소스 스켈레톤의 뼈 길이 사이의 비율이다.</p>
-      </li>
-    </ul>
-  </li>
-</ul>
-
-<h4 id="translation-retargeting">Translation Retargeting</h4>
-<ul>
-  <li>애니메이션은 자신의 기본 스켈레톤 Asset의 데이터를 통해 애니메이션을 수행하려한다.</li>
-  <li>Retargeting 데이터를 설정해주지 않으면 애니메이션 데이터를 원래 Skeleton의 Translation data에 적용하려해 에러가 발생할 수 있다.</li>
-  <li>하지만 Retargeting한 애니메이션의 경우 자신의 원래 스켈레톤이 아닌 다른 종류의 스켈레톤을 이용해 애니메이션 데이터를 생성했다.</li>
-  <li>그래서 Translation Retargeting을 통해 올바른 Skeleton에 애니메이션 데이터를 적용시켜줘야한다.</li>
-</ul>
-
-<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/006ef724-fc57-4078-a82d-af1de2efb51a" alt="image" /></p>
-
-<div class="Reference">
-<div class="callout-header"> </div>
-<p>
-<a href="https://lunchballer.com/archives/1741">https://lunchballer.com/archives/1741</a>
-</p>
-</div>]]></content><author><name>Mohitto55</name></author><category term="ue5" /><category term="UE5" /><category term="Unreal Engine5" /><category term="Unreal Engine" /><category term="Animation Retargeting" /><summary type="html"><![CDATA[개요 언리얼 마켓플레이스나 Mixamo를 둘러보다 보면 좋은 애니메이션들이 많다. 찾은 애니메이션을 다른 Skeleton에 적용시키려고하면 Skeleton이 일치하지 않아 사용할 수 없는데 Animation Retargeting은 다른 Skeleton에 애니메이션을 사용할 수 있게 만들어주는 기능이다.]]></summary></entry><entry><title type="html">[UE5] C++ 폴더 추가하는 법</title><link href="http://localhost:4000/ue5/UE5-C++-%ED%8F%B4%EB%8D%94-%EC%83%9D%EC%84%B1%EB%B2%95/" rel="alternate" type="text/html" title="[UE5] C++ 폴더 추가하는 법" /><published>2024-05-20T00:00:00+09:00</published><updated>2024-05-20T00:00:00+09:00</updated><id>http://localhost:4000/ue5/UE5%20C++%20%ED%8F%B4%EB%8D%94%20%EC%83%9D%EC%84%B1%EB%B2%95</id><content type="html" xml:base="http://localhost:4000/ue5/UE5-C++-%ED%8F%B4%EB%8D%94-%EC%83%9D%EC%84%B1%EB%B2%95/"><![CDATA[<h1 id="개요">개요</h1>
-<p>언리얼엔진은 C++ Class 폴더가 존재한다. 이 폴더에서 프로젝트에 적용하는 모든 C++ 파일들이 들어가게 되는데 해당 폴더안에 폴더를 새로 생성하면 인식이 되지 않는 경우가 있다.</p>
-
-<p>이를 해결하기 위해선 언리얼이 감지할 수 있게 범위를 지정해 주어야한다.</p>
-
-<h2 id="폴더-감지-설정">폴더 감지 설정</h2>
-
-<p>C++ 파일은 모두 All/C++Classes 폴더 아래에 생성된다.
-언리얼엔진은 이 폴더안에 있는 C++ 파일은 감지하지만 안에 있는 폴더는 감지하지 못한다. 그래서 하위폴더도 감지할 수 있게 작업해 줘야한다.</p>
-
-<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/26460e8d-af22-41d4-83a3-b6da36e10d42" alt="image" /></p>
-<blockquote>
-  <p>프로젝트이름.Build.cs 파일로 이동해서 아래 코드 사진과 같이 삽입하기
-이는 이름에서 알 수 있듯이 언리얼 엔진의 Include 경로를 추가하는 코드다.</p>
-</blockquote>
-
-<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">PublicIncludePaths</span><span class="p">.</span><span class="n">AddRange</span><span class="p">(</span><span class="k">new</span> <span class="n">string</span><span class="p">[]</span> <span class="p">{</span> <span class="s">"StudyExample"</span> <span class="p">});</span>
-</code></pre></div></div>
-
-<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/0e087686-7bf8-4c2b-84aa-bd4071416da0" alt="image" /><em>코드 삽입시 모습</em></p>
-
-<div class="callout-info-expanded">
-<div class="callout-header">Build.cs 파일이 뭔가요?</div>
-<p>
-언리얼에는 모듈이라는 개념이 있는데 이는 언리얼 엔진의 기본 구성요소다.
-모듈을 여러개로 분리한 이유는 사용하지 않는 모듈도 컴파일 하면 빌드 시간이 오래 걸리에 분리한다. 
-
-Build.cs 파일은 이러한 모듈을 관리하는 cs파일로 모듈뿐 아니라 컴파일에 이용 하는 여러 설정을 제어한다.
-</p>
-</div>]]></content><author><name>Mohitto55</name></author><category term="ue5" /><category term="UE5" /><category term="Unreal Engine5" /><category term="Unreal Engine" /><category term="C++" /><summary type="html"><![CDATA[개요 언리얼엔진은 C++ Class 폴더가 존재한다. 이 폴더에서 프로젝트에 적용하는 모든 C++ 파일들이 들어가게 되는데 해당 폴더안에 폴더를 새로 생성하면 인식이 되지 않는 경우가 있다.]]></summary></entry><entry><title type="html">[Visual Studio] LNK2019 함수에서 참조되는 확인할 수 없는 외부기호</title><link href="http://localhost:4000/vs/VS-%ED%95%A8%EC%88%98%EC%97%90%EC%84%9C-%EC%B0%B8%EC%A1%B0%EB%90%98%EB%8A%94-%ED%99%95%EC%9D%B8%ED%95%A0-%EC%88%98-%EC%97%86%EB%8A%94-%EC%99%B8%EB%B6%80%EA%B8%B0%ED%98%B8/" rel="alternate" type="text/html" title="[Visual Studio] LNK2019 함수에서 참조되는 확인할 수 없는 외부기호" /><published>2024-04-19T00:00:00+09:00</published><updated>2024-04-19T00:00:00+09:00</updated><id>http://localhost:4000/vs/VS%20%ED%95%A8%EC%88%98%EC%97%90%EC%84%9C%20%EC%B0%B8%EC%A1%B0%EB%90%98%EB%8A%94%20%ED%99%95%EC%9D%B8%ED%95%A0%20%EC%88%98%20%EC%97%86%EB%8A%94%20%EC%99%B8%EB%B6%80%EA%B8%B0%ED%98%B8</id><content type="html" xml:base="http://localhost:4000/vs/VS-%ED%95%A8%EC%88%98%EC%97%90%EC%84%9C-%EC%B0%B8%EC%A1%B0%EB%90%98%EB%8A%94-%ED%99%95%EC%9D%B8%ED%95%A0-%EC%88%98-%EC%97%86%EB%8A%94-%EC%99%B8%EB%B6%80%EA%B8%B0%ED%98%B8/"><![CDATA[<h2 id="설명">설명</h2>
-<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/74f27e43-22bf-4ab1-8e28-a4b93db44d36" alt="image" /></p>
-
-<p>보통 솔류션 파일을 직접 만들어 작업하지 않고 복사 붙여넣을 때 발생하는 오류다.</p>
-
-<h2 id="발생과정">발생과정</h2>
-<ol>
-  <li>MyQueue.h에 클래스 구현</li>
-  <li>Alt Enter로 함수 구현 하려 했으나 h에 생성이 됨</li>
-  <li>직접 cpp파일을 만들고 구현.</li>
-  <li>빌드 오류</li>
-</ol>
-
-<h2 id="해결과정">해결과정</h2>
-<p>아마 cpp파일을 복사 붙여넣기 하여 만든것이 원인이라 생각하여 참조 디렉터리를 확인해보기로 했다. 하지만 생각해보니 하나의 프로제그에 모두 있으므로 이 것은 아니라고 생각되었고 다른 방법을 생각했다.</p>
-
-<p>내 문법이 이상해서 이런건가 생각하고 다른 블로그에 있는 예제들을 복사 붙여넣기해서 확인 해본 결과 선언과 구현을 h파일에서 모두 했을 경우에만 작동 되는 것을 확인했다.</p>
-
-<p>알고보니 템플릿 클래스를 h파일, cpp파일로 나눠서 구현한 것이 문제였다.</p>
-
-<h2 id="원인">원인</h2>
-<ol>
-  <li>main 함수 정의하기</li>
-  <li>정의되지 않은 변수, 함수 정의하기</li>
-  <li>x86, x64가 혼합되었거나 잘못 선택 되었을 경우</li>
-</ol>
-
-<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/f5777ffe-3671-4c66-a26b-62e0bd17cee1" alt="image" /></p>
-<blockquote>
-  <p>빌드가 32비트인지 64비트인지 확인하기</p>
-</blockquote>
-
-<p><br /></p>
-
-<div class="Reference">
-<div class="callout-header"> </div>
-<p>
-<a href="https://davi06000.tistory.com/5">https://davi06000.tistory.com/5</a>
-<a href="https://master-hun.tistory.com/121">https://master-hun.tistory.com/121</a>
-</p>
-</div>]]></content><author><name>Mohitto55</name></author><category term="vs" /><category term="Visual Studio" /><category term="비쥬얼스튜디오" /><category term="LNK2019" /><category term="오류" /><summary type="html"><![CDATA[설명]]></summary></entry><entry><title type="html">[Unity] 정점이 24개인 큐브 만들기</title><link href="http://localhost:4000/unity/Unity-%EC%A0%95%EC%A0%9024%EA%B0%9C-%ED%81%90%EB%B8%8C-%EB%A7%8C%EB%93%A4%EA%B8%B0/" rel="alternate" type="text/html" title="[Unity] 정점이 24개인 큐브 만들기" /><published>2024-04-12T00:00:00+09:00</published><updated>2024-04-12T00:00:00+09:00</updated><id>http://localhost:4000/unity/Unity%20%EC%A0%95%EC%A0%9024%EA%B0%9C%20%ED%81%90%EB%B8%8C%20%EB%A7%8C%EB%93%A4%EA%B8%B0</id><content type="html" xml:base="http://localhost:4000/unity/Unity-%EC%A0%95%EC%A0%9024%EA%B0%9C-%ED%81%90%EB%B8%8C-%EB%A7%8C%EB%93%A4%EA%B8%B0/"><![CDATA[<p>지난번 <a href="https://mohitto55.github.io/unity/Unity-%EC%A0%95%EC%A0%908%EA%B0%9C-%ED%81%90%EB%B8%8C-%EB%A7%8C%EB%93%A4%EA%B8%B0/">정점 8개 큐브 만들기</a>에 이어서 이번엔 정점24개를 가진 큐브를 만들어 볼 것이다.</p>
-
-<h2 id="cube-작성">Cube 작성</h2>
-<h3 id="정점위치-참조-테이블">정점위치 참조 테이블</h3>
-<p>한 위치에 같은 정점이 3개가 만들어지는데 이 정점의 위치를 매번 계산하는 것 보단 <strong>테이블</strong>로 만들고 면이 테이블에 있는 정점 위치 정보를 가져오게 하는 것이 좋을 것이다.</p>
-
-<p>그러기 위해선 각 면에서 사용할 정점 위치index를 지정해 줘야한다.
-먼저 큐브의 각 면들의 방향을 표현한 enum을 선언한다.</p>
-<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="k">public</span> <span class="k">enum</span> <span class="n">Direction</span>
-    <span class="p">{</span>
-        <span class="n">FORWARD</span><span class="p">,</span> <span class="c1">// (0, 0, 1)</span>
-        <span class="n">RIGHT</span><span class="p">,</span>   <span class="c1">// (1, 0, 0)</span>
-        <span class="n">UP</span><span class="p">,</span>      <span class="c1">// (0, 1, 0)</span>
-        <span class="n">BACK</span><span class="p">,</span>    <span class="c1">// (0, 0, -1)</span>
-        <span class="n">LEFT</span><span class="p">,</span>    <span class="c1">// (-1, 0, 0)</span>
-        <span class="n">DOWN</span>     <span class="c1">// (0, -1, 0)</span>
-    <span class="p">}</span>
-</code></pre></div></div>
-
-<hr />
-
-<p>그 다음 면에서 사용하는 정점 Index를 정한다.
-유니티에선 Z축이 Forward이기에 Z축 기준으로 정점을 구성해 준다.</p>
-
-<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/edffa96d-8a33-44f7-ace7-f5898913d147" alt="image" /><em>vertex 순서</em></p>
-
-<hr />
-
-<p><strong>Direction enum</strong>에서 설계한 방향을 토대로 면의 정점을 만든다.</p>
-<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kt">int</span><span class="p">[][]</span> <span class="n">faceNumber</span> <span class="p">=</span>
-    <span class="p">{</span>
-        <span class="k">new</span> <span class="kt">int</span><span class="p">[]{</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">},</span>
-        <span class="k">new</span> <span class="kt">int</span><span class="p">[]{</span><span class="m">5</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">6</span><span class="p">},</span>
-        <span class="k">new</span> <span class="kt">int</span><span class="p">[]{</span><span class="m">5</span><span class="p">,</span><span class="m">4</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">0</span><span class="p">},</span>
-        <span class="k">new</span> <span class="kt">int</span><span class="p">[]{</span><span class="m">4</span><span class="p">,</span><span class="m">5</span><span class="p">,</span><span class="m">6</span><span class="p">,</span><span class="m">7</span><span class="p">},</span>
-        <span class="k">new</span> <span class="kt">int</span><span class="p">[]{</span><span class="m">1</span><span class="p">,</span><span class="m">4</span><span class="p">,</span><span class="m">7</span><span class="p">,</span><span class="m">2</span><span class="p">},</span>
-        <span class="k">new</span> <span class="kt">int</span><span class="p">[]{</span><span class="m">3</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">7</span><span class="p">,</span><span class="m">6</span><span class="p">},</span>
-    <span class="p">};</span>
-</code></pre></div></div>
-
-<hr />
-<h3 id="정점-위치-테이블">정점 위치 테이블</h3>
-<p>정점들의 위치 데이터를 가진 테이블을 만들어준다.
-Scale을 적용하기 위해 <font color="dodgerred">아다마르 곱</font> 을 해준다.</p>
-<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="n">Vector3</span> <span class="n">scale</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Vector3</span><span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">width</span><span class="p">);</span>
-    <span class="n">List</span><span class="p">&lt;</span><span class="n">Vector3</span><span class="p">&gt;</span> <span class="n">vertices</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">Vector3</span><span class="p">&gt;();</span>
-    <span class="c1">// 정점들 위치 배열</span>
-    <span class="n">vSet</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">Vector3</span><span class="p">.</span><span class="nf">Scale</span><span class="p">(</span><span class="k">new</span> <span class="nf">Vector3</span><span class="p">(</span><span class="n">half</span><span class="p">,</span> <span class="n">half</span><span class="p">,</span> <span class="n">half</span><span class="p">),</span> <span class="n">scale</span><span class="p">));</span>
-    <span class="n">vSet</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">Vector3</span><span class="p">.</span><span class="nf">Scale</span><span class="p">(</span><span class="k">new</span> <span class="nf">Vector3</span><span class="p">(-</span><span class="n">half</span><span class="p">,</span> <span class="n">half</span><span class="p">,</span> <span class="n">half</span><span class="p">),</span> <span class="n">scale</span><span class="p">));</span>
-    <span class="n">vSet</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">Vector3</span><span class="p">.</span><span class="nf">Scale</span><span class="p">(</span><span class="k">new</span> <span class="nf">Vector3</span><span class="p">(-</span><span class="n">half</span><span class="p">,</span> <span class="p">-</span><span class="n">half</span><span class="p">,</span> <span class="n">half</span><span class="p">),</span> <span class="n">scale</span><span class="p">));</span>
-    <span class="n">vSet</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">Vector3</span><span class="p">.</span><span class="nf">Scale</span><span class="p">(</span><span class="k">new</span> <span class="nf">Vector3</span><span class="p">(</span><span class="n">half</span><span class="p">,</span> <span class="p">-</span><span class="n">half</span><span class="p">,</span> <span class="n">half</span><span class="p">),</span> <span class="n">scale</span><span class="p">));</span>
-    <span class="n">vSet</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">Vector3</span><span class="p">.</span><span class="nf">Scale</span><span class="p">(</span><span class="k">new</span> <span class="nf">Vector3</span><span class="p">(-</span><span class="n">half</span><span class="p">,</span> <span class="n">half</span><span class="p">,</span> <span class="p">-</span><span class="n">half</span><span class="p">),</span> <span class="n">scale</span><span class="p">));</span>
-    <span class="n">vSet</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">Vector3</span><span class="p">.</span><span class="nf">Scale</span><span class="p">(</span><span class="k">new</span> <span class="nf">Vector3</span><span class="p">(</span><span class="n">half</span><span class="p">,</span> <span class="n">half</span><span class="p">,</span> <span class="p">-</span><span class="n">half</span><span class="p">),</span> <span class="n">scale</span><span class="p">));</span>
-    <span class="n">vSet</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">Vector3</span><span class="p">.</span><span class="nf">Scale</span><span class="p">(</span><span class="k">new</span> <span class="nf">Vector3</span><span class="p">(</span><span class="n">half</span><span class="p">,</span> <span class="p">-</span><span class="n">half</span><span class="p">,</span> <span class="p">-</span><span class="n">half</span><span class="p">),</span> <span class="n">scale</span><span class="p">));</span>
-    <span class="n">vSet</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">Vector3</span><span class="p">.</span><span class="nf">Scale</span><span class="p">(</span><span class="k">new</span> <span class="nf">Vector3</span><span class="p">(-</span><span class="n">half</span><span class="p">,</span> <span class="p">-</span><span class="n">half</span><span class="p">,</span> <span class="p">-</span><span class="n">half</span><span class="p">),</span> <span class="n">scale</span><span class="p">));</span>
-</code></pre></div></div>
-
-<div class="callout-info-expanded">
-<div class="callout-header">아다마르 곱 (Hadamard Product)</div>
-<p>
-벡터와 벡터를 각 성분 끼리만 곱하는 행렬 곱이다.
-</p>
-</div>
-
-<hr />
-
-<h3 id="cube-구현">Cube 구현</h3>
-<p>Cube의 면은 6개, 면에 존재하는 정점은 4개 이므로 총 24개의 정점을 만든다. 
-면마다 정점이 필요한 이유는 <a href="https://mohitto55.github.io/unity/Unity-%EC%A0%95%EC%A0%908%EA%B0%9C-%ED%81%90%EB%B8%8C-%EB%A7%8C%EB%93%A4%EA%B8%B0/">이전 포스트</a>에서도 말했다시피</p>
-
-<p>정점 하나가 가질 수 있는 uv 정보는 1개 까지라 면 3개에 대한 정보를 가질 수 없다.
-그래서 면마다 정점을 만들어주는 것이다.</p>
-
-<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">faceDir</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">faceDir</span> <span class="p">&lt;</span> <span class="m">6</span><span class="p">;</span> <span class="n">faceDir</span><span class="p">++)</span>
-<span class="p">{</span>
-    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">faceIndex</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">faceIndex</span> <span class="p">&lt;</span> <span class="m">4</span><span class="p">;</span> <span class="n">faceIndex</span><span class="p">++)</span>
-    <span class="p">{</span>
-        <span class="kt">int</span> <span class="n">faceVertexIndex</span> <span class="p">=</span> <span class="n">faceNumber</span><span class="p">[</span><span class="n">faceDir</span><span class="p">][</span><span class="n">faceIndex</span><span class="p">];</span>
-        <span class="n">vertices</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">vSet</span><span class="p">[</span><span class="n">faceVertexIndex</span><span class="p">]);</span>
-    <span class="p">}</span>
-</code></pre></div></div>
-
-<hr />
-
-<p>정점에 대응하는 uv정보와 면을 구성하는 삼각형을 그리기 위해 triangles에 정점 번호를 넣어준다.</p>
-<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="n">uvs</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="k">new</span> <span class="nf">Vector2</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">));</span>
-    <span class="n">uvs</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="k">new</span> <span class="nf">Vector2</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">));</span>
-    <span class="n">uvs</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="k">new</span> <span class="nf">Vector2</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">0</span><span class="p">));</span>
-    <span class="n">uvs</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="k">new</span> <span class="nf">Vector2</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">));</span>
-
-    <span class="kt">int</span> <span class="n">triangleIndex</span> <span class="p">=</span> <span class="n">faceDir</span> <span class="p">*</span> <span class="m">4</span><span class="p">;</span>
-    <span class="n">triangles</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">triangleIndex</span> <span class="p">+</span> <span class="m">0</span><span class="p">);</span>
-    <span class="n">triangles</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">triangleIndex</span> <span class="p">+</span> <span class="m">1</span><span class="p">);</span>
-    <span class="n">triangles</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">triangleIndex</span> <span class="p">+</span> <span class="m">3</span><span class="p">);</span>
-
-    <span class="n">triangles</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">triangleIndex</span> <span class="p">+</span> <span class="m">1</span><span class="p">);</span>
-    <span class="n">triangles</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">triangleIndex</span> <span class="p">+</span> <span class="m">2</span><span class="p">);</span>
-    <span class="n">triangles</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">triangleIndex</span> <span class="p">+</span> <span class="m">3</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<p>지금까지 작성한 데이터들을 Mesh로 만들어 MeshFilter에 넣어준다.</p>
-<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="n">Mesh</span> <span class="n">mesh</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Mesh</span><span class="p">();</span>
-    <span class="n">mesh</span><span class="p">.</span><span class="n">vertices</span> <span class="p">=</span> <span class="n">vertices</span><span class="p">.</span><span class="nf">ToArray</span><span class="p">();</span>
-    <span class="n">mesh</span><span class="p">.</span><span class="n">uv</span> <span class="p">=</span> <span class="n">uvs</span><span class="p">.</span><span class="nf">ToArray</span><span class="p">();</span>
-    <span class="n">mesh</span><span class="p">.</span><span class="n">triangles</span> <span class="p">=</span> <span class="n">triangles</span><span class="p">.</span><span class="nf">ToArray</span><span class="p">();</span>
-    <span class="n">mesh</span><span class="p">.</span><span class="nf">RecalculateBounds</span><span class="p">();</span>
-
-    <span class="n">GetComponent</span><span class="p">&lt;</span><span class="n">MeshFilter</span><span class="p">&gt;().</span><span class="n">mesh</span> <span class="p">=</span> <span class="n">mesh</span><span class="p">;</span>
-</code></pre></div></div>
-
-<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/f42a96ff-e563-4ba2-97e7-8c150c2e5ff4" alt="image" /><em>완성된 Cube</em></p>
-
-<div class="Reference">
-<div class="callout-header"> </div>
-<p>
-<a href="https://bloodstrawberry.tistory.com/1021">https://bloodstrawberry.tistory.com/1021</a>
-</p>
-</div>]]></content><author><name>Mohitto55</name></author><category term="unity" /><category term="Unity" /><category term="Cube" /><category term="Mesh" /><summary type="html"><![CDATA[지난번 정점 8개 큐브 만들기에 이어서 이번엔 정점24개를 가진 큐브를 만들어 볼 것이다.]]></summary></entry></feed>
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/eaf72e9b-3b19-4cf4-b328-09929d0bb771" alt="스크린샷 2024-03-23 212513" /><em>Net Stream</em></p>]]></content><author><name>Mohitto55</name></author><category term="ue5" /><category term="UE5" /><category term="Unreal Engine5" /><category term="Unreal Engine" /><category term="Unreal Insights" /><summary type="html"><![CDATA[프로파일링 (Profiling) 프로그래밍에서의 프로파일링이란 소프트웨어의 성능 분석을 말한다. 프로그램의 메모리, CPU 사용량, 여러 이벤트 발생률들을 통계적으로 요약하여 보여준다. 프로파일링 툴을 이용하여 성능 취약점 부분을 찾아내어 보다 쉬운 최적화가 가능하다.]]></summary></entry></feed>
