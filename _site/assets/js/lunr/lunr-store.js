@@ -311,6 +311,12 @@ var store = [{
         "url": "/ue5/UE5-Modules-for-Plugin-%EC%98%A4%EB%A5%98-%ED%95%B4%EA%B2%B0/",
         "teaser": null
       },{
+        "title": "[Graphics] 렌더링 파이프라인 정리",
+        "excerpt":"렌더링 파이프라인 3차원 모델을 2차원 화면에 투영하는 렌더링 과정을 말한다. 벌칸 엔진의 렌더링 파이프라인 과정 Application 좌표계 정하기 2차원은 왼손 좌표계 3차원은 오른손 좌표계를 이용한다. Geometry Processing 정점 정보를 3D 공간으로 변환하는 단계 모델, 뷰행렬 투영, 클립핑 등등 화면에 표시할 기하학적 요소들을 화면상에 투영시키는 과정 Resterization 정점 정보를 픽셀 데이터로...","categories": ["ue5"],
+        "tags": ["UE5","Unreal Engine5","Unreal Engine","Debug","Package"],
+        "url": "/ue5/%EB%A0%8C%EB%8D%94%EB%A7%81-%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8-%EC%A0%95%EB%A6%AC/",
+        "teaser": null
+      },{
         "title": "[CS] 컴퓨터에서 문자를 표현하는 방법",
         "excerpt":"문자 집합과 인코딩 문자집합 컴퓨터가 인식할 수 있는 문자의 모음이다. 인코딩 문자를 0과 1로 변환해 컴퓨터가 이해할 수 있는 정보로 변환하는 과정이다. 디코딩 0과1을 사람이 이해하는 문자로 변환하는 과정이다. 아스키 코드 초창기 문자집합이다. 7비트로 표현할 수 있는 문자는 총 128개이다. 표현 가능한 수가 적기 때문에 한글을 표현할 수 없다. 확장...","categories": ["computerscience"],
         "tags": ["인코딩","디코딩","유니코드","아스키코드","Unicode","ASCII","Encode","Decode","ECU-KR","UTF-8","UTF-16","UTF-32"],
@@ -339,5 +345,11 @@ var store = [{
         "excerpt":"Docker 설치 Docker 다운받기 sudo wget -qO- http://get.docker.com/ | sh Docker 버전 확인 docker -v Mysql 설치 Docker 이미지 다운 sudo docker pull mysql 다운받아진 이미지 확인 docker images 컨테이너를 실행하기 docker run --name mysql-container -e MYSQL_ROOT_PASSWORD=&lt;password&gt; -d -p 3306:3306 mysql:latest --name &lt;container_name&gt; : &lt;container_name&gt; 이름의 컨테이너를 실행한다. -e :...","categories": ["network"],
         "tags": ["Docket","Ubuntu","Linux","컨테이너"],
         "url": "/network/Docker%EC%97%90-mysql-%EC%84%A4%EC%B9%98/",
+        "teaser": null
+      },{
+        "title": "[UE5] 언리얼엔진 캐릭터 애니메이션 모션매칭 사용법",
+        "excerpt":"언리얼엔진이 5.4버전이 나오면서 모션매칭 기능이 새로 발표되었다. 모션 매칭은 캐릭터 애니메이션을 위한 차세대 프레임워크다. 이 기술은 언리얼 엔진 5.4 버전에서 새롭게 도입되었으며, 캐릭터의 움직임을 더욱 자연스럽고 역동적으로 만드는 데 중점을 준다. 모션매칭을 이용한 애니메이션 제작은 기존 방식과 큰 차이가 있다. 모션 매칭의 주요 특징으로는 다음과 같다. 1. 데이터 기반 접근:...","categories": ["ue5"],
+        "tags": ["UE5","UnrealEngine","Animation","MotionMatching"],
+        "url": "/ue5/UE5-%EB%AA%A8%EC%85%98%EB%A7%A4%EC%B9%AD%EC%82%AC%EC%9A%A9%EB%B2%95/",
         "teaser": null
       }]
