@@ -489,10 +489,16 @@ npm WARN deprecated request@2.88.2: request has been deprecated, see https://git
 Node의 버전이 낮아서 지원이 안되는 라이브러리를 사용해 생기는 오류 node 버전을 올려야 한다.
 
 ### 배포가 좀 많이 어렵네 문서화 부터 하자
+#### DocFX 주의점
+1. C#만 지원한다 C++은 안된다.
+
 DocFX 사용하기
 기본 폴더구조
 
-Assets/Package/Documentation~
+#### 경로
+Assets/Package/Documentation~ 혹은
+프로젝트루트/Documentation
+
 DocFXSample\
     Articles\
     Images\
@@ -518,6 +524,20 @@ docfx
 로컬 서버 작동
 docfx serve
 
+### 흰화면만 나온다.
+여기까지 하면 흰색 바탕만 나오고 CSS가 적용되지 않은 모습이 보인다.
+
+### 필터 설정하기
+filterConfig.yml를 Documentation 폴더에 생성한다.
+이 파일은 문서로 만들 API를 필터링하는 파일이다.
+
+### 사이트 구성위한 파일 구성
+DocFX에서 사이트 구성 및 편집을 하는 방법에 대해 설명드리겠습니다.
+
+docfx.json 파일 편집: 프로젝트 폴더에 생성된 docfx.json 파일을 열어서 구성을 수정합니다. 이 파일은 DocFX 프로젝트의 주요 구성 파일입니다.
+
+사이트 메타데이터 설정: docfx.json 파일에서 "metadata" 섹션을 찾아 사이트 메타데이터를 설정합니다. 이 메타데이터에는 사이트의 제목, 설명, 저자 등의 정보를 제공할 수 있습니다.
+
 ## DocFX 소스 추가하기
 소스 인식할 수 있도록 metadata 정보와 build/content 정보를 구성해 주면 된다.
 
@@ -534,15 +554,85 @@ src : 소스 빌드에서 생성된 출력 결과 폴더 지정
 dest : 소스 빌드의 결과를 docfx 빌드해서 결과물을 위치시킬 폴더 지정
 resource : 이미지와 같은 Asset 파일들의 폴더 지정
 dest : DocFx 결과 사이트 폴더 지정
-
-### 사이트 구성위한 파일 구성
-DocFX에서 사이트 구성 및 편집을 하는 방법에 대해 설명드리겠습니다.
-
-docfx.json 파일 편집: 프로젝트 폴더에 생성된 docfx.json 파일을 열어서 구성을 수정합니다. 이 파일은 DocFX 프로젝트의 주요 구성 파일입니다.
-
-사이트 메타데이터 설정: docfx.json 파일에서 "metadata" 섹션을 찾아 사이트 메타데이터를 설정합니다. 이 메타데이터에는 사이트의 제목, 설명, 저자 등의 정보를 제공할 수 있습니다.
-
-
+```
+{
+  "metadata": [
+    {
+      "src": [
+        {
+          "src": "../",
+          "files": [
+            "**/*.csproj",
+            "**/*.sln"
+          ],
+          "exclude": [
+            "**/bin/**", 
+            "**/obj/**"
+        ]
+        }
+      ],
+      "dest": "api",
+      "disableGitFeatures": false,
+      "disableDefaultFilter": false,
+      "filter": "filterConfig.yml"
+    }
+  ],
+  "build": {
+    "content": [
+      {
+        "files": [
+          "api/**.yml",
+          "api/index.md"
+        ]
+      },
+      {
+        "files": [
+          "articles/**.md",
+          "articles/**/toc.yml",
+          "toc.yml",
+          "*.md"
+        ]
+      }
+    ],
+    "resource": [
+      {
+        "files": [
+          "images/**"
+        ]
+      }
+    ],
+    "overwrite": [
+      {
+        "files": [
+          "apidoc/**.md"
+        ],
+        "exclude": [
+          "obj/**",
+          "_site/**"
+        ]
+      }
+    ],
+    "_appTitle": "Example Unity documentation",
+    "_appFooter": "Example Unity documentation",
+    "_enableSearch": true,
+    "dest": "_site",
+    "globalMetadataFiles": [],
+    "fileMetadataFiles": [],
+    "template": [
+      "default"
+    ],
+    "postProcessors": [],
+    "noLangKeyword": false,
+    "keepFileLink": false,
+    "cleanupCacheHistory": false,
+    "disableGitFeatures": false
+  },
+  "sitemap":
+  {
+    "baseUrl": "https://normanderwan.github.io/DocFxForUnity"
+  }
+}
+```
 
 
 ### S3 프리티어 사용하기

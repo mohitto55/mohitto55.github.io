@@ -1,0 +1,1108 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>[CS] 페이징과 스와핑을 활용한 가상 메모리 관리 기법 이해하기 | Mohitto55 Note</title>
+<meta name="description" content="컴퓨터 시스템에서 프로세스는 작업을 처리하기 위해 반드시 데이터를 메모리에 저장해야 한다.  하지만 물리적인 메모리 용량은 제한적이기 때문에, 모든 프로세스가 동시에 메모리에 상주할 수는 없다.   이를 해결하고자 운영체제는 다양한 메모리 관리 기법을 통해 메모리 자원을 효율적으로 배분하고 활용한다. 이러한 기법들은 프로세스의 메모리 사용량을 최적화하고, 실행 속도를 보장하며, 시스템의 안정성을 유지하는 데 중요한 역할을 한다.   오늘은 그중에서도 연속적 메모리 할당, 스와핑, 페이징 등 현대 운영체제에서 흔히 사용되는 메모리 관리 기법들을 자세히 살펴보며, 각각의 장단점과 적용 사례에 대해 알아보다.  이 과정을 통해 컴퓨터 시스템이 어떻게 메모리 자원을 관리하고, 이를 통해 성능을 극대화하는지 이해할 수 있을 것이다.">
+
+
+  <meta name="author" content="Mohitto55">
+  
+  <meta property="article:author" content="Mohitto55">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="Mohitto55 Note">
+<meta property="og:title" content="[CS] 페이징과 스와핑을 활용한 가상 메모리 관리 기법 이해하기">
+<meta property="og:url" content="http://localhost:4000/computerscience/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0-%EA%B0%80%EC%83%81%EB%A9%94%EB%AA%A8%EB%A6%AC/">
+
+
+  <meta property="og:description" content="컴퓨터 시스템에서 프로세스는 작업을 처리하기 위해 반드시 데이터를 메모리에 저장해야 한다.  하지만 물리적인 메모리 용량은 제한적이기 때문에, 모든 프로세스가 동시에 메모리에 상주할 수는 없다.   이를 해결하고자 운영체제는 다양한 메모리 관리 기법을 통해 메모리 자원을 효율적으로 배분하고 활용한다. 이러한 기법들은 프로세스의 메모리 사용량을 최적화하고, 실행 속도를 보장하며, 시스템의 안정성을 유지하는 데 중요한 역할을 한다.   오늘은 그중에서도 연속적 메모리 할당, 스와핑, 페이징 등 현대 운영체제에서 흔히 사용되는 메모리 관리 기법들을 자세히 살펴보며, 각각의 장단점과 적용 사례에 대해 알아보다.  이 과정을 통해 컴퓨터 시스템이 어떻게 메모리 자원을 관리하고, 이를 통해 성능을 극대화하는지 이해할 수 있을 것이다.">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2024-08-27T00:00:00+09:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/computerscience/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0-%EA%B0%80%EC%83%81%EB%A9%94%EB%AA%A8%EB%A6%AC/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "전진성(Jeon Jin Sung)",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+  <meta name="naver-site-verification" content="a4ad39eaff04b6c72cdd72276b5e8a94d931b215">
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Mohitto55 Note Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+<!-- Mathjax Support -->
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/mohitto.jpg" alt="Mohitto55 Note"></a>
+        
+        <a class="site-title" href="/">
+          Mohitto55 Note
+          <span class="site-subtitle">small positive action</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/categories/">Category</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">Tag</a>
+            </li><li class="masthead__menu-item">
+              <a href="/search/">Search</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">토글 메뉴</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+  
+    
+
+
+
+<nav class="breadcrumbs">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    
+    
+    
+      
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/" itemprop="item"><span itemprop="name">Home</span></a>
+
+          <meta itemprop="position" content="1" />
+        </li>
+        <span class="sep">/</span>
+      
+      
+        
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/categories/#computerscience" itemprop="item"><span itemprop="name">Computerscience</span></a>
+          <meta itemprop="position" content="2" />
+        </li>
+        <span class="sep">/</span>
+      
+    
+      
+      
+        <li class="current">[CS] 페이징과 스와핑을 활용한 가상 메모리 관리 기법 이해하기</li>
+      
+    
+  </ol>
+</nav>
+
+  
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:4000/">
+        <img src="/assets/images/mohitto.jpg" alt="Mohitto55" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Mohitto55</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>Mohitto’s Note’</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">팔로우</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">South Korea</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="mailto:mohitto55@gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/mohitto55" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://twitter.com/jeonjinseong5" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span class="label">Twitter</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+    
+      
+      
+      
+      
+    
+    
+      
+
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">토글 메뉴</label>
+  <li> 전체 글 수 (61)개 </li>
+  <ul class="nav__items">
+    
+      
+      <li>
+        
+          <span class="nav__sub-title">Language</span>
+        
+
+        
+        <ul>
+          
+          
+          
+
+            <li><a href="/cpp"><span class="nav__sub-title-url">C++  </span><span class="nav__sub-title-count">3</span></a></li>
+          
+          
+          
+
+            <li><a href="/csap"><span class="nav__sub-title-url">C#  </span><span class="nav__sub-title-count">0</span></a></li>
+          
+          
+          
+
+            <li><a href="/javascript"><span class="nav__sub-title-url">JavaScript  </span><span class="nav__sub-title-count">0</span></a></li>
+          
+          
+          
+
+            <li><a href="/python"><span class="nav__sub-title-url">Python  </span><span class="nav__sub-title-count">0</span></a></li>
+          
+          
+          
+
+            <li><a href="/css"><span class="nav__sub-title-url">HTML/CSS  </span><span class="nav__sub-title-count">0</span></a></li>
+          
+        </ul>
+        
+      </li>
+    
+      
+      <li>
+        
+          <span class="nav__sub-title">Engine</span>
+        
+
+        
+        <ul>
+          
+          
+          
+
+            <li><a href="/unity"><span class="nav__sub-title-url">Unity  </span><span class="nav__sub-title-count">4</span></a></li>
+          
+          
+          
+
+            <li><a href="/ue5"><span class="nav__sub-title-url">UE5  </span><span class="nav__sub-title-count">14</span></a></li>
+          
+        </ul>
+        
+      </li>
+    
+      
+      <li>
+        
+          <span class="nav__sub-title">Productivity</span>
+        
+
+        
+        <ul>
+          
+          
+          
+
+            <li><a href="/vs"><span class="nav__sub-title-url">VisualStudio  </span><span class="nav__sub-title-count">2</span></a></li>
+          
+          
+          
+
+            <li><a href="/vscode"><span class="nav__sub-title-url">VScode  </span><span class="nav__sub-title-count">1</span></a></li>
+          
+          
+          
+
+            <li><a href="/obsidian"><span class="nav__sub-title-url">Obsidian  </span><span class="nav__sub-title-count">2</span></a></li>
+          
+          
+          
+
+            <li><a href="/tool"><span class="nav__sub-title-url">Tool  </span><span class="nav__sub-title-count">0</span></a></li>
+          
+        </ul>
+        
+      </li>
+    
+      
+      <li>
+        
+          <span class="nav__sub-title">PS</span>
+        
+
+        
+        <ul>
+          
+          
+          
+
+            <li><a href="/boj"><span class="nav__sub-title-url">BOJ  </span><span class="nav__sub-title-count">4</span></a></li>
+          
+          
+          
+
+            <li><a href="/algorithm"><span class="nav__sub-title-url">Algorithm  </span><span class="nav__sub-title-count">5</span></a></li>
+          
+        </ul>
+        
+      </li>
+    
+      
+      <li>
+        
+          <span class="nav__sub-title">ETC</span>
+        
+
+        
+        <ul>
+          
+          
+          
+
+            <li><a href="/os"><span class="nav__sub-title-url">OS  </span><span class="nav__sub-title-count">2</span></a></li>
+          
+          
+          
+
+            <li><a href="/network"><span class="nav__sub-title-url">Network  </span><span class="nav__sub-title-count">5</span></a></li>
+          
+          
+          
+
+            <li><a href="/git"><span class="nav__sub-title-url">Git  </span><span class="nav__sub-title-count">2</span></a></li>
+          
+          
+          
+
+            <li><a href="/gitblog"><span class="nav__sub-title-url">Git Blog  </span><span class="nav__sub-title-count">9</span></a></li>
+          
+          
+          
+
+            <li><a href="/hardware"><span class="nav__sub-title-url">Hardware  </span><span class="nav__sub-title-count">1</span></a></li>
+          
+          
+          
+
+            <li><a href="/computerscience"><span class="nav__sub-title-url">CS  </span><span class="nav__sub-title-count">3</span></a></li>
+          
+          
+          
+
+            <li><a href="/math"><span class="nav__sub-title-url">Math  </span><span class="nav__sub-title-count">1</span></a></li>
+          
+        </ul>
+        
+      </li>
+    
+  </ul>
+</nav>
+    
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="[CS] 페이징과 스와핑을 활용한 가상 메모리 관리 기법 이해하기">
+    <meta itemprop="description" content="컴퓨터 시스템에서 프로세스는 작업을 처리하기 위해 반드시 데이터를 메모리에 저장해야 한다. 하지만 물리적인 메모리 용량은 제한적이기 때문에, 모든 프로세스가 동시에 메모리에 상주할 수는 없다. 이를 해결하고자 운영체제는 다양한 메모리 관리 기법을 통해 메모리 자원을 효율적으로 배분하고 활용한다. 이러한 기법들은 프로세스의 메모리 사용량을 최적화하고, 실행 속도를 보장하며, 시스템의 안정성을 유지하는 데 중요한 역할을 한다. 오늘은 그중에서도 연속적 메모리 할당, 스와핑, 페이징 등 현대 운영체제에서 흔히 사용되는 메모리 관리 기법들을 자세히 살펴보며, 각각의 장단점과 적용 사례에 대해 알아보다. 이 과정을 통해 컴퓨터 시스템이 어떻게 메모리 자원을 관리하고, 이를 통해 성능을 극대화하는지 이해할 수 있을 것이다.">
+    <meta itemprop="datePublished" content="2024-08-27T00:00:00+09:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://localhost:4000/computerscience/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0-%EA%B0%80%EC%83%81%EB%A9%94%EB%AA%A8%EB%A6%AC/" class="u-url" itemprop="url">[CS] 페이징과 스와핑을 활용한 가상 메모리 관리 기법 이해하기
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2024-08-27T00:00:00+09:00">August 27, 2024</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 분 소요
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> 목차</h4></header>
+              <ul class="toc__menu"><li><a href="#연속적-메모리할당">연속적 메모리할당</a></li><li><a href="#스와핑">스와핑</a><ul><li><a href="#스와핑의-장점">스와핑의 장점</a></li><li><a href="#명령어">명령어</a></li></ul></li><li><a href="#연속-메모리-할당-방법">연속 메모리 할당 방법</a><ul><li><a href="#최초-적합first-fit">최초 적합(first-fit)</a></li><li><a href="#최적-적합best-fit">최적 적합(best-fit)</a></li><li><a href="#최악-적합worst-fit">최악 적합(worst-fit)</a></li></ul></li><li><a href="#외부-단편화">외부 단편화</a><ul><li><a href="#해결법1--컴팩션">해결법1 : 컴팩션</a><ul><li><a href="#단점">단점</a></li></ul></li><li><a href="#해결법2-페이징">해결법2: 페이징</a></li></ul></li><li><a href="#페이징paging이란">페이징(paging)이란</a><ul><li><a href="#페이지-스와핑">페이지 스와핑</a></li></ul></li><li><a href="#페이지-테이블">페이지 테이블</a><ul><li><a href="#내부-단편화">내부 단편화</a></li></ul></li><li><a href="#process-table-base-registerptbr">Process Table Base Register(PTBR)</a><ul><li><a href="#뭔가-비효율-적인데">뭔가…? 비효율 적인데</a></li></ul></li></ul>
+
+            </nav>
+          </aside>
+        
+        <p>컴퓨터 시스템에서 프로세스는 작업을 처리하기 위해 반드시 데이터를 메모리에 저장해야 한다. 
+하지만 물리적인 메모리 용량은 제한적이기 때문에, 모든 프로세스가 동시에 메모리에 상주할 수는 없다. 
+<br /><br />
+이를 해결하고자 운영체제는 다양한 메모리 관리 기법을 통해 메모리 자원을 효율적으로 배분하고 활용한다. 이러한 기법들은 프로세스의 메모리 사용량을 최적화하고, 실행 속도를 보장하며, 시스템의 안정성을 유지하는 데 중요한 역할을 한다. 
+<br /><br />
+오늘은 그중에서도 연속적 메모리 할당, 스와핑, 페이징 등 현대 운영체제에서 흔히 사용되는 메모리 관리 기법들을 자세히 살펴보며, 각각의 장단점과 적용 사례에 대해 알아보다. 
+이 과정을 통해 컴퓨터 시스템이 어떻게 메모리 자원을 관리하고, 이를 통해 성능을 극대화하는지 이해할 수 있을 것이다.</p>
+
+<h2 id="연속적-메모리할당">연속적 메모리할당</h2>
+<p><img src="https://github.com/user-attachments/assets/ef40bf7b-1bf2-469d-827d-c2d2e858536f" alt="image" /></p>
+<ul>
+  <li>프로세스 영역에 연속적으로 프로세스를 할당해 놓은 것을 의미한다.</li>
+  <li>메모리를 차곡차곡 쌓아놓은 형태</li>
+  <li>이러한 방식은 비효율적이며 후에 <strong>페이징</strong>이라는 방식으로 프로세스를 관리하는 것이 좋다.</li>
+</ul>
+
+<h2 id="스와핑">스와핑</h2>
+<p><img src="https://github.com/user-attachments/assets/0a438116-b3bf-4a71-a986-60fdcde2f2d5" alt="image" /></p>
+<ul>
+  <li>현재 사용하지 않는(휴면상태)인 프로세스를 <strong>보조기억장치</strong>에넘겨서 효율적으로 메모리를 관리하는 기법
+    <ul>
+      <li><strong>스왑아웃</strong> : 무직백수 프로세스를 부조기억장치로 내쫓는 작업</li>
+      <li><strong>스왑 인</strong> : 할일이 생긴 프로세스를 다시 메모리에 들여보내는 작업</li>
+      <li><strong>스왑 영역</strong> : 무직백수 프로세스들이 모여지낼 <em>보조기억 장치의 일부 공간</em></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="스와핑의-장점">스와핑의 장점</h3>
+<p><img src="https://github.com/user-attachments/assets/b7043fb1-1309-4c59-a613-0cfea6ef443a" alt="image" /></p>
+<ul>
+  <li>내가 로아, 마크, 림월드 같은 큰 메모리를 필요로 하는 프로세스를 동시에 띄어 놓아야 하는 상황이있다.</li>
+  <li>하지만 프로그램들의 메모리 용량은 물리 메모리의 허용된 용량보다 큰데 그럴때 빛을 발한다.</li>
+  <li>실제로 사용하지 않는 프로세스는 보조기억장치에 넘기고 해당 자리에 다른 프로세스를 넣어서 모든 프로세스가 돌갈 수 있게 해준다.</li>
+</ul>
+
+<h3 id="명령어">명령어</h3>
+<p><img src="https://github.com/user-attachments/assets/89fbc725-6d8e-4c50-8cc8-20800808f45c" alt="image" /></p>
+
+<h2 id="연속-메모리-할당-방법">연속 메모리 할당 방법</h2>
+<h3 id="최초-적합first-fit">최초 적합(first-fit)</h3>
+<p><img src="https://github.com/user-attachments/assets/4bc86db6-3665-45ac-ac7e-b55213863e63" alt="Pasted image 20240731230854" /></p>
+
+<ul>
+  <li>프로세스를 적재할 공간을 발견하자마자 해당 공간에 적재하는 방식</li>
+  <li>Greedy Algorithm같은 방식이다.</li>
+  <li>빠르게 할당 가능하다.
+    <h3 id="최적-적합best-fit">최적 적합(best-fit)</h3>
+    <p><img src="https://github.com/user-attachments/assets/ccc12a6c-c5e0-42da-b37f-bb4cc29bef1d" alt="image" /></p>
+  </li>
+  <li>빈공간들 중 프로세스가 들어설 수 있는 가장 작은 공간에 할당하는 방</li>
+</ul>
+
+<h3 id="최악-적합worst-fit">최악 적합(worst-fit)</h3>
+<p><img src="https://github.com/user-attachments/assets/0368ebfb-959d-454d-a24a-13b210ddac77" alt="image" /></p>
+<ul>
+  <li>가장 큰 공간에 할당하는 방법</li>
+  <li><strong>외부 단편화</strong>문제 때문에 효율 낭비가 심한 방법이다.</li>
+</ul>
+
+<h2 id="외부-단편화">외부 단편화</h2>
+<p><img src="https://github.com/user-attachments/assets/aad9f5ca-8b71-4f2d-b449-e6795dde2b0d" alt="image" /></p>
+<ul>
+  <li>외부 단편화란 메모리 중간중간 작은 빈 공간이 생겨나는 것을 뜻한다.</li>
+  <li>이 현상의 단점은 CS MemoryStream과 같이 큰 용량의 프로세스는 여러개의 작은 공간에 할당 할 수 없는 문제가 생긴다.
+    <h3 id="해결법1--컴팩션">해결법1 : 컴팩션</h3>
+  </li>
+  <li>Garbage Collector의 메모리 컴팩션과 같은 원리다.</li>
+  <li>띄엄띄엄 놓여진 프로세스 메모리들을 압축해서 하나로 연결한다.</li>
+</ul>
+
+<h4 id="단점">단점</h4>
+<ul>
+  <li>오버헤드가 심하다.</li>
+  <li>컴팩션중 프로세스 이용이 불가하다.</li>
+</ul>
+
+<h3 id="해결법2-페이징">해결법2: 페이징</h3>
+<ul>
+  <li>가상 메모리 기법으로 현대 운영체제 대부분이 사용하는 메모리 관리 기법이다.</li>
+</ul>
+
+<h1 id="14-2-페이징을-이용한-가상-메모리-관리">14-2 페이징을 이용한 가상 메모리 관리</h1>
+<h2 id="페이징paging이란">페이징(paging)이란</h2>
+<p><img src="https://github.com/user-attachments/assets/ca7ce90a-0410-4a70-bbb5-3db0c87f9226" alt="image" /></p>
+<ul>
+  <li>페이징이란 하나의 프로세스를 잘게 나눠서 <strong>외부 단편화</strong>된 메모리 공간에 프로세스를 할당함으로써 비연속적인 메모리 공간을 효율적으로 사용할 수 있게 해주는 메모리 관리 기법이다.</li>
+</ul>
+
+<p><img src="https://github.com/user-attachments/assets/144c01fb-45a4-4f8d-bc29-944baf5fde83" alt="image" /></p>
+
+<p><img src="https://github.com/user-attachments/assets/251c4b27-6f4b-4c96-b97b-a90f61b39278" alt="image" /></p>
+
+<ul>
+  <li>좀 더 문서체로 말하자면 다음과 같다.
+    <ul>
+      <li>프로세스의 논리 주소 공간을 <strong>페이지(page)</strong> 단위로 자른다.
+        <ul>
+          <li>페이지 단위는 일정하나 일부 운영 체제에서는 Huge page라고 큰 용량의 페이지를 할당하는 경우도 있다.</li>
+        </ul>
+      </li>
+      <li>메모리의 물리 주소 공간을 프레임(frame)라는 단위로 페이지와 같은 크기로 자른다.</li>
+      <li>그리고 페이지를 프레임에 끼워 맞추는 방법이다.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="페이지-스와핑">페이지 스와핑</h3>
+<p><img src="https://github.com/user-attachments/assets/5711310e-e824-4950-925b-1f16917d9208" alt="image" /></p>
+<ul>
+  <li>페이지를 스와핑 한다고? 그럼 프로그램이 제대로 돌아가지 않는거 아닌가?
+    <ul>
+      <li>그렇지 않다. 사실 프로세스가 실행되는 데는 모든 페이지가 필요한 것이아니다.</li>
+      <li>일부 페이지를 보조기억 장치로 <strong>아웃</strong>시킴으로 써 논리 메모리 용량이 물리 메모리 용량 보다 더 크게 프로세스를 할당 할 수 있다.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="페이지-테이블">페이지 테이블</h2>
+<ul>
+  <li>페이지 방식의 메모리 관리 기법은 불연속적으로 메모리가 존재한다.</li>
+  <li>그럼 CPU에서는 해당 메모리 주소들을 어떻게 관리할까?</li>
+  <li>분명 주소가 있어야 하는데 어디에 주소를 넣어놓는거지??</li>
+</ul>
+
+<p><img src="https://github.com/user-attachments/assets/be314d5e-68d8-4366-b33c-5c54cbc4da3a" alt="image" /></p>
+<ul>
+  <li>그것이 바로 페이지 테이블(Page table)
+    <ul>
+      <li>페이지와 프레임 주소를 연결 시켜준다.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="내부-단편화">내부 단편화</h3>
+<p><img src="https://github.com/user-attachments/assets/57449fba-db83-41e3-ad2f-ae6651e29ad7" alt="image" /></p>
+
+<ul>
+  <li>그런데 이런 페이지도 단점이 있다!</li>
+  <li>바로 프로세스를 페이지로 자를 경우 마지막 페이지 부분이 프로세스 크기와 딱 맞아 떨어지지 않아서 빈 공간이 생기는 현상이다.</li>
+  <li>외부 단편화가 물리 메모리주소에 단편화 현상이 발생한 거라면 내부 단편화는 프로세스 자체에 단편화 현상이 발생한 것이다.</li>
+</ul>
+
+<p><img src="https://github.com/user-attachments/assets/e67405c2-af02-4f2f-8e38-96a29cca8f88" alt="image" /></p>
+<ul>
+  <li>페이지 크기 명령</li>
+</ul>
+
+<h2 id="process-table-base-registerptbr">Process Table Base Register(PTBR)</h2>
+<p><img src="https://github.com/user-attachments/assets/01c3a0fd-d783-4566-a6d7-5d91e3629aae" alt="image" /></p>
+
+<ul>
+  <li>페이지 테이블의 위치를 가리키는 주소
+    <ul>
+      <li>이것은 메모리가 아니라 [[CPU]]에 저장되어있다.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="뭔가-비효율-적인데">뭔가…? 비효율 적인데</h3>
+<ul>
+  <li>원하는 페이지에 접근하려면 페이지 테이블 &gt; 페이지 이렇게 두번 접근해야 한다.</li>
+  <li>이는 굉장히 비효율적이다.</li>
+</ul>
+
+<h2><br /></h2>
+<p><br /></p>
+
+<div class="Reference">
+<div class="callout-header"> </div>
+<p>
+혼자 공부하는 컴퓨터구조+운영체제
+</p>
+</div>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#computer-architecture" class="page__taxonomy-item p-category" rel="tag">Computer Architecture</a><span class="sep">, </span>
+    
+      <a href="/tags/#memory-fragmentation" class="page__taxonomy-item p-category" rel="tag">Memory Fragmentation</a><span class="sep">, </span>
+    
+      <a href="/tags/#memory-management" class="page__taxonomy-item p-category" rel="tag">Memory Management</a><span class="sep">, </span>
+    
+      <a href="/tags/#operating-system" class="page__taxonomy-item p-category" rel="tag">Operating System</a><span class="sep">, </span>
+    
+      <a href="/tags/#paging" class="page__taxonomy-item p-category" rel="tag">Paging</a><span class="sep">, </span>
+    
+      <a href="/tags/#process-memory-allocation" class="page__taxonomy-item p-category" rel="tag">Process Memory Allocation</a><span class="sep">, </span>
+    
+      <a href="/tags/#swapping" class="page__taxonomy-item p-category" rel="tag">Swapping</a><span class="sep">, </span>
+    
+      <a href="/tags/#virtual-memory" class="page__taxonomy-item p-category" rel="tag">Virtual Memory</a><span class="sep">, </span>
+    
+      <a href="/tags/#%EA%B0%80%EC%83%81-%EB%A9%94%EB%AA%A8%EB%A6%AC" class="page__taxonomy-item p-category" rel="tag">가상 메모리</a><span class="sep">, </span>
+    
+      <a href="/tags/#%EB%A9%94%EB%AA%A8%EB%A6%AC-%EA%B4%80%EB%A6%AC-%EA%B8%B0%EB%B2%95" class="page__taxonomy-item p-category" rel="tag">메모리 관리 기법</a><span class="sep">, </span>
+    
+      <a href="/tags/#%EB%A9%94%EB%AA%A8%EB%A6%AC-%EB%8B%A8%ED%8E%B8%ED%99%94" class="page__taxonomy-item p-category" rel="tag">메모리 단편화</a><span class="sep">, </span>
+    
+      <a href="/tags/#%EC%8A%A4%EC%99%80%ED%95%91" class="page__taxonomy-item p-category" rel="tag">스와핑</a><span class="sep">, </span>
+    
+      <a href="/tags/#%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C" class="page__taxonomy-item p-category" rel="tag">운영체제</a><span class="sep">, </span>
+    
+      <a href="/tags/#%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B5%AC%EC%A1%B0" class="page__taxonomy-item p-category" rel="tag">컴퓨터 구조</a><span class="sep">, </span>
+    
+      <a href="/tags/#%ED%8E%98%EC%9D%B4%EC%A7%95" class="page__taxonomy-item p-category" rel="tag">페이징</a><span class="sep">, </span>
+    
+      <a href="/tags/#%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-%EB%A9%94%EB%AA%A8%EB%A6%AC-%ED%95%A0%EB%8B%B9" class="page__taxonomy-item p-category" rel="tag">프로세스 메모리 할당</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#computerscience" class="page__taxonomy-item p-category" rel="tag">computerscience</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2024-08-27T00:00:00+09:00">August 27, 2024</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=%5BCS%5D+%ED%8E%98%EC%9D%B4%EC%A7%95%EA%B3%BC+%EC%8A%A4%EC%99%80%ED%95%91%EC%9D%84+%ED%99%9C%EC%9A%A9%ED%95%9C+%EA%B0%80%EC%83%81+%EB%A9%94%EB%AA%A8%EB%A6%AC+%EA%B4%80%EB%A6%AC+%EA%B8%B0%EB%B2%95+%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0%20http%3A%2F%2Flocalhost%3A4000%2Fcomputerscience%2F%25EC%25BB%25B4%25ED%2593%25A8%25ED%2584%25B0%25EA%25B5%25AC%25EC%25A1%25B0-%25EA%25B0%2580%25EC%2583%2581%25EB%25A9%2594%25EB%25AA%25A8%25EB%25A6%25AC%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fcomputerscience%2F%25EC%25BB%25B4%25ED%2593%25A8%25ED%2584%25B0%25EA%25B5%25AC%25EC%25A1%25B0-%25EA%25B0%2580%25EC%2583%2581%25EB%25A9%2594%25EB%25AA%25A8%25EB%25A6%25AC%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fcomputerscience%2F%25EC%25BB%25B4%25ED%2593%25A8%25ED%2584%25B0%25EA%25B5%25AC%25EC%25A1%25B0-%25EA%25B0%2580%25EC%2583%2581%25EB%25A9%2594%25EB%25AA%25A8%25EB%25A6%25AC%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/ue5/UE5-%EB%AA%A8%EC%85%98%EB%A7%A4%EC%B9%AD%EC%82%AC%EC%9A%A9%EB%B2%95/" class="pagination--pager" title="[UE5] 언리얼엔진 캐릭터 애니메이션 모션매칭 사용법
+">이전</a>
+    
+    
+      <a href="/ue5/%EC%96%B8%EB%A6%AC%EC%96%BC-%EB%AC%BC%EC%85%B0%EC%9D%B4%EB%8D%94-%EB%B0%8F-%ED%94%84%EB%A0%88%EB%84%AC/" class="pagination--pager" title="[UE5] 프레넬을 활용한 현실감 있는 물 셰이더 만들기
+">다음</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h2 class="page__related-title">참고</h2>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/ue5/%EC%96%B8%EB%A6%AC%EC%96%BC-%EB%AC%BC%EC%85%B0%EC%9D%B4%EB%8D%94-%EB%B0%8F-%ED%94%84%EB%A0%88%EB%84%AC/" rel="permalink">[UE5] 프레넬을 활용한 현실감 있는 물 셰이더 만들기
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2024-10-07T00:00:00+09:00">October 7, 2024</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          2 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">시작하기
+
+  언리얼을 이용해서 프로젝트를 시작했는데 컨셉은 청소기를 통해 물체들을 빨아들이는 건데 그 중에서 물같은 유체도 포함된다.
+  팀원들에게 부탁학디에는 다들 바빠보여서 이번 기회에 공부할겸 한번 직접 제작해 볼까 한다.
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/ue5/UE5-%EB%AA%A8%EC%85%98%EB%A7%A4%EC%B9%AD%EC%82%AC%EC%9A%A9%EB%B2%95/" rel="permalink">[UE5] 언리얼엔진 캐릭터 애니메이션 모션매칭 사용법
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2024-08-26T00:00:00+09:00">August 26, 2024</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">언리얼엔진이 5.4버전이 나오면서 모션매칭 기능이 새로 발표되었다.
+모션 매칭은 캐릭터 애니메이션을 위한 차세대 프레임워크다. 이 기술은 언리얼 엔진 5.4 버전에서 새롭게 도입되었으며, 캐릭터의 움직임을 더욱 자연스럽고 역동적으로 만드는 데 중점을 준다.
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/network/Docker%EC%97%90-mysql-%EC%84%A4%EC%B9%98/" rel="permalink">[Docker] Ubuntu에서 Docker로 Mysql설치하기
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2024-08-17T00:00:00+09:00">August 17, 2024</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          최대 1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Docker 설치
+
+  Docker 다운받기
+  sudo wget -qO- http://get.docker.com/ | sh
+  
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/network/Docker-Image-%EC%A0%95%EB%A6%AC/" rel="permalink">[Docker] Docker Image 개념과 구조
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2024-08-17T00:00:00+09:00">August 17, 2024</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          최대 1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Docker 이미지
+컨테이너를 만드는데 사용되는 Template이라 생각하면 된다.
+컨테이너는 이미지를 기반으로 생성된다.
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="https://github.com/mohitto55" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2024 전진성(Jeon Jin Sung). Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "http://localhost:4000/computerscience/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0-%EA%B0%80%EC%83%81%EB%A9%94%EB%AA%A8%EB%A6%AC/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/computerscience/컴퓨터구조 가상메모리"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+    };
+    (function() { /* DON'T EDIT BELOW THIS LINE */
+      var d = document, s = d.createElement('script');
+      s.src = 'https://MohittoBlog.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+  </body>
+</html>

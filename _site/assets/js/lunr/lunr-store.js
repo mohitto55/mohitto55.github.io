@@ -352,4 +352,16 @@ var store = [{
         "tags": ["UE5","UnrealEngine","Animation","MotionMatching"],
         "url": "/ue5/UE5-%EB%AA%A8%EC%85%98%EB%A7%A4%EC%B9%AD%EC%82%AC%EC%9A%A9%EB%B2%95/",
         "teaser": null
+      },{
+        "title": "[CS] 페이징과 스와핑을 활용한 가상 메모리 관리 기법 이해하기",
+        "excerpt":"컴퓨터 시스템에서 프로세스는 작업을 처리하기 위해 반드시 데이터를 메모리에 저장해야 한다. 하지만 물리적인 메모리 용량은 제한적이기 때문에, 모든 프로세스가 동시에 메모리에 상주할 수는 없다. 이를 해결하고자 운영체제는 다양한 메모리 관리 기법을 통해 메모리 자원을 효율적으로 배분하고 활용한다. 이러한 기법들은 프로세스의 메모리 사용량을 최적화하고, 실행 속도를 보장하며, 시스템의 안정성을 유지하는 데...","categories": ["computerscience"],
+        "tags": ["가상 메모리","Virtual Memory","페이징","Paging","스와핑","Swapping","메모리 관리 기법","Memory Management","컴퓨터 구조","Computer Architecture","운영체제","Operating System","메모리 단편화","Memory Fragmentation","프로세스 메모리 할당","Process Memory Allocation"],
+        "url": "/computerscience/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0-%EA%B0%80%EC%83%81%EB%A9%94%EB%AA%A8%EB%A6%AC/",
+        "teaser": null
+      },{
+        "title": "[UE5] 프레넬을 활용한 현실감 있는 물 셰이더 만들기",
+        "excerpt":"시작하기 언리얼을 이용해서 프로젝트를 시작했는데 컨셉은 청소기를 통해 물체들을 빨아들이는 건데 그 중에서 물같은 유체도 포함된다. 팀원들에게 부탁학디에는 다들 바빠보여서 이번 기회에 공부할겸 한번 직접 제작해 볼까 한다. 과정 1 : 겉부분만 반사시키기 Fresnel 프레넬 이란? 프레넬이란 모든 빛은 매질(media)에 따라 반사, 흡수, 굴절을 하게 되는데 이 프레넬 공식을 통해...","categories": ["ue5"],
+        "tags": ["UE5","UnrealEngine5","Fresnel","물 셰이더","물리 기반 렌더링","쉐이더 그래프","반사 효과","UnrealEngine","Shader","물리 엔진"],
+        "url": "/ue5/%EC%96%B8%EB%A6%AC%EC%96%BC-%EB%AC%BC%EC%85%B0%EC%9D%B4%EB%8D%94-%EB%B0%8F-%ED%94%84%EB%A0%88%EB%84%AC/",
+        "teaser": null
       }]
