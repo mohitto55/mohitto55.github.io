@@ -1,6 +1,6 @@
 ---
 title : '[VScode] Snippet을 이용해 템플릿 사용하기'
-category: vscode
+category: ide
 tags: [Vscode, Snippet, Template, 템플릿, 스니펫, IDE]
 ---
 

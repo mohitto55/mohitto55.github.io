@@ -1,63 +1,176 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-10-07T13:47:52+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mohitto55 Note</title><subtitle>모히또의 노트</subtitle><author><name>Mohitto55</name></author><entry><title type="html">[UE5] 프레넬을 활용한 현실감 있는 물 셰이더 만들기</title><link href="http://localhost:4000/ue5/%EC%96%B8%EB%A6%AC%EC%96%BC-%EB%AC%BC%EC%85%B0%EC%9D%B4%EB%8D%94-%EB%B0%8F-%ED%94%84%EB%A0%88%EB%84%AC/" rel="alternate" type="text/html" title="[UE5] 프레넬을 활용한 현실감 있는 물 셰이더 만들기" /><published>2024-10-07T00:00:00+09:00</published><updated>2024-10-07T00:00:00+09:00</updated><id>http://localhost:4000/ue5/%EC%96%B8%EB%A6%AC%EC%96%BC%20%EB%AC%BC%EC%85%B0%EC%9D%B4%EB%8D%94%20%EB%B0%8F%20%ED%94%84%EB%A0%88%EB%84%AC</id><content type="html" xml:base="http://localhost:4000/ue5/%EC%96%B8%EB%A6%AC%EC%96%BC-%EB%AC%BC%EC%85%B0%EC%9D%B4%EB%8D%94-%EB%B0%8F-%ED%94%84%EB%A0%88%EB%84%AC/"><![CDATA[<h2 id="시작하기">시작하기</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-10-07T22:38:08+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mohitto55 Note</title><subtitle>모히또의 노트</subtitle><author><name>Mohitto55</name></author><entry><title type="html">[Obsidian] Vercel을 활용한 Obsidian Digital Garden 블로그 만들기</title><link href="http://localhost:4000/obsidian/Vercel%EC%9D%84-%ED%99%9C%EC%9A%A9%ED%95%9C-Obsidian-Digital-Garden-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0/" rel="alternate" type="text/html" title="[Obsidian] Vercel을 활용한 Obsidian Digital Garden 블로그 만들기" /><published>2024-10-07T00:00:00+09:00</published><updated>2024-10-07T00:00:00+09:00</updated><id>http://localhost:4000/obsidian/Vercel%EC%9D%84%20%ED%99%9C%EC%9A%A9%ED%95%9C%20Obsidian%20Digital%20Garden%20%EB%B8%94%EB%A1%9C%EA%B7%B8%20%EB%A7%8C%EB%93%A4%EA%B8%B0</id><content type="html" xml:base="http://localhost:4000/obsidian/Vercel%EC%9D%84-%ED%99%9C%EC%9A%A9%ED%95%9C-Obsidian-Digital-Garden-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0/"><![CDATA[<h1 id="옵시디언으로-블로그를-만드는-이유">옵시디언으로 블로그를 만드는 이유</h1>
+<p>지금까지 나는 지식을 정리하고 정리한 내용을 공유하기 위해 여러 종류의 블로그 사이트를 사용해 봤다. 맨처음에는 <strong>네이버</strong> 블로그였는데 한국인의 입장에선 확실히 네이버가 접근성이 좋긴하지만 한국인을 제외한 외국인들은 구글 검색에 뜨기가 쉽지않고 디자인이 마음에 들지않아 금방 포기했다.</p>
+
+<p>그 다음은 <strong>티스토리</strong> 블로그였다. 개발관련 자료를 검색하면 많은 자료가 티스토리 혹은 Velog에 올라와 있었다. 나는 직접 커스텀하는 것을 좋아해서 Velog보다는 티스토리가 더 좋다 생각해서 티스토리에서 글을 작성했었다.</p>
+
+<p>물론 편하고 기본적으로 깔끔해서 좋긴 하지만 글을 검색하거나 사이트를 설정하는데 마음에 들지 않아 자연스럽게 손대지 않게 되었다.</p>
+
+<p>좀 더 자유도 높은 블로그가 있을까 찾아봤는데 <strong>GitBlog</strong>가 눈에 들어왔다.<br />
+GItBlog는 처음부터 끝까지 기능을 다 커스텀가능하고 테마도 풍부해서 마음에 드는게 많았다. 그 중 Jekyll 테마가 인지도 있어보여서 사용해봤다. 처음에는 css도 직접짜고 여러가지 기능을 넣을 수 있어서 재밌었지만 생산성 부분에서 문제가 커져갔다.</p>
+
+<p>기본적으로 GitBlog는 자유도가 높은 만큼 학습량이 많아 초반에 시간이 오래걸리고 무엇보다 띄어쓰기가 너무 큰 문제였다. Jekyll테마에서만 그런지는 몰라도 줄바꿈이 제대로 적용되지 않아 br 태그를 중간중간 써줘야하고 생각한대로 글이 이쁘게 나오지도 않아서 css를 수정하고 글자도 다시 수정하는 등 글 하나 작성하는데 시간이 오래걸린다. 그리고 나는 옵시디언을 통해 먼저 글을 작성하고 그 글을 정리해서 포스팅하는데 이게 옵시디언과 달리 HTML을 중간중간 써줘야 하다보니 이것도 시간이 많이 걸린다.</p>
+
+<p>그리고 가장 중요한게 조회수인데 사이트맵이 제대로 적용이 안되는지 사람이 몇달간 제대로 들어오지 않곤했다. 그래서 금방 흥미를 잃게 되었다.</p>
+
+<p>결국 포스팅 하는게 귀찮아져서 손을 안대게 됐는데 어떻게 해야 내가 블로그를 열심히 쓰게 될까 생각해 보았다.<br />
+지금까지 블로그를 사용했던 경험을 토대로 내가 블로그에서 가장 중요하게 생각하는 걸 3가지를 정해봤다.</p>
+<ol>
+  <li>포스트 업로드가 쉬워야한다.</li>
+  <li>옵시디언에서 작성한 글에서 수정을 거의 안해야한다.</li>
+  <li>자유도가 있어야한다.</li>
+</ol>
+
+<p>위 조건들을 토대로 찾아본 결과 <strong>Digital Garden</strong> 플러그인을 이용해 옵시디언 노트를 통쨰로 포스팅하는 방식이 가장 적절해 보였다. 아직 시작 단계이지만 얼추 봤을때는 아래의 장점이 있었다.</p>
+<ol>
+  <li>버튼 몇번으로 업로드, 수정, 삭제가능하다.</li>
+  <li>옵시디언 노트 내용이랑 똑같다.</li>
+  <li>꾸미기 쉽다.</li>
+</ol>
+
+<p>내가 생각한 블로그의 조건이랑 딱 맞아 떨어져보여 한번 시작해보려고 한다.</p>
+
+<h1 id="digital-garden으로-블로그-만들기">Digital Garden으로 블로그 만들기</h1>
+<h3 id="플러그인-설치">플러그인 설치</h3>
 <ul>
-  <li>언리얼을 이용해서 프로젝트를 시작했는데 컨셉은 청소기를 통해 물체들을 빨아들이는 건데 그 중에서 물같은 유체도 포함된다.</li>
-  <li>팀원들에게 부탁학디에는 다들 바빠보여서 이번 기회에 공부할겸 한번 직접 제작해 볼까 한다.</li>
+  <li>Community Plugin에 가서 <code class="language-plaintext highlighter-rouge">Digital Garden</code>을 검색해서 설치한다.</li>
 </ul>
 
-<h2 id="과정-1--겉부분만-반사시키기">과정 1 : 겉부분만 반사시키기</h2>
-<p><img src="https://github.com/user-attachments/assets/d20c6596-7ec1-43e1-ab01-de0af6d447c5" alt="image" /></p>
+<p><img src="https://github.com/user-attachments/assets/3949101f-9e1d-4715-aab9-d6f718819783" alt="image" /></p>
+
+<h3 id="vercel-계정-생성">Vercel 계정 생성</h3>
+<ul>
+  <li> <a href="https://github.com/signup">Vercel</a>로 가서 GitHub 계정과 연동해준다.</li>
+</ul>
+
+<div class="callout-info-expanded">
+<div class="callout-header">정보</div>
+<p>
+클라우드 플랫폼으로, 웹사이트 및 애플리케이션을 배포, 관리, 그리고 성능을 최적화하는 데 도움을 준다. 
+주로 Next.js와 같은 프레임워크와 밀접하게 연동된다.
+</p>
+</div>
 
 <hr />
 
-<h4 id="fresnel-프레넬-이란">Fresnel 프레넬 이란?</h4>
+<h3 id="리포지토리-생성">리포지토리 생성</h3>
+<ul>
+  <li>리포지토리 생성 후 <a href="https://github.com/oleeskild/digitalgarden">링크</a>로가서 Deploy 버튼 클릭한다</li>
+  <li>이렇게 하면 Vercel이 열리고 GitHub 계정에 저장소의 사본이 생성된다. 사본 저장소의 이름을 작성하고 생성하면 Vercel의 단계에 따라 사이트를 인터넷에 게시된다.</li>
+</ul>
+
+<p><img src="https://github.com/user-attachments/assets/8b371813-b355-4c2c-abe4-247c78591a32" alt="image" /></p>
+
+<p><img src="https://github.com/user-attachments/assets/fa8421f8-0d56-40f9-b1e0-410121ab0f18" alt="image" /></p>
+
+<hr />
+
+<h3 id="github-액세스토큰-생성">GitHub 액세스토큰 생성</h3>
+<ul>
+  <li>다음으로 GitHub 계정에 대한 액세스 토큰을 만들어야 한다.</li>
+  <li>토큰은 저장소를 접근하기 위한 비밀번호 역할을 하여 토큰을 만들어야 작성한 글을 업로드할 수 있다.</li>
+  <li>토큰 생성방법은  <a href="https://dg-docs.ole.dev/advanced/fine-grained-access-token/">링크</a>에서 확인할 수 있다. 설정값을 똑같이 넣어준다.</li>
+  <li>토큰은 <a href="https://github.com/settings/tokens/new?scopes=repo">여기</a>서 생성할 수 있다. </li>
+  <li><strong>토큰 값은 한번 생성됐을때 한번만 알려주니까</strong> 꼭 어딘가에 저장해놓자</li>
+</ul>
+
+<hr />
+
+<h3 id="digital-garden-플러그인-설정">Digital Garden 플러그인 설정</h3>
+<p>Digital Garden 플러그인에 깃허브 저장소 관련 정보를 넣어줘야한다.</p>
+<ol>
+  <li>Github repo name: 생성한 레포지토리 이름</li>
+  <li>Github username: 깃허브 아이디</li>
+  <li>Github token: 방금 생성한 토큰<br />
+<img src="https://github.com/user-attachments/assets/47e4cadc-92f5-4432-813a-73bc23b0c3f7" alt="image" /></li>
+</ol>
+
+<h2 id="노트-연결하기">노트 연결하기</h2>
+<ul>
+  <li>프로퍼티를 통해 공개할 노트를 설정할 수 있다.</li>
+  <li><strong>dg-publish</strong> : 노트를 다른 사람들에게 공개한다.</li>
+  <li><strong>dg-home</strong> : 해당 노트를 메인 페이지로 설정한다.<br />
+<img src="https://github.com/user-attachments/assets/ceb39f0c-4d75-41d1-bdf8-6a314375053d" alt="image" /></li>
+</ul>
+
+<h2 id="노트-푸시하기">노트 푸시하기</h2>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">Digital Garden: Publish Single Note</code>를 눌러서 노트를 공개할 수 있다.</li>
+  <li>그리고 사이트 주소를<a href="https://vercel.com/dashboard">Vercel</a>에서 찾고 몇분 뒤면 푸시한 노트가 올라와 있을 것이다.</li>
+</ul>
+
+<h1 id="마무리">마무리</h1>
+<ul>
+  <li>옵시디언에서 글을 쓰고 그것을 그대로 웹사이트에 올리는 것은 분명 편하긴하다.</li>
+  <li>하지만 사이드 카테고리가 너무 옵시디언이랑 똑같아 이 부분은 맘에 들지 않는다.</li>
+  <li>그래서 대안으로 webpage export 플러그인을 알아봤는데 이건 분명 편해보이지만 깃허브와 연동하는 기능이 없어서 Digital Garden을 계속 쓸것같다.</li>
+</ul>
+
+<h2><br /></h2>
+<p><br /></p>
+
+<div class="Reference">
+<div class="callout-header"> </div>
+<p>
+<a href="https://deepfield.blog/">https://deepfield.blog/kr/%EC%A7%80%EC%8B%9D%EB%82%98%EB%88%94/%EC%98%B5%EC%8B%9C%EB%94%94%EC%96%B8%EC%9C%BC%EB%A1%9C%20%EB%B8%94%EB%A1%9C%EA%B7%B8%20%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0/</a>
+<a href="https://dg-docs.ole.dev/getting-started/01-getting-started/">https://dg-docs.ole.dev/getting-started/01-getting-started/</a>
+</p>
+</div>]]></content><author><name>Mohitto55</name></author><category term="obsidian" /><category term="UE5" /><category term="UnrealEngine5" /><category term="Fresnel" /><category term="물 셰이더" /><category term="물리 기반 렌더링" /><category term="쉐이더 그래프" /><category term="반사 효과" /><category term="UnrealEngine" /><category term="Shader" /><category term="물리 엔진" /><summary type="html"><![CDATA[옵시디언으로 블로그를 만드는 이유 지금까지 나는 지식을 정리하고 정리한 내용을 공유하기 위해 여러 종류의 블로그 사이트를 사용해 봤다. 맨처음에는 네이버 블로그였는데 한국인의 입장에선 확실히 네이버가 접근성이 좋긴하지만 한국인을 제외한 외국인들은 구글 검색에 뜨기가 쉽지않고 디자인이 마음에 들지않아 금방 포기했다. 그 다음은 티스토리 블로그였다. 개발관련 자료를 검색하면 많은 자료가 티스토리 혹은 Velog에 올라와 있었다. 나는 직접 커스텀하는 것을 좋아해서 Velog보다는 티스토리가 더 좋다 생각해서 티스토리에서 글을 작성했었다.]]></summary></entry><entry><title type="html">[UE5] 프레넬을 활용한 현실감 있는 물 셰이더 만들기</title><link href="http://localhost:4000/ue5/%EC%96%B8%EB%A6%AC%EC%96%BC-%EB%AC%BC%EC%85%B0%EC%9D%B4%EB%8D%94-%EB%B0%8F-%ED%94%84%EB%A0%88%EB%84%AC/" rel="alternate" type="text/html" title="[UE5] 프레넬을 활용한 현실감 있는 물 셰이더 만들기" /><published>2024-10-07T00:00:00+09:00</published><updated>2024-10-07T00:00:00+09:00</updated><id>http://localhost:4000/ue5/%EC%96%B8%EB%A6%AC%EC%96%BC%20%EB%AC%BC%EC%85%B0%EC%9D%B4%EB%8D%94%20%EB%B0%8F%20%ED%94%84%EB%A0%88%EB%84%AC</id><content type="html" xml:base="http://localhost:4000/ue5/%EC%96%B8%EB%A6%AC%EC%96%BC-%EB%AC%BC%EC%85%B0%EC%9D%B4%EB%8D%94-%EB%B0%8F-%ED%94%84%EB%A0%88%EB%84%AC/"><![CDATA[<h2 id="시작하기">시작하기</h2>
+<ul>
+  <li>언리얼을 이용해서 프로젝트를 시작했는데 컨셉은 청소기를 통해 물체들을 빨아들이는 건데 그 중에서 물같은 유체도 포함된다.</li>
+  <li>팀원들에게 부탁하기에는 다들 바빠보여서 이번 기회에 공부할겸 한번 직접 제작해 볼까 한다.</li>
+</ul>
+
+<h2 id="fresnel-프레넬-이란">Fresnel 프레넬 이란?</h2>
 <ul>
   <li>프레넬이란 모든 빛은 매질(media)에 따라 반사, 흡수, 굴절을 하게 되는데 이 프레넬 공식을 통해 빛의 움직을 계산한다.</li>
   <li>이를 사용하면 물체의 가장자리 빛이 더 강하게 반사되는 현상을 표현할 수 있다.</li>
 </ul>
 
-<h4 id="골절률-refactive-index">골절률 (Refactive index)</h4>
+<hr />
+
+<h3 id="골절률-refactive-index">골절률 (Refactive index)</h3>
 <ul>
   <li>빛이 특정 매질을 통과해서 이동할때 얼마나 <strong>느려지는지</strong> 비율을 측정한 것이다.</li>
   <li>빛이 느려지면 이동 방향이 바뀌게 된다.</li>
   <li>빛은 여러 파장이 합쳐서 보이게 되는데 이런 파장에 따라 골절률이 달라진다.</li>
-  <li>그렇기에 파장별로 골절률 계산을 해야한다.
+  <li>그렇기에 파장별로 골절률 계산을 해야한다.<br />
 <img src="https://github.com/user-attachments/assets/8bfec418-635f-4c14-bb49-23067c2b2d10" alt="image" /></li>
 </ul>
 
 <hr />
 
-<h4 id="스넬의-법칙snells-law">스넬의 법칙(Snell’s law)</h4>
+<h3 id="스넬의-법칙snells-law">스넬의 법칙(Snell’s law)</h3>
 <ul>
   <li>
-    <p>매질에 따라 빛이 꺾이는 것을 알 수 있는 공식이다.
+    <p>매질에 따라 빛이 꺾이는 것을 알 수 있는 공식이다.<br />
 <img src="https://github.com/user-attachments/assets/abc4be5e-62bf-4f95-b6aa-797076eb0a9f" alt="image|200" /></p>
   </li>
   <li>v 는 속도 (velocity)</li>
   <li>λ는 파장 (wavelength)</li>
   <li>n은 골절률 (IOR)</li>
   <li>
-    <p>이런 관계를 설명한 것이 스넬의 법칙이다.
+    <p>이런 관계를 설명한 것이 스넬의 법칙이다.<br />
 <img src="https://github.com/user-attachments/assets/e9bb11eb-7e95-471a-b074-a88950b44b0c" alt="image" /></p>
   </li>
-  <li>그래서 물과 기름이 만나면 아래처럼 파장이 변화한다.
+  <li>그래서 물과 기름이 만나면 아래처럼 파장이 변화한다.<br />
 <img src="https://github.com/user-attachments/assets/6ffce623-64b5-4330-a11c-12f371b6b900" alt="image" /></li>
 </ul>
 
 <hr />
 
-<h4 id="매질이-반사할수도-있다">매질이 반사할수도 있다.</h4>
+<h3 id="매질이-반사할수도-있다">매질이 반사할수도 있다.</h3>
 <ul>
   <li>굴절률이 다른 매질을 만나게되면 특정 각도에서 굴절이 아니라 완전히 <strong>반사</strong>하는 경우가 있다.</li>
-  <li>Critical angle처럼 특정 각도를 넘어가면 전반사가 발생한다.
+  <li>Critical angle처럼 특정 각도를 넘어가면 전반사가 발생한다.<br />
 <img src="https://github.com/user-attachments/assets/0d33de0e-adad-403d-b55d-2e6193c57e6f" alt="image" /></li>
 </ul>
 
 <hr />
 
-<h5 id="전반사-각도-구하기-공식">전반사 각도 구하기 공식</h5>
+<h4 id="전반사-각도-구하기-공식">전반사 각도 구하기 공식</h4>
 <ul>
-  <li>대기의 굴절률이 1이고 아크릴의 굴절률이 1.5면 전반사 각은 41.8이 된다.
-<img src="https://github.com/user-attachments/assets/8f69a657-2cc3-4871-b42f-c8a925b3d7dd" alt="image" />
+  <li>대기의 굴절률이 1이고 아크릴의 굴절률이 1.5면 전반사 각은 41.8이 된다.<br />
+<img src="https://github.com/user-attachments/assets/8f69a657-2cc3-4871-b42f-c8a925b3d7dd" alt="image" /><br />
 <img src="https://github.com/user-attachments/assets/7a908200-6b73-4062-bc31-ea4148acd85a" alt="image" /></li>
 </ul>
 
@@ -73,7 +186,7 @@
   </li>
   <li>일반적으로 컴퓨터 그래픽스에서는 <strong>Schlick’s approximation</strong>을 사용한다. 근사계산 공식이다.
     <ul>
-      <li>모든 각도에서의 굴절률(IOR)을 알 수 없기 때문에 근사계산을 해야한다.
+      <li>모든 각도에서의 굴절률(IOR)을 알 수 없기 때문에 근사계산을 해야한다.<br />
 <img src="https://github.com/user-attachments/assets/7ea1103a-3294-4a98-ad21-01cf79fdfe96" alt="image" /></li>
     </ul>
   </li>
@@ -87,7 +200,7 @@
   <li>가로축 : 시선과 노멀벡터의 각도</li>
   <li>세로축 : 반사율</li>
   <li>
-    <p>수평(90도)일 수록 높은 반사율을 보인다.
+    <p>수평(90도)일 수록 높은 반사율을 보인다.<br />
 <img src="https://github.com/user-attachments/assets/f7b49942-a550-4f9d-aa8f-f392c247e2f5" alt="image" /></p>
   </li>
   <li>일반적으로 물체를 수직에서 바라본(0도) 반사율 값을 넣는 근사 계산식을 사용한다.</li>
@@ -95,25 +208,31 @@
   <li>
     <p>대부분의 엔진에서는 F0이라고 표현한다(Fresnel at Degree 0 도 인듯 하다.)</p>
   </li>
-  <li>아래는 대기속에 있다고 가정할때의 식이다.
+  <li>아래는 대기속에 있다고 가정할때의 식이다.<br />
 <img src="https://github.com/user-attachments/assets/99a0abe5-c784-4a51-99a7-a34cb82bcb05" alt="image" /></li>
   <li>물의 경우 1.33의 굴절률을 가진다.
     <ul>
       <li><a href="https://pixelandpoly.com/ior.html">매질의 굴절률 리스트</a></li>
     </ul>
   </li>
-  <li><strong>일반적으로 이 F0 를 “Metallic” 핀에다가 넣어 주시면 된다</strong>
+  <li><strong>일반적으로 이 F0 를 “Metallic” 핀에다가 넣어 주시면 된다</strong><br />
 <img src="https://github.com/user-attachments/assets/899e8591-f5fb-49fe-bad0-a1f1e36ca3db" alt="image" /></li>
 </ul>
 
+<hr />
+
 <h2 id="물-쉐이더-만들기">물 쉐이더 만들기</h2>
+<h3 id="겉부분만-반사시키기">겉부분만 반사시키기</h3>
+<p><img src="https://github.com/user-attachments/assets/d20c6596-7ec1-43e1-ab01-de0af6d447c5" alt="image" /></p>
+
+<hr />
 
 <h3 id="언리얼의-fresnal-노드">언리얼의 Fresnal 노드</h3>
 <p><img src="https://github.com/user-attachments/assets/bff4eee8-7a85-4657-baf1-2f04446ce392" alt="image" /></p>
 <ul>
   <li>Fresnal 노드는 빛의 굴절률 공식이지만 림라이트나 실루엣을 만들때 많이 사용한다.</li>
   <li>다만 이 노드는 Metalic으로 반영되는 Fresnel은 의미가 명확하지만 <strong>이건 그냥 효과</strong>이기 떄문이다.</li>
-  <li>이 노드는 사용하면 비물리적인 결과를 산출할 수 있어서 보통 Metalic을 제거하고 <strong>Emissive</strong>를 사용한다.
+  <li>이 노드는 사용하면 비물리적인 결과를 산출할 수 있어서 보통 Metalic을 제거하고 <strong>Emissive</strong>를 사용한다.<br />
 <img src="https://github.com/user-attachments/assets/441467ab-d6cd-46f0-87ad-d0da12824248" alt="image" /></li>
 </ul>
 
@@ -121,7 +240,7 @@
 <h3 id="타일링-오프셋-tiling-offset">타일링 오프셋 (Tiling Offset)</h3>
 <ul>
   <li>언리얼은 타일링 오프셋 노드가 따로 없다</li>
-  <li>그래서 직접 텍스처 좌표계나 월드 포지션을 통해 이동시켜야한다.
+  <li>그래서 직접 텍스처 좌표계나 월드 포지션을 통해 이동시켜야한다.<br />
 <img src="https://github.com/user-attachments/assets/a435543f-4b38-4d54-8656-dd57233a9475" alt="image" /></li>
 </ul>
 
@@ -129,33 +248,35 @@
 <ul>
   <li>Absolute world Position
     <ul>
-      <li>절대적인 월드 포지션
-<img src="https://github.com/user-attachments/assets/78ace0ae-c67a-42c6-8abe-b5e618cff88f" alt="image" />
-        <h3 id="noise-node">Noise Node</h3>
-      </li>
+      <li>절대적인 월드 포지션<br />
+<img src="https://github.com/user-attachments/assets/78ace0ae-c67a-42c6-8abe-b5e618cff88f" alt="image" /></li>
     </ul>
   </li>
-  <li>Function으로 노이즈 종류를 변경할 수 있다.
+</ul>
+
+<h3 id="noise-node">Noise Node</h3>
+<ul>
+  <li>Function으로 노이즈 종류를 변경할 수 있다.<br />
 <img src="https://github.com/user-attachments/assets/0a8dc7c5-cd87-402b-8fd8-d05314044d20" alt="image" /></li>
-  <li>Output Value를 통해 흰색 검은색 부분 비율을 조절할 수 있다.
+  <li>Output Value를 통해 흰색 검은색 부분 비율을 조절할 수 있다.<br />
 <img src="https://github.com/user-attachments/assets/bf0c6d93-8095-4c8a-a699-b3e8049a2ca1" alt="image" /></li>
 </ul>
 
 <h2 id="노이즈-조절하기">노이즈 조절하기</h2>
 <ul>
   <li>
-    <p>Multiply로 Destortion(파괴) 값을 조절해서 노이즈 값을 연하게 해준다.
+    <p>Multiply로 Destortion(파괴) 값을 조절해서 노이즈 값을 연하게 해준다.<br />
 <img src="https://github.com/user-attachments/assets/7ad0d9a6-ab4a-4d4f-9ec3-6353cffff0a9" alt="image" /></p>
   </li>
   <li>
-    <p>Destortion 값이 1이면 노이즈가 눈에 보여서 줄이는 작업이 필요하다.
+    <p>Destortion 값이 1이면 노이즈가 눈에 보여서 줄이는 작업이 필요하다.<br />
 <img src="https://github.com/user-attachments/assets/ea45e62a-9ee3-4566-9a7b-d180d8d2cdad" alt="image|300" /></p>
   </li>
 </ul>
 
 <h2 id="씬-컬러-적용">씬 컬러 적용</h2>
 <ul>
-  <li>스크린 포지션에 노이즈를 입히고 그렇게 만들어진 UV에 화면 색깔을 입히면 물처럼 일그러진 효과를 만들 수 있다.
+  <li>스크린 포지션에 노이즈를 입히고 그렇게 만들어진 UV에 화면 색깔을 입히면 물처럼 일그러진 효과를 만들 수 있다.<br />
 <img src="https://github.com/user-attachments/assets/b35009ce-f3ff-42af-93be-6b1ffe284b07" alt="image" /></li>
 </ul>
 
@@ -163,19 +284,19 @@
 
 <h2 id="프레넬-빛-반사효과-추가">프레넬, 빛 반사효과 추가</h2>
 <ul>
-  <li>프레넬을 추가해서 빛 반사 효과를 준다.
+  <li>프레넬을 추가해서 빛 반사 효과를 준다.<br />
 <img src="https://github.com/user-attachments/assets/2ba92d15-5152-47bd-b16d-a76c9f7021f5" alt="image" /></li>
 </ul>
 
 <h2 id="일렁임-효과-추가">일렁임 효과 추가</h2>
 <ul>
-  <li>노이즈 값과 NormalVector를 곱해서 일렁임 효과를 줄 수 있다.
+  <li>노이즈 값과 NormalVector를 곱해서 일렁임 효과를 줄 수 있다.<br />
 <img src="https://github.com/user-attachments/assets/7996c9ef-666d-4c8f-a041-df1b440b7cb7" alt="image" /></li>
 </ul>
 
 <h2 id="투과시키는-빛-일렁임">투과시키는 빛 일렁임</h2>
 <ul>
-  <li>투과되는 뒤쪽 배경을 일렁이고 싶다면 Refraction을 수정한다.
+  <li>투과되는 뒤쪽 배경을 일렁이고 싶다면 Refraction을 수정한다.<br />
 <img src="https://github.com/user-attachments/assets/f33d512f-f98f-4d38-8247-147f1d715c76" alt="image" /></li>
 </ul>
 
@@ -196,13 +317,13 @@
 <a href="https://www.youtube.com/watch?v=z5VzzPkqtnA">https://www.youtube.com/watch?v=z5VzzPkqtnA</a>
 <a href="https://www.youtube.com/watch?v=OFmWEIb_Z70">https://www.youtube.com/watch?v=OFmWEIb_Z70</a>
 </p>
-</div>]]></content><author><name>Mohitto55</name></author><category term="ue5" /><category term="UE5" /><category term="UnrealEngine5" /><category term="Fresnel" /><category term="물 셰이더" /><category term="물리 기반 렌더링" /><category term="쉐이더 그래프" /><category term="반사 효과" /><category term="UnrealEngine" /><category term="Shader" /><category term="물리 엔진" /><summary type="html"><![CDATA[시작하기 언리얼을 이용해서 프로젝트를 시작했는데 컨셉은 청소기를 통해 물체들을 빨아들이는 건데 그 중에서 물같은 유체도 포함된다. 팀원들에게 부탁학디에는 다들 바빠보여서 이번 기회에 공부할겸 한번 직접 제작해 볼까 한다.]]></summary></entry><entry><title type="html">[CS] 페이징과 스와핑을 활용한 가상 메모리 관리 기법 이해하기</title><link href="http://localhost:4000/computerscience/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0-%EA%B0%80%EC%83%81%EB%A9%94%EB%AA%A8%EB%A6%AC/" rel="alternate" type="text/html" title="[CS] 페이징과 스와핑을 활용한 가상 메모리 관리 기법 이해하기" /><published>2024-08-27T00:00:00+09:00</published><updated>2024-08-27T00:00:00+09:00</updated><id>http://localhost:4000/computerscience/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0%20%EA%B0%80%EC%83%81%EB%A9%94%EB%AA%A8%EB%A6%AC</id><content type="html" xml:base="http://localhost:4000/computerscience/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0-%EA%B0%80%EC%83%81%EB%A9%94%EB%AA%A8%EB%A6%AC/"><![CDATA[<p>컴퓨터 시스템에서 프로세스는 작업을 처리하기 위해 반드시 데이터를 메모리에 저장해야 한다. 
-하지만 물리적인 메모리 용량은 제한적이기 때문에, 모든 프로세스가 동시에 메모리에 상주할 수는 없다. 
-<br /><br />
-이를 해결하고자 운영체제는 다양한 메모리 관리 기법을 통해 메모리 자원을 효율적으로 배분하고 활용한다. 이러한 기법들은 프로세스의 메모리 사용량을 최적화하고, 실행 속도를 보장하며, 시스템의 안정성을 유지하는 데 중요한 역할을 한다. 
-<br /><br />
-오늘은 그중에서도 연속적 메모리 할당, 스와핑, 페이징 등 현대 운영체제에서 흔히 사용되는 메모리 관리 기법들을 자세히 살펴보며, 각각의 장단점과 적용 사례에 대해 알아보다. 
-이 과정을 통해 컴퓨터 시스템이 어떻게 메모리 자원을 관리하고, 이를 통해 성능을 극대화하는지 이해할 수 있을 것이다.</p>
+</div>]]></content><author><name>Mohitto55</name></author><category term="ue5" /><category term="UE5" /><category term="UnrealEngine5" /><category term="Fresnel" /><category term="물 셰이더" /><category term="물리 기반 렌더링" /><category term="쉐이더 그래프" /><category term="반사 효과" /><category term="UnrealEngine" /><category term="Shader" /><category term="물리 엔진" /><summary type="html"><![CDATA[시작하기 언리얼을 이용해서 프로젝트를 시작했는데 컨셉은 청소기를 통해 물체들을 빨아들이는 건데 그 중에서 물같은 유체도 포함된다. 팀원들에게 부탁하기에는 다들 바빠보여서 이번 기회에 공부할겸 한번 직접 제작해 볼까 한다.]]></summary></entry><entry><title type="html">[CS] 페이징과 스와핑을 활용한 가상 메모리 관리 기법 이해하기</title><link href="http://localhost:4000/computerscience/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0-%EA%B0%80%EC%83%81%EB%A9%94%EB%AA%A8%EB%A6%AC/" rel="alternate" type="text/html" title="[CS] 페이징과 스와핑을 활용한 가상 메모리 관리 기법 이해하기" /><published>2024-08-27T00:00:00+09:00</published><updated>2024-08-27T00:00:00+09:00</updated><id>http://localhost:4000/computerscience/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0%20%EA%B0%80%EC%83%81%EB%A9%94%EB%AA%A8%EB%A6%AC</id><content type="html" xml:base="http://localhost:4000/computerscience/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0-%EA%B0%80%EC%83%81%EB%A9%94%EB%AA%A8%EB%A6%AC/"><![CDATA[<p>컴퓨터 시스템에서 프로세스는 작업을 처리하기 위해 반드시 데이터를 메모리에 저장해야 한다. 하지만 물리적인 메모리 용량은 제한적이기 때문에, 모든 프로세스가 동시에 메모리에 상주할 수는 없다.</p>
+
+<p>이를 해결하고자 운영체제는 다양한 메모리 관리 기법을 통해 메모리 자원을 효율적으로 배분하고 활용한다. 이러한 기법들은 프로세스의 메모리 사용량을 최적화하고, 실행 속도를 보장하며, 시스템의 안정성을 유지하는 데 중요한 역할을 한다.</p>
+
+<p>오늘은 그중에서도 연속적 메모리 할당, 스와핑, 페이징 등 현대 운영체제에서 흔히 사용되는 메모리 관리 기법들을 자세히 살펴보며, 각각의 장단점과 적용 사례에 대해 알아보자.</p>
+
+<p>이 과정을 통해 컴퓨터 시스템이 어떻게 메모리 자원을 관리하고, 이를 통해 성능을 극대화하는지 이해할 수 있을 것이다.</p>
 
 <h2 id="연속적-메모리할당">연속적 메모리할당</h2>
 <p><img src="https://github.com/user-attachments/assets/ef40bf7b-1bf2-469d-827d-c2d2e858536f" alt="image" /></p>
@@ -260,9 +381,11 @@
 <p><img src="https://github.com/user-attachments/assets/aad9f5ca-8b71-4f2d-b449-e6795dde2b0d" alt="image" /></p>
 <ul>
   <li>외부 단편화란 메모리 중간중간 작은 빈 공간이 생겨나는 것을 뜻한다.</li>
-  <li>이 현상의 단점은 CS MemoryStream과 같이 큰 용량의 프로세스는 여러개의 작은 공간에 할당 할 수 없는 문제가 생긴다.
-    <h3 id="해결법1--컴팩션">해결법1 : 컴팩션</h3>
-  </li>
+  <li>이 현상의 단점은 CS MemoryStream과 같이 큰 용량의 프로세스는 여러개의 작은 공간에 할당 할 수 없는 문제가 생긴다.</li>
+</ul>
+
+<h3 id="해결법1--컴팩션">해결법1 : 컴팩션</h3>
+<ul>
   <li>Garbage Collector의 메모리 컴팩션과 같은 원리다.</li>
   <li>띄엄띄엄 놓여진 프로세스 메모리들을 압축해서 하나로 연결한다.</li>
 </ul>
@@ -369,7 +492,7 @@
 <p>
 혼자 공부하는 컴퓨터구조+운영체제
 </p>
-</div>]]></content><author><name>Mohitto55</name></author><category term="computerscience" /><category term="가상 메모리" /><category term="Virtual Memory" /><category term="페이징" /><category term="Paging" /><category term="스와핑" /><category term="Swapping" /><category term="메모리 관리 기법" /><category term="Memory Management" /><category term="컴퓨터 구조" /><category term="Computer Architecture" /><category term="운영체제" /><category term="Operating System" /><category term="메모리 단편화" /><category term="Memory Fragmentation" /><category term="프로세스 메모리 할당" /><category term="Process Memory Allocation" /><summary type="html"><![CDATA[컴퓨터 시스템에서 프로세스는 작업을 처리하기 위해 반드시 데이터를 메모리에 저장해야 한다. 하지만 물리적인 메모리 용량은 제한적이기 때문에, 모든 프로세스가 동시에 메모리에 상주할 수는 없다. 이를 해결하고자 운영체제는 다양한 메모리 관리 기법을 통해 메모리 자원을 효율적으로 배분하고 활용한다. 이러한 기법들은 프로세스의 메모리 사용량을 최적화하고, 실행 속도를 보장하며, 시스템의 안정성을 유지하는 데 중요한 역할을 한다. 오늘은 그중에서도 연속적 메모리 할당, 스와핑, 페이징 등 현대 운영체제에서 흔히 사용되는 메모리 관리 기법들을 자세히 살펴보며, 각각의 장단점과 적용 사례에 대해 알아보다. 이 과정을 통해 컴퓨터 시스템이 어떻게 메모리 자원을 관리하고, 이를 통해 성능을 극대화하는지 이해할 수 있을 것이다.]]></summary></entry><entry><title type="html">[UE5] 언리얼엔진 캐릭터 애니메이션 모션매칭 사용법</title><link href="http://localhost:4000/ue5/UE5-%EB%AA%A8%EC%85%98%EB%A7%A4%EC%B9%AD%EC%82%AC%EC%9A%A9%EB%B2%95/" rel="alternate" type="text/html" title="[UE5] 언리얼엔진 캐릭터 애니메이션 모션매칭 사용법" /><published>2024-08-26T00:00:00+09:00</published><updated>2024-08-26T00:00:00+09:00</updated><id>http://localhost:4000/ue5/UE5%20%EB%AA%A8%EC%85%98%EB%A7%A4%EC%B9%AD%EC%82%AC%EC%9A%A9%EB%B2%95</id><content type="html" xml:base="http://localhost:4000/ue5/UE5-%EB%AA%A8%EC%85%98%EB%A7%A4%EC%B9%AD%EC%82%AC%EC%9A%A9%EB%B2%95/"><![CDATA[<p>언리얼엔진이 5.4버전이 나오면서 모션매칭 기능이 새로 발표되었다.
+</div>]]></content><author><name>Mohitto55</name></author><category term="computerscience" /><category term="가상 메모리" /><category term="Virtual Memory" /><category term="페이징" /><category term="Paging" /><category term="스와핑" /><category term="Swapping" /><category term="메모리 관리 기법" /><category term="Memory Management" /><category term="컴퓨터 구조" /><category term="Computer Architecture" /><category term="운영체제" /><category term="Operating System" /><category term="메모리 단편화" /><category term="Memory Fragmentation" /><category term="프로세스 메모리 할당" /><category term="Process Memory Allocation" /><summary type="html"><![CDATA[컴퓨터 시스템에서 프로세스는 작업을 처리하기 위해 반드시 데이터를 메모리에 저장해야 한다. 하지만 물리적인 메모리 용량은 제한적이기 때문에, 모든 프로세스가 동시에 메모리에 상주할 수는 없다.]]></summary></entry><entry><title type="html">[UE5] 언리얼엔진 캐릭터 애니메이션 모션매칭 사용법</title><link href="http://localhost:4000/ue5/UE5-%EB%AA%A8%EC%85%98%EB%A7%A4%EC%B9%AD%EC%82%AC%EC%9A%A9%EB%B2%95/" rel="alternate" type="text/html" title="[UE5] 언리얼엔진 캐릭터 애니메이션 모션매칭 사용법" /><published>2024-08-26T00:00:00+09:00</published><updated>2024-08-26T00:00:00+09:00</updated><id>http://localhost:4000/ue5/UE5%20%EB%AA%A8%EC%85%98%EB%A7%A4%EC%B9%AD%EC%82%AC%EC%9A%A9%EB%B2%95</id><content type="html" xml:base="http://localhost:4000/ue5/UE5-%EB%AA%A8%EC%85%98%EB%A7%A4%EC%B9%AD%EC%82%AC%EC%9A%A9%EB%B2%95/"><![CDATA[<p>언리얼엔진이 5.4버전이 나오면서 모션매칭 기능이 새로 발표되었다.<br />
 모션 매칭은 캐릭터 애니메이션을 위한 차세대 프레임워크다. 이 기술은 언리얼 엔진 5.4 버전에서 새롭게 도입되었으며, 캐릭터의 움직임을 더욱 자연스럽고 역동적으로 만드는 데 중점을 준다.</p>
 
 <p><br /></p>
@@ -381,15 +504,15 @@
 <font color="dodgerred">4. 확장성</font>: 애니메이션 기능을 위한 확장 가능한 프레임워크를 제공합니다.<br />
 </p>
 
-<p><br />
+<p><br /><br />
 기존에는 특정 조건에 맞는 애니메이션을 하나하나 직접 설정해줘야 했지만 모션 매칭은 데이터 기반으로 현재 상태에서 가장 적합한 애니메이션을 자연스럽게 자동으로 설정해준다.</p>
 
 <p><br /></p>
 <h1 id="모션매칭-사전준비">모션매칭 사전준비</h1>
 <h2 id="플러그인-설치">플러그인 설치</h2>
 <ul>
-  <li>아래 두 플러그인 설치하고 다시 시작한다.
-<img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/dbc4cc87-7a25-4b1d-ba26-266c97506563" alt="image" />
+  <li>아래 두 플러그인 설치하고 다시 시작한다.<br />
+<img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/dbc4cc87-7a25-4b1d-ba26-266c97506563" alt="image" /><br />
 <img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/7e725cda-a1ba-4064-a128-da6e780383ce" alt="image" /></li>
 </ul>
 
@@ -397,7 +520,7 @@
 <h3 id="모션-매칭-스키마-생성">모션 매칭 스키마 생성</h3>
 <ul>
   <li>접두사는 PSS_</li>
-  <li>각도 회전 값등 변수 설정하는 애셋이다.
+  <li>각도 회전 값등 변수 설정하는 애셋이다.<br />
 <img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/331aea83-d937-4559-845f-ecc26b726c6c" alt="image" /></li>
 </ul>
 
@@ -406,11 +529,11 @@
 <h3 id="database-생성">Database 생성</h3>
 <ul>
   <li>
-    <p>모션 매칭에 사용될 애니메이션들을 담는 데이터를 생성한다.
+    <p>모션 매칭에 사용될 애니메이션들을 담는 데이터를 생성한다.<br />
 <img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/6c101550-6a54-4a12-a0b9-da28e1352eeb" alt="image" /></p>
   </li>
   <li>적용할 스키마를 선택한다.</li>
-  <li>접두사는 PSD_
+  <li>접두사는 PSD_<br />
 <img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/04961922-19f6-47d4-88e8-5692eacf7047" alt="image" /></li>
 </ul>
 
@@ -419,7 +542,7 @@
 <h4 id="psddatabase-화면">PSD(Database) 화면</h4>
 <ul>
   <li>이제 여기에 사용할 애니메이션을 드래그 하면된다.</li>
-  <li>그전에 <strong>루트모션</strong>을 사용 중인지 확인 해야한다.
+  <li>그전에 <strong>루트모션</strong>을 사용 중인지 확인 해야한다.<br />
 <img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/896d1c75-1c1b-4a07-b845-d8cf73b2a123" alt="image" /></li>
 </ul>
 
@@ -429,7 +552,7 @@
 <p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/5e49972c-c46e-436e-90dd-29f8af77b1ee" alt="image" /></p>
 
 <ul>
-  <li>컨트롤 a를 눌러 모두 선택후 EnableRootMotion을 활성화 한다.
+  <li>컨트롤 a를 눌러 모두 선택후 EnableRootMotion을 활성화 한다.<br />
 <img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/e10b9b6c-489e-4f8f-af60-5610d371c867" alt="image" /></li>
 </ul>
 
@@ -438,7 +561,7 @@
 <h4 id="locomotion-psd-생성하기">Locomotion PSD 생성하기</h4>
 <ul>
   <li>DB에서 애니메이션을 넣는다.</li>
-  <li>각각 상하좌우 방향으로 시작, 진행 중, 멈출 때 해당하는 Walk 모션을 넣어준다.
+  <li>각각 상하좌우 방향으로 시작, 진행 중, 멈출 때 해당하는 Walk 모션을 넣어준다.<br />
 <img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/36724702-59f2-4684-a817-0ae49418333f" alt="image" /></li>
 </ul>
 
@@ -448,7 +571,7 @@
 <h2 id="abp-설정하기">ABP 설정하기</h2>
 <ul>
   <li>Motion Matching 노드를 불러와 모션매칭 DataBase를 가져온다.</li>
-  <li>그리고 현재 애니메이션에서 추적하기 위해 Trajectory(궤적)을 불러와야 한다.
+  <li>그리고 현재 애니메이션에서 추적하기 위해 Trajectory(궤적)을 불러와야 한다.<br />
 <img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/6c49c019-d49b-4f55-af2a-4ab987c59842" alt="image" /></li>
 </ul>
 
@@ -468,20 +591,20 @@
   <li>ABP와 BP의 Trajectory를 연결해야한다.</li>
   <li>그렇기 위해선 ABP의 EventGraph에서 자신을 사용하는 BP를 가져와야 한다.</li>
   <li>
-    <p>자신을 사용중인 Actor를 가져와 그 액터 BP를 변수로 설정한다.
+    <p>자신을 사용중인 Actor를 가져와 그 액터 BP를 변수로 설정한다.<br />
 <img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/128cb3a3-5f92-4268-a926-57aeb39bb0dd" alt="image" /></p>
   </li>
   <li>
-    <p>변수화한 Owner Actor를 불러와 Trajectory를 매 프레임마다 변수화 시킨다.
+    <p>변수화한 Owner Actor를 불러와 Trajectory를 매 프레임마다 변수화 시킨다.<br />
 <img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/c697f497-df56-46d3-bed8-1bb8e34fdb2f" alt="image" /></p>
   </li>
-  <li>그리고 다시 AnimGraph로 돌아가서 Trajectory를 설정해준다.
+  <li>그리고 다시 AnimGraph로 돌아가서 Trajectory를 설정해준다.<br />
 <img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/a5b14922-a3a4-4367-b352-58a285a1615d" alt="image" /></li>
 </ul>
 
 <h2 id="디버깅-궤적-확인">디버깅 궤적 확인</h2>
 <ul>
-  <li>콘솔창에 <code class="language-plaintext highlighter-rouge">a.CharacterTrajectory.Debug 1</code> 을 하면 궤적이 보인다.
+  <li>콘솔창에 <code class="language-plaintext highlighter-rouge">a.CharacterTrajectory.Debug 1</code> 을 하면 궤적이 보인다.<br />
 <img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/592c0d2d-152c-4334-864a-909b3613afec" alt="image" /></li>
 </ul>
 
@@ -494,44 +617,7 @@
 <a href="https://www.youtube.com/watch?v=4ag7fSlEeKA">https://www.youtube.com/watch?v=4ag7fSlEeKA</a>
 <a href="https://www.youtube.com/watch?v=S4aBd64t-hY&amp;ab_channel=GorkaGames">https://www.youtube.com/watch?v=S4aBd64t-hY&amp;ab_channel=GorkaGames</a>
 </p>
-</div>]]></content><author><name>Mohitto55</name></author><category term="ue5" /><category term="UE5" /><category term="UnrealEngine" /><category term="Animation" /><category term="MotionMatching" /><summary type="html"><![CDATA[언리얼엔진이 5.4버전이 나오면서 모션매칭 기능이 새로 발표되었다. 모션 매칭은 캐릭터 애니메이션을 위한 차세대 프레임워크다. 이 기술은 언리얼 엔진 5.4 버전에서 새롭게 도입되었으며, 캐릭터의 움직임을 더욱 자연스럽고 역동적으로 만드는 데 중점을 준다.]]></summary></entry><entry><title type="html">[Docker] Docker Image 개념과 구조</title><link href="http://localhost:4000/network/Docker-Image-%EC%A0%95%EB%A6%AC/" rel="alternate" type="text/html" title="[Docker] Docker Image 개념과 구조" /><published>2024-08-17T00:00:00+09:00</published><updated>2024-08-17T00:00:00+09:00</updated><id>http://localhost:4000/network/Docker%20Image%20%EC%A0%95%EB%A6%AC</id><content type="html" xml:base="http://localhost:4000/network/Docker-Image-%EC%A0%95%EB%A6%AC/"><![CDATA[<h2 id="docker-이미지">Docker 이미지</h2>
-<p>컨테이너를 만드는데 사용되는 Template이라 생각하면 된다.
-컨테이너는 이미지를 기반으로 생성된다.</p>
-
-<p><br />
-이미지는 <code class="language-plaintext highlighter-rouge">Docker hub</code>에서 다운받아서 사용하는 방식으로 도커 계정을 가진 사람들끼리 이미지를 공유할 수 있다.</p>
-
-<hr />
-
-<h3 id="이미지-구조와-레이어">이미지 구조와 레이어</h3>
-<p><img src="https://github.com/user-attachments/assets/4f99fce3-c1c1-4b4d-8077-65c5f3f53d2b" alt="image" /></p>
-
-<p><br />
-이미지는 용량이 매우 큰데 기본 몇백MB다. 이미지를 업데이트하면 그 큰 용량을 매번 전부 다운 받는것은 비효율적이다. 그래서 Layer 구조를 통해 관리를 한다.</p>
-
-<p><br />
-이미지는 기본적으로 <strong>읽기전용(Read-Only)</strong>의 레이어 여러개로 구성되어있다. 이 레이어들은 파일이 추가되거나 수정되면 새로운 레이어를 만든다. 즉 기존 Base레이어는 변경되지않고 새로운 Layer가 추가하면된다.</p>
-
-<p><br />
-위 그림처럼 기본 Base Image를 이용해 만드는 새로운 Image는 Layer를 수정하지 않고 새 Layer를 생성한다. 이렇게하면 web app 이미지를 업데이트 할 때 web app layer만 수정하면된다.</p>
-
-<p><br />
-맨 우측 그림을 보면 Docker Container에서 web app을 베이스로 이미지 생성을 하는데 해당 이미지 레이어들은 모두 <strong>읽기전용(Read-Only)</strong>으로 생성된다.</p>
-
-<p><br />
-컨테이너가 생성될 때마다 Container Layer가 생성되는데 해당 레이어는 <strong>읽기쓰기</strong> 모두 가능하지만 Container가 삭제되면 Container Layer도 삭제된다.</p>
-
-<p><img src="https://github.com/user-attachments/assets/4440ce1c-1063-4b1a-956a-d9d5b2f7b859" alt="image" /></p>
-
-<h2><br /></h2>
-<p><br /></p>
-<div class="Reference">
-<div class="callout-header"> </div>
-<p>
-<a href="https://velog.io/@kdaeyeop/%EB%8F%84%EC%BB%A4-Docker-%EC%99%80-VM%EC%9D%98-%EC%B0%A8%EC%9D%B4">https://velog.io/@kdaeyeop/%EB%8F%84%EC%BB%A4-Docker-%EC%99%80-VM%EC%9D%98-%EC%B0%A8%EC%9D%B4</a>
-<a href="https://creboring.net/blog/how-docker-divide-image-layer/">https://creboring.net/blog/how-docker-divide-image-layer/</a>
-</p>
-</div>]]></content><author><name>Mohitto55</name></author><category term="network" /><category term="Docker" /><category term="Ubuntu" /><category term="Linux" /><category term="컨테이너" /><category term="Image" /><category term="Layer" /><summary type="html"><![CDATA[Docker 이미지 컨테이너를 만드는데 사용되는 Template이라 생각하면 된다. 컨테이너는 이미지를 기반으로 생성된다.]]></summary></entry><entry><title type="html">[Docker] Ubuntu에서 Docker로 Mysql설치하기</title><link href="http://localhost:4000/network/Docker%EC%97%90-mysql-%EC%84%A4%EC%B9%98/" rel="alternate" type="text/html" title="[Docker] Ubuntu에서 Docker로 Mysql설치하기" /><published>2024-08-17T00:00:00+09:00</published><updated>2024-08-17T00:00:00+09:00</updated><id>http://localhost:4000/network/Docker%EC%97%90%20mysql%20%EC%84%A4%EC%B9%98</id><content type="html" xml:base="http://localhost:4000/network/Docker%EC%97%90-mysql-%EC%84%A4%EC%B9%98/"><![CDATA[<h2 id="docker-설치">Docker 설치</h2>
+</div>]]></content><author><name>Mohitto55</name></author><category term="ue5" /><category term="UE5" /><category term="UnrealEngine" /><category term="Animation" /><category term="MotionMatching" /><summary type="html"><![CDATA[언리얼엔진이 5.4버전이 나오면서 모션매칭 기능이 새로 발표되었다. 모션 매칭은 캐릭터 애니메이션을 위한 차세대 프레임워크다. 이 기술은 언리얼 엔진 5.4 버전에서 새롭게 도입되었으며, 캐릭터의 움직임을 더욱 자연스럽고 역동적으로 만드는 데 중점을 준다.]]></summary></entry><entry><title type="html">[Docker] Ubuntu에서 Docker로 Mysql설치하기</title><link href="http://localhost:4000/network/Docker%EC%97%90-mysql-%EC%84%A4%EC%B9%98/" rel="alternate" type="text/html" title="[Docker] Ubuntu에서 Docker로 Mysql설치하기" /><published>2024-08-17T00:00:00+09:00</published><updated>2024-08-17T00:00:00+09:00</updated><id>http://localhost:4000/network/Docker%EC%97%90%20mysql%20%EC%84%A4%EC%B9%98</id><content type="html" xml:base="http://localhost:4000/network/Docker%EC%97%90-mysql-%EC%84%A4%EC%B9%98/"><![CDATA[<h2 id="docker-설치">Docker 설치</h2>
 <blockquote>
   <p>Docker 다운받기</p>
   <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo wget -qO- http://get.docker.com/ | sh
@@ -570,11 +656,11 @@
 </code></pre></div>  </div>
 </blockquote>
 
-<p><code class="language-plaintext highlighter-rouge">--name &lt;container_name&gt;</code> : <code class="language-plaintext highlighter-rouge">&lt;container_name&gt;</code> 이름의 컨테이너를 실행한다.<br />
-<code class="language-plaintext highlighter-rouge">-e</code> : 컨테이너 내에서 사용할 환경변수를 설정<br />
-<code class="language-plaintext highlighter-rouge">-e MYSQL_ROOT_PASSWORD=&lt;password&gt;</code> : MySQL의 root 권한의 비밀번호를 <code class="language-plaintext highlighter-rouge">&lt;password&gt;</code>로 설정한다.<br />
-<code class="language-plaintext highlighter-rouge">-d</code> : detach 모드로 컨테이너가 실행된다. 컨테이너가 백그라운드로 실행된다고 보면 된다.<br />
-<code class="language-plaintext highlighter-rouge">-p &lt;호스트 포트&gt; &lt;컨테이너 포트&gt;</code> : 호스트와 컨테이너의 포트를 연결한다.<br />
+<p><code class="language-plaintext highlighter-rouge">--name &lt;container_name&gt;</code> : <code class="language-plaintext highlighter-rouge">&lt;container_name&gt;</code> 이름의 컨테이너를 실행한다.<br /><br />
+<code class="language-plaintext highlighter-rouge">-e</code> : 컨테이너 내에서 사용할 환경변수를 설정<br /><br />
+<code class="language-plaintext highlighter-rouge">-e MYSQL_ROOT_PASSWORD=&lt;password&gt;</code> : MySQL의 root 권한의 비밀번호를 <code class="language-plaintext highlighter-rouge">&lt;password&gt;</code>로 설정한다.<br /><br />
+<code class="language-plaintext highlighter-rouge">-d</code> : detach 모드로 컨테이너가 실행된다. 컨테이너가 백그라운드로 실행된다고 보면 된다.<br /><br />
+<code class="language-plaintext highlighter-rouge">-p &lt;호스트 포트&gt; &lt;컨테이너 포트&gt;</code> : 호스트와 컨테이너의 포트를 연결한다.<br /><br />
 mysql:latest : 컨테이너에 사용할 이미지<br /></p>
 
 <hr />
@@ -592,7 +678,7 @@ mysql:latest : 컨테이너에 사용할 이미지<br /></p>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Unable to find image 'mysql-container:latest' locally
 </code></pre></div></div>
 <blockquote>
-  <p>이미지 이름이 다르다.
+  <p>이미지 이름이 다르다.<br />
 콘테이너랑 이미지는 다른 개념이다.</p>
 </blockquote>
 
@@ -607,7 +693,7 @@ mysql:latest : 컨테이너에 사용할 이미지<br /></p>
 <h2 id="도커-컨테이너-접속시-오류">도커 컨테이너 접속시 오류</h2>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Error response from daemon: container 1a0ab9fe9da2301b1d7959614ad2e8335ae745cf9b72a2b0394474236526557c is not running
 </code></pre></div></div>
-<p>콘테이너가 실행되지 않아 발생하는 오류다.<br />
+<p>콘테이너가 실행되지 않아 발생하는 오류다.<br /><br />
 아래 명령어를 통해 원하는 컨테이너를 실행하면 된다.</p>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo docker container start mysql-container
 </code></pre></div></div>
@@ -624,7 +710,7 @@ mysql:latest : 컨테이너에 사용할 이미지<br /></p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysql -u root -p
 </code></pre></div></div>
-<p><br />
+<p><br /><br />
 <img src="https://github.com/mohitto55/mohitto55.github.io/assets/64449571/7d89434e-6c5a-44e6-b812-7794738c5831" alt="image" /></p>
 
 <h2><br /></h2>
@@ -635,8 +721,45 @@ mysql:latest : 컨테이너에 사용할 이미지<br /></p>
 <a href="https://hipopatamus.tistory.com/109">https://hipopatamus.tistory.com/109</a>
 <a href="https://khj93.tistory.com/entry/Docker-Docker-%EA%B0%9C%EB%85%90">https://khj93.tistory.com/entry/Docker-Docker-%EA%B0%9C%EB%85%90</a>
 </p>
-</div>]]></content><author><name>Mohitto55</name></author><category term="network" /><category term="Docket" /><category term="Ubuntu" /><category term="Linux" /><category term="컨테이너" /><summary type="html"><![CDATA[Docker 설치 Docker 다운받기 sudo wget -qO- http://get.docker.com/ | sh]]></summary></entry><entry><title type="html">[Docker] Docker와 VM의 차이점</title><link href="http://localhost:4000/network/Docker%EC%99%80-VM-%EC%B0%A8%EC%9D%B4/" rel="alternate" type="text/html" title="[Docker] Docker와 VM의 차이점" /><published>2024-08-16T00:00:00+09:00</published><updated>2024-08-16T00:00:00+09:00</updated><id>http://localhost:4000/network/Docker%EC%99%80%20VM%20%EC%B0%A8%EC%9D%B4</id><content type="html" xml:base="http://localhost:4000/network/Docker%EC%99%80-VM-%EC%B0%A8%EC%9D%B4/"><![CDATA[<h2 id="docker">Docker</h2>
-<p>Docker란 컨테이너를 이용한 오픈소스 가상화 플랫폼이다. 
+</div>]]></content><author><name>Mohitto55</name></author><category term="network" /><category term="Docket" /><category term="Ubuntu" /><category term="Linux" /><category term="컨테이너" /><summary type="html"><![CDATA[Docker 설치 Docker 다운받기 sudo wget -qO- http://get.docker.com/ | sh]]></summary></entry><entry><title type="html">[Docker] Docker Image 개념과 구조</title><link href="http://localhost:4000/network/Docker-Image-%EC%A0%95%EB%A6%AC/" rel="alternate" type="text/html" title="[Docker] Docker Image 개념과 구조" /><published>2024-08-17T00:00:00+09:00</published><updated>2024-08-17T00:00:00+09:00</updated><id>http://localhost:4000/network/Docker%20Image%20%EC%A0%95%EB%A6%AC</id><content type="html" xml:base="http://localhost:4000/network/Docker-Image-%EC%A0%95%EB%A6%AC/"><![CDATA[<h2 id="docker-이미지">Docker 이미지</h2>
+<p>컨테이너를 만드는데 사용되는 Template이라 생각하면 된다.<br />
+컨테이너는 이미지를 기반으로 생성된다.</p>
+
+<p><br /><br />
+이미지는 <code class="language-plaintext highlighter-rouge">Docker hub</code>에서 다운받아서 사용하는 방식으로 도커 계정을 가진 사람들끼리 이미지를 공유할 수 있다.</p>
+
+<hr />
+
+<h3 id="이미지-구조와-레이어">이미지 구조와 레이어</h3>
+<p><img src="https://github.com/user-attachments/assets/4f99fce3-c1c1-4b4d-8077-65c5f3f53d2b" alt="image" /></p>
+
+<p><br /><br />
+이미지는 용량이 매우 큰데 기본 몇백MB다. 이미지를 업데이트하면 그 큰 용량을 매번 전부 다운 받는것은 비효율적이다. 그래서 Layer 구조를 통해 관리를 한다.</p>
+
+<p><br /><br />
+이미지는 기본적으로 <strong>읽기전용(Read-Only)</strong>의 레이어 여러개로 구성되어있다. 이 레이어들은 파일이 추가되거나 수정되면 새로운 레이어를 만든다. 즉 기존 Base레이어는 변경되지않고 새로운 Layer가 추가하면된다.</p>
+
+<p><br /><br />
+위 그림처럼 기본 Base Image를 이용해 만드는 새로운 Image는 Layer를 수정하지 않고 새 Layer를 생성한다. 이렇게하면 web app 이미지를 업데이트 할 때 web app layer만 수정하면된다.</p>
+
+<p><br /><br />
+맨 우측 그림을 보면 Docker Container에서 web app을 베이스로 이미지 생성을 하는데 해당 이미지 레이어들은 모두 <strong>읽기전용(Read-Only)</strong>으로 생성된다.</p>
+
+<p><br /><br />
+컨테이너가 생성될 때마다 Container Layer가 생성되는데 해당 레이어는 <strong>읽기쓰기</strong> 모두 가능하지만 Container가 삭제되면 Container Layer도 삭제된다.</p>
+
+<p><img src="https://github.com/user-attachments/assets/4440ce1c-1063-4b1a-956a-d9d5b2f7b859" alt="image" /></p>
+
+<h2><br /></h2>
+<p><br /></p>
+<div class="Reference">
+<div class="callout-header"> </div>
+<p>
+<a href="https://velog.io/@kdaeyeop/%EB%8F%84%EC%BB%A4-Docker-%EC%99%80-VM%EC%9D%98-%EC%B0%A8%EC%9D%B4">https://velog.io/@kdaeyeop/%EB%8F%84%EC%BB%A4-Docker-%EC%99%80-VM%EC%9D%98-%EC%B0%A8%EC%9D%B4</a>
+<a href="https://creboring.net/blog/how-docker-divide-image-layer/">https://creboring.net/blog/how-docker-divide-image-layer/</a>
+</p>
+</div>]]></content><author><name>Mohitto55</name></author><category term="network" /><category term="Docker" /><category term="Ubuntu" /><category term="Linux" /><category term="컨테이너" /><category term="Image" /><category term="Layer" /><summary type="html"><![CDATA[Docker 이미지 컨테이너를 만드는데 사용되는 Template이라 생각하면 된다. 컨테이너는 이미지를 기반으로 생성된다.]]></summary></entry><entry><title type="html">[Docker] Docker와 VM의 차이점</title><link href="http://localhost:4000/network/Docker%EC%99%80-VM-%EC%B0%A8%EC%9D%B4/" rel="alternate" type="text/html" title="[Docker] Docker와 VM의 차이점" /><published>2024-08-16T00:00:00+09:00</published><updated>2024-08-16T00:00:00+09:00</updated><id>http://localhost:4000/network/Docker%EC%99%80%20VM%20%EC%B0%A8%EC%9D%B4</id><content type="html" xml:base="http://localhost:4000/network/Docker%EC%99%80-VM-%EC%B0%A8%EC%9D%B4/"><![CDATA[<h2 id="docker">Docker</h2>
+<p>Docker란 컨테이너를 이용한 오픈소스 가상화 플랫폼이다. <br />
 컨테이너는 OS레벨의 가상화로 프로세스를 격리시켜 동작하는 것을 말한다. OS자체를 가상화 하던 방식과는 다른데 무슨 차이가 있는것일까?</p>
 
 <h2 id="vm-가상화-vs-docker-가상화">VM 가상화 vs Docker 가상화</h2>
@@ -675,7 +798,7 @@ mysql:latest : 컨테이너에 사용할 이미지<br /></p>
   </li>
 </ul>
 
-<p><img src="https://github.com/user-attachments/assets/15360da2-1cef-4a8d-b2c0-8041522094db" alt="image" />
+<p><img src="https://github.com/user-attachments/assets/15360da2-1cef-4a8d-b2c0-8041522094db" alt="image" /><br />
 <br /></p>
 <div class="callout-info-expanded">
 <div class="callout-header">차이점 요약</div>
@@ -688,14 +811,14 @@ mysql:latest : 컨테이너에 사용할 이미지<br /></p>
 
 <h2 id="사용하는-이유">사용하는 이유</h2>
 <h3 id="개발환경-구성">개발환경 구성</h3>
-<p>개발하고 서버에 올리면 끝인 상황이다. 그런데 서버에 올리면 작동 하지 않는 경우가 있다.왜 그런가 알아보니 컴퓨터 윈도우, 서버는 리눅스라는 각각 다른 OS를 사용하여 발생하는 오류였다. 각 OS마다 호환되는 기능이 다르기에 발생하는 문제였다.
-<br /><br />
-하지만 도커를 사용하면 다른 머신에서도 같은 환경 구성이 가능하다.
-방법은 간단하다 윈도우, 서버에 둘다 Docker 설치하고 구성하고 싶은 환경 설정하면 된다.
+<p>개발하고 서버에 올리면 끝인 상황이다. 그런데 서버에 올리면 작동 하지 않는 경우가 있다.왜 그런가 알아보니 컴퓨터 윈도우, 서버는 리눅스라는 각각 다른 OS를 사용하여 발생하는 오류였다. 각 OS마다 호환되는 기능이 다르기에 발생하는 문제였다.<br />
+<br /><br /><br />
+하지만 도커를 사용하면 다른 머신에서도 같은 환경 구성이 가능하다.<br />
+방법은 간단하다 윈도우, 서버에 둘다 Docker 설치하고 구성하고 싶은 환경 설정하면 된다.<br />
 <br /><br /></p>
 
-<p>도커는 파일을 읽고 필요한걸 다운 받고 같은 환경을 컨테이너에 구성한다.
-그래서 컴퓨터에서 서버로 코드 업로드하면(Docker와 같이) 잘 작동 한다.
+<p>도커는 파일을 읽고 필요한걸 다운 받고 같은 환경을 컨테이너에 구성한다.<br />
+그래서 컴퓨터에서 서버로 코드 업로드하면(Docker와 같이) 잘 작동 한다.<br />
 <br /><br /></p>
 
 <p>또 각 컨테이너는 각기 분리되어 있다.컨테이너들은 독립적이다. 이덕에 한개의 서버에서 수많은 컨테이너 가질 수 있다. 만약 자바 애플리케이션이 인기 많으면 자바 컨테이너 늘리고 사용자가 줄면 컨테이너를 줄임으로써 매번 서버를 사고 팔 이유가 없어진다.</p>
@@ -718,8 +841,8 @@ mysql:latest : 컨테이너에 사용할 이미지<br /></p>
 <a href="https://velog.io/@kdaeyeop/%EB%8F%84%EC%BB%A4-Docker-%EC%99%80-VM%EC%9D%98-%EC%B0%A8%EC%9D%B4">https://velog.io/@kdaeyeop/%EB%8F%84%EC%BB%A4-Docker-%EC%99%80-VM%EC%9D%98-%EC%B0%A8%EC%9D%B4</a>
 </p>
 </div>]]></content><author><name>Mohitto55</name></author><category term="network" /><category term="Docker" /><category term="Ubuntu" /><category term="Linux" /><category term="컨테이너" /><category term="VM" /><category term="가상환경" /><category term="가상머신" /><category term="도커" /><category term="하이퍼바이저" /><category term="HyperVisor" /><category term="Virtual Machine" /><summary type="html"><![CDATA[Docker Docker란 컨테이너를 이용한 오픈소스 가상화 플랫폼이다. 컨테이너는 OS레벨의 가상화로 프로세스를 격리시켜 동작하는 것을 말한다. OS자체를 가상화 하던 방식과는 다른데 무슨 차이가 있는것일까?]]></summary></entry><entry><title type="html">[Window] 구글캘린더 바탕화면에 위젯 생성하기</title><link href="http://localhost:4000/os/%EA%B5%AC%EA%B8%80%EC%BA%98%EB%A6%B0%EB%8D%94-%EC%95%84%EC%9B%83%EB%A3%A9-%EC%97%B0%EB%8F%99-%EB%B0%94%ED%83%95%ED%99%94%EB%A9%B4/" rel="alternate" type="text/html" title="[Window] 구글캘린더 바탕화면에 위젯 생성하기" /><published>2024-08-05T00:00:00+09:00</published><updated>2024-08-05T00:00:00+09:00</updated><id>http://localhost:4000/os/%EA%B5%AC%EA%B8%80%EC%BA%98%EB%A6%B0%EB%8D%94%20%EC%95%84%EC%9B%83%EB%A3%A9%20%EC%97%B0%EB%8F%99%20%EB%B0%94%ED%83%95%ED%99%94%EB%A9%B4</id><content type="html" xml:base="http://localhost:4000/os/%EA%B5%AC%EA%B8%80%EC%BA%98%EB%A6%B0%EB%8D%94-%EC%95%84%EC%9B%83%EB%A3%A9-%EC%97%B0%EB%8F%99-%EB%B0%94%ED%83%95%ED%99%94%EB%A9%B4/"><![CDATA[<h2 id="들어가며">들어가며</h2>
-<p>나는 <strong>Todoist, Google Calendar, Obsidian</strong>을 통해 일정관리를 한다.
-나는 일정관리에서 제일 중요하다 생각하는 부분이 언제 어디서든 최소한의 액션으로 간편하게 일정을 확인할 수 있어야 한다고 생각한다.
+<p>나는 <strong>Todoist, Google Calendar, Obsidian</strong>을 통해 일정관리를 한다.<br />
+나는 일정관리에서 제일 중요하다 생각하는 부분이 언제 어디서든 최소한의 액션으로 간편하게 일정을 확인할 수 있어야 한다고 생각한다.<br />
 그래서 휴대폰에는 바탕화면에 구글 캘린더 위젯을 생성하고 옵시디언에서 <strong>Full Calendar 플러그인</strong>을 통해 구글 캘린더를 확인할 수 있다.</p>
 
 <p><br /></p>
@@ -731,18 +854,18 @@ mysql:latest : 컨테이너에 사용할 이미지<br /></p>
 <p>그중 달력 위젯 중 가장 유명한 <a href="https://desktop-calendar.softonic.kr/">Desktop Calendar</a>을 사용해보기도 했지만 이것은 구글캘린더와 연동이 되지 않아 금방 삭제했다. 어떻게 해야 구글캘린더를 바탕화면에 표시할까 알아보다 아웃룩과 연동하고 외부 프로그램을 이용하면 가능한 것을 알게되었다. 해당 방법을 아래에 소개하겠다.</p>
 
 <h2 id="1-구글캘린더-주소-복사하기">1. 구글캘린더 주소 복사하기</h2>
-<p>구글캘린더에서 우측 상단 톱니바퀴 모양을 눌러 <strong>설정</strong>에 들어가고 왼쪽 탭에서 아웃룩과 연동할 캘린더를 선택해 설정에 들어간다.
-아래로 내려서 <strong>Scret address in iCal format</strong> 내용을 우측 복사하기 버튼을 눌러서 클립보드에 복사한다.
+<p>구글캘린더에서 우측 상단 톱니바퀴 모양을 눌러 <strong>설정</strong>에 들어가고 왼쪽 탭에서 아웃룩과 연동할 캘린더를 선택해 설정에 들어간다.<br />
+아래로 내려서 <strong>Scret address in iCal format</strong> 내용을 우측 복사하기 버튼을 눌러서 클립보드에 복사한다.<br />
 <img src="https://github.com/user-attachments/assets/167750ad-2261-47a8-83b0-64c032a5841b" alt="image" /></p>
 
 <h2 id="2-아웃룩과-캘린더-연동">2. 아웃룩과 캘린더 연동</h2>
-<p>아웃룩에 들어가 <code class="language-plaintext highlighter-rouge">파일 &gt; 계정 설정 &gt; 인터넷 일정 &gt; 새로만들기</code> 를 누른다.
-<img src="https://github.com/user-attachments/assets/9db6166c-05e8-4cc0-8386-fd8413c0260f" alt="image" />
+<p>아웃룩에 들어가 <code class="language-plaintext highlighter-rouge">파일 &gt; 계정 설정 &gt; 인터넷 일정 &gt; 새로만들기</code> 를 누른다.<br />
+<img src="https://github.com/user-attachments/assets/9db6166c-05e8-4cc0-8386-fd8413c0260f" alt="image" /><br />
 <img src="https://github.com/user-attachments/assets/1dd2aac0-6806-4d7a-a263-a410d6f074c6" alt="image" /></p>
 
 <p><br /></p>
 
-<p>그리고 1에서 복사한 구글캘린더 주소로 일정 등록을 한다.
+<p>그리고 1에서 복사한 구글캘린더 주소로 일정 등록을 한다.<br />
 <img src="https://github.com/user-attachments/assets/72a156f6-3796-4454-b5c9-3d5efe544aa1" alt="image" /></p>
 
 <hr />
@@ -754,14 +877,14 @@ mysql:latest : 컨테이너에 사용할 이미지<br /></p>
 <h2 id="3-ootd-설치하기">3. OOTD 설치하기</h2>
 <p>아웃룩을 바탕화면에서 보려면 외부 프로그램을 설치해야한다.</p>
 
-<p><a href="https://outlookonthedesktop.com/release-notes">링크</a>에 들어가서 OOTD앱을 다운 받는다. 실행하면 아래와 같이 바탕화면에 아웃룩 위젯이 생성된다.
+<p><a href="https://outlookonthedesktop.com/release-notes">링크</a>에 들어가서 OOTD앱을 다운 받는다. 실행하면 아래와 같이 바탕화면에 아웃룩 위젯이 생성된다.<br />
 <img src="https://github.com/user-attachments/assets/b3d83c1f-374c-4680-8a09-39624d1a96a2" alt="image" /></p>
 
 <p><br /></p>
 
 <p>우측 하단에서 Ootd를 우클릭하고 Select Folder을 누른다.</p>
 
-<p>그리고 인터넷 일정에서 위젯에 보일 일정을 설정하면 바탕화면에서도 일정을 확인할 수 있다.
+<p>그리고 인터넷 일정에서 위젯에 보일 일정을 설정하면 바탕화면에서도 일정을 확인할 수 있다.<br />
 <img src="https://github.com/user-attachments/assets/ab1a6c4c-0bb1-4ed7-960b-c0043ce75647" alt="image" /></p>
 
 <p><img src="https://github.com/user-attachments/assets/7e429fb1-c180-497f-b345-ef8bf87cff4e" alt="image" /></p>
@@ -841,14 +964,14 @@ mysql:latest : 컨테이너에 사용할 이미지<br /></p>
   <li>1바이트부터 4바이트까지의 인코딩 결과를 만든다.</li>
   <li>즉 값이 1바이트가 될 수 도 있고 2, 3, 4 바이트 중 될 수 있다는 것이다.</li>
   <li>이는 유니코드 문자에 부여된 값에 따라 결정된다.</li>
-</ul>]]></content><author><name>Mohitto55</name></author><category term="computerscience" /><category term="인코딩" /><category term="디코딩" /><category term="유니코드" /><category term="아스키코드" /><category term="Unicode" /><category term="ASCII" /><category term="Encode" /><category term="Decode" /><category term="ECU-KR" /><category term="UTF-8" /><category term="UTF-16" /><category term="UTF-32" /><summary type="html"><![CDATA[문자 집합과 인코딩 문자집합 컴퓨터가 인식할 수 있는 문자의 모음이다. 인코딩 문자를 0과 1로 변환해 컴퓨터가 이해할 수 있는 정보로 변환하는 과정이다. 디코딩 0과1을 사람이 이해하는 문자로 변환하는 과정이다. 아스키 코드 초창기 문자집합이다. 7비트로 표현할 수 있는 문자는 총 128개이다. 표현 가능한 수가 적기 때문에 한글을 표현할 수 없다. 확장 아스키도 나왔지만 그래도 256개로 요전히 적다. ECU-KR 한글 인코딩은 두 종류가 있다. 완성형과 조립협인코딩이 있다. 완성형은 하나의 글자에 고유한 코드를 부여하고 조립형은 초성, 중성, 종성에 해당하는 코드를 부여하고 조립하는 형태다. ECU-KR은 KS X 1001, KS X 1003 이라는 문자 집합 기반으로 하는 완성형인코딩 방식이다. 한글은 각 글자에 2바이트가 부여되어 16비트가 필요하다.]]></summary></entry><entry><title type="html">[Graphics] 렌더링 파이프라인 정리</title><link href="http://localhost:4000/ue5/%EB%A0%8C%EB%8D%94%EB%A7%81-%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8-%EC%A0%95%EB%A6%AC/" rel="alternate" type="text/html" title="[Graphics] 렌더링 파이프라인 정리" /><published>2024-06-26T00:00:00+09:00</published><updated>2024-06-26T00:00:00+09:00</updated><id>http://localhost:4000/ue5/%EB%A0%8C%EB%8D%94%EB%A7%81%20%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8%20%EC%A0%95%EB%A6%AC</id><content type="html" xml:base="http://localhost:4000/ue5/%EB%A0%8C%EB%8D%94%EB%A7%81-%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8-%EC%A0%95%EB%A6%AC/"><![CDATA[<h1 id="렌더링-파이프라인">렌더링 파이프라인</h1>
+</ul>]]></content><author><name>Mohitto55</name></author><category term="computerscience" /><category term="인코딩" /><category term="디코딩" /><category term="유니코드" /><category term="아스키코드" /><category term="Unicode" /><category term="ASCII" /><category term="Encode" /><category term="Decode" /><category term="ECU-KR" /><category term="UTF-8" /><category term="UTF-16" /><category term="UTF-32" /><summary type="html"><![CDATA[문자 집합과 인코딩 문자집합 컴퓨터가 인식할 수 있는 문자의 모음이다. 인코딩 문자를 0과 1로 변환해 컴퓨터가 이해할 수 있는 정보로 변환하는 과정이다. 디코딩 0과1을 사람이 이해하는 문자로 변환하는 과정이다. 아스키 코드 초창기 문자집합이다. 7비트로 표현할 수 있는 문자는 총 128개이다. 표현 가능한 수가 적기 때문에 한글을 표현할 수 없다. 확장 아스키도 나왔지만 그래도 256개로 요전히 적다. ECU-KR 한글 인코딩은 두 종류가 있다. 완성형과 조립협인코딩이 있다. 완성형은 하나의 글자에 고유한 코드를 부여하고 조립형은 초성, 중성, 종성에 해당하는 코드를 부여하고 조립하는 형태다. ECU-KR은 KS X 1001, KS X 1003 이라는 문자 집합 기반으로 하는 완성형인코딩 방식이다. 한글은 각 글자에 2바이트가 부여되어 16비트가 필요하다.]]></summary></entry><entry><title type="html">[Graphics] 렌더링 파이프라인 정리</title><link href="http://localhost:4000/computergraphics/%EB%A0%8C%EB%8D%94%EB%A7%81-%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8-%EC%A0%95%EB%A6%AC/" rel="alternate" type="text/html" title="[Graphics] 렌더링 파이프라인 정리" /><published>2024-06-26T00:00:00+09:00</published><updated>2024-06-26T00:00:00+09:00</updated><id>http://localhost:4000/computergraphics/%EB%A0%8C%EB%8D%94%EB%A7%81%20%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8%20%EC%A0%95%EB%A6%AC</id><content type="html" xml:base="http://localhost:4000/computergraphics/%EB%A0%8C%EB%8D%94%EB%A7%81-%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8-%EC%A0%95%EB%A6%AC/"><![CDATA[<h1 id="렌더링-파이프라인">렌더링 파이프라인</h1>
 <ul>
   <li>
-    <p>3차원 모델을 2차원 화면에 투영하는 렌더링 과정을 말한다.
+    <p>3차원 모델을 2차원 화면에 투영하는 렌더링 과정을 말한다.<br />
 <img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/4064224e-0a97-4ad3-b679-ac2329a3f7f8" alt="image" /></p>
   </li>
   <li>
-    <p>벌칸 엔진의 렌더링 파이프라인 과정
+    <p>벌칸 엔진의 렌더링 파이프라인 과정<br />
 <img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/6f13fec2-3d78-4771-91b1-64dd7055770b" alt="image" /></p>
   </li>
 </ul>
@@ -929,7 +1052,7 @@ mysql:latest : 컨테이너에 사용할 이미지<br /></p>
 <h3 id="scan-transformation">Scan Transformation</h3>
 <ul>
   <li>프리미티브를 통해서 프래그먼트를 생성하고 프래그 먼트를 채우는 픽셀들을 찾는다.</li>
-  <li>각 필셀마다 정점 데이터들을 보간하여 할당한다.
+  <li>각 필셀마다 정점 데이터들을 보간하여 할당한다.<br />
 <img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/4083a7a1-c746-45f8-a497-039313cbdf04" alt="image" /></li>
 </ul>
 
@@ -1440,7 +1563,7 @@ mysql:latest : 컨테이너에 사용할 이미지<br /></p>
 <h2 id="텍스처-로딩">텍스처 로딩</h2>
 <ul>
   <li>Texture는 일반적으로 좌상단이 0,0으로 색상 정보가 저장되어 있다.</li>
-  <li>UV는 보통 좌하단
+  <li>UV는 보통 좌하단<br />
 ![[UV and Texture.excalidraw|300]]
     <h3 id="uv좌표-계산하기">UV좌표 계산하기</h3>
     <h4 id="무게중심좌표계">무게중심좌표계</h4>
@@ -1493,32 +1616,4 @@ mysql:latest : 컨테이너에 사용할 이미지<br /></p>
 <a href="https://velog.io/@liha_engineer/ue4start-4">https://velog.io/@liha_engineer/ue4start-4</a>
 <a href="https://mingyu0403.tistory.com/298">https://mingyu0403.tistory.com/298</a>
 </p>
-</div>]]></content><author><name>Mohitto55</name></author><category term="ue5" /><category term="UE5" /><category term="Unreal Engine5" /><category term="Unreal Engine" /><category term="Debug" /><category term="Package" /><summary type="html"><![CDATA[렌더링 파이프라인 3차원 모델을 2차원 화면에 투영하는 렌더링 과정을 말한다.]]></summary></entry><entry><title type="html">[UE5] Loading PreDefault Modules for Plugin 오류 해결하기</title><link href="http://localhost:4000/ue5/UE5-Modules-for-Plugin-%EC%98%A4%EB%A5%98-%ED%95%B4%EA%B2%B0/" rel="alternate" type="text/html" title="[UE5] Loading PreDefault Modules for Plugin 오류 해결하기" /><published>2024-06-25T00:00:00+09:00</published><updated>2024-06-25T00:00:00+09:00</updated><id>http://localhost:4000/ue5/UE5%20Modules%20for%20Plugin%20%EC%98%A4%EB%A5%98%20%ED%95%B4%EA%B2%B0</id><content type="html" xml:base="http://localhost:4000/ue5/UE5-Modules-for-Plugin-%EC%98%A4%EB%A5%98-%ED%95%B4%EA%B2%B0/"><![CDATA[<h2 id="에러-현상">에러 현상</h2>
-<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/cdba9f11-665f-4a29-a248-84da8582661d" alt="image" />
-사용하던 5.3프로젝트를 5.4로 변경하고 Motion Matching을 연습 중이였는데 빌드하고 재시작하니 위와 같이 75%에서 계속 멈추고 진행이 되지 않았다.</p>
-
-<p><br /></p>
-<h2 id="해결-과정">해결 과정</h2>
-<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Warning</span>      <span class="n">LogAnimation</span>              <span class="n">SkeletalMesh</span> <span class="n">SkeletalMesh</span> <span class="o">/</span><span class="n">Game</span><span class="o">/</span><span class="n">Characters</span><span class="o">/</span><span class="n">Mannequin_UE4</span><span class="o">/</span><span class="n">Meshes</span><span class="o">/</span><span class="n">SK_Mannequin</span><span class="p">.</span><span class="n">SK_Mannequin</span> <span class="n">has</span> <span class="n">no</span> <span class="n">skeleton</span><span class="p">.</span> <span class="n">This</span> <span class="n">needs</span> <span class="n">to</span> <span class="n">fixed</span> <span class="n">before</span> <span class="n">an</span> <span class="n">animation</span> <span class="n">can</span> <span class="n">be</span> <span class="n">set</span>
-<span class="n">Warning</span>      <span class="n">LogLinker</span>                 <span class="p">[</span><span class="n">AssetLog</span><span class="p">]</span> <span class="n">C</span><span class="o">:</span><span class="err">\</span><span class="n">Users</span><span class="err">\</span><span class="n">admin</span><span class="err">\</span><span class="n">git</span><span class="err">\</span><span class="n">UE5</span><span class="err">\</span><span class="n">Multi</span><span class="err">\</span><span class="n">Content</span><span class="err">\</span><span class="n">MCO_Mocap_Basics</span><span class="err">\</span><span class="n">Character</span><span class="err">\</span><span class="n">Mesh</span><span class="err">\</span><span class="n">UE4_Mannequin_Skeleton</span><span class="p">.</span><span class="n">uasset</span><span class="o">:</span> <span class="n">Failed</span> <span class="n">to</span> <span class="n">load</span> <span class="err">'</span><span class="o">/</span><span class="n">Engine</span><span class="o">/</span><span class="n">EngineMeshes</span><span class="o">/</span><span class="n">Humanoid</span><span class="err">'</span><span class="o">:</span> <span class="n">Can</span><span class="err">'</span><span class="n">t</span> <span class="n">find</span> <span class="n">file</span><span class="p">.</span>
-<span class="n">Warning</span>      <span class="n">LogLinker</span>                 <span class="p">[</span><span class="n">AssetLog</span><span class="p">]</span> <span class="n">C</span><span class="o">:</span><span class="err">\</span><span class="n">Users</span><span class="err">\</span><span class="n">admin</span><span class="err">\</span><span class="n">git</span><span class="err">\</span><span class="n">UE5</span><span class="err">\</span><span class="n">Multi</span><span class="err">\</span><span class="n">Content</span><span class="err">\</span><span class="n">MCO_Mocap_Basics</span><span class="err">\</span><span class="n">Character</span><span class="err">\</span><span class="n">Mesh</span><span class="err">\</span><span class="n">UE4_Mannequin_Skeleton</span><span class="p">.</span><span class="n">uasset</span><span class="o">:</span> <span class="n">VerifyImport</span><span class="o">:</span> <span class="n">Failed</span> <span class="n">to</span> <span class="n">load</span> <span class="n">package</span> <span class="k">for</span> <span class="n">import</span> <span class="n">object</span> <span class="err">'</span><span class="n">Package</span> <span class="o">/</span><span class="n">Engine</span><span class="o">/</span><span class="n">EngineMeshes</span><span class="o">/</span><span class="n">Humanoid</span><span class="err">'</span>
-<span class="n">Warning</span>      <span class="n">LogAnimation</span>              <span class="n">SkeletalMesh</span> <span class="n">SkeletalMesh</span> <span class="o">/</span><span class="n">Game</span><span class="o">/</span><span class="n">Characters</span><span class="o">/</span><span class="n">Mannequin_UE4</span><span class="o">/</span><span class="n">Meshes</span><span class="o">/</span><span class="n">SK_Mannequin</span><span class="p">.</span><span class="n">SK_Mannequin</span> <span class="n">has</span> <span class="n">no</span> <span class="n">skeleton</span><span class="p">.</span> <span class="n">This</span> <span class="n">needs</span> <span class="n">to</span> <span class="n">fixed</span> <span class="n">before</span> <span class="n">an</span> <span class="n">animation</span> <span class="n">can</span> <span class="n">be</span> <span class="n">set</span>
-</code></pre></div></div>
-<p>라이더에서 warning로그를 보니 캐릭터 메쉬쪽 오류로 보였다.
-모션매칭을 하느라 애니메이션, Animation Blueprint등을 이것저것 만졌는데 그게 오류가 발생한 것으로 생각되어 수정한 에셋들을 하나씩 꺼내보며 확인했다.</p>
-
-<p><br /></p>
-<h2 id="발생-원인-및-해결">발생 원인 및 해결</h2>
-<ul>
-  <li>ABP가 깨져서 생긴 미싱 문제때문에 빌드가 멈춘 것이였다.</li>
-  <li>삭제하고 새로운 ABP를 만드니 제대로 작동된다.
-<img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/ed7901e8-c95e-408e-a1d6-49db1e766d87" alt="image" /></li>
-</ul>
-
-<hr />
-
-<div class="Reference">
-<div class="callout-header"> </div>
-<p>
-</p>
-</div>]]></content><author><name>Mohitto55</name></author><category term="ue5" /><category term="UE5" /><category term="Unreal Engine5" /><category term="Unreal Engine" /><category term="Plugin" /><category term="Error" /><category term="Motion Matching" /><summary type="html"><![CDATA[에러 현상 사용하던 5.3프로젝트를 5.4로 변경하고 Motion Matching을 연습 중이였는데 빌드하고 재시작하니 위와 같이 75%에서 계속 멈추고 진행이 되지 않았다.]]></summary></entry></feed>
+</div>]]></content><author><name>Mohitto55</name></author><category term="computergraphics" /><category term="UE5" /><category term="Unreal Engine5" /><category term="Unreal Engine" /><category term="Debug" /><category term="Package" /><summary type="html"><![CDATA[렌더링 파이프라인 3차원 모델을 2차원 화면에 투영하는 렌더링 과정을 말한다.]]></summary></entry></feed>

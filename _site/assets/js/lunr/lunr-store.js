@@ -6,7 +6,7 @@ var store = [{
         "teaser": null
       },{
         "title": "[Git Blog] 깃허브로 이사",
-        "excerpt":"첫 깃허브 블로그 개설  원래는 티스토리에서 글을 작성하였다. 처음 입문하기에 더할나위 없는 블로그였고 잘 사용하고 있었으나 옵시디언을 내 입맛대로 꾸미다가 문득 블로그도 커스터마이징을 해서 꾸며보고 싶었졌다.  옵시디언을 하면서 마크다운 문법에 꽤나 익숙해져서 보다 자유도 높은 깃허브로 이사를 오게됐다.  ","categories": ["gitblog"],
+        "excerpt":"첫 깃허브 블로그 개설  원래는 티스토리에서 글을 작성하였다.  처음 입문하기에 더할나위 없는 블로그였고 잘 사용하고 있었으나 옵시디언을 내 입맛대로 꾸미다가 문득 블로그도 커스터마이징을 해서 꾸며보고 싶었졌다.   옵시디언을 하면서 마크다운 문법에 꽤나 익숙해져서 보다 자유도 높은 깃허브로 이사를 오게됐다.  ","categories": ["gitblog"],
         "tags": ["Blog"],
         "url": "/gitblog/%EA%B9%83%ED%97%88%EB%B8%8C%EB%A1%9C-%EC%9D%B4%EC%82%AC/",
         "teaser": null
@@ -156,9 +156,9 @@ var store = [{
         "teaser": null
       },{
         "title": "[VScode] Snippet을 이용해 템플릿 사용하기",
-        "excerpt":"Snippet 스니펫(snippet)은 재사용 가능한 소스 코드, 기계어, 텍스트의 작은 부분을 일컫는 프로그래밍 용어이다. 사용자가 루틴 편집 조작 중 반복 타이핑을 회피할 수 있게 도와준다. -Wikipedia snippet이란 작은 코드 조각을 뜻하는 말로 자주 쓰는 코드를 하나의 템플릿으로 만들어 반복작업을 줄일 수 있게 해주는 기능을 말한다. 대부분의 텍스트 편집기, IDE는 이런 snipet...","categories": ["vscode"],
+        "excerpt":"Snippet 스니펫(snippet)은 재사용 가능한 소스 코드, 기계어, 텍스트의 작은 부분을 일컫는 프로그래밍 용어이다. 사용자가 루틴 편집 조작 중 반복 타이핑을 회피할 수 있게 도와준다. -Wikipedia snippet이란 작은 코드 조각을 뜻하는 말로 자주 쓰는 코드를 하나의 템플릿으로 만들어 반복작업을 줄일 수 있게 해주는 기능을 말한다. 대부분의 텍스트 편집기, IDE는 이런 snipet...","categories": ["ide"],
         "tags": ["Vscode","Snippet","Template","템플릿","스니펫","IDE"],
-        "url": "/vscode/VSCode-Snippets/",
+        "url": "/ide/VSCode-Snippets/",
         "teaser": null
       },{
         "title": "[Git Blog] 마크다운으로 이미지 캡션 추가하기",
@@ -240,9 +240,9 @@ var store = [{
         "teaser": null
       },{
         "title": "[Visual Studio] Nuget Package Manager Console 사용 방법",
-        "excerpt":"들어가며 C#을 통해 작업하다보면 외부 라이브러리를 사용해야 할 경우가 있다. 마침 적당한 라이브러리가 보여서 Nuget 패키지를 통해서 찾다보면 검색이 안되는 경우가 있다. 그래서 공식 사이트에가서 설치 방법을 알아보면 저런 설치 명령어가 있는 경우가 있다. 필자도 Itext를 다운 받으려고 했는데 Nuget에서 Itext가 다운이 되지 않아 방법을 찾아보니 저런걸 발견했다. 결론은 C#은...","categories": ["vs"],
+        "excerpt":"들어가며 C#을 통해 작업하다보면 외부 라이브러리를 사용해야 할 경우가 있다. 마침 적당한 라이브러리가 보여서 Nuget 패키지를 통해서 찾다보면 검색이 안되는 경우가 있다. 그래서 공식 사이트에가서 설치 방법을 알아보면 저런 설치 명령어가 있는 경우가 있다. 필자도 Itext를 다운 받으려고 했는데 Nuget에서 Itext가 다운이 되지 않아 방법을 찾아보니 저런걸 발견했다. 결론은 C#은...","categories": ["ide"],
         "tags": ["Visual Studio","Nuget","Nuget Package Manager Console","WSL2","C#"],
-        "url": "/vs/VS-%ED%8C%A8%ED%82%A4%EC%A7%80-%EB%A7%A4%EB%8B%88%EC%A0%80-%EC%BD%98%EC%86%94-%EC%82%AC%EC%9A%A9%EB%B2%95/",
+        "url": "/ide/VS-%ED%8C%A8%ED%82%A4%EC%A7%80-%EB%A7%A4%EB%8B%88%EC%A0%80-%EC%BD%98%EC%86%94-%EC%82%AC%EC%9A%A9%EB%B2%95/",
         "teaser": null
       },{
         "title": "[Obsidian] CSS 적용하며 PDF로 내보내는법",
@@ -270,9 +270,9 @@ var store = [{
         "teaser": null
       },{
         "title": "[Visual Studio] LNK2019 함수에서 참조되는 확인할 수 없는 외부기호",
-        "excerpt":"설명 보통 솔류션 파일을 직접 만들어 작업하지 않고 복사 붙여넣을 때 발생하는 오류다. 발생과정 MyQueue.h에 클래스 구현 Alt Enter로 함수 구현 하려 했으나 h에 생성이 됨 직접 cpp파일을 만들고 구현. 빌드 오류 해결과정 아마 cpp파일을 복사 붙여넣기 하여 만든것이 원인이라 생각하여 참조 디렉터리를 확인해보기로 했다. 하지만 생각해보니 하나의 프로제그에 모두...","categories": ["vs"],
+        "excerpt":"설명 보통 솔류션 파일을 직접 만들어 작업하지 않고 복사 붙여넣을 때 발생하는 오류다. 발생과정 MyQueue.h에 클래스 구현 Alt Enter로 함수 구현 하려 했으나 h에 생성이 됨 직접 cpp파일을 만들고 구현. 빌드 오류 해결과정 아마 cpp파일을 복사 붙여넣기 하여 만든것이 원인이라 생각하여 참조 디렉터리를 확인해보기로 했다. 하지만 생각해보니 하나의 프로제그에 모두...","categories": ["ide"],
         "tags": ["Visual Studio","비쥬얼스튜디오","LNK2019","오류"],
-        "url": "/vs/VS-%ED%95%A8%EC%88%98%EC%97%90%EC%84%9C-%EC%B0%B8%EC%A1%B0%EB%90%98%EB%8A%94-%ED%99%95%EC%9D%B8%ED%95%A0-%EC%88%98-%EC%97%86%EB%8A%94-%EC%99%B8%EB%B6%80%EA%B8%B0%ED%98%B8/",
+        "url": "/ide/VS-%ED%95%A8%EC%88%98%EC%97%90%EC%84%9C-%EC%B0%B8%EC%A1%B0%EB%90%98%EB%8A%94-%ED%99%95%EC%9D%B8%ED%95%A0-%EC%88%98-%EC%97%86%EB%8A%94-%EC%99%B8%EB%B6%80%EA%B8%B0%ED%98%B8/",
         "teaser": null
       },{
         "title": "[UE5] C++ 폴더 추가하는 법",
@@ -312,9 +312,9 @@ var store = [{
         "teaser": null
       },{
         "title": "[Graphics] 렌더링 파이프라인 정리",
-        "excerpt":"렌더링 파이프라인 3차원 모델을 2차원 화면에 투영하는 렌더링 과정을 말한다. 벌칸 엔진의 렌더링 파이프라인 과정 Application 좌표계 정하기 2차원은 왼손 좌표계 3차원은 오른손 좌표계를 이용한다. Geometry Processing 정점 정보를 3D 공간으로 변환하는 단계 모델, 뷰행렬 투영, 클립핑 등등 화면에 표시할 기하학적 요소들을 화면상에 투영시키는 과정 Resterization 정점 정보를 픽셀 데이터로...","categories": ["ue5"],
+        "excerpt":"렌더링 파이프라인 3차원 모델을 2차원 화면에 투영하는 렌더링 과정을 말한다. 벌칸 엔진의 렌더링 파이프라인 과정 Application 좌표계 정하기 2차원은 왼손 좌표계 3차원은 오른손 좌표계를 이용한다. Geometry Processing 정점 정보를 3D 공간으로 변환하는 단계 모델, 뷰행렬 투영, 클립핑 등등 화면에 표시할 기하학적 요소들을 화면상에 투영시키는 과정 Resterization 정점 정보를 픽셀 데이터로...","categories": ["computergraphics"],
         "tags": ["UE5","Unreal Engine5","Unreal Engine","Debug","Package"],
-        "url": "/ue5/%EB%A0%8C%EB%8D%94%EB%A7%81-%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8-%EC%A0%95%EB%A6%AC/",
+        "url": "/computergraphics/%EB%A0%8C%EB%8D%94%EB%A7%81-%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8-%EC%A0%95%EB%A6%AC/",
         "teaser": null
       },{
         "title": "[CS] 컴퓨터에서 문자를 표현하는 방법",
@@ -359,8 +359,14 @@ var store = [{
         "url": "/computerscience/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0-%EA%B0%80%EC%83%81%EB%A9%94%EB%AA%A8%EB%A6%AC/",
         "teaser": null
       },{
+        "title": "[Obsidian] Vercel을 활용한 Obsidian Digital Garden 블로그 만들기",
+        "excerpt":"옵시디언으로 블로그를 만드는 이유 지금까지 나는 지식을 정리하고 정리한 내용을 공유하기 위해 여러 종류의 블로그 사이트를 사용해 봤다. 맨처음에는 네이버 블로그였는데 한국인의 입장에선 확실히 네이버가 접근성이 좋긴하지만 한국인을 제외한 외국인들은 구글 검색에 뜨기가 쉽지않고 디자인이 마음에 들지않아 금방 포기했다. 그 다음은 티스토리 블로그였다. 개발관련 자료를 검색하면 많은 자료가 티스토리 혹은...","categories": ["obsidian"],
+        "tags": ["UE5","UnrealEngine5","Fresnel","물 셰이더","물리 기반 렌더링","쉐이더 그래프","반사 효과","UnrealEngine","Shader","물리 엔진"],
+        "url": "/obsidian/Vercel%EC%9D%84-%ED%99%9C%EC%9A%A9%ED%95%9C-Obsidian-Digital-Garden-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0/",
+        "teaser": null
+      },{
         "title": "[UE5] 프레넬을 활용한 현실감 있는 물 셰이더 만들기",
-        "excerpt":"시작하기 언리얼을 이용해서 프로젝트를 시작했는데 컨셉은 청소기를 통해 물체들을 빨아들이는 건데 그 중에서 물같은 유체도 포함된다. 팀원들에게 부탁학디에는 다들 바빠보여서 이번 기회에 공부할겸 한번 직접 제작해 볼까 한다. 과정 1 : 겉부분만 반사시키기 Fresnel 프레넬 이란? 프레넬이란 모든 빛은 매질(media)에 따라 반사, 흡수, 굴절을 하게 되는데 이 프레넬 공식을 통해...","categories": ["ue5"],
+        "excerpt":"시작하기 언리얼을 이용해서 프로젝트를 시작했는데 컨셉은 청소기를 통해 물체들을 빨아들이는 건데 그 중에서 물같은 유체도 포함된다. 팀원들에게 부탁하기에는 다들 바빠보여서 이번 기회에 공부할겸 한번 직접 제작해 볼까 한다. Fresnel 프레넬 이란? 프레넬이란 모든 빛은 매질(media)에 따라 반사, 흡수, 굴절을 하게 되는데 이 프레넬 공식을 통해 빛의 움직을 계산한다. 이를 사용하면...","categories": ["ue5"],
         "tags": ["UE5","UnrealEngine5","Fresnel","물 셰이더","물리 기반 렌더링","쉐이더 그래프","반사 효과","UnrealEngine","Shader","물리 엔진"],
         "url": "/ue5/%EC%96%B8%EB%A6%AC%EC%96%BC-%EB%AC%BC%EC%85%B0%EC%9D%B4%EB%8D%94-%EB%B0%8F-%ED%94%84%EB%A0%88%EB%84%AC/",
         "teaser": null

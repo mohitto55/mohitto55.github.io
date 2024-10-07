@@ -291,7 +291,10 @@ blockquote {
   padding-right: 5%;
 }
 /* links */
-
+ol{
+  margin-block-start: 0px !important;
+  margin-block-end: 0px !important;
+}
 a {
     text-decoration: none;
 

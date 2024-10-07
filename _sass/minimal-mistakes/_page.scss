@@ -88,7 +88,7 @@ body {
 }
 
 .page__content {
-  h2 {
+  h1, h2 {
     padding-bottom: 0.1em;
     border-bottom: 2px solid $border-color;
   }
@@ -137,7 +137,7 @@ body {
   /* paragraph indents */
   p {
     margin: 0 0 0;
-    margin-bottom: 0px;
+    margin-bottom: 1em;
     /* sibling indentation*/
     @if $paragraph-indent == true {
       & + p {
@@ -192,7 +192,9 @@ body {
     font-family: $sans-serif;
     font-size: $type-size-6;
   }
-
+  strong{
+    color: #e64e4e;
+  }
   .small {
     font-size: $type-size-6;
   }
