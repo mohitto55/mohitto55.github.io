@@ -1,7 +1,7 @@
 ---
 title : "[Obsidian] Vercel을 활용한 Obsidian Digital Garden 블로그 만들기"
 categories: obsidian
-tags: [UE5, UnrealEngine5, Fresnel, 물 셰이더, 물리 기반 렌더링, 쉐이더 그래프, 반사 효과, UnrealEngine, Shader, 물리 엔진]
+tags: [Obsidian, 옵시디언, Vercel, DigitalGarden, 지식정원, 블로그, blog, 플러그인]
 ---
 
 # 옵시디언으로 블로그를 만드는 이유

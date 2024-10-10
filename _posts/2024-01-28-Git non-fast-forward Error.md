@@ -24,5 +24,13 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 - git push -u origin +main
 
 
-## References
-- [Git push 오류 해결](https://doozi316.github.io/errorlog/2019/09/30/error1/)
+<br>
+---
+<br>
+
+<div class="Reference">
+<div class="callout-header"> </div>
+<p>
+<a href="Git push 오류 해결">https://doozi316.github.io/errorlog/2019/09/30/error1/</a>
+</p>
+</div>

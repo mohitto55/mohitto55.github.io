@@ -361,7 +361,7 @@ var store = [{
       },{
         "title": "[Obsidian] Vercel을 활용한 Obsidian Digital Garden 블로그 만들기",
         "excerpt":"옵시디언으로 블로그를 만드는 이유 지금까지 나는 지식을 정리하고 정리한 내용을 공유하기 위해 여러 종류의 블로그 사이트를 사용해 봤다. 맨처음에는 네이버 블로그였는데 한국인의 입장에선 확실히 네이버가 접근성이 좋긴하지만 한국인을 제외한 외국인들은 구글 검색에 뜨기가 쉽지않고 디자인이 마음에 들지않아 금방 포기했다. 그 다음은 티스토리 블로그였다. 개발관련 자료를 검색하면 많은 자료가 티스토리 혹은...","categories": ["obsidian"],
-        "tags": ["UE5","UnrealEngine5","Fresnel","물 셰이더","물리 기반 렌더링","쉐이더 그래프","반사 효과","UnrealEngine","Shader","물리 엔진"],
+        "tags": ["Obsidian","옵시디언","Vercel","DigitalGarden","지식정원","블로그","blog","플러그인"],
         "url": "/obsidian/Vercel%EC%9D%84-%ED%99%9C%EC%9A%A9%ED%95%9C-Obsidian-Digital-Garden-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0/",
         "teaser": null
       },{
@@ -369,5 +369,11 @@ var store = [{
         "excerpt":"시작하기 언리얼을 이용해서 프로젝트를 시작했는데 컨셉은 청소기를 통해 물체들을 빨아들이는 건데 그 중에서 물같은 유체도 포함된다. 팀원들에게 부탁하기에는 다들 바빠보여서 이번 기회에 공부할겸 한번 직접 제작해 볼까 한다. Fresnel 프레넬 이란? 프레넬이란 모든 빛은 매질(media)에 따라 반사, 흡수, 굴절을 하게 되는데 이 프레넬 공식을 통해 빛의 움직을 계산한다. 이를 사용하면...","categories": ["ue5"],
         "tags": ["UE5","UnrealEngine5","Fresnel","물 셰이더","물리 기반 렌더링","쉐이더 그래프","반사 효과","UnrealEngine","Shader","물리 엔진"],
         "url": "/ue5/%EC%96%B8%EB%A6%AC%EC%96%BC-%EB%AC%BC%EC%85%B0%EC%9D%B4%EB%8D%94-%EB%B0%8F-%ED%94%84%EB%A0%88%EB%84%AC/",
+        "teaser": null
+      },{
+        "title": "[UE5] 컴파일시 MSB3073오류 해결하기",
+        "excerpt":"발생과정 프로젝트를 최초 생성하고 컴파일 하려하면 이런 오류가 뜬다 왜 이럴까? 1&gt;Microsoft.MakeFile.Targets(44,5): Error MSB3073 : \"\"C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Build\\BatchFiles\\Build.bat\" MultiShooterEditor Win64 Development -Project=\"C:\\Users\\admin\\git\\UE5\\MultiShooter\\MultiShooter.uproject\" -WaitMutex -FromMsBuild -architecture=x64\" 명령이 종료되었습니다(코드: 6). &gt;------ 빌드 시작: 프로젝트: MultiShooter, 구성: Development_Editor x64 ------ 1&gt;Using bundled DotNet SDK version: 6.0.302 1&gt;Running UnrealBuildTool: dotnet \"..\\..\\Engine\\Binaries\\DotNET\\UnrealBuildTool\\UnrealBuildTool.dll\" MultiShooterEditor Win64 Development...","categories": ["ue5"],
+        "tags": ["UE","UE5","UnrealEngine","VisualStudio","Vs","IDE","Build","빌드","MSB3073","컴파일"],
+        "url": "/ue5/Unreal-MSB3073-%EC%98%A4%EB%A5%98-%ED%95%B4%EA%B2%B0%EB%B2%94/",
         "teaser": null
       }]
