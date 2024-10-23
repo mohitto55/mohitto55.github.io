@@ -371,9 +371,21 @@ var store = [{
         "url": "/ue5/%EC%96%B8%EB%A6%AC%EC%96%BC-%EB%AC%BC%EC%85%B0%EC%9D%B4%EB%8D%94-%EB%B0%8F-%ED%94%84%EB%A0%88%EB%84%AC/",
         "teaser": null
       },{
+        "title": "[C++] C스타일 캐스팅 부터 bit_cast까지 다양한 형변환을 알아보자",
+        "excerpt":"발생과정 프로젝트를 최초 생성하고 컴파일 하려하면 이런 오류가 뜬다 왜 이럴까? 1&gt;Microsoft.MakeFile.Targets(44,5): Error MSB3073 : \"\"C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Build\\BatchFiles\\Build.bat\" MultiShooterEditor Win64 Development -Project=\"C:\\Users\\admin\\git\\UE5\\MultiShooter\\MultiShooter.uproject\" -WaitMutex -FromMsBuild -architecture=x64\" 명령이 종료되었습니다(코드: 6). &gt;------ 빌드 시작: 프로젝트: MultiShooter, 구성: Development_Editor x64 ------ 1&gt;Using bundled DotNet SDK version: 6.0.302 1&gt;Running UnrealBuildTool: dotnet \"..\\..\\Engine\\Binaries\\DotNET\\UnrealBuildTool\\UnrealBuildTool.dll\" MultiShooterEditor Win64 Development...","categories": ["cpp"],
+        "tags": ["C++","C","UnrealEngine","VisualStudio","Vs","IDE","Build","빌드","MSB3073","컴파일"],
+        "url": "/cpp/CPP-%ED%83%80%EC%9E%85-%EC%BA%90%EC%8A%A4%ED%8C%85/",
+        "teaser": null
+      },{
         "title": "[UE5] 컴파일시 MSB3073오류 해결하기",
         "excerpt":"발생과정 프로젝트를 최초 생성하고 컴파일 하려하면 이런 오류가 뜬다 왜 이럴까? 1&gt;Microsoft.MakeFile.Targets(44,5): Error MSB3073 : \"\"C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Build\\BatchFiles\\Build.bat\" MultiShooterEditor Win64 Development -Project=\"C:\\Users\\admin\\git\\UE5\\MultiShooter\\MultiShooter.uproject\" -WaitMutex -FromMsBuild -architecture=x64\" 명령이 종료되었습니다(코드: 6). &gt;------ 빌드 시작: 프로젝트: MultiShooter, 구성: Development_Editor x64 ------ 1&gt;Using bundled DotNet SDK version: 6.0.302 1&gt;Running UnrealBuildTool: dotnet \"..\\..\\Engine\\Binaries\\DotNET\\UnrealBuildTool\\UnrealBuildTool.dll\" MultiShooterEditor Win64 Development...","categories": ["ue5"],
         "tags": ["UE","UE5","UnrealEngine","VisualStudio","Vs","IDE","Build","빌드","MSB3073","컴파일"],
         "url": "/ue5/Unreal-MSB3073-%EC%98%A4%EB%A5%98-%ED%95%B4%EA%B2%B0%EB%B2%94/",
+        "teaser": null
+      },{
+        "title": "[Obsidian] Anuppuchin테마는 크기가 커지면 엄청 느리다",
+        "excerpt":"📄현상 어느 순간부터 옵시디언으로 노트를 작성하면 타이핑 속도가 굉장히 느려지는 것이 느껴졌다. 특히 Bullet Point나 리스트로 작성하면 속도가 현저히 느려져 화면이 툭툭 끊기는 것이 심해졌다. 🔍원인 개발자모드를 통해 확인하니 화면을 새로 그리는 Task부분에서 시간이 많이 걸리는데 그 부분마저 한계치를 넘어서 강제로 작업을 끊는 것으로 보였다. 결국 문제는 Anuppuchin테마의 문제였는데 플러그인,...","categories": ["obsidian"],
+        "tags": ["Obsidian","옵시디언","테마","Theme","최적화","Optimize","속도","아누푸친","Anuppuchine","Minimal","미니멀"],
+        "url": "/obsidian/Obsidian-%EC%95%84%EB%88%84%ED%91%B8%EC%B9%9C%ED%85%8C%EB%A7%88-%EC%A0%9C%EA%B1%B0/",
         "teaser": null
       }]

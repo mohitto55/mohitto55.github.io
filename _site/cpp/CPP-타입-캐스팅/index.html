@@ -9,8 +9,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>[Obsidian] Vercel을 활용한 Obsidian Digital Garden 블로그 만들기 | Mohitto55 Note</title>
-<meta name="description" content="옵시디언으로 블로그를 만드는 이유 지금까지 나는 지식을 정리하고 정리한 내용을 공유하기 위해 여러 종류의 블로그 사이트를 사용해 봤다. 맨처음에는 네이버 블로그였는데 한국인의 입장에선 확실히 네이버가 접근성이 좋긴하지만 한국인을 제외한 외국인들은 구글 검색에 뜨기가 쉽지않고 디자인이 마음에 들지않아 금방 포기했다.  그 다음은 티스토리 블로그였다. 개발관련 자료를 검색하면 많은 자료가 티스토리 혹은 Velog에 올라와 있었다. 나는 직접 커스텀하는 것을 좋아해서 Velog보다는 티스토리가 더 좋다 생각해서 티스토리에서 글을 작성했었다.">
+<!-- begin _includes/seo.html --><title>[C++] C스타일 캐스팅 부터 bit_cast까지 다양한 형변환을 알아보자 | Mohitto55 Note</title>
+<meta name="description" content="발생과정 프로젝트를 최초 생성하고 컴파일 하려하면 이런 오류가 뜬다 왜 이럴까?">
 
 
   <meta name="author" content="Mohitto55">
@@ -22,30 +22,30 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:site_name" content="Mohitto55 Note">
-<meta property="og:title" content="[Obsidian] Vercel을 활용한 Obsidian Digital Garden 블로그 만들기">
-<meta property="og:url" content="http://localhost:4000/obsidian/Vercel%EC%9D%84-%ED%99%9C%EC%9A%A9%ED%95%9C-Obsidian-Digital-Garden-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0/">
+<meta property="og:title" content="[C++] C스타일 캐스팅 부터 bit_cast까지 다양한 형변환을 알아보자">
+<meta property="og:url" content="http://localhost:4000/cpp/CPP-%ED%83%80%EC%9E%85-%EC%BA%90%EC%8A%A4%ED%8C%85/">
 
 
-  <meta property="og:description" content="옵시디언으로 블로그를 만드는 이유 지금까지 나는 지식을 정리하고 정리한 내용을 공유하기 위해 여러 종류의 블로그 사이트를 사용해 봤다. 맨처음에는 네이버 블로그였는데 한국인의 입장에선 확실히 네이버가 접근성이 좋긴하지만 한국인을 제외한 외국인들은 구글 검색에 뜨기가 쉽지않고 디자인이 마음에 들지않아 금방 포기했다.  그 다음은 티스토리 블로그였다. 개발관련 자료를 검색하면 많은 자료가 티스토리 혹은 Velog에 올라와 있었다. 나는 직접 커스텀하는 것을 좋아해서 Velog보다는 티스토리가 더 좋다 생각해서 티스토리에서 글을 작성했었다.">
-
-
-
-
-
-
-
-  <meta property="article:published_time" content="2024-10-07T00:00:00+09:00">
+  <meta property="og:description" content="발생과정 프로젝트를 최초 생성하고 컴파일 하려하면 이런 오류가 뜬다 왜 이럴까?">
 
 
 
 
 
-  
+
+
+  <meta property="article:published_time" content="2024-10-10T00:00:00+09:00">
+
+
+
+
 
   
 
+  
 
-<link rel="canonical" href="http://localhost:4000/obsidian/Vercel%EC%9D%84-%ED%99%9C%EC%9A%A9%ED%95%9C-Obsidian-Digital-Garden-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0/">
+
+<link rel="canonical" href="http://localhost:4000/cpp/CPP-%ED%83%80%EC%9E%85-%EC%BA%90%EC%8A%A4%ED%8C%85/">
 
 
 
@@ -171,7 +171,7 @@
       
         
         <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-          <a href="/categories/#obsidian" itemprop="item"><span itemprop="name">Obsidian</span></a>
+          <a href="/categories/#cpp" itemprop="item"><span itemprop="name">Cpp</span></a>
           <meta itemprop="position" content="2" />
         </li>
         <span class="sep">/</span>
@@ -179,7 +179,7 @@
     
       
       
-        <li class="current">[Obsidian] Vercel을 활용한 Obsidian Digital Garden 블로그 만들기</li>
+        <li class="current">[C++] C스타일 캐스팅 부터 bit_cast까지 다양한 형변환을 알아보자</li>
       
     
   </ol>
@@ -532,16 +532,16 @@
 
 
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="[Obsidian] Vercel을 활용한 Obsidian Digital Garden 블로그 만들기">
-    <meta itemprop="description" content="옵시디언으로 블로그를 만드는 이유지금까지 나는 지식을 정리하고 정리한 내용을 공유하기 위해 여러 종류의 블로그 사이트를 사용해 봤다. 맨처음에는 네이버 블로그였는데 한국인의 입장에선 확실히 네이버가 접근성이 좋긴하지만 한국인을 제외한 외국인들은 구글 검색에 뜨기가 쉽지않고 디자인이 마음에 들지않아 금방 포기했다.그 다음은 티스토리 블로그였다. 개발관련 자료를 검색하면 많은 자료가 티스토리 혹은 Velog에 올라와 있었다. 나는 직접 커스텀하는 것을 좋아해서 Velog보다는 티스토리가 더 좋다 생각해서 티스토리에서 글을 작성했었다.">
-    <meta itemprop="datePublished" content="2024-10-07T00:00:00+09:00">
+    <meta itemprop="headline" content="[C++] C스타일 캐스팅 부터 bit_cast까지 다양한 형변환을 알아보자">
+    <meta itemprop="description" content="발생과정프로젝트를 최초 생성하고 컴파일 하려하면 이런 오류가 뜬다 왜 이럴까?">
+    <meta itemprop="datePublished" content="2024-10-10T00:00:00+09:00">
     
 
     <div class="page__inner-wrap">
       
         <header>
           <h1 id="page-title" class="page__title p-name" itemprop="headline">
-            <a href="http://localhost:4000/obsidian/Vercel%EC%9D%84-%ED%99%9C%EC%9A%A9%ED%95%9C-Obsidian-Digital-Garden-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0/" class="u-url" itemprop="url">[Obsidian] Vercel을 활용한 Obsidian Digital Garden 블로그 만들기
+            <a href="http://localhost:4000/cpp/CPP-%ED%83%80%EC%9E%85-%EC%BA%90%EC%8A%A4%ED%8C%85/" class="u-url" itemprop="url">[C++] C스타일 캐스팅 부터 bit_cast까지 다양한 형변환을 알아보자
 </a>
           </h1>
           
@@ -552,7 +552,7 @@
       <span class="page__meta-date">
         <i class="far fa-calendar-alt" aria-hidden="true"></i>
         
-        <time datetime="2024-10-07T00:00:00+09:00">October 7, 2024</time>
+        <time datetime="2024-10-10T00:00:00+09:00">October 10, 2024</time>
       </span>
     
 
@@ -565,7 +565,7 @@
       <span class="page__meta-readtime">
         <i class="far fa-clock" aria-hidden="true"></i>
         
-          2 분 소요
+          1 분 소요
         
       </span>
     
@@ -580,117 +580,54 @@
           <aside class="sidebar__right sticky">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> 목차</h4></header>
-              <ul class="toc__menu"><li><a href="#옵시디언으로-블로그를-만드는-이유">옵시디언으로 블로그를 만드는 이유</a></li><li><a href="#digital-garden으로-블로그-만들기">Digital Garden으로 블로그 만들기</a><ul><li><a href="#플러그인-설치">플러그인 설치</a></li><li><a href="#vercel-계정-생성">Vercel 계정 생성</a></li><li><a href="#리포지토리-생성">리포지토리 생성</a></li><li><a href="#github-액세스토큰-생성">GitHub 액세스토큰 생성</a></li><li><a href="#digital-garden-플러그인-설정">Digital Garden 플러그인 설정</a></li></ul></li><li><a href="#노트-연결하기">노트 연결하기</a></li><li><a href="#노트-푸시하기">노트 푸시하기</a></li></ul></li><li><a href="#마무리">마무리</a></li></ul>
+              <ul class="toc__menu"><li><a href="#발생과정">발생과정</a><ul><li><a href="#정확한-오류-확인하기">정확한 오류 확인하기</a></li><li><a href="#1-경로중-한글-없애기">1. 경로중 한글 없애기</a></li><li><a href="#2-툴체인-오류">2. 툴체인 오류</a></li></ul></li><li><a href="#해결완료">해결완료</a></li></ul>
 
             </nav>
           </aside>
         
-        <h1 id="옵시디언으로-블로그를-만드는-이유">옵시디언으로 블로그를 만드는 이유</h1>
-<p>지금까지 나는 지식을 정리하고 정리한 내용을 공유하기 위해 여러 종류의 블로그 사이트를 사용해 봤다. 맨처음에는 <strong>네이버</strong> 블로그였는데 한국인의 입장에선 확실히 네이버가 접근성이 좋긴하지만 한국인을 제외한 외국인들은 구글 검색에 뜨기가 쉽지않고 디자인이 마음에 들지않아 금방 포기했다.</p>
+        <h2 id="발생과정">발생과정</h2>
+<p>프로젝트를 최초 생성하고 컴파일 하려하면 이런 오류가 뜬다 왜 이럴까?</p>
 
-<p>그 다음은 <strong>티스토리</strong> 블로그였다. 개발관련 자료를 검색하면 많은 자료가 티스토리 혹은 Velog에 올라와 있었다. 나는 직접 커스텀하는 것을 좋아해서 Velog보다는 티스토리가 더 좋다 생각해서 티스토리에서 글을 작성했었다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1&gt;Microsoft.MakeFile.Targets(44,5): Error MSB3073 : ""C:\Program Files\Epic Games\UE_5.4\Engine\Build\BatchFiles\Build.bat" MultiShooterEditor Win64 Development -Project="C:\Users\admin\git\UE5\MultiShooter\MultiShooter.uproject" -WaitMutex -FromMsBuild -architecture=x64" 명령이 종료되었습니다(코드: 6).
+</code></pre></div></div>
 
-<p>물론 편하고 기본적으로 깔끔해서 좋긴 하지만 글을 검색하거나 사이트를 설정하는데 마음에 들지 않아 자연스럽게 손대지 않게 되었다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;------ 빌드 시작: 프로젝트: MultiShooter, 구성: Development_Editor x64 ------ 1&gt;Using bundled DotNet SDK version: 6.0.302 1&gt;Running UnrealBuildTool: dotnet "..\..\Engine\Binaries\DotNET\UnrealBuildTool\UnrealBuildTool.dll" MultiShooterEditor Win64 Development -Project="C:\MultiShooter\MultiShooter.uproject" -WaitMutex -FromMsBuild -architecture=x64 1&gt;Log file: C:\Users\admin\AppData\Local\UnrealBuildTool\Log.txt 1&gt;Creating makefile for MultiShooterEditor (no existing makefile) 1&gt;Visual Studio 2022 is installed, but is missing the C++ toolchain. Please verify that the "MSVC v143 - VS 2022 C++ x64/x86 build tools (Latest)" component is selected in the Visual Studio 2022 installation options. 1&gt;Total execution time: 0.76 seconds 1&gt;UnrealBuildTool has banned the MSVC 14.39.33519-14.39.99999 toolchains due to compiler issues. Please install a different toolchain such as 14.38.33130 by opening the generated solution and installing recommended components or from the Visual Studio installer. 1&gt;C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.MakeFile.Targets(44,5): error MSB3073: ""C:\Program Files\Epic Games\UE_5.4\Engine\Build\BatchFiles\Build.bat" MultiShooterEditor Win64 Development -Project="C:\MultiShooter\MultiShooter.uproject" -WaitMutex -FromMsBuild -architecture=x64" 명령이 종료되었습니다(코드: 6). 1&gt;"MultiShooter.vcxproj" 프로젝트를 빌드했습니다. - 실패 ========== 빌드: 0개 성공, 1개 실패, 11개 최신 상태, 0개 건너뜀 ==========
+</code></pre></div></div>
 
-<p>좀 더 자유도 높은 블로그가 있을까 찾아봤는데 <strong>GitBlog</strong>가 눈에 들어왔다.<br />
-GItBlog는 처음부터 끝까지 기능을 다 커스텀가능하고 테마도 풍부해서 마음에 드는게 많았다. 그 중 Jekyll 테마가 인지도 있어보여서 사용해봤다. 처음에는 css도 직접짜고 여러가지 기능을 넣을 수 있어서 재밌었지만 생산성 부분에서 문제가 커져갔다.</p>
+<hr />
 
-<p>기본적으로 GitBlog는 자유도가 높은 만큼 학습량이 많아 초반에 시간이 오래걸리고 무엇보다 띄어쓰기가 너무 큰 문제였다. Jekyll테마에서만 그런지는 몰라도 줄바꿈이 제대로 적용되지 않아 br 태그를 중간중간 써줘야하고 생각한대로 글이 이쁘게 나오지도 않아서 css를 수정하고 글자도 다시 수정하는 등 글 하나 작성하는데 시간이 오래걸린다. 그리고 나는 옵시디언을 통해 먼저 글을 작성하고 그 글을 정리해서 포스팅하는데 이게 옵시디언과 달리 HTML을 중간중간 써줘야 하다보니 이것도 시간이 많이 걸린다.</p>
+<h3 id="정확한-오류-확인하기">정확한 오류 확인하기</h3>
+<p>비쥬얼 스튜디오에서 출력으로 정확한 로그를 볼 수 있다.</p>
 
-<p>그리고 가장 중요한게 조회수인데 사이트맵이 제대로 적용이 안되는지 사람이 몇달간 제대로 들어오지 않곤했다. 그래서 금방 흥미를 잃게 되었다.</p>
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/cf4baada-ed6c-4521-ba58-5da3ad7b2921" alt="image" /></p>
 
-<p>결국 포스팅 하는게 귀찮아져서 손을 안대게 됐는데 어떻게 해야 내가 블로그를 열심히 쓰게 될까 생각해 보았다.<br />
-지금까지 블로그를 사용했던 경험을 토대로 내가 블로그에서 가장 중요하게 생각하는 걸 3가지를 정해봤다.</p>
-<ol>
-  <li>포스트 업로드가 쉬워야한다.</li>
-  <li>옵시디언에서 작성한 글에서 수정을 거의 안해야한다.</li>
-  <li>자유도가 있어야한다.</li>
-</ol>
+<hr />
 
-<p>위 조건들을 토대로 찾아본 결과 <strong>Digital Garden</strong> 플러그인을 이용해 옵시디언 노트를 통쨰로 포스팅하는 방식이 가장 적절해 보였다. 아직 시작 단계이지만 얼추 봤을때는 아래의 장점이 있었다.</p>
-<ol>
-  <li>버튼 몇번으로 업로드, 수정, 삭제가능하다.</li>
-  <li>옵시디언 노트 내용이랑 똑같다.</li>
-  <li>꾸미기 쉽다.</li>
-</ol>
+<h3 id="1-경로중-한글-없애기">1. 경로중 한글 없애기</h3>
+<p>경로중에 한글이 있다면 오류가 생길 수 있다.<br />
+한글로된 폴더 이름을 영어로 변경해준다.</p>
 
-<p>내가 생각한 블로그의 조건이랑 딱 맞아 떨어져보여 한번 시작해보려고 한다.</p>
+<hr />
 
-<h1 id="digital-garden으로-블로그-만들기">Digital Garden으로 블로그 만들기</h1>
-<h3 id="플러그인-설치">플러그인 설치</h3>
-<ul>
-  <li>Community Plugin에 가서 <code class="language-plaintext highlighter-rouge">Digital Garden</code>을 검색해서 설치한다.</li>
-</ul>
+<h3 id="2-툴체인-오류">2. 툴체인 오류</h3>
+<p>UnrealBuildTool과 다른 <strong>툴체인</strong>을 사용하여 생기는 오류다.<br />
+툴체인을 직접 설정해줘야한다.</p>
 
-<p><img src="https://github.com/user-attachments/assets/3949101f-9e1d-4715-aab9-d6f718819783" alt="image" /></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>UnrealBuildTool has banned the MSVC 14.39.33519-14.39.99999 toolchains due to compiler issues. Please install a different toolchain such as 14.38.33130 by opening the generated solution and installing recommended components or from the Visual Studio installer
+</code></pre></div></div>
 
-<h3 id="vercel-계정-생성">Vercel 계정 생성</h3>
-<ul>
-  <li> <a href="https://github.com/signup">Vercel</a>로 가서 GitHub 계정과 연동해준다.</li>
-</ul>
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/ccc4b4ab-15a5-4351-95aa-405c37c71a9b" alt="image" /></p>
 
 <div class="callout-info-expanded">
-<div class="callout-header">정보</div>
+<div class="callout-header">툴체인</div>
 <p>
-클라우드 플랫폼으로, 웹사이트 및 애플리케이션을 배포, 관리, 그리고 성능을 최적화하는 데 도움을 준다. 
-주로 Next.js와 같은 프레임워크와 밀접하게 연동된다.
+툴체인은 개발자가 코드를 작성하고 빌드하여 실행 가능한 프로그램을 만들기 위해 사용하는 모든 도구들을 의미합니다. 코드를 어떻게 빌드하고, 링크하며, 디버깅할지에 대한 정보를 제공합니다
 </p>
 </div>
 
-<hr />
+<h2 id="해결완료">해결완료</h2>
 
-<h3 id="리포지토리-생성">리포지토리 생성</h3>
-<ul>
-  <li>리포지토리 생성 후 <a href="https://github.com/oleeskild/digitalgarden">링크</a>로가서 Deploy 버튼 클릭한다</li>
-  <li>이렇게 하면 Vercel이 열리고 GitHub 계정에 저장소의 사본이 생성된다. 사본 저장소의 이름을 작성하고 생성하면 Vercel의 단계에 따라 사이트를 인터넷에 게시된다.</li>
-</ul>
-
-<p><img src="https://github.com/user-attachments/assets/8b371813-b355-4c2c-abe4-247c78591a32" alt="image" /></p>
-
-<p><img src="https://github.com/user-attachments/assets/fa8421f8-0d56-40f9-b1e0-410121ab0f18" alt="image" /></p>
-
-<hr />
-
-<h3 id="github-액세스토큰-생성">GitHub 액세스토큰 생성</h3>
-<ul>
-  <li>다음으로 GitHub 계정에 대한 액세스 토큰을 만들어야 한다.</li>
-  <li>토큰은 저장소를 접근하기 위한 비밀번호 역할을 하여 토큰을 만들어야 작성한 글을 업로드할 수 있다.</li>
-  <li>토큰 생성방법은  <a href="https://dg-docs.ole.dev/advanced/fine-grained-access-token/">링크</a>에서 확인할 수 있다. 설정값을 똑같이 넣어준다.</li>
-  <li>토큰은 <a href="https://github.com/settings/tokens/new?scopes=repo">여기</a>서 생성할 수 있다. </li>
-  <li><strong>토큰 값은 한번 생성됐을때 한번만 알려주니까</strong> 꼭 어딘가에 저장해놓자</li>
-</ul>
-
-<hr />
-
-<h3 id="digital-garden-플러그인-설정">Digital Garden 플러그인 설정</h3>
-<p>Digital Garden 플러그인에 깃허브 저장소 관련 정보를 넣어줘야한다.</p>
-<ol>
-  <li>Github repo name: 생성한 레포지토리 이름</li>
-  <li>Github username: 깃허브 아이디</li>
-  <li>Github token: 방금 생성한 토큰<br />
-<img src="https://github.com/user-attachments/assets/47e4cadc-92f5-4432-813a-73bc23b0c3f7" alt="image" /></li>
-</ol>
-
-<h2 id="노트-연결하기">노트 연결하기</h2>
-<ul>
-  <li>프로퍼티를 통해 공개할 노트를 설정할 수 있다.</li>
-  <li><strong>dg-publish</strong> : 노트를 다른 사람들에게 공개한다.</li>
-  <li><strong>dg-home</strong> : 해당 노트를 메인 페이지로 설정한다.<br />
-<img src="https://github.com/user-attachments/assets/ceb39f0c-4d75-41d1-bdf8-6a314375053d" alt="image" /></li>
-</ul>
-
-<h2 id="노트-푸시하기">노트 푸시하기</h2>
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">Digital Garden: Publish Single Note</code>를 눌러서 노트를 공개할 수 있다.</li>
-  <li>그리고 사이트 주소를<a href="https://vercel.com/dashboard">Vercel</a>에서 찾고 몇분 뒤면 푸시한 노트가 올라와 있을 것이다.</li>
-</ul>
-
-<h1 id="마무리">마무리</h1>
-<ul>
-  <li>옵시디언에서 글을 쓰고 그것을 그대로 웹사이트에 올리는 것은 분명 편하긴하다.</li>
-  <li>하지만 사이드 카테고리가 너무 옵시디언이랑 똑같아 이 부분은 맘에 들지 않는다.</li>
-  <li>그래서 대안으로 webpage export 플러그인을 알아봤는데 이건 분명 편해보이지만 깃허브와 연동하는 기능이 없어서 Digital Garden을 계속 쓸것같다.</li>
-</ul>
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/b23de2e7-bd3a-4cd2-9483-f84ccc851120" alt="image" /></p>
 
 <h2><br /></h2>
 <p><br /></p>
@@ -698,8 +635,8 @@ GItBlog는 처음부터 끝까지 기능을 다 커스텀가능하고 테마도 
 <div class="Reference">
 <div class="callout-header"> </div>
 <p>
-<a href="https://deepfield.blog/">https://deepfield.blog/kr/%EC%A7%80%EC%8B%9D%EB%82%98%EB%88%94/%EC%98%B5%EC%8B%9C%EB%94%94%EC%96%B8%EC%9C%BC%EB%A1%9C%20%EB%B8%94%EB%A1%9C%EA%B7%B8%20%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0/</a>
-<a href="https://dg-docs.ole.dev/getting-started/01-getting-started/">https://dg-docs.ole.dev/getting-started/01-getting-started/</a>
+<a href="https://learn.microsoft.com/en-us/answers/questions/1163496/code-error-when-building-unreal-engine-5-source-co">https://learn.microsoft.com/en-us/answers/questions/1163496/code-error-when-building-unreal-engine-5-source-co</a>
+<a href="https://gall.dcinside.com/mgallery/board/view/?id=gamejob&amp;no=14429">https://gall.dcinside.com/mgallery/board/view/?id=gamejob&amp;no=14429</a>
 </p>
 </div>
 
@@ -718,21 +655,25 @@ GItBlog는 처음부터 끝까지 기능을 다 커스텀가능하고 테마도 
     <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
     <span itemprop="keywords">
     
-      <a href="/tags/#blog" class="page__taxonomy-item p-category" rel="tag">blog</a><span class="sep">, </span>
+      <a href="/tags/#build" class="page__taxonomy-item p-category" rel="tag">Build</a><span class="sep">, </span>
     
-      <a href="/tags/#digitalgarden" class="page__taxonomy-item p-category" rel="tag">DigitalGarden</a><span class="sep">, </span>
+      <a href="/tags/#c" class="page__taxonomy-item p-category" rel="tag">C</a><span class="sep">, </span>
     
-      <a href="/tags/#obsidian" class="page__taxonomy-item p-category" rel="tag">Obsidian</a><span class="sep">, </span>
+      <a href="/tags/#c" class="page__taxonomy-item p-category" rel="tag">C++</a><span class="sep">, </span>
     
-      <a href="/tags/#vercel" class="page__taxonomy-item p-category" rel="tag">Vercel</a><span class="sep">, </span>
+      <a href="/tags/#ide" class="page__taxonomy-item p-category" rel="tag">IDE</a><span class="sep">, </span>
     
-      <a href="/tags/#%EB%B8%94%EB%A1%9C%EA%B7%B8" class="page__taxonomy-item p-category" rel="tag">블로그</a><span class="sep">, </span>
+      <a href="/tags/#msb3073" class="page__taxonomy-item p-category" rel="tag">MSB3073</a><span class="sep">, </span>
     
-      <a href="/tags/#%EC%98%B5%EC%8B%9C%EB%94%94%EC%96%B8" class="page__taxonomy-item p-category" rel="tag">옵시디언</a><span class="sep">, </span>
+      <a href="/tags/#unrealengine" class="page__taxonomy-item p-category" rel="tag">UnrealEngine</a><span class="sep">, </span>
     
-      <a href="/tags/#%EC%A7%80%EC%8B%9D%EC%A0%95%EC%9B%90" class="page__taxonomy-item p-category" rel="tag">지식정원</a><span class="sep">, </span>
+      <a href="/tags/#visualstudio" class="page__taxonomy-item p-category" rel="tag">VisualStudio</a><span class="sep">, </span>
     
-      <a href="/tags/#%ED%94%8C%EB%9F%AC%EA%B7%B8%EC%9D%B8" class="page__taxonomy-item p-category" rel="tag">플러그인</a>
+      <a href="/tags/#vs" class="page__taxonomy-item p-category" rel="tag">Vs</a><span class="sep">, </span>
+    
+      <a href="/tags/#%EB%B9%8C%EB%93%9C" class="page__taxonomy-item p-category" rel="tag">빌드</a><span class="sep">, </span>
+    
+      <a href="/tags/#%EC%BB%B4%ED%8C%8C%EC%9D%BC" class="page__taxonomy-item p-category" rel="tag">컴파일</a>
     
     </span>
   </p>
@@ -749,7 +690,7 @@ GItBlog는 처음부터 끝까지 기능을 다 커스텀가능하고 테마도 
     <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
     <span itemprop="keywords">
     
-      <a href="/categories/#obsidian" class="page__taxonomy-item p-category" rel="tag">obsidian</a>
+      <a href="/categories/#cpp" class="page__taxonomy-item p-category" rel="tag">cpp</a>
     
     </span>
   </p>
@@ -757,7 +698,7 @@ GItBlog는 처음부터 끝까지 기능을 다 커스텀가능하고 테마도 
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2024-10-07T00:00:00+09:00">October 7, 2024</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2024-10-10T00:00:00+09:00">October 10, 2024</time></p>
 
       </footer>
 
@@ -766,22 +707,22 @@ GItBlog는 처음부터 끝까지 기능을 다 커스텀가능하고 테마도 
     <h4 class="page__share-title">공유하기</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=%5BObsidian%5D+Vercel%EC%9D%84+%ED%99%9C%EC%9A%A9%ED%95%9C+Obsidian+Digital+Garden+%EB%B8%94%EB%A1%9C%EA%B7%B8+%EB%A7%8C%EB%93%A4%EA%B8%B0%20http%3A%2F%2Flocalhost%3A4000%2Fobsidian%2FVercel%25EC%259D%2584-%25ED%2599%259C%25EC%259A%25A9%25ED%2595%259C-Obsidian-Digital-Garden-%25EB%25B8%2594%25EB%25A1%259C%25EA%25B7%25B8-%25EB%25A7%258C%25EB%2593%25A4%25EA%25B8%25B0%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=%5BC%2B%2B%5D+C%EC%8A%A4%ED%83%80%EC%9D%BC+%EC%BA%90%EC%8A%A4%ED%8C%85+%EB%B6%80%ED%84%B0+bit_cast%EA%B9%8C%EC%A7%80+%EB%8B%A4%EC%96%91%ED%95%9C+%ED%98%95%EB%B3%80%ED%99%98%EC%9D%84+%EC%95%8C%EC%95%84%EB%B3%B4%EC%9E%90%20http%3A%2F%2Flocalhost%3A4000%2Fcpp%2FCPP-%25ED%2583%2580%25EC%259E%2585-%25EC%25BA%2590%25EC%258A%25A4%25ED%258C%2585%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fobsidian%2FVercel%25EC%259D%2584-%25ED%2599%259C%25EC%259A%25A9%25ED%2595%259C-Obsidian-Digital-Garden-%25EB%25B8%2594%25EB%25A1%259C%25EA%25B7%25B8-%25EB%25A7%258C%25EB%2593%25A4%25EA%25B8%25B0%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fcpp%2FCPP-%25ED%2583%2580%25EC%259E%2585-%25EC%25BA%2590%25EC%258A%25A4%25ED%258C%2585%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fobsidian%2FVercel%25EC%259D%2584-%25ED%2599%259C%25EC%259A%25A9%25ED%2595%259C-Obsidian-Digital-Garden-%25EB%25B8%2594%25EB%25A1%259C%25EA%25B7%25B8-%25EB%25A7%258C%25EB%2593%25A4%25EA%25B8%25B0%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fcpp%2FCPP-%25ED%2583%2580%25EC%259E%2585-%25EC%25BA%2590%25EC%258A%25A4%25ED%258C%2585%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="/computerscience/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0-%EA%B0%80%EC%83%81%EB%A9%94%EB%AA%A8%EB%A6%AC/" class="pagination--pager" title="[CS] 페이징과 스와핑을 활용한 가상 메모리 관리 기법 이해하기
+      <a href="/ue5/%EC%96%B8%EB%A6%AC%EC%96%BC-%EB%AC%BC%EC%85%B0%EC%9D%B4%EB%8D%94-%EB%B0%8F-%ED%94%84%EB%A0%88%EB%84%AC/" class="pagination--pager" title="[UE5] 프레넬을 활용한 현실감 있는 물 셰이더 만들기
 ">이전</a>
     
     
-      <a href="/ue5/%EC%96%B8%EB%A6%AC%EC%96%BC-%EB%AC%BC%EC%85%B0%EC%9D%B4%EB%8D%94-%EB%B0%8F-%ED%94%84%EB%A0%88%EB%84%AC/" class="pagination--pager" title="[UE5] 프레넬을 활용한 현실감 있는 물 셰이더 만들기
+      <a href="/ue5/Unreal-MSB3073-%EC%98%A4%EB%A5%98-%ED%95%B4%EA%B2%B0%EB%B2%94/" class="pagination--pager" title="[UE5] 컴파일시 MSB3073오류 해결하기
 ">다음</a>
     
   </nav>
@@ -902,54 +843,6 @@ GItBlog는 처음부터 끝까지 기능을 다 커스텀가능하고 테마도 
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/cpp/CPP-%ED%83%80%EC%9E%85-%EC%BA%90%EC%8A%A4%ED%8C%85/" rel="permalink">[C++] C스타일 캐스팅 부터 bit_cast까지 다양한 형변환을 알아보자
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2024-10-10T00:00:00+09:00">October 10, 2024</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
-        
-          1 분 소요
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">발생과정
-프로젝트를 최초 생성하고 컴파일 하려하면 이런 오류가 뜬다 왜 이럴까?
-</p>
-  </article>
-</div>
-
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
         <a href="/ue5/%EC%96%B8%EB%A6%AC%EC%96%BC-%EB%AC%BC%EC%85%B0%EC%9D%B4%EB%8D%94-%EB%B0%8F-%ED%94%84%EB%A0%88%EB%84%AC/" rel="permalink">[UE5] 프레넬을 활용한 현실감 있는 물 셰이더 만들기
 </a>
       
@@ -988,6 +881,53 @@ GItBlog는 처음부터 끝까지 기능을 다 커스텀가능하고 테마도 
   팀원들에게 부탁하기에는 다들 바빠보여서 이번 기회에 공부할겸 한번 직접 제작해 볼까 한다.
 
 </p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/obsidian/Vercel%EC%9D%84-%ED%99%9C%EC%9A%A9%ED%95%9C-Obsidian-Digital-Garden-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0/" rel="permalink">[Obsidian] Vercel을 활용한 Obsidian Digital Garden 블로그 만들기
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2024-10-07T00:00:00+09:00">October 7, 2024</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          2 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">옵시디언으로 블로그를 만드는 이유
+지금까지 나는 지식을 정리하고 정리한 내용을 공유하기 위해 여러 종류의 블로그 사이트를 사용해 봤다. 맨처음에는 네이버 블로그였는데 한국인의 입장에선 확실히 네이버가 접근성이 좋긴하지만 한국인을 제외한 외국인들은 구글 검색에 뜨기가 쉽지않고 디자인...</p>
   </article>
 </div>
 
@@ -1046,8 +986,8 @@ GItBlog는 처음부터 끝까지 기능을 다 커스텀가능하고 테마도 
     
   <script>
     var disqus_config = function () {
-      this.page.url = "http://localhost:4000/obsidian/Vercel%EC%9D%84-%ED%99%9C%EC%9A%A9%ED%95%9C-Obsidian-Digital-Garden-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0/";  /* Replace PAGE_URL with your page's canonical URL variable */
-      this.page.identifier = "/obsidian/Vercel을 활용한 Obsidian Digital Garden 블로그 만들기"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+      this.page.url = "http://localhost:4000/cpp/CPP-%ED%83%80%EC%9E%85-%EC%BA%90%EC%8A%A4%ED%8C%85/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/cpp/CPP 타입 캐스팅"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
     };
     (function() { /* DON'T EDIT BELOW THIS LINE */
       var d = document, s = d.createElement('script');

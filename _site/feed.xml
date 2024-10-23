@@ -1,4 +1,75 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-10-10T13:39:40+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mohitto55 Note</title><subtitle>모히또의 노트</subtitle><author><name>Mohitto55</name></author><entry><title type="html">[UE5] 컴파일시 MSB3073오류 해결하기</title><link href="http://localhost:4000/ue5/Unreal-MSB3073-%EC%98%A4%EB%A5%98-%ED%95%B4%EA%B2%B0%EB%B2%94/" rel="alternate" type="text/html" title="[UE5] 컴파일시 MSB3073오류 해결하기" /><published>2024-10-10T00:00:00+09:00</published><updated>2024-10-10T00:00:00+09:00</updated><id>http://localhost:4000/ue5/Unreal%20MSB3073%20%EC%98%A4%EB%A5%98%20%ED%95%B4%EA%B2%B0%EB%B2%94</id><content type="html" xml:base="http://localhost:4000/ue5/Unreal-MSB3073-%EC%98%A4%EB%A5%98-%ED%95%B4%EA%B2%B0%EB%B2%94/"><![CDATA[<h2 id="발생과정">발생과정</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-10-24T03:23:28+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mohitto55 Note</title><subtitle>모히또의 노트</subtitle><author><name>Mohitto55</name></author><entry><title type="html">[Obsidian] Anuppuchin테마는 크기가 커지면 엄청 느리다</title><link href="http://localhost:4000/obsidian/Obsidian-%EC%95%84%EB%88%84%ED%91%B8%EC%B9%9C%ED%85%8C%EB%A7%88-%EC%A0%9C%EA%B1%B0/" rel="alternate" type="text/html" title="[Obsidian] Anuppuchin테마는 크기가 커지면 엄청 느리다" /><published>2024-10-24T00:00:00+09:00</published><updated>2024-10-24T00:00:00+09:00</updated><id>http://localhost:4000/obsidian/Obsidian%20%EC%95%84%EB%88%84%ED%91%B8%EC%B9%9C%ED%85%8C%EB%A7%88%20%EC%A0%9C%EA%B1%B0</id><content type="html" xml:base="http://localhost:4000/obsidian/Obsidian-%EC%95%84%EB%88%84%ED%91%B8%EC%B9%9C%ED%85%8C%EB%A7%88-%EC%A0%9C%EA%B1%B0/"><![CDATA[<h2 id="현상">📄현상</h2>
+<p>어느 순간부터 옵시디언으로 노트를 작성하면 타이핑 속도가 굉장히 느려지는 것이 느껴졌다. 특히 Bullet Point나 리스트로 작성하면 속도가 현저히 느려져 화면이 툭툭 끊기는 것이 심해졌다.</p>
+
+<h2 id="원인">🔍원인</h2>
+<p>개발자모드를 통해 확인하니 화면을 새로 그리는 Task부분에서 시간이 많이 걸리는데 그 부분마저 한계치를 넘어서 강제로 작업을 끊는 것으로 보였다.</p>
+
+<p>결국 문제는 Anuppuchin테마의 문제였는데 플러그인, CSS 설정 모든 것을 건드려봐도 Anuppuchin 테마를 뺴는 것보다 더 효과적인것은 없었다. 방법을 어떻게든 찾고 싶었으나 답을 찾지 못하였고 결국 Minimal 테마로 옮겼다.</p>
+
+<h2 id="결과">🚀결과</h2>
+<p>사실 아누푸친테마의 가장 큰 장점이 <strong>레인보우 폴더</strong>라고 생각하는데 나는 그정도로 화려한 기능을 필요없고 간단하게 텍스트의 색상만 바꾸는 것을 원하니까 변경해도 큰 문제는 없는 것으로 보인다.</p>
+
+<h2><br /></h2>
+<p><br /></p>
+
+<div class="Reference">
+<div class="callout-header"> </div>
+<p>
+</p>
+</div>]]></content><author><name>Mohitto55</name></author><category term="obsidian" /><category term="Obsidian" /><category term="옵시디언" /><category term="테마" /><category term="Theme" /><category term="최적화" /><category term="Optimize" /><category term="속도" /><category term="아누푸친" /><category term="Anuppuchine" /><category term="Minimal" /><category term="미니멀" /><summary type="html"><![CDATA[📄현상 어느 순간부터 옵시디언으로 노트를 작성하면 타이핑 속도가 굉장히 느려지는 것이 느껴졌다. 특히 Bullet Point나 리스트로 작성하면 속도가 현저히 느려져 화면이 툭툭 끊기는 것이 심해졌다.]]></summary></entry><entry><title type="html">[C++] C스타일 캐스팅 부터 bit_cast까지 다양한 형변환을 알아보자</title><link href="http://localhost:4000/cpp/CPP-%ED%83%80%EC%9E%85-%EC%BA%90%EC%8A%A4%ED%8C%85/" rel="alternate" type="text/html" title="[C++] C스타일 캐스팅 부터 bit_cast까지 다양한 형변환을 알아보자" /><published>2024-10-10T00:00:00+09:00</published><updated>2024-10-10T00:00:00+09:00</updated><id>http://localhost:4000/cpp/CPP%20%ED%83%80%EC%9E%85%20%EC%BA%90%EC%8A%A4%ED%8C%85</id><content type="html" xml:base="http://localhost:4000/cpp/CPP-%ED%83%80%EC%9E%85-%EC%BA%90%EC%8A%A4%ED%8C%85/"><![CDATA[<h2 id="발생과정">발생과정</h2>
+<p>프로젝트를 최초 생성하고 컴파일 하려하면 이런 오류가 뜬다 왜 이럴까?</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1&gt;Microsoft.MakeFile.Targets(44,5): Error MSB3073 : ""C:\Program Files\Epic Games\UE_5.4\Engine\Build\BatchFiles\Build.bat" MultiShooterEditor Win64 Development -Project="C:\Users\admin\git\UE5\MultiShooter\MultiShooter.uproject" -WaitMutex -FromMsBuild -architecture=x64" 명령이 종료되었습니다(코드: 6).
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;------ 빌드 시작: 프로젝트: MultiShooter, 구성: Development_Editor x64 ------ 1&gt;Using bundled DotNet SDK version: 6.0.302 1&gt;Running UnrealBuildTool: dotnet "..\..\Engine\Binaries\DotNET\UnrealBuildTool\UnrealBuildTool.dll" MultiShooterEditor Win64 Development -Project="C:\MultiShooter\MultiShooter.uproject" -WaitMutex -FromMsBuild -architecture=x64 1&gt;Log file: C:\Users\admin\AppData\Local\UnrealBuildTool\Log.txt 1&gt;Creating makefile for MultiShooterEditor (no existing makefile) 1&gt;Visual Studio 2022 is installed, but is missing the C++ toolchain. Please verify that the "MSVC v143 - VS 2022 C++ x64/x86 build tools (Latest)" component is selected in the Visual Studio 2022 installation options. 1&gt;Total execution time: 0.76 seconds 1&gt;UnrealBuildTool has banned the MSVC 14.39.33519-14.39.99999 toolchains due to compiler issues. Please install a different toolchain such as 14.38.33130 by opening the generated solution and installing recommended components or from the Visual Studio installer. 1&gt;C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.MakeFile.Targets(44,5): error MSB3073: ""C:\Program Files\Epic Games\UE_5.4\Engine\Build\BatchFiles\Build.bat" MultiShooterEditor Win64 Development -Project="C:\MultiShooter\MultiShooter.uproject" -WaitMutex -FromMsBuild -architecture=x64" 명령이 종료되었습니다(코드: 6). 1&gt;"MultiShooter.vcxproj" 프로젝트를 빌드했습니다. - 실패 ========== 빌드: 0개 성공, 1개 실패, 11개 최신 상태, 0개 건너뜀 ==========
+</code></pre></div></div>
+
+<hr />
+
+<h3 id="정확한-오류-확인하기">정확한 오류 확인하기</h3>
+<p>비쥬얼 스튜디오에서 출력으로 정확한 로그를 볼 수 있다.</p>
+
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/cf4baada-ed6c-4521-ba58-5da3ad7b2921" alt="image" /></p>
+
+<hr />
+
+<h3 id="1-경로중-한글-없애기">1. 경로중 한글 없애기</h3>
+<p>경로중에 한글이 있다면 오류가 생길 수 있다.<br />
+한글로된 폴더 이름을 영어로 변경해준다.</p>
+
+<hr />
+
+<h3 id="2-툴체인-오류">2. 툴체인 오류</h3>
+<p>UnrealBuildTool과 다른 <strong>툴체인</strong>을 사용하여 생기는 오류다.<br />
+툴체인을 직접 설정해줘야한다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>UnrealBuildTool has banned the MSVC 14.39.33519-14.39.99999 toolchains due to compiler issues. Please install a different toolchain such as 14.38.33130 by opening the generated solution and installing recommended components or from the Visual Studio installer
+</code></pre></div></div>
+
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/ccc4b4ab-15a5-4351-95aa-405c37c71a9b" alt="image" /></p>
+
+<div class="callout-info-expanded">
+<div class="callout-header">툴체인</div>
+<p>
+툴체인은 개발자가 코드를 작성하고 빌드하여 실행 가능한 프로그램을 만들기 위해 사용하는 모든 도구들을 의미합니다. 코드를 어떻게 빌드하고, 링크하며, 디버깅할지에 대한 정보를 제공합니다
+</p>
+</div>
+
+<h2 id="해결완료">해결완료</h2>
+
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/b23de2e7-bd3a-4cd2-9483-f84ccc851120" alt="image" /></p>
+
+<h2><br /></h2>
+<p><br /></p>
+
+<div class="Reference">
+<div class="callout-header"> </div>
+<p>
+<a href="https://learn.microsoft.com/en-us/answers/questions/1163496/code-error-when-building-unreal-engine-5-source-co">https://learn.microsoft.com/en-us/answers/questions/1163496/code-error-when-building-unreal-engine-5-source-co</a>
+<a href="https://gall.dcinside.com/mgallery/board/view/?id=gamejob&amp;no=14429">https://gall.dcinside.com/mgallery/board/view/?id=gamejob&amp;no=14429</a>
+</p>
+</div>]]></content><author><name>Mohitto55</name></author><category term="cpp" /><category term="C++" /><category term="C" /><category term="UnrealEngine" /><category term="VisualStudio" /><category term="Vs" /><category term="IDE" /><category term="Build" /><category term="빌드" /><category term="MSB3073" /><category term="컴파일" /><summary type="html"><![CDATA[발생과정 프로젝트를 최초 생성하고 컴파일 하려하면 이런 오류가 뜬다 왜 이럴까?]]></summary></entry><entry><title type="html">[UE5] 컴파일시 MSB3073오류 해결하기</title><link href="http://localhost:4000/ue5/Unreal-MSB3073-%EC%98%A4%EB%A5%98-%ED%95%B4%EA%B2%B0%EB%B2%94/" rel="alternate" type="text/html" title="[UE5] 컴파일시 MSB3073오류 해결하기" /><published>2024-10-10T00:00:00+09:00</published><updated>2024-10-10T00:00:00+09:00</updated><id>http://localhost:4000/ue5/Unreal%20MSB3073%20%EC%98%A4%EB%A5%98%20%ED%95%B4%EA%B2%B0%EB%B2%94</id><content type="html" xml:base="http://localhost:4000/ue5/Unreal-MSB3073-%EC%98%A4%EB%A5%98-%ED%95%B4%EA%B2%B0%EB%B2%94/"><![CDATA[<h2 id="발생과정">발생과정</h2>
 <p>프로젝트를 최초 생성하고 컴파일 하려하면 이런 오류가 뜬다 왜 이럴까?</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1&gt;Microsoft.MakeFile.Targets(44,5): Error MSB3073 : ""C:\Program Files\Epic Games\UE_5.4\Engine\Build\BatchFiles\Build.bat" MultiShooterEditor Win64 Development -Project="C:\Users\admin\git\UE5\MultiShooter\MultiShooter.uproject" -WaitMutex -FromMsBuild -architecture=x64" 명령이 종료되었습니다(코드: 6).
@@ -893,128 +964,4 @@ mysql:latest : 컨테이너에 사용할 이미지<br /></p>
 <a href="https://khj93.tistory.com/entry/Docker-Docker-%EA%B0%9C%EB%85%90">https://khj93.tistory.com/entry/Docker-Docker-%EA%B0%9C%EB%85%90</a>
 <a href="https://velog.io/@kdaeyeop/%EB%8F%84%EC%BB%A4-Docker-%EC%99%80-VM%EC%9D%98-%EC%B0%A8%EC%9D%B4">https://velog.io/@kdaeyeop/%EB%8F%84%EC%BB%A4-Docker-%EC%99%80-VM%EC%9D%98-%EC%B0%A8%EC%9D%B4</a>
 </p>
-</div>]]></content><author><name>Mohitto55</name></author><category term="network" /><category term="Docker" /><category term="Ubuntu" /><category term="Linux" /><category term="컨테이너" /><category term="VM" /><category term="가상환경" /><category term="가상머신" /><category term="도커" /><category term="하이퍼바이저" /><category term="HyperVisor" /><category term="Virtual Machine" /><summary type="html"><![CDATA[Docker Docker란 컨테이너를 이용한 오픈소스 가상화 플랫폼이다. 컨테이너는 OS레벨의 가상화로 프로세스를 격리시켜 동작하는 것을 말한다. OS자체를 가상화 하던 방식과는 다른데 무슨 차이가 있는것일까?]]></summary></entry><entry><title type="html">[Window] 구글캘린더 바탕화면에 위젯 생성하기</title><link href="http://localhost:4000/os/%EA%B5%AC%EA%B8%80%EC%BA%98%EB%A6%B0%EB%8D%94-%EC%95%84%EC%9B%83%EB%A3%A9-%EC%97%B0%EB%8F%99-%EB%B0%94%ED%83%95%ED%99%94%EB%A9%B4/" rel="alternate" type="text/html" title="[Window] 구글캘린더 바탕화면에 위젯 생성하기" /><published>2024-08-05T00:00:00+09:00</published><updated>2024-08-05T00:00:00+09:00</updated><id>http://localhost:4000/os/%EA%B5%AC%EA%B8%80%EC%BA%98%EB%A6%B0%EB%8D%94%20%EC%95%84%EC%9B%83%EB%A3%A9%20%EC%97%B0%EB%8F%99%20%EB%B0%94%ED%83%95%ED%99%94%EB%A9%B4</id><content type="html" xml:base="http://localhost:4000/os/%EA%B5%AC%EA%B8%80%EC%BA%98%EB%A6%B0%EB%8D%94-%EC%95%84%EC%9B%83%EB%A3%A9-%EC%97%B0%EB%8F%99-%EB%B0%94%ED%83%95%ED%99%94%EB%A9%B4/"><![CDATA[<h2 id="들어가며">들어가며</h2>
-<p>나는 <strong>Todoist, Google Calendar, Obsidian</strong>을 통해 일정관리를 한다.<br />
-나는 일정관리에서 제일 중요하다 생각하는 부분이 언제 어디서든 최소한의 액션으로 간편하게 일정을 확인할 수 있어야 한다고 생각한다.<br />
-그래서 휴대폰에는 바탕화면에 구글 캘린더 위젯을 생성하고 옵시디언에서 <strong>Full Calendar 플러그인</strong>을 통해 구글 캘린더를 확인할 수 있다.</p>
-
-<p><br /></p>
-
-<p>다만 윈도우의 경우에는 구글캘린더를 바탕화면 위젯으로 생성가능한 기능을 제공하지 않는다. 물론 클릭 몇번이면 브라우저에서 구글 캘린더로 가는건 어렵지 않은 일이지만 일정을 의식적으로 생각해서 확인하는 일은 귀찮은 일이라 바탕화면에서 달력을 확인할 수 있는 방법을 여러가지 모색했다.</p>
-
-<p><br /></p>
-
-<p>그중 달력 위젯 중 가장 유명한 <a href="https://desktop-calendar.softonic.kr/">Desktop Calendar</a>을 사용해보기도 했지만 이것은 구글캘린더와 연동이 되지 않아 금방 삭제했다. 어떻게 해야 구글캘린더를 바탕화면에 표시할까 알아보다 아웃룩과 연동하고 외부 프로그램을 이용하면 가능한 것을 알게되었다. 해당 방법을 아래에 소개하겠다.</p>
-
-<h2 id="1-구글캘린더-주소-복사하기">1. 구글캘린더 주소 복사하기</h2>
-<p>구글캘린더에서 우측 상단 톱니바퀴 모양을 눌러 <strong>설정</strong>에 들어가고 왼쪽 탭에서 아웃룩과 연동할 캘린더를 선택해 설정에 들어간다.<br />
-아래로 내려서 <strong>Scret address in iCal format</strong> 내용을 우측 복사하기 버튼을 눌러서 클립보드에 복사한다.<br />
-<img src="https://github.com/user-attachments/assets/167750ad-2261-47a8-83b0-64c032a5841b" alt="image" /></p>
-
-<h2 id="2-아웃룩과-캘린더-연동">2. 아웃룩과 캘린더 연동</h2>
-<p>아웃룩에 들어가 <code class="language-plaintext highlighter-rouge">파일 &gt; 계정 설정 &gt; 인터넷 일정 &gt; 새로만들기</code> 를 누른다.<br />
-<img src="https://github.com/user-attachments/assets/9db6166c-05e8-4cc0-8386-fd8413c0260f" alt="image" /><br />
-<img src="https://github.com/user-attachments/assets/1dd2aac0-6806-4d7a-a263-a410d6f074c6" alt="image" /></p>
-
-<p><br /></p>
-
-<p>그리고 1에서 복사한 구글캘린더 주소로 일정 등록을 한다.<br />
-<img src="https://github.com/user-attachments/assets/72a156f6-3796-4454-b5c9-3d5efe544aa1" alt="image" /></p>
-
-<hr />
-
-<h3 id="연동성공">연동성공</h3>
-
-<p><img src="https://github.com/user-attachments/assets/c2fcdf82-f946-4d14-87e5-37a5ce708b80" alt="image" /></p>
-
-<h2 id="3-ootd-설치하기">3. OOTD 설치하기</h2>
-<p>아웃룩을 바탕화면에서 보려면 외부 프로그램을 설치해야한다.</p>
-
-<p><a href="https://outlookonthedesktop.com/release-notes">링크</a>에 들어가서 OOTD앱을 다운 받는다. 실행하면 아래와 같이 바탕화면에 아웃룩 위젯이 생성된다.<br />
-<img src="https://github.com/user-attachments/assets/b3d83c1f-374c-4680-8a09-39624d1a96a2" alt="image" /></p>
-
-<p><br /></p>
-
-<p>우측 하단에서 Ootd를 우클릭하고 Select Folder을 누른다.</p>
-
-<p>그리고 인터넷 일정에서 위젯에 보일 일정을 설정하면 바탕화면에서도 일정을 확인할 수 있다.<br />
-<img src="https://github.com/user-attachments/assets/ab1a6c4c-0bb1-4ed7-960b-c0043ce75647" alt="image" /></p>
-
-<p><img src="https://github.com/user-attachments/assets/7e429fb1-c180-497f-b345-ef8bf87cff4e" alt="image" /></p>
-
-<hr />
-
-<div class="Reference">
-<div class="callout-header"> </div>
-<p>
-<a href="https://mainia.tistory.com/1830">https://mainia.tistory.com/1830</a>
-<a href="https://luckylucy.tistory.com/103">https://luckylucy.tistory.com/103</a>
-</p>
-</div>]]></content><author><name>Mohitto55</name></author><category term="os" /><category term="Window" /><category term="Google Calendar" /><category term="Outlook" /><category term="Widget" /><category term="Calendar" /><category term="윈도우" /><category term="구글캘린더" /><category term="아웃룩" /><summary type="html"><![CDATA[들어가며 나는 Todoist, Google Calendar, Obsidian을 통해 일정관리를 한다. 나는 일정관리에서 제일 중요하다 생각하는 부분이 언제 어디서든 최소한의 액션으로 간편하게 일정을 확인할 수 있어야 한다고 생각한다. 그래서 휴대폰에는 바탕화면에 구글 캘린더 위젯을 생성하고 옵시디언에서 Full Calendar 플러그인을 통해 구글 캘린더를 확인할 수 있다.]]></summary></entry><entry><title type="html">[CS] 컴퓨터에서 문자를 표현하는 방법</title><link href="http://localhost:4000/computerscience/%EB%AC%B8%EC%9E%90%EB%A5%BC-%ED%91%9C%ED%98%84%ED%95%98%EB%8A%94-%EC%9D%B8%EC%BD%94%EB%94%A9%EA%B3%BC-%EC%9C%A0%EB%8B%88%EC%BD%94%EB%93%9C/" rel="alternate" type="text/html" title="[CS] 컴퓨터에서 문자를 표현하는 방법" /><published>2024-07-23T00:00:00+09:00</published><updated>2024-07-23T00:00:00+09:00</updated><id>http://localhost:4000/computerscience/%EB%AC%B8%EC%9E%90%EB%A5%BC%20%ED%91%9C%ED%98%84%ED%95%98%EB%8A%94%20%EC%9D%B8%EC%BD%94%EB%94%A9%EA%B3%BC%20%EC%9C%A0%EB%8B%88%EC%BD%94%EB%93%9C</id><content type="html" xml:base="http://localhost:4000/computerscience/%EB%AC%B8%EC%9E%90%EB%A5%BC-%ED%91%9C%ED%98%84%ED%95%98%EB%8A%94-%EC%9D%B8%EC%BD%94%EB%94%A9%EA%B3%BC-%EC%9C%A0%EB%8B%88%EC%BD%94%EB%93%9C/"><![CDATA[<h2 id="문자-집합과-인코딩">문자 집합과 인코딩</h2>
-<ul>
-  <li><strong>문자집합</strong>
-    <ul>
-      <li>컴퓨터가 인식할 수 있는 문자의 모음이다.</li>
-    </ul>
-  </li>
-  <li>인코딩
-    <ul>
-      <li>문자를 0과 1로 변환해 컴퓨터가 이해할 수 있는 정보로 변환하는 과정이다.</li>
-    </ul>
-  </li>
-  <li>디코딩
-    <ul>
-      <li>0과1을 사람이 이해하는 문자로 변환하는 과정이다.
-        <h2 id="아스키-코드">아스키 코드</h2>
-      </li>
-    </ul>
-  </li>
-  <li>초창기 문자집합이다.</li>
-  <li>7비트로 표현할 수 있는 문자는 총 128개이다.</li>
-  <li>표현 가능한 수가 적기 때문에 한글을 표현할 수 없다.</li>
-  <li>확장 아스키도 나왔지만 그래도 256개로 요전히 적다.
-    <h2 id="ecu-kr">ECU-KR</h2>
-  </li>
-  <li>한글 인코딩은 두 종류가 있다.</li>
-  <li><strong>완성형</strong>과 <strong>조립협</strong>인코딩이 있다.
-    <ul>
-      <li>완성형은 하나의 글자에 고유한 코드를 부여하고</li>
-      <li>조립형은 초성, 중성, 종성에 해당하는 코드를 부여하고 조립하는 형태다.</li>
-    </ul>
-  </li>
-  <li>ECU-KR은 KS X 1001, KS X 1003 이라는 문자 집합 기반으로 하는 <strong>완성형</strong>인코딩 방식이다.</li>
-  <li>한글은 각 글자에 2바이트가 부여되어 16비트가 필요하다.</li>
-</ul>
-
-<h3 id="한글깨짐-문제">한글깨짐 문제</h3>
-<ul>
-  <li>2350개로 표현할 수 있지만 그럼에도 모든 한글 조합을 표현할 수 없다.</li>
-  <li>그래서 쀍 같은 글자는 깨진다.</li>
-  <li>이런 문제를 해결하기 위해 Microsoft의 CP949라는 EUC-KR 확장판이 나왔다.</li>
-  <li>다만 이것도 다 표현할 수 없다.</li>
-</ul>
-
-<h2 id="인코딩의-문제점">인코딩의 문제점</h2>
-<ul>
-  <li>ECU-KR처럼 모든 언어별로 인코딩을 해야한다면 프로그램에서 나라별 인코딩언어를 모두 알아내야 한다.</li>
-  <li>하지만 통일된 표준 인코딩 방식이 있다면 번거로움이 없을것이다.</li>
-</ul>
-
-<h2 id="유니코드와-utf-8">유니코드와 UTF-8</h2>
-<ul>
-  <li><strong>유니코드</strong>는 대부분의 나라의 문자, 특수문자, 이모티콘도 표현가능한 문자집합이다.</li>
-</ul>
-
-<h3 id="인코딩-방식">인코딩 방식</h3>
-<ul>
-  <li>아스키나 EUC-KR은 글자에 부여된 값으로 인코딩을 한다.</li>
-  <li>유니코드는 부여된 값을 활용해 여러 방법으로 인코딩 한다.</li>
-  <li>이 방법들 중 UTF-8, UTF-16, UTF-32등이 있다.</li>
-</ul>
-
-<h3 id="utf-8">UTF-8</h3>
-<ul>
-  <li>1바이트부터 4바이트까지의 인코딩 결과를 만든다.</li>
-  <li>즉 값이 1바이트가 될 수 도 있고 2, 3, 4 바이트 중 될 수 있다는 것이다.</li>
-  <li>이는 유니코드 문자에 부여된 값에 따라 결정된다.</li>
-</ul>]]></content><author><name>Mohitto55</name></author><category term="computerscience" /><category term="인코딩" /><category term="디코딩" /><category term="유니코드" /><category term="아스키코드" /><category term="Unicode" /><category term="ASCII" /><category term="Encode" /><category term="Decode" /><category term="ECU-KR" /><category term="UTF-8" /><category term="UTF-16" /><category term="UTF-32" /><summary type="html"><![CDATA[문자 집합과 인코딩 문자집합 컴퓨터가 인식할 수 있는 문자의 모음이다. 인코딩 문자를 0과 1로 변환해 컴퓨터가 이해할 수 있는 정보로 변환하는 과정이다. 디코딩 0과1을 사람이 이해하는 문자로 변환하는 과정이다. 아스키 코드 초창기 문자집합이다. 7비트로 표현할 수 있는 문자는 총 128개이다. 표현 가능한 수가 적기 때문에 한글을 표현할 수 없다. 확장 아스키도 나왔지만 그래도 256개로 요전히 적다. ECU-KR 한글 인코딩은 두 종류가 있다. 완성형과 조립협인코딩이 있다. 완성형은 하나의 글자에 고유한 코드를 부여하고 조립형은 초성, 중성, 종성에 해당하는 코드를 부여하고 조립하는 형태다. ECU-KR은 KS X 1001, KS X 1003 이라는 문자 집합 기반으로 하는 완성형인코딩 방식이다. 한글은 각 글자에 2바이트가 부여되어 16비트가 필요하다.]]></summary></entry></feed>
+</div>]]></content><author><name>Mohitto55</name></author><category term="network" /><category term="Docker" /><category term="Ubuntu" /><category term="Linux" /><category term="컨테이너" /><category term="VM" /><category term="가상환경" /><category term="가상머신" /><category term="도커" /><category term="하이퍼바이저" /><category term="HyperVisor" /><category term="Virtual Machine" /><summary type="html"><![CDATA[Docker Docker란 컨테이너를 이용한 오픈소스 가상화 플랫폼이다. 컨테이너는 OS레벨의 가상화로 프로세스를 격리시켜 동작하는 것을 말한다. OS자체를 가상화 하던 방식과는 다른데 무슨 차이가 있는것일까?]]></summary></entry></feed>
