@@ -86,10 +86,6 @@
 <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
 
-<!-- Mathjax Support -->
-<script type="text/javascript" async
-  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
 
 
 
@@ -149,6 +145,7 @@
 
 <div id="main" role="main">
   
+<div class= "custom-sidebar">
   <div class="sidebar sticky">
   
 
@@ -276,7 +273,7 @@
   
   <input id="ac-toc" name="accordion-toc" type="checkbox" />
   <label for="ac-toc">토글 메뉴</label>
-  <li> 전체 글 수 (65)개 </li>
+  <li> 전체 글 수 (66)개 </li>
   <ul class="nav__items">
     
       
@@ -291,7 +288,7 @@
           
           
 
-            <li><a href="/cpp"><span class="nav__sub-title-url">C++  </span><span class="nav__sub-title-count">4</span></a></li>
+            <li><a href="/cpp"><span class="nav__sub-title-url">C++  </span><span class="nav__sub-title-count">3</span></a></li>
           
           
           
@@ -387,6 +384,11 @@
           
           
 
+            <li><a href="/geometry"><span class="nav__sub-title-url">Geometry  </span><span class="nav__sub-title-count">1</span></a></li>
+          
+          
+          
+
             <li><a href="/physics"><span class="nav__sub-title-url">Physics  </span><span class="nav__sub-title-count">0</span></a></li>
           
           
@@ -420,7 +422,7 @@
           
           
 
-            <li><a href="/obsidian"><span class="nav__sub-title-url">Obsidian  </span><span class="nav__sub-title-count">4</span></a></li>
+            <li><a href="/obsidian"><span class="nav__sub-title-url">Obsidian  </span><span class="nav__sub-title-count">5</span></a></li>
           
           
           
@@ -487,6 +489,7 @@
     
   
   </div>
+</div>
 
 
 
@@ -560,7 +563,7 @@
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/ue5/Unreal-MSB3073-%EC%98%A4%EB%A5%98-%ED%95%B4%EA%B2%B0%EB%B2%94/" rel="permalink">[UE5] 컴파일시 MSB3073오류 해결하기
+        <a href="/obsidian/Math-%EC%84%A0%EA%B3%BC-%EC%A0%90%EC%82%AC%EC%9D%B4%EC%9D%98-%EA%B1%B0%EB%A6%AC-%EA%B5%AC%ED%95%98%EA%B8%B0/" rel="permalink">[Geometry] 선과 점사이 거리를 구하는 법
 </a>
       
     </h2>
@@ -572,7 +575,7 @@
       <span class="page__meta-date">
         <i class="far fa-calendar-alt" aria-hidden="true"></i>
         
-        <time datetime="2024-10-10T00:00:00+09:00">October 10, 2024</time>
+        <time datetime="2024-10-24T00:00:00+09:00">October 24, 2024</time>
       </span>
     
 
@@ -585,15 +588,68 @@
       <span class="page__meta-readtime">
         <i class="far fa-clock" aria-hidden="true"></i>
         
-          1 분 소요
+          최대 1 분 소요
         
       </span>
     
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">발생과정
-프로젝트를 최초 생성하고 컴파일 하려하면 이런 오류가 뜬다 왜 이럴까?
+    <p class="archive__item-excerpt" itemprop="description">선분과 점사이의 거리 구하기
+
+  평행사변형의 넓이 공식을 이용한다.
+    
+      (넓이) = 밑변 X 높이
+    
+  
+  외적은 두직선으로 이루어진 평행사변형의 넓이이다.
+  평행사변형의 넓이는 밑변 X 높이인데 여기서 한 선분의 밑변을 나누면 높이만 남아 거리를 구할...</p>
+  </article>
+</div>
+
+  
+    
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/geometry/Geometry-%EC%84%A0%EB%B6%84-%EB%81%BC%EB%A6%AC%EC%9D%98-%EA%B5%90%EC%B0%A8%EC%A0%90-%EA%B5%AC%ED%95%98%EA%B8%B0/" rel="permalink">[Geometry] 외적을 이용해 선분간의 교차점을 구하는 방법
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2024-10-24T00:00:00+09:00">October 24, 2024</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          4 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">📄외적을 이용한 선분과 선분의 교차점 구하기
 </p>
   </article>
 </div>
@@ -608,7 +664,7 @@
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/cpp/CPP-%ED%83%80%EC%9E%85-%EC%BA%90%EC%8A%A4%ED%8C%85/" rel="permalink">[C++] C스타일 캐스팅 부터 bit_cast까지 다양한 형변환을 알아보자
+        <a href="/ue5/Unreal-MSB3073-%EC%98%A4%EB%A5%98-%ED%95%B4%EA%B2%B0%EB%B2%94/" rel="permalink">[UE5] 컴파일시 MSB3073오류 해결하기
 </a>
       
     </h2>
@@ -1199,54 +1255,6 @@ Docker란 컨테이너를 이용한 오픈소스 가상화 플랫폼이다.
 </div>
 
   
-    
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/ue5/UE5-%ED%8C%A8%ED%82%A4%EC%A7%80-%EB%94%94%EB%B2%84%EA%B7%B8/" rel="permalink">[UE5] 패키지된 게임 디버그 하는 법
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2024-06-21T00:00:00+09:00">June 21, 2024</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          1 분 소요
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">개요
-네트워크 기능이 있는 게임을 만들었는데 PIE상에서는 괜찮았는데 패키지를 하니 버그가 발생했다.
-이게 네트워크에서 발생한 것인지 아니면 내부 구조 로직에서 충돌이 일어난 것인지 알길이 없어서 디버그를 해야만 했다. 언리얼 디버그에 관한 지식이 전무 했었기 때문에 이 기회에 패...</p>
-  </article>
-</div>
-
-  
 </div>
 
 
@@ -1359,6 +1367,24 @@ Docker란 컨테이너를 이용한 오픈소스 가상화 플랫폼이다.
 
 
 
+
+<!-- Add LaTex function -->
+<script type="text/javascript" async
+	src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<script type="text/x-mathjax-config">
+   MathJax.Hub.Config({
+     extensions: ["tex2jax.js"],
+     jax: ["input/TeX", "output/HTML-CSS"],
+     tex2jax: {
+       inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+       displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+       processEscapes: true
+     },
+     "HTML-CSS": { availableFonts: ["TeX"] }
+   });
+</script>
 
   </body>
 </html>

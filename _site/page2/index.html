@@ -88,10 +88,6 @@
 <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
 
-<!-- Mathjax Support -->
-<script type="text/javascript" async
-  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
 
 
 
@@ -153,6 +149,7 @@
 
 <div id="main" role="main">
   
+<div class= "custom-sidebar">
   <div class="sidebar sticky">
   
 
@@ -280,7 +277,7 @@
   
   <input id="ac-toc" name="accordion-toc" type="checkbox" />
   <label for="ac-toc">토글 메뉴</label>
-  <li> 전체 글 수 (65)개 </li>
+  <li> 전체 글 수 (66)개 </li>
   <ul class="nav__items">
     
       
@@ -295,7 +292,7 @@
           
           
 
-            <li><a href="/cpp"><span class="nav__sub-title-url">C++  </span><span class="nav__sub-title-count">4</span></a></li>
+            <li><a href="/cpp"><span class="nav__sub-title-url">C++  </span><span class="nav__sub-title-count">3</span></a></li>
           
           
           
@@ -391,6 +388,11 @@
           
           
 
+            <li><a href="/geometry"><span class="nav__sub-title-url">Geometry  </span><span class="nav__sub-title-count">1</span></a></li>
+          
+          
+          
+
             <li><a href="/physics"><span class="nav__sub-title-url">Physics  </span><span class="nav__sub-title-count">0</span></a></li>
           
           
@@ -424,7 +426,7 @@
           
           
 
-            <li><a href="/obsidian"><span class="nav__sub-title-url">Obsidian  </span><span class="nav__sub-title-count">4</span></a></li>
+            <li><a href="/obsidian"><span class="nav__sub-title-url">Obsidian  </span><span class="nav__sub-title-count">5</span></a></li>
           
           
           
@@ -491,6 +493,7 @@
     
   
   </div>
+</div>
 
 
 
@@ -506,6 +509,54 @@
 
 
 <div class="entries-list">
+  
+    
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/ue5/UE5-%ED%8C%A8%ED%82%A4%EC%A7%80-%EB%94%94%EB%B2%84%EA%B7%B8/" rel="permalink">[UE5] 패키지된 게임 디버그 하는 법
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2024-06-21T00:00:00+09:00">June 21, 2024</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">개요
+네트워크 기능이 있는 게임을 만들었는데 PIE상에서는 괜찮았는데 패키지를 하니 버그가 발생했다.
+이게 네트워크에서 발생한 것인지 아니면 내부 구조 로직에서 충돌이 일어난 것인지 알길이 없어서 디버그를 해야만 했다. 언리얼 디버그에 관한 지식이 전무 했었기 때문에 이 기회에 패...</p>
+  </article>
+</div>
+
   
     
 
@@ -1190,54 +1241,6 @@ sudo apt-get update
 </div>
 
   
-    
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/math/%EC%A2%8C%ED%91%9C%EA%B3%84-%EC%A0%95%EB%A6%AC/" rel="permalink">[Math] 데카르트 좌표계와 극 좌표계
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2024-03-25T00:00:00+09:00">March 25, 2024</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          1 분 소요
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">들어가기
-좌표는 우리 일상 생활에서 중요한 요소다. 사람과의 거리, 건축, 컴퓨터 등 다양한 분야에서 사용하는 개념이다. 좌표계는 고대에도 사용된 개념인데 천문학자들이 별의 위치를 추정하기 위하여 사용하곤 했다.
-</p>
-  </article>
-</div>
-
-  
 </div>
 
 
@@ -1347,6 +1350,24 @@ sudo apt-get update
 
 
 
+
+<!-- Add LaTex function -->
+<script type="text/javascript" async
+	src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<script type="text/x-mathjax-config">
+   MathJax.Hub.Config({
+     extensions: ["tex2jax.js"],
+     jax: ["input/TeX", "output/HTML-CSS"],
+     tex2jax: {
+       inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+       displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+       processEscapes: true
+     },
+     "HTML-CSS": { availableFonts: ["TeX"] }
+   });
+</script>
 
   </body>
 </html>

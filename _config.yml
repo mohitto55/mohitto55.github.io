@@ -216,7 +216,7 @@ plugins:
 
 emoji:
   src: "/assets/images"
-
+  
 # mimic GitHub Pages with --safe
 whitelist:
   - jekyll-paginate
@@ -265,6 +265,11 @@ compress_html:
 
 # Defaults
 defaults:
+  - values:
+      layout: single
+      author_profile: true
+      sidebar:                  # 추가한 부분
+        nav: "sidebar-category"  
   # _posts
   - scope:
       path: ""
@@ -280,8 +285,9 @@ defaults:
       toc: true
       toc_sticky: true    
       toc_label: "목차"
+      position: "left"
       sidebar:                  # 추가한 부분
-        nav: "sidebar-category"      
+        nav: "sidebar-category"     
  # _pages                      : 해당 하단 영역이 새로 추가되었습니다.
   - scope:
       path: "_pages"
@@ -289,3 +295,5 @@ defaults:
     values:
       layout: single
       author_profile: true
+      sidebar:                  # 추가한 부분
+        nav: "sidebar-category"  

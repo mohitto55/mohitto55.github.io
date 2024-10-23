@@ -371,16 +371,22 @@ var store = [{
         "url": "/ue5/%EC%96%B8%EB%A6%AC%EC%96%BC-%EB%AC%BC%EC%85%B0%EC%9D%B4%EB%8D%94-%EB%B0%8F-%ED%94%84%EB%A0%88%EB%84%AC/",
         "teaser": null
       },{
-        "title": "[C++] C스타일 캐스팅 부터 bit_cast까지 다양한 형변환을 알아보자",
-        "excerpt":"발생과정 프로젝트를 최초 생성하고 컴파일 하려하면 이런 오류가 뜬다 왜 이럴까? 1&gt;Microsoft.MakeFile.Targets(44,5): Error MSB3073 : \"\"C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Build\\BatchFiles\\Build.bat\" MultiShooterEditor Win64 Development -Project=\"C:\\Users\\admin\\git\\UE5\\MultiShooter\\MultiShooter.uproject\" -WaitMutex -FromMsBuild -architecture=x64\" 명령이 종료되었습니다(코드: 6). &gt;------ 빌드 시작: 프로젝트: MultiShooter, 구성: Development_Editor x64 ------ 1&gt;Using bundled DotNet SDK version: 6.0.302 1&gt;Running UnrealBuildTool: dotnet \"..\\..\\Engine\\Binaries\\DotNET\\UnrealBuildTool\\UnrealBuildTool.dll\" MultiShooterEditor Win64 Development...","categories": ["cpp"],
-        "tags": ["C++","C","UnrealEngine","VisualStudio","Vs","IDE","Build","빌드","MSB3073","컴파일"],
-        "url": "/cpp/CPP-%ED%83%80%EC%9E%85-%EC%BA%90%EC%8A%A4%ED%8C%85/",
-        "teaser": null
-      },{
         "title": "[UE5] 컴파일시 MSB3073오류 해결하기",
         "excerpt":"발생과정 프로젝트를 최초 생성하고 컴파일 하려하면 이런 오류가 뜬다 왜 이럴까? 1&gt;Microsoft.MakeFile.Targets(44,5): Error MSB3073 : \"\"C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Build\\BatchFiles\\Build.bat\" MultiShooterEditor Win64 Development -Project=\"C:\\Users\\admin\\git\\UE5\\MultiShooter\\MultiShooter.uproject\" -WaitMutex -FromMsBuild -architecture=x64\" 명령이 종료되었습니다(코드: 6). &gt;------ 빌드 시작: 프로젝트: MultiShooter, 구성: Development_Editor x64 ------ 1&gt;Using bundled DotNet SDK version: 6.0.302 1&gt;Running UnrealBuildTool: dotnet \"..\\..\\Engine\\Binaries\\DotNET\\UnrealBuildTool\\UnrealBuildTool.dll\" MultiShooterEditor Win64 Development...","categories": ["ue5"],
         "tags": ["UE","UE5","UnrealEngine","VisualStudio","Vs","IDE","Build","빌드","MSB3073","컴파일"],
         "url": "/ue5/Unreal-MSB3073-%EC%98%A4%EB%A5%98-%ED%95%B4%EA%B2%B0%EB%B2%94/",
+        "teaser": null
+      },{
+        "title": "[Geometry] 외적을 이용해 선분간의 교차점을 구하는 방법",
+        "excerpt":"📄외적을 이용한 선분과 선분의 교차점 구하기 선분은 기하를 구성하는 기본요소이기 때문에 선분의 교차점을 구하는 것은 기하 문제의 기본입니다. 이런 선분의 교차점은 다양한 곳에서 사용 할 수 있습니다. 하지만 교차점을 구하는 것은 여러 변수들이 존재해서 생각보다 까다롭습니다. ✏️직선과 직선의 교차점 선분은 직선의 일부분이기에 먼저 직선과 직선의 교차점을 구합니다. 좌표평면에서 두 직선에...","categories": ["geometry"],
+        "tags": ["Geometry","기하학","기하","선분","선","길이","교차점","Intersection","Line","Point"],
+        "url": "/geometry/Geometry-%EC%84%A0%EB%B6%84-%EB%81%BC%EB%A6%AC%EC%9D%98-%EA%B5%90%EC%B0%A8%EC%A0%90-%EA%B5%AC%ED%95%98%EA%B8%B0/",
+        "teaser": null
+      },{
+        "title": "[Geometry] 선과 점사이 거리를 구하는 법",
+        "excerpt":"선분과 점사이의 거리 구하기 평행사변형의 넓이 공식을 이용한다. (넓이) = 밑변 X 높이 외적은 두직선으로 이루어진 평행사변형의 넓이이다. 평행사변형의 넓이는 밑변 X 높이인데 여기서 한 선분의 밑변을 나누면 높이만 남아 거리를 구할 수 있다. 코드 public float Distance(Point p) { Point p1 = End - Start, p2 = p -...","categories": ["obsidian"],
+        "tags": ["Geometry","기하학","선분","선","길이","Distance","속도","Line","Point","Parallelogram"],
+        "url": "/obsidian/Math-%EC%84%A0%EA%B3%BC-%EC%A0%90%EC%82%AC%EC%9D%B4%EC%9D%98-%EA%B1%B0%EB%A6%AC-%EA%B5%AC%ED%95%98%EA%B8%B0/",
         "teaser": null
       },{
         "title": "[Obsidian] Anuppuchin테마는 크기가 커지면 엄청 느리다",

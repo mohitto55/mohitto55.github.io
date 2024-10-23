@@ -1,4 +1,172 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-10-24T03:23:28+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mohitto55 Note</title><subtitle>모히또의 노트</subtitle><author><name>Mohitto55</name></author><entry><title type="html">[Obsidian] Anuppuchin테마는 크기가 커지면 엄청 느리다</title><link href="http://localhost:4000/obsidian/Obsidian-%EC%95%84%EB%88%84%ED%91%B8%EC%B9%9C%ED%85%8C%EB%A7%88-%EC%A0%9C%EA%B1%B0/" rel="alternate" type="text/html" title="[Obsidian] Anuppuchin테마는 크기가 커지면 엄청 느리다" /><published>2024-10-24T00:00:00+09:00</published><updated>2024-10-24T00:00:00+09:00</updated><id>http://localhost:4000/obsidian/Obsidian%20%EC%95%84%EB%88%84%ED%91%B8%EC%B9%9C%ED%85%8C%EB%A7%88%20%EC%A0%9C%EA%B1%B0</id><content type="html" xml:base="http://localhost:4000/obsidian/Obsidian-%EC%95%84%EB%88%84%ED%91%B8%EC%B9%9C%ED%85%8C%EB%A7%88-%EC%A0%9C%EA%B1%B0/"><![CDATA[<h2 id="현상">📄현상</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-10-24T08:50:01+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mohitto55 Note</title><subtitle>모히또의 노트</subtitle><author><name>Mohitto55</name></author><entry><title type="html">[Geometry] 외적을 이용해 선분간의 교차점을 구하는 방법</title><link href="http://localhost:4000/geometry/Geometry-%EC%84%A0%EB%B6%84-%EB%81%BC%EB%A6%AC%EC%9D%98-%EA%B5%90%EC%B0%A8%EC%A0%90-%EA%B5%AC%ED%95%98%EA%B8%B0/" rel="alternate" type="text/html" title="[Geometry] 외적을 이용해 선분간의 교차점을 구하는 방법" /><published>2024-10-24T00:00:00+09:00</published><updated>2024-10-24T00:00:00+09:00</updated><id>http://localhost:4000/geometry/Geometry%20%EC%84%A0%EB%B6%84%20%EB%81%BC%EB%A6%AC%EC%9D%98%20%EA%B5%90%EC%B0%A8%EC%A0%90%20%EA%B5%AC%ED%95%98%EA%B8%B0</id><content type="html" xml:base="http://localhost:4000/geometry/Geometry-%EC%84%A0%EB%B6%84-%EB%81%BC%EB%A6%AC%EC%9D%98-%EA%B5%90%EC%B0%A8%EC%A0%90-%EA%B5%AC%ED%95%98%EA%B8%B0/"><![CDATA[<h1 id="외적을-이용한-선분과-선분의-교차점-구하기">📄외적을 이용한 선분과 선분의 교차점 구하기</h1>
+
+<p>선분은 기하를 구성하는 <strong>기본요소</strong>이기 때문에 선분의 교차점을 구하는 것은 기하 문제의 기본입니다. 이런 선분의 교차점은 다양한 곳에서 사용 할 수 있습니다.</p>
+
+<p>하지만 교차점을 구하는 것은 여러 변수들이 존재해서 생각보다 까다롭습니다.</p>
+
+<h2 id="️직선과-직선의-교차점">✏️직선과 직선의 교차점</h2>
+
+<p>선분은 직선의 일부분이기에 먼저 직선과 직선의 교차점을 구합니다.</p>
+
+<p>좌표평면에서 두 직선에 대한 방정식을 x, y에 대해 세우고 <strong>연립 방정식</strong>을 푸는 것을 코드로 작성 할 수 있다. 하지만 그러면 수평과 수직에 대한 예외를 따로 처리해야해 코드가 간결하지 못합니다.</p>
+
+<p>그렇다면 두 직선을 <strong>벡터로 표현</strong> 하고 벡터의 연산을 이용해 연립방정식을 풀면 외적으로 표현된 간결한 해를 얻을 수 있습니다.</p>
+
+<hr />
+
+<h3 id="️방정식-풀이1">✏️방정식 풀이1</h3>
+
+<p>\(\overrightarrow{a_x} + p\overrightarrow{b_x} = \overrightarrow{c_x} + q\overrightarrow{d_x}\)<br />
+\(\overrightarrow{a_y} + p\overrightarrow{b_y} = \overrightarrow{c_y} + q\overrightarrow{d_y}\)</p>
+
+<p>이 연립방정식을 p에 대해 풀면 다음과 같습니다.<br />
+이 때 분모가 0인 경우는 두 직선이 <strong>평행</strong>한 경우로 교점이 정의되지 않습니다.</p>
+
+\[p = \frac{(c_x-a_x)d_{y}- (c_y-a_y)d_x}{b_xd_y-b_yd_x}\]
+
+<p>이제 p를 외적으로 더 간략하게 나타낼 수 있습니다.<br />
+\(p=\frac{(\overrightarrow{c}-\overrightarrow{a})\times\overrightarrow{d}}{\overrightarrow{b}\times\overrightarrow{d} }(\overrightarrow{b}\times\overrightarrow{d}\neq  0)\)</p>
+
+<hr />
+
+<h4 id="코드">💻코드</h4>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 점 a, b를 지나는 직선과 점 c, d를 지나는 직선의 교차점 x를 반환한다.  </span>
+<span class="c1">// 두 직선이 평행하면 false, 아니면 true를 반환한다.  </span>
+<span class="k">public</span> <span class="kt">bool</span> <span class="nf">lineIntersection</span><span class="p">(</span><span class="n">Vector2</span> <span class="n">a</span><span class="p">,</span> <span class="n">Vector2</span> <span class="n">b</span><span class="p">,</span> <span class="n">Vector2</span> <span class="n">c</span><span class="p">,</span> <span class="n">Vector2</span> <span class="n">d</span><span class="p">,</span> <span class="n">ref</span> <span class="n">Vector2</span> <span class="n">x</span><span class="p">)</span>  
+<span class="p">{</span>  
+    <span class="c1">// 분모  </span>
+    <span class="kt">float</span> <span class="n">det</span> <span class="o">=</span> <span class="n">Vector3</span><span class="p">.</span><span class="n">Cross</span><span class="p">((</span><span class="n">Vector3</span><span class="p">)(</span><span class="n">b</span> <span class="o">-</span> <span class="n">a</span><span class="p">),</span> <span class="p">(</span><span class="n">Vector3</span><span class="p">)(</span><span class="n">d</span> <span class="o">-</span> <span class="n">c</span><span class="p">)).</span><span class="n">z</span><span class="p">;</span>  
+    <span class="c1">// 두 직선이 평행한 경우라면  </span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">Mathf</span><span class="p">.</span><span class="n">Abs</span><span class="p">(</span><span class="n">det</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">0.00005</span><span class="n">f</span><span class="p">)</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>  
+    <span class="n">x</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="p">(</span><span class="n">b</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">Cross</span><span class="p">(</span><span class="n">c</span> <span class="o">-</span> <span class="n">a</span><span class="p">,</span> <span class="n">d</span> <span class="o">-</span> <span class="n">c</span><span class="p">)</span> <span class="o">/</span> <span class="n">det</span><span class="p">);</span>  
+    <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>  
+<span class="p">}</span>  
+  
+<span class="k">public</span> <span class="kt">float</span> <span class="nf">Cross</span><span class="p">(</span><span class="n">Vector2</span> <span class="n">a</span><span class="p">,</span> <span class="n">Vector2</span> <span class="n">b</span><span class="p">)</span>  
+<span class="p">{</span>  
+    <span class="k">return</span> <span class="n">Vector3</span><span class="p">.</span><span class="n">Cross</span><span class="p">((</span><span class="n">Vector3</span><span class="p">)</span><span class="n">a</span><span class="p">,</span> <span class="p">(</span><span class="n">Vector3</span><span class="p">)</span><span class="n">b</span><span class="p">).</span><span class="n">z</span><span class="p">;</span>  
+<span class="p">}</span>
+</code></pre></div></div>
+
+<hr />
+<h3 id="️방정식-풀이2">✏️방정식 풀이2</h3>
+
+<p>선분의 시작점을 $S_1$과 $S_2$이라고 하고  $S_{1}+ tP_{1}, S_{2}+ uP_2$ 으로 각각 두 선분 상의 임의의 점으로 나타낼 수 있습니다. 그렇다는 것은 $S_{1}+ tP_{1}= S_{2}+ uP_2$ 일때가 두 선분이 교차하는 지점이라는 뜻이고 u와 t에 대해서 방정식을 풀 수있다면 교차점을 구할 수 있습니다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">t</code>나 <code class="language-plaintext highlighter-rouge">u</code>를 구하기 위해서는 두 변수 중 하나를 제거해야 하며, 이를 외적을 통해 해결할 수 있습니다. 외적은 두 벡터가 평행할 때 0이 되는 성질을 이용합니다. 따라서 <code class="language-plaintext highlighter-rouge">t</code>와 곱해져 있는 벡터와 동일한 벡터를 양쪽에 외적해 주면 됩니다. 자기 자신을 외적하면 0이 되기 때문에, 양쪽에 <code class="language-plaintext highlighter-rouge">P₁</code>이나 <code class="language-plaintext highlighter-rouge">P₂</code>를 외적하여 구할 수 있습니다.</p>
+
+<p>\(S_{1}+ tP_{1}= S_{2}+ uP_2\)<br />
+\((S_{1}+ tP_{1})\times P_{1}= (S_{2}+ uP_{2)} \times P_1\)<br />
+\(S_{1} \times P_{1}= S_{2} \times P_{1}+ u(P_{2}\times P_1)\)<br />
+\(\frac{(S_{1}  - S_{2}) \times P_1}{P_{2} \times P_{1}}= u\)</p>
+
+<p>\(S_{1}+ tP_{1}= S_{2}+ uP_2\)<br />
+\((S_{1}+ tP_{1})\times P_{2}= (S_{2}+ uP_{2)} \times P_2\)<br />
+\(S_{2}  + P_{2}= S_{1} \times P_{2}+ t(P_{1}\times P_2)\)<br />
+\(\frac{(S_{2}  - S_{1}) \times P_2}{P_{1} \times P_{2}}= t\)</p>
+
+<p><img src="https://github.com/user-attachments/assets/c86b4c1a-c742-4e0e-8366-25365fe1b61c" alt="화면 캡처 2024-10-21 144113 (1)" /><em>방정식 풀이</em></p>
+
+<hr />
+
+<h4 id="코드-1">💻코드</h4>
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">public</span> <span class="kt">bool</span> <span class="nf">IsIntersectingSegments</span><span class="p">(</span><span class="n">Segment</span> <span class="n">s</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">includeEndPoints</span> <span class="p">=</span> <span class="k">true</span><span class="p">)</span>  
+<span class="p">{</span>  
+    <span class="n">Point</span> <span class="n">p1</span> <span class="p">=</span> <span class="n">End</span> <span class="p">-</span> <span class="n">Start</span><span class="p">,</span> <span class="n">p2</span> <span class="p">=</span> <span class="n">s</span><span class="p">.</span><span class="n">End</span> <span class="p">-</span> <span class="n">s</span><span class="p">.</span><span class="n">Start</span><span class="p">;</span>  
+    <span class="kt">float</span> <span class="n">rxs</span> <span class="p">=</span> <span class="nf">Cross</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">);</span>  
+    <span class="c1">// 두 선분이 평행하면 false다  </span>
+    <span class="k">if</span> <span class="p">(</span><span class="nf">FloatZero</span><span class="p">(</span><span class="n">rxs</span><span class="p">))</span> <span class="k">return</span> <span class="k">false</span><span class="p">;</span>  
+      
+    <span class="c1">// a_x + ub_x = c_x + td_x    // a_y + ub_y = c_y + td_y    // 이 식을 u나 t에대해서 풀고 외적으로 표현할 수도 있고  </span>
+    <span class="c1">// a + ub = c + td  </span>
+    <span class="c1">// (a + ub) X b = (c + td) X b : X는 외적  </span>
+    <span class="c1">// 각각 b나 d를 외적해서 u나 b 하나를 없애고 나머지 하나에 대해서 연립해서 풀수도 있다.  </span>
+    <span class="kt">float</span> <span class="n">u</span> <span class="p">=</span> <span class="nf">Cross</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">Start</span> <span class="p">-</span> <span class="n">s</span><span class="p">.</span><span class="n">Start</span><span class="p">,</span> <span class="n">p1</span><span class="p">)</span> <span class="p">/</span> <span class="p">-</span><span class="n">rxs</span><span class="p">;</span>  
+    <span class="kt">float</span> <span class="n">t</span> <span class="p">=</span> <span class="nf">Cross</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">Start</span> <span class="p">-</span> <span class="k">this</span><span class="p">.</span><span class="n">Start</span><span class="p">,</span> <span class="n">p2</span><span class="p">)</span> <span class="p">/</span> <span class="n">rxs</span><span class="p">;</span>  
+  
+    <span class="c1">// u와 t는 각각의 선분에서의 보간(Lerp) 비율을 나타내는 값이다.</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">includeEndPoints</span><span class="p">)</span> <span class="k">return</span> <span class="n">u</span> <span class="p">&gt;=</span> <span class="m">0</span> <span class="p">&amp;&amp;</span> <span class="n">u</span> <span class="p">&lt;=</span>  <span class="m">1</span> <span class="p">&amp;&amp;</span> <span class="n">t</span> <span class="p">&gt;=</span> <span class="m">0</span> <span class="p">&amp;&amp;</span> <span class="n">t</span> <span class="p">&lt;=</span> <span class="m">1</span><span class="p">;</span>  
+    <span class="c1">// 교차점이 끝에 걸려있는지 체크한다.  </span>
+    <span class="k">else</span> <span class="k">return</span> <span class="n">u</span> <span class="p">&gt;</span> <span class="m">0</span> <span class="p">&amp;&amp;</span> <span class="n">u</span> <span class="p">&lt;</span> <span class="m">1</span> <span class="p">&amp;&amp;</span> <span class="n">t</span> <span class="p">&gt;</span> <span class="m">0</span> <span class="p">&amp;&amp;</span> <span class="n">t</span> <span class="p">&lt;</span> <span class="m">1</span><span class="p">;</span>  
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 교차점을 구하는 함수  </span>
+<span class="k">public</span> <span class="n">Point</span> <span class="nf">Intersection</span><span class="p">(</span><span class="n">Segment</span> <span class="n">s</span><span class="p">)</span>  
+<span class="p">{</span>  
+    <span class="k">if</span> <span class="p">(</span><span class="n">s</span> <span class="n">is</span> <span class="n">null</span> <span class="o">||</span> <span class="o">!</span><span class="n">IsIntersectingSegments</span><span class="p">(</span><span class="n">s</span><span class="p">))</span> <span class="k">return</span> <span class="n">null</span><span class="p">;</span>  
+    <span class="c1">// 겹쳐져 있다면 결국 두 선분 사이에 있다는 뜻  </span>
+    <span class="c1">// 그러니 교차점의 t(alpha) 값을 구하는 공식을 써서 교차점을 반환해준다.  </span>
+    <span class="n">Point</span> <span class="n">p1</span> <span class="o">=</span> <span class="n">End</span> <span class="o">-</span> <span class="n">Start</span><span class="p">,</span> <span class="n">p2</span> <span class="o">=</span> <span class="n">s</span><span class="p">.</span><span class="n">End</span> <span class="o">-</span> <span class="n">s</span><span class="p">.</span><span class="n">Start</span><span class="p">;</span>  
+    <span class="kt">float</span> <span class="n">rxs</span> <span class="o">=</span> <span class="n">Cross</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">);</span>  
+    <span class="kt">float</span> <span class="n">t</span> <span class="o">=</span> <span class="n">Cross</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">Start</span> <span class="o">-</span> <span class="n">Start</span><span class="p">,</span> <span class="n">p2</span><span class="p">)</span> <span class="o">/</span> <span class="n">rxs</span><span class="p">;</span>  
+    <span class="k">return</span> <span class="n">Start</span> <span class="o">+</span> <span class="k">new</span> <span class="n">Point</span><span class="p">(</span><span class="n">t</span> <span class="o">*</span> <span class="n">p1</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">t</span> <span class="o">*</span> <span class="n">p1</span><span class="p">.</span><span class="n">y</span><span class="p">);</span>  
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="️선분과-선분의-교차점">✏️선분과 선분의 교차점</h2>
+
+<p>선분은 생각외로 직선보다 고려해야할 사항이 많습니다.<br />
+<strong>두 선분이 모두 한 직선 위에 있는 경우</strong>에 처리하기가 힘듭니다.</p>
+<ul>
+  <li>두 선분이 서로 겹치지 않는다</li>
+  <li>두 선분이 한점에 닿는다</li>
+  <li>두 선분이 겹쳐진다</li>
+  <li>한 선분이 다른 선분안에 포함된다<br />
+원래는 첫번째의 경우만 겹쳐지지 않지만 위에서 작성한 코드로는 2,3,4도 겹쳐지지 않았다고 판별하기 때문입니다.<br />
+<img src="https://github.com/user-attachments/assets/b80d5666-a0dc-4ad9-a46b-40a704d52b09" alt="image" /></li>
+</ul>
+
+<hr />
+
+<h3 id="코드-2">💻코드</h3>
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 선분 a, b 선분 c, d가 평행하면 한 점에서 겹치는지 확인한다.  </span>
+<span class="kt">bool</span> <span class="nf">paralleSegments</span><span class="p">(</span><span class="n">Vector2</span> <span class="n">a</span><span class="p">,</span> <span class="n">Vector2</span> <span class="n">b</span><span class="p">,</span> <span class="n">Vector2</span> <span class="n">c</span><span class="p">,</span> <span class="n">Vector2</span> <span class="n">d</span><span class="p">,</span> <span class="k">ref</span> <span class="n">Vector2</span> <span class="n">p</span><span class="p">)</span>  
+<span class="p">{</span>  
+    <span class="k">if</span> <span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="n">x</span> <span class="p">&lt;</span> <span class="n">a</span><span class="p">.</span><span class="n">x</span> <span class="p">&amp;&amp;</span> <span class="n">b</span><span class="p">.</span><span class="n">y</span> <span class="p">&lt;</span> <span class="n">a</span><span class="p">.</span><span class="n">y</span><span class="p">)</span> <span class="nf">Swap</span><span class="p">(</span><span class="k">ref</span> <span class="n">a</span><span class="p">,</span> <span class="k">ref</span> <span class="n">b</span><span class="p">);</span>  
+    <span class="k">if</span> <span class="p">(</span><span class="n">d</span><span class="p">.</span><span class="n">x</span> <span class="p">&lt;</span> <span class="n">c</span><span class="p">.</span><span class="n">x</span> <span class="p">&amp;&amp;</span> <span class="n">d</span><span class="p">.</span><span class="n">y</span> <span class="p">&lt;</span> <span class="n">c</span><span class="p">.</span><span class="n">y</span><span class="p">)</span> <span class="nf">Swap</span><span class="p">(</span><span class="k">ref</span> <span class="n">c</span><span class="p">,</span> <span class="k">ref</span> <span class="n">d</span><span class="p">);</span>  
+  
+    <span class="c1">// 한 직선위에 없거나 두 선분이 겹치지 않는 경우를 우선 걸러낸다.  </span>
+    <span class="k">if</span> <span class="p">(</span><span class="nf">ccw</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span> <span class="p">!=</span> <span class="m">0</span> <span class="p">||</span> <span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="n">x</span> <span class="p">&lt;</span> <span class="n">c</span><span class="p">.</span><span class="n">x</span> <span class="p">&amp;&amp;</span> <span class="n">b</span><span class="p">.</span><span class="n">y</span> <span class="p">&lt;</span> <span class="n">c</span><span class="p">.</span><span class="n">y</span><span class="p">)</span> <span class="p">||</span> <span class="p">(</span><span class="n">d</span><span class="p">.</span><span class="n">x</span> <span class="p">&lt;</span> <span class="n">a</span><span class="p">.</span><span class="n">x</span> <span class="p">&amp;&amp;</span> <span class="n">d</span><span class="p">.</span><span class="n">y</span> <span class="p">&lt;</span> <span class="n">a</span><span class="p">.</span><span class="n">y</span><span class="p">))</span> <span class="k">return</span> <span class="k">false</span><span class="p">;</span>  
+      
+    <span class="c1">// 두 선분이 겹친다면 교차점 하나를 찾는다.  </span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">x</span> <span class="p">&lt;</span> <span class="n">c</span><span class="p">.</span><span class="n">x</span> <span class="p">&amp;&amp;</span> <span class="n">a</span><span class="p">.</span><span class="n">y</span> <span class="p">&lt;</span> <span class="n">c</span><span class="p">.</span><span class="n">y</span><span class="p">)</span> <span class="n">p</span> <span class="p">=</span> <span class="n">c</span><span class="p">;</span>  
+    <span class="k">else</span> <span class="n">p</span> <span class="p">=</span> <span class="n">a</span><span class="p">;</span>  
+    <span class="k">return</span> <span class="k">true</span><span class="p">;</span>  
+<span class="p">}</span>  
+  
+<span class="c1">// - p가 두 점 a, b를 감싸면서 각 변이 x, y축에 평행한 최소사각형 내부에 있는지 확인한다.  </span>
+<span class="c1">// a, b, p는 일직선 상에 있다고 가정한다.  </span>
+<span class="kt">bool</span> <span class="nf">inBoundingRectangle</span><span class="p">(</span><span class="n">Vector2</span> <span class="n">p</span><span class="p">,</span> <span class="n">Vector2</span> <span class="n">a</span><span class="p">,</span> <span class="n">Vector2</span> <span class="n">b</span><span class="p">)</span>  
+<span class="p">{</span>  
+    <span class="k">if</span> <span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="n">x</span> <span class="p">&lt;</span> <span class="n">a</span><span class="p">.</span><span class="n">x</span> <span class="p">&amp;&amp;</span> <span class="n">b</span><span class="p">.</span><span class="n">y</span> <span class="p">&lt;</span> <span class="n">a</span><span class="p">.</span><span class="n">y</span><span class="p">)</span> <span class="nf">Swap</span><span class="p">(</span><span class="k">ref</span> <span class="n">a</span><span class="p">,</span> <span class="k">ref</span> <span class="n">b</span><span class="p">);</span>  
+    <span class="k">return</span> <span class="n">p</span> <span class="p">==</span> <span class="n">a</span> <span class="p">||</span> <span class="n">p</span> <span class="p">==</span> <span class="n">b</span> <span class="p">||</span> <span class="p">((</span><span class="n">a</span><span class="p">.</span><span class="n">x</span> <span class="p">&lt;</span> <span class="n">p</span><span class="p">.</span><span class="n">x</span> <span class="p">&amp;&amp;</span> <span class="n">a</span><span class="p">.</span><span class="n">y</span> <span class="p">&lt;</span> <span class="n">p</span><span class="p">.</span><span class="n">y</span><span class="p">)</span> <span class="p">&amp;&amp;</span> <span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="n">x</span> <span class="p">&lt;</span> <span class="n">b</span><span class="p">.</span><span class="n">x</span> <span class="p">&amp;&amp;</span> <span class="n">p</span><span class="p">.</span><span class="n">y</span> <span class="p">&lt;</span> <span class="n">b</span><span class="p">.</span><span class="n">y</span><span class="p">));</span>  
+<span class="p">}</span>  
+  
+<span class="c1">// - 두 점 a, b를 지나는 선분과 두 점 c, b를 지나는 선분을 p에 반환한다.  </span>
+<span class="c1">// - 교점이 여러개일 경우 아무점이나 반환한다.  </span>
+<span class="kt">bool</span> <span class="nf">segmentIntersection</span><span class="p">(</span><span class="n">Vector2</span> <span class="n">a</span><span class="p">,</span> <span class="n">Vector2</span> <span class="n">b</span><span class="p">,</span> <span class="n">Vector2</span> <span class="n">c</span><span class="p">,</span> <span class="n">Vector2</span> <span class="n">d</span><span class="p">,</span> <span class="k">ref</span> <span class="n">Vector2</span> <span class="n">p</span><span class="p">){</span>      
+    <span class="c1">//두 직선이 평행인 경우를 우선 예외로 처리한다.  </span>
+    <span class="k">if</span><span class="p">(!</span><span class="nf">lineIntersection</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="k">ref</span> <span class="n">p</span><span class="p">))</span>          
+        <span class="k">return</span> <span class="nf">paralleSegments</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="k">ref</span> <span class="n">p</span><span class="p">);</span>      
+    <span class="c1">//p가 두 선분에 포함되어 있는 경우에만 참을 반환한다.  </span>
+    <span class="k">return</span> <span class="nf">inBoundingRectangle</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="p">&amp;&amp;</span> <span class="nf">inBoundingRectangle</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">);</span>  
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="최종-결과물">🚀최종 결과물</h2>
+<p><img src="https://github.com/user-attachments/assets/ab4a0405-c74e-40f5-bd29-97de46a4f5f8" alt="Animation" /></p>
+
+<h2><br /></h2>
+<p><br /></p>
+
+<div class="Reference">
+<div class="callout-header"> </div>
+<p>
+<a href="https://00ad-8e71-00ff-055d.tistory.com/98">https://00ad-8e71-00ff-055d.tistory.com/98</a>
+<a href="https://bowbowbow.tistory.com/17">https://bowbowbow.tistory.com/17</a>
+</p>
+</div>]]></content><author><name>Mohitto55</name></author><category term="geometry" /><category term="Geometry" /><category term="기하학" /><category term="기하" /><category term="선분" /><category term="선" /><category term="길이" /><category term="교차점" /><category term="Intersection" /><category term="Line" /><category term="Point" /><summary type="html"><![CDATA[📄외적을 이용한 선분과 선분의 교차점 구하기]]></summary></entry><entry><title type="html">[Obsidian] Anuppuchin테마는 크기가 커지면 엄청 느리다</title><link href="http://localhost:4000/obsidian/Obsidian-%EC%95%84%EB%88%84%ED%91%B8%EC%B9%9C%ED%85%8C%EB%A7%88-%EC%A0%9C%EA%B1%B0/" rel="alternate" type="text/html" title="[Obsidian] Anuppuchin테마는 크기가 커지면 엄청 느리다" /><published>2024-10-24T00:00:00+09:00</published><updated>2024-10-24T00:00:00+09:00</updated><id>http://localhost:4000/obsidian/Obsidian%20%EC%95%84%EB%88%84%ED%91%B8%EC%B9%9C%ED%85%8C%EB%A7%88%20%EC%A0%9C%EA%B1%B0</id><content type="html" xml:base="http://localhost:4000/obsidian/Obsidian-%EC%95%84%EB%88%84%ED%91%B8%EC%B9%9C%ED%85%8C%EB%A7%88-%EC%A0%9C%EA%B1%B0/"><![CDATA[<h2 id="현상">📄현상</h2>
 <p>어느 순간부터 옵시디언으로 노트를 작성하면 타이핑 속도가 굉장히 느려지는 것이 느껴졌다. 특히 Bullet Point나 리스트로 작성하면 속도가 현저히 느려져 화면이 툭툭 끊기는 것이 심해졌다.</p>
 
 <h2 id="원인">🔍원인</h2>
@@ -16,49 +184,26 @@
 <div class="callout-header"> </div>
 <p>
 </p>
-</div>]]></content><author><name>Mohitto55</name></author><category term="obsidian" /><category term="Obsidian" /><category term="옵시디언" /><category term="테마" /><category term="Theme" /><category term="최적화" /><category term="Optimize" /><category term="속도" /><category term="아누푸친" /><category term="Anuppuchine" /><category term="Minimal" /><category term="미니멀" /><summary type="html"><![CDATA[📄현상 어느 순간부터 옵시디언으로 노트를 작성하면 타이핑 속도가 굉장히 느려지는 것이 느껴졌다. 특히 Bullet Point나 리스트로 작성하면 속도가 현저히 느려져 화면이 툭툭 끊기는 것이 심해졌다.]]></summary></entry><entry><title type="html">[C++] C스타일 캐스팅 부터 bit_cast까지 다양한 형변환을 알아보자</title><link href="http://localhost:4000/cpp/CPP-%ED%83%80%EC%9E%85-%EC%BA%90%EC%8A%A4%ED%8C%85/" rel="alternate" type="text/html" title="[C++] C스타일 캐스팅 부터 bit_cast까지 다양한 형변환을 알아보자" /><published>2024-10-10T00:00:00+09:00</published><updated>2024-10-10T00:00:00+09:00</updated><id>http://localhost:4000/cpp/CPP%20%ED%83%80%EC%9E%85%20%EC%BA%90%EC%8A%A4%ED%8C%85</id><content type="html" xml:base="http://localhost:4000/cpp/CPP-%ED%83%80%EC%9E%85-%EC%BA%90%EC%8A%A4%ED%8C%85/"><![CDATA[<h2 id="발생과정">발생과정</h2>
-<p>프로젝트를 최초 생성하고 컴파일 하려하면 이런 오류가 뜬다 왜 이럴까?</p>
+</div>]]></content><author><name>Mohitto55</name></author><category term="obsidian" /><category term="Obsidian" /><category term="옵시디언" /><category term="테마" /><category term="Theme" /><category term="최적화" /><category term="Optimize" /><category term="속도" /><category term="아누푸친" /><category term="Anuppuchine" /><category term="Minimal" /><category term="미니멀" /><summary type="html"><![CDATA[📄현상 어느 순간부터 옵시디언으로 노트를 작성하면 타이핑 속도가 굉장히 느려지는 것이 느껴졌다. 특히 Bullet Point나 리스트로 작성하면 속도가 현저히 느려져 화면이 툭툭 끊기는 것이 심해졌다.]]></summary></entry><entry><title type="html">[Geometry] 선과 점사이 거리를 구하는 법</title><link href="http://localhost:4000/obsidian/Math-%EC%84%A0%EA%B3%BC-%EC%A0%90%EC%82%AC%EC%9D%B4%EC%9D%98-%EA%B1%B0%EB%A6%AC-%EA%B5%AC%ED%95%98%EA%B8%B0/" rel="alternate" type="text/html" title="[Geometry] 선과 점사이 거리를 구하는 법" /><published>2024-10-24T00:00:00+09:00</published><updated>2024-10-24T00:00:00+09:00</updated><id>http://localhost:4000/obsidian/Math%20%EC%84%A0%EA%B3%BC%20%EC%A0%90%EC%82%AC%EC%9D%B4%EC%9D%98%20%EA%B1%B0%EB%A6%AC%20%EA%B5%AC%ED%95%98%EA%B8%B0</id><content type="html" xml:base="http://localhost:4000/obsidian/Math-%EC%84%A0%EA%B3%BC-%EC%A0%90%EC%82%AC%EC%9D%B4%EC%9D%98-%EA%B1%B0%EB%A6%AC-%EA%B5%AC%ED%95%98%EA%B8%B0/"><![CDATA[<h2 id="선분과-점사이의-거리-구하기">선분과 점사이의 거리 구하기</h2>
+<ul>
+  <li>평행사변형의 넓이 공식을 이용한다.
+    <ul>
+      <li>(넓이) = 밑변 X 높이</li>
+    </ul>
+  </li>
+  <li>외적은 두직선으로 이루어진 평행사변형의 넓이이다.</li>
+  <li>평행사변형의 넓이는 밑변 X 높이인데 여기서 한 선분의 밑변을 나누면 높이만 남아 거리를 구할 수 있다.</li>
+</ul>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1&gt;Microsoft.MakeFile.Targets(44,5): Error MSB3073 : ""C:\Program Files\Epic Games\UE_5.4\Engine\Build\BatchFiles\Build.bat" MultiShooterEditor Win64 Development -Project="C:\Users\admin\git\UE5\MultiShooter\MultiShooter.uproject" -WaitMutex -FromMsBuild -architecture=x64" 명령이 종료되었습니다(코드: 6).
+<p><img src="https://github.com/user-attachments/assets/3797b212-f5d9-4684-bf2f-60925b87d4ad" alt="image" /></p>
+
+<h3 id="코드">코드</h3>
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">public</span> <span class="kt">float</span> <span class="nf">Distance</span><span class="p">(</span><span class="n">Point</span> <span class="n">p</span><span class="p">)</span>  
+<span class="p">{</span>  
+    <span class="n">Point</span> <span class="n">p1</span> <span class="p">=</span> <span class="n">End</span> <span class="p">-</span> <span class="n">Start</span><span class="p">,</span> <span class="n">p2</span> <span class="p">=</span> <span class="n">p</span> <span class="p">-</span> <span class="n">Start</span><span class="p">;</span>  
+    <span class="k">return</span> <span class="n">MathUtility</span><span class="p">.</span><span class="nf">Cross2D</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">)</span> <span class="p">/</span> <span class="n">p1</span><span class="p">.</span><span class="nf">Magnitude</span><span class="p">();</span>  
+<span class="p">}</span>
 </code></pre></div></div>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;------ 빌드 시작: 프로젝트: MultiShooter, 구성: Development_Editor x64 ------ 1&gt;Using bundled DotNet SDK version: 6.0.302 1&gt;Running UnrealBuildTool: dotnet "..\..\Engine\Binaries\DotNET\UnrealBuildTool\UnrealBuildTool.dll" MultiShooterEditor Win64 Development -Project="C:\MultiShooter\MultiShooter.uproject" -WaitMutex -FromMsBuild -architecture=x64 1&gt;Log file: C:\Users\admin\AppData\Local\UnrealBuildTool\Log.txt 1&gt;Creating makefile for MultiShooterEditor (no existing makefile) 1&gt;Visual Studio 2022 is installed, but is missing the C++ toolchain. Please verify that the "MSVC v143 - VS 2022 C++ x64/x86 build tools (Latest)" component is selected in the Visual Studio 2022 installation options. 1&gt;Total execution time: 0.76 seconds 1&gt;UnrealBuildTool has banned the MSVC 14.39.33519-14.39.99999 toolchains due to compiler issues. Please install a different toolchain such as 14.38.33130 by opening the generated solution and installing recommended components or from the Visual Studio installer. 1&gt;C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.MakeFile.Targets(44,5): error MSB3073: ""C:\Program Files\Epic Games\UE_5.4\Engine\Build\BatchFiles\Build.bat" MultiShooterEditor Win64 Development -Project="C:\MultiShooter\MultiShooter.uproject" -WaitMutex -FromMsBuild -architecture=x64" 명령이 종료되었습니다(코드: 6). 1&gt;"MultiShooter.vcxproj" 프로젝트를 빌드했습니다. - 실패 ========== 빌드: 0개 성공, 1개 실패, 11개 최신 상태, 0개 건너뜀 ==========
-</code></pre></div></div>
-
-<hr />
-
-<h3 id="정확한-오류-확인하기">정확한 오류 확인하기</h3>
-<p>비쥬얼 스튜디오에서 출력으로 정확한 로그를 볼 수 있다.</p>
-
-<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/cf4baada-ed6c-4521-ba58-5da3ad7b2921" alt="image" /></p>
-
-<hr />
-
-<h3 id="1-경로중-한글-없애기">1. 경로중 한글 없애기</h3>
-<p>경로중에 한글이 있다면 오류가 생길 수 있다.<br />
-한글로된 폴더 이름을 영어로 변경해준다.</p>
-
-<hr />
-
-<h3 id="2-툴체인-오류">2. 툴체인 오류</h3>
-<p>UnrealBuildTool과 다른 <strong>툴체인</strong>을 사용하여 생기는 오류다.<br />
-툴체인을 직접 설정해줘야한다.</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>UnrealBuildTool has banned the MSVC 14.39.33519-14.39.99999 toolchains due to compiler issues. Please install a different toolchain such as 14.38.33130 by opening the generated solution and installing recommended components or from the Visual Studio installer
-</code></pre></div></div>
-
-<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/ccc4b4ab-15a5-4351-95aa-405c37c71a9b" alt="image" /></p>
-
-<div class="callout-info-expanded">
-<div class="callout-header">툴체인</div>
-<p>
-툴체인은 개발자가 코드를 작성하고 빌드하여 실행 가능한 프로그램을 만들기 위해 사용하는 모든 도구들을 의미합니다. 코드를 어떻게 빌드하고, 링크하며, 디버깅할지에 대한 정보를 제공합니다
-</p>
-</div>
-
-<h2 id="해결완료">해결완료</h2>
-
-<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/b23de2e7-bd3a-4cd2-9483-f84ccc851120" alt="image" /></p>
 
 <h2><br /></h2>
 <p><br /></p>
@@ -66,10 +211,8 @@
 <div class="Reference">
 <div class="callout-header"> </div>
 <p>
-<a href="https://learn.microsoft.com/en-us/answers/questions/1163496/code-error-when-building-unreal-engine-5-source-co">https://learn.microsoft.com/en-us/answers/questions/1163496/code-error-when-building-unreal-engine-5-source-co</a>
-<a href="https://gall.dcinside.com/mgallery/board/view/?id=gamejob&amp;no=14429">https://gall.dcinside.com/mgallery/board/view/?id=gamejob&amp;no=14429</a>
 </p>
-</div>]]></content><author><name>Mohitto55</name></author><category term="cpp" /><category term="C++" /><category term="C" /><category term="UnrealEngine" /><category term="VisualStudio" /><category term="Vs" /><category term="IDE" /><category term="Build" /><category term="빌드" /><category term="MSB3073" /><category term="컴파일" /><summary type="html"><![CDATA[발생과정 프로젝트를 최초 생성하고 컴파일 하려하면 이런 오류가 뜬다 왜 이럴까?]]></summary></entry><entry><title type="html">[UE5] 컴파일시 MSB3073오류 해결하기</title><link href="http://localhost:4000/ue5/Unreal-MSB3073-%EC%98%A4%EB%A5%98-%ED%95%B4%EA%B2%B0%EB%B2%94/" rel="alternate" type="text/html" title="[UE5] 컴파일시 MSB3073오류 해결하기" /><published>2024-10-10T00:00:00+09:00</published><updated>2024-10-10T00:00:00+09:00</updated><id>http://localhost:4000/ue5/Unreal%20MSB3073%20%EC%98%A4%EB%A5%98%20%ED%95%B4%EA%B2%B0%EB%B2%94</id><content type="html" xml:base="http://localhost:4000/ue5/Unreal-MSB3073-%EC%98%A4%EB%A5%98-%ED%95%B4%EA%B2%B0%EB%B2%94/"><![CDATA[<h2 id="발생과정">발생과정</h2>
+</div>]]></content><author><name>Mohitto55</name></author><category term="obsidian" /><category term="Geometry" /><category term="기하학" /><category term="선분" /><category term="선" /><category term="길이" /><category term="Distance" /><category term="속도" /><category term="Line" /><category term="Point" /><category term="Parallelogram" /><summary type="html"><![CDATA[선분과 점사이의 거리 구하기 평행사변형의 넓이 공식을 이용한다. (넓이) = 밑변 X 높이 외적은 두직선으로 이루어진 평행사변형의 넓이이다. 평행사변형의 넓이는 밑변 X 높이인데 여기서 한 선분의 밑변을 나누면 높이만 남아 거리를 구할 수 있다.]]></summary></entry><entry><title type="html">[UE5] 컴파일시 MSB3073오류 해결하기</title><link href="http://localhost:4000/ue5/Unreal-MSB3073-%EC%98%A4%EB%A5%98-%ED%95%B4%EA%B2%B0%EB%B2%94/" rel="alternate" type="text/html" title="[UE5] 컴파일시 MSB3073오류 해결하기" /><published>2024-10-10T00:00:00+09:00</published><updated>2024-10-10T00:00:00+09:00</updated><id>http://localhost:4000/ue5/Unreal%20MSB3073%20%EC%98%A4%EB%A5%98%20%ED%95%B4%EA%B2%B0%EB%B2%94</id><content type="html" xml:base="http://localhost:4000/ue5/Unreal-MSB3073-%EC%98%A4%EB%A5%98-%ED%95%B4%EA%B2%B0%EB%B2%94/"><![CDATA[<h2 id="발생과정">발생과정</h2>
 <p>프로젝트를 최초 생성하고 컴파일 하려하면 이런 오류가 뜬다 왜 이럴까?</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1&gt;Microsoft.MakeFile.Targets(44,5): Error MSB3073 : ""C:\Program Files\Epic Games\UE_5.4\Engine\Build\BatchFiles\Build.bat" MultiShooterEditor Win64 Development -Project="C:\Users\admin\git\UE5\MultiShooter\MultiShooter.uproject" -WaitMutex -FromMsBuild -architecture=x64" 명령이 종료되었습니다(코드: 6).
@@ -741,7 +884,44 @@ GItBlog는 처음부터 끝까지 기능을 다 커스텀가능하고 테마도 
 <a href="https://www.youtube.com/watch?v=4ag7fSlEeKA">https://www.youtube.com/watch?v=4ag7fSlEeKA</a>
 <a href="https://www.youtube.com/watch?v=S4aBd64t-hY&amp;ab_channel=GorkaGames">https://www.youtube.com/watch?v=S4aBd64t-hY&amp;ab_channel=GorkaGames</a>
 </p>
-</div>]]></content><author><name>Mohitto55</name></author><category term="ue5" /><category term="UE5" /><category term="UnrealEngine" /><category term="Animation" /><category term="MotionMatching" /><summary type="html"><![CDATA[언리얼엔진이 5.4버전이 나오면서 모션매칭 기능이 새로 발표되었다. 모션 매칭은 캐릭터 애니메이션을 위한 차세대 프레임워크다. 이 기술은 언리얼 엔진 5.4 버전에서 새롭게 도입되었으며, 캐릭터의 움직임을 더욱 자연스럽고 역동적으로 만드는 데 중점을 준다.]]></summary></entry><entry><title type="html">[Docker] Ubuntu에서 Docker로 Mysql설치하기</title><link href="http://localhost:4000/network/Docker%EC%97%90-mysql-%EC%84%A4%EC%B9%98/" rel="alternate" type="text/html" title="[Docker] Ubuntu에서 Docker로 Mysql설치하기" /><published>2024-08-17T00:00:00+09:00</published><updated>2024-08-17T00:00:00+09:00</updated><id>http://localhost:4000/network/Docker%EC%97%90%20mysql%20%EC%84%A4%EC%B9%98</id><content type="html" xml:base="http://localhost:4000/network/Docker%EC%97%90-mysql-%EC%84%A4%EC%B9%98/"><![CDATA[<h2 id="docker-설치">Docker 설치</h2>
+</div>]]></content><author><name>Mohitto55</name></author><category term="ue5" /><category term="UE5" /><category term="UnrealEngine" /><category term="Animation" /><category term="MotionMatching" /><summary type="html"><![CDATA[언리얼엔진이 5.4버전이 나오면서 모션매칭 기능이 새로 발표되었다. 모션 매칭은 캐릭터 애니메이션을 위한 차세대 프레임워크다. 이 기술은 언리얼 엔진 5.4 버전에서 새롭게 도입되었으며, 캐릭터의 움직임을 더욱 자연스럽고 역동적으로 만드는 데 중점을 준다.]]></summary></entry><entry><title type="html">[Docker] Docker Image 개념과 구조</title><link href="http://localhost:4000/network/Docker-Image-%EC%A0%95%EB%A6%AC/" rel="alternate" type="text/html" title="[Docker] Docker Image 개념과 구조" /><published>2024-08-17T00:00:00+09:00</published><updated>2024-08-17T00:00:00+09:00</updated><id>http://localhost:4000/network/Docker%20Image%20%EC%A0%95%EB%A6%AC</id><content type="html" xml:base="http://localhost:4000/network/Docker-Image-%EC%A0%95%EB%A6%AC/"><![CDATA[<h2 id="docker-이미지">Docker 이미지</h2>
+<p>컨테이너를 만드는데 사용되는 Template이라 생각하면 된다.<br />
+컨테이너는 이미지를 기반으로 생성된다.</p>
+
+<p><br /><br />
+이미지는 <code class="language-plaintext highlighter-rouge">Docker hub</code>에서 다운받아서 사용하는 방식으로 도커 계정을 가진 사람들끼리 이미지를 공유할 수 있다.</p>
+
+<hr />
+
+<h3 id="이미지-구조와-레이어">이미지 구조와 레이어</h3>
+<p><img src="https://github.com/user-attachments/assets/4f99fce3-c1c1-4b4d-8077-65c5f3f53d2b" alt="image" /></p>
+
+<p><br /><br />
+이미지는 용량이 매우 큰데 기본 몇백MB다. 이미지를 업데이트하면 그 큰 용량을 매번 전부 다운 받는것은 비효율적이다. 그래서 Layer 구조를 통해 관리를 한다.</p>
+
+<p><br /><br />
+이미지는 기본적으로 <strong>읽기전용(Read-Only)</strong>의 레이어 여러개로 구성되어있다. 이 레이어들은 파일이 추가되거나 수정되면 새로운 레이어를 만든다. 즉 기존 Base레이어는 변경되지않고 새로운 Layer가 추가하면된다.</p>
+
+<p><br /><br />
+위 그림처럼 기본 Base Image를 이용해 만드는 새로운 Image는 Layer를 수정하지 않고 새 Layer를 생성한다. 이렇게하면 web app 이미지를 업데이트 할 때 web app layer만 수정하면된다.</p>
+
+<p><br /><br />
+맨 우측 그림을 보면 Docker Container에서 web app을 베이스로 이미지 생성을 하는데 해당 이미지 레이어들은 모두 <strong>읽기전용(Read-Only)</strong>으로 생성된다.</p>
+
+<p><br /><br />
+컨테이너가 생성될 때마다 Container Layer가 생성되는데 해당 레이어는 <strong>읽기쓰기</strong> 모두 가능하지만 Container가 삭제되면 Container Layer도 삭제된다.</p>
+
+<p><img src="https://github.com/user-attachments/assets/4440ce1c-1063-4b1a-956a-d9d5b2f7b859" alt="image" /></p>
+
+<h2><br /></h2>
+<p><br /></p>
+<div class="Reference">
+<div class="callout-header"> </div>
+<p>
+<a href="https://velog.io/@kdaeyeop/%EB%8F%84%EC%BB%A4-Docker-%EC%99%80-VM%EC%9D%98-%EC%B0%A8%EC%9D%B4">https://velog.io/@kdaeyeop/%EB%8F%84%EC%BB%A4-Docker-%EC%99%80-VM%EC%9D%98-%EC%B0%A8%EC%9D%B4</a>
+<a href="https://creboring.net/blog/how-docker-divide-image-layer/">https://creboring.net/blog/how-docker-divide-image-layer/</a>
+</p>
+</div>]]></content><author><name>Mohitto55</name></author><category term="network" /><category term="Docker" /><category term="Ubuntu" /><category term="Linux" /><category term="컨테이너" /><category term="Image" /><category term="Layer" /><summary type="html"><![CDATA[Docker 이미지 컨테이너를 만드는데 사용되는 Template이라 생각하면 된다. 컨테이너는 이미지를 기반으로 생성된다.]]></summary></entry><entry><title type="html">[Docker] Ubuntu에서 Docker로 Mysql설치하기</title><link href="http://localhost:4000/network/Docker%EC%97%90-mysql-%EC%84%A4%EC%B9%98/" rel="alternate" type="text/html" title="[Docker] Ubuntu에서 Docker로 Mysql설치하기" /><published>2024-08-17T00:00:00+09:00</published><updated>2024-08-17T00:00:00+09:00</updated><id>http://localhost:4000/network/Docker%EC%97%90%20mysql%20%EC%84%A4%EC%B9%98</id><content type="html" xml:base="http://localhost:4000/network/Docker%EC%97%90-mysql-%EC%84%A4%EC%B9%98/"><![CDATA[<h2 id="docker-설치">Docker 설치</h2>
 <blockquote>
   <p>Docker 다운받기</p>
   <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo wget -qO- http://get.docker.com/ | sh
@@ -845,123 +1025,4 @@ mysql:latest : 컨테이너에 사용할 이미지<br /></p>
 <a href="https://hipopatamus.tistory.com/109">https://hipopatamus.tistory.com/109</a>
 <a href="https://khj93.tistory.com/entry/Docker-Docker-%EA%B0%9C%EB%85%90">https://khj93.tistory.com/entry/Docker-Docker-%EA%B0%9C%EB%85%90</a>
 </p>
-</div>]]></content><author><name>Mohitto55</name></author><category term="network" /><category term="Docket" /><category term="Ubuntu" /><category term="Linux" /><category term="컨테이너" /><summary type="html"><![CDATA[Docker 설치 Docker 다운받기 sudo wget -qO- http://get.docker.com/ | sh]]></summary></entry><entry><title type="html">[Docker] Docker Image 개념과 구조</title><link href="http://localhost:4000/network/Docker-Image-%EC%A0%95%EB%A6%AC/" rel="alternate" type="text/html" title="[Docker] Docker Image 개념과 구조" /><published>2024-08-17T00:00:00+09:00</published><updated>2024-08-17T00:00:00+09:00</updated><id>http://localhost:4000/network/Docker%20Image%20%EC%A0%95%EB%A6%AC</id><content type="html" xml:base="http://localhost:4000/network/Docker-Image-%EC%A0%95%EB%A6%AC/"><![CDATA[<h2 id="docker-이미지">Docker 이미지</h2>
-<p>컨테이너를 만드는데 사용되는 Template이라 생각하면 된다.<br />
-컨테이너는 이미지를 기반으로 생성된다.</p>
-
-<p><br /><br />
-이미지는 <code class="language-plaintext highlighter-rouge">Docker hub</code>에서 다운받아서 사용하는 방식으로 도커 계정을 가진 사람들끼리 이미지를 공유할 수 있다.</p>
-
-<hr />
-
-<h3 id="이미지-구조와-레이어">이미지 구조와 레이어</h3>
-<p><img src="https://github.com/user-attachments/assets/4f99fce3-c1c1-4b4d-8077-65c5f3f53d2b" alt="image" /></p>
-
-<p><br /><br />
-이미지는 용량이 매우 큰데 기본 몇백MB다. 이미지를 업데이트하면 그 큰 용량을 매번 전부 다운 받는것은 비효율적이다. 그래서 Layer 구조를 통해 관리를 한다.</p>
-
-<p><br /><br />
-이미지는 기본적으로 <strong>읽기전용(Read-Only)</strong>의 레이어 여러개로 구성되어있다. 이 레이어들은 파일이 추가되거나 수정되면 새로운 레이어를 만든다. 즉 기존 Base레이어는 변경되지않고 새로운 Layer가 추가하면된다.</p>
-
-<p><br /><br />
-위 그림처럼 기본 Base Image를 이용해 만드는 새로운 Image는 Layer를 수정하지 않고 새 Layer를 생성한다. 이렇게하면 web app 이미지를 업데이트 할 때 web app layer만 수정하면된다.</p>
-
-<p><br /><br />
-맨 우측 그림을 보면 Docker Container에서 web app을 베이스로 이미지 생성을 하는데 해당 이미지 레이어들은 모두 <strong>읽기전용(Read-Only)</strong>으로 생성된다.</p>
-
-<p><br /><br />
-컨테이너가 생성될 때마다 Container Layer가 생성되는데 해당 레이어는 <strong>읽기쓰기</strong> 모두 가능하지만 Container가 삭제되면 Container Layer도 삭제된다.</p>
-
-<p><img src="https://github.com/user-attachments/assets/4440ce1c-1063-4b1a-956a-d9d5b2f7b859" alt="image" /></p>
-
-<h2><br /></h2>
-<p><br /></p>
-<div class="Reference">
-<div class="callout-header"> </div>
-<p>
-<a href="https://velog.io/@kdaeyeop/%EB%8F%84%EC%BB%A4-Docker-%EC%99%80-VM%EC%9D%98-%EC%B0%A8%EC%9D%B4">https://velog.io/@kdaeyeop/%EB%8F%84%EC%BB%A4-Docker-%EC%99%80-VM%EC%9D%98-%EC%B0%A8%EC%9D%B4</a>
-<a href="https://creboring.net/blog/how-docker-divide-image-layer/">https://creboring.net/blog/how-docker-divide-image-layer/</a>
-</p>
-</div>]]></content><author><name>Mohitto55</name></author><category term="network" /><category term="Docker" /><category term="Ubuntu" /><category term="Linux" /><category term="컨테이너" /><category term="Image" /><category term="Layer" /><summary type="html"><![CDATA[Docker 이미지 컨테이너를 만드는데 사용되는 Template이라 생각하면 된다. 컨테이너는 이미지를 기반으로 생성된다.]]></summary></entry><entry><title type="html">[Docker] Docker와 VM의 차이점</title><link href="http://localhost:4000/network/Docker%EC%99%80-VM-%EC%B0%A8%EC%9D%B4/" rel="alternate" type="text/html" title="[Docker] Docker와 VM의 차이점" /><published>2024-08-16T00:00:00+09:00</published><updated>2024-08-16T00:00:00+09:00</updated><id>http://localhost:4000/network/Docker%EC%99%80%20VM%20%EC%B0%A8%EC%9D%B4</id><content type="html" xml:base="http://localhost:4000/network/Docker%EC%99%80-VM-%EC%B0%A8%EC%9D%B4/"><![CDATA[<h2 id="docker">Docker</h2>
-<p>Docker란 컨테이너를 이용한 오픈소스 가상화 플랫폼이다. <br />
-컨테이너는 OS레벨의 가상화로 프로세스를 격리시켜 동작하는 것을 말한다. OS자체를 가상화 하던 방식과는 다른데 무슨 차이가 있는것일까?</p>
-
-<h2 id="vm-가상화-vs-docker-가상화">VM 가상화 vs Docker 가상화</h2>
-<h3 id="vm">VM</h3>
-<ul>
-  <li>기존에는 하나의 서버에 하나의 어플리케이션만 구동시켰다.
-    <ul>
-      <li>이는 남는 자원이 많아진다.</li>
-      <li>이를 극복하기 위해 나온것이 가상화다</li>
-    </ul>
-  </li>
-  <li>하이퍼바이저 기반의 가상화가 많이 이용됐다.
-    <ul>
-      <li>논리적으로 분리된 공간에서 VM이라는 독립된 가상환경 만든다.</li>
-      <li>그리고 호스트 시스템에서 VM에 게스트 OS를 구동 및 모니터링 한다.</li>
-    </ul>
-  </li>
-</ul>
-
-<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/def35409-b1d9-4484-9a43-c6abd80140ab" alt="image" /><em>VM 구조</em></p>
-
-<h3 id="docker-1">Docker</h3>
-<ul>
-  <li>Docker은 Guest OS가 필요없다.
-    <ul>
-      <li>Host OS의 커널을 공유하기 때문이다.</li>
-    </ul>
-  </li>
-  <li>가상화를 할 때마다 OS를 할당해주면 자원 낭비가 된다.</li>
-  <li>그래서 Container라는 개념으로 필요한 기능을 모듈화 시켜뗏다 붙여다 하는 식으로 운영이 가능하다.</li>
-  <li>Docker의 컨테이너들은 리눅스 OS를 이용한다.
-    <ul>
-      <li>Host OS가 윈도우나 맥이면 어떻게 하는 것인가?</li>
-      <li>WSL 같은 리눅스환경 VM을 사용한다.</li>
-    </ul>
-  </li>
-</ul>
-
-<p><img src="https://github.com/user-attachments/assets/15360da2-1cef-4a8d-b2c0-8041522094db" alt="image" /><br />
-<br /></p>
-<div class="callout-info-expanded">
-<div class="callout-header">차이점 요약</div>
-<p>
-1. VM은 하이퍼 바이저 기능을 이용해 Guest OS를 할당한다.<br />
-2. Docker은 Host OS의 커널을 공유해 사용한다<br />
-3. VM은 새 환경을 구성할 때 마다 새로운 OS를 다운받아야하지만 Docker은 컨테이너를 늘릴 때마다 OS를 다운할 필요없어 자원 효율성이 더 좋다.
-</p>
-</div>
-
-<h2 id="사용하는-이유">사용하는 이유</h2>
-<h3 id="개발환경-구성">개발환경 구성</h3>
-<p>개발하고 서버에 올리면 끝인 상황이다. 그런데 서버에 올리면 작동 하지 않는 경우가 있다.왜 그런가 알아보니 컴퓨터 윈도우, 서버는 리눅스라는 각각 다른 OS를 사용하여 발생하는 오류였다. 각 OS마다 호환되는 기능이 다르기에 발생하는 문제였다.<br />
-<br /><br /><br />
-하지만 도커를 사용하면 다른 머신에서도 같은 환경 구성이 가능하다.<br />
-방법은 간단하다 윈도우, 서버에 둘다 Docker 설치하고 구성하고 싶은 환경 설정하면 된다.<br />
-<br /><br /></p>
-
-<p>도커는 파일을 읽고 필요한걸 다운 받고 같은 환경을 컨테이너에 구성한다.<br />
-그래서 컴퓨터에서 서버로 코드 업로드하면(Docker와 같이) 잘 작동 한다.<br />
-<br /><br /></p>
-
-<p>또 각 컨테이너는 각기 분리되어 있다.컨테이너들은 독립적이다. 이덕에 한개의 서버에서 수많은 컨테이너 가질 수 있다. 만약 자바 애플리케이션이 인기 많으면 자바 컨테이너 늘리고 사용자가 줄면 컨테이너를 줄임으로써 매번 서버를 사고 팔 이유가 없어진다.</p>
-
-<p><br /></p>
-<div class="callout-info-expanded">
-<div class="callout-header">사용하는 이유 요약</div>
-<p>
-1. 원하는 개발 환경을 파일에 저장하면 어떤 머신에든 해당 환경 구성해준다.<br />
-2. 각 환경을 독립적이기 때문에 무슨 환경이든 모듈식 관리 가능하다.
-</p>
-</div>
-
-<h2><br /></h2>
-<p><br /></p>
-<div class="Reference">
-<div class="callout-header"> </div>
-<p>
-<a href="https://khj93.tistory.com/entry/Docker-Docker-%EA%B0%9C%EB%85%90">https://khj93.tistory.com/entry/Docker-Docker-%EA%B0%9C%EB%85%90</a>
-<a href="https://velog.io/@kdaeyeop/%EB%8F%84%EC%BB%A4-Docker-%EC%99%80-VM%EC%9D%98-%EC%B0%A8%EC%9D%B4">https://velog.io/@kdaeyeop/%EB%8F%84%EC%BB%A4-Docker-%EC%99%80-VM%EC%9D%98-%EC%B0%A8%EC%9D%B4</a>
-</p>
-</div>]]></content><author><name>Mohitto55</name></author><category term="network" /><category term="Docker" /><category term="Ubuntu" /><category term="Linux" /><category term="컨테이너" /><category term="VM" /><category term="가상환경" /><category term="가상머신" /><category term="도커" /><category term="하이퍼바이저" /><category term="HyperVisor" /><category term="Virtual Machine" /><summary type="html"><![CDATA[Docker Docker란 컨테이너를 이용한 오픈소스 가상화 플랫폼이다. 컨테이너는 OS레벨의 가상화로 프로세스를 격리시켜 동작하는 것을 말한다. OS자체를 가상화 하던 방식과는 다른데 무슨 차이가 있는것일까?]]></summary></entry></feed>
+</div>]]></content><author><name>Mohitto55</name></author><category term="network" /><category term="Docket" /><category term="Ubuntu" /><category term="Linux" /><category term="컨테이너" /><summary type="html"><![CDATA[Docker 설치 Docker 다운받기 sudo wget -qO- http://get.docker.com/ | sh]]></summary></entry></feed>

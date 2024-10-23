@@ -75,7 +75,8 @@ permalink: 링크
 ```
 
 ## 4.모든페이지 사이드바 적용
-루트폴더에 있는 `config.yml`에서 sidebar 부분을 추가해준다.
+루트폴더에 있는 `config.yml`에서 적용하고 싶은 페이지에 sidebar 부분을 추가해준다.
+모든 페이지에 적용하고싶다면 dafaults: 바로 아래에다 추가해주면된다.
 ```
 defaults:
   # _posts

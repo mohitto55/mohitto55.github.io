@@ -19,6 +19,19 @@
   }
 }
 
+.custom-sidebar{
+  left: 0px;
+  padding-left: 25px;
+  position: fixed;
+  .sidebar{
+    -webkit-animation: $intro-transition;
+    animation: $intro-transition;
+    -webkit-animation-delay: 0.15s;
+    animation-delay: 0.15s;
+  }
+}
+
+
 body {
   display: -webkit-box;
   display: -ms-flexbox;
