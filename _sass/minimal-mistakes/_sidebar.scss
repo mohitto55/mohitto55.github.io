@@ -21,6 +21,10 @@
 .sidebar {
   @include clearfix();
 
+  border: 0.2em solid #9999999a;
+  border-width: 0px 2px 0px 0px !important;
+  box-shadow: 3px 3px 3px rgba(223, 223, 223, 0.63) !important;
+
   @include breakpoint(max-width $large) {
     /* fix z-index order of follow links */
     position: relative;
