@@ -1,4 +1,72 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-10-24T09:08:24+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mohitto55 Note</title><subtitle>모히또의 노트</subtitle><author><name>Mohitto55</name></author><entry><title type="html">[Geometry] 외적을 이용해 선분간의 교차점을 구하는 방법</title><link href="http://localhost:4000/geometry/Geometry-%EC%84%A0%EB%B6%84-%EB%81%BC%EB%A6%AC%EC%9D%98-%EA%B5%90%EC%B0%A8%EC%A0%90-%EA%B5%AC%ED%95%98%EA%B8%B0/" rel="alternate" type="text/html" title="[Geometry] 외적을 이용해 선분간의 교차점을 구하는 방법" /><published>2024-10-24T00:00:00+09:00</published><updated>2024-10-24T00:00:00+09:00</updated><id>http://localhost:4000/geometry/Geometry%20%EC%84%A0%EB%B6%84%20%EB%81%BC%EB%A6%AC%EC%9D%98%20%EA%B5%90%EC%B0%A8%EC%A0%90%20%EA%B5%AC%ED%95%98%EA%B8%B0</id><content type="html" xml:base="http://localhost:4000/geometry/Geometry-%EC%84%A0%EB%B6%84-%EB%81%BC%EB%A6%AC%EC%9D%98-%EA%B5%90%EC%B0%A8%EC%A0%90-%EA%B5%AC%ED%95%98%EA%B8%B0/"><![CDATA[<h1 id="외적을-이용한-선분과-선분의-교차점-구하기">📄외적을 이용한 선분과 선분의 교차점 구하기</h1>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-12-12T13:29:37+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mohitto55 Note</title><subtitle>모히또의 노트</subtitle><author><name>Mohitto55</name></author><entry><title type="html">[Visual Studio] Visual Studio에서 빌드exe 파일 뽑는 법</title><link href="http://localhost:4000/ide/vs-%EB%B9%84%EC%A3%BC%EC%96%BC-%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4%EB%A1%9C-%EB%B9%8C%EB%93%9Cexe%ED%8C%8C%EC%9D%BC-%EB%BD%91%EA%B8%B0/" rel="alternate" type="text/html" title="[Visual Studio] Visual Studio에서 빌드exe 파일 뽑는 법" /><published>2024-12-12T00:00:00+09:00</published><updated>2024-12-12T00:00:00+09:00</updated><id>http://localhost:4000/ide/%5Bvs%5D%EB%B9%84%EC%A3%BC%EC%96%BC%20%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4%EB%A1%9C%20%EB%B9%8C%EB%93%9Cexe%ED%8C%8C%EC%9D%BC%20%EB%BD%91%EA%B8%B0</id><content type="html" xml:base="http://localhost:4000/ide/vs-%EB%B9%84%EC%A3%BC%EC%96%BC-%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4%EB%A1%9C-%EB%B9%8C%EB%93%9Cexe%ED%8C%8C%EC%9D%BC-%EB%BD%91%EA%B8%B0/"><![CDATA[<h2 id="why">📄Why</h2>
+<ul>
+  <li>프로그래밍 과제를 하는데 명령인수를 server-name으로 적으라고 했는데 서버인수가 무엇인지 몰랐다.</li>
+  <li>그래서 명령인수에 대한 설명을 적다가 int main의 인자 값이 명령인수 뿐만 아니라 exe 파일에 인수를 넘기는 방식으로도 활용 할 수 있는 법을 알게되었고 그러다 exe 파일을 뽑는 방법을 정리하게 되었다.</li>
+</ul>
+
+<h2 id="빌드-파일-만들기">빌드 파일 만들기</h2>
+<h3 id="솔루션-정리">🔍솔루션 정리</h3>
+<ul>
+  <li>빌드 탭에서 <code class="language-plaintext highlighter-rouge">솔루션정리(C)</code>를 누른다.</li>
+</ul>
+
+<p><img src="https://github.com/user-attachments/assets/ab9fbbff-585e-435f-84de-0a63877e8536" alt="image" /></p>
+
+<div class="callout-info-expanded">
+<div class="callout-header">솔루션 정리</div>
+<p>
+기타 파일, 출력 파일을 삭제합니다.<br />
+솔루션 정리 후 빌드를 하면 중간 파일과 출력 파일이 새로 생성됩니다.<br />
+이를 통해 오류, 경고가 있는지 확인하고 다시 빌드를 하는 효과를 볼 수 있습니다.
+</p>
+</div>
+
+<hr />
+
+<h3 id="출력-준비-및-경로-설정">🔍출력 준비 및 경로 설정</h3>
+<ul>
+  <li>
+    <p>상단 <code class="language-plaintext highlighter-rouge">프로젝트 &gt; 프로젝트 속성</code> 을 선택한다.<br />
+<img src="https://github.com/user-attachments/assets/28b5793b-abe3-4d78-8ba4-9eef2c8be8be" alt="image" /></p>
+  </li>
+  <li>상단 구성에서 Release로 변경한다.</li>
+  <li>출력 디렉터리에서 파일을 출력할 경로를 작성한다.<br />
+<img src="https://github.com/user-attachments/assets/c577f535-6b72-4856-b7e9-f186b4ec96f6" alt="image" /></li>
+</ul>
+
+<hr />
+
+<h3 id="솔루션-다시-정리">🔍솔루션 다시 정리</h3>
+<ul>
+  <li>빌드 탭에서 <code class="language-plaintext highlighter-rouge">솔루션정리(C)</code>를 한번 더 누른다.<br />
+<img src="https://github.com/user-attachments/assets/ab9fbbff-585e-435f-84de-0a63877e8536" alt="image" /></li>
+</ul>
+
+<hr />
+
+<h3 id="일괄-빌드">🔍일괄 빌드</h3>
+<p><img src="https://github.com/user-attachments/assets/56760441-fb4d-478f-abe9-e9bf076523e6" alt="image" /></p>
+
+<p><img src="https://github.com/user-attachments/assets/730fed52-a777-44d0-943c-d9b34791d691" alt="image" /></p>
+
+<h2 id="결과">🚀결과</h2>
+<ul>
+  <li>컨트롤 B를 눌러 빌드를 하면 출력디렉토리 경로에 .exe 파일이 생성된다.<br />
+<img src="https://github.com/user-attachments/assets/f28d4ce7-31c3-4205-9445-5076ecb38fc7" alt="image" /></li>
+</ul>
+
+<p><img src="https://github.com/user-attachments/assets/25f1f69b-6623-4b9b-8250-3119d570be2a" alt="image" /></p>
+
+<h2><br /></h2>
+<p><br /></p>
+
+<div class="Reference">
+<div class="callout-header"> </div>
+<p>
+<a href="https://splendidlolli.tistory.com/25">https://splendidlolli.tistory.com/25</a>
+<a href=" https://heroeskdw.tistory.com/entry/%EC%BD%94%EB%94%A9c-%EB%AA%85%EB%A0%B9-%EC%9D%B8%EC%88%98-%EB%B0%9B%EA%B8%B0"> https://heroeskdw.tistory.com/entry/%EC%BD%94%EB%94%A9c-%EB%AA%85%EB%A0%B9-%EC%9D%B8%EC%88%98-%EB%B0%9B%EA%B8%B0</a>
+</p>
+</div>]]></content><author><name>Mohitto55</name></author><category term="ide" /><category term="Obsidian" /><category term="옵시디언" /><category term="테마" /><category term="Theme" /><category term="최적화" /><category term="Optimize" /><category term="속도" /><category term="아누푸친" /><category term="Anuppuchine" /><category term="Minimal" /><category term="미니멀" /><summary type="html"><![CDATA[📄Why 프로그래밍 과제를 하는데 명령인수를 server-name으로 적으라고 했는데 서버인수가 무엇인지 몰랐다. 그래서 명령인수에 대한 설명을 적다가 int main의 인자 값이 명령인수 뿐만 아니라 exe 파일에 인수를 넘기는 방식으로도 활용 할 수 있는 법을 알게되었고 그러다 exe 파일을 뽑는 방법을 정리하게 되었다.]]></summary></entry><entry><title type="html">[Geometry] 외적을 이용해 선분간의 교차점을 구하는 방법</title><link href="http://localhost:4000/geometry/Geometry-%EC%84%A0%EB%B6%84-%EB%81%BC%EB%A6%AC%EC%9D%98-%EA%B5%90%EC%B0%A8%EC%A0%90-%EA%B5%AC%ED%95%98%EA%B8%B0/" rel="alternate" type="text/html" title="[Geometry] 외적을 이용해 선분간의 교차점을 구하는 방법" /><published>2024-10-24T00:00:00+09:00</published><updated>2024-10-24T00:00:00+09:00</updated><id>http://localhost:4000/geometry/Geometry%20%EC%84%A0%EB%B6%84%20%EB%81%BC%EB%A6%AC%EC%9D%98%20%EA%B5%90%EC%B0%A8%EC%A0%90%20%EA%B5%AC%ED%95%98%EA%B8%B0</id><content type="html" xml:base="http://localhost:4000/geometry/Geometry-%EC%84%A0%EB%B6%84-%EB%81%BC%EB%A6%AC%EC%9D%98-%EA%B5%90%EC%B0%A8%EC%A0%90-%EA%B5%AC%ED%95%98%EA%B8%B0/"><![CDATA[<h1 id="외적을-이용한-선분과-선분의-교차점-구하기">📄외적을 이용한 선분과 선분의 교차점 구하기</h1>
 
 <p>선분은 기하를 구성하는 <strong>기본요소</strong>이기 때문에 선분의 교차점을 구하는 것은 기하 문제의 기본입니다. 이런 선분의 교차점은 다양한 곳에서 사용 할 수 있습니다.</p>
 
@@ -184,7 +252,7 @@
 <div class="callout-header"> </div>
 <p>
 </p>
-</div>]]></content><author><name>Mohitto55</name></author><category term="obsidian" /><category term="Obsidian" /><category term="옵시디언" /><category term="테마" /><category term="Theme" /><category term="최적화" /><category term="Optimize" /><category term="속도" /><category term="아누푸친" /><category term="Anuppuchine" /><category term="Minimal" /><category term="미니멀" /><summary type="html"><![CDATA[📄현상 어느 순간부터 옵시디언으로 노트를 작성하면 타이핑 속도가 굉장히 느려지는 것이 느껴졌다. 특히 Bullet Point나 리스트로 작성하면 속도가 현저히 느려져 화면이 툭툭 끊기는 것이 심해졌다.]]></summary></entry><entry><title type="html">[Geometry] 선과 점사이 거리를 구하는 법</title><link href="http://localhost:4000/obsidian/Math-%EC%84%A0%EA%B3%BC-%EC%A0%90%EC%82%AC%EC%9D%B4%EC%9D%98-%EA%B1%B0%EB%A6%AC-%EA%B5%AC%ED%95%98%EA%B8%B0/" rel="alternate" type="text/html" title="[Geometry] 선과 점사이 거리를 구하는 법" /><published>2024-10-24T00:00:00+09:00</published><updated>2024-10-24T00:00:00+09:00</updated><id>http://localhost:4000/obsidian/Math%20%EC%84%A0%EA%B3%BC%20%EC%A0%90%EC%82%AC%EC%9D%B4%EC%9D%98%20%EA%B1%B0%EB%A6%AC%20%EA%B5%AC%ED%95%98%EA%B8%B0</id><content type="html" xml:base="http://localhost:4000/obsidian/Math-%EC%84%A0%EA%B3%BC-%EC%A0%90%EC%82%AC%EC%9D%B4%EC%9D%98-%EA%B1%B0%EB%A6%AC-%EA%B5%AC%ED%95%98%EA%B8%B0/"><![CDATA[<h2 id="선분과-점사이의-거리-구하기">선분과 점사이의 거리 구하기</h2>
+</div>]]></content><author><name>Mohitto55</name></author><category term="obsidian" /><category term="Obsidian" /><category term="옵시디언" /><category term="테마" /><category term="Theme" /><category term="최적화" /><category term="Optimize" /><category term="속도" /><category term="아누푸친" /><category term="Anuppuchine" /><category term="Minimal" /><category term="미니멀" /><summary type="html"><![CDATA[📄현상 어느 순간부터 옵시디언으로 노트를 작성하면 타이핑 속도가 굉장히 느려지는 것이 느껴졌다. 특히 Bullet Point나 리스트로 작성하면 속도가 현저히 느려져 화면이 툭툭 끊기는 것이 심해졌다.]]></summary></entry><entry><title type="html">[Geometry] 선과 점사이 거리를 구하는 법</title><link href="http://localhost:4000/geometry/Math-%EC%84%A0%EA%B3%BC-%EC%A0%90%EC%82%AC%EC%9D%B4%EC%9D%98-%EA%B1%B0%EB%A6%AC-%EA%B5%AC%ED%95%98%EA%B8%B0/" rel="alternate" type="text/html" title="[Geometry] 선과 점사이 거리를 구하는 법" /><published>2024-10-24T00:00:00+09:00</published><updated>2024-10-24T00:00:00+09:00</updated><id>http://localhost:4000/geometry/Math%20%EC%84%A0%EA%B3%BC%20%EC%A0%90%EC%82%AC%EC%9D%B4%EC%9D%98%20%EA%B1%B0%EB%A6%AC%20%EA%B5%AC%ED%95%98%EA%B8%B0</id><content type="html" xml:base="http://localhost:4000/geometry/Math-%EC%84%A0%EA%B3%BC-%EC%A0%90%EC%82%AC%EC%9D%B4%EC%9D%98-%EA%B1%B0%EB%A6%AC-%EA%B5%AC%ED%95%98%EA%B8%B0/"><![CDATA[<h2 id="선분과-점사이의-거리-구하기">선분과 점사이의 거리 구하기</h2>
 <ul>
   <li>평행사변형의 넓이 공식을 이용한다.
     <ul>
@@ -212,7 +280,7 @@
 <div class="callout-header"> </div>
 <p>
 </p>
-</div>]]></content><author><name>Mohitto55</name></author><category term="obsidian" /><category term="Geometry" /><category term="기하학" /><category term="선분" /><category term="선" /><category term="길이" /><category term="Distance" /><category term="속도" /><category term="Line" /><category term="Point" /><category term="Parallelogram" /><summary type="html"><![CDATA[선분과 점사이의 거리 구하기 평행사변형의 넓이 공식을 이용한다. (넓이) = 밑변 X 높이 외적은 두직선으로 이루어진 평행사변형의 넓이이다. 평행사변형의 넓이는 밑변 X 높이인데 여기서 한 선분의 밑변을 나누면 높이만 남아 거리를 구할 수 있다.]]></summary></entry><entry><title type="html">[UE5] 컴파일시 MSB3073오류 해결하기</title><link href="http://localhost:4000/ue5/Unreal-MSB3073-%EC%98%A4%EB%A5%98-%ED%95%B4%EA%B2%B0%EB%B2%94/" rel="alternate" type="text/html" title="[UE5] 컴파일시 MSB3073오류 해결하기" /><published>2024-10-10T00:00:00+09:00</published><updated>2024-10-10T00:00:00+09:00</updated><id>http://localhost:4000/ue5/Unreal%20MSB3073%20%EC%98%A4%EB%A5%98%20%ED%95%B4%EA%B2%B0%EB%B2%94</id><content type="html" xml:base="http://localhost:4000/ue5/Unreal-MSB3073-%EC%98%A4%EB%A5%98-%ED%95%B4%EA%B2%B0%EB%B2%94/"><![CDATA[<h2 id="발생과정">발생과정</h2>
+</div>]]></content><author><name>Mohitto55</name></author><category term="geometry" /><category term="Geometry" /><category term="기하학" /><category term="선분" /><category term="선" /><category term="길이" /><category term="Distance" /><category term="속도" /><category term="Line" /><category term="Point" /><category term="Parallelogram" /><summary type="html"><![CDATA[선분과 점사이의 거리 구하기 평행사변형의 넓이 공식을 이용한다. (넓이) = 밑변 X 높이 외적은 두직선으로 이루어진 평행사변형의 넓이이다. 평행사변형의 넓이는 밑변 X 높이인데 여기서 한 선분의 밑변을 나누면 높이만 남아 거리를 구할 수 있다.]]></summary></entry><entry><title type="html">[UE5] 컴파일시 MSB3073오류 해결하기</title><link href="http://localhost:4000/ue5/Unreal-MSB3073-%EC%98%A4%EB%A5%98-%ED%95%B4%EA%B2%B0%EB%B2%94/" rel="alternate" type="text/html" title="[UE5] 컴파일시 MSB3073오류 해결하기" /><published>2024-10-10T00:00:00+09:00</published><updated>2024-10-10T00:00:00+09:00</updated><id>http://localhost:4000/ue5/Unreal%20MSB3073%20%EC%98%A4%EB%A5%98%20%ED%95%B4%EA%B2%B0%EB%B2%94</id><content type="html" xml:base="http://localhost:4000/ue5/Unreal-MSB3073-%EC%98%A4%EB%A5%98-%ED%95%B4%EA%B2%B0%EB%B2%94/"><![CDATA[<h2 id="발생과정">발생과정</h2>
 <p>프로젝트를 최초 생성하고 컴파일 하려하면 이런 오류가 뜬다 왜 이럴까?</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1&gt;Microsoft.MakeFile.Targets(44,5): Error MSB3073 : ""C:\Program Files\Epic Games\UE_5.4\Engine\Build\BatchFiles\Build.bat" MultiShooterEditor Win64 Development -Project="C:\Users\admin\git\UE5\MultiShooter\MultiShooter.uproject" -WaitMutex -FromMsBuild -architecture=x64" 명령이 종료되었습니다(코드: 6).
@@ -921,108 +989,4 @@ GItBlog는 처음부터 끝까지 기능을 다 커스텀가능하고 테마도 
 <a href="https://velog.io/@kdaeyeop/%EB%8F%84%EC%BB%A4-Docker-%EC%99%80-VM%EC%9D%98-%EC%B0%A8%EC%9D%B4">https://velog.io/@kdaeyeop/%EB%8F%84%EC%BB%A4-Docker-%EC%99%80-VM%EC%9D%98-%EC%B0%A8%EC%9D%B4</a>
 <a href="https://creboring.net/blog/how-docker-divide-image-layer/">https://creboring.net/blog/how-docker-divide-image-layer/</a>
 </p>
-</div>]]></content><author><name>Mohitto55</name></author><category term="network" /><category term="Docker" /><category term="Ubuntu" /><category term="Linux" /><category term="컨테이너" /><category term="Image" /><category term="Layer" /><summary type="html"><![CDATA[Docker 이미지 컨테이너를 만드는데 사용되는 Template이라 생각하면 된다. 컨테이너는 이미지를 기반으로 생성된다.]]></summary></entry><entry><title type="html">[Docker] Ubuntu에서 Docker로 Mysql설치하기</title><link href="http://localhost:4000/network/Docker%EC%97%90-mysql-%EC%84%A4%EC%B9%98/" rel="alternate" type="text/html" title="[Docker] Ubuntu에서 Docker로 Mysql설치하기" /><published>2024-08-17T00:00:00+09:00</published><updated>2024-08-17T00:00:00+09:00</updated><id>http://localhost:4000/network/Docker%EC%97%90%20mysql%20%EC%84%A4%EC%B9%98</id><content type="html" xml:base="http://localhost:4000/network/Docker%EC%97%90-mysql-%EC%84%A4%EC%B9%98/"><![CDATA[<h2 id="docker-설치">Docker 설치</h2>
-<blockquote>
-  <p>Docker 다운받기</p>
-  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo wget -qO- http://get.docker.com/ | sh
-</code></pre></div>  </div>
-</blockquote>
-
-<p><br /></p>
-
-<blockquote>
-  <p>Docker 버전 확인</p>
-  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker -v
-</code></pre></div>  </div>
-  <p><img src="https://github.com/mohitto55/Blog_Images/assets/154340583/5c72a46d-5327-48a0-bfbe-c5e80a298495" alt="image" /></p>
-</blockquote>
-
-<h2 id="mysql-설치">Mysql 설치</h2>
-<p><br /></p>
-<blockquote>
-  <p>Docker 이미지 다운</p>
-  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo docker pull mysql
-</code></pre></div>  </div>
-</blockquote>
-
-<blockquote>
-  <p>다운받아진 이미지 확인</p>
-  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker images
-</code></pre></div>  </div>
-  <p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/64449571/2bd321ec-4107-480c-ab6f-6987f1401fd8" alt="image" /></p>
-</blockquote>
-
-<p><br /></p>
-
-<blockquote>
-  <p>컨테이너를 실행하기</p>
-  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker run --name mysql-container -e MYSQL_ROOT_PASSWORD=&lt;password&gt; -d -p 3306:3306 mysql:latest
-</code></pre></div>  </div>
-</blockquote>
-
-<p><code class="language-plaintext highlighter-rouge">--name &lt;container_name&gt;</code> : <code class="language-plaintext highlighter-rouge">&lt;container_name&gt;</code> 이름의 컨테이너를 실행한다.<br /><br />
-<code class="language-plaintext highlighter-rouge">-e</code> : 컨테이너 내에서 사용할 환경변수를 설정<br /><br />
-<code class="language-plaintext highlighter-rouge">-e MYSQL_ROOT_PASSWORD=&lt;password&gt;</code> : MySQL의 root 권한의 비밀번호를 <code class="language-plaintext highlighter-rouge">&lt;password&gt;</code>로 설정한다.<br /><br />
-<code class="language-plaintext highlighter-rouge">-d</code> : detach 모드로 컨테이너가 실행된다. 컨테이너가 백그라운드로 실행된다고 보면 된다.<br /><br />
-<code class="language-plaintext highlighter-rouge">-p &lt;호스트 포트&gt; &lt;컨테이너 포트&gt;</code> : 호스트와 컨테이너의 포트를 연결한다.<br /><br />
-mysql:latest : 컨테이너에 사용할 이미지<br /></p>
-
-<hr />
-
-<blockquote>
-  <p>도커 목록 조회</p>
-  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker ps -a
-</code></pre></div>  </div>
-  <p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/64449571/c333d5b9-6317-44e8-ae13-b4698f63f1be" alt="image" /></p>
-</blockquote>
-
-<p><br /><br /></p>
-
-<h2 id="도커-이미지-런-오류">도커 이미지 런 오류</h2>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Unable to find image 'mysql-container:latest' locally
-</code></pre></div></div>
-<blockquote>
-  <p>이미지 이름이 다르다.<br />
-콘테이너랑 이미지는 다른 개념이다.</p>
-</blockquote>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker: Error response from daemon: pull access denied for mysql-container, repository does not exist or may require 'docker login': denied: requested access to the resource is denied.
-</code></pre></div></div>
-<blockquote>
-  <p>로그인을 잘못했거나 이미지에 태그 된 이름이랑 다르거나 둘 중 하나다.</p>
-</blockquote>
-
-<p><br /></p>
-
-<h2 id="도커-컨테이너-접속시-오류">도커 컨테이너 접속시 오류</h2>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Error response from daemon: container 1a0ab9fe9da2301b1d7959614ad2e8335ae745cf9b72a2b0394474236526557c is not running
-</code></pre></div></div>
-<p>콘테이너가 실행되지 않아 발생하는 오류다.<br /><br />
-아래 명령어를 통해 원하는 컨테이너를 실행하면 된다.</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo docker container start mysql-container
-</code></pre></div></div>
-
-<blockquote>
-  <p>도커 컨테이너 접속하기</p>
-  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo docker exec -it mysql-container bash
-</code></pre></div>  </div>
-</blockquote>
-
-<blockquote>
-  <p>루트권한에 접근하기</p>
-</blockquote>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysql -u root -p
-</code></pre></div></div>
-<p><br /><br />
-<img src="https://github.com/mohitto55/mohitto55.github.io/assets/64449571/7d89434e-6c5a-44e6-b812-7794738c5831" alt="image" /></p>
-
-<h2><br /></h2>
-<p><br /></p>
-<div class="Reference">
-<div class="callout-header"> </div>
-<p>
-<a href="https://hipopatamus.tistory.com/109">https://hipopatamus.tistory.com/109</a>
-<a href="https://khj93.tistory.com/entry/Docker-Docker-%EA%B0%9C%EB%85%90">https://khj93.tistory.com/entry/Docker-Docker-%EA%B0%9C%EB%85%90</a>
-</p>
-</div>]]></content><author><name>Mohitto55</name></author><category term="network" /><category term="Docket" /><category term="Ubuntu" /><category term="Linux" /><category term="컨테이너" /><summary type="html"><![CDATA[Docker 설치 Docker 다운받기 sudo wget -qO- http://get.docker.com/ | sh]]></summary></entry></feed>
+</div>]]></content><author><name>Mohitto55</name></author><category term="network" /><category term="Docker" /><category term="Ubuntu" /><category term="Linux" /><category term="컨테이너" /><category term="Image" /><category term="Layer" /><summary type="html"><![CDATA[Docker 이미지 컨테이너를 만드는데 사용되는 Template이라 생각하면 된다. 컨테이너는 이미지를 기반으로 생성된다.]]></summary></entry></feed>

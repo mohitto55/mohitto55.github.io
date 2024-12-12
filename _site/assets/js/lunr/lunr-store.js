@@ -384,14 +384,20 @@ var store = [{
         "teaser": null
       },{
         "title": "[Geometry] 선과 점사이 거리를 구하는 법",
-        "excerpt":"선분과 점사이의 거리 구하기 평행사변형의 넓이 공식을 이용한다. (넓이) = 밑변 X 높이 외적은 두직선으로 이루어진 평행사변형의 넓이이다. 평행사변형의 넓이는 밑변 X 높이인데 여기서 한 선분의 밑변을 나누면 높이만 남아 거리를 구할 수 있다. 코드 public float Distance(Point p) { Point p1 = End - Start, p2 = p -...","categories": ["obsidian"],
+        "excerpt":"선분과 점사이의 거리 구하기 평행사변형의 넓이 공식을 이용한다. (넓이) = 밑변 X 높이 외적은 두직선으로 이루어진 평행사변형의 넓이이다. 평행사변형의 넓이는 밑변 X 높이인데 여기서 한 선분의 밑변을 나누면 높이만 남아 거리를 구할 수 있다. 코드 public float Distance(Point p) { Point p1 = End - Start, p2 = p -...","categories": ["geometry"],
         "tags": ["Geometry","기하학","선분","선","길이","Distance","속도","Line","Point","Parallelogram"],
-        "url": "/obsidian/Math-%EC%84%A0%EA%B3%BC-%EC%A0%90%EC%82%AC%EC%9D%B4%EC%9D%98-%EA%B1%B0%EB%A6%AC-%EA%B5%AC%ED%95%98%EA%B8%B0/",
+        "url": "/geometry/Math-%EC%84%A0%EA%B3%BC-%EC%A0%90%EC%82%AC%EC%9D%B4%EC%9D%98-%EA%B1%B0%EB%A6%AC-%EA%B5%AC%ED%95%98%EA%B8%B0/",
         "teaser": null
       },{
         "title": "[Obsidian] Anuppuchin테마는 크기가 커지면 엄청 느리다",
         "excerpt":"📄현상 어느 순간부터 옵시디언으로 노트를 작성하면 타이핑 속도가 굉장히 느려지는 것이 느껴졌다. 특히 Bullet Point나 리스트로 작성하면 속도가 현저히 느려져 화면이 툭툭 끊기는 것이 심해졌다. 🔍원인 개발자모드를 통해 확인하니 화면을 새로 그리는 Task부분에서 시간이 많이 걸리는데 그 부분마저 한계치를 넘어서 강제로 작업을 끊는 것으로 보였다. 결국 문제는 Anuppuchin테마의 문제였는데 플러그인,...","categories": ["obsidian"],
         "tags": ["Obsidian","옵시디언","테마","Theme","최적화","Optimize","속도","아누푸친","Anuppuchine","Minimal","미니멀"],
         "url": "/obsidian/Obsidian-%EC%95%84%EB%88%84%ED%91%B8%EC%B9%9C%ED%85%8C%EB%A7%88-%EC%A0%9C%EA%B1%B0/",
+        "teaser": null
+      },{
+        "title": "[Visual Studio] Visual Studio에서 빌드exe 파일 뽑는 법",
+        "excerpt":"📄Why 프로그래밍 과제를 하는데 명령인수를 server-name으로 적으라고 했는데 서버인수가 무엇인지 몰랐다. 그래서 명령인수에 대한 설명을 적다가 int main의 인자 값이 명령인수 뿐만 아니라 exe 파일에 인수를 넘기는 방식으로도 활용 할 수 있는 법을 알게되었고 그러다 exe 파일을 뽑는 방법을 정리하게 되었다. 빌드 파일 만들기 🔍솔루션 정리 빌드 탭에서 솔루션정리(C)를 누른다....","categories": ["ide"],
+        "tags": ["Obsidian","옵시디언","테마","Theme","최적화","Optimize","속도","아누푸친","Anuppuchine","Minimal","미니멀"],
+        "url": "/ide/vs-%EB%B9%84%EC%A3%BC%EC%96%BC-%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4%EB%A1%9C-%EB%B9%8C%EB%93%9Cexe%ED%8C%8C%EC%9D%BC-%EB%BD%91%EA%B8%B0/",
         "teaser": null
       }]
