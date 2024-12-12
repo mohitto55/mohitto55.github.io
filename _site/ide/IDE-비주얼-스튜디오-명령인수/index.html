@@ -9,8 +9,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>[Visual Studio] Visual Studio에서 빌드exe 파일 뽑는 법 | Mohitto55 Note</title>
-<meta name="description" content="📄Why    프로그래밍 과제를 하는데 명령인수를 server-name으로 적으라고 했는데 서버인수가 무엇인지 몰랐다.   그래서 명령인수에 대한 설명을 적다가 int main의 인자 값이 명령인수 뿐만 아니라 exe 파일에 인수를 넘기는 방식으로도 활용 할 수 있는 법을 알게되었고 그러다 exe 파일을 뽑는 방법을 정리하게 되었다.">
+<!-- begin _includes/seo.html --><title>[Visual Studio] 명령인수 개념과 exe파일에서 넘겨주는 법 | Mohitto55 Note</title>
+<meta name="description" content="📄main 함수의 매개변수    간혹 int main에 인자값이 int argc, char** argv 같은게 있는데 이것이 명령인수를 통해 넘겨주는 인자값들 이다.            argc : 명령줄 인수의 개수       argv : 명령줄 인수의 문자열 배열                    첫번째 값은 실행경로가 들어간다.">
 
 
   <meta name="author" content="Mohitto55">
@@ -22,11 +22,11 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:site_name" content="Mohitto55 Note">
-<meta property="og:title" content="[Visual Studio] Visual Studio에서 빌드exe 파일 뽑는 법">
-<meta property="og:url" content="http://localhost:4000/ide/vs-%EB%B9%84%EC%A3%BC%EC%96%BC-%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4%EB%A1%9C-%EB%B9%8C%EB%93%9Cexe%ED%8C%8C%EC%9D%BC-%EB%BD%91%EA%B8%B0/">
+<meta property="og:title" content="[Visual Studio] 명령인수 개념과 exe파일에서 넘겨주는 법">
+<meta property="og:url" content="http://localhost:4000/ide/IDE-%EB%B9%84%EC%A3%BC%EC%96%BC-%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4-%EB%AA%85%EB%A0%B9%EC%9D%B8%EC%88%98/">
 
 
-  <meta property="og:description" content="📄Why    프로그래밍 과제를 하는데 명령인수를 server-name으로 적으라고 했는데 서버인수가 무엇인지 몰랐다.   그래서 명령인수에 대한 설명을 적다가 int main의 인자 값이 명령인수 뿐만 아니라 exe 파일에 인수를 넘기는 방식으로도 활용 할 수 있는 법을 알게되었고 그러다 exe 파일을 뽑는 방법을 정리하게 되었다.">
+  <meta property="og:description" content="📄main 함수의 매개변수    간혹 int main에 인자값이 int argc, char** argv 같은게 있는데 이것이 명령인수를 통해 넘겨주는 인자값들 이다.            argc : 명령줄 인수의 개수       argv : 명령줄 인수의 문자열 배열                    첫번째 값은 실행경로가 들어간다.">
 
 
 
@@ -45,7 +45,7 @@
   
 
 
-<link rel="canonical" href="http://localhost:4000/ide/vs-%EB%B9%84%EC%A3%BC%EC%96%BC-%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4%EB%A1%9C-%EB%B9%8C%EB%93%9Cexe%ED%8C%8C%EC%9D%BC-%EB%BD%91%EA%B8%B0/">
+<link rel="canonical" href="http://localhost:4000/ide/IDE-%EB%B9%84%EC%A3%BC%EC%96%BC-%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4-%EB%AA%85%EB%A0%B9%EC%9D%B8%EC%88%98/">
 
 
 
@@ -175,7 +175,7 @@
     
       
       
-        <li class="current">[Visual Studio] Visual Studio에서 빌드exe 파일 뽑는 법</li>
+        <li class="current">[Visual Studio] 명령인수 개념과 exe파일에서 넘겨주는 법</li>
       
     
   </ol>
@@ -314,7 +314,7 @@
   
   <input id="ac-toc" name="accordion-toc" type="checkbox" />
   <label for="ac-toc">토글 메뉴</label>
-  <li> 전체 글 수 (67)개 </li>
+  <li> 전체 글 수 (68)개 </li>
   <ul class="nav__items">
     
       
@@ -440,7 +440,7 @@
           
           
 
-            <li><a href="/ide"><span class="nav__sub-title-url">IDE  </span><span class="nav__sub-title-count">4</span></a></li>
+            <li><a href="/ide"><span class="nav__sub-title-url">IDE  </span><span class="nav__sub-title-count">5</span></a></li>
           
         </ul>
         
@@ -535,8 +535,8 @@
 
 
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="[Visual Studio] Visual Studio에서 빌드exe 파일 뽑는 법">
-    <meta itemprop="description" content="📄Why  프로그래밍 과제를 하는데 명령인수를 server-name으로 적으라고 했는데 서버인수가 무엇인지 몰랐다.  그래서 명령인수에 대한 설명을 적다가 int main의 인자 값이 명령인수 뿐만 아니라 exe 파일에 인수를 넘기는 방식으로도 활용 할 수 있는 법을 알게되었고 그러다 exe 파일을 뽑는 방법을 정리하게 되었다.">
+    <meta itemprop="headline" content="[Visual Studio] 명령인수 개념과 exe파일에서 넘겨주는 법">
+    <meta itemprop="description" content="📄main 함수의 매개변수  간혹 int main에 인자값이 int argc, char** argv 같은게 있는데 이것이 명령인수를 통해 넘겨주는 인자값들 이다.          argc : 명령줄 인수의 개수      argv : 명령줄 인수의 문자열 배열                  첫번째 값은 실행경로가 들어간다.                    ">
     <meta itemprop="datePublished" content="2024-12-12T00:00:00+09:00">
     
 
@@ -544,7 +544,7 @@
       
         <header>
           <h1 id="page-title" class="page__title p-name" itemprop="headline">
-            <a href="http://localhost:4000/ide/vs-%EB%B9%84%EC%A3%BC%EC%96%BC-%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4%EB%A1%9C-%EB%B9%8C%EB%93%9Cexe%ED%8C%8C%EC%9D%BC-%EB%BD%91%EA%B8%B0/" class="u-url" itemprop="url">[Visual Studio] Visual Studio에서 빌드exe 파일 뽑는 법
+            <a href="http://localhost:4000/ide/IDE-%EB%B9%84%EC%A3%BC%EC%96%BC-%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4-%EB%AA%85%EB%A0%B9%EC%9D%B8%EC%88%98/" class="u-url" itemprop="url">[Visual Studio] 명령인수 개념과 exe파일에서 넘겨주는 법
 </a>
           </h1>
           
@@ -568,7 +568,7 @@
       <span class="page__meta-readtime">
         <i class="far fa-clock" aria-hidden="true"></i>
         
-          최대 1 분 소요
+          1 분 소요
         
       </span>
     
@@ -583,69 +583,82 @@
           <aside class="sidebar__right sticky">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> 목차</h4></header>
-              <ul class="toc__menu"><li><a href="#why">📄Why</a></li><li><a href="#빌드-파일-만들기">빌드 파일 만들기</a><ul><li><a href="#솔루션-정리">🔍솔루션 정리</a></li><li><a href="#출력-준비-및-경로-설정">🔍출력 준비 및 경로 설정</a></li><li><a href="#솔루션-다시-정리">🔍솔루션 다시 정리</a></li><li><a href="#일괄-빌드">🔍일괄 빌드</a></li></ul></li><li><a href="#결과">🚀결과</a></li></ul>
+              <ul class="toc__menu"><li><a href="#main-함수의-매개변수">📄main 함수의 매개변수</a></li><li><a href="#명령인수command-line-argument-전달하기">📄명령인수(command line argument) 전달하기</a><ul><li><a href="#visual-studio">🔍Visual Studio</a><ul><li><a href="#명령인수-설정법">🔍명령인수 설정법</a></li></ul></li><li><a href="#exe-파일로-넘겨주기">🔍exe 파일로 넘겨주기</a></li></ul></li></ul>
 
             </nav>
           </aside>
         
-        <h2 id="why">📄Why</h2>
+        <h1 id="main-함수의-매개변수">📄main 함수의 매개변수</h1>
 <ul>
-  <li>프로그래밍 과제를 하는데 명령인수를 server-name으로 적으라고 했는데 서버인수가 무엇인지 몰랐다.</li>
-  <li>그래서 명령인수에 대한 설명을 적다가 int main의 인자 값이 명령인수 뿐만 아니라 exe 파일에 인수를 넘기는 방식으로도 활용 할 수 있는 법을 알게되었고 그러다 exe 파일을 뽑는 방법을 정리하게 되었다.</li>
-</ul>
-
-<h2 id="빌드-파일-만들기">빌드 파일 만들기</h2>
-<h3 id="솔루션-정리">🔍솔루션 정리</h3>
-<ul>
-  <li>빌드 탭에서 <code class="language-plaintext highlighter-rouge">솔루션정리(C)</code>를 누른다.</li>
-</ul>
-
-<p><img src="https://github.com/user-attachments/assets/ab9fbbff-585e-435f-84de-0a63877e8536" alt="image" /></p>
-
-<div class="callout-info-expanded">
-<div class="callout-header">솔루션 정리</div>
-<p>
-기타 파일, 출력 파일을 삭제합니다.<br />
-솔루션 정리 후 빌드를 하면 중간 파일과 출력 파일이 새로 생성됩니다.<br />
-이를 통해 오류, 경고가 있는지 확인하고 다시 빌드를 하는 효과를 볼 수 있습니다.
-</p>
-</div>
-
-<hr />
-
-<h3 id="출력-준비-및-경로-설정">🔍출력 준비 및 경로 설정</h3>
-<ul>
-  <li>
-    <p>상단 <code class="language-plaintext highlighter-rouge">프로젝트 &gt; 프로젝트 속성</code> 을 선택한다.<br />
-<img src="https://github.com/user-attachments/assets/28b5793b-abe3-4d78-8ba4-9eef2c8be8be" alt="image" /></p>
+  <li>간혹 int main에 인자값이 <code class="language-plaintext highlighter-rouge">int argc, char** argv</code> 같은게 있는데 이것이 명령인수를 통해 넘겨주는 인자값들 이다.
+    <ul>
+      <li><strong>argc</strong> : 명령줄 인수의 개수</li>
+      <li><strong>argv</strong> : 명령줄 인수의 문자열 배열
+        <ul>
+          <li>첫번째 값은 실행경로가 들어간다.</li>
+        </ul>
+      </li>
+    </ul>
   </li>
-  <li>상단 구성에서 Release로 변경한다.</li>
-  <li>출력 디렉터리에서 파일을 출력할 경로를 작성한다.<br />
-<img src="https://github.com/user-attachments/assets/c577f535-6b72-4856-b7e9-f186b4ec96f6" alt="image" /></li>
+  <li>그러나 main 함수는 최초 시작 진입점인데 정보를 어떻게 넘겨주는 것일까?</li>
+  <li>그것에 대해서 알아보도록 하겠다.</li>
+</ul>
+
+<h1 id="명령인수command-line-argument-전달하기">📄명령인수(command line argument) 전달하기</h1>
+<h2 id="visual-studio">🔍Visual Studio</h2>
+<ul>
+  <li><strong>명령인수(Command-line arguments)</strong> 란 외부에서 전달하는 입력 값들을 뜻한다.</li>
+  <li>이 값들이 main 함수에 매개변수로 들어오는 값들이다.</li>
+  <li>이렇게 명령 인수를 전달하는 방법 중 하나는 Visual Studio로 전달하는 방법이 있다.</li>
 </ul>
 
 <hr />
 
-<h3 id="솔루션-다시-정리">🔍솔루션 다시 정리</h3>
+<h3 id="명령인수-설정법">🔍명령인수 설정법</h3>
 <ul>
-  <li>빌드 탭에서 <code class="language-plaintext highlighter-rouge">솔루션정리(C)</code>를 한번 더 누른다.<br />
-<img src="https://github.com/user-attachments/assets/ab9fbbff-585e-435f-84de-0a63877e8536" alt="image" /></li>
+  <li><code class="language-plaintext highlighter-rouge">프로젝스 속성 페이지 &gt; 구성 속성 &gt; 디버깅</code> 으로 이동한다.</li>
+  <li>명령인수를 넣어준다.<br />
+<img src="https://github.com/user-attachments/assets/2309c627-dda4-4988-a879-08c907627a74" alt="image" /><em>프로젝스 속성 페이지 &gt; 구성 속성 &gt; 디버깅</em></li>
 </ul>
 
 <hr />
 
-<h3 id="일괄-빌드">🔍일괄 빌드</h3>
-<p><img src="https://github.com/user-attachments/assets/56760441-fb4d-478f-abe9-e9bf076523e6" alt="image" /></p>
-
-<p><img src="https://github.com/user-attachments/assets/730fed52-a777-44d0-943c-d9b34791d691" alt="image" /></p>
-
-<h2 id="결과">🚀결과</h2>
 <ul>
-  <li>컨트롤 B를 눌러 빌드를 하면 출력디렉토리 경로에 .exe 파일이 생성된다.<br />
-<img src="https://github.com/user-attachments/assets/f28d4ce7-31c3-4205-9445-5076ecb38fc7" alt="image" /></li>
+  <li>아래처럼 명령인수를 출력을 할 수 있다.</li>
 </ul>
 
-<p><img src="https://github.com/user-attachments/assets/25f1f69b-6623-4b9b-8250-3119d570be2a" alt="image" /></p>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">**</span> <span class="n">argv</span><span class="p">)</span>
+<span class="p">{</span>
+	<span class="c1">// 명령인수의 개수</span>
+	<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"argc : "</span> <span class="o">&lt;&lt;</span> <span class="n">argc</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+
+	<span class="c1">// 명령인수의 문자열 출력</span>
+	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">argc</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+		<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">argv</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<hr />
+
+<ul>
+  <li>출력값을 보면 5종류의 명령인수를 적었지만 6개가 출력되는 것을 볼 수 있다.</li>
+  <li>왜냐하면 명령인자의 첫번째 값은 <strong>실행 경로</strong>가 들어가기 때문이다.<br />
+<img src="https://github.com/user-attachments/assets/1c9e226e-c6a0-429f-a76d-7e2f7ce15e86" alt="image" /><em>명령인수 출력 결과</em></li>
+</ul>
+
+<h2 id="exe-파일로-넘겨주기">🔍exe 파일로 넘겨주기</h2>
+<ul>
+  <li>비주얼 스튜디오 명령인수 뿐만 아니라 다른 방식으로도 main에 인자를 넘길 수 있다.</li>
+  <li>그것은 .exe 파일을 실행할때 명령인수를 넘겨주며 실행하는 방법이다.</li>
+  <li><strong>cmd</strong>에서 exe 파일을 실행하고자 할때 뒤에 명령인수로 넘겨줄 인자값들을 적어준다.</li>
+</ul>
+
+<p><img src="https://github.com/user-attachments/assets/64fb48a4-807e-4b25-be53-6d1eb9990559" alt="image" /><em>exe 출력 결과</em></p>
 
 <h2><br /></h2>
 <p><br /></p>
@@ -653,8 +666,7 @@
 <div class="Reference">
 <div class="callout-header"> </div>
 <p>
-<a href="https://splendidlolli.tistory.com/25">https://splendidlolli.tistory.com/25</a>
-<a href=" https://heroeskdw.tistory.com/entry/%EC%BD%94%EB%94%A9c-%EB%AA%85%EB%A0%B9-%EC%9D%B8%EC%88%98-%EB%B0%9B%EA%B8%B0"> https://heroeskdw.tistory.com/entry/%EC%BD%94%EB%94%A9c-%EB%AA%85%EB%A0%B9-%EC%9D%B8%EC%88%98-%EB%B0%9B%EA%B8%B0</a>
+<a href="https://blog.naver.com/sharonichoya/220501242693">https://blog.naver.com/sharonichoya/220501242693</a>
 </p>
 </div>
 
@@ -673,27 +685,17 @@
     <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
     <span itemprop="keywords">
     
-      <a href="/tags/#anuppuchine" class="page__taxonomy-item p-category" rel="tag">Anuppuchine</a><span class="sep">, </span>
+      <a href="/tags/#build" class="page__taxonomy-item p-category" rel="tag">Build</a><span class="sep">, </span>
     
-      <a href="/tags/#minimal" class="page__taxonomy-item p-category" rel="tag">Minimal</a><span class="sep">, </span>
+      <a href="/tags/#command-line-argument" class="page__taxonomy-item p-category" rel="tag">command line argument</a><span class="sep">, </span>
     
-      <a href="/tags/#obsidian" class="page__taxonomy-item p-category" rel="tag">Obsidian</a><span class="sep">, </span>
+      <a href="/tags/#exe" class="page__taxonomy-item p-category" rel="tag">exe</a><span class="sep">, </span>
     
-      <a href="/tags/#optimize" class="page__taxonomy-item p-category" rel="tag">Optimize</a><span class="sep">, </span>
+      <a href="/tags/#visual-studio" class="page__taxonomy-item p-category" rel="tag">Visual Studio</a><span class="sep">, </span>
     
-      <a href="/tags/#theme" class="page__taxonomy-item p-category" rel="tag">Theme</a><span class="sep">, </span>
+      <a href="/tags/#vs" class="page__taxonomy-item p-category" rel="tag">VS</a><span class="sep">, </span>
     
-      <a href="/tags/#%EB%AF%B8%EB%8B%88%EB%A9%80" class="page__taxonomy-item p-category" rel="tag">미니멀</a><span class="sep">, </span>
-    
-      <a href="/tags/#%EC%86%8D%EB%8F%84" class="page__taxonomy-item p-category" rel="tag">속도</a><span class="sep">, </span>
-    
-      <a href="/tags/#%EC%95%84%EB%88%84%ED%91%B8%EC%B9%9C" class="page__taxonomy-item p-category" rel="tag">아누푸친</a><span class="sep">, </span>
-    
-      <a href="/tags/#%EC%98%B5%EC%8B%9C%EB%94%94%EC%96%B8" class="page__taxonomy-item p-category" rel="tag">옵시디언</a><span class="sep">, </span>
-    
-      <a href="/tags/#%EC%B5%9C%EC%A0%81%ED%99%94" class="page__taxonomy-item p-category" rel="tag">최적화</a><span class="sep">, </span>
-    
-      <a href="/tags/#%ED%85%8C%EB%A7%88" class="page__taxonomy-item p-category" rel="tag">테마</a>
+      <a href="/tags/#%EB%AA%85%EB%A0%B9%EC%9D%B8%EC%88%98" class="page__taxonomy-item p-category" rel="tag">명령인수</a>
     
     </span>
   </p>
@@ -727,11 +729,11 @@
     <h4 class="page__share-title">공유하기</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=%5BVisual+Studio%5D+Visual+Studio%EC%97%90%EC%84%9C+%EB%B9%8C%EB%93%9Cexe+%ED%8C%8C%EC%9D%BC+%EB%BD%91%EB%8A%94+%EB%B2%95%20http%3A%2F%2Flocalhost%3A4000%2Fide%2Fvs-%25EB%25B9%2584%25EC%25A3%25BC%25EC%2596%25BC-%25EC%258A%25A4%25ED%258A%259C%25EB%2594%2594%25EC%2598%25A4%25EB%25A1%259C-%25EB%25B9%258C%25EB%2593%259Cexe%25ED%258C%258C%25EC%259D%25BC-%25EB%25BD%2591%25EA%25B8%25B0%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=%5BVisual+Studio%5D+%EB%AA%85%EB%A0%B9%EC%9D%B8%EC%88%98+%EA%B0%9C%EB%85%90%EA%B3%BC+exe%ED%8C%8C%EC%9D%BC%EC%97%90%EC%84%9C+%EB%84%98%EA%B2%A8%EC%A3%BC%EB%8A%94+%EB%B2%95%20http%3A%2F%2Flocalhost%3A4000%2Fide%2FIDE-%25EB%25B9%2584%25EC%25A3%25BC%25EC%2596%25BC-%25EC%258A%25A4%25ED%258A%259C%25EB%2594%2594%25EC%2598%25A4-%25EB%25AA%2585%25EB%25A0%25B9%25EC%259D%25B8%25EC%2588%2598%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fide%2Fvs-%25EB%25B9%2584%25EC%25A3%25BC%25EC%2596%25BC-%25EC%258A%25A4%25ED%258A%259C%25EB%2594%2594%25EC%2598%25A4%25EB%25A1%259C-%25EB%25B9%258C%25EB%2593%259Cexe%25ED%258C%258C%25EC%259D%25BC-%25EB%25BD%2591%25EA%25B8%25B0%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fide%2FIDE-%25EB%25B9%2584%25EC%25A3%25BC%25EC%2596%25BC-%25EC%258A%25A4%25ED%258A%259C%25EB%2594%2594%25EC%2598%25A4-%25EB%25AA%2585%25EB%25A0%25B9%25EC%259D%25B8%25EC%2588%2598%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fide%2Fvs-%25EB%25B9%2584%25EC%25A3%25BC%25EC%2596%25BC-%25EC%258A%25A4%25ED%258A%259C%25EB%2594%2594%25EC%2598%25A4%25EB%25A1%259C-%25EB%25B9%258C%25EB%2593%259Cexe%25ED%258C%258C%25EC%259D%25BC-%25EB%25BD%2591%25EA%25B8%25B0%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fide%2FIDE-%25EB%25B9%2584%25EC%25A3%25BC%25EC%2596%25BC-%25EC%258A%25A4%25ED%258A%259C%25EB%2594%2594%25EC%2598%25A4-%25EB%25AA%2585%25EB%25A0%25B9%25EC%259D%25B8%25EC%2588%2598%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
@@ -742,7 +744,8 @@
 ">이전</a>
     
     
-      <a href="#" class="pagination--pager disabled">다음</a>
+      <a href="/ide/IDE-%EB%B9%84%EC%A3%BC%EC%96%BC-%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4%EB%A1%9C-%EB%B9%8C%EB%93%9Cexe%ED%8C%8C%EC%9D%BC-%EB%BD%91%EA%B8%B0/" class="pagination--pager" title="[Visual Studio] Visual Studio에서 빌드exe 파일 뽑는 법
+">다음</a>
     
   </nav>
 
@@ -756,6 +759,55 @@
     <div class="page__related">
       <h2 class="page__related-title">참고</h2>
       <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/ide/IDE-%EB%B9%84%EC%A3%BC%EC%96%BC-%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4%EB%A1%9C-%EB%B9%8C%EB%93%9Cexe%ED%8C%8C%EC%9D%BC-%EB%BD%91%EA%B8%B0/" rel="permalink">[Visual Studio] Visual Studio에서 빌드exe 파일 뽑는 법
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2024-12-12T00:00:00+09:00">December 12, 2024</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          최대 1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">📄Why
+
+  프로그래밍 과제를 하는데 명령인수를 server-name으로 적으라고 했는데 서버인수가 무엇인지 몰랐다.
+  그래서 명령인수에 대한 설명을 적다가 int main의 인자 값이 명령인수 뿐만 아니라 exe 파일에 인수를 넘기는 방식으로도 활용 할 수 있는 법을 알게되었...</p>
+  </article>
+</div>
+
         
           
 
@@ -906,54 +958,6 @@
 </div>
 
         
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/ue5/Unreal-MSB3073-%EC%98%A4%EB%A5%98-%ED%95%B4%EA%B2%B0%EB%B2%94/" rel="permalink">[UE5] 컴파일시 MSB3073오류 해결하기
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2024-10-10T00:00:00+09:00">October 10, 2024</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
-        
-          1 분 소요
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">발생과정
-프로젝트를 최초 생성하고 컴파일 하려하면 이런 오류가 뜬다 왜 이럴까?
-</p>
-  </article>
-</div>
-
-        
       </div>
     </div>
   
@@ -1008,8 +1012,8 @@
     
   <script>
     var disqus_config = function () {
-      this.page.url = "http://localhost:4000/ide/vs-%EB%B9%84%EC%A3%BC%EC%96%BC-%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4%EB%A1%9C-%EB%B9%8C%EB%93%9Cexe%ED%8C%8C%EC%9D%BC-%EB%BD%91%EA%B8%B0/";  /* Replace PAGE_URL with your page's canonical URL variable */
-      this.page.identifier = "/ide/[vs]비주얼 스튜디오로 빌드exe파일 뽑기"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+      this.page.url = "http://localhost:4000/ide/IDE-%EB%B9%84%EC%A3%BC%EC%96%BC-%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4-%EB%AA%85%EB%A0%B9%EC%9D%B8%EC%88%98/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/ide/[IDE]비주얼 스튜디오 명령인수"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
     };
     (function() { /* DON'T EDIT BELOW THIS LINE */
       var d = document, s = d.createElement('script');

@@ -9,8 +9,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>[Git Blog] Jekyll 코드블럭 테마 설정하기 | Mohitto55 Note</title>
-<meta name="description" content="1. 테마 설치하기 먼저 아래 코드블럭 테마 사이트에 가서 원하는 테마의 이름을 복사한다. :point_right: 테마 사이트">
+<!-- begin _includes/seo.html --><title>[Visual Studio] Visual Studio에서 빌드exe 파일 뽑는 법 | Mohitto55 Note</title>
+<meta name="description" content="📄Why    프로그래밍 과제를 하는데 명령인수를 server-name으로 적으라고 했는데 서버인수가 무엇인지 몰랐다.   그래서 명령인수에 대한 설명을 적다가 int main의 인자 값이 명령인수 뿐만 아니라 exe 파일에 인수를 넘기는 방식으로도 활용 할 수 있는 법을 알게되었고 그러다 exe 파일을 뽑는 방법을 정리하게 되었다.">
 
 
   <meta name="author" content="Mohitto55">
@@ -22,30 +22,30 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:site_name" content="Mohitto55 Note">
-<meta property="og:title" content="[Git Blog] Jekyll 코드블럭 테마 설정하기">
-<meta property="og:url" content="http://localhost:4000/gitblog/Jekyll-%EC%BD%94%EB%93%9C%EB%B8%94%EB%9F%AD-%ED%85%8C%EB%A7%88-%EB%B0%94%EA%BE%B8%EA%B8%B0/">
+<meta property="og:title" content="[Visual Studio] Visual Studio에서 빌드exe 파일 뽑는 법">
+<meta property="og:url" content="http://localhost:4000/ide/IDE-%EB%B9%84%EC%A3%BC%EC%96%BC-%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4%EB%A1%9C-%EB%B9%8C%EB%93%9Cexe%ED%8C%8C%EC%9D%BC-%EB%BD%91%EA%B8%B0/">
 
 
-  <meta property="og:description" content="1. 테마 설치하기 먼저 아래 코드블럭 테마 사이트에 가서 원하는 테마의 이름을 복사한다. :point_right: 테마 사이트">
-
-
-
-
-
-
-
-  <meta property="article:published_time" content="2024-02-22T00:00:00+09:00">
+  <meta property="og:description" content="📄Why    프로그래밍 과제를 하는데 명령인수를 server-name으로 적으라고 했는데 서버인수가 무엇인지 몰랐다.   그래서 명령인수에 대한 설명을 적다가 int main의 인자 값이 명령인수 뿐만 아니라 exe 파일에 인수를 넘기는 방식으로도 활용 할 수 있는 법을 알게되었고 그러다 exe 파일을 뽑는 방법을 정리하게 되었다.">
 
 
 
 
 
-  
+
+
+  <meta property="article:published_time" content="2024-12-12T00:00:00+09:00">
+
+
+
+
 
   
 
+  
 
-<link rel="canonical" href="http://localhost:4000/gitblog/Jekyll-%EC%BD%94%EB%93%9C%EB%B8%94%EB%9F%AD-%ED%85%8C%EB%A7%88-%EB%B0%94%EA%BE%B8%EA%B8%B0/">
+
+<link rel="canonical" href="http://localhost:4000/ide/IDE-%EB%B9%84%EC%A3%BC%EC%96%BC-%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4%EB%A1%9C-%EB%B9%8C%EB%93%9Cexe%ED%8C%8C%EC%9D%BC-%EB%BD%91%EA%B8%B0/">
 
 
 
@@ -121,17 +121,13 @@
           Mohitto55 Note
           <span class="site-subtitle">small positive action</span>
         </a>
-        <ul class="visible-links">
-<li class="masthead__menu-item">
+        <ul class="visible-links"><li class="masthead__menu-item">
               <a href="/categories/">Category</a>
-            </li>
-<li class="masthead__menu-item">
+            </li><li class="masthead__menu-item">
               <a href="/tags/">Tag</a>
-            </li>
-<li class="masthead__menu-item">
+            </li><li class="masthead__menu-item">
               <a href="/search/">Search</a>
-            </li>
-</ul>
+            </li></ul>
         
         <button class="greedy-nav__toggle hidden" type="button">
           <span class="visually-hidden">토글 메뉴</span>
@@ -164,22 +160,22 @@
         <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
           <a href="/" itemprop="item"><span itemprop="name">Home</span></a>
 
-          <meta itemprop="position" content="1">
+          <meta itemprop="position" content="1" />
         </li>
         <span class="sep">/</span>
       
       
         
         <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-          <a href="/categories/#gitblog" itemprop="item"><span itemprop="name">Gitblog</span></a>
-          <meta itemprop="position" content="2">
+          <a href="/categories/#ide" itemprop="item"><span itemprop="name">Ide</span></a>
+          <meta itemprop="position" content="2" />
         </li>
         <span class="sep">/</span>
       
     
       
       
-        <li class="current">[Git Blog] Jekyll 코드블럭 테마 설정하기</li>
+        <li class="current">[Visual Studio] Visual Studio에서 빌드exe 파일 뽑는 법</li>
       
     
   </ol>
@@ -190,7 +186,7 @@
 
 <div id="main" role="main">
   
-<div class="custom-sidebar">
+<div class= "custom-sidebar">
   <div class="sidebar sticky">
   
 
@@ -316,7 +312,7 @@
 
 <nav class="nav__list">
   
-  <input id="ac-toc" name="accordion-toc" type="checkbox">
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
   <label for="ac-toc">토글 메뉴</label>
   <li> 전체 글 수 (68)개 </li>
   <ul class="nav__items">
@@ -539,16 +535,16 @@
 
 
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="[Git Blog] Jekyll 코드블럭 테마 설정하기">
-    <meta itemprop="description" content="1. 테마 설치하기먼저 아래 코드블럭 테마 사이트에 가서 원하는 테마의 이름을 복사한다.:point_right: 테마 사이트">
-    <meta itemprop="datePublished" content="2024-02-22T00:00:00+09:00">
+    <meta itemprop="headline" content="[Visual Studio] Visual Studio에서 빌드exe 파일 뽑는 법">
+    <meta itemprop="description" content="📄Why  프로그래밍 과제를 하는데 명령인수를 server-name으로 적으라고 했는데 서버인수가 무엇인지 몰랐다.  그래서 명령인수에 대한 설명을 적다가 int main의 인자 값이 명령인수 뿐만 아니라 exe 파일에 인수를 넘기는 방식으로도 활용 할 수 있는 법을 알게되었고 그러다 exe 파일을 뽑는 방법을 정리하게 되었다.">
+    <meta itemprop="datePublished" content="2024-12-12T00:00:00+09:00">
     
 
     <div class="page__inner-wrap">
       
         <header>
           <h1 id="page-title" class="page__title p-name" itemprop="headline">
-            <a href="http://localhost:4000/gitblog/Jekyll-%EC%BD%94%EB%93%9C%EB%B8%94%EB%9F%AD-%ED%85%8C%EB%A7%88-%EB%B0%94%EA%BE%B8%EA%B8%B0/" class="u-url" itemprop="url">[Git Blog] Jekyll 코드블럭 테마 설정하기
+            <a href="http://localhost:4000/ide/IDE-%EB%B9%84%EC%A3%BC%EC%96%BC-%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4%EB%A1%9C-%EB%B9%8C%EB%93%9Cexe%ED%8C%8C%EC%9D%BC-%EB%BD%91%EA%B8%B0/" class="u-url" itemprop="url">[Visual Studio] Visual Studio에서 빌드exe 파일 뽑는 법
 </a>
           </h1>
           
@@ -559,7 +555,7 @@
       <span class="page__meta-date">
         <i class="far fa-calendar-alt" aria-hidden="true"></i>
         
-        <time datetime="2024-02-22T00:00:00+09:00">February 22, 2024</time>
+        <time datetime="2024-12-12T00:00:00+09:00">December 12, 2024</time>
       </span>
     
 
@@ -586,52 +582,81 @@
         
           <aside class="sidebar__right sticky">
             <nav class="toc">
-              <header><h4 class="nav__title">
-<i class="fas fa-file-alt"></i> 목차</h4></header>
-              <ul class="toc__menu">
-<li><a href="#1-%ED%85%8C%EB%A7%88-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0">1. 테마 설치하기</a></li>
-<li><a href="#2-rouge%EC%84%A4%EC%B9%98">2. rouge설치</a></li>
-<li><a href="#3-_configyml-%EC%88%98%EC%A0%95">3. _config.yml 수정.</a></li>
-<li><a href="#4-css%ED%8C%8C%EC%9D%BC-%EB%8B%A4%EC%9A%B4%EB%B0%9B%EA%B8%B0">4. css파일 다운받기</a></li>
-<li><a href="#5-%ED%85%8C%EB%A7%88-%EC%A0%81%EC%9A%A9%ED%95%98%EA%B8%B0">5. 테마 적용하기</a></li>
-</ul>
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> 목차</h4></header>
+              <ul class="toc__menu"><li><a href="#why">📄Why</a></li><li><a href="#빌드-파일-만들기">빌드 파일 만들기</a><ul><li><a href="#솔루션-정리">🔍솔루션 정리</a></li><li><a href="#출력-준비-및-경로-설정">🔍출력 준비 및 경로 설정</a></li><li><a href="#솔루션-다시-정리">🔍솔루션 다시 정리</a></li><li><a href="#일괄-빌드">🔍일괄 빌드</a></li></ul></li><li><a href="#결과">🚀결과</a></li></ul>
 
             </nav>
           </aside>
         
-        <h3 id="1-테마-설치하기">1. 테마 설치하기</h3>
-<p>먼저 아래 코드블럭 테마 사이트에 가서 원하는 테마의 이름을 복사한다.<br>
-<img class="emoji" title=":point_right:" alt=":point_right:" src="/assets/images/emoji/unicode/1f449.png" height="20" width="20"> <a href="https://spsarolkar.github.io/rouge-theme-preview/">테마 사이트</a></p>
+        <h2 id="why">📄Why</h2>
+<ul>
+  <li>프로그래밍 과제를 하는데 명령인수를 server-name으로 적으라고 했는데 서버인수가 무엇인지 몰랐다.</li>
+  <li>그래서 명령인수에 대한 설명을 적다가 int main의 인자 값이 명령인수 뿐만 아니라 exe 파일에 인수를 넘기는 방식으로도 활용 할 수 있는 법을 알게되었고 그러다 exe 파일을 뽑는 방법을 정리하게 되었다.</li>
+</ul>
 
-<h3 id="2-rouge설치">2. rouge설치</h3>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gem install rouge
-</code></pre></div></div>
-<p>CMD에서 root폴더에 위와 같이 입력해서 테마를 설치한다.</p>
+<h2 id="빌드-파일-만들기">빌드 파일 만들기</h2>
+<h3 id="솔루션-정리">🔍솔루션 정리</h3>
+<ul>
+  <li>빌드 탭에서 <code class="language-plaintext highlighter-rouge">솔루션정리(C)</code>를 누른다.</li>
+</ul>
 
-<h3 id="3-_configyml-수정">3. <code class="language-plaintext highlighter-rouge">_config.yml</code> 수정.</h3>
+<p><img src="https://github.com/user-attachments/assets/ab9fbbff-585e-435f-84de-0a63877e8536" alt="image" /></p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Conversion
-markdown: kramdown
-highlighter: rouge
+<div class="callout-info-expanded">
+<div class="callout-header">솔루션 정리</div>
+<p>
+기타 파일, 출력 파일을 삭제합니다.<br />
+솔루션 정리 후 빌드를 하면 중간 파일과 출력 파일이 새로 생성됩니다.<br />
+이를 통해 오류, 경고가 있는지 확인하고 다시 빌드를 하는 효과를 볼 수 있습니다.
+</p>
+</div>
 
-# Markdown Processing
-kramdown:
-  input: GFM
-</code></pre></div></div>
+<hr />
 
-<h3 id="4-css파일-다운받기">4. css파일 다운받기</h3>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rougify style 테마이름 &gt; assets/css/syntax.css
-</code></pre></div></div>
-<p>원하는 테마의 syntax.css파일이 assets/css 경로에 생성된다.</p>
+<h3 id="출력-준비-및-경로-설정">🔍출력 준비 및 경로 설정</h3>
+<ul>
+  <li>
+    <p>상단 <code class="language-plaintext highlighter-rouge">프로젝트 &gt; 프로젝트 속성</code> 을 선택한다.<br />
+<img src="https://github.com/user-attachments/assets/28b5793b-abe3-4d78-8ba4-9eef2c8be8be" alt="image" /></p>
+  </li>
+  <li>상단 구성에서 Release로 변경한다.</li>
+  <li>출력 디렉터리에서 파일을 출력할 경로를 작성한다.<br />
+<img src="https://github.com/user-attachments/assets/c577f535-6b72-4856-b7e9-f186b4ec96f6" alt="image" /></li>
+</ul>
 
-<h3 id="5-테마-적용하기">5. 테마 적용하기</h3>
-<p>syntax.css 파일을 _scss 폴더에 놓거나 혹은 _syntax.scss 파일이 있을 경우 해당 파일에 덮어씌우기</p>
+<hr />
 
-<h2 id="page_with_curl-reference">
-<img class="emoji" title=":page_with_curl:" alt=":page_with_curl:" src="/assets/images/emoji/unicode/1f4c3.png" height="20" width="20"> Reference</h2>
-<blockquote>
-  <p>https://onda2me.github.io/blog/codeblock/</p>
-</blockquote>
+<h3 id="솔루션-다시-정리">🔍솔루션 다시 정리</h3>
+<ul>
+  <li>빌드 탭에서 <code class="language-plaintext highlighter-rouge">솔루션정리(C)</code>를 한번 더 누른다.<br />
+<img src="https://github.com/user-attachments/assets/ab9fbbff-585e-435f-84de-0a63877e8536" alt="image" /></li>
+</ul>
+
+<hr />
+
+<h3 id="일괄-빌드">🔍일괄 빌드</h3>
+<p><img src="https://github.com/user-attachments/assets/56760441-fb4d-478f-abe9-e9bf076523e6" alt="image" /></p>
+
+<p><img src="https://github.com/user-attachments/assets/730fed52-a777-44d0-943c-d9b34791d691" alt="image" /></p>
+
+<h2 id="결과">🚀결과</h2>
+<ul>
+  <li>컨트롤 B를 눌러 빌드를 하면 출력디렉토리 경로에 .exe 파일이 생성된다.<br />
+<img src="https://github.com/user-attachments/assets/f28d4ce7-31c3-4205-9445-5076ecb38fc7" alt="image" /></li>
+</ul>
+
+<p><img src="https://github.com/user-attachments/assets/25f1f69b-6623-4b9b-8250-3119d570be2a" alt="image" /></p>
+
+<h2><br /></h2>
+<p><br /></p>
+
+<div class="Reference">
+<div class="callout-header"> </div>
+<p>
+<a href="https://splendidlolli.tistory.com/25">https://splendidlolli.tistory.com/25</a>
+<a href=" https://heroeskdw.tistory.com/entry/%EC%BD%94%EB%94%A9c-%EB%AA%85%EB%A0%B9-%EC%9D%B8%EC%88%98-%EB%B0%9B%EA%B8%B0"> https://heroeskdw.tistory.com/entry/%EC%BD%94%EB%94%A9c-%EB%AA%85%EB%A0%B9-%EC%9D%B8%EC%88%98-%EB%B0%9B%EA%B8%B0</a>
+</p>
+</div>
 
         
       </section>
@@ -648,15 +673,27 @@ kramdown:
     <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
     <span itemprop="keywords">
     
-      <a href="/tags/#blog" class="page__taxonomy-item p-category" rel="tag">Blog</a><span class="sep">, </span>
+      <a href="/tags/#anuppuchine" class="page__taxonomy-item p-category" rel="tag">Anuppuchine</a><span class="sep">, </span>
     
-      <a href="/tags/#git" class="page__taxonomy-item p-category" rel="tag">Git</a><span class="sep">, </span>
+      <a href="/tags/#minimal" class="page__taxonomy-item p-category" rel="tag">Minimal</a><span class="sep">, </span>
     
-      <a href="/tags/#jekyll" class="page__taxonomy-item p-category" rel="tag">Jekyll</a><span class="sep">, </span>
+      <a href="/tags/#obsidian" class="page__taxonomy-item p-category" rel="tag">Obsidian</a><span class="sep">, </span>
     
-      <a href="/tags/#minimal-mistakes" class="page__taxonomy-item p-category" rel="tag">minimal-mistakes</a><span class="sep">, </span>
+      <a href="/tags/#optimize" class="page__taxonomy-item p-category" rel="tag">Optimize</a><span class="sep">, </span>
     
-      <a href="/tags/#%EC%BD%94%EB%93%9C%EB%B8%94%EB%9F%AD" class="page__taxonomy-item p-category" rel="tag">코드블럭</a>
+      <a href="/tags/#theme" class="page__taxonomy-item p-category" rel="tag">Theme</a><span class="sep">, </span>
+    
+      <a href="/tags/#%EB%AF%B8%EB%8B%88%EB%A9%80" class="page__taxonomy-item p-category" rel="tag">미니멀</a><span class="sep">, </span>
+    
+      <a href="/tags/#%EC%86%8D%EB%8F%84" class="page__taxonomy-item p-category" rel="tag">속도</a><span class="sep">, </span>
+    
+      <a href="/tags/#%EC%95%84%EB%88%84%ED%91%B8%EC%B9%9C" class="page__taxonomy-item p-category" rel="tag">아누푸친</a><span class="sep">, </span>
+    
+      <a href="/tags/#%EC%98%B5%EC%8B%9C%EB%94%94%EC%96%B8" class="page__taxonomy-item p-category" rel="tag">옵시디언</a><span class="sep">, </span>
+    
+      <a href="/tags/#%EC%B5%9C%EC%A0%81%ED%99%94" class="page__taxonomy-item p-category" rel="tag">최적화</a><span class="sep">, </span>
+    
+      <a href="/tags/#%ED%85%8C%EB%A7%88" class="page__taxonomy-item p-category" rel="tag">테마</a>
     
     </span>
   </p>
@@ -673,7 +710,7 @@ kramdown:
     <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
     <span itemprop="keywords">
     
-      <a href="/categories/#gitblog" class="page__taxonomy-item p-category" rel="tag">gitblog</a>
+      <a href="/categories/#ide" class="page__taxonomy-item p-category" rel="tag">ide</a>
     
     </span>
   </p>
@@ -681,7 +718,7 @@ kramdown:
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2024-02-22T00:00:00+09:00">February 22, 2024</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2024-12-12T00:00:00+09:00">December 12, 2024</time></p>
 
       </footer>
 
@@ -690,23 +727,22 @@ kramdown:
     <h4 class="page__share-title">공유하기</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=%5BGit+Blog%5D+Jekyll+%EC%BD%94%EB%93%9C%EB%B8%94%EB%9F%AD+%ED%85%8C%EB%A7%88+%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0%20http%3A%2F%2Flocalhost%3A4000%2Fgitblog%2FJekyll-%25EC%25BD%2594%25EB%2593%259C%25EB%25B8%2594%25EB%259F%25AD-%25ED%2585%258C%25EB%25A7%2588-%25EB%25B0%2594%25EA%25BE%25B8%25EA%25B8%25B0%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=%5BVisual+Studio%5D+Visual+Studio%EC%97%90%EC%84%9C+%EB%B9%8C%EB%93%9Cexe+%ED%8C%8C%EC%9D%BC+%EB%BD%91%EB%8A%94+%EB%B2%95%20http%3A%2F%2Flocalhost%3A4000%2Fide%2FIDE-%25EB%25B9%2584%25EC%25A3%25BC%25EC%2596%25BC-%25EC%258A%25A4%25ED%258A%259C%25EB%2594%2594%25EC%2598%25A4%25EB%25A1%259C-%25EB%25B9%258C%25EB%2593%259Cexe%25ED%258C%258C%25EC%259D%25BC-%25EB%25BD%2591%25EA%25B8%25B0%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fgitblog%2FJekyll-%25EC%25BD%2594%25EB%2593%259C%25EB%25B8%2594%25EB%259F%25AD-%25ED%2585%258C%25EB%25A7%2588-%25EB%25B0%2594%25EA%25BE%25B8%25EA%25B8%25B0%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fide%2FIDE-%25EB%25B9%2584%25EC%25A3%25BC%25EC%2596%25BC-%25EC%258A%25A4%25ED%258A%259C%25EB%2594%2594%25EC%2598%25A4%25EB%25A1%259C-%25EB%25B9%258C%25EB%2593%259Cexe%25ED%258C%258C%25EC%259D%25BC-%25EB%25BD%2591%25EA%25B8%25B0%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3A%2F%2Flocalhost%3A4000%2Fgitblog%2FJekyll-%25EC%25BD%2594%25EB%2593%259C%25EB%25B8%2594%25EB%259F%25AD-%25ED%2585%258C%25EB%25A7%2588-%25EB%25B0%2594%25EA%25BE%25B8%25EA%25B8%25B0%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fide%2FIDE-%25EB%25B9%2584%25EC%25A3%25BC%25EC%2596%25BC-%25EC%258A%25A4%25ED%258A%259C%25EB%2594%2594%25EC%2598%25A4%25EB%25A1%259C-%25EB%25B9%258C%25EB%2593%259Cexe%25ED%258C%258C%25EC%259D%25BC-%25EB%25BD%2591%25EA%25B8%25B0%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="/gitblog/Jekyll-%EC%9D%B4%EB%AA%A8%EC%A7%80-%EC%A0%81%EC%9A%A9%EB%B2%95/" class="pagination--pager" title="[Git Blog] Jekyll에서 emoji사용하기
+      <a href="/ide/IDE-%EB%B9%84%EC%A3%BC%EC%96%BC-%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4-%EB%AA%85%EB%A0%B9%EC%9D%B8%EC%88%98/" class="pagination--pager" title="[Visual Studio] 명령인수 개념과 exe파일에서 넘겨주는 법
 ">이전</a>
     
     
-      <a href="/cpp/SOLID-%EC%9B%90%EC%B9%99/" class="pagination--pager" title="SOLID 객체지향 5대원칙
-">다음</a>
+      <a href="#" class="pagination--pager disabled">다음</a>
     
   </nav>
 
@@ -720,55 +756,6 @@ kramdown:
     <div class="page__related">
       <h2 class="page__related-title">참고</h2>
       <div class="grid__wrapper">
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/ide/IDE-%EB%B9%84%EC%A3%BC%EC%96%BC-%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4%EB%A1%9C-%EB%B9%8C%EB%93%9Cexe%ED%8C%8C%EC%9D%BC-%EB%BD%91%EA%B8%B0/" rel="permalink">[Visual Studio] Visual Studio에서 빌드exe 파일 뽑는 법
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2024-12-12T00:00:00+09:00">December 12, 2024</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
-        
-          최대 1 분 소요
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">📄Why
-
-  프로그래밍 과제를 하는데 명령인수를 server-name으로 적으라고 했는데 서버인수가 무엇인지 몰랐다.
-  그래서 명령인수에 대한 설명을 적다가 int main의 인자 값이 명령인수 뿐만 아니라 exe 파일에 인수를 넘기는 방식으로도 활용 할 수 있는 법을 알게되었...</p>
-  </article>
-</div>
-
         
           
 
@@ -804,7 +791,7 @@ kramdown:
       <span class="page__meta-readtime">
         <i class="far fa-fw fa-clock" aria-hidden="true"></i>
         
-          최대 1 분 소요
+          1 분 소요
         
       </span>
     
@@ -924,6 +911,53 @@ kramdown:
 </div>
 
         
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/geometry/Geometry-%EC%84%A0%EB%B6%84-%EB%81%BC%EB%A6%AC%EC%9D%98-%EA%B5%90%EC%B0%A8%EC%A0%90-%EA%B5%AC%ED%95%98%EA%B8%B0/" rel="permalink">[Geometry] 외적을 이용해 선분간의 교차점을 구하는 방법
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2024-10-24T00:00:00+09:00">October 24, 2024</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          4 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">📄외적을 이용한 선분과 선분의 교차점 구하기
+</p>
+  </article>
+</div>
+
+        
       </div>
     </div>
   
@@ -961,7 +995,7 @@ kramdown:
   </ul>
 </div>
 
-<div class="page__footer-copyright">© 2024 전진성(Jeon Jin Sung). Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2024 전진성(Jeon Jin Sung). Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
 
       </footer>
     </div>
@@ -978,8 +1012,8 @@ kramdown:
     
   <script>
     var disqus_config = function () {
-      this.page.url = "http://localhost:4000/gitblog/Jekyll-%EC%BD%94%EB%93%9C%EB%B8%94%EB%9F%AD-%ED%85%8C%EB%A7%88-%EB%B0%94%EA%BE%B8%EA%B8%B0/";  /* Replace PAGE_URL with your page's canonical URL variable */
-      this.page.identifier = "/gitblog/Jekyll 코드블럭 테마 바꾸기"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+      this.page.url = "http://localhost:4000/ide/IDE-%EB%B9%84%EC%A3%BC%EC%96%BC-%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4%EB%A1%9C-%EB%B9%8C%EB%93%9Cexe%ED%8C%8C%EC%9D%BC-%EB%BD%91%EA%B8%B0/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/ide/[IDE]비주얼 스튜디오로 빌드exe파일 뽑기"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
     };
     (function() { /* DON'T EDIT BELOW THIS LINE */
       var d = document, s = d.createElement('script');
@@ -988,8 +1022,7 @@ kramdown:
       (d.head || d.body).appendChild(s);
     })();
   </script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-</noscript>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
 
   
@@ -998,7 +1031,8 @@ kramdown:
 
 
 <!-- Add LaTex function -->
-<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML">
+<script type="text/javascript" async
+	src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML">
 </script>
 
 <script type="text/x-mathjax-config">

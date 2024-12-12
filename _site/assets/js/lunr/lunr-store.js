@@ -395,9 +395,15 @@ var store = [{
         "url": "/obsidian/Obsidian-%EC%95%84%EB%88%84%ED%91%B8%EC%B9%9C%ED%85%8C%EB%A7%88-%EC%A0%9C%EA%B1%B0/",
         "teaser": null
       },{
+        "title": "[Visual Studio] 명령인수 개념과 exe파일에서 넘겨주는 법",
+        "excerpt":"📄main 함수의 매개변수 간혹 int main에 인자값이 int argc, char** argv 같은게 있는데 이것이 명령인수를 통해 넘겨주는 인자값들 이다. argc : 명령줄 인수의 개수 argv : 명령줄 인수의 문자열 배열 첫번째 값은 실행경로가 들어간다. 그러나 main 함수는 최초 시작 진입점인데 정보를 어떻게 넘겨주는 것일까? 그것에 대해서 알아보도록 하겠다. 📄명령인수(command line...","categories": ["ide"],
+        "tags": ["Visual Studio","VS","명령인수","exe","Build","command line argument"],
+        "url": "/ide/IDE-%EB%B9%84%EC%A3%BC%EC%96%BC-%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4-%EB%AA%85%EB%A0%B9%EC%9D%B8%EC%88%98/",
+        "teaser": null
+      },{
         "title": "[Visual Studio] Visual Studio에서 빌드exe 파일 뽑는 법",
         "excerpt":"📄Why 프로그래밍 과제를 하는데 명령인수를 server-name으로 적으라고 했는데 서버인수가 무엇인지 몰랐다. 그래서 명령인수에 대한 설명을 적다가 int main의 인자 값이 명령인수 뿐만 아니라 exe 파일에 인수를 넘기는 방식으로도 활용 할 수 있는 법을 알게되었고 그러다 exe 파일을 뽑는 방법을 정리하게 되었다. 빌드 파일 만들기 🔍솔루션 정리 빌드 탭에서 솔루션정리(C)를 누른다....","categories": ["ide"],
         "tags": ["Obsidian","옵시디언","테마","Theme","최적화","Optimize","속도","아누푸친","Anuppuchine","Minimal","미니멀"],
-        "url": "/ide/vs-%EB%B9%84%EC%A3%BC%EC%96%BC-%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4%EB%A1%9C-%EB%B9%8C%EB%93%9Cexe%ED%8C%8C%EC%9D%BC-%EB%BD%91%EA%B8%B0/",
+        "url": "/ide/IDE-%EB%B9%84%EC%A3%BC%EC%96%BC-%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4%EB%A1%9C-%EB%B9%8C%EB%93%9Cexe%ED%8C%8C%EC%9D%BC-%EB%BD%91%EA%B8%B0/",
         "teaser": null
       }]
