@@ -406,4 +406,10 @@ var store = [{
         "tags": ["Obsidian","옵시디언","테마","Theme","최적화","Optimize","속도","아누푸친","Anuppuchine","Minimal","미니멀"],
         "url": "/ide/IDE-%EB%B9%84%EC%A3%BC%EC%96%BC-%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4%EB%A1%9C-%EB%B9%8C%EB%93%9Cexe%ED%8C%8C%EC%9D%BC-%EB%BD%91%EA%B8%B0/",
         "teaser": null
+      },{
+        "title": "[Obsidian] Vercel을 활용한 Obsidian Digital Garden 블로그 만들기",
+        "excerpt":"📄옵시디언으로 블로그를 만드는 이유 지금까지 나는 지식을 정리하고 정리한 내용을 공유하기 위해 여러 종류의 블로그 사이트를 사용해 봤다. 맨처음에는 네이버 블로그였는데 한국인의 입장에선 확실히 네이버가 접근성이 좋긴하지만 한국인을 제외한 외국인들은 구글 검색에 뜨기가 쉽지않고 디자인이 마음에 들지않아 금방 포기했다. 그 다음은 티스토리 블로그였다. 개발관련 자료를 검색하면 많은 자료가 티스토리 혹은...","categories": ["obsidian"],
+        "tags": ["Obsidian","Vercel","Digital Garden","Productivity","Blog","Naver","네이버","TiStory","티스토리","Git","깃","생산성","블로그"],
+        "url": "/obsidian/Obsidian-Vercel%EC%9D%84-%ED%99%9C%EC%9A%A9%ED%95%9C-Digital-Garden-%EB%A7%8C%EB%93%A4%EA%B8%B0/",
+        "teaser": null
       }]

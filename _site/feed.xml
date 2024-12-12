@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-12-12T13:37:59+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mohitto55 Note</title><subtitle>모히또의 노트</subtitle><author><name>Mohitto55</name></author><entry><title type="html">[Visual Studio] 명령인수 개념과 exe파일에서 넘겨주는 법</title><link href="http://localhost:4000/ide/IDE-%EB%B9%84%EC%A3%BC%EC%96%BC-%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4-%EB%AA%85%EB%A0%B9%EC%9D%B8%EC%88%98/" rel="alternate" type="text/html" title="[Visual Studio] 명령인수 개념과 exe파일에서 넘겨주는 법" /><published>2024-12-12T00:00:00+09:00</published><updated>2024-12-12T00:00:00+09:00</updated><id>http://localhost:4000/ide/%5BIDE%5D%EB%B9%84%EC%A3%BC%EC%96%BC%20%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4%20%EB%AA%85%EB%A0%B9%EC%9D%B8%EC%88%98</id><content type="html" xml:base="http://localhost:4000/ide/IDE-%EB%B9%84%EC%A3%BC%EC%96%BC-%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4-%EB%AA%85%EB%A0%B9%EC%9D%B8%EC%88%98/"><![CDATA[<h1 id="main-함수의-매개변수">📄main 함수의 매개변수</h1>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-12-12T13:46:17+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mohitto55 Note</title><subtitle>모히또의 노트</subtitle><author><name>Mohitto55</name></author><entry><title type="html">[Visual Studio] 명령인수 개념과 exe파일에서 넘겨주는 법</title><link href="http://localhost:4000/ide/IDE-%EB%B9%84%EC%A3%BC%EC%96%BC-%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4-%EB%AA%85%EB%A0%B9%EC%9D%B8%EC%88%98/" rel="alternate" type="text/html" title="[Visual Studio] 명령인수 개념과 exe파일에서 넘겨주는 법" /><published>2024-12-12T00:00:00+09:00</published><updated>2024-12-12T00:00:00+09:00</updated><id>http://localhost:4000/ide/%5BIDE%5D%EB%B9%84%EC%A3%BC%EC%96%BC%20%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4%20%EB%AA%85%EB%A0%B9%EC%9D%B8%EC%88%98</id><content type="html" xml:base="http://localhost:4000/ide/IDE-%EB%B9%84%EC%A3%BC%EC%96%BC-%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4-%EB%AA%85%EB%A0%B9%EC%9D%B8%EC%88%98/"><![CDATA[<h1 id="main-함수의-매개변수">📄main 함수의 매개변수</h1>
 <ul>
   <li>간혹 int main에 인자값이 <code class="language-plaintext highlighter-rouge">int argc, char** argv</code> 같은게 있는데 이것이 명령인수를 통해 넘겨주는 인자값들 이다.
     <ul>
@@ -78,7 +78,127 @@
 <p>
 <a href="https://blog.naver.com/sharonichoya/220501242693">https://blog.naver.com/sharonichoya/220501242693</a>
 </p>
-</div>]]></content><author><name>Mohitto55</name></author><category term="ide" /><category term="Visual Studio" /><category term="VS" /><category term="명령인수" /><category term="exe" /><category term="Build" /><category term="command line argument" /><summary type="html"><![CDATA[📄main 함수의 매개변수 간혹 int main에 인자값이 int argc, char** argv 같은게 있는데 이것이 명령인수를 통해 넘겨주는 인자값들 이다. argc : 명령줄 인수의 개수 argv : 명령줄 인수의 문자열 배열 첫번째 값은 실행경로가 들어간다.]]></summary></entry><entry><title type="html">[Visual Studio] Visual Studio에서 빌드exe 파일 뽑는 법</title><link href="http://localhost:4000/ide/IDE-%EB%B9%84%EC%A3%BC%EC%96%BC-%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4%EB%A1%9C-%EB%B9%8C%EB%93%9Cexe%ED%8C%8C%EC%9D%BC-%EB%BD%91%EA%B8%B0/" rel="alternate" type="text/html" title="[Visual Studio] Visual Studio에서 빌드exe 파일 뽑는 법" /><published>2024-12-12T00:00:00+09:00</published><updated>2024-12-12T00:00:00+09:00</updated><id>http://localhost:4000/ide/%5BIDE%5D%EB%B9%84%EC%A3%BC%EC%96%BC%20%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4%EB%A1%9C%20%EB%B9%8C%EB%93%9Cexe%ED%8C%8C%EC%9D%BC%20%EB%BD%91%EA%B8%B0</id><content type="html" xml:base="http://localhost:4000/ide/IDE-%EB%B9%84%EC%A3%BC%EC%96%BC-%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4%EB%A1%9C-%EB%B9%8C%EB%93%9Cexe%ED%8C%8C%EC%9D%BC-%EB%BD%91%EA%B8%B0/"><![CDATA[<h2 id="why">📄Why</h2>
+</div>]]></content><author><name>Mohitto55</name></author><category term="ide" /><category term="Visual Studio" /><category term="VS" /><category term="명령인수" /><category term="exe" /><category term="Build" /><category term="command line argument" /><summary type="html"><![CDATA[📄main 함수의 매개변수 간혹 int main에 인자값이 int argc, char** argv 같은게 있는데 이것이 명령인수를 통해 넘겨주는 인자값들 이다. argc : 명령줄 인수의 개수 argv : 명령줄 인수의 문자열 배열 첫번째 값은 실행경로가 들어간다.]]></summary></entry><entry><title type="html">[Obsidian] Vercel을 활용한 Obsidian Digital Garden 블로그 만들기</title><link href="http://localhost:4000/obsidian/Obsidian-Vercel%EC%9D%84-%ED%99%9C%EC%9A%A9%ED%95%9C-Digital-Garden-%EB%A7%8C%EB%93%A4%EA%B8%B0/" rel="alternate" type="text/html" title="[Obsidian] Vercel을 활용한 Obsidian Digital Garden 블로그 만들기" /><published>2024-12-12T00:00:00+09:00</published><updated>2024-12-12T00:00:00+09:00</updated><id>http://localhost:4000/obsidian/%5BObsidian%5DVercel%EC%9D%84%20%ED%99%9C%EC%9A%A9%ED%95%9C%20Digital%20Garden%20%EB%A7%8C%EB%93%A4%EA%B8%B0</id><content type="html" xml:base="http://localhost:4000/obsidian/Obsidian-Vercel%EC%9D%84-%ED%99%9C%EC%9A%A9%ED%95%9C-Digital-Garden-%EB%A7%8C%EB%93%A4%EA%B8%B0/"><![CDATA[<h1 id="옵시디언으로-블로그를-만드는-이유">📄옵시디언으로 블로그를 만드는 이유</h1>
+<p>지금까지 나는 지식을 정리하고 정리한 내용을 공유하기 위해 여러 종류의 블로그 사이트를 사용해 봤다.<br />
+맨처음에는 <strong>네이버</strong> 블로그였는데 한국인의 입장에선 확실히 네이버가 접근성이 좋긴하지만 한국인을 제외한 외국인들은 구글 검색에 뜨기가 쉽지않고 디자인이 마음에 들지않아 금방 포기했다.</p>
+
+<p>그 다음은 <strong>티스토리</strong> 블로그였다. 개발관련 자료를 검색하면 많은 자료가 티스토리 혹은 Velog에 올라와 있었다. 나는 직접 커스텀하는 것을 좋아해서 Velog보다는 티스토리가 더 좋다 생각해서 티스토리에서 글을 작성했었다.<br />
+물론 편하고 기본적으로 깔끔해서 좋긴 하지만 글을 검색하거나 사이트를 설정하는데 마음에 들지 않아 자연스럽게 손대지 않게 되었다.</p>
+
+<p>좀 더 자유도 높은 블로그가 있을까 찾아봤는데 <strong>GitBlog</strong>가 눈에 들어왔다.<br />
+GItBlog는 처음부터 끝까지 기능을 다 커스텀가능하고 테마도 풍부해서 마음에 드는게 많았다. 그 중 Jekyll 테마가 인지도 있어보여서 사용해봤다. 처음에는 css도 직접짜고 여러가지 기능을 넣을 수 있어서 재밌었지만 생산성 부분에서 문제가 커져갔다.</p>
+
+<p>기본적으로 GitBlog는 자유도가 높은 만큼 학습량이 많아 초반에 시간이 오래걸리고 무엇보다 띄어쓰기가 너무 큰 문제였다. Jekyll테마에서만 그런지는 몰라도 줄바꿈이 제대로 적용되지 않아 br 태그를 중간중간 써줘야하고 생각한대로 글이 이쁘게 나오지도 않아서 css를 수정하고 글자도 다시 수정하는 등 글 하나 작성하는데 시간이 오래걸린다. 그리고 나는 옵시디언을 통해 먼저 글을 작성하고 그 글을 정리해서 포스팅하는데 이게 옵시디언과 달리 HTML을 중간중간 써줘야 하다보니 이것도 시간이 많이 걸린다.</p>
+
+<p>그리고 가장 중요한게 조회수인데 사이트맵이 제대로 적용이 안되는지 사람이 몇달간 제대로 들어오지 않곤했다. 그래서 금방 흥미를 잃게 되었다.</p>
+
+<p>결국 포스팅 하는게 귀찮아져서 손을 안대게 됐는데 어떻게 해야 내가 블로그를 열심히 쓰게 될까 생각해 보았다.<br />
+지금까지 블로그를 사용했던 경험을 토대로 내가 블로그에서 가장 중요하게 생각하는 걸 3가지를 정해봤다.</p>
+<ol>
+  <li>포스트 업로드가 쉬워야한다.</li>
+  <li>옵시디언에서 작성한 글에서 수정을 거의 안해야한다.</li>
+  <li>자유도가 있어야한다.</li>
+</ol>
+
+<p>위 조건들을 토대로 찾아본 결과 <strong>Digital Garden</strong> 플러그인을 이용해 옵시디언 노트를 통쨰로 포스팅하는 방식이 가장 적절해 보였다. 아직 시작 단계이지만 얼추 봤을때는 아래의 장점이 잇었다.</p>
+<ol>
+  <li>버튼 몇번으로 업로드, 수정, 삭제가능하다.</li>
+  <li>옵시디언 노트 내용이랑 똑같다.</li>
+  <li>꾸미기 쉽다.</li>
+</ol>
+
+<p>내가 생각한 블로그의 조건이랑 딱 맞아 떨어져보여 한번 시작해보려고 한다.</p>
+
+<h1 id="digital-garden으로-블로그-만들기">📄Digital Garden으로 블로그 만들기</h1>
+<h3 id="플러그인-설치">🔍플러그인 설치</h3>
+<ul>
+  <li>Community Plugin에 가서 <code class="language-plaintext highlighter-rouge">Digital Garden</code>을 검색해서 설치한다.</li>
+</ul>
+
+<p><img src="https://github.com/user-attachments/assets/3949101f-9e1d-4715-aab9-d6f718819783" alt="image" /></p>
+
+<hr />
+
+<h3 id="vercel-계정-생성">🔍Vercel 계정 생성</h3>
+<ul>
+  <li> <a href="https://github.com/signup">Vercel</a>로 가서 GitHub 계정과 연동해준다.</li>
+</ul>
+
+<div class="callout-info-expanded">
+<div class="callout-header">Vercel</div>
+<p>
+클라우드 플랫폼으로, 웹사이트 및 애플리케이션을 배포, 관리, 그리고 성능을 최적화하는 데 도움을 준다.<br />
+주로 Next.js와 같은 프레임워크와 밀접하게 연동된다.
+</p>
+</div>
+
+<hr />
+
+<h3 id="리포지토리-생성">🔍리포지토리 생성</h3>
+<ul>
+  <li>리포지토리 생성 후 <a href="https://github.com/oleeskild/digitalgarden">링크</a>로가서 Deploy 버튼 클릭한다</li>
+  <li>이렇게 하면 Vercel이 열리고 GitHub 계정에 저장소의 사본이 생성된다. 사본 저장소의 이름을 작성하고 생성하면 Vercel의 단계에 따라 사이트를 인터넷에 게시된다.</li>
+</ul>
+
+<p><img src="https://github.com/user-attachments/assets/8b371813-b355-4c2c-abe4-247c78591a32" alt="image" /></p>
+
+<p><img src="https://github.com/user-attachments/assets/fa8421f8-0d56-40f9-b1e0-410121ab0f18" alt="image" /></p>
+
+<hr />
+
+<h3 id="github-액세스토큰-생성">🔍GitHub 액세스토큰 생성</h3>
+<ul>
+  <li>다음으로 GitHub 계정에 대한 액세스 토큰을 만들어야 한다.</li>
+  <li>토큰은 저장소를 접근하기 위한 비밀번호 역할을 하여 토큰을 만들어야 작성한 글을 업로드할 수 있다.</li>
+  <li>토큰 생성방법은  <a href="https://dg-docs.ole.dev/advanced/fine-grained-access-token/">링크</a>에서 확인할 수 있다. 설정값을 똑같이 넣어준다.</li>
+  <li>토큰은 <a href="https://github.com/settings/tokens/new?scopes=repo">여기</a>서 생성할 수 있다. </li>
+  <li><strong>토큰 값은 한번 생성됐을때 한번만 알려주니까</strong> 꼭 어딘가에 저장해놓자</li>
+</ul>
+
+<hr />
+
+<h3 id="digital-garden-플러그인-설정">🔍Digital Garden 플러그인 설정</h3>
+<ul>
+  <li>Digital Garden 플러그인에 깃허브 저장소 관련 정보를 넣어줘야한다.
+    <ol>
+      <li>Github repo name: 생성한 레포지토리 이름</li>
+      <li>Github username: 깃허브 아이디</li>
+      <li>Github token: 방금 생성한 토큰<br />
+<img src="https://github.com/user-attachments/assets/47e4cadc-92f5-4432-813a-73bc23b0c3f7" alt="image" /></li>
+    </ol>
+  </li>
+</ul>
+
+<h2 id="노트-연결하기">🔍노트 연결하기</h2>
+<ul>
+  <li>프로퍼티를 통해 공개할 노트를 설정할 수 있다.</li>
+  <li><strong>dg-publish</strong> : 노트를 다른 사람들에게 공개한다.</li>
+  <li><strong>dg-home</strong> : 해당 노트를 메인 페이지로 설정한다.<br />
+<img src="https://github.com/user-attachments/assets/ceb39f0c-4d75-41d1-bdf8-6a314375053d" alt="image" /></li>
+</ul>
+
+<h2 id="노트-푸시하기">🔍노트 푸시하기</h2>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">Digital Garden: Publish Single Note</code>를 눌러서 노트를 공개할 수 있다.</li>
+  <li>그리고 사이트 주소를<a href="https://vercel.com/dashboard">Vercel</a>에서 찾고 몇분 뒤면 푸시한 노트가 올라와 있을 것이다.</li>
+</ul>
+
+<h2 id="마무리">🚀마무리</h2>
+<ul>
+  <li>옵시디언에서 글을 쓰고 그것을 그대로 웹사이트에 올리는 것은 분명 편하긴하다.</li>
+  <li>하지만 사이드 카테고리가 너무 옵시디언이랑 똑같아 이 부분은 맘에 들지 않는다.</li>
+  <li>그래서 대안으로 webpage export 플러그인을 알아봤는데 이건 분명 편해보이지만 깃허브와 연동하는 기능이 없어서 Digital Garden을 계속 쓸것같다.</li>
+</ul>
+
+<h2><br /></h2>
+<p><br /></p>
+
+<div class="Reference">
+<div class="callout-header"> </div>
+<p>
+<a href="https://blog.naver.com/sharonichoya/220501242693">https://blog.naver.com/sharonichoya/220501242693</a>
+</p>
+</div>]]></content><author><name>Mohitto55</name></author><category term="obsidian" /><category term="Obsidian" /><category term="Vercel" /><category term="Digital Garden" /><category term="Productivity" /><category term="Blog" /><category term="Naver" /><category term="네이버" /><category term="TiStory" /><category term="티스토리" /><category term="Git" /><category term="깃" /><category term="생산성" /><category term="블로그" /><summary type="html"><![CDATA[📄옵시디언으로 블로그를 만드는 이유 지금까지 나는 지식을 정리하고 정리한 내용을 공유하기 위해 여러 종류의 블로그 사이트를 사용해 봤다. 맨처음에는 네이버 블로그였는데 한국인의 입장에선 확실히 네이버가 접근성이 좋긴하지만 한국인을 제외한 외국인들은 구글 검색에 뜨기가 쉽지않고 디자인이 마음에 들지않아 금방 포기했다.]]></summary></entry><entry><title type="html">[Visual Studio] Visual Studio에서 빌드exe 파일 뽑는 법</title><link href="http://localhost:4000/ide/IDE-%EB%B9%84%EC%A3%BC%EC%96%BC-%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4%EB%A1%9C-%EB%B9%8C%EB%93%9Cexe%ED%8C%8C%EC%9D%BC-%EB%BD%91%EA%B8%B0/" rel="alternate" type="text/html" title="[Visual Studio] Visual Studio에서 빌드exe 파일 뽑는 법" /><published>2024-12-12T00:00:00+09:00</published><updated>2024-12-12T00:00:00+09:00</updated><id>http://localhost:4000/ide/%5BIDE%5D%EB%B9%84%EC%A3%BC%EC%96%BC%20%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4%EB%A1%9C%20%EB%B9%8C%EB%93%9Cexe%ED%8C%8C%EC%9D%BC%20%EB%BD%91%EA%B8%B0</id><content type="html" xml:base="http://localhost:4000/ide/IDE-%EB%B9%84%EC%A3%BC%EC%96%BC-%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4%EB%A1%9C-%EB%B9%8C%EB%93%9Cexe%ED%8C%8C%EC%9D%BC-%EB%BD%91%EA%B8%B0/"><![CDATA[<h2 id="why">📄Why</h2>
 <ul>
   <li>프로그래밍 과제를 하는데 명령인수를 server-name으로 적으라고 했는데 서버인수가 무엇인지 몰랐다.</li>
   <li>그래서 명령인수에 대한 설명을 적다가 int main의 인자 값이 명령인수 뿐만 아니라 exe 파일에 인수를 넘기는 방식으로도 활용 할 수 있는 법을 알게되었고 그러다 exe 파일을 뽑는 방법을 정리하게 되었다.</li>
@@ -907,129 +1027,4 @@ GItBlog는 처음부터 끝까지 기능을 다 커스텀가능하고 테마도 
 <p>
 혼자 공부하는 컴퓨터구조+운영체제
 </p>
-</div>]]></content><author><name>Mohitto55</name></author><category term="computerscience" /><category term="가상 메모리" /><category term="Virtual Memory" /><category term="페이징" /><category term="Paging" /><category term="스와핑" /><category term="Swapping" /><category term="메모리 관리 기법" /><category term="Memory Management" /><category term="컴퓨터 구조" /><category term="Computer Architecture" /><category term="운영체제" /><category term="Operating System" /><category term="메모리 단편화" /><category term="Memory Fragmentation" /><category term="프로세스 메모리 할당" /><category term="Process Memory Allocation" /><summary type="html"><![CDATA[컴퓨터 시스템에서 프로세스는 작업을 처리하기 위해 반드시 데이터를 메모리에 저장해야 한다. 하지만 물리적인 메모리 용량은 제한적이기 때문에, 모든 프로세스가 동시에 메모리에 상주할 수는 없다.]]></summary></entry><entry><title type="html">[UE5] 언리얼엔진 캐릭터 애니메이션 모션매칭 사용법</title><link href="http://localhost:4000/ue5/UE5-%EB%AA%A8%EC%85%98%EB%A7%A4%EC%B9%AD%EC%82%AC%EC%9A%A9%EB%B2%95/" rel="alternate" type="text/html" title="[UE5] 언리얼엔진 캐릭터 애니메이션 모션매칭 사용법" /><published>2024-08-26T00:00:00+09:00</published><updated>2024-08-26T00:00:00+09:00</updated><id>http://localhost:4000/ue5/UE5%20%EB%AA%A8%EC%85%98%EB%A7%A4%EC%B9%AD%EC%82%AC%EC%9A%A9%EB%B2%95</id><content type="html" xml:base="http://localhost:4000/ue5/UE5-%EB%AA%A8%EC%85%98%EB%A7%A4%EC%B9%AD%EC%82%AC%EC%9A%A9%EB%B2%95/"><![CDATA[<p>언리얼엔진이 5.4버전이 나오면서 모션매칭 기능이 새로 발표되었다.<br />
-모션 매칭은 캐릭터 애니메이션을 위한 차세대 프레임워크다. 이 기술은 언리얼 엔진 5.4 버전에서 새롭게 도입되었으며, 캐릭터의 움직임을 더욱 자연스럽고 역동적으로 만드는 데 중점을 준다.</p>
-
-<p><br /></p>
-<p>
-모션매칭을 이용한 애니메이션 제작은 기존 방식과 큰 차이가 있다. 모션 매칭의 주요 특징으로는 다음과 같다.<br />
-<font color="dodgerred">1. 데이터 기반 접근</font>: 모션 매칭은 대규모의 캡처된 애니메이션 데이터베이스를 활용합니다.<br />
-<font color="dodgerred">2. 실시간 검색</font>: 게임 내 캐릭터의 현재 모션 정보를 키로 사용하여 데이터베이스에서 가장 적합한 애니메이션을 실시간으로 검색합니다.<br />
-<font color="dodgerred">3. 자연스러운 전환</font>: 복잡한 로직 없이도 다양한 애니메이션 클립 간의 자연스러운 전환이 가능합니다.<br />
-<font color="dodgerred">4. 확장성</font>: 애니메이션 기능을 위한 확장 가능한 프레임워크를 제공합니다.<br />
-</p>
-
-<p><br /><br />
-기존에는 특정 조건에 맞는 애니메이션을 하나하나 직접 설정해줘야 했지만 모션 매칭은 데이터 기반으로 현재 상태에서 가장 적합한 애니메이션을 자연스럽게 자동으로 설정해준다.</p>
-
-<p><br /></p>
-<h1 id="모션매칭-사전준비">모션매칭 사전준비</h1>
-<h2 id="플러그인-설치">플러그인 설치</h2>
-<ul>
-  <li>아래 두 플러그인 설치하고 다시 시작한다.<br />
-<img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/dbc4cc87-7a25-4b1d-ba26-266c97506563" alt="image" /><br />
-<img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/7e725cda-a1ba-4064-a128-da6e780383ce" alt="image" /></li>
-</ul>
-
-<h2 id="애니메이션-시퀀스들-준비하기">애니메이션 시퀀스들 준비하기</h2>
-<h3 id="모션-매칭-스키마-생성">모션 매칭 스키마 생성</h3>
-<ul>
-  <li>접두사는 PSS_</li>
-  <li>각도 회전 값등 변수 설정하는 애셋이다.<br />
-<img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/331aea83-d937-4559-845f-ecc26b726c6c" alt="image" /></li>
-</ul>
-
-<hr />
-
-<h3 id="database-생성">Database 생성</h3>
-<ul>
-  <li>
-    <p>모션 매칭에 사용될 애니메이션들을 담는 데이터를 생성한다.<br />
-<img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/6c101550-6a54-4a12-a0b9-da28e1352eeb" alt="image" /></p>
-  </li>
-  <li>적용할 스키마를 선택한다.</li>
-  <li>접두사는 PSD_<br />
-<img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/04961922-19f6-47d4-88e8-5692eacf7047" alt="image" /></li>
-</ul>
-
-<hr />
-
-<h4 id="psddatabase-화면">PSD(Database) 화면</h4>
-<ul>
-  <li>이제 여기에 사용할 애니메이션을 드래그 하면된다.</li>
-  <li>그전에 <strong>루트모션</strong>을 사용 중인지 확인 해야한다.<br />
-<img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/896d1c75-1c1b-4a07-b845-d8cf73b2a123" alt="image" /></li>
-</ul>
-
-<hr />
-
-<h4 id="애니메이션-한번에-수정하기">애니메이션 한번에 수정하기</h4>
-<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/5e49972c-c46e-436e-90dd-29f8af77b1ee" alt="image" /></p>
-
-<ul>
-  <li>컨트롤 a를 눌러 모두 선택후 EnableRootMotion을 활성화 한다.<br />
-<img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/e10b9b6c-489e-4f8f-af60-5610d371c867" alt="image" /></li>
-</ul>
-
-<hr />
-
-<h4 id="locomotion-psd-생성하기">Locomotion PSD 생성하기</h4>
-<ul>
-  <li>DB에서 애니메이션을 넣는다.</li>
-  <li>각각 상하좌우 방향으로 시작, 진행 중, 멈출 때 해당하는 Walk 모션을 넣어준다.<br />
-<img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/36724702-59f2-4684-a817-0ae49418333f" alt="image" /></li>
-</ul>
-
-<p><br /></p>
-
-<h1 id="모션매칭-활용하기">모션매칭 활용하기</h1>
-<h2 id="abp-설정하기">ABP 설정하기</h2>
-<ul>
-  <li>Motion Matching 노드를 불러와 모션매칭 DataBase를 가져온다.</li>
-  <li>그리고 현재 애니메이션에서 추적하기 위해 Trajectory(궤적)을 불러와야 한다.<br />
-<img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/6c49c019-d49b-4f55-af2a-4ab987c59842" alt="image" /></li>
-</ul>
-
-<hr />
-
-<h3 id="trajectory-컴포넌트-설치하기">Trajectory 컴포넌트 설치하기</h3>
-<ul>
-  <li>ABP를 사용할 BP에서 <code class="language-plaintext highlighter-rouge">Character Trajectory</code> 컴포넌트를 부착한다.</li>
-</ul>
-
-<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/31db32d6-577e-49b2-9075-bc079c638a43" alt="image" /></p>
-
-<hr />
-
-<h3 id="trajectory-정보-가져오기">Trajectory 정보 가져오기</h3>
-<ul>
-  <li>ABP와 BP의 Trajectory를 연결해야한다.</li>
-  <li>그렇기 위해선 ABP의 EventGraph에서 자신을 사용하는 BP를 가져와야 한다.</li>
-  <li>
-    <p>자신을 사용중인 Actor를 가져와 그 액터 BP를 변수로 설정한다.<br />
-<img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/128cb3a3-5f92-4268-a926-57aeb39bb0dd" alt="image" /></p>
-  </li>
-  <li>
-    <p>변수화한 Owner Actor를 불러와 Trajectory를 매 프레임마다 변수화 시킨다.<br />
-<img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/c697f497-df56-46d3-bed8-1bb8e34fdb2f" alt="image" /></p>
-  </li>
-  <li>그리고 다시 AnimGraph로 돌아가서 Trajectory를 설정해준다.<br />
-<img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/a5b14922-a3a4-4367-b352-58a285a1615d" alt="image" /></li>
-</ul>
-
-<h2 id="디버깅-궤적-확인">디버깅 궤적 확인</h2>
-<ul>
-  <li>콘솔창에 <code class="language-plaintext highlighter-rouge">a.CharacterTrajectory.Debug 1</code> 을 하면 궤적이 보인다.<br />
-<img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/592c0d2d-152c-4334-864a-909b3613afec" alt="image" /></li>
-</ul>
-
-<h2><br /></h2>
-<p><br /></p>
-
-<div class="Reference">
-<div class="callout-header"> </div>
-<p>
-<a href="https://www.youtube.com/watch?v=4ag7fSlEeKA">https://www.youtube.com/watch?v=4ag7fSlEeKA</a>
-<a href="https://www.youtube.com/watch?v=S4aBd64t-hY&amp;ab_channel=GorkaGames">https://www.youtube.com/watch?v=S4aBd64t-hY&amp;ab_channel=GorkaGames</a>
-</p>
-</div>]]></content><author><name>Mohitto55</name></author><category term="ue5" /><category term="UE5" /><category term="UnrealEngine" /><category term="Animation" /><category term="MotionMatching" /><summary type="html"><![CDATA[언리얼엔진이 5.4버전이 나오면서 모션매칭 기능이 새로 발표되었다. 모션 매칭은 캐릭터 애니메이션을 위한 차세대 프레임워크다. 이 기술은 언리얼 엔진 5.4 버전에서 새롭게 도입되었으며, 캐릭터의 움직임을 더욱 자연스럽고 역동적으로 만드는 데 중점을 준다.]]></summary></entry></feed>
+</div>]]></content><author><name>Mohitto55</name></author><category term="computerscience" /><category term="가상 메모리" /><category term="Virtual Memory" /><category term="페이징" /><category term="Paging" /><category term="스와핑" /><category term="Swapping" /><category term="메모리 관리 기법" /><category term="Memory Management" /><category term="컴퓨터 구조" /><category term="Computer Architecture" /><category term="운영체제" /><category term="Operating System" /><category term="메모리 단편화" /><category term="Memory Fragmentation" /><category term="프로세스 메모리 할당" /><category term="Process Memory Allocation" /><summary type="html"><![CDATA[컴퓨터 시스템에서 프로세스는 작업을 처리하기 위해 반드시 데이터를 메모리에 저장해야 한다. 하지만 물리적인 메모리 용량은 제한적이기 때문에, 모든 프로세스가 동시에 메모리에 상주할 수는 없다.]]></summary></entry></feed>
