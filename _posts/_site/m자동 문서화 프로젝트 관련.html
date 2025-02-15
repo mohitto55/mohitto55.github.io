@@ -416,45 +416,37 @@ run: |
         run: |
           npm install -g npm-cli-login
           npm-cli-login
-          npm publish –registry $NPM_REGISTRY
-```</p>
+          npm publish –registry $NPM_REGISTRY</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 
-<h2 id="오류-모음">오류 모음</h2>
-<p>fatal: unable to access ‘https://github.com/mohitto55/UPMTest.git/’: The requested URL returned error: 403</p>
-<blockquote>
-  <p>시크릿 토큰 설정 안함
-해결 법 : https://light-tree.tistory.com/252</p>
-</blockquote>
+## 오류 모음
+fatal: unable to access 'https://github.com/mohitto55/UPMTest.git/': The requested URL returned error: 403
+&gt; 시크릿 토큰 설정 안함
+해결 법 : https://light-tree.tistory.com/252
 
-<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/ecbcb5dc-8582-40ee-8cc7-d300f271ff3e" alt="image" /></p>
-<ol>
-  <li>토큰 생성
-github 계정의 settings -&gt; Developer settings -&gt; Tokens 에서 Generate new token 을 클릭한 후 classic token 을 선택</li>
-</ol>
+![image](https://github.com/mohitto55/mohitto55.github.io/assets/154340583/ecbcb5dc-8582-40ee-8cc7-d300f271ff3e)
+1. 토큰 생성
+github 계정의 settings -&gt; Developer settings -&gt; Tokens 에서 Generate new token 을 클릭한 후 classic token 을 선택
 
-<p>기한, 스코프 설정
+기한, 스코프 설정
 일단 repo,workflow랑 지정하기
 토큰 번호 반드시 복사하기
-토큰: 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</p>
+토큰: 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
 
-<ol>
-  <li>액션 토큰 지정
+2. 액션 토큰 지정
 리포지토리-&gt;setting-&gt;secrets and variable-&gt;Actions
-New repository token 로 생성준비</li>
-</ol>
+New repository token 로 생성준비
 
-<ul>
-  <li>Name에는 token 이름 Snake style로 작성</li>
-  <li>네이밍 문법으로 단어가 합쳐진 부분마다 언더라인 붙이는 것</li>
-  <li>ex)Test_Token</li>
-  <li>Secret는 token 입력</li>
-</ul>
+- Name에는 token 이름 Snake style로 작성
+ - 네이밍 문법으로 단어가 합쳐진 부분마다 언더라인 붙이는 것
+ - ex)Test_Token
+- Secret는 token 입력
 
-<h3 id="액터-인증">액터 인증</h3>
-<p>Run git config –local user.name ${GITHUB_ACTOR}
-  git config –local user.name ${GITHUB_ACTOR}
-  git config –local user.email ${GITHUB_ACTOR}@users.noreply.github.com
-  git commit -a -m “Prepare for version 1.0.5”
+### 액터 인증
+Run git config --local user.name ${GITHUB_ACTOR}
+  git config --local user.name ${GITHUB_ACTOR}
+  git config --local user.email ${GITHUB_ACTOR}@users.noreply.github.com
+  git commit -a -m "Prepare for version 1.0.5"
   git push $REPO_URL
   shell: /usr/bin/bash -e {0}
   env:
@@ -462,96 +454,138 @@ New repository token 로 생성준비</li>
 [main 98175ff] Prepare for version 1.0.5
  1 file changed, 1 insertion(+), 1 deletion(-)
 remote: Write access to repository not granted.
-fatal: unable to access ‘https://github.com/mohitto55/UPMTest.git/’: The requested URL returned error: 403
-Error: Process completed with exit code 128.</p>
+fatal: unable to access 'https://github.com/mohitto55/UPMTest.git/': The requested URL returned error: 403
+Error: Process completed with exit code 128.
 
-<p>https://stackoverflow.com/questions/73687176/permission-denied-to-github-actionsbot-the-requested-url-returned-error-403</p>
-<blockquote>
-  <p>나의 경우엔 오직 읽기만 가능함 읽고 쓰기가 되게 해야함</p>
-</blockquote>
+https://stackoverflow.com/questions/73687176/permission-denied-to-github-actionsbot-the-requested-url-returned-error-403
+&gt; 나의 경우엔 오직 읽기만 가능함 읽고 쓰기가 되게 해야함
 
-<p>Settings -&gt; Action -&gt; General -&gt; Workflow permissions and choose read and write permissions</p>
+Settings -&gt; Action -&gt; General -&gt; Workflow permissions and choose read and write permissions
 
-<h3 id="login-to-registy-and-publish">Login to registy and publish</h3>
-<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/c8b9d519-6501-4e32-a9d6-d68b80347364" alt="image" />
+### Login to registy and publish
+![image](https://github.com/mohitto55/mohitto55.github.io/assets/154340583/c8b9d519-6501-4e32-a9d6-d68b80347364)
 Run npm install -g npm-cli-login
 npm WARN deprecated har-validator@5.1.5: this library is no longer supported
 npm WARN deprecated uuid@3.4.0: Please upgrade  to version 7 or higher.  Older versions may use Math.random() in certain circumstances, which is known to be problematic.  See https://v8.dev/blog/math-random for details.
-npm WARN deprecated request@2.88.2: request has been deprecated, see https://github.com/request/request/issues/3142</p>
+npm WARN deprecated request@2.88.2: request has been deprecated, see https://github.com/request/request/issues/3142
 
-<p>added 135 packages, and audited 136 packages in 7s</p>
+added 135 packages, and audited 136 packages in 7s
 
-<p>17 packages are looking for funding
-  run <code class="language-plaintext highlighter-rouge">npm fund</code> for details</p>
+17 packages are looking for funding
+  run `npm fund` for details
 
-<p>4 vulnerabilities (2 moderate, 2 high)</p>
+4 vulnerabilities (2 moderate, 2 high)
 
-<p>Some issues need review, and may require choosing
-a different dependency.</p>
+Some issues need review, and may require choosing
+a different dependency.
 
-<p>Run <code class="language-plaintext highlighter-rouge">npm audit</code> for details.
+Run `npm audit` for details.
 /opt/hostedtoolcache/node/16.20.2/x64/lib/node_modules/npm-cli-login/lib/index.js:11
             throw new Error(err);
-            ^</p>
+            ^
 
-<p>Error: Error: No username supplied.
+Error: Error: No username supplied.
     at /opt/hostedtoolcache/node/16.20.2/x64/lib/node_modules/npm-cli-login/lib/index.js:11:19
     at /opt/hostedtoolcache/node/16.20.2/x64/lib/node_modules/npm-cli-login/lib/login.js:59:24
     at RegClient.adduser (/opt/hostedtoolcache/node/16.20.2/x64/lib/node_modules/npm-cli-login/node_modules/npm-registry-client/lib/adduser.js:28:25)
     at Object.login (/opt/hostedtoolcache/node/16.20.2/x64/lib/node_modules/npm-cli-login/lib/login.js:51:16)
     at module.exports (/opt/hostedtoolcache/node/16.20.2/x64/lib/node_modules/npm-cli-login/lib/index.js:9:9)
     at login (/opt/hostedtoolcache/node/16.20.2/x64/lib/node_modules/npm-cli-login/bin/npm-cli-login.js:30:19)
-    at Object.<anonymous> (/opt/hostedtoolcache/node/16.20.2/x64/lib/node_modules/npm-cli-login/bin/npm-cli-login.js:33:1)
+    at Object.&lt;anonymous&gt; (/opt/hostedtoolcache/node/16.20.2/x64/lib/node_modules/npm-cli-login/bin/npm-cli-login.js:33:1)
     at Module._compile (node:internal/modules/cjs/loader:1198:14)
     at Object.Module._extensions..js (node:internal/modules/cjs/loader:1252:10)
     at Module.load (node:internal/modules/cjs/loader:1076:32)
-Error: Process completed with exit code 1.</anonymous></p>
+Error: Process completed with exit code 1.
 
-<p>배포하는 유저의 이름이 제공되지 않아서 생기는 오류
-secret에서 변수를 만들어야 한다.</p>
+배포하는 유저의 이름이 제공되지 않아서 생기는 오류
+secret에서 변수를 만들어야 한다.
 
-<h3 id="npm-warn-deprecated-har-validator515-this-library-is-no-longer-supported">npm WARN deprecated har-validator@5.1.5: this library is no longer supported</h3>
-<p>npm WARN deprecated har-validator@5.1.5: this library is no longer supported
+### npm WARN deprecated har-validator@5.1.5: this library is no longer supported
+npm WARN deprecated har-validator@5.1.5: this library is no longer supported
 npm WARN deprecated uuid@3.4.0: Please upgrade  to version 7 or higher.  Older versions may use Math.random() in certain circumstances, which is known to be problematic.  See https://v8.dev/blog/math-random for details.
-npm WARN deprecated request@2.88.2: request has been deprecated, see https://github.com/request/request/issues/3142</p>
+npm WARN deprecated request@2.88.2: request has been deprecated, see https://github.com/request/request/issues/3142
 
-<p>Node의 버전이 낮아서 지원이 안되는 라이브러리를 사용해 생기는 오류 node 버전을 올려야 한다.</p>
+Node의 버전이 낮아서 지원이 안되는 라이브러리를 사용해 생기는 오류 node 버전을 올려야 한다.
 
-<h3 id="배포가-좀-많이-어렵네-문서화-부터-하자">배포가 좀 많이 어렵네 문서화 부터 하자</h3>
-<p>DocFX 사용하기
-기본 폴더구조</p>
+# 배포가 좀 많이 어렵네 문서화 부터 하자
+## DocFX 주의점
+1. C#만 지원한다 C++은 안된다.
 
-<p>Assets/Package/Documentation~
-DocFXSample<br />
-    Articles<br />
-    Images<br />
-    Src<br />
+## 다른 언어 지원하기
+https://dotnet.github.io/docfx/docs/additional-languages.html
+Docfx는 기본적으로 C++만 지원하지만 다른 언어도 추가할 수 있다.
+다만 맞춤형 API 변환기가 필요하다.
+
+1. toc.yml file : 이 파일은 페이지의 콘텐츠 테이블의 계층을 생성한다.
+2. series of YAML files : 이들은 각각 개별 페이지가 포함된 API 페이지 구조를 준수합니다. 생성된 페이지의 파일 경로는 페이지에 액세스하는 데 사용되는 URL에 해당합니다. API 참조 페이지 데이터 구조에 대한 포괄적인 문서는 API 페이지를 참조하세요.
+
+To utilize the artifact generated by an API converter, you need to modify the docfx.json configuration file to incorporate the artifact as a build input. For instance, consider the following directory structure:
+
+|- docfx.json
+|- api // &lt;-- output directory of custom API converter
+    |- toc.yml
+    |- api-page-1.yml
+    |- api-page-2.yml
+In the above structure, you can configure docfx.json to include the output of the API converter in the following manner:
+
+{
+  "build": {
+    "content": [
+      { "files": "api/**/*.yml" }
+    ],
+  }
+}
+
+DocFX 사용하기
+기본 폴더구조
+
+#### 경로
+Assets/Package/Documentation~ 혹은
+프로젝트루트/Documentation
+
+DocFXSample\
+    Articles\
+    Images\
+    Src\
         TestLib.sln
-        TestLib\</p>
+        TestLib\
 
-<p>설치
+설치
 Documentation 폴더로가서
 Install docfx as a global tool:
-dotnet tool install -g docfx</p>
+dotnet tool install -g docfx
 
-<p>Create and start a website locally:</p>
+Create and start a website locally:
 
-<p>기본 파일 만들기
-docfx init -y</p>
+기본 파일 만들기
+docfx init -y
 
-<p>메타데이터 생성하기
-docfx</p>
-<blockquote>
-  <p>api 폴더에 메타데이터가 생성된다.</p>
-</blockquote>
+메타데이터 생성하기
+docfx
+&gt;api 폴더에 메타데이터가 생성된다.
 
-<p>로컬 서버 작동
-docfx serve</p>
 
-<h2 id="docfx-소스-추가하기">DocFX 소스 추가하기</h2>
-<p>소스 인식할 수 있도록 metadata 정보와 build/content 정보를 구성해 주면 된다.</p>
+로컬 서버 작동
+docfx serve
 
-<p>metadata : 소스를 연계하기 위한 설정
+### 흰화면만 나온다.
+여기까지 하면 흰색 바탕만 나오고 CSS가 적용되지 않은 모습이 보인다.
+
+### 필터 설정하기
+filterConfig.yml를 Documentation 폴더에 생성한다.
+이 파일은 문서로 만들 API를 필터링하는 파일이다.
+
+### 사이트 구성위한 파일 구성
+DocFX에서 사이트 구성 및 편집을 하는 방법에 대해 설명드리겠습니다.
+
+docfx.json 파일 편집: 프로젝트 폴더에 생성된 docfx.json 파일을 열어서 구성을 수정합니다. 이 파일은 DocFX 프로젝트의 주요 구성 파일입니다.
+
+사이트 메타데이터 설정: docfx.json 파일에서 "metadata" 섹션을 찾아 사이트 메타데이터를 설정합니다. 이 메타데이터에는 사이트의 제목, 설명, 저자 등의 정보를 제공할 수 있습니다.
+
+## DocFX 소스 추가하기
+소스 인식할 수 있도록 metadata 정보와 build/content 정보를 구성해 주면 된다.
+
+metadata : 소스를 연계하기 위한 설정
 src : 소스 관련 정보
 files : 소스 대상인 솔루션 또는 프로젝트 파일 와일드 카드 설정
 exclude : bin/obj 같은 폴더내의 파일 제외용 와일드 카드 설정
@@ -563,14 +597,86 @@ files : 소스 빌드에서 생성된 파일에 대한 와일드 카드 설정
 src : 소스 빌드에서 생성된 출력 결과 폴더 지정
 dest : 소스 빌드의 결과를 docfx 빌드해서 결과물을 위치시킬 폴더 지정
 resource : 이미지와 같은 Asset 파일들의 폴더 지정
-dest : DocFx 결과 사이트 폴더 지정</p>
-
-<h3 id="사이트-구성위한-파일-구성">사이트 구성위한 파일 구성</h3>
-<p>DocFX에서 사이트 구성 및 편집을 하는 방법에 대해 설명드리겠습니다.</p>
-
-<p>docfx.json 파일 편집: 프로젝트 폴더에 생성된 docfx.json 파일을 열어서 구성을 수정합니다. 이 파일은 DocFX 프로젝트의 주요 구성 파일입니다.</p>
-
-<p>사이트 메타데이터 설정: docfx.json 파일에서 “metadata” 섹션을 찾아 사이트 메타데이터를 설정합니다. 이 메타데이터에는 사이트의 제목, 설명, 저자 등의 정보를 제공할 수 있습니다.</p>
+dest : DocFx 결과 사이트 폴더 지정
+</code></pre></div></div>
+<p>{
+  “metadata”: [
+    {
+      “src”: [
+        {
+          “src”: “../”,
+          “files”: [
+            “<strong>/<em>.csproj”,
+            “**/</em>.sln”
+          ],
+          “exclude”: [
+            “</strong>/bin/<strong>”, 
+            “</strong>/obj/<strong>”
+        ]
+        }
+      ],
+      “dest”: “api”,
+      “disableGitFeatures”: false,
+      “disableDefaultFilter”: false,
+      “filter”: “filterConfig.yml”
+    }
+  ],
+  “build”: {
+    “content”: [
+      {
+        “files”: [
+          “api/</strong>.yml”,
+          “api/index.md”
+        ]
+      },
+      {
+        “files”: [
+          “articles/<strong>.md”,
+          “articles/</strong>/toc.yml”,
+          “toc.yml”,
+          “*.md”
+        ]
+      }
+    ],
+    “resource”: [
+      {
+        “files”: [
+          “images/<strong>”
+        ]
+      }
+    ],
+    “overwrite”: [
+      {
+        “files”: [
+          “apidoc/</strong>.md”
+        ],
+        “exclude”: [
+          “obj/<strong>”,
+          “_site/</strong>”
+        ]
+      }
+    ],
+    “_appTitle”: “Example Unity documentation”,
+    “_appFooter”: “Example Unity documentation”,
+    “_enableSearch”: true,
+    “dest”: “_site”,
+    “globalMetadataFiles”: [],
+    “fileMetadataFiles”: [],
+    “template”: [
+      “default”
+    ],
+    “postProcessors”: [],
+    “noLangKeyword”: false,
+    “keepFileLink”: false,
+    “cleanupCacheHistory”: false,
+    “disableGitFeatures”: false
+  },
+  “sitemap”:
+  {
+    “baseUrl”: “https://normanderwan.github.io/DocFxForUnity”
+  }
+}
+```</p>
 
 <h3 id="s3-프리티어-사용하기">S3 프리티어 사용하기</h3>
 <p>https://dibrary.tistory.com/184</p>

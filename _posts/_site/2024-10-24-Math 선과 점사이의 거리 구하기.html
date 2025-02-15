@@ -1,0 +1,29 @@
+<h2 id="선분과-점사이의-거리-구하기">선분과 점사이의 거리 구하기</h2>
+<ul>
+  <li>평행사변형의 넓이 공식을 이용한다.
+    <ul>
+      <li>(넓이) = 밑변 X 높이</li>
+    </ul>
+  </li>
+  <li>외적은 두직선으로 이루어진 평행사변형의 넓이이다.</li>
+  <li>평행사변형의 넓이는 밑변 X 높이인데 여기서 한 선분의 밑변을 나누면 높이만 남아 거리를 구할 수 있다.</li>
+</ul>
+
+<p><img src="https://github.com/user-attachments/assets/3797b212-f5d9-4684-bf2f-60925b87d4ad" alt="image" /></p>
+
+<h3 id="코드">코드</h3>
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">public</span> <span class="kt">float</span> <span class="nf">Distance</span><span class="p">(</span><span class="n">Point</span> <span class="n">p</span><span class="p">)</span>  
+<span class="p">{</span>  
+    <span class="n">Point</span> <span class="n">p1</span> <span class="p">=</span> <span class="n">End</span> <span class="p">-</span> <span class="n">Start</span><span class="p">,</span> <span class="n">p2</span> <span class="p">=</span> <span class="n">p</span> <span class="p">-</span> <span class="n">Start</span><span class="p">;</span>  
+    <span class="k">return</span> <span class="n">MathUtility</span><span class="p">.</span><span class="nf">Cross2D</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">)</span> <span class="p">/</span> <span class="n">p1</span><span class="p">.</span><span class="nf">Magnitude</span><span class="p">();</span>  
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2><br /></h2>
+<p><br /></p>
+
+<div class="Reference">
+<div class="callout-header"> </div>
+<p>
+</p>
+</div>

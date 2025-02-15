@@ -1,0 +1,169 @@
+<h1 id="외적을-이용한-선분과-선분의-교차점-구하기">📄외적을 이용한 선분과 선분의 교차점 구하기</h1>
+
+<p>선분은 기하를 구성하는 <strong>기본요소</strong>이기 때문에 선분의 교차점을 구하는 것은 기하 문제의 기본입니다. 이런 선분의 교차점은 다양한 곳에서 사용 할 수 있습니다.</p>
+
+<p>하지만 교차점을 구하는 것은 여러 변수들이 존재해서 생각보다 까다롭습니다.</p>
+
+<h2 id="️직선과-직선의-교차점">✏️직선과 직선의 교차점</h2>
+
+<p>선분은 직선의 일부분이기에 먼저 직선과 직선의 교차점을 구합니다.</p>
+
+<p>좌표평면에서 두 직선에 대한 방정식을 x, y에 대해 세우고 <strong>연립 방정식</strong>을 푸는 것을 코드로 작성 할 수 있다. 하지만 그러면 수평과 수직에 대한 예외를 따로 처리해야해 코드가 간결하지 못합니다.</p>
+
+<p>그렇다면 두 직선을 <strong>벡터로 표현</strong> 하고 벡터의 연산을 이용해 연립방정식을 풀면 외적으로 표현된 간결한 해를 얻을 수 있습니다.</p>
+
+<hr />
+
+<h3 id="️방정식-풀이1">✏️방정식 풀이1</h3>
+
+<p>\(\overrightarrow{a_x} + p\overrightarrow{b_x} = \overrightarrow{c_x} + q\overrightarrow{d_x}\)
+\(\overrightarrow{a_y} + p\overrightarrow{b_y} = \overrightarrow{c_y} + q\overrightarrow{d_y}\)</p>
+
+<p>이 연립방정식을 p에 대해 풀면 다음과 같습니다.
+이 때 분모가 0인 경우는 두 직선이 <strong>평행</strong>한 경우로 교점이 정의되지 않습니다.</p>
+
+\[p = \frac{(c_x-a_x)d_{y}- (c_y-a_y)d_x}{b_xd_y-b_yd_x}\]
+
+<p>이제 p를 외적으로 더 간략하게 나타낼 수 있습니다.
+\(p=\frac{(\overrightarrow{c}-\overrightarrow{a})\times\overrightarrow{d}}{\overrightarrow{b}\times\overrightarrow{d} }(\overrightarrow{b}\times\overrightarrow{d}\neq  0)\)</p>
+
+<hr />
+
+<h4 id="코드">💻코드</h4>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 점 a, b를 지나는 직선과 점 c, d를 지나는 직선의 교차점 x를 반환한다.  </span>
+<span class="c1">// 두 직선이 평행하면 false, 아니면 true를 반환한다.  </span>
+<span class="k">public</span> <span class="kt">bool</span> <span class="nf">lineIntersection</span><span class="p">(</span><span class="n">Vector2</span> <span class="n">a</span><span class="p">,</span> <span class="n">Vector2</span> <span class="n">b</span><span class="p">,</span> <span class="n">Vector2</span> <span class="n">c</span><span class="p">,</span> <span class="n">Vector2</span> <span class="n">d</span><span class="p">,</span> <span class="n">ref</span> <span class="n">Vector2</span> <span class="n">x</span><span class="p">)</span>  
+<span class="p">{</span>  
+    <span class="c1">// 분모  </span>
+    <span class="kt">float</span> <span class="n">det</span> <span class="o">=</span> <span class="n">Vector3</span><span class="p">.</span><span class="n">Cross</span><span class="p">((</span><span class="n">Vector3</span><span class="p">)(</span><span class="n">b</span> <span class="o">-</span> <span class="n">a</span><span class="p">),</span> <span class="p">(</span><span class="n">Vector3</span><span class="p">)(</span><span class="n">d</span> <span class="o">-</span> <span class="n">c</span><span class="p">)).</span><span class="n">z</span><span class="p">;</span>  
+    <span class="c1">// 두 직선이 평행한 경우라면  </span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">Mathf</span><span class="p">.</span><span class="n">Abs</span><span class="p">(</span><span class="n">det</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">0.00005</span><span class="n">f</span><span class="p">)</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>  
+    <span class="n">x</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="p">(</span><span class="n">b</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">Cross</span><span class="p">(</span><span class="n">c</span> <span class="o">-</span> <span class="n">a</span><span class="p">,</span> <span class="n">d</span> <span class="o">-</span> <span class="n">c</span><span class="p">)</span> <span class="o">/</span> <span class="n">det</span><span class="p">);</span>  
+    <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>  
+<span class="p">}</span>  
+  
+<span class="k">public</span> <span class="kt">float</span> <span class="nf">Cross</span><span class="p">(</span><span class="n">Vector2</span> <span class="n">a</span><span class="p">,</span> <span class="n">Vector2</span> <span class="n">b</span><span class="p">)</span>  
+<span class="p">{</span>  
+    <span class="k">return</span> <span class="n">Vector3</span><span class="p">.</span><span class="n">Cross</span><span class="p">((</span><span class="n">Vector3</span><span class="p">)</span><span class="n">a</span><span class="p">,</span> <span class="p">(</span><span class="n">Vector3</span><span class="p">)</span><span class="n">b</span><span class="p">).</span><span class="n">z</span><span class="p">;</span>  
+<span class="p">}</span>
+</code></pre></div></div>
+
+<hr />
+<h3 id="️방정식-풀이2">✏️방정식 풀이2</h3>
+
+<p>선분의 시작점을 $S_1$과 $S_2$이라고 하고  $S_{1}+ tP_{1}, S_{2}+ uP_2$ 으로 각각 두 선분 상의 임의의 점으로 나타낼 수 있습니다. 그렇다는 것은 $S_{1}+ tP_{1}= S_{2}+ uP_2$ 일때가 두 선분이 교차하는 지점이라는 뜻이고 u와 t에 대해서 방정식을 풀 수있다면 교차점을 구할 수 있습니다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">t</code>나 <code class="language-plaintext highlighter-rouge">u</code>를 구하기 위해서는 두 변수 중 하나를 제거해야 하며, 이를 외적을 통해 해결할 수 있습니다. 외적은 두 벡터가 평행할 때 0이 되는 성질을 이용합니다. 따라서 <code class="language-plaintext highlighter-rouge">t</code>와 곱해져 있는 벡터와 동일한 벡터를 양쪽에 외적해 주면 됩니다. 자기 자신을 외적하면 0이 되기 때문에, 양쪽에 <code class="language-plaintext highlighter-rouge">P₁</code>이나 <code class="language-plaintext highlighter-rouge">P₂</code>를 외적하여 구할 수 있습니다.</p>
+
+<p>\(S_{1}+ tP_{1}= S_{2}+ uP_2\)
+\((S_{1}+ tP_{1})\times P_{1}= (S_{2}+ uP_{2)} \times P_1\)
+\(S_{1} \times P_{1}= S_{2} \times P_{1}+ u(P_{2}\times P_1)\)
+\(\frac{(S_{1}  - S_{2}) \times P_1}{P_{2} \times P_{1}}= u\)</p>
+
+<p>\(S_{1}+ tP_{1}= S_{2}+ uP_2\)
+\((S_{1}+ tP_{1})\times P_{2}= (S_{2}+ uP_{2)} \times P_2\)
+\(S_{2}  + P_{2}= S_{1} \times P_{2}+ t(P_{1}\times P_2)\)
+\(\frac{(S_{2}  - S_{1}) \times P_2}{P_{1} \times P_{2}}= t\)</p>
+
+<p><img src="https://github.com/user-attachments/assets/c86b4c1a-c742-4e0e-8366-25365fe1b61c" alt="화면 캡처 2024-10-21 144113 (1)" /><em>방정식 풀이</em></p>
+
+<hr />
+
+<h4 id="코드-1">💻코드</h4>
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">public</span> <span class="kt">bool</span> <span class="nf">IsIntersectingSegments</span><span class="p">(</span><span class="n">Segment</span> <span class="n">s</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">includeEndPoints</span> <span class="p">=</span> <span class="k">true</span><span class="p">)</span>  
+<span class="p">{</span>  
+    <span class="n">Point</span> <span class="n">p1</span> <span class="p">=</span> <span class="n">End</span> <span class="p">-</span> <span class="n">Start</span><span class="p">,</span> <span class="n">p2</span> <span class="p">=</span> <span class="n">s</span><span class="p">.</span><span class="n">End</span> <span class="p">-</span> <span class="n">s</span><span class="p">.</span><span class="n">Start</span><span class="p">;</span>  
+    <span class="kt">float</span> <span class="n">rxs</span> <span class="p">=</span> <span class="nf">Cross</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">);</span>  
+    <span class="c1">// 두 선분이 평행하면 false다  </span>
+    <span class="k">if</span> <span class="p">(</span><span class="nf">FloatZero</span><span class="p">(</span><span class="n">rxs</span><span class="p">))</span> <span class="k">return</span> <span class="k">false</span><span class="p">;</span>  
+      
+    <span class="c1">// a_x + ub_x = c_x + td_x    // a_y + ub_y = c_y + td_y    // 이 식을 u나 t에대해서 풀고 외적으로 표현할 수도 있고  </span>
+    <span class="c1">// a + ub = c + td  </span>
+    <span class="c1">// (a + ub) X b = (c + td) X b : X는 외적  </span>
+    <span class="c1">// 각각 b나 d를 외적해서 u나 b 하나를 없애고 나머지 하나에 대해서 연립해서 풀수도 있다.  </span>
+    <span class="kt">float</span> <span class="n">u</span> <span class="p">=</span> <span class="nf">Cross</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">Start</span> <span class="p">-</span> <span class="n">s</span><span class="p">.</span><span class="n">Start</span><span class="p">,</span> <span class="n">p1</span><span class="p">)</span> <span class="p">/</span> <span class="p">-</span><span class="n">rxs</span><span class="p">;</span>  
+    <span class="kt">float</span> <span class="n">t</span> <span class="p">=</span> <span class="nf">Cross</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">Start</span> <span class="p">-</span> <span class="k">this</span><span class="p">.</span><span class="n">Start</span><span class="p">,</span> <span class="n">p2</span><span class="p">)</span> <span class="p">/</span> <span class="n">rxs</span><span class="p">;</span>  
+  
+    <span class="c1">// u와 t는 각각의 선분에서의 보간(Lerp) 비율을 나타내는 값이다.</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">includeEndPoints</span><span class="p">)</span> <span class="k">return</span> <span class="n">u</span> <span class="p">&gt;=</span> <span class="m">0</span> <span class="p">&amp;&amp;</span> <span class="n">u</span> <span class="p">&lt;=</span>  <span class="m">1</span> <span class="p">&amp;&amp;</span> <span class="n">t</span> <span class="p">&gt;=</span> <span class="m">0</span> <span class="p">&amp;&amp;</span> <span class="n">t</span> <span class="p">&lt;=</span> <span class="m">1</span><span class="p">;</span>  
+    <span class="c1">// 교차점이 끝에 걸려있는지 체크한다.  </span>
+    <span class="k">else</span> <span class="k">return</span> <span class="n">u</span> <span class="p">&gt;</span> <span class="m">0</span> <span class="p">&amp;&amp;</span> <span class="n">u</span> <span class="p">&lt;</span> <span class="m">1</span> <span class="p">&amp;&amp;</span> <span class="n">t</span> <span class="p">&gt;</span> <span class="m">0</span> <span class="p">&amp;&amp;</span> <span class="n">t</span> <span class="p">&lt;</span> <span class="m">1</span><span class="p">;</span>  
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 교차점을 구하는 함수  </span>
+<span class="k">public</span> <span class="n">Point</span> <span class="nf">Intersection</span><span class="p">(</span><span class="n">Segment</span> <span class="n">s</span><span class="p">)</span>  
+<span class="p">{</span>  
+    <span class="k">if</span> <span class="p">(</span><span class="n">s</span> <span class="n">is</span> <span class="n">null</span> <span class="o">||</span> <span class="o">!</span><span class="n">IsIntersectingSegments</span><span class="p">(</span><span class="n">s</span><span class="p">))</span> <span class="k">return</span> <span class="n">null</span><span class="p">;</span>  
+    <span class="c1">// 겹쳐져 있다면 결국 두 선분 사이에 있다는 뜻  </span>
+    <span class="c1">// 그러니 교차점의 t(alpha) 값을 구하는 공식을 써서 교차점을 반환해준다.  </span>
+    <span class="n">Point</span> <span class="n">p1</span> <span class="o">=</span> <span class="n">End</span> <span class="o">-</span> <span class="n">Start</span><span class="p">,</span> <span class="n">p2</span> <span class="o">=</span> <span class="n">s</span><span class="p">.</span><span class="n">End</span> <span class="o">-</span> <span class="n">s</span><span class="p">.</span><span class="n">Start</span><span class="p">;</span>  
+    <span class="kt">float</span> <span class="n">rxs</span> <span class="o">=</span> <span class="n">Cross</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">);</span>  
+    <span class="kt">float</span> <span class="n">t</span> <span class="o">=</span> <span class="n">Cross</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">Start</span> <span class="o">-</span> <span class="n">Start</span><span class="p">,</span> <span class="n">p2</span><span class="p">)</span> <span class="o">/</span> <span class="n">rxs</span><span class="p">;</span>  
+    <span class="k">return</span> <span class="n">Start</span> <span class="o">+</span> <span class="k">new</span> <span class="n">Point</span><span class="p">(</span><span class="n">t</span> <span class="o">*</span> <span class="n">p1</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">t</span> <span class="o">*</span> <span class="n">p1</span><span class="p">.</span><span class="n">y</span><span class="p">);</span>  
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="️선분과-선분의-교차점">✏️선분과 선분의 교차점</h2>
+
+<p>선분은 생각외로 직선보다 고려해야할 사항이 많습니다.
+<strong>두 선분이 모두 한 직선 위에 있는 경우</strong>에 처리하기가 힘듭니다.</p>
+<ul>
+  <li>두 선분이 서로 겹치지 않는다</li>
+  <li>두 선분이 한점에 닿는다</li>
+  <li>두 선분이 겹쳐진다</li>
+  <li>한 선분이 다른 선분안에 포함된다
+원래는 첫번째의 경우만 겹쳐지지 않지만 위에서 작성한 코드로는 2,3,4도 겹쳐지지 않았다고 판별하기 때문입니다.
+<img src="https://github.com/user-attachments/assets/b80d5666-a0dc-4ad9-a46b-40a704d52b09" alt="image" /></li>
+</ul>
+
+<hr />
+
+<h3 id="코드-2">💻코드</h3>
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 선분 a, b 선분 c, d가 평행하면 한 점에서 겹치는지 확인한다.  </span>
+<span class="kt">bool</span> <span class="nf">paralleSegments</span><span class="p">(</span><span class="n">Vector2</span> <span class="n">a</span><span class="p">,</span> <span class="n">Vector2</span> <span class="n">b</span><span class="p">,</span> <span class="n">Vector2</span> <span class="n">c</span><span class="p">,</span> <span class="n">Vector2</span> <span class="n">d</span><span class="p">,</span> <span class="k">ref</span> <span class="n">Vector2</span> <span class="n">p</span><span class="p">)</span>  
+<span class="p">{</span>  
+    <span class="k">if</span> <span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="n">x</span> <span class="p">&lt;</span> <span class="n">a</span><span class="p">.</span><span class="n">x</span> <span class="p">&amp;&amp;</span> <span class="n">b</span><span class="p">.</span><span class="n">y</span> <span class="p">&lt;</span> <span class="n">a</span><span class="p">.</span><span class="n">y</span><span class="p">)</span> <span class="nf">Swap</span><span class="p">(</span><span class="k">ref</span> <span class="n">a</span><span class="p">,</span> <span class="k">ref</span> <span class="n">b</span><span class="p">);</span>  
+    <span class="k">if</span> <span class="p">(</span><span class="n">d</span><span class="p">.</span><span class="n">x</span> <span class="p">&lt;</span> <span class="n">c</span><span class="p">.</span><span class="n">x</span> <span class="p">&amp;&amp;</span> <span class="n">d</span><span class="p">.</span><span class="n">y</span> <span class="p">&lt;</span> <span class="n">c</span><span class="p">.</span><span class="n">y</span><span class="p">)</span> <span class="nf">Swap</span><span class="p">(</span><span class="k">ref</span> <span class="n">c</span><span class="p">,</span> <span class="k">ref</span> <span class="n">d</span><span class="p">);</span>  
+  
+    <span class="c1">// 한 직선위에 없거나 두 선분이 겹치지 않는 경우를 우선 걸러낸다.  </span>
+    <span class="k">if</span> <span class="p">(</span><span class="nf">ccw</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span> <span class="p">!=</span> <span class="m">0</span> <span class="p">||</span> <span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="n">x</span> <span class="p">&lt;</span> <span class="n">c</span><span class="p">.</span><span class="n">x</span> <span class="p">&amp;&amp;</span> <span class="n">b</span><span class="p">.</span><span class="n">y</span> <span class="p">&lt;</span> <span class="n">c</span><span class="p">.</span><span class="n">y</span><span class="p">)</span> <span class="p">||</span> <span class="p">(</span><span class="n">d</span><span class="p">.</span><span class="n">x</span> <span class="p">&lt;</span> <span class="n">a</span><span class="p">.</span><span class="n">x</span> <span class="p">&amp;&amp;</span> <span class="n">d</span><span class="p">.</span><span class="n">y</span> <span class="p">&lt;</span> <span class="n">a</span><span class="p">.</span><span class="n">y</span><span class="p">))</span> <span class="k">return</span> <span class="k">false</span><span class="p">;</span>  
+      
+    <span class="c1">// 두 선분이 겹친다면 교차점 하나를 찾는다.  </span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">x</span> <span class="p">&lt;</span> <span class="n">c</span><span class="p">.</span><span class="n">x</span> <span class="p">&amp;&amp;</span> <span class="n">a</span><span class="p">.</span><span class="n">y</span> <span class="p">&lt;</span> <span class="n">c</span><span class="p">.</span><span class="n">y</span><span class="p">)</span> <span class="n">p</span> <span class="p">=</span> <span class="n">c</span><span class="p">;</span>  
+    <span class="k">else</span> <span class="n">p</span> <span class="p">=</span> <span class="n">a</span><span class="p">;</span>  
+    <span class="k">return</span> <span class="k">true</span><span class="p">;</span>  
+<span class="p">}</span>  
+  
+<span class="c1">// - p가 두 점 a, b를 감싸면서 각 변이 x, y축에 평행한 최소사각형 내부에 있는지 확인한다.  </span>
+<span class="c1">// a, b, p는 일직선 상에 있다고 가정한다.  </span>
+<span class="kt">bool</span> <span class="nf">inBoundingRectangle</span><span class="p">(</span><span class="n">Vector2</span> <span class="n">p</span><span class="p">,</span> <span class="n">Vector2</span> <span class="n">a</span><span class="p">,</span> <span class="n">Vector2</span> <span class="n">b</span><span class="p">)</span>  
+<span class="p">{</span>  
+    <span class="k">if</span> <span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="n">x</span> <span class="p">&lt;</span> <span class="n">a</span><span class="p">.</span><span class="n">x</span> <span class="p">&amp;&amp;</span> <span class="n">b</span><span class="p">.</span><span class="n">y</span> <span class="p">&lt;</span> <span class="n">a</span><span class="p">.</span><span class="n">y</span><span class="p">)</span> <span class="nf">Swap</span><span class="p">(</span><span class="k">ref</span> <span class="n">a</span><span class="p">,</span> <span class="k">ref</span> <span class="n">b</span><span class="p">);</span>  
+    <span class="k">return</span> <span class="n">p</span> <span class="p">==</span> <span class="n">a</span> <span class="p">||</span> <span class="n">p</span> <span class="p">==</span> <span class="n">b</span> <span class="p">||</span> <span class="p">((</span><span class="n">a</span><span class="p">.</span><span class="n">x</span> <span class="p">&lt;</span> <span class="n">p</span><span class="p">.</span><span class="n">x</span> <span class="p">&amp;&amp;</span> <span class="n">a</span><span class="p">.</span><span class="n">y</span> <span class="p">&lt;</span> <span class="n">p</span><span class="p">.</span><span class="n">y</span><span class="p">)</span> <span class="p">&amp;&amp;</span> <span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="n">x</span> <span class="p">&lt;</span> <span class="n">b</span><span class="p">.</span><span class="n">x</span> <span class="p">&amp;&amp;</span> <span class="n">p</span><span class="p">.</span><span class="n">y</span> <span class="p">&lt;</span> <span class="n">b</span><span class="p">.</span><span class="n">y</span><span class="p">));</span>  
+<span class="p">}</span>  
+  
+<span class="c1">// - 두 점 a, b를 지나는 선분과 두 점 c, b를 지나는 선분을 p에 반환한다.  </span>
+<span class="c1">// - 교점이 여러개일 경우 아무점이나 반환한다.  </span>
+<span class="kt">bool</span> <span class="nf">segmentIntersection</span><span class="p">(</span><span class="n">Vector2</span> <span class="n">a</span><span class="p">,</span> <span class="n">Vector2</span> <span class="n">b</span><span class="p">,</span> <span class="n">Vector2</span> <span class="n">c</span><span class="p">,</span> <span class="n">Vector2</span> <span class="n">d</span><span class="p">,</span> <span class="k">ref</span> <span class="n">Vector2</span> <span class="n">p</span><span class="p">){</span>      
+    <span class="c1">//두 직선이 평행인 경우를 우선 예외로 처리한다.  </span>
+    <span class="k">if</span><span class="p">(!</span><span class="nf">lineIntersection</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="k">ref</span> <span class="n">p</span><span class="p">))</span>          
+        <span class="k">return</span> <span class="nf">paralleSegments</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="k">ref</span> <span class="n">p</span><span class="p">);</span>      
+    <span class="c1">//p가 두 선분에 포함되어 있는 경우에만 참을 반환한다.  </span>
+    <span class="k">return</span> <span class="nf">inBoundingRectangle</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="p">&amp;&amp;</span> <span class="nf">inBoundingRectangle</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">);</span>  
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="최종-결과물">🚀최종 결과물</h2>
+<p><img src="https://github.com/user-attachments/assets/ab4a0405-c74e-40f5-bd29-97de46a4f5f8" alt="Animation" /></p>
+
+<h2><br /></h2>
+<p><br /></p>
+
+<div class="Reference">
+<div class="callout-header"> </div>
+<p>
+<a href="https://00ad-8e71-00ff-055d.tistory.com/98">https://00ad-8e71-00ff-055d.tistory.com/98</a>
+<a href="https://bowbowbow.tistory.com/17">https://bowbowbow.tistory.com/17</a>
+</p>
+</div>

@@ -1,74 +1,70 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-12-12T13:46:17+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mohitto55 Note</title><subtitle>모히또의 노트</subtitle><author><name>Mohitto55</name></author><entry><title type="html">[Visual Studio] 명령인수 개념과 exe파일에서 넘겨주는 법</title><link href="http://localhost:4000/ide/IDE-%EB%B9%84%EC%A3%BC%EC%96%BC-%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4-%EB%AA%85%EB%A0%B9%EC%9D%B8%EC%88%98/" rel="alternate" type="text/html" title="[Visual Studio] 명령인수 개념과 exe파일에서 넘겨주는 법" /><published>2024-12-12T00:00:00+09:00</published><updated>2024-12-12T00:00:00+09:00</updated><id>http://localhost:4000/ide/%5BIDE%5D%EB%B9%84%EC%A3%BC%EC%96%BC%20%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4%20%EB%AA%85%EB%A0%B9%EC%9D%B8%EC%88%98</id><content type="html" xml:base="http://localhost:4000/ide/IDE-%EB%B9%84%EC%A3%BC%EC%96%BC-%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4-%EB%AA%85%EB%A0%B9%EC%9D%B8%EC%88%98/"><![CDATA[<h1 id="main-함수의-매개변수">📄main 함수의 매개변수</h1>
-<ul>
-  <li>간혹 int main에 인자값이 <code class="language-plaintext highlighter-rouge">int argc, char** argv</code> 같은게 있는데 이것이 명령인수를 통해 넘겨주는 인자값들 이다.
-    <ul>
-      <li><strong>argc</strong> : 명령줄 인수의 개수</li>
-      <li><strong>argv</strong> : 명령줄 인수의 문자열 배열
-        <ul>
-          <li>첫번째 값은 실행경로가 들어간다.</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-  <li>그러나 main 함수는 최초 시작 진입점인데 정보를 어떻게 넘겨주는 것일까?</li>
-  <li>그것에 대해서 알아보도록 하겠다.</li>
-</ul>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-02-16T04:37:07+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mohitto55 Note</title><subtitle>모히또의 노트</subtitle><author><name>Mohitto55</name></author><entry><title type="html">[Math] 세점을 지나는 원의중심(외심) 구하는 법</title><link href="http://localhost:4000/math/Math-%EC%84%B8%EC%A0%90%EC%9D%84-%EC%A7%80%EB%82%98%EB%8A%94-%EC%9B%90%EC%9D%98-%EC%A4%91%EC%8B%AC-%EA%B5%AC%ED%95%98%EA%B8%B0/" rel="alternate" type="text/html" title="[Math] 세점을 지나는 원의중심(외심) 구하는 법" /><published>2025-02-16T00:00:00+09:00</published><updated>2025-02-16T00:00:00+09:00</updated><id>http://localhost:4000/math/%5BMath%5D%EC%84%B8%EC%A0%90%EC%9D%84%20%EC%A7%80%EB%82%98%EB%8A%94%20%EC%9B%90%EC%9D%98%20%EC%A4%91%EC%8B%AC%20%EA%B5%AC%ED%95%98%EA%B8%B0</id><content type="html" xml:base="http://localhost:4000/math/Math-%EC%84%B8%EC%A0%90%EC%9D%84-%EC%A7%80%EB%82%98%EB%8A%94-%EC%9B%90%EC%9D%98-%EC%A4%91%EC%8B%AC-%EA%B5%AC%ED%95%98%EA%B8%B0/"><![CDATA[<h1 id="외적을-이용한-선분과-선분의-교차점-구하기">📄외적을 이용한 선분과 선분의 교차점 구하기</h1>
 
-<h1 id="명령인수command-line-argument-전달하기">📄명령인수(command line argument) 전달하기</h1>
-<h2 id="visual-studio">🔍Visual Studio</h2>
-<ul>
-  <li><strong>명령인수(Command-line arguments)</strong> 란 외부에서 전달하는 입력 값들을 뜻한다.</li>
-  <li>이 값들이 main 함수에 매개변수로 들어오는 값들이다.</li>
-  <li>이렇게 명령 인수를 전달하는 방법 중 하나는 Visual Studio로 전달하는 방법이 있다.</li>
-</ul>
+<p>세 개의 점을 지나는 원은 단 하나만 존재하며, 이를 <strong>외접원</strong>이라고 합니다.. 이 외접원의 중심을 <strong>외심</strong>이라고 하며, 외심을 구하는 방법을 알아봅시다.</p>
 
-<hr />
+<p><img src="https://github.com/user-attachments/assets/98bf6b4a-4383-4cfd-912e-89854a2c7bfa" alt="Image" /></p>
 
-<h3 id="명령인수-설정법">🔍명령인수 설정법</h3>
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">프로젝스 속성 페이지 &gt; 구성 속성 &gt; 디버깅</code> 으로 이동한다.</li>
-  <li>명령인수를 넣어준다.<br />
-<img src="https://github.com/user-attachments/assets/2309c627-dda4-4988-a879-08c907627a74" alt="image" /><em>프로젝스 속성 페이지 &gt; 구성 속성 &gt; 디버깅</em></li>
-</ul>
+<h1 id="️외심의-특징">✏️외심의 특징</h1>
+<p>외심의 특징은 다음과 같습니다.</p>
+<ol>
+  <li>삼각형의 세 변의 수직 이등분선은 외심에서 만난다.</li>
+  <li>삼각형의 외심에서 세 꼭짓점에 이르는 거리는 같다.</li>
+</ol>
 
-<hr />
+<p>이 성질을 이용하면, 두 변의 <strong>수직 이등분선</strong>이 만나는 점을 구하여 외심을 찾을 수 있습니다.<br />
+<img src="https://github.com/user-attachments/assets/3e26f4b7-1318-40c9-87db-ccdc6e952386" alt="Image" /></p>
 
-<ul>
-  <li>아래처럼 명령인수를 출력을 할 수 있다.</li>
-</ul>
+<h1 id="️풀이">✏️풀이</h1>
+<p>두 변의 수직 이등분선 방정식을 y=mx+b, y=nx+c라고 할 때, 두 식을 연립해서 풀면 중심의 좌표가 나오게됩니다.<br />
+<img src="https://github.com/user-attachments/assets/7813b87a-46d0-4864-8f42-13ca2312adfa" alt="Image" /></p>
 
-<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<h2 id="️기울기-공식">✏️기울기 공식</h2>
+<p>주어진 세 점을 각각 , , 라 하자. 외심을 구하려면 두 변의 <strong>수직 이등분선</strong>을 찾아야 하며, 이를 위해 먼저 변의 기울기를 계산합니다.</p>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">**</span> <span class="n">argv</span><span class="p">)</span>
-<span class="p">{</span>
-	<span class="c1">// 명령인수의 개수</span>
-	<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"argc : "</span> <span class="o">&lt;&lt;</span> <span class="n">argc</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<p>기울기 공식:<br />
+\(m=\frac{\Delta y}{\Delta x}=\frac{y_2-y_1}{x_2-x_1}\)<br />
+직교하는 기울기 공식:<br />
+\(m'=-\frac{x_2-x_1}{y_2-y_1}\)<br />
+<img src="https://github.com/user-attachments/assets/e90cdab6-319c-4a9e-bb77-1e3d8f5e0421" alt="Image" /></p>
 
-	<span class="c1">// 명령인수의 문자열 출력</span>
-	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">argc</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-		<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">argv</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-	<span class="p">}</span>
-	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<h2 id="️수직-이등분선의-방정식">✏️수직 이등분선의 방정식</h2>
+<p>각 수직 이등분선의 방정식은 다음과 같습니다.<br />
+\(y=mx+b,y=nx+c\)<br />
+각 방정식의 기울기를 구해줍니다.<br />
+\(AB기울기=\frac{Y_B-Y_A}{X_B-X_{A}}, BC기울기=\frac{Y_C-Y_B}{X_C-X_{B}}\)</p>
+
+\[AB기울기=m=-\frac{X_B-X_{A}}{Y_B-Y_A}, BC기울기=n=-\frac{X_C-X_{B}}{Y_C-Y_B}\]
+
+<p>b와 c는 두 선분 중앙의 위치 값을 안다면 x와 y를 대입해 풀 수 있습니다.<br />
+\(b=y-mx, c =y-nx\)</p>
+
+<h2 id="️외심-좌표계산">✏️외심 좌표계산</h2>
+<p>두 수직 이등분선의 방정식을 연립하여 외심의 좌표를 구해줍니다.<br />
+\(mx-nx=c-b\)<br />
+\(x(m-n)=c-b\)<br />
+\(x=\frac{c-b}{m-n}\)<br />
+\(y=m(\frac{c-b}{m-n})+b\)</p>
+
+<h2 id="코드">💻코드</h2>
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">public</span> <span class="k">static</span> <span class="n">Vector2</span> <span class="nf">GetCircumCircleCenter</span><span class="p">(</span><span class="n">Vector2</span> <span class="n">p0</span><span class="p">,</span> <span class="n">Vector2</span> <span class="n">p1</span><span class="p">,</span> <span class="n">Vector2</span> <span class="n">p2</span><span class="p">)</span>  
+<span class="p">{</span>  
+    <span class="c1">// slope equation : m = dy/dx = (y_2 - y_2)/(x_2 - x_1)  </span>
+    <span class="c1">// perpendicular slope equation : m' = -(dx/dy) = -(x_2 - x_1)/(y_2 - y_2)        // y = mx+b  </span>
+    <span class="kt">float</span> <span class="n">m</span> <span class="p">=</span> <span class="p">-(</span><span class="n">p1</span><span class="p">.</span><span class="n">x</span> <span class="p">-</span> <span class="n">p0</span><span class="p">.</span><span class="n">x</span><span class="p">)</span> <span class="p">/</span> <span class="p">(</span><span class="n">p1</span><span class="p">.</span><span class="n">y</span> <span class="p">-</span> <span class="n">p0</span><span class="p">.</span><span class="n">y</span><span class="p">);</span>  
+    <span class="c1">// y = nx+c  </span>
+    <span class="kt">float</span> <span class="n">n</span> <span class="p">=</span> <span class="p">-(</span><span class="n">p2</span><span class="p">.</span><span class="n">x</span> <span class="p">-</span> <span class="n">p1</span><span class="p">.</span><span class="n">x</span><span class="p">)</span> <span class="p">/</span> <span class="p">(</span><span class="n">p2</span><span class="p">.</span><span class="n">y</span> <span class="p">-</span> <span class="n">p1</span><span class="p">.</span><span class="n">y</span><span class="p">);</span>  
+      
+    <span class="n">Vector2</span> <span class="n">p0p1Center</span> <span class="p">=</span> <span class="n">Vector2</span><span class="p">.</span><span class="nf">Lerp</span><span class="p">(</span><span class="n">p0</span><span class="p">,</span> <span class="n">p1</span><span class="p">,</span> <span class="m">0.5f</span><span class="p">);</span>  
+    <span class="n">Vector2</span> <span class="n">p1p2Center</span> <span class="p">=</span> <span class="n">Vector2</span><span class="p">.</span><span class="nf">Lerp</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">,</span> <span class="m">0.5f</span><span class="p">);</span>  
+  
+    <span class="kt">float</span> <span class="n">b</span> <span class="p">=</span> <span class="n">p0p1Center</span><span class="p">.</span><span class="n">y</span> <span class="p">-</span> <span class="n">m</span> <span class="p">*</span> <span class="n">p0p1Center</span><span class="p">.</span><span class="n">x</span><span class="p">;</span>  
+    <span class="kt">float</span> <span class="n">c</span> <span class="p">=</span> <span class="n">p1p2Center</span><span class="p">.</span><span class="n">y</span> <span class="p">-</span> <span class="n">n</span> <span class="p">*</span> <span class="n">p1p2Center</span><span class="p">.</span><span class="n">x</span><span class="p">;</span>  
+  
+    <span class="kt">float</span> <span class="n">x</span> <span class="p">=</span> <span class="p">(</span><span class="n">c</span> <span class="p">-</span> <span class="n">b</span><span class="p">)</span> <span class="p">/</span> <span class="p">(</span><span class="n">m</span> <span class="p">-</span> <span class="n">n</span><span class="p">);</span>  
+    <span class="kt">float</span> <span class="n">y</span> <span class="p">=</span> <span class="n">m</span> <span class="p">*</span> <span class="n">x</span> <span class="p">+</span> <span class="n">b</span><span class="p">;</span>  
+    <span class="k">return</span> <span class="k">new</span> <span class="nf">Vector2</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>  
 <span class="p">}</span>
 </code></pre></div></div>
-
-<hr />
-
-<ul>
-  <li>출력값을 보면 5종류의 명령인수를 적었지만 6개가 출력되는 것을 볼 수 있다.</li>
-  <li>왜냐하면 명령인자의 첫번째 값은 <strong>실행 경로</strong>가 들어가기 때문이다.<br />
-<img src="https://github.com/user-attachments/assets/1c9e226e-c6a0-429f-a76d-7e2f7ce15e86" alt="image" /><em>명령인수 출력 결과</em></li>
-</ul>
-
-<h2 id="exe-파일로-넘겨주기">🔍exe 파일로 넘겨주기</h2>
-<ul>
-  <li>비주얼 스튜디오 명령인수 뿐만 아니라 다른 방식으로도 main에 인자를 넘길 수 있다.</li>
-  <li>그것은 .exe 파일을 실행할때 명령인수를 넘겨주며 실행하는 방법이다.</li>
-  <li><strong>cmd</strong>에서 exe 파일을 실행하고자 할때 뒤에 명령인수로 넘겨줄 인자값들을 적어준다.</li>
-</ul>
-
-<p><img src="https://github.com/user-attachments/assets/64fb48a4-807e-4b25-be53-6d1eb9990559" alt="image" /><em>exe 출력 결과</em></p>
 
 <h2><br /></h2>
 <p><br /></p>
@@ -76,9 +72,389 @@
 <div class="Reference">
 <div class="callout-header"> </div>
 <p>
-<a href="https://blog.naver.com/sharonichoya/220501242693">https://blog.naver.com/sharonichoya/220501242693</a>
+<a href="https://mathbang.net/455">https://mathbang.net/455</a>
+<a href="https://minstudyroom.tistory.com/4">https://minstudyroom.tistory.com/4</a>
 </p>
-</div>]]></content><author><name>Mohitto55</name></author><category term="ide" /><category term="Visual Studio" /><category term="VS" /><category term="명령인수" /><category term="exe" /><category term="Build" /><category term="command line argument" /><summary type="html"><![CDATA[📄main 함수의 매개변수 간혹 int main에 인자값이 int argc, char** argv 같은게 있는데 이것이 명령인수를 통해 넘겨주는 인자값들 이다. argc : 명령줄 인수의 개수 argv : 명령줄 인수의 문자열 배열 첫번째 값은 실행경로가 들어간다.]]></summary></entry><entry><title type="html">[Obsidian] Vercel을 활용한 Obsidian Digital Garden 블로그 만들기</title><link href="http://localhost:4000/obsidian/Obsidian-Vercel%EC%9D%84-%ED%99%9C%EC%9A%A9%ED%95%9C-Digital-Garden-%EB%A7%8C%EB%93%A4%EA%B8%B0/" rel="alternate" type="text/html" title="[Obsidian] Vercel을 활용한 Obsidian Digital Garden 블로그 만들기" /><published>2024-12-12T00:00:00+09:00</published><updated>2024-12-12T00:00:00+09:00</updated><id>http://localhost:4000/obsidian/%5BObsidian%5DVercel%EC%9D%84%20%ED%99%9C%EC%9A%A9%ED%95%9C%20Digital%20Garden%20%EB%A7%8C%EB%93%A4%EA%B8%B0</id><content type="html" xml:base="http://localhost:4000/obsidian/Obsidian-Vercel%EC%9D%84-%ED%99%9C%EC%9A%A9%ED%95%9C-Digital-Garden-%EB%A7%8C%EB%93%A4%EA%B8%B0/"><![CDATA[<h1 id="옵시디언으로-블로그를-만드는-이유">📄옵시디언으로 블로그를 만드는 이유</h1>
+</div>]]></content><author><name>Mohitto55</name></author><category term="math" /><category term="math" /><category term="geometry" /><category term="circumcenter" /><category term="circumcircle" /><category term="triangle" /><category term="intersection" /><category term="line" /><category term="perpendicular_bisector" /><category term="point" /><category term="distance" /><category term="coordinate_geometry" /><category term="midpoint" /><category term="equation" /><category term="vector" /><category term="수학" /><category term="기하학" /><category term="외심" /><category term="외접원" /><category term="삼각형" /><category term="교차점" /><category term="선" /><category term="수직이등분선" /><category term="점" /><category term="길이" /><category term="좌표기하" /><category term="중점" /><category term="방정식" /><category term="벡터" /><summary type="html"><![CDATA[📄외적을 이용한 선분과 선분의 교차점 구하기]]></summary></entry><entry><title type="html">[Algorithm] 절차적 맵생성 관련 알고리즘 정리</title><link href="http://localhost:4000/algorithm/Algorithm-%EB%9E%9C%EB%8D%A4-%EB%A7%B5%EC%83%9D%EC%84%B1-%EA%B4%80%EB%A0%A8-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%AA%A8%EC%9D%8C/" rel="alternate" type="text/html" title="[Algorithm] 절차적 맵생성 관련 알고리즘 정리" /><published>2024-12-12T00:00:00+09:00</published><updated>2024-12-12T00:00:00+09:00</updated><id>http://localhost:4000/algorithm/%5BAlgorithm%5D%EB%9E%9C%EB%8D%A4%20%EB%A7%B5%EC%83%9D%EC%84%B1%20%EA%B4%80%EB%A0%A8%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%20%EB%AA%A8%EC%9D%8C</id><content type="html" xml:base="http://localhost:4000/algorithm/Algorithm-%EB%9E%9C%EB%8D%A4-%EB%A7%B5%EC%83%9D%EC%84%B1-%EA%B4%80%EB%A0%A8-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%AA%A8%EC%9D%8C/"><![CDATA[<h1 id="맵-구조-생성-알고리즘">맵 구조 생성 알고리즘</h1>
+<h2 id="1-bsp-알고리즘">1. BSP 알고리즘</h2>
+<h3 id="개념">개념</h3>
+<ul>
+  <li>공간을 재귀적으로 분할하여 트리 구조로 표현한다.</li>
+  <li>맵 전체를 큰 사각형으로 시작하여 이를 점점 더 작은 사각형으로 나눕니다.</li>
+  <li>각 사각형에 방을 배치하고, 이후 이웃하는 방들을 연결하는 통로를 생성합니다.</li>
+</ul>
+
+<h3 id="장단점">장단점</h3>
+<ul>
+  <li>장점
+    <ul>
+      <li>만들기 쉽다.</li>
+    </ul>
+  </li>
+  <li>단점
+    <ul>
+      <li>직사각형의 단조로운 구조를 가진다.</li>
+    </ul>
+  </li>
+  <li>예시 : https://www.youtube.com/watch?v=FO12bZD3a5M</li>
+</ul>
+
+<h2 id="2-셀룰러-오토마타세포-자동자">2. 셀룰러 오토마타(세포 자동자)</h2>
+
+<p><img src="https://github.com/user-attachments/assets/01457887-9591-47fd-a1fb-14990fcc6592" alt="a" /></p>
+
+<h3 id="개념-1">개념</h3>
+
+<ul>
+  <li>세포들이 주변에 있는 세포에 따라 자신의 상태를 변화시키는 알고리즘이다.
+    <ul>
+      <li>맨 처음 세포들의 초기 상태를 벽, 빈공간으로 설정한다.</li>
+    </ul>
+  </li>
+  <li>그후 세포를 업데이트해서 주변 세포들의 상태에 따라 세포를 새로운 상태로 업데이트한다.
+    <ul>
+      <li>예를들어 자기 주변 세포들 중 벽 상태 세포가 4개 이상이면 자신도 벽으로 변한다.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="장단점-1">장단점</h3>
+
+<ul>
+  <li>장점
+    <ul>
+      <li>섬, 동굴같은 구조의 맵을 생성하기 좋다.</li>
+    </ul>
+  </li>
+  <li>단점
+    <ul>
+      <li>원하는 모양의 방을 만들기 어렵다.</li>
+      <li>직각 형태의 방을 만들기 힘들다.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="예시">예시</h3>
+
+<ul>
+  <li>https://www.youtube.com/watch?v=v7yyZZjF1z4
+    <ul>
+      <li>셀룰러 오토마타 기본 개념</li>
+    </ul>
+  </li>
+  <li>https://www.youtube.com/watch?v=yOgIncKp0BE
+    <ul>
+      <li>2D 마칭스퀘어를 이용한 벽 구조 생성</li>
+    </ul>
+  </li>
+  <li>https://www.youtube.com/watch?v=xYOG8kH2tF8
+    <ul>
+      <li><strong>BFS, DFS</strong>를 이용한 방 영역 설정</li>
+    </ul>
+  </li>
+  <li>https://www.youtube.com/watch?v=eVb9kQXvEZM
+    <ul>
+      <li>가장 가까운 방끼리 복도 연결</li>
+      <li>방의 가장 외각 Tile들끼리 거리를 비교해서 가장 가운 곳끼리 연결한다.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="3-tinykeep-알고리즘">3. TinyKeep 알고리즘</h2>
+
+<p><img src="https://github.com/user-attachments/assets/8a783d8c-f7a2-4f25-8671-6cdeb875607c" alt="a" /></p>
+
+<ul>
+  <li>맨 처음 방을 한곳에 몰아넣고 충돌 처리를 시켜서 밀어냅니다.</li>
+  <li>그 후 선별한 각 방들 중심점을 기준으로 <strong>들로네 삼각분할</strong>을 합니다.</li>
+  <li>들로네 삼각분할로 만든 선들을 이용해 <strong>최소 신장트리</strong>를 수행합니다.
+    <ul>
+      <li>최소 신장트리는 사이클이 없으면서 모든 정점이 연결되는 트리로 모든 방이 연결된 방 구조를 생성할 수 있습니다.</li>
+      <li>최소 신장트리는 크루스칼, 프림 알고리즘 두 방식이 있는데 프림이 좀 더 빠릅니다.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="예시-1">예시</h3>
+
+<ul>
+  <li>https://www.youtube.com/watch?v=rBY2Dzej03A&amp;t=300s
+    <ul>
+      <li>2D, 3D 맵 생성 알고리즘</li>
+    </ul>
+  </li>
+  <li>https://www.youtube.com/watch?v=t2ZQvJKrptc
+    <ul>
+      <li>엔터더 건전 모작</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="4-perlinnoise">4. PerlinNoise</h2>
+
+<p><img src="https://github.com/user-attachments/assets/45986986-d11b-446a-bcb9-72ffccb00916" alt="a" /></p>
+
+<ul>
+  <li>단순히 무작위 값을 나열한 노이즈가 아니라, 연속적으로 변화하는 값의 패턴의 노이즈를 생성한다.</li>
+  <li>주파수(Frequency), 옥타브(octave) 등 파라미터로 모양을 조정할 수 있다.</li>
+  <li><strong>1. Scale</strong>
+    <ul>
+      <li><strong>설명</strong>:
+        <ul>
+          <li>노이즈의 세부 패턴 크기를 제어합니다. 작은 값을 사용할수록 패턴이 확대되어 더 거친 구조를, 큰 값을 사용할수록 세부적이고 조밀한 패턴을 생성합니다.</li>
+        </ul>
+      </li>
+      <li><strong>용도</strong>:
+        <ul>
+          <li>지형 생성에서 산맥 크기 또는 높낮이를 조정할 때 사용.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><strong>2. Frequency</strong>
+    <ul>
+      <li><strong>설명</strong>:
+        <ul>
+          <li>노이즈 함수가 얼마나 자주 반복되는지를 나타내는 값입니다. 높은 주파수는 더 세부적인 패턴을, 낮은 주파수는 더 넓고 완만한 패턴을 생성합니다.</li>
+        </ul>
+      </li>
+      <li><strong>용도</strong>:
+        <ul>
+          <li>여러 주파수를 조합하여 복잡한 형태의 노이즈를 생성(Octave 구조와 결합)합니다.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><strong>3. Amplitude</strong>
+    <ul>
+      <li><strong>설명</strong>:
+        <ul>
+          <li>노이즈 값의 진폭, 즉 노이즈 패턴의 높낮이를 조정합니다.</li>
+          <li>높은 진폭은 강한 대비를, 낮은 진폭은 더 부드러운 패턴을 만듭니다.</li>
+        </ul>
+      </li>
+      <li><strong>용도</strong>:
+        <ul>
+          <li>지형의 고도 또는 물결 높이를 조정할 때 사용.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><strong>4. Octaves</strong>
+    <ul>
+      <li><strong>설명</strong>:
+        <ul>
+          <li>노이즈의 “세부 레벨”을 나타냅니다. 각 옥타브는 주파수와 진폭이 다른 노이즈 계층을 추가합니다.</li>
+          <li>높은 옥타브 수는 더 복잡하고 세밀한 패턴을 생성합니다.</li>
+        </ul>
+      </li>
+      <li><strong>용도</strong>:
+        <ul>
+          <li>자연스러운 텍스처 생성에서 중요한 요소로, 다중 계층 효과를 제공합니다.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><strong>5. Persistence</strong>
+    <ul>
+      <li><strong>설명</strong>:
+        <ul>
+          <li>옥타브 간 진폭의 감소 비율을 나타냅니다.</li>
+          <li>1에 가까운 값은 각 옥타브가 비슷한 영향을 미치며, 작은 값은 고주파 노이즈의 영향을 줄입니다.</li>
+        </ul>
+      </li>
+      <li><strong>용도</strong>:
+        <ul>
+          <li>세부 패턴의 강도와 전체적인 부드러움 조정.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><strong>6. Lacunarity</strong>
+    <ul>
+      <li><strong>설명</strong>:
+        <ul>
+          <li>옥타브 간 주파수의 증가 비율을 나타냅니다.</li>
+          <li>기본값은 2로 설정되며, 값이 커질수록 고주파 패턴이 더 복잡해집니다.</li>
+        </ul>
+      </li>
+      <li><strong>용도</strong>:
+        <ul>
+          <li>세밀한 구조와 큰 구조 간의 균형을 조정.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><strong>7. Seed</strong>
+    <ul>
+      <li><strong>설명</strong>:
+        <ul>
+          <li>노이즈의 난수 시드를 설정하여 생성되는 패턴의 고유성을 결정합니다.</li>
+          <li>동일한 시드 값은 동일한 결과를 재생성합니다.</li>
+        </ul>
+      </li>
+      <li><strong>용도</strong>:
+        <ul>
+          <li>특정 노이즈 패턴을 재현하거나 고유한 텍스처를 생성.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><strong>8. Offset</strong>
+    <ul>
+      <li><strong>설명</strong>:
+        <ul>
+          <li>노이즈 패턴의 기준점을 조정하여 출력 패턴을 이동합니다.</li>
+        </ul>
+      </li>
+      <li><strong>용도</strong>:
+        <ul>
+          <li>다른 영역에서 새로운 패턴을 만들거나 패턴의 시작점을 조정.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>for (int y = 0; y &lt; mapHeight; y++) {
+	for (int x = 0; x &lt; mapWidth; x++) {
+
+		float amplitude = 1;
+		float frequency = 1;
+		float noiseHeight = 0;
+
+		for (int i = 0; i &lt; octaves; i++) {
+			float sampleX = (x-halfWidth) / scale * frequency + octaveOffsets[i].x;
+			float sampleY = (y-halfHeight) / scale * frequency + octaveOffsets[i].y;
+
+			float perlinValue = Mathf.PerlinNoise (sampleX, sampleY) * 2 - 1;
+			noiseHeight += perlinValue * amplitude;
+
+			amplitude *= persistance;
+			frequency *= lacunarity;
+		}
+
+		if (noiseHeight &gt; maxNoiseHeight) {
+			maxNoiseHeight = noiseHeight;
+		} else if (noiseHeight &lt; minNoiseHeight) {
+			minNoiseHeight = noiseHeight;
+		}
+		noiseMap [x, y] = noiseHeight;
+	}
+}
+
+</code></pre></div></div>
+
+<h3 id="장점">장점</h3>
+
+<ul>
+  <li>알아두면 써먹을 곳이 많다.</li>
+  <li>지형 지물 생성 범위를 지정할 때 더 활용하기 좋다.
+    <ul>
+      <li>펄린 노이즈로 특정 값 이상인 부분은 특정 바이옴으로 만들거나 낭떠러지로 표현할수 있다.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="예시-2">예시</h3>
+
+<ul>
+  <li>https://www.youtube.com/watch?v=RDQK1_SWFuc</li>
+  <li>https://www.youtube.com/watch?v=NGc5VyhB-Fs</li>
+  <li>https://1217pgy.tistory.com/7</li>
+</ul>
+
+<h1 id="지오메트리">지오메트리</h1>
+
+<h2 id="보로노이와-들로네-삼각분할">보로노이와 들로네 삼각분할</h2>
+
+<p><img src="https://github.com/user-attachments/assets/df59ced5-9a4b-40e5-a9c8-6b5729d753db" alt="a" /></p>
+
+<ul>
+  <li>예전에 정리한 PPT
+    <ul>
+      <li>https://www.slideshare.net/slideshow/ss-251207958/251207958#8</li>
+    </ul>
+  </li>
+  <li>아주 좋은 강좌 링크
+    <ul>
+      <li>https://www.habrador.com/tutorials/math/13-voronoi/</li>
+      <li>깃허브
+        <ul>
+          <li>https://github.com/Habrador/Computational-geometry</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="dceldouble-connected-edge-list">DCEL(Double-Connected Edge List)</h2>
+
+<p><img src="https://blog.kakaocdn.net/dn/nWvmp/btrvtcI04R6/XqXcOAljphmTWbtMWxju40/img.png" alt="a" /></p>
+
+<p>위 깃허브에선 DCEL을 이용해서 들로네 삼각분할, 보로노이 다이어그램을 구현해서 DCEL 설명을 남긴다.</p>
+
+<p><strong>DCEL</strong> 이중 연결 가장자리 목록 혹은 <strong>half-edge data structure</strong> 라고도 불리는 이것은 <br />
+일반적으로 위처럼 폴리곤이 Face Vertex Edge 3개의 요소로 이루어지는 구조를 뜻하는데 각 요소의 뜻은 다음과 같다.</p>
+
+<p><strong>Face</strong> - 폴리곤의 내부<br />
+<strong>Vertex</strong> - 폴리곤의 정점<br />
+<strong>Edge</strong> - 폴리곤의 가장자리</p>
+
+<p><img src="https://blog.kakaocdn.net/dn/c3VIrf/btrvl9gseEJ/vMstY7fARLOXpOsacKQVA0/img.png" alt="a" /></p>
+
+<p>DCEL은 위와같은 모습이 되는데 한 폴리곤의 내부가 시계방향 혹은 반시계방향으로 정렬되 있는데 만약 모서리가 면의 경계에 있다면 그 위치에 있는 모서리는 두개이고 각 모서리를 가진 폴리곤의 회전 방향은 정 반대이다.</p>
+
+<p>방향만 다른 같은 모서리가 두개있는 것이 마치 한 모서리를 반으로 가른것 같아서 half-Edge라고도 불리는 것 같다.<br />
+폴리곤을 이루는 각 요소는 다음과 같은 데이터를 가지고 있는데</p>
+
+<p><strong>Face -</strong> 폴리곤을 이루는 한 Edge<br />
+<strong>Vertex -</strong> 자신이 포함된 폴리곤의 Face, 위에 사진상에선 한 위치에 여러개의 정점이 있는데 하나로 중첩해서 구현해도 상관없다. 오히려 많은 DCEL 자료에선 여러개의 정점으로 소개하지 않는다.<br />
+<strong>Edge -</strong> p1Vertex, p2Vertex, prevEdge, nextEdge, oppositeEdge</p>
+
+<p>Face1의 경우 E1, E2, E3중에 하나를 가지게 되고<br />
+Vertex1은 E2를 가지게 되고<br />
+Edge1은 p1으로 V3 p2로 V1 prevEdge는 E3 nextEdge는 E2 oppositeEdge는 E4가 된다.</p>
+
+<p>DCEL은 도형 기하학에서 쓰이기 좋은데 예를 들어 한 메쉬가 있다고 가정했을 때 메쉬의 한 triangle를 구하려고하면 하나하나 일일이 찾는 브루트 포스 방식이 아니라 DCEL 폴리곤 데이터를 이용해 원하는 triangle을 찾아간다면 찾는데 걸리는 시간이 획기적으로 줄어들 수 있다.</p>
+
+<h3 id="참고자료">참고자료</h3>
+
+<p>https://www.ics.uci.edu/~goodrich/teach/geom/notes/DCEL.pdf</p>
+
+<h1 id="그-밖에">그 밖에</h1>
+<h2 id="푸아송디스크">푸아송디스크</h2>
+<p><img src="https://github.com/user-attachments/assets/2589b7d9-594e-4249-b1d6-f4fb63619a0b" alt="a" /></p>
+<ul>
+  <li>점을 고르게 분포시키는 알고리즘이다.</li>
+  <li>일반적인 랜덤 분포는 커다란 빈 부분이 생기거나 완전히 겹쳐지는 문제가 생긴다</li>
+  <li>각 점 사이의 거리는 최소 거리 이상이여야한다.</li>
+</ul>
+
+<h3 id="예시-3">예시</h3>
+
+<ul>
+  <li>https://www.youtube.com/watch?v=7WcmyxyFO7o&amp;t=352s
+    <ul>
+      <li>푸아송 디스크 구현</li>
+    </ul>
+  </li>
+  <li>https://www.youtube.com/watch?v=NGc5VyhB-Fs
+    <ul>
+      <li>펄린 노이즈, 푸아송 디스크를 이용해 랜덤맵에 나무심기</li>
+    </ul>
+  </li>
+</ul>
+
+<h2><br /></h2>
+<p><br /></p>
+
+<div class="Reference">
+<div class="callout-header"> </div>
+<p>
+<a href=""></a>
+</p>
+</div>]]></content><author><name>Mohitto55</name></author><category term="algorithm" /><category term="algorithm" /><category term="알고리즘" /><category term="절차적 맵 생성" /><category term="푸아송 디스크" /><category term="BSP" /><category term="셀룰러 오토마타" /><category term="펄린 노이즈" /><summary type="html"><![CDATA[맵 구조 생성 알고리즘 1. BSP 알고리즘 개념 공간을 재귀적으로 분할하여 트리 구조로 표현한다. 맵 전체를 큰 사각형으로 시작하여 이를 점점 더 작은 사각형으로 나눕니다. 각 사각형에 방을 배치하고, 이후 이웃하는 방들을 연결하는 통로를 생성합니다.]]></summary></entry><entry><title type="html">[Obsidian] Vercel을 활용한 Obsidian Digital Garden 블로그 만들기</title><link href="http://localhost:4000/obsidian/Obsidian-Vercel%EC%9D%84-%ED%99%9C%EC%9A%A9%ED%95%9C-Digital-Garden-%EB%A7%8C%EB%93%A4%EA%B8%B0/" rel="alternate" type="text/html" title="[Obsidian] Vercel을 활용한 Obsidian Digital Garden 블로그 만들기" /><published>2024-12-12T00:00:00+09:00</published><updated>2024-12-12T00:00:00+09:00</updated><id>http://localhost:4000/obsidian/%5BObsidian%5DVercel%EC%9D%84%20%ED%99%9C%EC%9A%A9%ED%95%9C%20Digital%20Garden%20%EB%A7%8C%EB%93%A4%EA%B8%B0</id><content type="html" xml:base="http://localhost:4000/obsidian/Obsidian-Vercel%EC%9D%84-%ED%99%9C%EC%9A%A9%ED%95%9C-Digital-Garden-%EB%A7%8C%EB%93%A4%EA%B8%B0/"><![CDATA[<h1 id="옵시디언으로-블로그를-만드는-이유">📄옵시디언으로 블로그를 만드는 이유</h1>
 <p>지금까지 나는 지식을 정리하고 정리한 내용을 공유하기 위해 여러 종류의 블로그 사이트를 사용해 봤다.<br />
 맨처음에는 <strong>네이버</strong> 블로그였는데 한국인의 입장에선 확실히 네이버가 접근성이 좋긴하지만 한국인을 제외한 외국인들은 구글 검색에 뜨기가 쉽지않고 디자인이 마음에 들지않아 금방 포기했다.</p>
 
@@ -266,7 +642,87 @@ GItBlog는 처음부터 끝까지 기능을 다 커스텀가능하고 테마도 
 <a href="https://splendidlolli.tistory.com/25">https://splendidlolli.tistory.com/25</a>
 <a href=" https://heroeskdw.tistory.com/entry/%EC%BD%94%EB%94%A9c-%EB%AA%85%EB%A0%B9-%EC%9D%B8%EC%88%98-%EB%B0%9B%EA%B8%B0"> https://heroeskdw.tistory.com/entry/%EC%BD%94%EB%94%A9c-%EB%AA%85%EB%A0%B9-%EC%9D%B8%EC%88%98-%EB%B0%9B%EA%B8%B0</a>
 </p>
-</div>]]></content><author><name>Mohitto55</name></author><category term="ide" /><category term="Obsidian" /><category term="옵시디언" /><category term="테마" /><category term="Theme" /><category term="최적화" /><category term="Optimize" /><category term="속도" /><category term="아누푸친" /><category term="Anuppuchine" /><category term="Minimal" /><category term="미니멀" /><summary type="html"><![CDATA[📄Why 프로그래밍 과제를 하는데 명령인수를 server-name으로 적으라고 했는데 서버인수가 무엇인지 몰랐다. 그래서 명령인수에 대한 설명을 적다가 int main의 인자 값이 명령인수 뿐만 아니라 exe 파일에 인수를 넘기는 방식으로도 활용 할 수 있는 법을 알게되었고 그러다 exe 파일을 뽑는 방법을 정리하게 되었다.]]></summary></entry><entry><title type="html">[Geometry] 외적을 이용해 선분간의 교차점을 구하는 방법</title><link href="http://localhost:4000/geometry/Geometry-%EC%84%A0%EB%B6%84-%EB%81%BC%EB%A6%AC%EC%9D%98-%EA%B5%90%EC%B0%A8%EC%A0%90-%EA%B5%AC%ED%95%98%EA%B8%B0/" rel="alternate" type="text/html" title="[Geometry] 외적을 이용해 선분간의 교차점을 구하는 방법" /><published>2024-10-24T00:00:00+09:00</published><updated>2024-10-24T00:00:00+09:00</updated><id>http://localhost:4000/geometry/Geometry%20%EC%84%A0%EB%B6%84%20%EB%81%BC%EB%A6%AC%EC%9D%98%20%EA%B5%90%EC%B0%A8%EC%A0%90%20%EA%B5%AC%ED%95%98%EA%B8%B0</id><content type="html" xml:base="http://localhost:4000/geometry/Geometry-%EC%84%A0%EB%B6%84-%EB%81%BC%EB%A6%AC%EC%9D%98-%EA%B5%90%EC%B0%A8%EC%A0%90-%EA%B5%AC%ED%95%98%EA%B8%B0/"><![CDATA[<h1 id="외적을-이용한-선분과-선분의-교차점-구하기">📄외적을 이용한 선분과 선분의 교차점 구하기</h1>
+</div>]]></content><author><name>Mohitto55</name></author><category term="ide" /><category term="Obsidian" /><category term="옵시디언" /><category term="테마" /><category term="Theme" /><category term="최적화" /><category term="Optimize" /><category term="속도" /><category term="아누푸친" /><category term="Anuppuchine" /><category term="Minimal" /><category term="미니멀" /><summary type="html"><![CDATA[📄Why 프로그래밍 과제를 하는데 명령인수를 server-name으로 적으라고 했는데 서버인수가 무엇인지 몰랐다. 그래서 명령인수에 대한 설명을 적다가 int main의 인자 값이 명령인수 뿐만 아니라 exe 파일에 인수를 넘기는 방식으로도 활용 할 수 있는 법을 알게되었고 그러다 exe 파일을 뽑는 방법을 정리하게 되었다.]]></summary></entry><entry><title type="html">[Visual Studio] 명령인수 개념과 exe파일에서 넘겨주는 법</title><link href="http://localhost:4000/ide/IDE-%EB%B9%84%EC%A3%BC%EC%96%BC-%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4-%EB%AA%85%EB%A0%B9%EC%9D%B8%EC%88%98/" rel="alternate" type="text/html" title="[Visual Studio] 명령인수 개념과 exe파일에서 넘겨주는 법" /><published>2024-12-12T00:00:00+09:00</published><updated>2024-12-12T00:00:00+09:00</updated><id>http://localhost:4000/ide/%5BIDE%5D%EB%B9%84%EC%A3%BC%EC%96%BC%20%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4%20%EB%AA%85%EB%A0%B9%EC%9D%B8%EC%88%98</id><content type="html" xml:base="http://localhost:4000/ide/IDE-%EB%B9%84%EC%A3%BC%EC%96%BC-%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4-%EB%AA%85%EB%A0%B9%EC%9D%B8%EC%88%98/"><![CDATA[<h1 id="main-함수의-매개변수">📄main 함수의 매개변수</h1>
+<ul>
+  <li>간혹 int main에 인자값이 <code class="language-plaintext highlighter-rouge">int argc, char** argv</code> 같은게 있는데 이것이 명령인수를 통해 넘겨주는 인자값들 이다.
+    <ul>
+      <li><strong>argc</strong> : 명령줄 인수의 개수</li>
+      <li><strong>argv</strong> : 명령줄 인수의 문자열 배열
+        <ul>
+          <li>첫번째 값은 실행경로가 들어간다.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>그러나 main 함수는 최초 시작 진입점인데 정보를 어떻게 넘겨주는 것일까?</li>
+  <li>그것에 대해서 알아보도록 하겠다.</li>
+</ul>
+
+<h1 id="명령인수command-line-argument-전달하기">📄명령인수(command line argument) 전달하기</h1>
+<h2 id="visual-studio">🔍Visual Studio</h2>
+<ul>
+  <li><strong>명령인수(Command-line arguments)</strong> 란 외부에서 전달하는 입력 값들을 뜻한다.</li>
+  <li>이 값들이 main 함수에 매개변수로 들어오는 값들이다.</li>
+  <li>이렇게 명령 인수를 전달하는 방법 중 하나는 Visual Studio로 전달하는 방법이 있다.</li>
+</ul>
+
+<hr />
+
+<h3 id="명령인수-설정법">🔍명령인수 설정법</h3>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">프로젝스 속성 페이지 &gt; 구성 속성 &gt; 디버깅</code> 으로 이동한다.</li>
+  <li>명령인수를 넣어준다.<br />
+<img src="https://github.com/user-attachments/assets/2309c627-dda4-4988-a879-08c907627a74" alt="image" /><em>프로젝스 속성 페이지 &gt; 구성 속성 &gt; 디버깅</em></li>
+</ul>
+
+<hr />
+
+<ul>
+  <li>아래처럼 명령인수를 출력을 할 수 있다.</li>
+</ul>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">**</span> <span class="n">argv</span><span class="p">)</span>
+<span class="p">{</span>
+	<span class="c1">// 명령인수의 개수</span>
+	<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"argc : "</span> <span class="o">&lt;&lt;</span> <span class="n">argc</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+
+	<span class="c1">// 명령인수의 문자열 출력</span>
+	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">argc</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+		<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">argv</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<hr />
+
+<ul>
+  <li>출력값을 보면 5종류의 명령인수를 적었지만 6개가 출력되는 것을 볼 수 있다.</li>
+  <li>왜냐하면 명령인자의 첫번째 값은 <strong>실행 경로</strong>가 들어가기 때문이다.<br />
+<img src="https://github.com/user-attachments/assets/1c9e226e-c6a0-429f-a76d-7e2f7ce15e86" alt="image" /><em>명령인수 출력 결과</em></li>
+</ul>
+
+<h2 id="exe-파일로-넘겨주기">🔍exe 파일로 넘겨주기</h2>
+<ul>
+  <li>비주얼 스튜디오 명령인수 뿐만 아니라 다른 방식으로도 main에 인자를 넘길 수 있다.</li>
+  <li>그것은 .exe 파일을 실행할때 명령인수를 넘겨주며 실행하는 방법이다.</li>
+  <li><strong>cmd</strong>에서 exe 파일을 실행하고자 할때 뒤에 명령인수로 넘겨줄 인자값들을 적어준다.</li>
+</ul>
+
+<p><img src="https://github.com/user-attachments/assets/64fb48a4-807e-4b25-be53-6d1eb9990559" alt="image" /><em>exe 출력 결과</em></p>
+
+<h2><br /></h2>
+<p><br /></p>
+
+<div class="Reference">
+<div class="callout-header"> </div>
+<p>
+<a href="https://blog.naver.com/sharonichoya/220501242693">https://blog.naver.com/sharonichoya/220501242693</a>
+</p>
+</div>]]></content><author><name>Mohitto55</name></author><category term="ide" /><category term="Visual Studio" /><category term="VS" /><category term="명령인수" /><category term="exe" /><category term="Build" /><category term="command line argument" /><summary type="html"><![CDATA[📄main 함수의 매개변수 간혹 int main에 인자값이 int argc, char** argv 같은게 있는데 이것이 명령인수를 통해 넘겨주는 인자값들 이다. argc : 명령줄 인수의 개수 argv : 명령줄 인수의 문자열 배열 첫번째 값은 실행경로가 들어간다.]]></summary></entry><entry><title type="html">[Geometry] 외적을 이용해 선분간의 교차점을 구하는 방법</title><link href="http://localhost:4000/geometry/Geometry-%EC%84%A0%EB%B6%84-%EB%81%BC%EB%A6%AC%EC%9D%98-%EA%B5%90%EC%B0%A8%EC%A0%90-%EA%B5%AC%ED%95%98%EA%B8%B0/" rel="alternate" type="text/html" title="[Geometry] 외적을 이용해 선분간의 교차점을 구하는 방법" /><published>2024-10-24T00:00:00+09:00</published><updated>2024-10-24T00:00:00+09:00</updated><id>http://localhost:4000/geometry/Geometry%20%EC%84%A0%EB%B6%84%20%EB%81%BC%EB%A6%AC%EC%9D%98%20%EA%B5%90%EC%B0%A8%EC%A0%90%20%EA%B5%AC%ED%95%98%EA%B8%B0</id><content type="html" xml:base="http://localhost:4000/geometry/Geometry-%EC%84%A0%EB%B6%84-%EB%81%BC%EB%A6%AC%EC%9D%98-%EA%B5%90%EC%B0%A8%EC%A0%90-%EA%B5%AC%ED%95%98%EA%B8%B0/"><![CDATA[<h1 id="외적을-이용한-선분과-선분의-교차점-구하기">📄외적을 이용한 선분과 선분의 교차점 구하기</h1>
 
 <p>선분은 기하를 구성하는 <strong>기본요소</strong>이기 때문에 선분의 교차점을 구하는 것은 기하 문제의 기본입니다. 이런 선분의 교차점은 다양한 곳에서 사용 할 수 있습니다.</p>
 
@@ -533,210 +989,7 @@ GItBlog는 처음부터 끝까지 기능을 다 커스텀가능하고 테마도 
 <a href="https://learn.microsoft.com/en-us/answers/questions/1163496/code-error-when-building-unreal-engine-5-source-co">https://learn.microsoft.com/en-us/answers/questions/1163496/code-error-when-building-unreal-engine-5-source-co</a>
 <a href="https://gall.dcinside.com/mgallery/board/view/?id=gamejob&amp;no=14429">https://gall.dcinside.com/mgallery/board/view/?id=gamejob&amp;no=14429</a>
 </p>
-</div>]]></content><author><name>Mohitto55</name></author><category term="ue5" /><category term="UE" /><category term="UE5" /><category term="UnrealEngine" /><category term="VisualStudio" /><category term="Vs" /><category term="IDE" /><category term="Build" /><category term="빌드" /><category term="MSB3073" /><category term="컴파일" /><summary type="html"><![CDATA[발생과정 프로젝트를 최초 생성하고 컴파일 하려하면 이런 오류가 뜬다 왜 이럴까?]]></summary></entry><entry><title type="html">[UE5] 프레넬을 활용한 현실감 있는 물 셰이더 만들기</title><link href="http://localhost:4000/ue5/%EC%96%B8%EB%A6%AC%EC%96%BC-%EB%AC%BC%EC%85%B0%EC%9D%B4%EB%8D%94-%EB%B0%8F-%ED%94%84%EB%A0%88%EB%84%AC/" rel="alternate" type="text/html" title="[UE5] 프레넬을 활용한 현실감 있는 물 셰이더 만들기" /><published>2024-10-07T00:00:00+09:00</published><updated>2024-10-07T00:00:00+09:00</updated><id>http://localhost:4000/ue5/%EC%96%B8%EB%A6%AC%EC%96%BC%20%EB%AC%BC%EC%85%B0%EC%9D%B4%EB%8D%94%20%EB%B0%8F%20%ED%94%84%EB%A0%88%EB%84%AC</id><content type="html" xml:base="http://localhost:4000/ue5/%EC%96%B8%EB%A6%AC%EC%96%BC-%EB%AC%BC%EC%85%B0%EC%9D%B4%EB%8D%94-%EB%B0%8F-%ED%94%84%EB%A0%88%EB%84%AC/"><![CDATA[<h2 id="시작하기">시작하기</h2>
-<ul>
-  <li>언리얼을 이용해서 프로젝트를 시작했는데 컨셉은 청소기를 통해 물체들을 빨아들이는 건데 그 중에서 물같은 유체도 포함된다.</li>
-  <li>팀원들에게 부탁하기에는 다들 바빠보여서 이번 기회에 공부할겸 한번 직접 제작해 볼까 한다.</li>
-</ul>
-
-<h2 id="fresnel-프레넬-이란">Fresnel 프레넬 이란?</h2>
-<ul>
-  <li>프레넬이란 모든 빛은 매질(media)에 따라 반사, 흡수, 굴절을 하게 되는데 이 프레넬 공식을 통해 빛의 움직을 계산한다.</li>
-  <li>이를 사용하면 물체의 가장자리 빛이 더 강하게 반사되는 현상을 표현할 수 있다.</li>
-</ul>
-
-<hr />
-
-<h3 id="골절률-refactive-index">골절률 (Refactive index)</h3>
-<ul>
-  <li>빛이 특정 매질을 통과해서 이동할때 얼마나 <strong>느려지는지</strong> 비율을 측정한 것이다.</li>
-  <li>빛이 느려지면 이동 방향이 바뀌게 된다.</li>
-  <li>빛은 여러 파장이 합쳐서 보이게 되는데 이런 파장에 따라 골절률이 달라진다.</li>
-  <li>그렇기에 파장별로 골절률 계산을 해야한다.<br />
-<img src="https://github.com/user-attachments/assets/8bfec418-635f-4c14-bb49-23067c2b2d10" alt="image" /></li>
-</ul>
-
-<hr />
-
-<h3 id="스넬의-법칙snells-law">스넬의 법칙(Snell’s law)</h3>
-<ul>
-  <li>
-    <p>매질에 따라 빛이 꺾이는 것을 알 수 있는 공식이다.<br />
-<img src="https://github.com/user-attachments/assets/abc4be5e-62bf-4f95-b6aa-797076eb0a9f" alt="image|200" /></p>
-  </li>
-  <li>v 는 속도 (velocity)</li>
-  <li>λ는 파장 (wavelength)</li>
-  <li>n은 골절률 (IOR)</li>
-  <li>
-    <p>이런 관계를 설명한 것이 스넬의 법칙이다.<br />
-<img src="https://github.com/user-attachments/assets/e9bb11eb-7e95-471a-b074-a88950b44b0c" alt="image" /></p>
-  </li>
-  <li>그래서 물과 기름이 만나면 아래처럼 파장이 변화한다.<br />
-<img src="https://github.com/user-attachments/assets/6ffce623-64b5-4330-a11c-12f371b6b900" alt="image" /></li>
-</ul>
-
-<hr />
-
-<h3 id="매질이-반사할수도-있다">매질이 반사할수도 있다.</h3>
-<ul>
-  <li>굴절률이 다른 매질을 만나게되면 특정 각도에서 굴절이 아니라 완전히 <strong>반사</strong>하는 경우가 있다.</li>
-  <li>Critical angle처럼 특정 각도를 넘어가면 전반사가 발생한다.<br />
-<img src="https://github.com/user-attachments/assets/0d33de0e-adad-403d-b55d-2e6193c57e6f" alt="image" /></li>
-</ul>
-
-<hr />
-
-<h4 id="전반사-각도-구하기-공식">전반사 각도 구하기 공식</h4>
-<ul>
-  <li>대기의 굴절률이 1이고 아크릴의 굴절률이 1.5면 전반사 각은 41.8이 된다.<br />
-<img src="https://github.com/user-attachments/assets/8f69a657-2cc3-4871-b42f-c8a925b3d7dd" alt="image" /><br />
-<img src="https://github.com/user-attachments/assets/7a908200-6b73-4062-bc31-ea4148acd85a" alt="image" /></li>
-</ul>
-
-<hr />
-
-<h3 id="프레넬-공식-fresnel-equation">프레넬 공식 (Fresnel equation)</h3>
-<ul>
-  <li>그래픽스에서 반사와 굴절을 계산하기 위해서 반사되는 빛의 양과 얼마나 빛이 굴절되는지 알아야한다.</li>
-  <li>그 공식이 프레넬 공식인데 유도식은 너무 어려워서 패스
-    <ul>
-      <li>프레넬 공식은 스넬의 법칙, <a href="https://en.wikipedia.org/wiki/Law_of_reflection">반사 법칙</a> 등을 이용해서 유도된다</li>
-    </ul>
-  </li>
-  <li>일반적으로 컴퓨터 그래픽스에서는 <strong>Schlick’s approximation</strong>을 사용한다. 근사계산 공식이다.
-    <ul>
-      <li>모든 각도에서의 굴절률(IOR)을 알 수 없기 때문에 근사계산을 해야한다.<br />
-<img src="https://github.com/user-attachments/assets/7ea1103a-3294-4a98-ad21-01cf79fdfe96" alt="image" /></li>
-    </ul>
-  </li>
-</ul>
-
-<hr />
-
-<h4 id="그래프">그래프</h4>
-<ul>
-  <li>프레넬 공식을 그래프와 시키면 다음과 같다.</li>
-  <li>가로축 : 시선과 노멀벡터의 각도</li>
-  <li>세로축 : 반사율</li>
-  <li>
-    <p>수평(90도)일 수록 높은 반사율을 보인다.<br />
-<img src="https://github.com/user-attachments/assets/f7b49942-a550-4f9d-aa8f-f392c247e2f5" alt="image" /></p>
-  </li>
-  <li>일반적으로 물체를 수직에서 바라본(0도) 반사율 값을 넣는 근사 계산식을 사용한다.</li>
-  <li>R0값이 그래프에서의 0도의 반사율 값이라 보면된다.</li>
-  <li>
-    <p>대부분의 엔진에서는 F0이라고 표현한다(Fresnel at Degree 0 도 인듯 하다.)</p>
-  </li>
-  <li>아래는 대기속에 있다고 가정할때의 식이다.<br />
-<img src="https://github.com/user-attachments/assets/99a0abe5-c784-4a51-99a7-a34cb82bcb05" alt="image" /></li>
-  <li>물의 경우 1.33의 굴절률을 가진다.
-    <ul>
-      <li><a href="https://pixelandpoly.com/ior.html">매질의 굴절률 리스트</a></li>
-    </ul>
-  </li>
-  <li><strong>일반적으로 이 F0 를 “Metallic” 핀에다가 넣어 주시면 된다</strong><br />
-<img src="https://github.com/user-attachments/assets/899e8591-f5fb-49fe-bad0-a1f1e36ca3db" alt="image" /></li>
-</ul>
-
-<hr />
-
-<h2 id="물-쉐이더-만들기">물 쉐이더 만들기</h2>
-<h3 id="겉부분만-반사시키기">겉부분만 반사시키기</h3>
-<p><img src="https://github.com/user-attachments/assets/d20c6596-7ec1-43e1-ab01-de0af6d447c5" alt="image" /></p>
-
-<hr />
-
-<h3 id="언리얼의-fresnal-노드">언리얼의 Fresnal 노드</h3>
-<p><img src="https://github.com/user-attachments/assets/bff4eee8-7a85-4657-baf1-2f04446ce392" alt="image" /></p>
-<ul>
-  <li>Fresnal 노드는 빛의 굴절률 공식이지만 림라이트나 실루엣을 만들때 많이 사용한다.</li>
-  <li>다만 이 노드는 Metalic으로 반영되는 Fresnel은 의미가 명확하지만 <strong>이건 그냥 효과</strong>이기 떄문이다.</li>
-  <li>이 노드는 사용하면 비물리적인 결과를 산출할 수 있어서 보통 Metalic을 제거하고 <strong>Emissive</strong>를 사용한다.<br />
-<img src="https://github.com/user-attachments/assets/441467ab-d6cd-46f0-87ad-d0da12824248" alt="image" /></li>
-</ul>
-
-<h2 id="타일링-오프셋">타일링 오프셋</h2>
-<h3 id="타일링-오프셋-tiling-offset">타일링 오프셋 (Tiling Offset)</h3>
-<ul>
-  <li>언리얼은 타일링 오프셋 노드가 따로 없다</li>
-  <li>그래서 직접 텍스처 좌표계나 월드 포지션을 통해 이동시켜야한다.<br />
-<img src="https://github.com/user-attachments/assets/a435543f-4b38-4d54-8656-dd57233a9475" alt="image" /></li>
-</ul>
-
-<h2 id="시간에-따른-노이즈-생성">시간에 따른 노이즈 생성</h2>
-<ul>
-  <li>Absolute world Position
-    <ul>
-      <li>절대적인 월드 포지션<br />
-<img src="https://github.com/user-attachments/assets/78ace0ae-c67a-42c6-8abe-b5e618cff88f" alt="image" /></li>
-    </ul>
-  </li>
-</ul>
-
-<h3 id="noise-node">Noise Node</h3>
-<ul>
-  <li>Function으로 노이즈 종류를 변경할 수 있다.<br />
-<img src="https://github.com/user-attachments/assets/0a8dc7c5-cd87-402b-8fd8-d05314044d20" alt="image" /></li>
-  <li>Output Value를 통해 흰색 검은색 부분 비율을 조절할 수 있다.<br />
-<img src="https://github.com/user-attachments/assets/bf0c6d93-8095-4c8a-a699-b3e8049a2ca1" alt="image" /></li>
-</ul>
-
-<h2 id="노이즈-조절하기">노이즈 조절하기</h2>
-<ul>
-  <li>
-    <p>Multiply로 Destortion(파괴) 값을 조절해서 노이즈 값을 연하게 해준다.<br />
-<img src="https://github.com/user-attachments/assets/7ad0d9a6-ab4a-4d4f-9ec3-6353cffff0a9" alt="image" /></p>
-  </li>
-  <li>
-    <p>Destortion 값이 1이면 노이즈가 눈에 보여서 줄이는 작업이 필요하다.<br />
-<img src="https://github.com/user-attachments/assets/ea45e62a-9ee3-4566-9a7b-d180d8d2cdad" alt="image|300" /></p>
-  </li>
-</ul>
-
-<h2 id="씬-컬러-적용">씬 컬러 적용</h2>
-<ul>
-  <li>스크린 포지션에 노이즈를 입히고 그렇게 만들어진 UV에 화면 색깔을 입히면 물처럼 일그러진 효과를 만들 수 있다.<br />
-<img src="https://github.com/user-attachments/assets/b35009ce-f3ff-42af-93be-6b1ffe284b07" alt="image" /></li>
-</ul>
-
-<p><img src="https://github.com/user-attachments/assets/e3dbb263-152c-4202-bdff-19ba45f7968b" alt="image" /></p>
-
-<h2 id="프레넬-빛-반사효과-추가">프레넬, 빛 반사효과 추가</h2>
-<ul>
-  <li>프레넬을 추가해서 빛 반사 효과를 준다.<br />
-<img src="https://github.com/user-attachments/assets/2ba92d15-5152-47bd-b16d-a76c9f7021f5" alt="image" /></li>
-</ul>
-
-<h2 id="일렁임-효과-추가">일렁임 효과 추가</h2>
-<ul>
-  <li>노이즈 값과 NormalVector를 곱해서 일렁임 효과를 줄 수 있다.<br />
-<img src="https://github.com/user-attachments/assets/7996c9ef-666d-4c8f-a041-df1b440b7cb7" alt="image" /></li>
-</ul>
-
-<h2 id="투과시키는-빛-일렁임">투과시키는 빛 일렁임</h2>
-<ul>
-  <li>투과되는 뒤쪽 배경을 일렁이고 싶다면 Refraction을 수정한다.<br />
-<img src="https://github.com/user-attachments/assets/f33d512f-f98f-4d38-8247-147f1d715c76" alt="image" /></li>
-</ul>
-
-<h2 id="결과물">결과물</h2>
-<p><img src="https://github.com/user-attachments/assets/bb2f1eec-6261-40c6-b6b9-639465e37762" alt="image" /></p>
-
-<p><img src="https://github.com/user-attachments/assets/0134427d-47d6-4b9b-baf9-34ac60a8e218" alt="image" /></p>
-
-<h2><br /></h2>
-<p><br /></p>
-
-<div class="Reference">
-<div class="callout-header"> </div>
-<p>
-<a href="https://lifeisforu.tistory.com/384">https://lifeisforu.tistory.com/384</a>
-<a href="https://www.youtube.com/watch?v=3CcWus6d_B8&amp;t=611s">https://www.youtube.com/watch?v=3CcWus6d_B8&amp;t=611s</a>
-<a href="https://www.youtube.com/watch?v=3CcWus6d_B8&amp;t=611s">https://www.youtube.com/watch?v=3CcWus6d_B8&amp;t=611s</a>
-<a href="https://www.youtube.com/watch?v=z5VzzPkqtnA">https://www.youtube.com/watch?v=z5VzzPkqtnA</a>
-<a href="https://www.youtube.com/watch?v=OFmWEIb_Z70">https://www.youtube.com/watch?v=OFmWEIb_Z70</a>
-</p>
-</div>]]></content><author><name>Mohitto55</name></author><category term="ue5" /><category term="UE5" /><category term="UnrealEngine5" /><category term="Fresnel" /><category term="물 셰이더" /><category term="물리 기반 렌더링" /><category term="쉐이더 그래프" /><category term="반사 효과" /><category term="UnrealEngine" /><category term="Shader" /><category term="물리 엔진" /><summary type="html"><![CDATA[시작하기 언리얼을 이용해서 프로젝트를 시작했는데 컨셉은 청소기를 통해 물체들을 빨아들이는 건데 그 중에서 물같은 유체도 포함된다. 팀원들에게 부탁하기에는 다들 바빠보여서 이번 기회에 공부할겸 한번 직접 제작해 볼까 한다.]]></summary></entry><entry><title type="html">[Obsidian] Vercel을 활용한 Obsidian Digital Garden 블로그 만들기</title><link href="http://localhost:4000/obsidian/Vercel%EC%9D%84-%ED%99%9C%EC%9A%A9%ED%95%9C-Obsidian-Digital-Garden-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0/" rel="alternate" type="text/html" title="[Obsidian] Vercel을 활용한 Obsidian Digital Garden 블로그 만들기" /><published>2024-10-07T00:00:00+09:00</published><updated>2024-10-07T00:00:00+09:00</updated><id>http://localhost:4000/obsidian/Vercel%EC%9D%84%20%ED%99%9C%EC%9A%A9%ED%95%9C%20Obsidian%20Digital%20Garden%20%EB%B8%94%EB%A1%9C%EA%B7%B8%20%EB%A7%8C%EB%93%A4%EA%B8%B0</id><content type="html" xml:base="http://localhost:4000/obsidian/Vercel%EC%9D%84-%ED%99%9C%EC%9A%A9%ED%95%9C-Obsidian-Digital-Garden-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0/"><![CDATA[<h1 id="옵시디언으로-블로그를-만드는-이유">옵시디언으로 블로그를 만드는 이유</h1>
+</div>]]></content><author><name>Mohitto55</name></author><category term="ue5" /><category term="UE" /><category term="UE5" /><category term="UnrealEngine" /><category term="VisualStudio" /><category term="Vs" /><category term="IDE" /><category term="Build" /><category term="빌드" /><category term="MSB3073" /><category term="컴파일" /><summary type="html"><![CDATA[발생과정 프로젝트를 최초 생성하고 컴파일 하려하면 이런 오류가 뜬다 왜 이럴까?]]></summary></entry><entry><title type="html">[Obsidian] Vercel을 활용한 Obsidian Digital Garden 블로그 만들기</title><link href="http://localhost:4000/obsidian/Vercel%EC%9D%84-%ED%99%9C%EC%9A%A9%ED%95%9C-Obsidian-Digital-Garden-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0/" rel="alternate" type="text/html" title="[Obsidian] Vercel을 활용한 Obsidian Digital Garden 블로그 만들기" /><published>2024-10-07T00:00:00+09:00</published><updated>2024-10-07T00:00:00+09:00</updated><id>http://localhost:4000/obsidian/Vercel%EC%9D%84%20%ED%99%9C%EC%9A%A9%ED%95%9C%20Obsidian%20Digital%20Garden%20%EB%B8%94%EB%A1%9C%EA%B7%B8%20%EB%A7%8C%EB%93%A4%EA%B8%B0</id><content type="html" xml:base="http://localhost:4000/obsidian/Vercel%EC%9D%84-%ED%99%9C%EC%9A%A9%ED%95%9C-Obsidian-Digital-Garden-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0/"><![CDATA[<h1 id="옵시디언으로-블로그를-만드는-이유">옵시디언으로 블로그를 만드는 이유</h1>
 <p>지금까지 나는 지식을 정리하고 정리한 내용을 공유하기 위해 여러 종류의 블로그 사이트를 사용해 봤다. 맨처음에는 <strong>네이버</strong> 블로그였는데 한국인의 입장에선 확실히 네이버가 접근성이 좋긴하지만 한국인을 제외한 외국인들은 구글 검색에 뜨기가 쉽지않고 디자인이 마음에 들지않아 금방 포기했다.</p>
 
 <p>그 다음은 <strong>티스토리</strong> 블로그였다. 개발관련 자료를 검색하면 많은 자료가 티스토리 혹은 Velog에 올라와 있었다. 나는 직접 커스텀하는 것을 좋아해서 Velog보다는 티스토리가 더 좋다 생각해서 티스토리에서 글을 작성했었다.</p>
@@ -852,179 +1105,4 @@ GItBlog는 처음부터 끝까지 기능을 다 커스텀가능하고 테마도 
 <a href="https://deepfield.blog/">https://deepfield.blog/kr/%EC%A7%80%EC%8B%9D%EB%82%98%EB%88%94/%EC%98%B5%EC%8B%9C%EB%94%94%EC%96%B8%EC%9C%BC%EB%A1%9C%20%EB%B8%94%EB%A1%9C%EA%B7%B8%20%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0/</a>
 <a href="https://dg-docs.ole.dev/getting-started/01-getting-started/">https://dg-docs.ole.dev/getting-started/01-getting-started/</a>
 </p>
-</div>]]></content><author><name>Mohitto55</name></author><category term="obsidian" /><category term="Obsidian" /><category term="옵시디언" /><category term="Vercel" /><category term="DigitalGarden" /><category term="지식정원" /><category term="블로그" /><category term="blog" /><category term="플러그인" /><summary type="html"><![CDATA[옵시디언으로 블로그를 만드는 이유 지금까지 나는 지식을 정리하고 정리한 내용을 공유하기 위해 여러 종류의 블로그 사이트를 사용해 봤다. 맨처음에는 네이버 블로그였는데 한국인의 입장에선 확실히 네이버가 접근성이 좋긴하지만 한국인을 제외한 외국인들은 구글 검색에 뜨기가 쉽지않고 디자인이 마음에 들지않아 금방 포기했다. 그 다음은 티스토리 블로그였다. 개발관련 자료를 검색하면 많은 자료가 티스토리 혹은 Velog에 올라와 있었다. 나는 직접 커스텀하는 것을 좋아해서 Velog보다는 티스토리가 더 좋다 생각해서 티스토리에서 글을 작성했었다.]]></summary></entry><entry><title type="html">[CS] 페이징과 스와핑을 활용한 가상 메모리 관리 기법 이해하기</title><link href="http://localhost:4000/computerscience/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0-%EA%B0%80%EC%83%81%EB%A9%94%EB%AA%A8%EB%A6%AC/" rel="alternate" type="text/html" title="[CS] 페이징과 스와핑을 활용한 가상 메모리 관리 기법 이해하기" /><published>2024-08-27T00:00:00+09:00</published><updated>2024-08-27T00:00:00+09:00</updated><id>http://localhost:4000/computerscience/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0%20%EA%B0%80%EC%83%81%EB%A9%94%EB%AA%A8%EB%A6%AC</id><content type="html" xml:base="http://localhost:4000/computerscience/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0-%EA%B0%80%EC%83%81%EB%A9%94%EB%AA%A8%EB%A6%AC/"><![CDATA[<p>컴퓨터 시스템에서 프로세스는 작업을 처리하기 위해 반드시 데이터를 메모리에 저장해야 한다. 하지만 물리적인 메모리 용량은 제한적이기 때문에, 모든 프로세스가 동시에 메모리에 상주할 수는 없다.</p>
-
-<p>이를 해결하고자 운영체제는 다양한 메모리 관리 기법을 통해 메모리 자원을 효율적으로 배분하고 활용한다. 이러한 기법들은 프로세스의 메모리 사용량을 최적화하고, 실행 속도를 보장하며, 시스템의 안정성을 유지하는 데 중요한 역할을 한다.</p>
-
-<p>오늘은 그중에서도 연속적 메모리 할당, 스와핑, 페이징 등 현대 운영체제에서 흔히 사용되는 메모리 관리 기법들을 자세히 살펴보며, 각각의 장단점과 적용 사례에 대해 알아보자.</p>
-
-<p>이 과정을 통해 컴퓨터 시스템이 어떻게 메모리 자원을 관리하고, 이를 통해 성능을 극대화하는지 이해할 수 있을 것이다.</p>
-
-<h2 id="연속적-메모리할당">연속적 메모리할당</h2>
-<p><img src="https://github.com/user-attachments/assets/ef40bf7b-1bf2-469d-827d-c2d2e858536f" alt="image" /></p>
-<ul>
-  <li>프로세스 영역에 연속적으로 프로세스를 할당해 놓은 것을 의미한다.</li>
-  <li>메모리를 차곡차곡 쌓아놓은 형태</li>
-  <li>이러한 방식은 비효율적이며 후에 <strong>페이징</strong>이라는 방식으로 프로세스를 관리하는 것이 좋다.</li>
-</ul>
-
-<h2 id="스와핑">스와핑</h2>
-<p><img src="https://github.com/user-attachments/assets/0a438116-b3bf-4a71-a986-60fdcde2f2d5" alt="image" /></p>
-<ul>
-  <li>현재 사용하지 않는(휴면상태)인 프로세스를 <strong>보조기억장치</strong>에넘겨서 효율적으로 메모리를 관리하는 기법
-    <ul>
-      <li><strong>스왑아웃</strong> : 무직백수 프로세스를 부조기억장치로 내쫓는 작업</li>
-      <li><strong>스왑 인</strong> : 할일이 생긴 프로세스를 다시 메모리에 들여보내는 작업</li>
-      <li><strong>스왑 영역</strong> : 무직백수 프로세스들이 모여지낼 <em>보조기억 장치의 일부 공간</em></li>
-    </ul>
-  </li>
-</ul>
-
-<h3 id="스와핑의-장점">스와핑의 장점</h3>
-<p><img src="https://github.com/user-attachments/assets/b7043fb1-1309-4c59-a613-0cfea6ef443a" alt="image" /></p>
-<ul>
-  <li>내가 로아, 마크, 림월드 같은 큰 메모리를 필요로 하는 프로세스를 동시에 띄어 놓아야 하는 상황이있다.</li>
-  <li>하지만 프로그램들의 메모리 용량은 물리 메모리의 허용된 용량보다 큰데 그럴때 빛을 발한다.</li>
-  <li>실제로 사용하지 않는 프로세스는 보조기억장치에 넘기고 해당 자리에 다른 프로세스를 넣어서 모든 프로세스가 돌갈 수 있게 해준다.</li>
-</ul>
-
-<h3 id="명령어">명령어</h3>
-<p><img src="https://github.com/user-attachments/assets/89fbc725-6d8e-4c50-8cc8-20800808f45c" alt="image" /></p>
-
-<h2 id="연속-메모리-할당-방법">연속 메모리 할당 방법</h2>
-<h3 id="최초-적합first-fit">최초 적합(first-fit)</h3>
-<p><img src="https://github.com/user-attachments/assets/4bc86db6-3665-45ac-ac7e-b55213863e63" alt="Pasted image 20240731230854" /></p>
-
-<ul>
-  <li>프로세스를 적재할 공간을 발견하자마자 해당 공간에 적재하는 방식</li>
-  <li>Greedy Algorithm같은 방식이다.</li>
-  <li>빠르게 할당 가능하다.
-    <h3 id="최적-적합best-fit">최적 적합(best-fit)</h3>
-    <p><img src="https://github.com/user-attachments/assets/ccc12a6c-c5e0-42da-b37f-bb4cc29bef1d" alt="image" /></p>
-  </li>
-  <li>빈공간들 중 프로세스가 들어설 수 있는 가장 작은 공간에 할당하는 방</li>
-</ul>
-
-<h3 id="최악-적합worst-fit">최악 적합(worst-fit)</h3>
-<p><img src="https://github.com/user-attachments/assets/0368ebfb-959d-454d-a24a-13b210ddac77" alt="image" /></p>
-<ul>
-  <li>가장 큰 공간에 할당하는 방법</li>
-  <li><strong>외부 단편화</strong>문제 때문에 효율 낭비가 심한 방법이다.</li>
-</ul>
-
-<h2 id="외부-단편화">외부 단편화</h2>
-<p><img src="https://github.com/user-attachments/assets/aad9f5ca-8b71-4f2d-b449-e6795dde2b0d" alt="image" /></p>
-<ul>
-  <li>외부 단편화란 메모리 중간중간 작은 빈 공간이 생겨나는 것을 뜻한다.</li>
-  <li>이 현상의 단점은 CS MemoryStream과 같이 큰 용량의 프로세스는 여러개의 작은 공간에 할당 할 수 없는 문제가 생긴다.</li>
-</ul>
-
-<h3 id="해결법1--컴팩션">해결법1 : 컴팩션</h3>
-<ul>
-  <li>Garbage Collector의 메모리 컴팩션과 같은 원리다.</li>
-  <li>띄엄띄엄 놓여진 프로세스 메모리들을 압축해서 하나로 연결한다.</li>
-</ul>
-
-<h4 id="단점">단점</h4>
-<ul>
-  <li>오버헤드가 심하다.</li>
-  <li>컴팩션중 프로세스 이용이 불가하다.</li>
-</ul>
-
-<h3 id="해결법2-페이징">해결법2: 페이징</h3>
-<ul>
-  <li>가상 메모리 기법으로 현대 운영체제 대부분이 사용하는 메모리 관리 기법이다.</li>
-</ul>
-
-<h1 id="14-2-페이징을-이용한-가상-메모리-관리">14-2 페이징을 이용한 가상 메모리 관리</h1>
-<h2 id="페이징paging이란">페이징(paging)이란</h2>
-<p><img src="https://github.com/user-attachments/assets/ca7ce90a-0410-4a70-bbb5-3db0c87f9226" alt="image" /></p>
-<ul>
-  <li>페이징이란 하나의 프로세스를 잘게 나눠서 <strong>외부 단편화</strong>된 메모리 공간에 프로세스를 할당함으로써 비연속적인 메모리 공간을 효율적으로 사용할 수 있게 해주는 메모리 관리 기법이다.</li>
-</ul>
-
-<p><img src="https://github.com/user-attachments/assets/144c01fb-45a4-4f8d-bc29-944baf5fde83" alt="image" /></p>
-
-<p><img src="https://github.com/user-attachments/assets/251c4b27-6f4b-4c96-b97b-a90f61b39278" alt="image" /></p>
-
-<ul>
-  <li>좀 더 문서체로 말하자면 다음과 같다.
-    <ul>
-      <li>프로세스의 논리 주소 공간을 <strong>페이지(page)</strong> 단위로 자른다.
-        <ul>
-          <li>페이지 단위는 일정하나 일부 운영 체제에서는 Huge page라고 큰 용량의 페이지를 할당하는 경우도 있다.</li>
-        </ul>
-      </li>
-      <li>메모리의 물리 주소 공간을 프레임(frame)라는 단위로 페이지와 같은 크기로 자른다.</li>
-      <li>그리고 페이지를 프레임에 끼워 맞추는 방법이다.</li>
-    </ul>
-  </li>
-</ul>
-
-<h3 id="페이지-스와핑">페이지 스와핑</h3>
-<p><img src="https://github.com/user-attachments/assets/5711310e-e824-4950-925b-1f16917d9208" alt="image" /></p>
-<ul>
-  <li>페이지를 스와핑 한다고? 그럼 프로그램이 제대로 돌아가지 않는거 아닌가?
-    <ul>
-      <li>그렇지 않다. 사실 프로세스가 실행되는 데는 모든 페이지가 필요한 것이아니다.</li>
-      <li>일부 페이지를 보조기억 장치로 <strong>아웃</strong>시킴으로 써 논리 메모리 용량이 물리 메모리 용량 보다 더 크게 프로세스를 할당 할 수 있다.</li>
-    </ul>
-  </li>
-</ul>
-
-<h2 id="페이지-테이블">페이지 테이블</h2>
-<ul>
-  <li>페이지 방식의 메모리 관리 기법은 불연속적으로 메모리가 존재한다.</li>
-  <li>그럼 CPU에서는 해당 메모리 주소들을 어떻게 관리할까?</li>
-  <li>분명 주소가 있어야 하는데 어디에 주소를 넣어놓는거지??</li>
-</ul>
-
-<p><img src="https://github.com/user-attachments/assets/be314d5e-68d8-4366-b33c-5c54cbc4da3a" alt="image" /></p>
-<ul>
-  <li>그것이 바로 페이지 테이블(Page table)
-    <ul>
-      <li>페이지와 프레임 주소를 연결 시켜준다.</li>
-    </ul>
-  </li>
-</ul>
-
-<h3 id="내부-단편화">내부 단편화</h3>
-<p><img src="https://github.com/user-attachments/assets/57449fba-db83-41e3-ad2f-ae6651e29ad7" alt="image" /></p>
-
-<ul>
-  <li>그런데 이런 페이지도 단점이 있다!</li>
-  <li>바로 프로세스를 페이지로 자를 경우 마지막 페이지 부분이 프로세스 크기와 딱 맞아 떨어지지 않아서 빈 공간이 생기는 현상이다.</li>
-  <li>외부 단편화가 물리 메모리주소에 단편화 현상이 발생한 거라면 내부 단편화는 프로세스 자체에 단편화 현상이 발생한 것이다.</li>
-</ul>
-
-<p><img src="https://github.com/user-attachments/assets/e67405c2-af02-4f2f-8e38-96a29cca8f88" alt="image" /></p>
-<ul>
-  <li>페이지 크기 명령</li>
-</ul>
-
-<h2 id="process-table-base-registerptbr">Process Table Base Register(PTBR)</h2>
-<p><img src="https://github.com/user-attachments/assets/01c3a0fd-d783-4566-a6d7-5d91e3629aae" alt="image" /></p>
-
-<ul>
-  <li>페이지 테이블의 위치를 가리키는 주소
-    <ul>
-      <li>이것은 메모리가 아니라 [[CPU]]에 저장되어있다.</li>
-    </ul>
-  </li>
-</ul>
-
-<h3 id="뭔가-비효율-적인데">뭔가…? 비효율 적인데</h3>
-<ul>
-  <li>원하는 페이지에 접근하려면 페이지 테이블 &gt; 페이지 이렇게 두번 접근해야 한다.</li>
-  <li>이는 굉장히 비효율적이다.</li>
-</ul>
-
-<h2><br /></h2>
-<p><br /></p>
-
-<div class="Reference">
-<div class="callout-header"> </div>
-<p>
-혼자 공부하는 컴퓨터구조+운영체제
-</p>
-</div>]]></content><author><name>Mohitto55</name></author><category term="computerscience" /><category term="가상 메모리" /><category term="Virtual Memory" /><category term="페이징" /><category term="Paging" /><category term="스와핑" /><category term="Swapping" /><category term="메모리 관리 기법" /><category term="Memory Management" /><category term="컴퓨터 구조" /><category term="Computer Architecture" /><category term="운영체제" /><category term="Operating System" /><category term="메모리 단편화" /><category term="Memory Fragmentation" /><category term="프로세스 메모리 할당" /><category term="Process Memory Allocation" /><summary type="html"><![CDATA[컴퓨터 시스템에서 프로세스는 작업을 처리하기 위해 반드시 데이터를 메모리에 저장해야 한다. 하지만 물리적인 메모리 용량은 제한적이기 때문에, 모든 프로세스가 동시에 메모리에 상주할 수는 없다.]]></summary></entry></feed>
+</div>]]></content><author><name>Mohitto55</name></author><category term="obsidian" /><category term="Obsidian" /><category term="옵시디언" /><category term="Vercel" /><category term="DigitalGarden" /><category term="지식정원" /><category term="블로그" /><category term="blog" /><category term="플러그인" /><summary type="html"><![CDATA[옵시디언으로 블로그를 만드는 이유 지금까지 나는 지식을 정리하고 정리한 내용을 공유하기 위해 여러 종류의 블로그 사이트를 사용해 봤다. 맨처음에는 네이버 블로그였는데 한국인의 입장에선 확실히 네이버가 접근성이 좋긴하지만 한국인을 제외한 외국인들은 구글 검색에 뜨기가 쉽지않고 디자인이 마음에 들지않아 금방 포기했다. 그 다음은 티스토리 블로그였다. 개발관련 자료를 검색하면 많은 자료가 티스토리 혹은 Velog에 올라와 있었다. 나는 직접 커스텀하는 것을 좋아해서 Velog보다는 티스토리가 더 좋다 생각해서 티스토리에서 글을 작성했었다.]]></summary></entry></feed>

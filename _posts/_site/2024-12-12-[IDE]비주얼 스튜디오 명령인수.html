@@ -1,0 +1,81 @@
+<h1 id="main-함수의-매개변수">📄main 함수의 매개변수</h1>
+<ul>
+  <li>간혹 int main에 인자값이 <code class="language-plaintext highlighter-rouge">int argc, char** argv</code> 같은게 있는데 이것이 명령인수를 통해 넘겨주는 인자값들 이다.
+    <ul>
+      <li><strong>argc</strong> : 명령줄 인수의 개수</li>
+      <li><strong>argv</strong> : 명령줄 인수의 문자열 배열
+        <ul>
+          <li>첫번째 값은 실행경로가 들어간다.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>그러나 main 함수는 최초 시작 진입점인데 정보를 어떻게 넘겨주는 것일까?</li>
+  <li>그것에 대해서 알아보도록 하겠다.</li>
+</ul>
+
+<h1 id="명령인수command-line-argument-전달하기">📄명령인수(command line argument) 전달하기</h1>
+<h2 id="visual-studio">🔍Visual Studio</h2>
+<ul>
+  <li><strong>명령인수(Command-line arguments)</strong> 란 외부에서 전달하는 입력 값들을 뜻한다.</li>
+  <li>이 값들이 main 함수에 매개변수로 들어오는 값들이다.</li>
+  <li>이렇게 명령 인수를 전달하는 방법 중 하나는 Visual Studio로 전달하는 방법이 있다.</li>
+</ul>
+
+<hr />
+
+<h3 id="명령인수-설정법">🔍명령인수 설정법</h3>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">프로젝스 속성 페이지 &gt; 구성 속성 &gt; 디버깅</code> 으로 이동한다.</li>
+  <li>명령인수를 넣어준다.
+<img src="https://github.com/user-attachments/assets/2309c627-dda4-4988-a879-08c907627a74" alt="image" /><em>프로젝스 속성 페이지 &gt; 구성 속성 &gt; 디버깅</em></li>
+</ul>
+
+<hr />
+
+<ul>
+  <li>아래처럼 명령인수를 출력을 할 수 있다.</li>
+</ul>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">**</span> <span class="n">argv</span><span class="p">)</span>
+<span class="p">{</span>
+	<span class="c1">// 명령인수의 개수</span>
+	<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"argc : "</span> <span class="o">&lt;&lt;</span> <span class="n">argc</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+
+	<span class="c1">// 명령인수의 문자열 출력</span>
+	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">argc</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+		<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">argv</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<hr />
+
+<ul>
+  <li>출력값을 보면 5종류의 명령인수를 적었지만 6개가 출력되는 것을 볼 수 있다.</li>
+  <li>왜냐하면 명령인자의 첫번째 값은 <strong>실행 경로</strong>가 들어가기 때문이다.
+<img src="https://github.com/user-attachments/assets/1c9e226e-c6a0-429f-a76d-7e2f7ce15e86" alt="image" /><em>명령인수 출력 결과</em></li>
+</ul>
+
+<h2 id="exe-파일로-넘겨주기">🔍exe 파일로 넘겨주기</h2>
+<ul>
+  <li>비주얼 스튜디오 명령인수 뿐만 아니라 다른 방식으로도 main에 인자를 넘길 수 있다.</li>
+  <li>그것은 .exe 파일을 실행할때 명령인수를 넘겨주며 실행하는 방법이다.</li>
+  <li><strong>cmd</strong>에서 exe 파일을 실행하고자 할때 뒤에 명령인수로 넘겨줄 인자값들을 적어준다.</li>
+</ul>
+
+<p><img src="https://github.com/user-attachments/assets/64fb48a4-807e-4b25-be53-6d1eb9990559" alt="image" /><em>exe 출력 결과</em></p>
+
+<h2><br /></h2>
+<p><br /></p>
+
+<div class="Reference">
+<div class="callout-header"> </div>
+<p>
+<a href="https://blog.naver.com/sharonichoya/220501242693">https://blog.naver.com/sharonichoya/220501242693</a>
+</p>
+</div>

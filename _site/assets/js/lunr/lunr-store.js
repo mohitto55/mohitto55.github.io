@@ -395,6 +395,12 @@ var store = [{
         "url": "/obsidian/Obsidian-%EC%95%84%EB%88%84%ED%91%B8%EC%B9%9C%ED%85%8C%EB%A7%88-%EC%A0%9C%EA%B1%B0/",
         "teaser": null
       },{
+        "title": "[Algorithm] 절차적 맵생성 관련 알고리즘 정리",
+        "excerpt":"맵 구조 생성 알고리즘 1. BSP 알고리즘 개념 공간을 재귀적으로 분할하여 트리 구조로 표현한다. 맵 전체를 큰 사각형으로 시작하여 이를 점점 더 작은 사각형으로 나눕니다. 각 사각형에 방을 배치하고, 이후 이웃하는 방들을 연결하는 통로를 생성합니다. 장단점 장점 만들기 쉽다. 단점 직사각형의 단조로운 구조를 가진다. 예시 : https://www.youtube.com/watch?v=FO12bZD3a5M 2. 셀룰러 오토마타(세포...","categories": ["algorithm"],
+        "tags": ["algorithm","알고리즘","절차적 맵 생성","푸아송 디스크","BSP","셀룰러 오토마타","펄린 노이즈"],
+        "url": "/algorithm/Algorithm-%EB%9E%9C%EB%8D%A4-%EB%A7%B5%EC%83%9D%EC%84%B1-%EA%B4%80%EB%A0%A8-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%AA%A8%EC%9D%8C/",
+        "teaser": null
+      },{
         "title": "[Visual Studio] 명령인수 개념과 exe파일에서 넘겨주는 법",
         "excerpt":"📄main 함수의 매개변수 간혹 int main에 인자값이 int argc, char** argv 같은게 있는데 이것이 명령인수를 통해 넘겨주는 인자값들 이다. argc : 명령줄 인수의 개수 argv : 명령줄 인수의 문자열 배열 첫번째 값은 실행경로가 들어간다. 그러나 main 함수는 최초 시작 진입점인데 정보를 어떻게 넘겨주는 것일까? 그것에 대해서 알아보도록 하겠다. 📄명령인수(command line...","categories": ["ide"],
         "tags": ["Visual Studio","VS","명령인수","exe","Build","command line argument"],
@@ -411,5 +417,11 @@ var store = [{
         "excerpt":"📄옵시디언으로 블로그를 만드는 이유 지금까지 나는 지식을 정리하고 정리한 내용을 공유하기 위해 여러 종류의 블로그 사이트를 사용해 봤다. 맨처음에는 네이버 블로그였는데 한국인의 입장에선 확실히 네이버가 접근성이 좋긴하지만 한국인을 제외한 외국인들은 구글 검색에 뜨기가 쉽지않고 디자인이 마음에 들지않아 금방 포기했다. 그 다음은 티스토리 블로그였다. 개발관련 자료를 검색하면 많은 자료가 티스토리 혹은...","categories": ["obsidian"],
         "tags": ["Obsidian","Vercel","Digital Garden","Productivity","Blog","Naver","네이버","TiStory","티스토리","Git","깃","생산성","블로그"],
         "url": "/obsidian/Obsidian-Vercel%EC%9D%84-%ED%99%9C%EC%9A%A9%ED%95%9C-Digital-Garden-%EB%A7%8C%EB%93%A4%EA%B8%B0/",
+        "teaser": null
+      },{
+        "title": "[Math] 세점을 지나는 원의중심(외심) 구하는 법",
+        "excerpt":"📄외적을 이용한 선분과 선분의 교차점 구하기 세 개의 점을 지나는 원은 단 하나만 존재하며, 이를 외접원이라고 합니다.. 이 외접원의 중심을 외심이라고 하며, 외심을 구하는 방법을 알아봅시다. ✏️외심의 특징 외심의 특징은 다음과 같습니다. 삼각형의 세 변의 수직 이등분선은 외심에서 만난다. 삼각형의 외심에서 세 꼭짓점에 이르는 거리는 같다. 이 성질을 이용하면, 두...","categories": ["math"],
+        "tags": ["math","geometry","circumcenter","circumcircle","triangle","intersection","line","perpendicular_bisector","point","distance","coordinate_geometry","midpoint","equation","vector","수학","기하학","외심","외접원","삼각형","교차점","선","수직이등분선","점","길이","좌표기하","중점","방정식","벡터"],
+        "url": "/math/Math-%EC%84%B8%EC%A0%90%EC%9D%84-%EC%A7%80%EB%82%98%EB%8A%94-%EC%9B%90%EC%9D%98-%EC%A4%91%EC%8B%AC-%EA%B5%AC%ED%95%98%EA%B8%B0/",
         "teaser": null
       }]
