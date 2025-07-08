@@ -424,4 +424,22 @@ var store = [{
         "tags": ["math","geometry","circumcenter","circumcircle","triangle","intersection","line","perpendicular_bisector","point","distance","coordinate_geometry","midpoint","equation","vector","수학","기하학","외심","외접원","삼각형","교차점","선","수직이등분선","점","길이","좌표기하","중점","방정식","벡터"],
         "url": "/math/Math-%EC%84%B8%EC%A0%90%EC%9D%84-%EC%A7%80%EB%82%98%EB%8A%94-%EC%9B%90%EC%9D%98-%EC%A4%91%EC%8B%AC-%EA%B5%AC%ED%95%98%EA%B8%B0/",
         "teaser": null
+      },{
+        "title": "[UE5] Async Loading Widget 만드는 과정",
+        "excerpt":"게임에서 로딩화면이란 정말 중요하다. 화면전환시 플레이어가 어색함없이 언리얼엔진에서 레벨을 이동할땐 OpenLevel 함수를 사용한다. 사용하면 다른 레벨로 이동하지만 이동하는 과정에서 끊김 현상이 발생한다. 이런 끊김 현상이 느껴지지 않도록 만들어야한다. static ENGINE_API void OpenLevelBySoftObjectPtr(const UObject* WorldContextObject, const TSoftObjectPtr&lt;UWorld&gt; Level, bool bAbsolute = true, FString Options = FString(TEXT(\"\"))); 목표 1.페이드 인, 아웃으로 부드러운...","categories": ["ue5"],
+        "tags": ["UE5","UnrealEngine","Loading","UserWidget","Widget"],
+        "url": "/ue5/UE5-Loading-Widget-%EB%A7%8C%EB%93%9C%EB%8A%94-%EB%B0%A9%EB%B2%95-%EB%B3%B5%EC%82%AC%EB%B3%B8/",
+        "teaser": null
+      },{
+        "title": "[UE5] Async Loading Widget 만드는 과정",
+        "excerpt":"게임에서 로딩화면이란 정말 중요하다. 화면전환시 플레이어가 어색함없이 언리얼엔진에서 레벨을 이동할땐 OpenLevel 함수를 사용한다. 사용하면 다른 레벨로 이동하지만 이동하는 과정에서 끊김 현상이 발생한다. 이런 끊김 현상이 느껴지지 않도록 만들어야한다. static ENGINE_API void OpenLevelBySoftObjectPtr(const UObject* WorldContextObject, const TSoftObjectPtr&lt;UWorld&gt; Level, bool bAbsolute = true, FString Options = FString(TEXT(\"\"))); 목표 1.페이드 인, 아웃으로 부드러운...","categories": ["ue5"],
+        "tags": ["UE5","UnrealEngine","Loading","UserWidget","Widget"],
+        "url": "/ue5/UE5-Loading-Widget-%EB%A7%8C%EB%93%9C%EB%8A%94-%EB%B0%A9%EB%B2%95/",
+        "teaser": null
+      },{
+        "title": "[Network] REST와 REST API",
+        "excerpt":"REST Representational State Transfer의 약자로 소프트웨어 프로그램 아키텍처 중 하나입니다. 자원을 이름으로 구분하여 자원의 상태를 주고 받는 방식을 말합니다. REST의 구성 3가지 자원(Resource): 웹에서 다루는 대상 데이터 (예: 사용자, 게시글, 상품 등)을 HTTP URI를 통해 를 명시합니다. ex) https://api.example.com/users/123 HTTP Method: POST, GET, PUT, DELETE, PATCH등 해당 자원에 대한 CRUD...","categories": ["network"],
+        "tags": ["Network","TCPIP","REST","REST API","API"],
+        "url": "/network/NETWORK-REST%EC%99%80-REST-API/",
+        "teaser": null
       }]

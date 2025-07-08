@@ -1,4 +1,609 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-02-16T04:37:07+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mohitto55 Note</title><subtitle>모히또의 노트</subtitle><author><name>Mohitto55</name></author><entry><title type="html">[Math] 세점을 지나는 원의중심(외심) 구하는 법</title><link href="http://localhost:4000/math/Math-%EC%84%B8%EC%A0%90%EC%9D%84-%EC%A7%80%EB%82%98%EB%8A%94-%EC%9B%90%EC%9D%98-%EC%A4%91%EC%8B%AC-%EA%B5%AC%ED%95%98%EA%B8%B0/" rel="alternate" type="text/html" title="[Math] 세점을 지나는 원의중심(외심) 구하는 법" /><published>2025-02-16T00:00:00+09:00</published><updated>2025-02-16T00:00:00+09:00</updated><id>http://localhost:4000/math/%5BMath%5D%EC%84%B8%EC%A0%90%EC%9D%84%20%EC%A7%80%EB%82%98%EB%8A%94%20%EC%9B%90%EC%9D%98%20%EC%A4%91%EC%8B%AC%20%EA%B5%AC%ED%95%98%EA%B8%B0</id><content type="html" xml:base="http://localhost:4000/math/Math-%EC%84%B8%EC%A0%90%EC%9D%84-%EC%A7%80%EB%82%98%EB%8A%94-%EC%9B%90%EC%9D%98-%EC%A4%91%EC%8B%AC-%EA%B5%AC%ED%95%98%EA%B8%B0/"><![CDATA[<h1 id="외적을-이용한-선분과-선분의-교차점-구하기">📄외적을 이용한 선분과 선분의 교차점 구하기</h1>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-07-08T23:30:11+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mohitto55 Note</title><subtitle>모히또의 노트</subtitle><author><name>Mohitto55</name></author><entry><title type="html">[Network] REST와 REST API</title><link href="http://localhost:4000/network/NETWORK-REST%EC%99%80-REST-API/" rel="alternate" type="text/html" title="[Network] REST와 REST API" /><published>2025-07-08T00:00:00+09:00</published><updated>2025-07-08T00:00:00+09:00</updated><id>http://localhost:4000/network/%5BNETWORK%5DREST%EC%99%80%20REST%20API</id><content type="html" xml:base="http://localhost:4000/network/NETWORK-REST%EC%99%80-REST-API/"><![CDATA[<h1 id="rest">REST</h1>
+
+<ul>
+  <li>Representational State Transfer의 약자로 소프트웨어 프로그램 아키텍처 중 하나입니다.</li>
+  <li>자원을 이름으로 구분하여 자원의 상태를 주고 받는 방식을 말합니다.</li>
+</ul>
+
+<h2 id="rest의-구성-3가지">REST의 구성 3가지</h2>
+
+<ul>
+  <li><strong>자원(Resource)</strong>: 웹에서 다루는 대상 데이터 (예: 사용자, 게시글, 상품 등)을 HTTP URI를 통해 를 명시합니다.
+    <ul>
+      <li>ex) <a href="https://api.example.com/users/123">https://api.example.com/users/123</a></li>
+    </ul>
+  </li>
+  <li><strong>HTTP Method:</strong> POST, GET, PUT, DELETE, PATCH등 해당 자원에 대한 CRUD Operation을 적용하는 것을 의미합니다.</li>
+  <li><strong>메세지</strong>: 클라이언트가 서버에 요청하거나, 서버가 클라이언트에 응답할 때 주고받는 <strong>데이터(payload)</strong> 를 의미합니다.
+    <ul>
+      <li>보통 JSON이나 XML 형태로 보내는 내용입니다.</li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<h3 id="crud-operation이란">CRUD Operation이란</h3>
+
+<p>CRUD는 대부분의 컴퓨터 소프트웨어가 가지는 기본적인 데이터 처리 기능인 Create(생성), Read(읽기), Update(갱신), Delete(삭제)를 묶어서 일컫는 말로 REST에서의 CRUD Operation 동작 예시는 다음과 같다.</p>
+
+<blockquote>
+  <p>Create : 데이터 생성(POST)<br />
+Read : 데이터 조회(GET)<br />
+Update : 데이터 수정(PUT, PATCH)<br />
+Delete : 데이터 삭제(DELETE)</p>
+</blockquote>
+
+<h2 id="rest-특징">REST 특징</h2>
+
+<ul>
+  <li><strong>Stateless</strong>
+    <ul>
+      <li>각 요청은 독립적이고, 서버는 이전 요청 상태를 기억하지 않습니다. (이전 상태를 저장하지 않습니다.)</li>
+    </ul>
+  </li>
+  <li><strong>일관된 인터페이스</strong>
+    <ul>
+      <li>URL을 활용해 자원을 명시합니다.</li>
+      <li>CRUD로 행위를 표현합니다.</li>
+    </ul>
+  </li>
+  <li><strong>계층화된 시스템 (Layered System)</strong>
+    <ul>
+      <li>클라이언트는 중간 서버(예: 프록시, 로드 밸런서)를 인식하지 못합니다.</li>
+      <li>구조를 여러 계층으로 나눠 확장성과 보안 향상합니다.</li>
+    </ul>
+  </li>
+  <li><strong>온디멘드 코드</strong>
+    <ul>
+      <li>서버가 클라이언트에게 실행 가능한 코드를 전달 가능합니다.</li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="rest-api">REST API</h1>
+
+<p>REST 아키텍처를 따르는 API입니다. 즉, 웹 주소(URL)로 특정 데이터를 가리키고, HTTP 메서드(GET, POST 등)를 써서 그 데이터에 대해 필요한 작업을 요청하는 방식입니다.</p>
+
+<hr />
+
+<h3 id="rest-api-장점">REST API 장점</h3>
+<ul>
+  <li>직관적이라 누구나 쉽게 이해하고 사용할 수 있습니다. URL만 보면 어디에 무슨 데이터가 있는지 알 수 있고, HTTP 메서드도 조회는 GET, 생성은 POST로 명확히 정해져 있습니다.</li>
+  <li>클라이언트와 서버 역할이 분리되어 따로 개발하거나 수정해도 문제가 생기지 않습니다.</li>
+  <li>큰 서비스에도 확장성이 좋고 유지보수가 편합니다.</li>
+  <li>표준화되어 있어서 모바일, 웹, 다른 서버와도 쉽게 연결할 수 있습니다.</li>
+</ul>
+
+<h2><br /></h2>
+<p><br /></p>
+
+<div class="Reference">
+<div class="callout-header"> </div>
+<p>
+<a href="https://kks2140501.tistory.com/48">https://kks2140501.tistory.com/48</a>
+<a href="https://aws.amazon.com/ko/what-is/restful-api/">https://aws.amazon.com/ko/what-is/restful-api/</a>
+<a href="https://creamilk88.tistory.com/184">https://creamilk88.tistory.com/184</a>
+</p>
+</div>]]></content><author><name>Mohitto55</name></author><category term="network" /><category term="Network" /><category term="TCPIP" /><category term="REST" /><category term="REST API" /><category term="API" /><summary type="html"><![CDATA[REST]]></summary></entry><entry><title type="html">[UE5] Async Loading Widget 만드는 과정</title><link href="http://localhost:4000/ue5/UE5-Loading-Widget-%EB%A7%8C%EB%93%9C%EB%8A%94-%EB%B0%A9%EB%B2%95-%EB%B3%B5%EC%82%AC%EB%B3%B8/" rel="alternate" type="text/html" title="[UE5] Async Loading Widget 만드는 과정" /><published>2025-05-23T00:00:00+09:00</published><updated>2025-05-23T00:00:00+09:00</updated><id>http://localhost:4000/ue5/%5BUE5%5D%20Loading%20Widget%20%EB%A7%8C%EB%93%9C%EB%8A%94%20%EB%B0%A9%EB%B2%95%20-%20%EB%B3%B5%EC%82%AC%EB%B3%B8</id><content type="html" xml:base="http://localhost:4000/ue5/UE5-Loading-Widget-%EB%A7%8C%EB%93%9C%EB%8A%94-%EB%B0%A9%EB%B2%95-%EB%B3%B5%EC%82%AC%EB%B3%B8/"><![CDATA[<p>게임에서 로딩화면이란 정말 중요하다. 화면전환시 플레이어가 어색함없이<br />
+언리얼엔진에서 레벨을 이동할땐 OpenLevel 함수를 사용한다. 사용하면 다른 레벨로 이동하지만 이동하는 과정에서 끊김 현상이 발생한다. 이런 끊김 현상이 느껴지지 않도록 만들어야한다.</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="k">static</span> <span class="n">ENGINE_API</span> <span class="kt">void</span> <span class="nf">OpenLevelBySoftObjectPtr</span><span class="p">(</span><span class="k">const</span> <span class="n">UObject</span><span class="o">*</span> <span class="n">WorldContextObject</span><span class="p">,</span> <span class="k">const</span> <span class="n">TSoftObjectPtr</span><span class="o">&lt;</span><span class="n">UWorld</span><span class="o">&gt;</span> <span class="n">Level</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">bAbsolute</span> <span class="o">=</span> <span class="nb">true</span><span class="p">,</span> <span class="n">FString</span> <span class="n">Options</span> <span class="o">=</span> <span class="n">FString</span><span class="p">(</span><span class="n">TEXT</span><span class="p">(</span><span class="s">""</span><span class="p">)));</span>
+</code></pre></div></div>
+
+<h2 id="목표">목표</h2>
+<p>1.페이드 인, 아웃으로 부드러운 로딩 화면 재생<br />
+2.비동기적으로 레벨의 완전한 로딩 타이밍 확인<br />
+3.완전히 다른 레벨 이동시 로딩화면 유지</p>
+
+<hr />
+
+<p>검색을 통해 알아보니 로딩화면을 만드는데는 크게 두가지 방식이 있었다.</p>
+<ol>
+  <li>로딩 위젯 생성 후 OpenLevel 시작</li>
+  <li>LoadStreamLevel로 서브 레벨로딩과 완료되면 로딩 위젯 제거</li>
+</ol>
+
+<p>1번의 경우 페이드 인아웃 애니메이션이 없이 이미지가 바로 생겻다 사라진다. 그리고 이전 레벨에서 생성한 위젯이 이동한 레벨에서 보이지 않는다.<br />
+2번은 비동기적으로 레벨이 완전히 로드되는 타이밍은 알 수 있지만 서브레벨을 불러오는 방식에서만 유효하고 타이틀레벨, 게임레벨 같이 완전히 다른 레벨에선 적용되지 않는다.</p>
+
+<p>결국 OpenLevel함수를 사용해야 하므로 레벨 로드시 위젯이 사라지지 않게하고 레벨이 완전히 로드되었을때 로딩 위젯의 종료 애니메이션을 실행시킨다.</p>
+
+<h3 id="위젯이-사라지는-조건">위젯이 사라지는 조건</h3>
+<p>위젯은 GetWorld()를 통해 나오는 Level이 사라지면 자신도 사라진다.<br />
+Widget의 GetWrold는 보통의 경우 CreateWidget으로 생성할 때 지정한 out의 GetWorld와 같다.</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">UWorld</span><span class="o">*</span> <span class="n">UUserWidget</span><span class="o">::</span><span class="n">GetWorld</span><span class="p">()</span> <span class="k">const</span>
+<span class="p">{</span>
+	<span class="k">if</span> <span class="p">(</span> <span class="n">UWorld</span><span class="o">*</span> <span class="n">LastWorld</span> <span class="o">=</span> <span class="n">CachedWorld</span><span class="p">.</span><span class="n">Get</span><span class="p">()</span> <span class="p">)</span>
+	<span class="p">{</span>
+		<span class="k">return</span> <span class="n">LastWorld</span><span class="p">;</span>
+	<span class="p">}</span>
+
+	<span class="k">if</span> <span class="p">(</span> <span class="n">HasAllFlags</span><span class="p">(</span><span class="n">RF_ClassDefaultObject</span><span class="p">)</span> <span class="p">)</span>
+	<span class="p">{</span>
+		<span class="c1">// If we are a CDO, we must return nullptr instead of calling Outer-&gt;GetWorld() to fool UObject::ImplementsGetWorld.</span>
+		<span class="k">return</span> <span class="nb">nullptr</span><span class="p">;</span>
+	<span class="p">}</span>
+
+	<span class="c1">// Use the Player Context's world, if a specific player context is given, otherwise fall back to</span>
+	<span class="c1">// following the outer chain.</span>
+	<span class="k">if</span> <span class="p">(</span> <span class="n">PlayerContext</span><span class="p">.</span><span class="n">IsValid</span><span class="p">()</span> <span class="p">)</span>
+	<span class="p">{</span>
+		<span class="k">if</span> <span class="p">(</span> <span class="n">UWorld</span><span class="o">*</span> <span class="n">World</span> <span class="o">=</span> <span class="n">PlayerContext</span><span class="p">.</span><span class="n">GetWorld</span><span class="p">()</span> <span class="p">)</span>
+		<span class="p">{</span>
+			<span class="n">CachedWorld</span> <span class="o">=</span> <span class="n">World</span><span class="p">;</span>
+			<span class="k">return</span> <span class="n">World</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+
+	<span class="c1">// Could be a GameInstance, could be World, could also be a WidgetTree, so we're just going to follow</span>
+	<span class="c1">// the outer chain to find the world we're in.</span>
+	<span class="n">UObject</span><span class="o">*</span> <span class="n">Outer</span> <span class="o">=</span> <span class="n">GetOuter</span><span class="p">();</span>
+
+	<span class="k">while</span> <span class="p">(</span> <span class="n">Outer</span> <span class="p">)</span>
+	<span class="p">{</span>
+		<span class="n">UWorld</span><span class="o">*</span> <span class="n">World</span> <span class="o">=</span> <span class="n">Outer</span><span class="o">-&gt;</span><span class="n">GetWorld</span><span class="p">();</span>
+		<span class="k">if</span> <span class="p">(</span> <span class="n">World</span> <span class="p">)</span>
+		<span class="p">{</span>
+			<span class="n">CachedWorld</span> <span class="o">=</span> <span class="n">World</span><span class="p">;</span>
+			<span class="k">return</span> <span class="n">World</span><span class="p">;</span>
+		<span class="p">}</span>
+
+		<span class="n">Outer</span> <span class="o">=</span> <span class="n">Outer</span><span class="o">-&gt;</span><span class="n">GetOuter</span><span class="p">();</span>
+	<span class="p">}</span>
+
+	<span class="k">return</span> <span class="nb">nullptr</span><span class="p">;</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+
+<p>그렇다면 적절한 OwingObject의 클래스는 어떻게 정할까? CreateWidget 함수를 보면 알 수 있다. `static_assert(TIsDerivedFrom&lt;TPointedToType<OwnerType>
+ .. 하는 부분을 보면 UWidget, UWidgetTree, APlayerController, UGameInstance, UWorld 가 Outer로 지정가능하다. 레벨이 이동해도 사라지지 않는 UGameInstance가 적절하다.</OwnerType></p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="nc">WidgetT</span> <span class="o">=</span> <span class="n">UUserWidget</span><span class="p">,</span> <span class="k">typename</span> <span class="nc">OwnerType</span> <span class="o">=</span> <span class="n">UObject</span><span class="p">&gt;</span>
+<span class="n">WidgetT</span><span class="o">*</span> <span class="nf">CreateWidget</span><span class="p">(</span><span class="n">OwnerType</span> <span class="n">OwningObject</span><span class="p">,</span> <span class="n">TSubclassOf</span><span class="o">&lt;</span><span class="n">UUserWidget</span><span class="o">&gt;</span> <span class="n">UserWidgetClass</span> <span class="o">=</span> <span class="n">WidgetT</span><span class="o">::</span><span class="n">StaticClass</span><span class="p">(),</span> <span class="n">FName</span> <span class="n">WidgetName</span> <span class="o">=</span> <span class="n">NAME_None</span><span class="p">)</span>
+<span class="p">{</span>
+	<span class="k">static_assert</span><span class="p">(</span><span class="n">TIsDerivedFrom</span><span class="o">&lt;</span><span class="n">WidgetT</span><span class="p">,</span> <span class="n">UUserWidget</span><span class="o">&gt;::</span><span class="n">IsDerived</span><span class="p">,</span> <span class="s">"CreateWidget can only be used to create UserWidget instances. If creating a UWidget, use WidgetTree::ConstructWidget."</span><span class="p">);</span>
+	
+	<span class="k">static_assert</span><span class="p">(</span><span class="n">TIsDerivedFrom</span><span class="o">&lt;</span><span class="n">TPointedToType</span><span class="o">&lt;</span><span class="n">OwnerType</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">UWidget</span><span class="o">&gt;::</span><span class="n">IsDerived</span>
+		<span class="o">||</span> <span class="n">TIsDerivedFrom</span><span class="o">&lt;</span><span class="n">TPointedToType</span><span class="o">&lt;</span><span class="n">OwnerType</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">UWidgetTree</span><span class="o">&gt;::</span><span class="n">IsDerived</span>
+		<span class="o">||</span> <span class="n">TIsDerivedFrom</span><span class="o">&lt;</span><span class="n">TPointedToType</span><span class="o">&lt;</span><span class="n">OwnerType</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">APlayerController</span><span class="o">&gt;::</span><span class="n">IsDerived</span>
+		<span class="o">||</span> <span class="n">TIsDerivedFrom</span><span class="o">&lt;</span><span class="n">TPointedToType</span><span class="o">&lt;</span><span class="n">OwnerType</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">UGameInstance</span><span class="o">&gt;::</span><span class="n">IsDerived</span>
+		<span class="o">||</span> <span class="n">TIsDerivedFrom</span><span class="o">&lt;</span><span class="n">TPointedToType</span><span class="o">&lt;</span><span class="n">OwnerType</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">UWorld</span><span class="o">&gt;::</span><span class="n">IsDerived</span><span class="p">,</span> <span class="s">"The given OwningObject is not of a supported type for use with CreateWidget."</span><span class="p">);</span>
+
+	<span class="n">SCOPE_CYCLE_COUNTER</span><span class="p">(</span><span class="n">STAT_CreateWidget</span><span class="p">);</span>
+	<span class="n">FScopeCycleCounterUObject</span> <span class="n">WidgetObjectCycleCounter</span><span class="p">(</span><span class="n">UserWidgetClass</span><span class="p">,</span> <span class="n">GET_STATID</span><span class="p">(</span><span class="n">STAT_CreateWidget</span><span class="p">));</span>
+
+	<span class="k">if</span> <span class="p">(</span><span class="n">OwningObject</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="k">return</span> <span class="n">Cast</span><span class="o">&lt;</span><span class="n">WidgetT</span><span class="o">&gt;</span><span class="p">(</span><span class="n">UUserWidget</span><span class="o">::</span><span class="n">CreateWidgetInstance</span><span class="p">(</span><span class="o">*</span><span class="n">OwningObject</span><span class="p">,</span> <span class="n">UserWidgetClass</span><span class="p">,</span> <span class="n">WidgetName</span><span class="p">));</span>
+	<span class="p">}</span>
+	<span class="k">return</span> <span class="nb">nullptr</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="n">LoadWidget</span> <span class="o">=</span> <span class="n">CreateWidget</span><span class="o">&lt;</span><span class="n">ULoadingWidget</span><span class="o">&gt;</span><span class="p">(</span><span class="n">GetGameInstance</span><span class="p">(),</span> <span class="n">ScenarioSetting</span><span class="p">.</span><span class="n">LoadingWidgetRef</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h2 id="오프레벨-타이밍-잡기">오프레벨 타이밍 잡기</h2>
+<p>레벨 이동시 로딩 위젯의 종료 애니메이션을 실행시킬 타이밍은 레벨이 완전히 로드됐을때 하면 된다. 이 타이밍에 실행되는 전역 델리게이트들이 존재한다.</p>
+
+<p>그것들 중에서 이 조건에 맞는 델리게이트를 선택할 것이다.</p>
+<ol>
+  <li>Subsystem의 Initlization보다 빨라야한다.</li>
+  <li>Widget의 Contrturc보다 느려야한다.<br />
+ 2-1. Widget Blueprint에서 수정해야 하기 때문이다.</li>
+</ol>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">FCoreUObjectDelegates</span><span class="o">::</span><span class="n">PostLoadMapWithWorld</span><span class="p">.</span><span class="n">AddUObject</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">UScenarioSubsystem</span><span class="o">::</span><span class="n">OnPostLoadMap</span><span class="p">);</span>
+<span class="n">FWorldDelegates</span><span class="o">::</span><span class="n">OnPostWorldInitialization</span><span class="p">.</span><span class="n">AddUObject</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">UScenarioSubsystem</span><span class="o">::</span><span class="n">OnPostWorldInitialization</span><span class="p">);</span>
+<span class="n">FWorldDelegates</span><span class="o">::</span><span class="n">OnWorldInitializedActors</span><span class="p">.</span><span class="n">AddUObject</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">UScenarioSubsystem</span><span class="o">::</span><span class="n">OnWorldInitializedActors</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h3 id="subsytem의-init-시작">Subsytem의 Init 시작</h3>
+<p>PostLoadMapWithWorld 만 탐지 되지 않았다.<br />
+<img src="https://github.com/user-attachments/assets/1c7f69c0-c447-4c3d-8e13-6b3cb691650c" alt="Image" /></p>
+
+<h3 id="open-level-후">Open Level 후</h3>
+<p>PostLoadMapWithWorld , OnWorldInitializedActors가  Construct 뒤에 실행된다.<br />
+<img src="https://github.com/user-attachments/assets/ce5e5a6b-4b81-4f0a-9f17-3a82ece790db" alt="Image" /></p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="n">UScenarioSubsystem</span><span class="o">::</span><span class="n">Initialize</span><span class="p">(</span><span class="n">FSubsystemCollectionBase</span><span class="o">&amp;</span> <span class="n">Collection</span><span class="p">)</span>
+        <span class="n">LoadWidget</span> <span class="o">=</span> <span class="n">CreateWidget</span><span class="o">&lt;</span><span class="n">ULoadingWidget</span><span class="o">&gt;</span><span class="p">(</span><span class="n">GetGameInstance</span><span class="p">(),</span> <span class="n">ScenarioSetting</span><span class="p">.</span><span class="n">LoadingWidgetRef</span><span class="p">);</span>
+        <span class="n">FCoreUObjectDelegates</span><span class="o">::</span><span class="n">PostLoadMapWithWorld</span><span class="p">.</span><span class="n">AddUObject</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">UScenarioSubsystem</span><span class="o">::</span><span class="n">OnPostLoadMap</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="n">UScenarioSubsystem</span><span class="o">::</span><span class="n">OnPostLoadMap</span><span class="p">(</span><span class="n">UWorld</span><span class="o">*</span> <span class="n">World</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">LoadWidget</span><span class="o">-&gt;</span><span class="n">AddToViewport</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+    <span class="n">LoadWidget</span><span class="o">-&gt;</span><span class="n">DeactivateSequence</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+<p>
+모션매칭을 이용한 애니메이션 제작은 기존 방식과 큰 차이가 있다. 모션 매칭의 주요 특징으로는 다음과 같다.<br />
+<font color="dodgerred">1. 데이터 기반 접근</font>: 모션 매칭은 대규모의 캡처된 애니메이션 데이터베이스를 활용합니다.<br />
+<font color="dodgerred">2. 실시간 검색</font>: 게임 내 캐릭터의 현재 모션 정보를 키로 사용하여 데이터베이스에서 가장 적합한 애니메이션을 실시간으로 검색합니다.<br />
+<font color="dodgerred">3. 자연스러운 전환</font>: 복잡한 로직 없이도 다양한 애니메이션 클립 간의 자연스러운 전환이 가능합니다.<br />
+<font color="dodgerred">4. 확장성</font>: 애니메이션 기능을 위한 확장 가능한 프레임워크를 제공합니다.<br />
+</p>
+
+<p><br /><br />
+기존에는 특정 조건에 맞는 애니메이션을 하나하나 직접 설정해줘야 했지만 모션 매칭은 데이터 기반으로 현재 상태에서 가장 적합한 애니메이션을 자연스럽게 자동으로 설정해준다.</p>
+
+<p><br /></p>
+<h1 id="모션매칭-사전준비">모션매칭 사전준비</h1>
+<h2 id="플러그인-설치">플러그인 설치</h2>
+<ul>
+  <li>아래 두 플러그인 설치하고 다시 시작한다.<br />
+<img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/dbc4cc87-7a25-4b1d-ba26-266c97506563" alt="image" /><br />
+<img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/7e725cda-a1ba-4064-a128-da6e780383ce" alt="image" /></li>
+</ul>
+
+<h2 id="애니메이션-시퀀스들-준비하기">애니메이션 시퀀스들 준비하기</h2>
+<h3 id="모션-매칭-스키마-생성">모션 매칭 스키마 생성</h3>
+<ul>
+  <li>접두사는 PSS_</li>
+  <li>각도 회전 값등 변수 설정하는 애셋이다.<br />
+<img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/331aea83-d937-4559-845f-ecc26b726c6c" alt="image" /></li>
+</ul>
+
+<hr />
+
+<h3 id="database-생성">Database 생성</h3>
+<ul>
+  <li>
+    <p>모션 매칭에 사용될 애니메이션들을 담는 데이터를 생성한다.<br />
+<img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/6c101550-6a54-4a12-a0b9-da28e1352eeb" alt="image" /></p>
+  </li>
+  <li>적용할 스키마를 선택한다.</li>
+  <li>접두사는 PSD_<br />
+<img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/04961922-19f6-47d4-88e8-5692eacf7047" alt="image" /></li>
+</ul>
+
+<hr />
+
+<h4 id="psddatabase-화면">PSD(Database) 화면</h4>
+<ul>
+  <li>이제 여기에 사용할 애니메이션을 드래그 하면된다.</li>
+  <li>그전에 <strong>루트모션</strong>을 사용 중인지 확인 해야한다.<br />
+<img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/896d1c75-1c1b-4a07-b845-d8cf73b2a123" alt="image" /></li>
+</ul>
+
+<hr />
+
+<h4 id="애니메이션-한번에-수정하기">애니메이션 한번에 수정하기</h4>
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/5e49972c-c46e-436e-90dd-29f8af77b1ee" alt="image" /></p>
+
+<ul>
+  <li>컨트롤 a를 눌러 모두 선택후 EnableRootMotion을 활성화 한다.<br />
+<img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/e10b9b6c-489e-4f8f-af60-5610d371c867" alt="image" /></li>
+</ul>
+
+<hr />
+
+<h4 id="locomotion-psd-생성하기">Locomotion PSD 생성하기</h4>
+<ul>
+  <li>DB에서 애니메이션을 넣는다.</li>
+  <li>각각 상하좌우 방향으로 시작, 진행 중, 멈출 때 해당하는 Walk 모션을 넣어준다.<br />
+<img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/36724702-59f2-4684-a817-0ae49418333f" alt="image" /></li>
+</ul>
+
+<p><br /></p>
+
+<h1 id="모션매칭-활용하기">모션매칭 활용하기</h1>
+<h2 id="abp-설정하기">ABP 설정하기</h2>
+<ul>
+  <li>Motion Matching 노드를 불러와 모션매칭 DataBase를 가져온다.</li>
+  <li>그리고 현재 애니메이션에서 추적하기 위해 Trajectory(궤적)을 불러와야 한다.<br />
+<img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/6c49c019-d49b-4f55-af2a-4ab987c59842" alt="image" /></li>
+</ul>
+
+<hr />
+
+<h3 id="trajectory-컴포넌트-설치하기">Trajectory 컴포넌트 설치하기</h3>
+<ul>
+  <li>ABP를 사용할 BP에서 <code class="language-plaintext highlighter-rouge">Character Trajectory</code> 컴포넌트를 부착한다.</li>
+</ul>
+
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/31db32d6-577e-49b2-9075-bc079c638a43" alt="image" /></p>
+
+<hr />
+
+<h3 id="trajectory-정보-가져오기">Trajectory 정보 가져오기</h3>
+<ul>
+  <li>ABP와 BP의 Trajectory를 연결해야한다.</li>
+  <li>그렇기 위해선 ABP의 EventGraph에서 자신을 사용하는 BP를 가져와야 한다.</li>
+  <li>
+    <p>자신을 사용중인 Actor를 가져와 그 액터 BP를 변수로 설정한다.<br />
+<img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/128cb3a3-5f92-4268-a926-57aeb39bb0dd" alt="image" /></p>
+  </li>
+  <li>
+    <p>변수화한 Owner Actor를 불러와 Trajectory를 매 프레임마다 변수화 시킨다.<br />
+<img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/c697f497-df56-46d3-bed8-1bb8e34fdb2f" alt="image" /></p>
+  </li>
+  <li>그리고 다시 AnimGraph로 돌아가서 Trajectory를 설정해준다.<br />
+<img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/a5b14922-a3a4-4367-b352-58a285a1615d" alt="image" /></li>
+</ul>
+
+<h2 id="디버깅-궤적-확인">디버깅 궤적 확인</h2>
+<ul>
+  <li>콘솔창에 <code class="language-plaintext highlighter-rouge">a.CharacterTrajectory.Debug 1</code> 을 하면 궤적이 보인다.<br />
+<img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/592c0d2d-152c-4334-864a-909b3613afec" alt="image" /></li>
+</ul>
+
+<h2><br /></h2>
+<p><br /></p>
+
+<div class="Reference">
+<div class="callout-header"> </div>
+<p>
+<a href="https://www.youtube.com/watch?v=4ag7fSlEeKA">https://www.youtube.com/watch?v=4ag7fSlEeKA</a>
+<a href="https://www.youtube.com/watch?v=S4aBd64t-hY&amp;ab_channel=GorkaGames">https://www.youtube.com/watch?v=S4aBd64t-hY&amp;ab_channel=GorkaGames</a>
+</p>
+</div>]]></content><author><name>Mohitto55</name></author><category term="ue5" /><category term="UE5" /><category term="UnrealEngine" /><category term="Loading" /><category term="UserWidget" /><category term="Widget" /><summary type="html"><![CDATA[게임에서 로딩화면이란 정말 중요하다. 화면전환시 플레이어가 어색함없이 언리얼엔진에서 레벨을 이동할땐 OpenLevel 함수를 사용한다. 사용하면 다른 레벨로 이동하지만 이동하는 과정에서 끊김 현상이 발생한다. 이런 끊김 현상이 느껴지지 않도록 만들어야한다.]]></summary></entry><entry><title type="html">[UE5] Async Loading Widget 만드는 과정</title><link href="http://localhost:4000/ue5/UE5-Loading-Widget-%EB%A7%8C%EB%93%9C%EB%8A%94-%EB%B0%A9%EB%B2%95/" rel="alternate" type="text/html" title="[UE5] Async Loading Widget 만드는 과정" /><published>2025-05-23T00:00:00+09:00</published><updated>2025-05-23T00:00:00+09:00</updated><id>http://localhost:4000/ue5/%5BUE5%5D%20Loading%20Widget%20%EB%A7%8C%EB%93%9C%EB%8A%94%20%EB%B0%A9%EB%B2%95</id><content type="html" xml:base="http://localhost:4000/ue5/UE5-Loading-Widget-%EB%A7%8C%EB%93%9C%EB%8A%94-%EB%B0%A9%EB%B2%95/"><![CDATA[<p>게임에서 로딩화면이란 정말 중요하다. 화면전환시 플레이어가 어색함없이<br />
+언리얼엔진에서 레벨을 이동할땐 OpenLevel 함수를 사용한다. 사용하면 다른 레벨로 이동하지만 이동하는 과정에서 끊김 현상이 발생한다. 이런 끊김 현상이 느껴지지 않도록 만들어야한다.</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="k">static</span> <span class="n">ENGINE_API</span> <span class="kt">void</span> <span class="nf">OpenLevelBySoftObjectPtr</span><span class="p">(</span><span class="k">const</span> <span class="n">UObject</span><span class="o">*</span> <span class="n">WorldContextObject</span><span class="p">,</span> <span class="k">const</span> <span class="n">TSoftObjectPtr</span><span class="o">&lt;</span><span class="n">UWorld</span><span class="o">&gt;</span> <span class="n">Level</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">bAbsolute</span> <span class="o">=</span> <span class="nb">true</span><span class="p">,</span> <span class="n">FString</span> <span class="n">Options</span> <span class="o">=</span> <span class="n">FString</span><span class="p">(</span><span class="n">TEXT</span><span class="p">(</span><span class="s">""</span><span class="p">)));</span>
+</code></pre></div></div>
+
+<h2 id="목표">목표</h2>
+<p>1.페이드 인, 아웃으로 부드러운 로딩 화면 재생<br />
+2.비동기적으로 레벨의 완전한 로딩 타이밍 확인<br />
+3.완전히 다른 레벨 이동시 로딩화면 유지</p>
+
+<hr />
+
+<p>검색을 통해 알아보니 로딩화면을 만드는데는 크게 두가지 방식이 있었다.</p>
+<ol>
+  <li>로딩 위젯 생성 후 OpenLevel 시작</li>
+  <li>LoadStreamLevel로 서브 레벨로딩과 완료되면 로딩 위젯 제거</li>
+</ol>
+
+<p>1번의 경우 페이드 인아웃 애니메이션이 없이 이미지가 바로 생겻다 사라진다. 그리고 이전 레벨에서 생성한 위젯이 이동한 레벨에서 보이지 않는다.<br />
+2번은 비동기적으로 레벨이 완전히 로드되는 타이밍은 알 수 있지만 서브레벨을 불러오는 방식에서만 유효하고 타이틀레벨, 게임레벨 같이 완전히 다른 레벨에선 적용되지 않는다.</p>
+
+<p>결국 OpenLevel함수를 사용해야 하므로 레벨 로드시 위젯이 사라지지 않게하고 레벨이 완전히 로드되었을때 로딩 위젯의 종료 애니메이션을 실행시킨다.</p>
+
+<h3 id="위젯이-사라지는-조건">위젯이 사라지는 조건</h3>
+<p>위젯은 GetWorld()를 통해 나오는 Level이 사라지면 자신도 사라진다.<br />
+Widget의 GetWrold는 보통의 경우 CreateWidget으로 생성할 때 지정한 out의 GetWorld와 같다.</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">UWorld</span><span class="o">*</span> <span class="n">UUserWidget</span><span class="o">::</span><span class="n">GetWorld</span><span class="p">()</span> <span class="k">const</span>
+<span class="p">{</span>
+	<span class="k">if</span> <span class="p">(</span> <span class="n">UWorld</span><span class="o">*</span> <span class="n">LastWorld</span> <span class="o">=</span> <span class="n">CachedWorld</span><span class="p">.</span><span class="n">Get</span><span class="p">()</span> <span class="p">)</span>
+	<span class="p">{</span>
+		<span class="k">return</span> <span class="n">LastWorld</span><span class="p">;</span>
+	<span class="p">}</span>
+
+	<span class="k">if</span> <span class="p">(</span> <span class="n">HasAllFlags</span><span class="p">(</span><span class="n">RF_ClassDefaultObject</span><span class="p">)</span> <span class="p">)</span>
+	<span class="p">{</span>
+		<span class="c1">// If we are a CDO, we must return nullptr instead of calling Outer-&gt;GetWorld() to fool UObject::ImplementsGetWorld.</span>
+		<span class="k">return</span> <span class="nb">nullptr</span><span class="p">;</span>
+	<span class="p">}</span>
+
+	<span class="c1">// Use the Player Context's world, if a specific player context is given, otherwise fall back to</span>
+	<span class="c1">// following the outer chain.</span>
+	<span class="k">if</span> <span class="p">(</span> <span class="n">PlayerContext</span><span class="p">.</span><span class="n">IsValid</span><span class="p">()</span> <span class="p">)</span>
+	<span class="p">{</span>
+		<span class="k">if</span> <span class="p">(</span> <span class="n">UWorld</span><span class="o">*</span> <span class="n">World</span> <span class="o">=</span> <span class="n">PlayerContext</span><span class="p">.</span><span class="n">GetWorld</span><span class="p">()</span> <span class="p">)</span>
+		<span class="p">{</span>
+			<span class="n">CachedWorld</span> <span class="o">=</span> <span class="n">World</span><span class="p">;</span>
+			<span class="k">return</span> <span class="n">World</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+
+	<span class="c1">// Could be a GameInstance, could be World, could also be a WidgetTree, so we're just going to follow</span>
+	<span class="c1">// the outer chain to find the world we're in.</span>
+	<span class="n">UObject</span><span class="o">*</span> <span class="n">Outer</span> <span class="o">=</span> <span class="n">GetOuter</span><span class="p">();</span>
+
+	<span class="k">while</span> <span class="p">(</span> <span class="n">Outer</span> <span class="p">)</span>
+	<span class="p">{</span>
+		<span class="n">UWorld</span><span class="o">*</span> <span class="n">World</span> <span class="o">=</span> <span class="n">Outer</span><span class="o">-&gt;</span><span class="n">GetWorld</span><span class="p">();</span>
+		<span class="k">if</span> <span class="p">(</span> <span class="n">World</span> <span class="p">)</span>
+		<span class="p">{</span>
+			<span class="n">CachedWorld</span> <span class="o">=</span> <span class="n">World</span><span class="p">;</span>
+			<span class="k">return</span> <span class="n">World</span><span class="p">;</span>
+		<span class="p">}</span>
+
+		<span class="n">Outer</span> <span class="o">=</span> <span class="n">Outer</span><span class="o">-&gt;</span><span class="n">GetOuter</span><span class="p">();</span>
+	<span class="p">}</span>
+
+	<span class="k">return</span> <span class="nb">nullptr</span><span class="p">;</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+
+<p>그렇다면 적절한 OwingObject의 클래스는 어떻게 정할까? CreateWidget 함수를 보면 알 수 있다. `static_assert(TIsDerivedFrom&lt;TPointedToType<OwnerType>
+ .. 하는 부분을 보면 UWidget, UWidgetTree, APlayerController, UGameInstance, UWorld 가 Outer로 지정가능하다. 레벨이 이동해도 사라지지 않는 UGameInstance가 적절하다.</OwnerType></p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="nc">WidgetT</span> <span class="o">=</span> <span class="n">UUserWidget</span><span class="p">,</span> <span class="k">typename</span> <span class="nc">OwnerType</span> <span class="o">=</span> <span class="n">UObject</span><span class="p">&gt;</span>
+<span class="n">WidgetT</span><span class="o">*</span> <span class="nf">CreateWidget</span><span class="p">(</span><span class="n">OwnerType</span> <span class="n">OwningObject</span><span class="p">,</span> <span class="n">TSubclassOf</span><span class="o">&lt;</span><span class="n">UUserWidget</span><span class="o">&gt;</span> <span class="n">UserWidgetClass</span> <span class="o">=</span> <span class="n">WidgetT</span><span class="o">::</span><span class="n">StaticClass</span><span class="p">(),</span> <span class="n">FName</span> <span class="n">WidgetName</span> <span class="o">=</span> <span class="n">NAME_None</span><span class="p">)</span>
+<span class="p">{</span>
+	<span class="k">static_assert</span><span class="p">(</span><span class="n">TIsDerivedFrom</span><span class="o">&lt;</span><span class="n">WidgetT</span><span class="p">,</span> <span class="n">UUserWidget</span><span class="o">&gt;::</span><span class="n">IsDerived</span><span class="p">,</span> <span class="s">"CreateWidget can only be used to create UserWidget instances. If creating a UWidget, use WidgetTree::ConstructWidget."</span><span class="p">);</span>
+	
+	<span class="k">static_assert</span><span class="p">(</span><span class="n">TIsDerivedFrom</span><span class="o">&lt;</span><span class="n">TPointedToType</span><span class="o">&lt;</span><span class="n">OwnerType</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">UWidget</span><span class="o">&gt;::</span><span class="n">IsDerived</span>
+		<span class="o">||</span> <span class="n">TIsDerivedFrom</span><span class="o">&lt;</span><span class="n">TPointedToType</span><span class="o">&lt;</span><span class="n">OwnerType</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">UWidgetTree</span><span class="o">&gt;::</span><span class="n">IsDerived</span>
+		<span class="o">||</span> <span class="n">TIsDerivedFrom</span><span class="o">&lt;</span><span class="n">TPointedToType</span><span class="o">&lt;</span><span class="n">OwnerType</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">APlayerController</span><span class="o">&gt;::</span><span class="n">IsDerived</span>
+		<span class="o">||</span> <span class="n">TIsDerivedFrom</span><span class="o">&lt;</span><span class="n">TPointedToType</span><span class="o">&lt;</span><span class="n">OwnerType</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">UGameInstance</span><span class="o">&gt;::</span><span class="n">IsDerived</span>
+		<span class="o">||</span> <span class="n">TIsDerivedFrom</span><span class="o">&lt;</span><span class="n">TPointedToType</span><span class="o">&lt;</span><span class="n">OwnerType</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">UWorld</span><span class="o">&gt;::</span><span class="n">IsDerived</span><span class="p">,</span> <span class="s">"The given OwningObject is not of a supported type for use with CreateWidget."</span><span class="p">);</span>
+
+	<span class="n">SCOPE_CYCLE_COUNTER</span><span class="p">(</span><span class="n">STAT_CreateWidget</span><span class="p">);</span>
+	<span class="n">FScopeCycleCounterUObject</span> <span class="n">WidgetObjectCycleCounter</span><span class="p">(</span><span class="n">UserWidgetClass</span><span class="p">,</span> <span class="n">GET_STATID</span><span class="p">(</span><span class="n">STAT_CreateWidget</span><span class="p">));</span>
+
+	<span class="k">if</span> <span class="p">(</span><span class="n">OwningObject</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="k">return</span> <span class="n">Cast</span><span class="o">&lt;</span><span class="n">WidgetT</span><span class="o">&gt;</span><span class="p">(</span><span class="n">UUserWidget</span><span class="o">::</span><span class="n">CreateWidgetInstance</span><span class="p">(</span><span class="o">*</span><span class="n">OwningObject</span><span class="p">,</span> <span class="n">UserWidgetClass</span><span class="p">,</span> <span class="n">WidgetName</span><span class="p">));</span>
+	<span class="p">}</span>
+	<span class="k">return</span> <span class="nb">nullptr</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="n">LoadWidget</span> <span class="o">=</span> <span class="n">CreateWidget</span><span class="o">&lt;</span><span class="n">ULoadingWidget</span><span class="o">&gt;</span><span class="p">(</span><span class="n">GetGameInstance</span><span class="p">(),</span> <span class="n">ScenarioSetting</span><span class="p">.</span><span class="n">LoadingWidgetRef</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h2 id="오프레벨-타이밍-잡기">오프레벨 타이밍 잡기</h2>
+<p>레벨 이동시 로딩 위젯의 종료 애니메이션을 실행시킬 타이밍은 레벨이 완전히 로드됐을때 하면 된다. 이 타이밍에 실행되는 전역 델리게이트들이 존재한다.</p>
+
+<p>그것들 중에서 이 조건에 맞는 델리게이트를 선택할 것이다.</p>
+<ol>
+  <li>Subsystem의 Initlization보다 빨라야한다.</li>
+  <li>Widget의 Contrturc보다 느려야한다.<br />
+ 2-1. Widget Blueprint에서 수정해야 하기 때문이다.</li>
+</ol>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">FCoreUObjectDelegates</span><span class="o">::</span><span class="n">PostLoadMapWithWorld</span><span class="p">.</span><span class="n">AddUObject</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">UScenarioSubsystem</span><span class="o">::</span><span class="n">OnPostLoadMap</span><span class="p">);</span>
+<span class="n">FWorldDelegates</span><span class="o">::</span><span class="n">OnPostWorldInitialization</span><span class="p">.</span><span class="n">AddUObject</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">UScenarioSubsystem</span><span class="o">::</span><span class="n">OnPostWorldInitialization</span><span class="p">);</span>
+<span class="n">FWorldDelegates</span><span class="o">::</span><span class="n">OnWorldInitializedActors</span><span class="p">.</span><span class="n">AddUObject</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">UScenarioSubsystem</span><span class="o">::</span><span class="n">OnWorldInitializedActors</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h3 id="subsytem의-init-시작">Subsytem의 Init 시작</h3>
+<p>PostLoadMapWithWorld 만 탐지 되지 않았다.<br />
+<img src="https://github.com/user-attachments/assets/1c7f69c0-c447-4c3d-8e13-6b3cb691650c" alt="Image" /></p>
+
+<h3 id="open-level-후">Open Level 후</h3>
+<p>PostLoadMapWithWorld , OnWorldInitializedActors가  Construct 뒤에 실행된다.<br />
+<img src="https://github.com/user-attachments/assets/ce5e5a6b-4b81-4f0a-9f17-3a82ece790db" alt="Image" /></p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="n">UScenarioSubsystem</span><span class="o">::</span><span class="n">Initialize</span><span class="p">(</span><span class="n">FSubsystemCollectionBase</span><span class="o">&amp;</span> <span class="n">Collection</span><span class="p">)</span>
+        <span class="n">LoadWidget</span> <span class="o">=</span> <span class="n">CreateWidget</span><span class="o">&lt;</span><span class="n">ULoadingWidget</span><span class="o">&gt;</span><span class="p">(</span><span class="n">GetGameInstance</span><span class="p">(),</span> <span class="n">ScenarioSetting</span><span class="p">.</span><span class="n">LoadingWidgetRef</span><span class="p">);</span>
+        <span class="n">FCoreUObjectDelegates</span><span class="o">::</span><span class="n">PostLoadMapWithWorld</span><span class="p">.</span><span class="n">AddUObject</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">UScenarioSubsystem</span><span class="o">::</span><span class="n">OnPostLoadMap</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="n">UScenarioSubsystem</span><span class="o">::</span><span class="n">OnPostLoadMap</span><span class="p">(</span><span class="n">UWorld</span><span class="o">*</span> <span class="n">World</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">LoadWidget</span><span class="o">-&gt;</span><span class="n">AddToViewport</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+    <span class="n">LoadWidget</span><span class="o">-&gt;</span><span class="n">DeactivateSequence</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+<p>
+모션매칭을 이용한 애니메이션 제작은 기존 방식과 큰 차이가 있다. 모션 매칭의 주요 특징으로는 다음과 같다.<br />
+<font color="dodgerred">1. 데이터 기반 접근</font>: 모션 매칭은 대규모의 캡처된 애니메이션 데이터베이스를 활용합니다.<br />
+<font color="dodgerred">2. 실시간 검색</font>: 게임 내 캐릭터의 현재 모션 정보를 키로 사용하여 데이터베이스에서 가장 적합한 애니메이션을 실시간으로 검색합니다.<br />
+<font color="dodgerred">3. 자연스러운 전환</font>: 복잡한 로직 없이도 다양한 애니메이션 클립 간의 자연스러운 전환이 가능합니다.<br />
+<font color="dodgerred">4. 확장성</font>: 애니메이션 기능을 위한 확장 가능한 프레임워크를 제공합니다.<br />
+</p>
+
+<p><br /><br />
+기존에는 특정 조건에 맞는 애니메이션을 하나하나 직접 설정해줘야 했지만 모션 매칭은 데이터 기반으로 현재 상태에서 가장 적합한 애니메이션을 자연스럽게 자동으로 설정해준다.</p>
+
+<p><br /></p>
+<h1 id="모션매칭-사전준비">모션매칭 사전준비</h1>
+<h2 id="플러그인-설치">플러그인 설치</h2>
+<ul>
+  <li>아래 두 플러그인 설치하고 다시 시작한다.<br />
+<img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/dbc4cc87-7a25-4b1d-ba26-266c97506563" alt="image" /><br />
+<img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/7e725cda-a1ba-4064-a128-da6e780383ce" alt="image" /></li>
+</ul>
+
+<h2 id="애니메이션-시퀀스들-준비하기">애니메이션 시퀀스들 준비하기</h2>
+<h3 id="모션-매칭-스키마-생성">모션 매칭 스키마 생성</h3>
+<ul>
+  <li>접두사는 PSS_</li>
+  <li>각도 회전 값등 변수 설정하는 애셋이다.<br />
+<img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/331aea83-d937-4559-845f-ecc26b726c6c" alt="image" /></li>
+</ul>
+
+<hr />
+
+<h3 id="database-생성">Database 생성</h3>
+<ul>
+  <li>
+    <p>모션 매칭에 사용될 애니메이션들을 담는 데이터를 생성한다.<br />
+<img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/6c101550-6a54-4a12-a0b9-da28e1352eeb" alt="image" /></p>
+  </li>
+  <li>적용할 스키마를 선택한다.</li>
+  <li>접두사는 PSD_<br />
+<img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/04961922-19f6-47d4-88e8-5692eacf7047" alt="image" /></li>
+</ul>
+
+<hr />
+
+<h4 id="psddatabase-화면">PSD(Database) 화면</h4>
+<ul>
+  <li>이제 여기에 사용할 애니메이션을 드래그 하면된다.</li>
+  <li>그전에 <strong>루트모션</strong>을 사용 중인지 확인 해야한다.<br />
+<img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/896d1c75-1c1b-4a07-b845-d8cf73b2a123" alt="image" /></li>
+</ul>
+
+<hr />
+
+<h4 id="애니메이션-한번에-수정하기">애니메이션 한번에 수정하기</h4>
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/5e49972c-c46e-436e-90dd-29f8af77b1ee" alt="image" /></p>
+
+<ul>
+  <li>컨트롤 a를 눌러 모두 선택후 EnableRootMotion을 활성화 한다.<br />
+<img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/e10b9b6c-489e-4f8f-af60-5610d371c867" alt="image" /></li>
+</ul>
+
+<hr />
+
+<h4 id="locomotion-psd-생성하기">Locomotion PSD 생성하기</h4>
+<ul>
+  <li>DB에서 애니메이션을 넣는다.</li>
+  <li>각각 상하좌우 방향으로 시작, 진행 중, 멈출 때 해당하는 Walk 모션을 넣어준다.<br />
+<img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/36724702-59f2-4684-a817-0ae49418333f" alt="image" /></li>
+</ul>
+
+<p><br /></p>
+
+<h1 id="모션매칭-활용하기">모션매칭 활용하기</h1>
+<h2 id="abp-설정하기">ABP 설정하기</h2>
+<ul>
+  <li>Motion Matching 노드를 불러와 모션매칭 DataBase를 가져온다.</li>
+  <li>그리고 현재 애니메이션에서 추적하기 위해 Trajectory(궤적)을 불러와야 한다.<br />
+<img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/6c49c019-d49b-4f55-af2a-4ab987c59842" alt="image" /></li>
+</ul>
+
+<hr />
+
+<h3 id="trajectory-컴포넌트-설치하기">Trajectory 컴포넌트 설치하기</h3>
+<ul>
+  <li>ABP를 사용할 BP에서 <code class="language-plaintext highlighter-rouge">Character Trajectory</code> 컴포넌트를 부착한다.</li>
+</ul>
+
+<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/31db32d6-577e-49b2-9075-bc079c638a43" alt="image" /></p>
+
+<hr />
+
+<h3 id="trajectory-정보-가져오기">Trajectory 정보 가져오기</h3>
+<ul>
+  <li>ABP와 BP의 Trajectory를 연결해야한다.</li>
+  <li>그렇기 위해선 ABP의 EventGraph에서 자신을 사용하는 BP를 가져와야 한다.</li>
+  <li>
+    <p>자신을 사용중인 Actor를 가져와 그 액터 BP를 변수로 설정한다.<br />
+<img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/128cb3a3-5f92-4268-a926-57aeb39bb0dd" alt="image" /></p>
+  </li>
+  <li>
+    <p>변수화한 Owner Actor를 불러와 Trajectory를 매 프레임마다 변수화 시킨다.<br />
+<img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/c697f497-df56-46d3-bed8-1bb8e34fdb2f" alt="image" /></p>
+  </li>
+  <li>그리고 다시 AnimGraph로 돌아가서 Trajectory를 설정해준다.<br />
+<img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/a5b14922-a3a4-4367-b352-58a285a1615d" alt="image" /></li>
+</ul>
+
+<h2 id="디버깅-궤적-확인">디버깅 궤적 확인</h2>
+<ul>
+  <li>콘솔창에 <code class="language-plaintext highlighter-rouge">a.CharacterTrajectory.Debug 1</code> 을 하면 궤적이 보인다.<br />
+<img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/592c0d2d-152c-4334-864a-909b3613afec" alt="image" /></li>
+</ul>
+
+<h2><br /></h2>
+<p><br /></p>
+
+<div class="Reference">
+<div class="callout-header"> </div>
+<p>
+<a href="https://www.youtube.com/watch?v=4ag7fSlEeKA">https://www.youtube.com/watch?v=4ag7fSlEeKA</a>
+<a href="https://www.youtube.com/watch?v=S4aBd64t-hY&amp;ab_channel=GorkaGames">https://www.youtube.com/watch?v=S4aBd64t-hY&amp;ab_channel=GorkaGames</a>
+</p>
+</div>]]></content><author><name>Mohitto55</name></author><category term="ue5" /><category term="UE5" /><category term="UnrealEngine" /><category term="Loading" /><category term="UserWidget" /><category term="Widget" /><summary type="html"><![CDATA[게임에서 로딩화면이란 정말 중요하다. 화면전환시 플레이어가 어색함없이 언리얼엔진에서 레벨을 이동할땐 OpenLevel 함수를 사용한다. 사용하면 다른 레벨로 이동하지만 이동하는 과정에서 끊김 현상이 발생한다. 이런 끊김 현상이 느껴지지 않도록 만들어야한다.]]></summary></entry><entry><title type="html">[Math] 세점을 지나는 원의중심(외심) 구하는 법</title><link href="http://localhost:4000/math/Math-%EC%84%B8%EC%A0%90%EC%9D%84-%EC%A7%80%EB%82%98%EB%8A%94-%EC%9B%90%EC%9D%98-%EC%A4%91%EC%8B%AC-%EA%B5%AC%ED%95%98%EA%B8%B0/" rel="alternate" type="text/html" title="[Math] 세점을 지나는 원의중심(외심) 구하는 법" /><published>2025-02-16T00:00:00+09:00</published><updated>2025-02-16T00:00:00+09:00</updated><id>http://localhost:4000/math/%5BMath%5D%EC%84%B8%EC%A0%90%EC%9D%84%20%EC%A7%80%EB%82%98%EB%8A%94%20%EC%9B%90%EC%9D%98%20%EC%A4%91%EC%8B%AC%20%EA%B5%AC%ED%95%98%EA%B8%B0</id><content type="html" xml:base="http://localhost:4000/math/Math-%EC%84%B8%EC%A0%90%EC%9D%84-%EC%A7%80%EB%82%98%EB%8A%94-%EC%9B%90%EC%9D%98-%EC%A4%91%EC%8B%AC-%EA%B5%AC%ED%95%98%EA%B8%B0/"><![CDATA[<h1 id="외적을-이용한-선분과-선분의-교차점-구하기">📄외적을 이용한 선분과 선분의 교차점 구하기</h1>
 
 <p>세 개의 점을 지나는 원은 단 하나만 존재하며, 이를 <strong>외접원</strong>이라고 합니다.. 이 외접원의 중심을 <strong>외심</strong>이라고 하며, 외심을 구하는 방법을 알아봅시다.</p>
 
@@ -722,175 +1327,7 @@ GItBlog는 처음부터 끝까지 기능을 다 커스텀가능하고 테마도 
 <p>
 <a href="https://blog.naver.com/sharonichoya/220501242693">https://blog.naver.com/sharonichoya/220501242693</a>
 </p>
-</div>]]></content><author><name>Mohitto55</name></author><category term="ide" /><category term="Visual Studio" /><category term="VS" /><category term="명령인수" /><category term="exe" /><category term="Build" /><category term="command line argument" /><summary type="html"><![CDATA[📄main 함수의 매개변수 간혹 int main에 인자값이 int argc, char** argv 같은게 있는데 이것이 명령인수를 통해 넘겨주는 인자값들 이다. argc : 명령줄 인수의 개수 argv : 명령줄 인수의 문자열 배열 첫번째 값은 실행경로가 들어간다.]]></summary></entry><entry><title type="html">[Geometry] 외적을 이용해 선분간의 교차점을 구하는 방법</title><link href="http://localhost:4000/geometry/Geometry-%EC%84%A0%EB%B6%84-%EB%81%BC%EB%A6%AC%EC%9D%98-%EA%B5%90%EC%B0%A8%EC%A0%90-%EA%B5%AC%ED%95%98%EA%B8%B0/" rel="alternate" type="text/html" title="[Geometry] 외적을 이용해 선분간의 교차점을 구하는 방법" /><published>2024-10-24T00:00:00+09:00</published><updated>2024-10-24T00:00:00+09:00</updated><id>http://localhost:4000/geometry/Geometry%20%EC%84%A0%EB%B6%84%20%EB%81%BC%EB%A6%AC%EC%9D%98%20%EA%B5%90%EC%B0%A8%EC%A0%90%20%EA%B5%AC%ED%95%98%EA%B8%B0</id><content type="html" xml:base="http://localhost:4000/geometry/Geometry-%EC%84%A0%EB%B6%84-%EB%81%BC%EB%A6%AC%EC%9D%98-%EA%B5%90%EC%B0%A8%EC%A0%90-%EA%B5%AC%ED%95%98%EA%B8%B0/"><![CDATA[<h1 id="외적을-이용한-선분과-선분의-교차점-구하기">📄외적을 이용한 선분과 선분의 교차점 구하기</h1>
-
-<p>선분은 기하를 구성하는 <strong>기본요소</strong>이기 때문에 선분의 교차점을 구하는 것은 기하 문제의 기본입니다. 이런 선분의 교차점은 다양한 곳에서 사용 할 수 있습니다.</p>
-
-<p>하지만 교차점을 구하는 것은 여러 변수들이 존재해서 생각보다 까다롭습니다.</p>
-
-<h2 id="️직선과-직선의-교차점">✏️직선과 직선의 교차점</h2>
-
-<p>선분은 직선의 일부분이기에 먼저 직선과 직선의 교차점을 구합니다.</p>
-
-<p>좌표평면에서 두 직선에 대한 방정식을 x, y에 대해 세우고 <strong>연립 방정식</strong>을 푸는 것을 코드로 작성 할 수 있다. 하지만 그러면 수평과 수직에 대한 예외를 따로 처리해야해 코드가 간결하지 못합니다.</p>
-
-<p>그렇다면 두 직선을 <strong>벡터로 표현</strong> 하고 벡터의 연산을 이용해 연립방정식을 풀면 외적으로 표현된 간결한 해를 얻을 수 있습니다.</p>
-
-<hr />
-
-<h3 id="️방정식-풀이1">✏️방정식 풀이1</h3>
-
-<p>\(\overrightarrow{a_x} + p\overrightarrow{b_x} = \overrightarrow{c_x} + q\overrightarrow{d_x}\)<br />
-\(\overrightarrow{a_y} + p\overrightarrow{b_y} = \overrightarrow{c_y} + q\overrightarrow{d_y}\)</p>
-
-<p>이 연립방정식을 p에 대해 풀면 다음과 같습니다.<br />
-이 때 분모가 0인 경우는 두 직선이 <strong>평행</strong>한 경우로 교점이 정의되지 않습니다.</p>
-
-\[p = \frac{(c_x-a_x)d_{y}- (c_y-a_y)d_x}{b_xd_y-b_yd_x}\]
-
-<p>이제 p를 외적으로 더 간략하게 나타낼 수 있습니다.<br />
-\(p=\frac{(\overrightarrow{c}-\overrightarrow{a})\times\overrightarrow{d}}{\overrightarrow{b}\times\overrightarrow{d} }(\overrightarrow{b}\times\overrightarrow{d}\neq  0)\)</p>
-
-<hr />
-
-<h4 id="코드">💻코드</h4>
-<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 점 a, b를 지나는 직선과 점 c, d를 지나는 직선의 교차점 x를 반환한다.  </span>
-<span class="c1">// 두 직선이 평행하면 false, 아니면 true를 반환한다.  </span>
-<span class="k">public</span> <span class="kt">bool</span> <span class="nf">lineIntersection</span><span class="p">(</span><span class="n">Vector2</span> <span class="n">a</span><span class="p">,</span> <span class="n">Vector2</span> <span class="n">b</span><span class="p">,</span> <span class="n">Vector2</span> <span class="n">c</span><span class="p">,</span> <span class="n">Vector2</span> <span class="n">d</span><span class="p">,</span> <span class="n">ref</span> <span class="n">Vector2</span> <span class="n">x</span><span class="p">)</span>  
-<span class="p">{</span>  
-    <span class="c1">// 분모  </span>
-    <span class="kt">float</span> <span class="n">det</span> <span class="o">=</span> <span class="n">Vector3</span><span class="p">.</span><span class="n">Cross</span><span class="p">((</span><span class="n">Vector3</span><span class="p">)(</span><span class="n">b</span> <span class="o">-</span> <span class="n">a</span><span class="p">),</span> <span class="p">(</span><span class="n">Vector3</span><span class="p">)(</span><span class="n">d</span> <span class="o">-</span> <span class="n">c</span><span class="p">)).</span><span class="n">z</span><span class="p">;</span>  
-    <span class="c1">// 두 직선이 평행한 경우라면  </span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">Mathf</span><span class="p">.</span><span class="n">Abs</span><span class="p">(</span><span class="n">det</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">0.00005</span><span class="n">f</span><span class="p">)</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>  
-    <span class="n">x</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="p">(</span><span class="n">b</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">Cross</span><span class="p">(</span><span class="n">c</span> <span class="o">-</span> <span class="n">a</span><span class="p">,</span> <span class="n">d</span> <span class="o">-</span> <span class="n">c</span><span class="p">)</span> <span class="o">/</span> <span class="n">det</span><span class="p">);</span>  
-    <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>  
-<span class="p">}</span>  
-  
-<span class="k">public</span> <span class="kt">float</span> <span class="nf">Cross</span><span class="p">(</span><span class="n">Vector2</span> <span class="n">a</span><span class="p">,</span> <span class="n">Vector2</span> <span class="n">b</span><span class="p">)</span>  
-<span class="p">{</span>  
-    <span class="k">return</span> <span class="n">Vector3</span><span class="p">.</span><span class="n">Cross</span><span class="p">((</span><span class="n">Vector3</span><span class="p">)</span><span class="n">a</span><span class="p">,</span> <span class="p">(</span><span class="n">Vector3</span><span class="p">)</span><span class="n">b</span><span class="p">).</span><span class="n">z</span><span class="p">;</span>  
-<span class="p">}</span>
-</code></pre></div></div>
-
-<hr />
-<h3 id="️방정식-풀이2">✏️방정식 풀이2</h3>
-
-<p>선분의 시작점을 $S_1$과 $S_2$이라고 하고  $S_{1}+ tP_{1}, S_{2}+ uP_2$ 으로 각각 두 선분 상의 임의의 점으로 나타낼 수 있습니다. 그렇다는 것은 $S_{1}+ tP_{1}= S_{2}+ uP_2$ 일때가 두 선분이 교차하는 지점이라는 뜻이고 u와 t에 대해서 방정식을 풀 수있다면 교차점을 구할 수 있습니다.</p>
-
-<p><code class="language-plaintext highlighter-rouge">t</code>나 <code class="language-plaintext highlighter-rouge">u</code>를 구하기 위해서는 두 변수 중 하나를 제거해야 하며, 이를 외적을 통해 해결할 수 있습니다. 외적은 두 벡터가 평행할 때 0이 되는 성질을 이용합니다. 따라서 <code class="language-plaintext highlighter-rouge">t</code>와 곱해져 있는 벡터와 동일한 벡터를 양쪽에 외적해 주면 됩니다. 자기 자신을 외적하면 0이 되기 때문에, 양쪽에 <code class="language-plaintext highlighter-rouge">P₁</code>이나 <code class="language-plaintext highlighter-rouge">P₂</code>를 외적하여 구할 수 있습니다.</p>
-
-<p>\(S_{1}+ tP_{1}= S_{2}+ uP_2\)<br />
-\((S_{1}+ tP_{1})\times P_{1}= (S_{2}+ uP_{2)} \times P_1\)<br />
-\(S_{1} \times P_{1}= S_{2} \times P_{1}+ u(P_{2}\times P_1)\)<br />
-\(\frac{(S_{1}  - S_{2}) \times P_1}{P_{2} \times P_{1}}= u\)</p>
-
-<p>\(S_{1}+ tP_{1}= S_{2}+ uP_2\)<br />
-\((S_{1}+ tP_{1})\times P_{2}= (S_{2}+ uP_{2)} \times P_2\)<br />
-\(S_{2}  + P_{2}= S_{1} \times P_{2}+ t(P_{1}\times P_2)\)<br />
-\(\frac{(S_{2}  - S_{1}) \times P_2}{P_{1} \times P_{2}}= t\)</p>
-
-<p><img src="https://github.com/user-attachments/assets/c86b4c1a-c742-4e0e-8366-25365fe1b61c" alt="화면 캡처 2024-10-21 144113 (1)" /><em>방정식 풀이</em></p>
-
-<hr />
-
-<h4 id="코드-1">💻코드</h4>
-<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">public</span> <span class="kt">bool</span> <span class="nf">IsIntersectingSegments</span><span class="p">(</span><span class="n">Segment</span> <span class="n">s</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">includeEndPoints</span> <span class="p">=</span> <span class="k">true</span><span class="p">)</span>  
-<span class="p">{</span>  
-    <span class="n">Point</span> <span class="n">p1</span> <span class="p">=</span> <span class="n">End</span> <span class="p">-</span> <span class="n">Start</span><span class="p">,</span> <span class="n">p2</span> <span class="p">=</span> <span class="n">s</span><span class="p">.</span><span class="n">End</span> <span class="p">-</span> <span class="n">s</span><span class="p">.</span><span class="n">Start</span><span class="p">;</span>  
-    <span class="kt">float</span> <span class="n">rxs</span> <span class="p">=</span> <span class="nf">Cross</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">);</span>  
-    <span class="c1">// 두 선분이 평행하면 false다  </span>
-    <span class="k">if</span> <span class="p">(</span><span class="nf">FloatZero</span><span class="p">(</span><span class="n">rxs</span><span class="p">))</span> <span class="k">return</span> <span class="k">false</span><span class="p">;</span>  
-      
-    <span class="c1">// a_x + ub_x = c_x + td_x    // a_y + ub_y = c_y + td_y    // 이 식을 u나 t에대해서 풀고 외적으로 표현할 수도 있고  </span>
-    <span class="c1">// a + ub = c + td  </span>
-    <span class="c1">// (a + ub) X b = (c + td) X b : X는 외적  </span>
-    <span class="c1">// 각각 b나 d를 외적해서 u나 b 하나를 없애고 나머지 하나에 대해서 연립해서 풀수도 있다.  </span>
-    <span class="kt">float</span> <span class="n">u</span> <span class="p">=</span> <span class="nf">Cross</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">Start</span> <span class="p">-</span> <span class="n">s</span><span class="p">.</span><span class="n">Start</span><span class="p">,</span> <span class="n">p1</span><span class="p">)</span> <span class="p">/</span> <span class="p">-</span><span class="n">rxs</span><span class="p">;</span>  
-    <span class="kt">float</span> <span class="n">t</span> <span class="p">=</span> <span class="nf">Cross</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">Start</span> <span class="p">-</span> <span class="k">this</span><span class="p">.</span><span class="n">Start</span><span class="p">,</span> <span class="n">p2</span><span class="p">)</span> <span class="p">/</span> <span class="n">rxs</span><span class="p">;</span>  
-  
-    <span class="c1">// u와 t는 각각의 선분에서의 보간(Lerp) 비율을 나타내는 값이다.</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">includeEndPoints</span><span class="p">)</span> <span class="k">return</span> <span class="n">u</span> <span class="p">&gt;=</span> <span class="m">0</span> <span class="p">&amp;&amp;</span> <span class="n">u</span> <span class="p">&lt;=</span>  <span class="m">1</span> <span class="p">&amp;&amp;</span> <span class="n">t</span> <span class="p">&gt;=</span> <span class="m">0</span> <span class="p">&amp;&amp;</span> <span class="n">t</span> <span class="p">&lt;=</span> <span class="m">1</span><span class="p">;</span>  
-    <span class="c1">// 교차점이 끝에 걸려있는지 체크한다.  </span>
-    <span class="k">else</span> <span class="k">return</span> <span class="n">u</span> <span class="p">&gt;</span> <span class="m">0</span> <span class="p">&amp;&amp;</span> <span class="n">u</span> <span class="p">&lt;</span> <span class="m">1</span> <span class="p">&amp;&amp;</span> <span class="n">t</span> <span class="p">&gt;</span> <span class="m">0</span> <span class="p">&amp;&amp;</span> <span class="n">t</span> <span class="p">&lt;</span> <span class="m">1</span><span class="p">;</span>  
-<span class="p">}</span>
-</code></pre></div></div>
-
-<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 교차점을 구하는 함수  </span>
-<span class="k">public</span> <span class="n">Point</span> <span class="nf">Intersection</span><span class="p">(</span><span class="n">Segment</span> <span class="n">s</span><span class="p">)</span>  
-<span class="p">{</span>  
-    <span class="k">if</span> <span class="p">(</span><span class="n">s</span> <span class="n">is</span> <span class="n">null</span> <span class="o">||</span> <span class="o">!</span><span class="n">IsIntersectingSegments</span><span class="p">(</span><span class="n">s</span><span class="p">))</span> <span class="k">return</span> <span class="n">null</span><span class="p">;</span>  
-    <span class="c1">// 겹쳐져 있다면 결국 두 선분 사이에 있다는 뜻  </span>
-    <span class="c1">// 그러니 교차점의 t(alpha) 값을 구하는 공식을 써서 교차점을 반환해준다.  </span>
-    <span class="n">Point</span> <span class="n">p1</span> <span class="o">=</span> <span class="n">End</span> <span class="o">-</span> <span class="n">Start</span><span class="p">,</span> <span class="n">p2</span> <span class="o">=</span> <span class="n">s</span><span class="p">.</span><span class="n">End</span> <span class="o">-</span> <span class="n">s</span><span class="p">.</span><span class="n">Start</span><span class="p">;</span>  
-    <span class="kt">float</span> <span class="n">rxs</span> <span class="o">=</span> <span class="n">Cross</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">);</span>  
-    <span class="kt">float</span> <span class="n">t</span> <span class="o">=</span> <span class="n">Cross</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">Start</span> <span class="o">-</span> <span class="n">Start</span><span class="p">,</span> <span class="n">p2</span><span class="p">)</span> <span class="o">/</span> <span class="n">rxs</span><span class="p">;</span>  
-    <span class="k">return</span> <span class="n">Start</span> <span class="o">+</span> <span class="k">new</span> <span class="n">Point</span><span class="p">(</span><span class="n">t</span> <span class="o">*</span> <span class="n">p1</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">t</span> <span class="o">*</span> <span class="n">p1</span><span class="p">.</span><span class="n">y</span><span class="p">);</span>  
-<span class="p">}</span>
-</code></pre></div></div>
-
-<h2 id="️선분과-선분의-교차점">✏️선분과 선분의 교차점</h2>
-
-<p>선분은 생각외로 직선보다 고려해야할 사항이 많습니다.<br />
-<strong>두 선분이 모두 한 직선 위에 있는 경우</strong>에 처리하기가 힘듭니다.</p>
-<ul>
-  <li>두 선분이 서로 겹치지 않는다</li>
-  <li>두 선분이 한점에 닿는다</li>
-  <li>두 선분이 겹쳐진다</li>
-  <li>한 선분이 다른 선분안에 포함된다<br />
-원래는 첫번째의 경우만 겹쳐지지 않지만 위에서 작성한 코드로는 2,3,4도 겹쳐지지 않았다고 판별하기 때문입니다.<br />
-<img src="https://github.com/user-attachments/assets/b80d5666-a0dc-4ad9-a46b-40a704d52b09" alt="image" /></li>
-</ul>
-
-<hr />
-
-<h3 id="코드-2">💻코드</h3>
-<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 선분 a, b 선분 c, d가 평행하면 한 점에서 겹치는지 확인한다.  </span>
-<span class="kt">bool</span> <span class="nf">paralleSegments</span><span class="p">(</span><span class="n">Vector2</span> <span class="n">a</span><span class="p">,</span> <span class="n">Vector2</span> <span class="n">b</span><span class="p">,</span> <span class="n">Vector2</span> <span class="n">c</span><span class="p">,</span> <span class="n">Vector2</span> <span class="n">d</span><span class="p">,</span> <span class="k">ref</span> <span class="n">Vector2</span> <span class="n">p</span><span class="p">)</span>  
-<span class="p">{</span>  
-    <span class="k">if</span> <span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="n">x</span> <span class="p">&lt;</span> <span class="n">a</span><span class="p">.</span><span class="n">x</span> <span class="p">&amp;&amp;</span> <span class="n">b</span><span class="p">.</span><span class="n">y</span> <span class="p">&lt;</span> <span class="n">a</span><span class="p">.</span><span class="n">y</span><span class="p">)</span> <span class="nf">Swap</span><span class="p">(</span><span class="k">ref</span> <span class="n">a</span><span class="p">,</span> <span class="k">ref</span> <span class="n">b</span><span class="p">);</span>  
-    <span class="k">if</span> <span class="p">(</span><span class="n">d</span><span class="p">.</span><span class="n">x</span> <span class="p">&lt;</span> <span class="n">c</span><span class="p">.</span><span class="n">x</span> <span class="p">&amp;&amp;</span> <span class="n">d</span><span class="p">.</span><span class="n">y</span> <span class="p">&lt;</span> <span class="n">c</span><span class="p">.</span><span class="n">y</span><span class="p">)</span> <span class="nf">Swap</span><span class="p">(</span><span class="k">ref</span> <span class="n">c</span><span class="p">,</span> <span class="k">ref</span> <span class="n">d</span><span class="p">);</span>  
-  
-    <span class="c1">// 한 직선위에 없거나 두 선분이 겹치지 않는 경우를 우선 걸러낸다.  </span>
-    <span class="k">if</span> <span class="p">(</span><span class="nf">ccw</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span> <span class="p">!=</span> <span class="m">0</span> <span class="p">||</span> <span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="n">x</span> <span class="p">&lt;</span> <span class="n">c</span><span class="p">.</span><span class="n">x</span> <span class="p">&amp;&amp;</span> <span class="n">b</span><span class="p">.</span><span class="n">y</span> <span class="p">&lt;</span> <span class="n">c</span><span class="p">.</span><span class="n">y</span><span class="p">)</span> <span class="p">||</span> <span class="p">(</span><span class="n">d</span><span class="p">.</span><span class="n">x</span> <span class="p">&lt;</span> <span class="n">a</span><span class="p">.</span><span class="n">x</span> <span class="p">&amp;&amp;</span> <span class="n">d</span><span class="p">.</span><span class="n">y</span> <span class="p">&lt;</span> <span class="n">a</span><span class="p">.</span><span class="n">y</span><span class="p">))</span> <span class="k">return</span> <span class="k">false</span><span class="p">;</span>  
-      
-    <span class="c1">// 두 선분이 겹친다면 교차점 하나를 찾는다.  </span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">x</span> <span class="p">&lt;</span> <span class="n">c</span><span class="p">.</span><span class="n">x</span> <span class="p">&amp;&amp;</span> <span class="n">a</span><span class="p">.</span><span class="n">y</span> <span class="p">&lt;</span> <span class="n">c</span><span class="p">.</span><span class="n">y</span><span class="p">)</span> <span class="n">p</span> <span class="p">=</span> <span class="n">c</span><span class="p">;</span>  
-    <span class="k">else</span> <span class="n">p</span> <span class="p">=</span> <span class="n">a</span><span class="p">;</span>  
-    <span class="k">return</span> <span class="k">true</span><span class="p">;</span>  
-<span class="p">}</span>  
-  
-<span class="c1">// - p가 두 점 a, b를 감싸면서 각 변이 x, y축에 평행한 최소사각형 내부에 있는지 확인한다.  </span>
-<span class="c1">// a, b, p는 일직선 상에 있다고 가정한다.  </span>
-<span class="kt">bool</span> <span class="nf">inBoundingRectangle</span><span class="p">(</span><span class="n">Vector2</span> <span class="n">p</span><span class="p">,</span> <span class="n">Vector2</span> <span class="n">a</span><span class="p">,</span> <span class="n">Vector2</span> <span class="n">b</span><span class="p">)</span>  
-<span class="p">{</span>  
-    <span class="k">if</span> <span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="n">x</span> <span class="p">&lt;</span> <span class="n">a</span><span class="p">.</span><span class="n">x</span> <span class="p">&amp;&amp;</span> <span class="n">b</span><span class="p">.</span><span class="n">y</span> <span class="p">&lt;</span> <span class="n">a</span><span class="p">.</span><span class="n">y</span><span class="p">)</span> <span class="nf">Swap</span><span class="p">(</span><span class="k">ref</span> <span class="n">a</span><span class="p">,</span> <span class="k">ref</span> <span class="n">b</span><span class="p">);</span>  
-    <span class="k">return</span> <span class="n">p</span> <span class="p">==</span> <span class="n">a</span> <span class="p">||</span> <span class="n">p</span> <span class="p">==</span> <span class="n">b</span> <span class="p">||</span> <span class="p">((</span><span class="n">a</span><span class="p">.</span><span class="n">x</span> <span class="p">&lt;</span> <span class="n">p</span><span class="p">.</span><span class="n">x</span> <span class="p">&amp;&amp;</span> <span class="n">a</span><span class="p">.</span><span class="n">y</span> <span class="p">&lt;</span> <span class="n">p</span><span class="p">.</span><span class="n">y</span><span class="p">)</span> <span class="p">&amp;&amp;</span> <span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="n">x</span> <span class="p">&lt;</span> <span class="n">b</span><span class="p">.</span><span class="n">x</span> <span class="p">&amp;&amp;</span> <span class="n">p</span><span class="p">.</span><span class="n">y</span> <span class="p">&lt;</span> <span class="n">b</span><span class="p">.</span><span class="n">y</span><span class="p">));</span>  
-<span class="p">}</span>  
-  
-<span class="c1">// - 두 점 a, b를 지나는 선분과 두 점 c, b를 지나는 선분을 p에 반환한다.  </span>
-<span class="c1">// - 교점이 여러개일 경우 아무점이나 반환한다.  </span>
-<span class="kt">bool</span> <span class="nf">segmentIntersection</span><span class="p">(</span><span class="n">Vector2</span> <span class="n">a</span><span class="p">,</span> <span class="n">Vector2</span> <span class="n">b</span><span class="p">,</span> <span class="n">Vector2</span> <span class="n">c</span><span class="p">,</span> <span class="n">Vector2</span> <span class="n">d</span><span class="p">,</span> <span class="k">ref</span> <span class="n">Vector2</span> <span class="n">p</span><span class="p">){</span>      
-    <span class="c1">//두 직선이 평행인 경우를 우선 예외로 처리한다.  </span>
-    <span class="k">if</span><span class="p">(!</span><span class="nf">lineIntersection</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="k">ref</span> <span class="n">p</span><span class="p">))</span>          
-        <span class="k">return</span> <span class="nf">paralleSegments</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="k">ref</span> <span class="n">p</span><span class="p">);</span>      
-    <span class="c1">//p가 두 선분에 포함되어 있는 경우에만 참을 반환한다.  </span>
-    <span class="k">return</span> <span class="nf">inBoundingRectangle</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="p">&amp;&amp;</span> <span class="nf">inBoundingRectangle</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">);</span>  
-<span class="p">}</span>
-</code></pre></div></div>
-
-<h2 id="최종-결과물">🚀최종 결과물</h2>
-<p><img src="https://github.com/user-attachments/assets/ab4a0405-c74e-40f5-bd29-97de46a4f5f8" alt="Animation" /></p>
-
-<h2><br /></h2>
-<p><br /></p>
-
-<div class="Reference">
-<div class="callout-header"> </div>
-<p>
-<a href="https://00ad-8e71-00ff-055d.tistory.com/98">https://00ad-8e71-00ff-055d.tistory.com/98</a>
-<a href="https://bowbowbow.tistory.com/17">https://bowbowbow.tistory.com/17</a>
-</p>
-</div>]]></content><author><name>Mohitto55</name></author><category term="geometry" /><category term="Geometry" /><category term="기하학" /><category term="기하" /><category term="선분" /><category term="선" /><category term="길이" /><category term="교차점" /><category term="Intersection" /><category term="Line" /><category term="Point" /><summary type="html"><![CDATA[📄외적을 이용한 선분과 선분의 교차점 구하기]]></summary></entry><entry><title type="html">[Obsidian] Anuppuchin테마는 크기가 커지면 엄청 느리다</title><link href="http://localhost:4000/obsidian/Obsidian-%EC%95%84%EB%88%84%ED%91%B8%EC%B9%9C%ED%85%8C%EB%A7%88-%EC%A0%9C%EA%B1%B0/" rel="alternate" type="text/html" title="[Obsidian] Anuppuchin테마는 크기가 커지면 엄청 느리다" /><published>2024-10-24T00:00:00+09:00</published><updated>2024-10-24T00:00:00+09:00</updated><id>http://localhost:4000/obsidian/Obsidian%20%EC%95%84%EB%88%84%ED%91%B8%EC%B9%9C%ED%85%8C%EB%A7%88%20%EC%A0%9C%EA%B1%B0</id><content type="html" xml:base="http://localhost:4000/obsidian/Obsidian-%EC%95%84%EB%88%84%ED%91%B8%EC%B9%9C%ED%85%8C%EB%A7%88-%EC%A0%9C%EA%B1%B0/"><![CDATA[<h2 id="현상">📄현상</h2>
+</div>]]></content><author><name>Mohitto55</name></author><category term="ide" /><category term="Visual Studio" /><category term="VS" /><category term="명령인수" /><category term="exe" /><category term="Build" /><category term="command line argument" /><summary type="html"><![CDATA[📄main 함수의 매개변수 간혹 int main에 인자값이 int argc, char** argv 같은게 있는데 이것이 명령인수를 통해 넘겨주는 인자값들 이다. argc : 명령줄 인수의 개수 argv : 명령줄 인수의 문자열 배열 첫번째 값은 실행경로가 들어간다.]]></summary></entry><entry><title type="html">[Obsidian] Anuppuchin테마는 크기가 커지면 엄청 느리다</title><link href="http://localhost:4000/obsidian/Obsidian-%EC%95%84%EB%88%84%ED%91%B8%EC%B9%9C%ED%85%8C%EB%A7%88-%EC%A0%9C%EA%B1%B0/" rel="alternate" type="text/html" title="[Obsidian] Anuppuchin테마는 크기가 커지면 엄청 느리다" /><published>2024-10-24T00:00:00+09:00</published><updated>2024-10-24T00:00:00+09:00</updated><id>http://localhost:4000/obsidian/Obsidian%20%EC%95%84%EB%88%84%ED%91%B8%EC%B9%9C%ED%85%8C%EB%A7%88%20%EC%A0%9C%EA%B1%B0</id><content type="html" xml:base="http://localhost:4000/obsidian/Obsidian-%EC%95%84%EB%88%84%ED%91%B8%EC%B9%9C%ED%85%8C%EB%A7%88-%EC%A0%9C%EA%B1%B0/"><![CDATA[<h2 id="현상">📄현상</h2>
 <p>어느 순간부터 옵시디언으로 노트를 작성하면 타이핑 속도가 굉장히 느려지는 것이 느껴졌다. 특히 Bullet Point나 리스트로 작성하면 속도가 현저히 느려져 화면이 툭툭 끊기는 것이 심해졌다.</p>
 
 <h2 id="원인">🔍원인</h2>
@@ -936,173 +1373,4 @@ GItBlog는 처음부터 끝까지 기능을 다 커스텀가능하고 테마도 
 <div class="callout-header"> </div>
 <p>
 </p>
-</div>]]></content><author><name>Mohitto55</name></author><category term="geometry" /><category term="Geometry" /><category term="기하학" /><category term="선분" /><category term="선" /><category term="길이" /><category term="Distance" /><category term="속도" /><category term="Line" /><category term="Point" /><category term="Parallelogram" /><summary type="html"><![CDATA[선분과 점사이의 거리 구하기 평행사변형의 넓이 공식을 이용한다. (넓이) = 밑변 X 높이 외적은 두직선으로 이루어진 평행사변형의 넓이이다. 평행사변형의 넓이는 밑변 X 높이인데 여기서 한 선분의 밑변을 나누면 높이만 남아 거리를 구할 수 있다.]]></summary></entry><entry><title type="html">[UE5] 컴파일시 MSB3073오류 해결하기</title><link href="http://localhost:4000/ue5/Unreal-MSB3073-%EC%98%A4%EB%A5%98-%ED%95%B4%EA%B2%B0%EB%B2%94/" rel="alternate" type="text/html" title="[UE5] 컴파일시 MSB3073오류 해결하기" /><published>2024-10-10T00:00:00+09:00</published><updated>2024-10-10T00:00:00+09:00</updated><id>http://localhost:4000/ue5/Unreal%20MSB3073%20%EC%98%A4%EB%A5%98%20%ED%95%B4%EA%B2%B0%EB%B2%94</id><content type="html" xml:base="http://localhost:4000/ue5/Unreal-MSB3073-%EC%98%A4%EB%A5%98-%ED%95%B4%EA%B2%B0%EB%B2%94/"><![CDATA[<h2 id="발생과정">발생과정</h2>
-<p>프로젝트를 최초 생성하고 컴파일 하려하면 이런 오류가 뜬다 왜 이럴까?</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1&gt;Microsoft.MakeFile.Targets(44,5): Error MSB3073 : ""C:\Program Files\Epic Games\UE_5.4\Engine\Build\BatchFiles\Build.bat" MultiShooterEditor Win64 Development -Project="C:\Users\admin\git\UE5\MultiShooter\MultiShooter.uproject" -WaitMutex -FromMsBuild -architecture=x64" 명령이 종료되었습니다(코드: 6).
-</code></pre></div></div>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;------ 빌드 시작: 프로젝트: MultiShooter, 구성: Development_Editor x64 ------ 1&gt;Using bundled DotNet SDK version: 6.0.302 1&gt;Running UnrealBuildTool: dotnet "..\..\Engine\Binaries\DotNET\UnrealBuildTool\UnrealBuildTool.dll" MultiShooterEditor Win64 Development -Project="C:\MultiShooter\MultiShooter.uproject" -WaitMutex -FromMsBuild -architecture=x64 1&gt;Log file: C:\Users\admin\AppData\Local\UnrealBuildTool\Log.txt 1&gt;Creating makefile for MultiShooterEditor (no existing makefile) 1&gt;Visual Studio 2022 is installed, but is missing the C++ toolchain. Please verify that the "MSVC v143 - VS 2022 C++ x64/x86 build tools (Latest)" component is selected in the Visual Studio 2022 installation options. 1&gt;Total execution time: 0.76 seconds 1&gt;UnrealBuildTool has banned the MSVC 14.39.33519-14.39.99999 toolchains due to compiler issues. Please install a different toolchain such as 14.38.33130 by opening the generated solution and installing recommended components or from the Visual Studio installer. 1&gt;C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.MakeFile.Targets(44,5): error MSB3073: ""C:\Program Files\Epic Games\UE_5.4\Engine\Build\BatchFiles\Build.bat" MultiShooterEditor Win64 Development -Project="C:\MultiShooter\MultiShooter.uproject" -WaitMutex -FromMsBuild -architecture=x64" 명령이 종료되었습니다(코드: 6). 1&gt;"MultiShooter.vcxproj" 프로젝트를 빌드했습니다. - 실패 ========== 빌드: 0개 성공, 1개 실패, 11개 최신 상태, 0개 건너뜀 ==========
-</code></pre></div></div>
-
-<hr />
-
-<h3 id="정확한-오류-확인하기">정확한 오류 확인하기</h3>
-<p>비쥬얼 스튜디오에서 출력으로 정확한 로그를 볼 수 있다.</p>
-
-<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/cf4baada-ed6c-4521-ba58-5da3ad7b2921" alt="image" /></p>
-
-<hr />
-
-<h3 id="1-경로중-한글-없애기">1. 경로중 한글 없애기</h3>
-<p>경로중에 한글이 있다면 오류가 생길 수 있다.<br />
-한글로된 폴더 이름을 영어로 변경해준다.</p>
-
-<hr />
-
-<h3 id="2-툴체인-오류">2. 툴체인 오류</h3>
-<p>UnrealBuildTool과 다른 <strong>툴체인</strong>을 사용하여 생기는 오류다.<br />
-툴체인을 직접 설정해줘야한다.</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>UnrealBuildTool has banned the MSVC 14.39.33519-14.39.99999 toolchains due to compiler issues. Please install a different toolchain such as 14.38.33130 by opening the generated solution and installing recommended components or from the Visual Studio installer
-</code></pre></div></div>
-
-<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/ccc4b4ab-15a5-4351-95aa-405c37c71a9b" alt="image" /></p>
-
-<div class="callout-info-expanded">
-<div class="callout-header">툴체인</div>
-<p>
-툴체인은 개발자가 코드를 작성하고 빌드하여 실행 가능한 프로그램을 만들기 위해 사용하는 모든 도구들을 의미합니다. 코드를 어떻게 빌드하고, 링크하며, 디버깅할지에 대한 정보를 제공합니다
-</p>
-</div>
-
-<h2 id="해결완료">해결완료</h2>
-
-<p><img src="https://github.com/mohitto55/mohitto55.github.io/assets/154340583/b23de2e7-bd3a-4cd2-9483-f84ccc851120" alt="image" /></p>
-
-<h2><br /></h2>
-<p><br /></p>
-
-<div class="Reference">
-<div class="callout-header"> </div>
-<p>
-<a href="https://learn.microsoft.com/en-us/answers/questions/1163496/code-error-when-building-unreal-engine-5-source-co">https://learn.microsoft.com/en-us/answers/questions/1163496/code-error-when-building-unreal-engine-5-source-co</a>
-<a href="https://gall.dcinside.com/mgallery/board/view/?id=gamejob&amp;no=14429">https://gall.dcinside.com/mgallery/board/view/?id=gamejob&amp;no=14429</a>
-</p>
-</div>]]></content><author><name>Mohitto55</name></author><category term="ue5" /><category term="UE" /><category term="UE5" /><category term="UnrealEngine" /><category term="VisualStudio" /><category term="Vs" /><category term="IDE" /><category term="Build" /><category term="빌드" /><category term="MSB3073" /><category term="컴파일" /><summary type="html"><![CDATA[발생과정 프로젝트를 최초 생성하고 컴파일 하려하면 이런 오류가 뜬다 왜 이럴까?]]></summary></entry><entry><title type="html">[Obsidian] Vercel을 활용한 Obsidian Digital Garden 블로그 만들기</title><link href="http://localhost:4000/obsidian/Vercel%EC%9D%84-%ED%99%9C%EC%9A%A9%ED%95%9C-Obsidian-Digital-Garden-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0/" rel="alternate" type="text/html" title="[Obsidian] Vercel을 활용한 Obsidian Digital Garden 블로그 만들기" /><published>2024-10-07T00:00:00+09:00</published><updated>2024-10-07T00:00:00+09:00</updated><id>http://localhost:4000/obsidian/Vercel%EC%9D%84%20%ED%99%9C%EC%9A%A9%ED%95%9C%20Obsidian%20Digital%20Garden%20%EB%B8%94%EB%A1%9C%EA%B7%B8%20%EB%A7%8C%EB%93%A4%EA%B8%B0</id><content type="html" xml:base="http://localhost:4000/obsidian/Vercel%EC%9D%84-%ED%99%9C%EC%9A%A9%ED%95%9C-Obsidian-Digital-Garden-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0/"><![CDATA[<h1 id="옵시디언으로-블로그를-만드는-이유">옵시디언으로 블로그를 만드는 이유</h1>
-<p>지금까지 나는 지식을 정리하고 정리한 내용을 공유하기 위해 여러 종류의 블로그 사이트를 사용해 봤다. 맨처음에는 <strong>네이버</strong> 블로그였는데 한국인의 입장에선 확실히 네이버가 접근성이 좋긴하지만 한국인을 제외한 외국인들은 구글 검색에 뜨기가 쉽지않고 디자인이 마음에 들지않아 금방 포기했다.</p>
-
-<p>그 다음은 <strong>티스토리</strong> 블로그였다. 개발관련 자료를 검색하면 많은 자료가 티스토리 혹은 Velog에 올라와 있었다. 나는 직접 커스텀하는 것을 좋아해서 Velog보다는 티스토리가 더 좋다 생각해서 티스토리에서 글을 작성했었다.</p>
-
-<p>물론 편하고 기본적으로 깔끔해서 좋긴 하지만 글을 검색하거나 사이트를 설정하는데 마음에 들지 않아 자연스럽게 손대지 않게 되었다.</p>
-
-<p>좀 더 자유도 높은 블로그가 있을까 찾아봤는데 <strong>GitBlog</strong>가 눈에 들어왔다.<br />
-GItBlog는 처음부터 끝까지 기능을 다 커스텀가능하고 테마도 풍부해서 마음에 드는게 많았다. 그 중 Jekyll 테마가 인지도 있어보여서 사용해봤다. 처음에는 css도 직접짜고 여러가지 기능을 넣을 수 있어서 재밌었지만 생산성 부분에서 문제가 커져갔다.</p>
-
-<p>기본적으로 GitBlog는 자유도가 높은 만큼 학습량이 많아 초반에 시간이 오래걸리고 무엇보다 띄어쓰기가 너무 큰 문제였다. Jekyll테마에서만 그런지는 몰라도 줄바꿈이 제대로 적용되지 않아 br 태그를 중간중간 써줘야하고 생각한대로 글이 이쁘게 나오지도 않아서 css를 수정하고 글자도 다시 수정하는 등 글 하나 작성하는데 시간이 오래걸린다. 그리고 나는 옵시디언을 통해 먼저 글을 작성하고 그 글을 정리해서 포스팅하는데 이게 옵시디언과 달리 HTML을 중간중간 써줘야 하다보니 이것도 시간이 많이 걸린다.</p>
-
-<p>그리고 가장 중요한게 조회수인데 사이트맵이 제대로 적용이 안되는지 사람이 몇달간 제대로 들어오지 않곤했다. 그래서 금방 흥미를 잃게 되었다.</p>
-
-<p>결국 포스팅 하는게 귀찮아져서 손을 안대게 됐는데 어떻게 해야 내가 블로그를 열심히 쓰게 될까 생각해 보았다.<br />
-지금까지 블로그를 사용했던 경험을 토대로 내가 블로그에서 가장 중요하게 생각하는 걸 3가지를 정해봤다.</p>
-<ol>
-  <li>포스트 업로드가 쉬워야한다.</li>
-  <li>옵시디언에서 작성한 글에서 수정을 거의 안해야한다.</li>
-  <li>자유도가 있어야한다.</li>
-</ol>
-
-<p>위 조건들을 토대로 찾아본 결과 <strong>Digital Garden</strong> 플러그인을 이용해 옵시디언 노트를 통쨰로 포스팅하는 방식이 가장 적절해 보였다. 아직 시작 단계이지만 얼추 봤을때는 아래의 장점이 있었다.</p>
-<ol>
-  <li>버튼 몇번으로 업로드, 수정, 삭제가능하다.</li>
-  <li>옵시디언 노트 내용이랑 똑같다.</li>
-  <li>꾸미기 쉽다.</li>
-</ol>
-
-<p>내가 생각한 블로그의 조건이랑 딱 맞아 떨어져보여 한번 시작해보려고 한다.</p>
-
-<h1 id="digital-garden으로-블로그-만들기">Digital Garden으로 블로그 만들기</h1>
-<h3 id="플러그인-설치">플러그인 설치</h3>
-<ul>
-  <li>Community Plugin에 가서 <code class="language-plaintext highlighter-rouge">Digital Garden</code>을 검색해서 설치한다.</li>
-</ul>
-
-<p><img src="https://github.com/user-attachments/assets/3949101f-9e1d-4715-aab9-d6f718819783" alt="image" /></p>
-
-<h3 id="vercel-계정-생성">Vercel 계정 생성</h3>
-<ul>
-  <li> <a href="https://github.com/signup">Vercel</a>로 가서 GitHub 계정과 연동해준다.</li>
-</ul>
-
-<div class="callout-info-expanded">
-<div class="callout-header">정보</div>
-<p>
-클라우드 플랫폼으로, 웹사이트 및 애플리케이션을 배포, 관리, 그리고 성능을 최적화하는 데 도움을 준다. 
-주로 Next.js와 같은 프레임워크와 밀접하게 연동된다.
-</p>
-</div>
-
-<hr />
-
-<h3 id="리포지토리-생성">리포지토리 생성</h3>
-<ul>
-  <li>리포지토리 생성 후 <a href="https://github.com/oleeskild/digitalgarden">링크</a>로가서 Deploy 버튼 클릭한다</li>
-  <li>이렇게 하면 Vercel이 열리고 GitHub 계정에 저장소의 사본이 생성된다. 사본 저장소의 이름을 작성하고 생성하면 Vercel의 단계에 따라 사이트를 인터넷에 게시된다.</li>
-</ul>
-
-<p><img src="https://github.com/user-attachments/assets/8b371813-b355-4c2c-abe4-247c78591a32" alt="image" /></p>
-
-<p><img src="https://github.com/user-attachments/assets/fa8421f8-0d56-40f9-b1e0-410121ab0f18" alt="image" /></p>
-
-<hr />
-
-<h3 id="github-액세스토큰-생성">GitHub 액세스토큰 생성</h3>
-<ul>
-  <li>다음으로 GitHub 계정에 대한 액세스 토큰을 만들어야 한다.</li>
-  <li>토큰은 저장소를 접근하기 위한 비밀번호 역할을 하여 토큰을 만들어야 작성한 글을 업로드할 수 있다.</li>
-  <li>토큰 생성방법은  <a href="https://dg-docs.ole.dev/advanced/fine-grained-access-token/">링크</a>에서 확인할 수 있다. 설정값을 똑같이 넣어준다.</li>
-  <li>토큰은 <a href="https://github.com/settings/tokens/new?scopes=repo">여기</a>서 생성할 수 있다. </li>
-  <li><strong>토큰 값은 한번 생성됐을때 한번만 알려주니까</strong> 꼭 어딘가에 저장해놓자</li>
-</ul>
-
-<hr />
-
-<h3 id="digital-garden-플러그인-설정">Digital Garden 플러그인 설정</h3>
-<p>Digital Garden 플러그인에 깃허브 저장소 관련 정보를 넣어줘야한다.</p>
-<ol>
-  <li>Github repo name: 생성한 레포지토리 이름</li>
-  <li>Github username: 깃허브 아이디</li>
-  <li>Github token: 방금 생성한 토큰<br />
-<img src="https://github.com/user-attachments/assets/47e4cadc-92f5-4432-813a-73bc23b0c3f7" alt="image" /></li>
-</ol>
-
-<h2 id="노트-연결하기">노트 연결하기</h2>
-<ul>
-  <li>프로퍼티를 통해 공개할 노트를 설정할 수 있다.</li>
-  <li><strong>dg-publish</strong> : 노트를 다른 사람들에게 공개한다.</li>
-  <li><strong>dg-home</strong> : 해당 노트를 메인 페이지로 설정한다.<br />
-<img src="https://github.com/user-attachments/assets/ceb39f0c-4d75-41d1-bdf8-6a314375053d" alt="image" /></li>
-</ul>
-
-<h2 id="노트-푸시하기">노트 푸시하기</h2>
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">Digital Garden: Publish Single Note</code>를 눌러서 노트를 공개할 수 있다.</li>
-  <li>그리고 사이트 주소를<a href="https://vercel.com/dashboard">Vercel</a>에서 찾고 몇분 뒤면 푸시한 노트가 올라와 있을 것이다.</li>
-</ul>
-
-<h1 id="마무리">마무리</h1>
-<ul>
-  <li>옵시디언에서 글을 쓰고 그것을 그대로 웹사이트에 올리는 것은 분명 편하긴하다.</li>
-  <li>하지만 사이드 카테고리가 너무 옵시디언이랑 똑같아 이 부분은 맘에 들지 않는다.</li>
-  <li>그래서 대안으로 webpage export 플러그인을 알아봤는데 이건 분명 편해보이지만 깃허브와 연동하는 기능이 없어서 Digital Garden을 계속 쓸것같다.</li>
-</ul>
-
-<h2><br /></h2>
-<p><br /></p>
-
-<div class="Reference">
-<div class="callout-header"> </div>
-<p>
-<a href="https://deepfield.blog/">https://deepfield.blog/kr/%EC%A7%80%EC%8B%9D%EB%82%98%EB%88%94/%EC%98%B5%EC%8B%9C%EB%94%94%EC%96%B8%EC%9C%BC%EB%A1%9C%20%EB%B8%94%EB%A1%9C%EA%B7%B8%20%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0/</a>
-<a href="https://dg-docs.ole.dev/getting-started/01-getting-started/">https://dg-docs.ole.dev/getting-started/01-getting-started/</a>
-</p>
-</div>]]></content><author><name>Mohitto55</name></author><category term="obsidian" /><category term="Obsidian" /><category term="옵시디언" /><category term="Vercel" /><category term="DigitalGarden" /><category term="지식정원" /><category term="블로그" /><category term="blog" /><category term="플러그인" /><summary type="html"><![CDATA[옵시디언으로 블로그를 만드는 이유 지금까지 나는 지식을 정리하고 정리한 내용을 공유하기 위해 여러 종류의 블로그 사이트를 사용해 봤다. 맨처음에는 네이버 블로그였는데 한국인의 입장에선 확실히 네이버가 접근성이 좋긴하지만 한국인을 제외한 외국인들은 구글 검색에 뜨기가 쉽지않고 디자인이 마음에 들지않아 금방 포기했다. 그 다음은 티스토리 블로그였다. 개발관련 자료를 검색하면 많은 자료가 티스토리 혹은 Velog에 올라와 있었다. 나는 직접 커스텀하는 것을 좋아해서 Velog보다는 티스토리가 더 좋다 생각해서 티스토리에서 글을 작성했었다.]]></summary></entry></feed>
+</div>]]></content><author><name>Mohitto55</name></author><category term="geometry" /><category term="Geometry" /><category term="기하학" /><category term="선분" /><category term="선" /><category term="길이" /><category term="Distance" /><category term="속도" /><category term="Line" /><category term="Point" /><category term="Parallelogram" /><summary type="html"><![CDATA[선분과 점사이의 거리 구하기 평행사변형의 넓이 공식을 이용한다. (넓이) = 밑변 X 높이 외적은 두직선으로 이루어진 평행사변형의 넓이이다. 평행사변형의 넓이는 밑변 X 높이인데 여기서 한 선분의 밑변을 나누면 높이만 남아 거리를 구할 수 있다.]]></summary></entry></feed>
