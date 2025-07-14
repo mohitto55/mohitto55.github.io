@@ -14,8 +14,9 @@ $indent-var: 1.3em !default;
 
 /* system typefaces */
 $serif: Georgia, Times, serif !default;
-$sans-serif: -apple-system, BlinkMacSystemFont, "GmarketSansMedium", "Roboto", "Segoe UI",
-  "Helvetica Neue", "Lucida Grande", Arial, sans-serif !default;
+// $sans-serif: -apple-system, BlinkMacSystemFont, "GmarketSansMedium", "Roboto", "Segoe UI",
+//   "Helvetica Neue", "Lucida Grande", Arial, sans-serif !default;
+$sans-serif: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !default;
 $monospace: Monaco, Consolas, "Lucida Console", monospace !default;
 
 /* sans serif typefaces */
@@ -56,10 +57,10 @@ $h-size-6: 1em !default; // ~16px
    ========================================================================== */
 
 $gray: #7a8288 !default;
-$dark-gray: mix(#000, $gray, 50%) !default;
-$darker-gray: mix(#000, $gray, 60%) !default;
-$light-gray: mix(#fff, $gray, 50%) !default;
-$lighter-gray: mix(#fff, $gray, 90%) !default;
+$dark-gray: mix(#000, $gray, 100%) !default;
+$darker-gray: mix(#000, $gray, 100%) !default;
+$light-gray: mix(#fff, $gray, 100%) !default;
+$lighter-gray: mix(#fff, $gray, 100%) !default;
 
 $background-color: #fff !default;
 $code-background-color: #263238 !default;

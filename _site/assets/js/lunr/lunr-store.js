@@ -428,12 +428,6 @@ var store = [{
         "title": "[UE5] Async Loading Widget 만드는 과정",
         "excerpt":"게임에서 로딩화면이란 정말 중요하다. 화면전환시 플레이어가 어색함없이 언리얼엔진에서 레벨을 이동할땐 OpenLevel 함수를 사용한다. 사용하면 다른 레벨로 이동하지만 이동하는 과정에서 끊김 현상이 발생한다. 이런 끊김 현상이 느껴지지 않도록 만들어야한다. static ENGINE_API void OpenLevelBySoftObjectPtr(const UObject* WorldContextObject, const TSoftObjectPtr&lt;UWorld&gt; Level, bool bAbsolute = true, FString Options = FString(TEXT(\"\"))); 목표 1.페이드 인, 아웃으로 부드러운...","categories": ["ue5"],
         "tags": ["UE5","UnrealEngine","Loading","UserWidget","Widget"],
-        "url": "/ue5/UE5-Loading-Widget-%EB%A7%8C%EB%93%9C%EB%8A%94-%EB%B0%A9%EB%B2%95-%EB%B3%B5%EC%82%AC%EB%B3%B8/",
-        "teaser": null
-      },{
-        "title": "[UE5] Async Loading Widget 만드는 과정",
-        "excerpt":"게임에서 로딩화면이란 정말 중요하다. 화면전환시 플레이어가 어색함없이 언리얼엔진에서 레벨을 이동할땐 OpenLevel 함수를 사용한다. 사용하면 다른 레벨로 이동하지만 이동하는 과정에서 끊김 현상이 발생한다. 이런 끊김 현상이 느껴지지 않도록 만들어야한다. static ENGINE_API void OpenLevelBySoftObjectPtr(const UObject* WorldContextObject, const TSoftObjectPtr&lt;UWorld&gt; Level, bool bAbsolute = true, FString Options = FString(TEXT(\"\"))); 목표 1.페이드 인, 아웃으로 부드러운...","categories": ["ue5"],
-        "tags": ["UE5","UnrealEngine","Loading","UserWidget","Widget"],
         "url": "/ue5/UE5-Loading-Widget-%EB%A7%8C%EB%93%9C%EB%8A%94-%EB%B0%A9%EB%B2%95/",
         "teaser": null
       },{

@@ -147,105 +147,11 @@ void UScenarioSubsystem::OnPostLoadMap(UWorld* World)
 
 
 <br>
-<p>
-모션매칭을 이용한 애니메이션 제작은 기존 방식과 큰 차이가 있다. 모션 매칭의 주요 특징으로는 다음과 같다.<br>
-<font color='dodgerred'>1. 데이터 기반 접근</font>: 모션 매칭은 대규모의 캡처된 애니메이션 데이터베이스를 활용합니다.<br>
-<font color='dodgerred'>2. 실시간 검색</font>: 게임 내 캐릭터의 현재 모션 정보를 키로 사용하여 데이터베이스에서 가장 적합한 애니메이션을 실시간으로 검색합니다.<br>
-<font color='dodgerred'>3. 자연스러운 전환</font>: 복잡한 로직 없이도 다양한 애니메이션 클립 간의 자연스러운 전환이 가능합니다.<br>
-<font color='dodgerred'>4. 확장성</font>: 애니메이션 기능을 위한 확장 가능한 프레임워크를 제공합니다.<br>
-</p>
-
-<br>
-기존에는 특정 조건에 맞는 애니메이션을 하나하나 직접 설정해줘야 했지만 모션 매칭은 데이터 기반으로 현재 상태에서 가장 적합한 애니메이션을 자연스럽게 자동으로 설정해준다.
-
-<br>
-# 모션매칭 사전준비
-## 플러그인 설치
-- 아래 두 플러그인 설치하고 다시 시작한다.
-![image](https://github.com/mohitto55/mohitto55.github.io/assets/154340583/dbc4cc87-7a25-4b1d-ba26-266c97506563)
-![image](https://github.com/mohitto55/mohitto55.github.io/assets/154340583/7e725cda-a1ba-4064-a128-da6e780383ce)
-
-## 애니메이션 시퀀스들 준비하기
-### 모션 매칭 스키마 생성
-- 접두사는 PSS_
-- 각도 회전 값등 변수 설정하는 애셋이다.
-![image](https://github.com/mohitto55/mohitto55.github.io/assets/154340583/331aea83-d937-4559-845f-ecc26b726c6c)
-
----
-
-### Database 생성
-- 모션 매칭에 사용될 애니메이션들을 담는 데이터를 생성한다.
-![image](https://github.com/mohitto55/mohitto55.github.io/assets/154340583/6c101550-6a54-4a12-a0b9-da28e1352eeb)
-
-- 적용할 스키마를 선택한다.
-- 접두사는 PSD_
-![image](https://github.com/mohitto55/mohitto55.github.io/assets/154340583/04961922-19f6-47d4-88e8-5692eacf7047)
-
----
-
-#### PSD(Database) 화면
-- 이제 여기에 사용할 애니메이션을 드래그 하면된다.
-- 그전에 **루트모션**을 사용 중인지 확인 해야한다.
-![image](https://github.com/mohitto55/mohitto55.github.io/assets/154340583/896d1c75-1c1b-4a07-b845-d8cf73b2a123)
-
----
-
-#### 애니메이션 한번에 수정하기
-![image](https://github.com/mohitto55/mohitto55.github.io/assets/154340583/5e49972c-c46e-436e-90dd-29f8af77b1ee)
-
-- 컨트롤 a를 눌러 모두 선택후 EnableRootMotion을 활성화 한다.
-![image](https://github.com/mohitto55/mohitto55.github.io/assets/154340583/e10b9b6c-489e-4f8f-af60-5610d371c867)
-
----
-
-#### Locomotion PSD 생성하기
-- DB에서 애니메이션을 넣는다.
-- 각각 상하좌우 방향으로 시작, 진행 중, 멈출 때 해당하는 Walk 모션을 넣어준다.
-![image](https://github.com/mohitto55/mohitto55.github.io/assets/154340583/36724702-59f2-4684-a817-0ae49418333f)
-
-<br>
-
-# 모션매칭 활용하기
-## ABP 설정하기
-- Motion Matching 노드를 불러와 모션매칭 DataBase를 가져온다.
-- 그리고 현재 애니메이션에서 추적하기 위해 Trajectory(궤적)을 불러와야 한다.
-![image](https://github.com/mohitto55/mohitto55.github.io/assets/154340583/6c49c019-d49b-4f55-af2a-4ab987c59842)
-
----
-
-### Trajectory 컴포넌트 설치하기
-- ABP를 사용할 BP에서 `Character Trajectory` 컴포넌트를 부착한다.
-
-![image](https://github.com/mohitto55/mohitto55.github.io/assets/154340583/31db32d6-577e-49b2-9075-bc079c638a43)
-
----
-
-### Trajectory 정보 가져오기
-- ABP와 BP의 Trajectory를 연결해야한다.
-- 그렇기 위해선 ABP의 EventGraph에서 자신을 사용하는 BP를 가져와야 한다.
-- 자신을 사용중인 Actor를 가져와 그 액터 BP를 변수로 설정한다.
-![image](https://github.com/mohitto55/mohitto55.github.io/assets/154340583/128cb3a3-5f92-4268-a926-57aeb39bb0dd)
-
-- 변수화한 Owner Actor를 불러와 Trajectory를 매 프레임마다 변수화 시킨다.
-![image](https://github.com/mohitto55/mohitto55.github.io/assets/154340583/c697f497-df56-46d3-bed8-1bb8e34fdb2f)
-
-- 그리고 다시 AnimGraph로 돌아가서 Trajectory를 설정해준다.
-![image](https://github.com/mohitto55/mohitto55.github.io/assets/154340583/a5b14922-a3a4-4367-b352-58a285a1615d)
-
-## 디버깅 궤적 확인
-- 콘솔창에 `a.CharacterTrajectory.Debug 1` 을 하면 궤적이 보인다.
-![image](https://github.com/mohitto55/mohitto55.github.io/assets/154340583/592c0d2d-152c-4334-864a-909b3613afec)
-
-
-
-<br>
 ---
 <br>
 
 <div class="Reference">
 <div class="callout-header"> </div>
 <p>
-<a href="https://www.youtube.com/watch?v=4ag7fSlEeKA">https://www.youtube.com/watch?v=4ag7fSlEeKA</a>
-<a href="https://www.youtube.com/watch?v=S4aBd64t-hY&ab_channel=GorkaGames">https://www.youtube.com/watch?v=S4aBd64t-hY&ab_channel=GorkaGames</a>
 </p>
 </div>
