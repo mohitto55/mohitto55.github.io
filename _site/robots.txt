@@ -1,3 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://mohitto55.github.io/sitemap.xml
