@@ -111,9 +111,6 @@ BFF의 핵심 가치는 분산된 API를 통합하고, 클라이언트 전용 �
 
 향후 서비스 규모가 커지고, MSA 전환이나 다양한 클라이언트 지원이 필요한 시점이 온다면 그때 BFF 도입을 검토하는 것이 적절하다고 생각한다.
 
-https://velog.io/@jong-kyung/Backend-For-Frontend-a.k.a.-BFF
-https://aws.amazon.com/ko/blogs/mobile/backends-for-frontends-pattern/
-
 
 <br>
 ---
