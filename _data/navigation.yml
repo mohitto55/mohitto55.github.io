@@ -4,6 +4,8 @@ main:
     url: /categories/
   - title: "Tag"
     url: /tags/
+  - title: "Books"
+    url: /books/
   - title: "Search"
     url: /search/
 

@@ -1,0 +1,22 @@
+{% comment %}
+  책 시리즈 목차. 글 frontmatter 에 `series: "책 이름"` 과 `series_order: 숫자` 를 쓰면
+  같은 시리즈의 글을 순서대로 보여준다. 전체 목록은 /books/ 페이지.
+{% endcomment %}
+{% if page.series %}
+{% assign series_posts = site.posts | where: "series", page.series | sort: "date" | sort: "series_order", "last" %}
+<nav class="series-nav">
+  <div class="series-nav__header">
+    <a href="{{ '/books/' | relative_url }}#{{ page.series | slugify: 'pretty' }}">{{ page.series }}</a>
+    <span class="series-nav__count">{{ series_posts.size }}편</span>
+  </div>
+  <ol class="series-nav__list">
+    {% for p in series_posts %}
+    {% if p.url == page.url %}
+    <li class="series-nav__current">{{ p.title }}</li>
+    {% else %}
+    <li><a href="{{ p.url | relative_url }}">{{ p.title }}</a></li>
+    {% endif %}
+    {% endfor %}
+  </ol>
+</nav>
+{% endif %}
