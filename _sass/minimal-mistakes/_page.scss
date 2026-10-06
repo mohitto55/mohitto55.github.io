@@ -20,14 +20,28 @@
 }
 
 .custom-sidebar{
-  left: 0px;
-  padding-left: 25px;
-  position: fixed;
   .sidebar{
     -webkit-animation: $intro-transition;
     animation: $intro-transition;
     -webkit-animation-delay: 0.15s;
     animation-delay: 0.15s;
+  }
+
+  /* 넓은 화면에서만 왼쪽에 고정. 위치/높이는 footer/custom.html 의 스크립트가
+     헤더 아래 ~ 푸터 위 사이로 맞춘다 (스크립트가 없으면 아래 기본값) */
+  @include breakpoint($large) {
+    position: fixed;
+    top: var(--sidebar-top);
+    left: 0px;
+    padding-left: 25px;
+    z-index: 15; /* 푸터(애니메이션으로 쌓임 맥락이 생김) 위, 마스트헤드(20) 아래 */
+
+    .sidebar.sticky {
+      max-height: var(--sidebar-max-height, calc(100vh - 7em));
+      overflow-y: auto;
+      overscroll-behavior: contain; /* 사이드바 끝에서 본문이 같이 스크롤되지 않게 */
+      scrollbar-width: thin;
+    }
   }
 }
 

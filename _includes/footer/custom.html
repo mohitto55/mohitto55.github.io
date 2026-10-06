@@ -1,3 +1,40 @@
 <!-- start custom footer snippets -->
 
+<script>
+  /* 왼쪽 고정 사이드바를 헤더 아래 ~ 푸터 위 사이에 맞춰, 푸터에 가리지 않고 끝까지 스크롤되게 한다 */
+  (function () {
+    var wrap = document.querySelector('.custom-sidebar');
+    if (!wrap) return;
+    var masthead = document.querySelector('.masthead');
+    var footer = document.getElementById('footer');
+    var gap = 16;
+    var queued = false;
+
+    function fit() {
+      queued = false;
+      if (window.getComputedStyle(wrap).position !== 'fixed') {
+        wrap.style.removeProperty('--sidebar-top');
+        wrap.style.removeProperty('--sidebar-max-height');
+        return;
+      }
+      var vh = window.innerHeight;
+      var top = Math.max(gap, masthead ? masthead.getBoundingClientRect().bottom + gap : gap);
+      var bottom = Math.min(vh, footer ? footer.getBoundingClientRect().top : vh) - gap;
+      wrap.style.setProperty('--sidebar-top', top + 'px');
+      wrap.style.setProperty('--sidebar-max-height', Math.max(120, bottom - top) + 'px');
+    }
+
+    function queue() {
+      if (queued) return;
+      queued = true;
+      window.requestAnimationFrame(fit);
+    }
+
+    window.addEventListener('scroll', queue, { passive: true });
+    window.addEventListener('resize', queue);
+    window.addEventListener('load', queue);
+    fit();
+  })();
+</script>
+
 <!-- end custom footer snippets -->
