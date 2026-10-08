@@ -33,8 +33,13 @@
     position: fixed;
     top: var(--sidebar-top);
     left: 0px;
-    padding-left: 25px;
-    z-index: 15; /* 푸터(애니메이션으로 쌓임 맥락이 생김) 위, 마스트헤드(20) 아래 */
+    padding-left: 16px;
+    z-index: 15;
+
+    /* 와이드 화면에서는 가운데 정렬된 본문(#main) 왼쪽 끝에 붙인다 */
+    @include breakpoint($x-large) {
+      left: Max(0px, calc((100vw - #{$max-width}) / 2));
+    } /* 푸터(애니메이션으로 쌓임 맥락이 생김) 위, 마스트헤드(20) 아래 */
 
     .sidebar.sticky {
       max-height: var(--sidebar-max-height, calc(100vh - 7em));
